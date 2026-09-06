@@ -1,0 +1,2 @@
+# Kept separate from LeRobot because RAI requires numpy<2 while LeRobot requires numpy>=2.
+rai-core==2.12.1
