@@ -1,7 +1,13 @@
-.PHONY: demo test deps-check ros-build ros-shell ros-check ros-test ros-demo verify
+OLLAMA ?= ollama
+OLLAMA_MODEL ?= qwen3.5:4b
+
+.PHONY: demo rai-demo test deps-check model-pull ollama-check ros-build ros-shell ros-check ros-test ros-demo verify
 
 demo:
 	PYTHONPATH=src python3.12 -m embodied_agent "把桌上的红色积木放进盒子"
+
+rai-demo:
+	PYTHONPATH=src .venv/bin/python -m embodied_agent --planner rai "把桌上的红色积木放进盒子"
 
 test:
 	PYTHONPATH=src python3.12 -m unittest discover -s tests -v
@@ -9,6 +15,13 @@ test:
 deps-check:
 	.venv/bin/python -c 'import importlib.metadata; print("lerobot=" + importlib.metadata.version("lerobot"))'
 	.venv-rai/bin/python -c 'import importlib.metadata; print("rai-core=" + importlib.metadata.version("rai-core"))'
+
+model-pull:
+	$(OLLAMA) pull $(OLLAMA_MODEL)
+
+ollama-check:
+	curl -fsS http://127.0.0.1:11434/api/version
+	$(OLLAMA) list | grep -F '$(OLLAMA_MODEL)'
 
 ros-shell:
 	docker run --rm -it \

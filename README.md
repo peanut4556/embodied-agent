@@ -62,6 +62,7 @@ ROS observations ───────> Policy (LeRobot)
 | Python | 3.12 |
 | LeRobot | 0.6.1，独立 `.venv` |
 | RAI Core | 2.12.1，独立 `.venv-rai` |
+| 本地 LLM | Ollama 0.33.3 + Qwen3.5 4B |
 | ROS 2 | Jazzy / Ubuntu 24.04 ARM64 |
 | PyTorch | 2.11 |
 
@@ -115,6 +116,34 @@ RAI 的模型供应商尚未写死。运行以下命令后，可以选择 OpenAI
 ```
 
 不要把 API Key 提交到 Git；本项目已经忽略 `.env`。
+
+### 本地免费模型
+
+项目默认的本地 RAI 配置位于 `config/rai.ollama.toml`，使用 Apache 2.0 许可的
+`qwen3.5:4b`。模型通过 Ollama 在 `127.0.0.1:11434` 提供服务，不需要 API Key。
+
+安装 Ollama 后，拉取并检查模型：
+
+```bash
+make model-pull
+make ollama-check
+```
+
+用本地模型生成计划并执行 mock 机器人闭环：
+
+```bash
+make rai-demo
+```
+
+也可以直接运行：
+
+```bash
+PYTHONPATH=src .venv/bin/python -m embodied_agent \
+  --planner rai "把桌上的红色积木放进盒子"
+```
+
+RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过 JSON 交换结构化
+任务计划。模型输出仍需经过 `SafetyGate`；本地模型不会获得绕过动作白名单的权限。
 
 ## ROS 2
 
@@ -174,7 +203,7 @@ embodied-agent/
 - [x] Mock 任务规划、执行与反馈闭环
 - [x] LeRobot、RAI、ROS 2 的隔离适配层
 - [x] ROS 2 action/status 安全消息桥
-- [ ] 接入真实 RAI LLM planner
+- [x] 接入 Ollama + Qwen3.5 本地 RAI LLM planner
 - [ ] 接入 LeRobot 预训练策略或 ACT policy
 - [ ] 支持具体机械臂和相机
 - [ ] 增加任务级重规划、超时和失败恢复
@@ -194,4 +223,3 @@ embodied-agent/
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
-
