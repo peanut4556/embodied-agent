@@ -147,6 +147,15 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 
 ## ROS 2
 
+### 可视化机械臂仿真
+
+启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，
+打开 <http://127.0.0.1:8765>。输入默认中文任务，可查看抓取、放置动画、ROS 状态反馈与
+积木入盒的位置验收；控制台提供规则/Qwen 规划切换、停止和场景重置。
+
+此版本为二维运动学仿真，尚不模拟接触动力学。启动、通信和限制说明见
+[docs/simulation.md](docs/simulation.md)。
+
 构建 ROS 2 Jazzy 镜像并运行 topic 回环：
 
 ```bash

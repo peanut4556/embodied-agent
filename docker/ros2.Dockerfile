@@ -2,6 +2,8 @@ FROM ghcr.io/ros-tooling/setup-ros-docker/setup-ros-docker-ubuntu-noble-ros-jazz
 
 SHELL ["/bin/bash", "-lc"]
 WORKDIR /workspace
+COPY src /workspace/core
+ENV PYTHONPATH=/workspace/core
 
 COPY ros2_ws/src /workspace/ros2_ws/src
 RUN source /opt/ros/jazzy/setup.bash \

@@ -21,6 +21,7 @@ setup(
         "console_scripts": [
             "action_bridge = embodied_agent_ros.action_bridge:main",
             "loopback = embodied_agent_ros.loopback_demo:main",
+            "simulation = embodied_agent_ros.simulation_server:main",
         ],
     },
 )

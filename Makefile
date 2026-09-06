@@ -46,3 +46,15 @@ ros-demo: ros-build
 		bash -lc 'source /opt/ros/jazzy/setup.bash && source /workspace/ros2_ws/install/setup.bash && ros2 run embodied_agent_ros loopback'
 
 verify: test deps-check ros-check ros-test ros-demo
+
+.PHONY: sim-ros sim-web
+sim-ros: ros-build
+	docker run --rm --name embodied-agent-sim -p 127.0.0.1:8766:8766 \
+		embodied-agent-ros2 bash -lc 'source /opt/ros/jazzy/setup.bash && source /workspace/ros2_ws/install/setup.bash && ros2 run embodied_agent_ros simulation'
+
+sim-web:
+	PYTHONPATH=src .venv/bin/python -m embodied_agent.sim_app
+
+.PHONY: sim-web-background
+sim-web-background:
+	.venv/bin/python scripts/start_sim_web.py
