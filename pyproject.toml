@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "embodied-agent"
+version = "0.1.0"
+description = "A small LeRobot + RAI + ROS 2 embodied-agent starter"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/peanut4556/embodied-agent"
+Repository = "https://github.com/peanut4556/embodied-agent"
+Issues = "https://github.com/peanut4556/embodied-agent/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2,<9", "ruff>=0.6,<1"]
+lerobot = ["lerobot>=0.6,<0.7"]
+
+[project.scripts]
+embodied-agent = "embodied_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

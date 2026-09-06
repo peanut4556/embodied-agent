@@ -1,0 +1,16 @@
+{
+  "robot_id": "mock-arm-01",
+  "mode": "mock",
+  "control_hz": 10,
+  "max_plan_steps": 8,
+  "allowed_actions": ["locate", "pick", "place", "verify", "stop"],
+  "ros2": {
+    "observation_topic": "/embodied_agent/observation",
+    "action_topic": "/embodied_agent/action"
+  },
+  "lerobot": {
+    "policy": "act",
+    "checkpoint": null
+  }
+}
+
