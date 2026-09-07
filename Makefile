@@ -58,3 +58,13 @@ sim-web:
 .PHONY: sim-web-background
 sim-web-background:
 	.venv/bin/python scripts/start_sim_web.py
+
+.PHONY: physics-build physics-ros physics-test
+physics-build: ros-build
+	docker build -t embodied-agent-physics -f docker/physics.Dockerfile .
+
+physics-ros: physics-build
+	docker run --rm --name embodied-agent-sim -p 127.0.0.1:8766:8766 embodied-agent-physics
+
+physics-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -v

@@ -23,7 +23,7 @@ BRIDGE = "http://127.0.0.1:8766"
 def bridge(payload=None):
     data = None if payload is None else json.dumps(payload).encode()
     req = Request(BRIDGE, data=data, headers={"Content-Type": "application/json"})
-    with urlopen(req, timeout=15) as response:
+    with urlopen(req, timeout=25) as response:
         result = json.load(response)
     if payload is not None and not result.get("success"):
         raise RuntimeError(result.get("reason", "ROS command failed"))
@@ -147,7 +147,18 @@ def main():
             self.wfile.write(json.dumps(payload, ensure_ascii=False).encode())
 
         def do_GET(self):
-            if self.path == "/":
+            if self.path.startswith("/api/frame"):
+                try:
+                    with urlopen(BRIDGE + "/frame", timeout=3) as response:
+                        image = response.read()
+                    self.send_response(200)
+                    self.send_header("Content-Type", "image/jpeg")
+                    self.send_header("Cache-Control", "no-store")
+                    self.end_headers()
+                    self.wfile.write(image)
+                except OSError as exc:
+                    self.respond(503, {"error": str(exc)})
+            elif self.path == "/":
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.end_headers()

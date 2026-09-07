@@ -149,6 +149,13 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 
 ### 可视化机械臂仿真
 
+新增 **MuJoCo 三维物理模式**：`make physics-build` 构建后运行
+`make physics-ros`，另一个终端运行 `make sim-web-background`，打开
+<http://127.0.0.1:8765>。积木依靠双指接触与摩擦被抓起，释放后受重力落入托盘。
+详情与测试命令见 [docs/physics.md](docs/physics.md)。
+
+下面保留无需物理引擎的二维快速演示：
+
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，
 打开 <http://127.0.0.1:8765>。输入默认中文任务，可查看抓取、放置动画、ROS 状态反馈与
 积木入盒的位置验收；控制台提供规则/Qwen 规划切换、停止和场景重置。

@@ -1,0 +1,58 @@
+<mujoco model="tabletop_contact_arm">
+  <compiler angle="radian"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic" iterations="80"/>
+  <visual><global offwidth="960" offheight="640"/><quality shadowsize="2048"/></visual>
+  <default>
+    <joint damping="3" armature="0.02"/>
+    <geom friction="1.8 0.01 0.001" solref="0.006 1" solimp="0.95 0.99 0.001" condim="4"/>
+    <position kp="2500" kv="100"/>
+  </default>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1="0.12 0.18 0.25" rgb2="0.16 0.23 0.31" width="256" height="256"/>
+    <material name="table" texture="grid" texrepeat="8 6" reflectance="0.12"/>
+  </asset>
+  <worldbody>
+    <light pos="0.3 -1 2" dir="0 0 -1" diffuse="0.9 0.9 0.9"/>
+    <light pos="0.5 1 1.5" dir="0 0 -1" diffuse="0.5 0.6 0.7"/>
+    <camera name="overview" pos="1.30 -1.45 1.05" xyaxes="0.85 0.53 0 -0.24 0.39 0.89"/>
+    <geom name="table" type="box" pos="0.4 0 -0.04" size="0.65 0.42 0.04" material="table"/>
+    <geom name="pedestal" type="cylinder" pos="0 0 0.06" size="0.07 0.06" rgba="0.3 0.4 0.5 1"/>
+    <geom name="tray_floor" type="box" pos="0.64 0 0.0075" size="0.09 0.08 0.0075" rgba="0.2 0.6 0.55 1"/>
+    <geom name="tray_left" type="box" pos="0.545 0 0.045" size="0.005 0.09 0.045" rgba="0.25 0.65 0.6 1"/>
+    <geom name="tray_right" type="box" pos="0.735 0 0.045" size="0.005 0.09 0.045" rgba="0.25 0.65 0.6 1"/>
+    <geom name="tray_back" type="box" pos="0.64 0.085 0.045" size="0.09 0.005 0.045" rgba="0.25 0.65 0.6 1"/>
+    <geom name="tray_front" type="box" pos="0.64 -0.085 0.025" size="0.09 0.005 0.025" rgba="0.25 0.65 0.6 1"/>
+    <body name="upper" pos="0 0 0.12" gravcomp="1">
+      <joint name="shoulder" axis="0 1 0" range="-2.8 0.4"/>
+      <geom type="capsule" fromto="0 0 0 0.42 0 0" size="0.025" mass="0.6" rgba="0.6 0.73 0.84 1"/>
+      <body name="forearm" pos="0.42 0 0" gravcomp="1">
+        <joint name="elbow" axis="0 1 0" range="0 2.9"/>
+        <geom type="capsule" fromto="0 0 0 0.42 0 0" size="0.022" mass="0.4" rgba="0.6 0.73 0.84 1"/>
+        <body name="wrist" pos="0.42 0 0" gravcomp="1">
+          <joint name="wrist" axis="0 1 0" range="-2.9 2.9"/>
+          <geom name="palm" type="box" size="0.03 0.065 0.015" mass="0.15" rgba="0.3 0.8 0.7 1"/>
+          <site name="tip" pos="0 0 -0.075" size="0.004" rgba="0.3 1 0.7 0.2"/>
+          <body name="finger_left" pos="0 0.02 -0.075">
+            <joint name="finger_left" type="slide" axis="0 1 0" range="0 0.04" damping="1" armature="0.002"/>
+            <geom name="finger_left" type="box" size="0.025 0.008 0.022" mass="0.05" rgba="0.2 0.9 0.75 1"/>
+          </body>
+          <body name="finger_right" pos="0 -0.02 -0.075">
+            <joint name="finger_right" type="slide" axis="0 -1 0" range="0 0.04" damping="1" armature="0.002"/>
+            <geom name="finger_right" type="box" size="0.025 0.008 0.022" mass="0.05" rgba="0.2 0.9 0.75 1"/>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="red_block" pos="0.32 0 0.027">
+      <freejoint name="block_free"/>
+      <geom name="red_block" type="box" size="0.025 0.025 0.025" mass="0.06" rgba="0.95 0.22 0.3 1"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <position joint="shoulder" ctrlrange="-2.8 0.4" forcerange="-80 80"/>
+    <position joint="elbow" ctrlrange="0 2.9" forcerange="-60 60"/>
+    <position joint="wrist" ctrlrange="-2.9 2.9" forcerange="-30 30"/>
+    <position joint="finger_left" kp="400" kv="10" ctrlrange="0 0.04" forcerange="-12 12"/>
+    <position joint="finger_right" kp="400" kv="10" ctrlrange="0 0.04" forcerange="-12 12"/>
+  </actuator>
+</mujoco>

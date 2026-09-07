@@ -22,4 +22,27 @@ function text(t,p,color='#a5b8d1',size=16){ctx.fillStyle=color;ctx.font=size+'px
 function draw(){ctx.fillStyle='#101a2b';ctx.fillRect(0,0,c.width,c.height);for(let x=40;x<c.width;x+=55)line([x,70],[x,570],'#1b2a40',1);for(let y=75;y<570;y+=55)line([40,y],[1080,y],'#1b2a40',1);text('TABLETOP  /  实时场景',[38,42],'#7e9cbd',14);line([55,588],[1080,588],'#344964',18);if(!world)return;const base=point(world.base),elbow=point(world.elbow),tip=point(world.tip),block=point(world.block),box=point(world.box);ctx.fillStyle='#284256';ctx.fillRect(box[0]-84,box[1]+28,168,18);line([box[0]-82,box[1]-36],[box[0]-82,box[1]+38],'#659396',10);line([box[0]+82,box[1]-36],[box[0]+82,box[1]+38],'#659396',10);text('目标盒子',[box[0]-37,635]);ctx.fillStyle='#425976';ctx.fillRect(base[0]-46,base[1]-12,92,150);line(base,elbow,'#68829e',30);line(base,elbow,'#9bb8cf',16);line(elbow,tip,'#68829e',26);line(elbow,tip,'#abc5d6',12);circle(base,25,'#273d58');circle(base,10,'#63d8c7');circle(elbow,22,'#273d58');circle(elbow,9,'#63d8c7');circle(tip,12,'#72dcca');const gap=world.holding?25:37;line([tip[0]-gap,tip[1]-18],[tip[0]-gap,tip[1]+18],'#71dfcb',7);line([tip[0]+gap,tip[1]-18],[tip[0]+gap,tip[1]+18],'#71dfcb',7);line([tip[0]-gap,tip[1]-18],[tip[0]+gap,tip[1]-18],'#71dfcb',5);ctx.fillStyle='#fa6575';ctx.fillRect(block[0]-23,block[1]-23,46,46);ctx.fillStyle='#ffabb4';ctx.fillRect(block[0]-16,block[1]-16,15,5);text(world.inside_box?'已进入目标区域':'红色积木',[block[0]-40,block[1]-42],world.inside_box?'#75e3cf':'#ffb5bf',14);text('肩关节 '+(world.joints[0]*180/Math.PI).toFixed(1)+'°  /  肘关节 '+(world.joints[1]*180/Math.PI).toFixed(1)+'°',[38,675],'#809bb9',14);text('x '+world.block[0].toFixed(3)+' m   z '+world.block[1].toFixed(3)+' m',[740,675],'#809bb9',14)}
 draw();poll();setInterval(poll,180);
 </script>
+<script>
+// MuJoCo frames are rendered from physics state inside the ROS container.
+const physicsImage=document.createElement('img');
+physicsImage.alt='MuJoCo 三维机械臂接触物理仿真';
+physicsImage.style.cssText='width:100%;display:none;aspect-ratio:1.5;object-fit:contain';
+c.before(physicsImage);
+let fetchingFrame=false;
+setInterval(()=>{
+ const physical=world?.engine==='mujoco';
+ c.style.display=physical?'none':'block';
+ physicsImage.style.display=physical?'block':'none';
+ if(!physical)return;
+ document.querySelector('.scene-footer span').textContent='● MuJoCo 接触物理';
+ $('holding').textContent='夹爪接触：'+world.finger_contacts+'/2'+(world.holding?' · 已抓住':'');
+ document.querySelector('body > p.small').textContent='MuJoCo 三维刚体仿真：重力、桌面与托盘碰撞、双指摩擦抓取。自定义简化机械臂；轨迹由关节位置控制器执行，尚未接入 LeRobot 或真实硬件。';
+ if(fetchingFrame)return;
+ fetchingFrame=true;
+ const next=new Image();
+ next.onload=()=>{physicsImage.src=next.src;fetchingFrame=false};
+ next.onerror=()=>{fetchingFrame=false;$('error').textContent='物理画面暂不可用'};
+ next.src='/api/frame?t='+Date.now();
+},220);
+</script>
 </html>

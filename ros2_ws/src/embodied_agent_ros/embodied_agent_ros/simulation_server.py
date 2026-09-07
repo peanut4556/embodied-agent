@@ -1,6 +1,7 @@
 """ROS simulator and localhost HTTP gateway; commands complete via ROS status topics."""
 
 import json
+import os
 import queue
 import threading
 import time
@@ -20,7 +21,14 @@ PREFIX = "/embodied_agent/sim/"
 class Simulator(Node):
     def __init__(self):
         super().__init__("tabletop_simulator")
-        self.world = TabletopWorld()
+        if os.environ.get("SIM_ENGINE") == "mujoco":
+            from embodied_agent.physics import PhysicsWorld
+
+            self.world = PhysicsWorld()
+        else:
+            self.world = TabletopWorld()
+        self.frame = b""
+        self.frame_count = 0
         self.pending = None
         self.seen = set()
         self.cancelled_runs = set()
@@ -75,9 +83,13 @@ class Simulator(Node):
             self.finish(self.pending, False, "execution deadline exceeded")
             self.pending = None
         if self.world.tick(0.04) and self.pending:
-            self.finish(self.pending, True)
+            error = getattr(self.world, "error", "")
+            self.finish(self.pending, not error, error)
             self.pending = None
         self.state.publish(String(data=json.dumps(self.world.snapshot())))
+        self.frame_count += 1
+        if hasattr(self.world, "render_jpeg") and self.frame_count % 5 == 0:
+            self.frame = self.world.render_jpeg()
 
 
 class Gateway(Node):
@@ -109,7 +121,7 @@ class Gateway(Node):
     def execute(self, body):
         command = {
             "id": uuid.uuid4().hex,
-            "deadline": time.time() + 10,
+            "deadline": time.time() + 20,
             "run_id": body.get("run_id", ""),
             "name": body["name"],
             "parameters": body.get("parameters", {}),
@@ -117,7 +129,7 @@ class Gateway(Node):
         with self.condition:
             self.results[command["id"]] = None
             self.commands.put(command)
-            ready = self.condition.wait_for(lambda: self.results[command["id"]] is not None, 12)
+            ready = self.condition.wait_for(lambda: self.results[command["id"]] is not None, 22)
             result = self.results.pop(command["id"])
         if not ready:
             raise TimeoutError("ROS status timeout; command deadline limits motion")
@@ -140,6 +152,13 @@ def main():
             self.wfile.write(encoded)
 
         def do_GET(self):
+            if self.path.startswith("/frame"):
+                self.send_response(200 if simulator.frame else 503)
+                self.send_header("Content-Type", "image/jpeg")
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self.wfile.write(simulator.frame)
+                return
             self.respond(200, gateway.snapshot)
 
         def do_POST(self):
@@ -165,3 +184,7 @@ def main():
         simulator.destroy_node()
         gateway.destroy_node()
         rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
