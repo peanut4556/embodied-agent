@@ -11,7 +11,11 @@ import numpy as np
 
 
 class PhysicsWorld:
-    def __init__(self):
+    def __init__(self, perception="truth"):
+        if perception not in {"truth", "rgbd"}:
+            raise ValueError("unknown perception mode")
+        self.perception = perception
+        self.camera_renderer = None
         self.model = mujoco.MjModel.from_xml_path(
             str(Path(__file__).parent / "assets/tabletop.xml")
         )
@@ -30,6 +34,7 @@ class PhysicsWorld:
         return np.array([-shoulder, -elbow, shoulder + elbow])
 
     def reset(self):
+        self.detection = None
         mujoco.mj_resetData(self.model, self.data)
         self.target = np.array([0.22, 0.30])
         self.data.qpos[:3] = self.ik(*self.target)
@@ -77,6 +82,8 @@ class PhysicsWorld:
         inside, holding = self.inside_box(), self.holding
         return {
             "engine": "mujoco",
+            "perception": self.perception,
+            "detection": self.detection,
             "sim_time": float(self.data.time),
             "tip": tip[[0, 2]].tolist(),
             "elbow": elbow[[0, 2]].tolist(),
@@ -113,6 +120,8 @@ class PhysicsWorld:
         if obj not in {"red_block", "box"}:
             raise ValueError("unknown object")
         if name == "locate":
+            if obj == "red_block" and self.perception == "rgbd":
+                self.locate_block()
             return True
         if name == "verify":
             if (
@@ -126,8 +135,12 @@ class PhysicsWorld:
             return True
         if obj != "red_block":
             raise ValueError("only red_block is graspable")
-        block = self.data.body("red_block").xpos.copy()
         if name == "pick":
+            block = (
+                self.locate_block()
+                if self.perception == "rgbd"
+                else self.data.body("red_block").xpos.copy()
+            )
             if self.holding or abs(block[1]) > 0.015 or block[2] < 0.02:
                 raise ValueError("block not graspable from current pose")
             x, z = float(block[0]), float(block[2])
@@ -193,3 +206,33 @@ class PhysicsWorld:
         buffer = io.BytesIO()
         Image.fromarray(self.renderer.render()).save(buffer, format="JPEG", quality=80)
         return buffer.getvalue()
+
+    def locate_block(self):
+        from .perception import locate_red_cube
+
+        self.detection = None  # A failed image must never reuse an old target.
+        if self.camera_renderer is None:
+            self.camera_renderer = mujoco.Renderer(self.model, height=480, width=640)
+        renderer = self.camera_renderer
+        renderer.update_scene(self.data, camera="perception")
+        rgb = renderer.render()
+        renderer.enable_depth_rendering()
+        try:
+            depth = renderer.render()
+        finally:
+            renderer.disable_depth_rendering()
+        camera = self.model.camera("perception").id
+        self.detection = locate_red_cube(
+            rgb,
+            depth,
+            self.data.cam_xpos[camera],
+            self.data.cam_xmat[camera],
+            self.model.cam_fovy[camera],
+        )
+        self.detection["sim_time"] = float(self.data.time)
+        return np.array(self.detection["xyz"])
+
+    def close(self):
+        for renderer in (self.renderer, self.camera_renderer):
+            if renderer is not None:
+                renderer.close()

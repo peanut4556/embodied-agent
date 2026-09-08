@@ -24,7 +24,7 @@ class Simulator(Node):
         if os.environ.get("SIM_ENGINE") == "mujoco":
             from embodied_agent.physics import PhysicsWorld
 
-            self.world = PhysicsWorld()
+            self.world = PhysicsWorld(perception=os.environ.get("SIM_PERCEPTION", "truth"))
         else:
             self.world = TabletopWorld()
         self.frame = b""
@@ -181,6 +181,8 @@ def main():
     finally:
         server.shutdown()
         executor.shutdown()
+        if hasattr(simulator.world, "close"):
+            simulator.world.close()
         simulator.destroy_node()
         gateway.destroy_node()
         rclpy.shutdown()

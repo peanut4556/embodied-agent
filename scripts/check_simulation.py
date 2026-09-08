@@ -37,17 +37,23 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--rai", action="store_true", help="Also run the Qwen Chinese task")
     parser.add_argument("--report", type=Path, help="Save successful task states as JSON")
+    parser.add_argument("--expect-perception", choices=["truth", "rgbd"])
     args = parser.parse_args()
     report = {}
     run_id = uuid.uuid4().hex
     # Do not interrupt a task started by a person using the console.
-    assert not request(8765, "api/state")["busy"], "console has an active task"
+    initial = request(8765, "api/state")
+    assert not initial["busy"], "console has an active task"
+    if args.expect_perception:
+        assert initial["world"].get("perception") == args.expect_perception, initial
     request(8765, "api/reset", {})
     request(8765, "api/run", {"instruction": "把桌上的红色积木放进盒子", "planner": "rule"})
     result = wait_task()
     assert result["task"]["phase"] == "success", result
     assert result["world"]["inside_box"] and not result["world"]["holding"]
     report["rule"] = result
+    if args.expect_perception == "rgbd":
+        assert result["world"]["detection"]["source"] == "rgbd"
     print("PASS rule plan → ROS actions/status → geometric goal verification")
     request(8765, "api/reset", {})
     failed = request(8766, payload={"name": "verify", "parameters": {"object": "red_block"}})
@@ -91,6 +97,8 @@ def main():
         assert result["task"]["phase"] == "success", result
         assert result["world"]["inside_box"] and not result["world"]["holding"]
         report["rai"] = result
+        if args.expect_perception == "rgbd":
+            assert result["world"]["detection"]["source"] == "rgbd"
         print("PASS Qwen Chinese plan → ROS actions/status → goal verification")
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)

@@ -153,6 +153,8 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 `make physics-ros`，另一个终端运行 `make sim-web-background`，打开
 <http://127.0.0.1:8765>。积木依靠双指接触与摩擦被抓起，释放后受重力落入托盘。
 详情与测试命令见 [docs/physics.md](docs/physics.md)。
+物理镜像默认用俯视 RGB-D 相机估计红色积木的抓取坐标；定位失败会停止执行。
+运行 `make vision-test` 可验证三个不同位置的视觉抓取及异常处理。
 
 下面保留无需物理引擎的二维快速演示：
 

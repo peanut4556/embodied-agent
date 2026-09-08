@@ -8,4 +8,5 @@ COPY src /workspace/core
 COPY ros2_ws/src /workspace/ros2_ws/src
 ENV MUJOCO_GL=osmesa
 ENV SIM_ENGINE=mujoco
+ENV SIM_PERCEPTION=rgbd
 CMD ["bash", "-lc", "source /opt/ros/jazzy/setup.bash && source /workspace/ros2_ws/install/setup.bash && /opt/physics/bin/python -m embodied_agent_ros.simulation_server"]

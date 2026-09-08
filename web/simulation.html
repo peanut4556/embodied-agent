@@ -34,9 +34,9 @@ setInterval(()=>{
  c.style.display=physical?'none':'block';
  physicsImage.style.display=physical?'block':'none';
  if(!physical)return;
- document.querySelector('.scene-footer span').textContent='● MuJoCo 接触物理';
+ document.querySelector('.scene-footer span').textContent='● MuJoCo 接触物理 · '+(world.perception==='rgbd'?'RGB-D 视觉抓取':'真值定位');
  $('holding').textContent='夹爪接触：'+world.finger_contacts+'/2'+(world.holding?' · 已抓住':'');
- document.querySelector('body > p.small').textContent='MuJoCo 三维刚体仿真：重力、桌面与托盘碰撞、双指摩擦抓取。自定义简化机械臂；轨迹由关节位置控制器执行，尚未接入 LeRobot 或真实硬件。';
+ document.querySelector('body > p.small').textContent='MuJoCo 三维刚体仿真：重力、碰撞、双指摩擦抓取。'+(world.perception==='rgbd'?'抓取坐标来自俯视 RGB-D 相机，适用于已知尺寸的直立红色积木；物理状态独立验收。':'抓取坐标来自仿真状态。')+' 尚未接入 LeRobot 或真实硬件。';
  if(fetchingFrame)return;
  fetchingFrame=true;
  const next=new Image();

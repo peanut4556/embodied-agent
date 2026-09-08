@@ -68,3 +68,7 @@ physics-ros: physics-build
 
 physics-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -v
+
+.PHONY: vision-test
+vision-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -v

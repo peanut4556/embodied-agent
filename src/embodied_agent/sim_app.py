@@ -99,6 +99,10 @@ class SimulationApp:
                 if self.cancel.is_set():
                     raise RuntimeError("任务已由用户停止")
                 self.event(f"ROS ← 完成 {step.action} · {result['id'][:8]}")
+                detection = result.get("state", {}).get("detection")
+                if detection and step.action in {"locate", "pick"}:
+                    xyz = ", ".join(f"{value:.3f}" for value in detection["xyz"])
+                    self.event(f"RGB-D 定位：({xyz}) m · {detection['pixels']} 像素")
             final = bridge()
             if self.cancel.is_set():
                 raise RuntimeError("任务已由用户停止")
