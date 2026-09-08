@@ -167,9 +167,14 @@ class PhysicsWorld:
         self.error = ""
         return False
 
-    def tick(self, dt):
+    def tick(self, dt, on_control_frame=None):
+        """Advance physics, optionally sample once before the first integration step.
+
+        The callback sees the current observation and newly computed actuator target.
+        Normal ROS execution does not install a callback.
+        """
         finished = False
-        for _ in range(round(dt / self.model.opt.timestep)):
+        for substep in range(round(dt / self.model.opt.timestep)):
             if self.motion:
                 target, grip, duration = self.motion[0]
                 self.elapsed += self.model.opt.timestep
@@ -194,6 +199,8 @@ class PhysicsWorld:
                         if action == "place" and not self.inside_box():
                             self.error = "place failed: cube did not settle inside tray"
                         finished = True
+            if substep == 0 and on_control_frame is not None:
+                on_control_frame(self)
             mujoco.mj_step(self.model, self.data)
         return finished
 

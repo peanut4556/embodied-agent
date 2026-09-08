@@ -156,6 +156,10 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 物理镜像默认用俯视 RGB-D 相机估计红色积木的抓取坐标；定位失败会停止执行。
 运行 `make vision-test` 可验证三个不同位置的视觉抓取及异常处理。
 
+可运行 `make record-demo DATASET_ROOT=outputs/datasets/my-first-demo` 采集视觉抓取演示，
+生成 LeRobot v3 图像/关节/动作数据集，并自动读回及回放验证。
+依赖安装、字段定义和预览说明见 [docs/datasets.md](docs/datasets.md)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，

@@ -72,3 +72,14 @@ physics-test:
 .PHONY: vision-test
 vision-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -v
+
+DATASET_ROOT ?= outputs/datasets/rgbd-demo
+.PHONY: record-demo dataset-check dataset-test
+record-demo:
+	PYTHONPATH=src .venv/bin/python scripts/record_demonstrations.py --output "$(DATASET_ROOT)"
+
+dataset-check:
+	PYTHONPATH=src .venv/bin/python scripts/record_demonstrations.py --output "$(DATASET_ROOT)" --validate-only
+
+dataset-test:
+	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -v
