@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "development": [
+    {"name": "dev-early", "x": 0.312, "relocate_at": 0.16, "target_x": 0.372, "expect": "success"},
+    {"name": "dev-right", "x": 0.302, "relocate_at": 0.8, "target_x": 0.382, "expect": "success"},
+    {"name": "dev-left", "x": 0.382, "relocate_at": 1.4, "target_x": 0.302, "expect": "success"}
+  ],
+  "test": [
+    {"name": "static-left", "x": 0.318, "expect": "success"},
+    {"name": "static-right", "x": 0.368, "expect": "success"},
+    {"name": "shift-right-wide", "x": 0.286, "relocate_at": 0.64, "target_x": 0.398, "expect": "success"},
+    {"name": "shift-left-wide", "x": 0.398, "relocate_at": 1.44, "target_x": 0.286, "expect": "success"},
+    {"name": "shift-right", "x": 0.308, "relocate_at": 0.8, "target_x": 0.392, "expect": "success"},
+    {"name": "shift-left", "x": 0.388, "relocate_at": 1.76, "target_x": 0.302, "expect": "success"},
+    {"name": "outside-range", "x": 0.328, "relocate_at": 0.8, "target_x": 0.46, "expect": "stopped"},
+    {"name": "target-removed", "x": 0.338, "relocate_at": 0.8, "target_x": 1.5, "expect": "stopped"},
+    {"name": "user-stop", "x": 0.348, "stop_at": 2.0, "expect": "stopped"}
+  ]
+}

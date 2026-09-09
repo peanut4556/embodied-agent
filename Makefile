@@ -93,3 +93,8 @@ imitation-train:
 
 imitation-evaluate:
 	PYTHONPATH=src .venv/bin/python scripts/train_imitation.py evaluate --dataset "$(BC_DATASET)" --model "$(BC_MODEL)" --output "$(BC_EVALUATION)"
+
+FEEDBACK_OUTPUT ?= outputs/evaluations/feedback-test-v1
+.PHONY: feedback-evaluate
+feedback-evaluate:
+	PYTHONPATH=src .venv/bin/python scripts/evaluate_feedback.py --model "$(BC_MODEL)" --output "$(FEEDBACK_OUTPUT)"

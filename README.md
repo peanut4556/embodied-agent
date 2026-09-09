@@ -164,6 +164,10 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 用首帧视觉特征学习关节动作序列，并在保留位置进行物理评测。
 它是固定场景的开环回归策略，详见 [docs/imitation.md](docs/imitation.md)。
 
+已有模型还可配合视觉与夹持反馈，在目标移动、首次抓取失败后退回观察位重新规划。
+运行 `make feedback-evaluate` 可比较开环与反馈执行，流程和限制见
+[docs/feedback.md](docs/feedback.md)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，
