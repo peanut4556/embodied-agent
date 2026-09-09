@@ -83,3 +83,13 @@ dataset-check:
 
 dataset-test:
 	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -v
+
+BC_DATASET ?= outputs/datasets/bc-positions-v1
+BC_MODEL ?= outputs/models/context-bc-v1
+BC_EVALUATION ?= outputs/evaluations/context-bc-v1
+.PHONY: imitation-train imitation-evaluate
+imitation-train:
+	PYTHONPATH=src .venv/bin/python scripts/train_imitation.py train --dataset "$(BC_DATASET)" --output "$(BC_MODEL)"
+
+imitation-evaluate:
+	PYTHONPATH=src .venv/bin/python scripts/train_imitation.py evaluate --dataset "$(BC_DATASET)" --model "$(BC_MODEL)" --output "$(BC_EVALUATION)"

@@ -160,6 +160,10 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 生成 LeRobot v3 图像/关节/动作数据集，并自动读回及回放验证。
 依赖安装、字段定义和预览说明见 [docs/datasets.md](docs/datasets.md)。
 
+第一版学习基线已支持 `make imitation-train` 和 `make imitation-evaluate`：
+用首帧视觉特征学习关节动作序列，并在保留位置进行物理评测。
+它是固定场景的开环回归策略，详见 [docs/imitation.md](docs/imitation.md)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，
