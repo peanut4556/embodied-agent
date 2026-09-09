@@ -24,8 +24,8 @@ function showFeedback(d){
  document.body.dataset.runId=d.task.execution==='feedback'?d.task.run_id||'':'';
  if(d.task.run_id&&(d.busy||displayedRun!==d.task.run_id)){$('execution').value=d.task.execution||'scripted';if(d.task.planner)$('planner').value=d.task.planner;displayedRun=d.task.run_id;}
  const ex=world.execution,own=ex&&ex.run_id===d.task.run_id&&d.task.execution==='feedback';
- const labels={running:'正在抓放',returning:'返回观察姿态，准备重试',completed:'已完成',stopped:'已停止'};
- $('feedback').textContent=own?'学习执行：'+(labels[ex.state]||ex.state)+' · 恢复 '+ex.retries+'/2 次'+(ex.reason?' · '+ex.reason:''):world.feedback_available?'学习模型已配置；从重置姿态执行红色积木入盒任务。':'学习模型尚未挂载，当前可使用预设轨迹。';
+ const labels={running:'正在抓放',checking_grasp:'夹持信号丢失，暂停确认',returning:'返回观察姿态，准备重试',completed:'已完成',stopped:'已停止'};
+ $('feedback').textContent=own?'学习执行：'+(labels[ex.state]||ex.state)+' · 检测滑落 '+(ex.slips||0)+' 次 · 恢复 '+ex.retries+'/2 次'+(ex.reason?' · '+ex.reason:''):world.feedback_available?'学习模型已配置；从重置姿态执行红色积木入盒任务。':'学习模型尚未挂载，当前可使用预设轨迹。';
  $('original').hidden=!d.task.model_plan;
  $('model-plan').textContent=(d.task.model_plan||[]).map((s,i)=>(i+1)+'. '+s.action+' '+JSON.stringify(s.arguments)).join('\n');
 }

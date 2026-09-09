@@ -30,6 +30,10 @@ class FeedbackExecutor:
         self.events = []
         self.actions = None
         self.context = None
+        self.slips = 0
+        self.contact_loss_ticks = 0
+        self.transport_armed = False
+        self.release_started = False
         try:
             self._replan(initial_rgb)
         except ValueError as exc:
@@ -40,6 +44,9 @@ class FeedbackExecutor:
         self.context = visual_context(rgb)
         self.index = 0
         self.state = "running"
+        self.contact_loss_ticks = 0
+        self.transport_armed = False
+        self.release_started = False
         self.events.append({"tick": self.ticks, "event": "planned", "context": self.context})
 
     def stop(self, joints, reason="user stop"):
@@ -93,9 +100,38 @@ class FeedbackExecutor:
         if self.index >= len(self.actions):
             self.state = "completed"
             return self.command.copy()
+        # Arm monitoring only after the demonstrated lift has passed its contact gate.
+        # Intended finger opening ends monitoring for this attempt, including retreat.
+        action = self.actions[self.index]
+        if self.feedback and self.transport_armed and not self.release_started:
+            if np.any(action[3:5] >= 0.01) and not self.contact_loss_ticks:
+                self.release_started = True
+                self.events.append({"tick": self.ticks, "event": "intentional_release"})
+            elif not holding:
+                if self.contact_loss_ticks == 0:
+                    self.command[:3] = np.clip(
+                        joints[:3], self.policy.bounds[:3, 0], self.policy.bounds[:3, 1]
+                    )
+                    self.events.append({"tick": self.ticks, "event": "contact_lost"})
+                self.contact_loss_ticks += 1
+                self.state = "checking_grasp"
+                if self.contact_loss_ticks >= max(2, int(np.ceil(0.12 * self.fps))):
+                    self.slips += 1
+                    self.events.append({"tick": self.ticks, "event": "slip_confirmed"})
+                    self.contact_loss_ticks = 0
+                    return self._recover(joints, "grasp lost during transport")
+                # Freeze the sequence and hold the arm while debouncing contact loss.
+                # Fingers retain the existing grasp target; no deliberate opening here.
+                return self.command.copy()
+            elif self.contact_loss_ticks:
+                self.contact_loss_ticks = 0
+                self.state = "running"
+                self.events.append({"tick": self.ticks, "event": "contact_restored"})
         # The demonstrated lift ends at ~4.72 s; contact must exist before transferring.
-        if self.feedback and self.index == round(4.72 * self.fps) and not holding:
-            return self._recover(joints, "grasp contact absent after lift")
+        if self.feedback and self.index == round(4.72 * self.fps):
+            if not holding:
+                return self._recover(joints, "grasp contact absent after lift")
+            self.transport_armed = True
         # During early approach, a reliable visible displacement can trigger an earlier retry.
         if (
             self.feedback
@@ -110,6 +146,5 @@ class FeedbackExecutor:
                 context = None
             if context is not None and abs(context - self.context) > 2 / 320:
                 return self._recover(joints, "visible target displacement")
-        action = self.actions[self.index]
         self.index += 1
         return self._limit(action)

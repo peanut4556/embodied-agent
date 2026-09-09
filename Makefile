@@ -105,3 +105,8 @@ physics-feedback: physics-build
 	docker run --rm --name embodied-agent-sim -p 127.0.0.1:8766:8766 \
 		-v "$(abspath $(BC_MODEL)):/models/context-bc:ro" -e SIM_POLICY_DIR=/models/context-bc \
 		embodied-agent-physics
+
+SLIP_OUTPUT ?= outputs/evaluations/slip-test-new
+.PHONY: slip-evaluate
+slip-evaluate:
+	PYTHONPATH=src .venv/bin/python scripts/evaluate_slip.py --model "$(BC_MODEL)" --output "$(SLIP_OUTPUT)"

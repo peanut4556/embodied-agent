@@ -173,6 +173,10 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 中的抓取、放置会合并为学习技能，界面显示恢复次数、停止原因及原始计划。
 启动配置和复验命令见 [docs/feedback.md](docs/feedback.md#ros-2-控制台)。
 
+运输途中也会持续监测夹持：短暂丢失时暂停确认，持续丢失时退回观察位重新抓取，
+无法识别落点或超出训练范围时停止。`make slip-evaluate` 使用 MuJoCo 外力拉落积木，
+对比开环与反馈执行，详见 [运输滑落验证](docs/feedback.md#运输途中滑落检测与恢复)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，

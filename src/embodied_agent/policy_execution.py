@@ -78,6 +78,7 @@ class PolicyMotion:
             "state": self.controller.state,
             "reason": self.controller.reason,
             "retries": self.controller.retries,
+            "slips": self.controller.slips,
             "elapsed": round(self.elapsed, 3),
             "events": list(self.controller.events),
         }

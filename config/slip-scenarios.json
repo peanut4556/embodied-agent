@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "development": [
+    {"name": "dev-early-pull", "x": 0.32, "force_at": 5.0, "force_duration": 0.08, "force_z": -30, "expect": "recovered"},
+    {"name": "dev-late-pull", "x": 0.32, "force_at": 6.1, "force_duration": 0.08, "force_z": -30, "expect": "stopped"}
+  ],
+  "test": [
+    {"name": "normal-left", "x": 0.30, "expect": "completed"},
+    {"name": "normal-right", "x": 0.38, "expect": "completed"},
+    {"name": "early-left-pull", "x": 0.30, "force_at": 5.0, "force_duration": 0.08, "force_z": -30, "expect": "recovered"},
+    {"name": "early-right-pull", "x": 0.34, "force_at": 4.88, "force_duration": 0.08, "force_z": -30, "expect": "recovered"},
+    {"name": "outside-workspace-pull", "x": 0.32, "force_at": 5.7, "force_duration": 0.08, "force_z": -30, "expect": "stopped"},
+    {"name": "stop-during-recovery", "x": 0.30, "force_at": 5.0, "force_duration": 0.08, "force_z": -30, "stop_on_recovery": true, "expect": "stopped"}
+  ]
+}

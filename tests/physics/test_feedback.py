@@ -24,10 +24,89 @@ class PolicyDouble:
 
     def plan(self, rgb):
         self.contexts.append(visual_context(rgb))
-        return np.tile(HOME, (261, 1))
+        fps = self.metadata["fps"]
+        actions = np.tile(HOME, (round(10.44 * fps), 1))
+        actions[3 * fps : 8 * fps, 3:5] = 0
+        return actions
 
 
 class FeedbackTests(unittest.TestCase):
+    def transport(self, fps=25, max_retries=2):
+        policy = PolicyDouble()
+        policy.metadata["fps"] = fps
+        executor = FeedbackExecutor(policy, image(), HOME, max_retries=max_retries)
+        for _ in range(5 * fps):
+            executor.step(image(), HOME, True)
+        return executor
+
+    def test_transient_contact_loss_pauses_then_resumes_without_retry(self):
+        for fps in (25, 50):
+            executor = self.transport(fps)
+            index = executor.index
+            held = executor.step(image(), HOME, False)
+            self.assertEqual(executor.state, "checking_grasp")
+            self.assertEqual(executor.index, index)
+            np.testing.assert_array_equal(held[3:5], [0, 0])
+            executor.step(image(), HOME, True)
+            self.assertEqual(executor.state, "running")
+            self.assertEqual(executor.index, index + 1)
+            self.assertEqual(executor.retries, 0)
+            self.assertEqual(executor.slips, 0)
+
+    def test_persistent_transport_loss_replans_from_new_image_at_both_rates(self):
+        for fps in (25, 50):
+            executor = self.transport(fps)
+            for _ in range(round(0.12 * fps)):
+                executor.step(image(), HOME, False)
+            self.assertEqual(executor.state, "returning")
+            self.assertEqual(executor.slips, 1)
+            for _ in range(3):
+                executor.step(image(150), HOME, False)
+            self.assertEqual(executor.state, "running")
+            self.assertEqual(executor.policy.contexts, [130 / 320, 150 / 320])
+            self.assertEqual(executor.retries, 1)
+
+    def test_intentional_release_does_not_trigger_slip(self):
+        executor = self.transport()
+        for _ in range(76):
+            executor.step(image(), HOME, True)
+        for _ in range(100):
+            executor.step(image(), HOME, False)
+        self.assertEqual(executor.state, "completed")
+        self.assertEqual(executor.slips, 0)
+        self.assertEqual(executor.retries, 0)
+
+    def test_stop_during_contact_confirmation_latches(self):
+        executor = self.transport()
+        executor.step(image(), HOME, False)
+        command = executor.step(image(), HOME, False, stop=True)
+        for _ in range(10):
+            np.testing.assert_array_equal(command, executor.step(image(150), HOME, True))
+        self.assertEqual(executor.state, "stopped")
+        self.assertEqual(executor.retries, 0)
+
+    def test_transport_loss_respects_shared_retry_limit(self):
+        executor = self.transport(max_retries=0)
+        for _ in range(3):
+            executor.step(image(), HOME, False)
+        self.assertEqual(executor.state, "stopped")
+        self.assertEqual(executor.reason, "retry limit reached")
+        self.assertEqual(executor.slips, 1)
+
+    def test_second_slip_after_replan_exhausts_existing_retry_budget(self):
+        executor = self.transport(max_retries=1)
+        for _ in range(6):  # Confirm first loss and settle at the observation posture.
+            executor.step(image(), HOME, False)
+        for _ in range(125):
+            executor.step(image(), HOME, True)
+        for _ in range(3):
+            executor.step(image(), HOME, False)
+        self.assertEqual(executor.state, "stopped")
+        self.assertEqual(executor.reason, "retry limit reached")
+        self.assertEqual(executor.retries, 1)
+        self.assertEqual(executor.slips, 2)
+        self.assertEqual(len(executor.policy.contexts), 2)
+
     def test_contact_failure_retries_once_then_latches_stop(self):
         policy = PolicyDouble()
         executor = FeedbackExecutor(policy, image(), HOME, max_retries=1)
