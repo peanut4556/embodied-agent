@@ -38,6 +38,7 @@ def main():
     parser.add_argument("--rai", action="store_true", help="Also run the Qwen Chinese task")
     parser.add_argument("--report", type=Path, help="Save successful task states as JSON")
     parser.add_argument("--expect-perception", choices=["truth", "rgbd"])
+    parser.add_argument("--execution", choices=["scripted", "feedback"], default="scripted")
     args = parser.parse_args()
     report = {}
     run_id = uuid.uuid4().hex
@@ -47,11 +48,26 @@ def main():
     if args.expect_perception:
         assert initial["world"].get("perception") == args.expect_perception, initial
     request(8765, "api/reset", {})
-    request(8765, "api/run", {"instruction": "把桌上的红色积木放进盒子", "planner": "rule"})
-    result = wait_task()
+    task = {
+        "instruction": "把桌上的红色积木放进盒子",
+        "planner": "rule",
+        "execution": args.execution,
+    }
+    request(8765, "api/run", task)
+    result = wait_task(timeout=110)
     assert result["task"]["phase"] == "success", result
     assert result["world"]["inside_box"] and not result["world"]["holding"]
     report["rule"] = result
+    if args.execution == "feedback":
+        assert result["world"]["execution"]["state"] == "completed", result
+        assert any(s["action"] == "learned_pick_place" for s in result["task"]["plan"])
+        # A second task without reset must reject the scene (target no longer visible at home).
+        request(8765, "api/run", task)
+        rejected = wait_task(timeout=110)
+        assert rejected["task"]["phase"] == "failed", rejected
+        assert not rejected["world"]["active"]
+        report["invalid_start"] = rejected
+        print("PASS learned task rejects unreset scene without fallback", flush=True)
     if args.expect_perception == "rgbd":
         assert result["world"]["detection"]["source"] == "rgbd"
     print("PASS rule plan → ROS actions/status → geometric goal verification")
@@ -91,8 +107,43 @@ def main():
     request(8765, "api/reset", {})
     print("PASS reset; scene ready")
     report["stop_and_reset"] = "passed"
+    if args.execution == "feedback":
+        request(8765, "api/run", task)
+        deadline = time.monotonic() + 10
+        while time.monotonic() < deadline:
+            state = request(8765, "api/state")
+            if state["world"].get("active") == "learned_pick_place":
+                break
+            time.sleep(0.05)
+        else:
+            raise AssertionError("learned motion did not start")
+        cancelled_run = state["task"]["run_id"]
+        request(8765, "api/stop", {})
+        stopped = wait_task()
+        assert stopped["task"]["phase"] == "stopped", stopped
+        assert stopped["world"]["execution"]["state"] == "stopped", stopped
+        assert not stopped["world"]["active"]
+        time.sleep(0.5)
+        before = request(8766)["tip"]
+        time.sleep(0.3)
+        assert math.dist(request(8766)["tip"], before) < 0.01
+        cancelled = request(
+            8766,
+            payload={
+                "name": "learned_pick_place",
+                "run_id": cancelled_run,
+                "parameters": {"object": "red_block", "destination": "box"},
+            },
+        )
+        assert not cancelled["success"]
+        report["learned_stop"] = stopped
+        request(8765, "api/reset", {})
+        assert request(8766)["execution"] is None
+        print(
+            "PASS console stop interrupts learned motion and cancellation stays latched", flush=True
+        )
     if args.rai:
-        request(8765, "api/run", {"instruction": "把桌上的红色积木放进盒子", "planner": "rai"})
+        request(8765, "api/run", dict(task, planner="rai"))
         result = wait_task(timeout=250)
         assert result["task"]["phase"] == "success", result
         assert result["world"]["inside_box"] and not result["world"]["holding"]

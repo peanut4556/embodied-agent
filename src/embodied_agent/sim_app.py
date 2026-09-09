@@ -12,9 +12,9 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 from .adapters.rai_planner import RAISubprocessPlanner
+from .execution_plan import execution_steps
 from .models import Observation
 from .planner import RuleBasedPlanner
-from .safety import SafetyGate
 
 ROOT = Path(__file__).resolve().parents[2]
 BRIDGE = "http://127.0.0.1:8766"
@@ -23,7 +23,8 @@ BRIDGE = "http://127.0.0.1:8766"
 def bridge(payload=None):
     data = None if payload is None else json.dumps(payload).encode()
     req = Request(BRIDGE, data=data, headers={"Content-Type": "application/json"})
-    with urlopen(req, timeout=25) as response:
+    timeout = 95 if payload and payload.get("name") == "learned_pick_place" else 25
+    with urlopen(req, timeout=timeout) as response:
         result = json.load(response)
     if payload is not None and not result.get("success"):
         raise RuntimeError(result.get("reason", "ROS command failed"))
@@ -46,11 +47,13 @@ class SimulationApp:
         with self.lock:
             self.task["events"].append({"time": time.strftime("%H:%M:%S"), "text": text})
 
-    def start(self, instruction, planner):
+    def start(self, instruction, planner, execution="scripted"):
         if not isinstance(instruction, str) or not instruction.strip() or len(instruction) > 1000:
             raise ValueError("请输入 1–1000 字的任务")
         if planner not in {"rai", "rule"}:
             raise ValueError("unknown planner")
+        if execution not in {"scripted", "feedback"}:
+            raise ValueError("unknown execution mode")
         if planner == "rule" and instruction != "把桌上的红色积木放进盒子":
             raise ValueError("规则演示仅支持默认任务，请选择 Qwen 处理其他指令")
         with self.lock:
@@ -63,33 +66,49 @@ class SimulationApp:
                 "phase": "planning",
                 "plan": [],
                 "events": [],
+                "execution": execution,
+                "planner": planner,
+                "run_id": self.run_id,
                 "message": "Qwen 正在规划" if planner == "rai" else "生成规则计划",
             }
-        threading.Thread(target=self.run, args=(instruction, planner), daemon=True).start()
+        threading.Thread(
+            target=self.run, args=(instruction, planner, execution), daemon=True
+        ).start()
 
-    def run(self, instruction, planner):
+    def run(self, instruction, planner, execution="scripted"):
         try:
             state = bridge()
             if not state or state["active"]:
                 raise RuntimeError("仿真未就绪或仍在执行")
+            if execution == "feedback" and not state.get("feedback_available"):
+                raise RuntimeError("学习模型未配置，请挂载训练权重后重启物理服务")
             observation = Observation(
                 objects=state["objects"], gripper_holding=state["gripper_holding"]
             )
             backend = RAISubprocessPlanner() if planner == "rai" else RuleBasedPlanner()
             self.event("发送场景观测给规划器")
             plan = backend.create_plan(instruction, observation)
-            SafetyGate().validate_plan(plan)
-            self.update(plan=[asdict(step) for step in plan.steps])
-            self.event(f"计划通过校验，共 {len(plan.steps)} 步")
+            self.update(model_plan=[asdict(step) for step in plan.steps])
+            steps = execution_steps(plan, execution)
+            self.update(plan=[asdict(step) for step in steps])
+            self.event(f"计划通过校验，共 {len(plan.steps)} 步；执行方式：{execution}")
+            if execution == "feedback":
+                self.event("抓取与放置合并为学习模型执行；视觉与夹爪接触反馈最多恢复 2 次")
             stopped = False
-            for index, step in enumerate(plan.steps):
+            for index, step in enumerate(steps):
                 with self.lock:
                     if self.cancel.is_set():
                         raise RuntimeError("任务已由用户停止")
                     self.task.update(
-                        phase="executing", current=index, message=f"执行 {step.action}"
+                        phase="executing",
+                        current=index,
+                        message="学习模型正在抓取并放置"
+                        if step.action == "learned_pick_place"
+                        else f"执行 {step.action}",
                     )
                 if step.action == "stop":
+                    bridge({"name": "stop", "parameters": step.arguments, "run_id": self.run_id})
+                    self.event("已执行规划器的停止指令")
                     stopped = True
                     break
                 self.event(f"ROS → {step.action} {json.dumps(step.arguments, ensure_ascii=False)}")
@@ -99,6 +118,9 @@ class SimulationApp:
                 if self.cancel.is_set():
                     raise RuntimeError("任务已由用户停止")
                 self.event(f"ROS ← 完成 {step.action} · {result['id'][:8]}")
+                if step.action == "learned_pick_place":
+                    feedback = result["state"]["execution"]
+                    self.event(f"学习执行完成，恢复 {feedback['retries']} 次")
                 detection = result.get("state", {}).get("detection")
                 if detection and step.action in {"locate", "pick"}:
                     xyz = ", ".join(f"{value:.3f}" for value in detection["xyz"])
@@ -194,7 +216,11 @@ def main():
                     raise ValueError("invalid request size")
                 payload = json.loads(self.rfile.read(size))
                 if self.path == "/api/run":
-                    app.start(payload.get("instruction"), payload.get("planner", "rai"))
+                    app.start(
+                        payload.get("instruction"),
+                        payload.get("planner", "rai"),
+                        payload.get("execution", "scripted"),
+                    )
                 elif self.path == "/api/stop":
                     app.stop()
                 elif self.path == "/api/reset":

@@ -168,6 +168,11 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 运行 `make feedback-evaluate` 可比较开环与反馈执行，流程和限制见
 [docs/feedback.md](docs/feedback.md)。
 
+学习反馈执行已接入同一个 ROS 2 控制台。准备好训练权重后运行
+`make physics-feedback`，在网页选择“学习模型 · 视觉与接触反馈”。规则或 Qwen 计划
+中的抓取、放置会合并为学习技能，界面显示恢复次数、停止原因及原始计划。
+启动配置和复验命令见 [docs/feedback.md](docs/feedback.md#ros-2-控制台)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，
@@ -237,7 +242,7 @@ embodied-agent/
 - [ ] 接入 LeRobot 预训练策略或 ACT policy
 - [ ] 支持具体机械臂和相机
 - [ ] 增加任务级重规划、超时和失败恢复
-- [ ] 增加仿真环境与端到端评测
+- [x] 增加 MuJoCo 仿真环境与 Qwen → 学习反馈执行的端到端评测
 
 ## 安全边界
 

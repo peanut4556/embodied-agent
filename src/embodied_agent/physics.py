@@ -11,10 +11,12 @@ import numpy as np
 
 
 class PhysicsWorld:
-    def __init__(self, perception="truth"):
+    def __init__(self, perception="truth", policy_path=None):
         if perception not in {"truth", "rgbd"}:
             raise ValueError("unknown perception mode")
         self.perception = perception
+        self.policy_path = policy_path
+        self.policy_motion = None
         self.camera_renderer = None
         self.model = mujoco.MjModel.from_xml_path(
             str(Path(__file__).parent / "assets/tabletop.xml")
@@ -34,6 +36,9 @@ class PhysicsWorld:
         return np.array([-shoulder, -elbow, shoulder + elbow])
 
     def reset(self):
+        if self.policy_motion is not None:
+            self.policy_motion.close()
+            self.policy_motion = None
         self.detection = None
         mujoco.mj_resetData(self.model, self.data)
         self.target = np.array([0.22, 0.30])
@@ -82,6 +87,13 @@ class PhysicsWorld:
         inside, holding = self.inside_box(), self.holding
         return {
             "engine": "mujoco",
+            "feedback_available": bool(
+                self.policy_path
+                and all(
+                    (Path(self.policy_path) / f).is_file() for f in ("policy.npz", "training.json")
+                )
+            ),
+            "execution": self.policy_motion.snapshot() if self.policy_motion else None,
             "perception": self.perception,
             "detection": self.detection,
             "sim_time": float(self.data.time),
@@ -106,6 +118,9 @@ class PhysicsWorld:
 
     def begin(self, name, parameters):
         if name == "stop":
+            if self.policy_motion is not None and self.active == "learned_pick_place":
+                self.policy_motion.stop()
+                self.policy_motion.close()
             self.motion = []
             self.active = ""
             # Hold current joint angles with actuators. Gravity/contact continue to run.
@@ -135,6 +150,19 @@ class PhysicsWorld:
             return True
         if obj != "red_block":
             raise ValueError("only red_block is graspable")
+        if name == "learned_pick_place":
+            if parameters != {"object": "red_block", "destination": "box"}:
+                raise ValueError("learned execution requires red_block and destination=box")
+            if not self.policy_path:
+                raise ValueError("学习模型未配置，请挂载训练权重后重启物理服务")
+            from .policy_execution import PolicyMotion
+
+            if self.policy_motion is not None:
+                self.policy_motion.close()
+                self.policy_motion = None
+            self.policy_motion = PolicyMotion(self, self.policy_path)
+            self.active, self.error = name, ""
+            return False
         if name == "pick":
             block = (
                 self.locate_block()
@@ -173,6 +201,12 @@ class PhysicsWorld:
         The callback sees the current observation and newly computed actuator target.
         Normal ROS execution does not install a callback.
         """
+        if self.active == "learned_pick_place":
+            finished, self.error = self.policy_motion.tick(dt)
+            if finished:
+                self.active = ""
+                self.policy_motion.close()
+            return finished
         finished = False
         for substep in range(round(dt / self.model.opt.timestep)):
             if self.motion:
@@ -240,6 +274,8 @@ class PhysicsWorld:
         return np.array(self.detection["xyz"])
 
     def close(self):
+        if self.policy_motion is not None:
+            self.policy_motion.close()
         for renderer in (self.renderer, self.camera_renderer):
             if renderer is not None:
                 renderer.close()

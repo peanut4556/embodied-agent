@@ -98,3 +98,10 @@ FEEDBACK_OUTPUT ?= outputs/evaluations/feedback-test-v1
 .PHONY: feedback-evaluate
 feedback-evaluate:
 	PYTHONPATH=src .venv/bin/python scripts/evaluate_feedback.py --model "$(BC_MODEL)" --output "$(FEEDBACK_OUTPUT)"
+
+.PHONY: physics-feedback
+physics-feedback: physics-build
+	test -f "$(BC_MODEL)/policy.npz" && test -f "$(BC_MODEL)/training.json"
+	docker run --rm --name embodied-agent-sim -p 127.0.0.1:8766:8766 \
+		-v "$(abspath $(BC_MODEL)):/models/context-bc:ro" -e SIM_POLICY_DIR=/models/context-bc \
+		embodied-agent-physics

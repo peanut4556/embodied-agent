@@ -39,7 +39,7 @@ make feedback-evaluate FEEDBACK_OUTPUT=outputs/evaluations/feedback-test-new
 测试组包含 2 个正常场景、4 个位移场景和 3 个停止场景。参数在保留测试之前冻结。
 输出路径必须不存在，不覆盖旧结果。
 
-本阶段实验由独立脚本运行，尚未接入 ROS 2 控制台的模型执行选项。
+独立评测脚本用于成对比较；同一反馈控制器现已接入 ROS 2 控制台，见下文。
 模型只接收图像；反馈控制器额外接收关节状态和夹持信号。场景真值坐标只用于
 测试初始化、注入扰动和最终验收，不传给模型或反馈控制器。
 
@@ -77,3 +77,54 @@ make feedback-evaluate FEEDBACK_OUTPUT=outputs/evaluations/feedback-test-new
 这一版尚不能处理任意时刻的扰动，尤其不保证抓住后运输途中滑落的恢复，也没有
 在线学习新的动作。后续应接入连续夹持监测，采集实际推力扰动和恢复演示，
 再训练包含连续观测的策略，并使用新的独立测试场景评估。
+
+## ROS 2 控制台
+
+已有 `outputs/models/context-bc-v1/policy.npz` 和 `training.json` 时，先停止旧仿真容器，
+再在项目根目录运行：
+
+```bash
+make physics-feedback
+# 另一个终端；若旧控制台还在运行，需要先核对并停止旧进程再启动
+make sim-web-background
+```
+
+`BC_MODEL` 可指定其他模型目录。权重以只读目录挂载到容器的 `/models/context-bc`，
+`SIM_POLICY_DIR` 指向它；不会将训练数据或权重打包进镜像或提交到 Git。
+没有权重时，`make physics-ros` 仍可使用预设轨迹。网页会禁用未配置的学习选项；
+文件存在只表示已配置，实际加载时还会校验模型结构、物理 XML 哈希和执行器范围。
+
+打开 <http://127.0.0.1:8765>，点击重置，在“执行方式”选择“学习模型 · 视觉与接触反馈”。
+规划方式可选规则或本地 Qwen。仅接受可选的红色积木定位、抓取红色积木、放入盒子、
+验收这组完整计划，允许末尾停止并实际发送 ROS 停止指令。`verify.destination` 可省略或为 null，
+与原执行端的默认盒子验收语义一致。先经过 `SafetyGate`，再严格编译为 `learned_pick_place` 内部技能；
+不支持的对象、额外动作或缺失验收会在运动前拒绝，不会回退为预设轨迹。
+原始计划和实际执行步骤分别保存并显示。学习模式同样需要从示范的观察姿态开始；
+每次新任务前重置场景。
+
+模型与控制器读取 320×240 RGB、关节位置及双指接触，以模型记录的 25/50 Hz 运行。
+高层计划中的 RGB-D 定位可单独执行，但定位坐标不作为学习模型输入。
+结束时独立检查物体是否稳定入盒且夹爪松开；轨迹走完不直接等于任务成功。
+状态 Topic 附带本次任务编号、控制状态、恢复次数、事件和停止原因，重置后清空。
+
+恢复执行最多 30 秒仿真时间。考虑渲染速度，学习技能的 ROS 指令有效期为 90 秒墙钟时间，
+网关等待 92 秒、控制台等待 95 秒；原有预设指令仍为 20/22/25 秒。
+用户停止打断当前技能、保持关节目标，并拒绝同一任务后续指令。时间到期也会停止，
+即便浏览器已关闭仍由 ROS 执行层处理。
+
+```bash
+# 四项生产适配器检查：正常、目标重定位、超出范围、用户停止（需要 MuJoCo 渲染）
+PYTHONPATH=src .venv/bin/python scripts/check_policy_runtime.py \
+  --model outputs/models/context-bc-v1 --report outputs/console-policy-runtime.json
+
+# 已启动两个服务和 Ollama：规则与 Qwen、未重置场景拒绝、停止、取消与重置
+.venv/bin/python -u scripts/check_simulation.py --execution feedback --rai \
+  --expect-perception rgbd --report outputs/feedback-console-validation.json
+```
+
+生产适配器检查中的目标位移仍是评测夹具的外部重定位，网页不提供物体瞬移接口。
+
+本次接入验收：20 项核心单元测试、17 项物理/反馈单元测试通过；生产适配器四项
+渲染检查通过，目标重定位场景恢复一次后入盒。ROS 2 控制台的规则计划和 Qwen 中文
+计划均由学习技能完成入盒；未重置场景拒绝、预设/学习运动停止、取消后指令拒绝及
+重置清空状态均通过。记录保存在上述两个本地 JSON 报告中。

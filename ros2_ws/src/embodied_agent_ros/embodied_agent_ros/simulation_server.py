@@ -24,7 +24,10 @@ class Simulator(Node):
         if os.environ.get("SIM_ENGINE") == "mujoco":
             from embodied_agent.physics import PhysicsWorld
 
-            self.world = PhysicsWorld(perception=os.environ.get("SIM_PERCEPTION", "truth"))
+            self.world = PhysicsWorld(
+                perception=os.environ.get("SIM_PERCEPTION", "truth"),
+                policy_path=os.environ.get("SIM_POLICY_DIR"),
+            )
         else:
             self.world = TabletopWorld()
         self.frame = b""
@@ -66,15 +69,18 @@ class Simulator(Node):
                 self.cancelled_runs.add(run_id)
             elif run_id and run_id in self.cancelled_runs:
                 raise ValueError("task was cancelled")
-            if command["name"] == "stop" and self.pending:
-                self.finish(self.pending, False, "interrupted by stop")
-                self.pending = None
+            interrupted = self.pending if command["name"] == "stop" else None
             done = self.world.begin(command["name"], command.get("parameters", {}))
+            if interrupted:
+                self.finish(interrupted, False, "interrupted by stop")
+                self.pending = None
+            if command["name"] == "learned_pick_place":
+                self.world.policy_motion.run_id = run_id
             if done:
                 self.finish(command, True)
             else:
                 self.pending = command
-        except (ValueError, TypeError) as exc:
+        except (ValueError, TypeError, OSError, RuntimeError, KeyError) as exc:
             self.finish(command, False, str(exc))
 
     def tick(self):
@@ -119,9 +125,10 @@ class Gateway(Node):
             self.publisher.publish(String(data=json.dumps(self.commands.get_nowait())))
 
     def execute(self, body):
+        timeout = 90 if body["name"] == "learned_pick_place" else 20
         command = {
             "id": uuid.uuid4().hex,
-            "deadline": time.time() + 20,
+            "deadline": time.time() + timeout,
             "run_id": body.get("run_id", ""),
             "name": body["name"],
             "parameters": body.get("parameters", {}),
@@ -129,7 +136,9 @@ class Gateway(Node):
         with self.condition:
             self.results[command["id"]] = None
             self.commands.put(command)
-            ready = self.condition.wait_for(lambda: self.results[command["id"]] is not None, 22)
+            ready = self.condition.wait_for(
+                lambda: self.results[command["id"]] is not None, timeout + 2
+            )
             result = self.results.pop(command["id"])
         if not ready:
             raise TimeoutError("ROS status timeout; command deadline limits motion")
