@@ -196,13 +196,15 @@ class PhysicsWorld:
         return False
 
     def tick(self, dt, on_control_frame=None):
-        """Advance physics, optionally sample once before the first integration step.
+        """Advance physics with optional pre-integration recording.
 
-        The callback sees the current observation and newly computed actuator target.
-        Normal ROS execution does not install a callback.
+        Scripted actions call callback(world) once per tick. Learned actions call
+        callback(world, rgb, holding) at each model control frame, preserving the
+        actual policy inputs and new actuator target. ROS installs no callback.
         """
         if self.active == "learned_pick_place":
-            finished, self.error = self.policy_motion.tick(dt)
+            # Learned recording callback also receives the actual RGB/contact inputs.
+            finished, self.error = self.policy_motion.tick(dt, on_control_frame)
             if finished:
                 self.active = ""
                 self.policy_motion.close()

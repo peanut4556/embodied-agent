@@ -110,3 +110,14 @@ SLIP_OUTPUT ?= outputs/evaluations/slip-test-new
 .PHONY: slip-evaluate
 slip-evaluate:
 	PYTHONPATH=src .venv/bin/python scripts/evaluate_slip.py --model "$(BC_MODEL)" --output "$(SLIP_OUTPUT)"
+
+RECOVERY_DATASET ?= outputs/datasets/recovery-new
+.PHONY: recovery-record recovery-check recovery-data-test
+recovery-record:
+	PYTHONPATH=src .venv/bin/python scripts/record_recovery.py --model "$(BC_MODEL)" --output "$(RECOVERY_DATASET)"
+
+recovery-check:
+	PYTHONPATH=src .venv/bin/python scripts/record_recovery.py --output "$(RECOVERY_DATASET)" --validate-only
+
+recovery-data-test:
+	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache RECOVERY_TEST_MODEL="$(BC_MODEL)" .venv/bin/python -m unittest discover -s tests/dataset -p test_recovery_data.py -v

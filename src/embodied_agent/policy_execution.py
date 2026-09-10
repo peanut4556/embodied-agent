@@ -43,25 +43,36 @@ class PolicyMotion:
     def stop(self, reason="user stop"):
         self.world.data.ctrl[:] = self.controller.stop(self.world.data.qpos[:5], reason)
 
-    def tick(self, dt):
+    def tick(self, dt, on_control_frame=None):
         count = round(dt / self.period)
         if count < 1 or not np.isclose(count * self.period, dt):
             self.stop("incompatible control clock")
-        try:
-            for _ in range(count):
-                if self.controller.state in {"stopped", "completed"}:
-                    break
-                if self.elapsed >= 30:
-                    self.stop("learned execution time limit exceeded")
-                    break
+        for _ in range(count):
+            if self.controller.state in {"stopped", "completed"}:
+                break
+            if self.elapsed >= 30:
+                self.stop("learned execution time limit exceeded")
+                break
+            try:
+                rgb = self.rgb()
+                holding = self.world.holding
                 self.world.data.ctrl[:] = self.controller.step(
-                    self.rgb(), self.world.data.qpos[:5], self.world.holding
+                    rgb, self.world.data.qpos[:5], holding
                 )
+            except (ValueError, RuntimeError) as exc:
+                self.stop(f"policy execution failed: {exc}")
+                break
+            # Exact policy observation plus its new action, before integration.
+            # Recorder errors propagate; they must not become valid failure examples.
+            if on_control_frame is not None:
+                on_control_frame(self.world, rgb, holding)
+            try:
                 for _ in range(self.substeps):
                     mujoco.mj_step(self.world.model, self.world.data)
                 self.elapsed += self.period
-        except (ValueError, RuntimeError) as exc:
-            self.stop(f"policy execution failed: {exc}")
+            except (ValueError, RuntimeError) as exc:
+                self.stop(f"policy execution failed: {exc}")
+                break
         done = self.controller.state in {"stopped", "completed"}
         error = self.controller.reason
         if done:

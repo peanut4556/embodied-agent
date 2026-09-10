@@ -71,6 +71,10 @@ def predict_context(coefficients, context, mean, scale):
 
 def dataset_manifest(root):
     manifest = json.loads((root / "recording.json").read_text())
+    if manifest.get("dataset_type") == "feedback_recovery":
+        raise ValueError(
+            "recovery outcomes require a dedicated trainer; not fixed expert demonstrations"
+        )
     validation = json.loads((root / "validation.json").read_text())
     if manifest["status"] != "validated" or not validation["success"]:
         raise ValueError("training requires a successfully validated dataset")

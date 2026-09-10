@@ -177,6 +177,11 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 无法识别落点或超出训练范围时停止。`make slip-evaluate` 使用 MuJoCo 外力拉落积木，
 对比开环与反馈执行，详见 [运输滑落验证](docs/feedback.md#运输途中滑落检测与恢复)。
 
+`make recovery-record` 可把正常、滑落恢复、无法恢复及用户停止的全过程保存成
+带结果标签的 LeRobot 数据，并自动读回回放验证。成功和失败 episode 分别列出，
+不会混进原先的成功示范训练入口。字段、精确回放和使用限制见
+[恢复过程数据](docs/recovery-data.md)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，
