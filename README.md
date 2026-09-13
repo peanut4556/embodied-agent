@@ -182,6 +182,10 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 不会混进原先的成功示范训练入口。字段、精确回放和使用限制见
 [恢复过程数据](docs/recovery-data.md)。
 
+`make temporal-prepare` 将恢复数据整理为连续观测和动作窗口，提供成功动作模仿与
+结果标签两个独立入口，检查场景划分和数据完整性。当前完成数据准备，尚未训练新的
+闭环模型；现有批次没有独立测试集。见 [连续反馈训练数据](docs/temporal-data.md)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，
@@ -249,6 +253,8 @@ embodied-agent/
 - [x] ROS 2 action/status 安全消息桥
 - [x] 接入 Ollama + Qwen3.5 本地 RAI LLM planner
 - [ ] 接入 LeRobot 预训练策略或 ACT policy
+- [x] 恢复过程采集、精确回放与连续观测训练数据入口
+- [ ] 扩充恢复场景并冻结新的独立测试集，训练连续反馈策略
 - [ ] 支持具体机械臂和相机
 - [ ] 增加任务级重规划、超时和失败恢复
 - [x] 增加 MuJoCo 仿真环境与 Qwen → 学习反馈执行的端到端评测

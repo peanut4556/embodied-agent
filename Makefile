@@ -121,3 +121,13 @@ recovery-check:
 
 recovery-data-test:
 	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache RECOVERY_TEST_MODEL="$(BC_MODEL)" .venv/bin/python -m unittest discover -s tests/dataset -p test_recovery_data.py -v
+
+TEMPORAL_DATASET ?= outputs/datasets/recovery-v2
+TEMPORAL_INDEX ?= outputs/datasets/recovery-v2-temporal-v1.json
+TEMPORAL_SPLIT ?= config/temporal-curation-split.json
+.PHONY: temporal-prepare temporal-test
+temporal-prepare:
+	PYTHONPATH=src .venv/bin/python scripts/prepare_temporal.py --dataset "$(TEMPORAL_DATASET)" --output "$(TEMPORAL_INDEX)" --split "$(TEMPORAL_SPLIT)"
+
+temporal-test:
+	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -p test_temporal_data.py -v
