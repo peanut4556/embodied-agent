@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "description": "Frozen before reactive training; test positions excluded from new development recordings. Small interpolation experiment, not broad generalization.",
+  "development": [
+    {"name": "train-normal-302", "x": 0.302},
+    {"name": "train-normal-322", "x": 0.322},
+    {"name": "train-normal-342", "x": 0.342},
+    {"name": "train-normal-382", "x": 0.382},
+    {"name": "train-pull-302", "x": 0.302, "force_at": 5.0, "force_duration": 0.08, "force_z": -30},
+    {"name": "train-pull-342", "x": 0.342, "force_at": 4.88, "force_duration": 0.08, "force_z": -30},
+    {"name": "validation-normal-312", "x": 0.312},
+    {"name": "validation-normal-372", "x": 0.372},
+    {"name": "validation-pull-332", "x": 0.332, "force_at": 4.92, "force_duration": 0.08, "force_z": -30}
+  ],
+  "split": {"train": [0, 1, 2, 3, 4, 5], "validation": [6, 7, 8], "test": []},
+  "test": [
+    {"name": "test-normal-313", "x": 0.313},
+    {"name": "test-normal-373", "x": 0.373},
+    {"name": "test-pull-333", "x": 0.333, "force_at": 5.0, "force_duration": 0.08, "force_z": -30},
+    {"name": "test-user-stop-353", "x": 0.353, "stop_at": 2.0}
+  ],
+  "max_seconds": 24,
+  "seed": 73,
+  "epochs": 400,
+  "hidden": 128,
+  "learning_rate": 0.001,
+  "checkpoint_metric": "validation_action_range_normalized_mse"
+}

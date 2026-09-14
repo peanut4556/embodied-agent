@@ -131,3 +131,24 @@ temporal-prepare:
 
 temporal-test:
 	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -p test_temporal_data.py -v
+
+REACTIVE_DATASET ?= outputs/datasets/reactive-development-v2
+REACTIVE_INDEX ?= outputs/datasets/reactive-development-v2-temporal.json
+REACTIVE_MODEL ?= outputs/models/reactive-bc-v1
+REACTIVE_EVALUATION ?= outputs/evaluations/reactive-bc-v1
+REACTIVE_EXPERIMENT ?= config/reactive-experiment.json
+.PHONY: reactive-record reactive-prepare reactive-train reactive-evaluate reactive-test
+reactive-record:
+	PYTHONPATH=src .venv/bin/python scripts/record_recovery.py --output "$(REACTIVE_DATASET)" --model "$(BC_MODEL)" --scenarios "$(REACTIVE_EXPERIMENT)" --group development
+
+reactive-prepare:
+	PYTHONPATH=src .venv/bin/python scripts/train_reactive.py prepare --dataset "$(REACTIVE_DATASET)" --experiment "$(REACTIVE_EXPERIMENT)" --output "$(REACTIVE_INDEX)"
+
+reactive-train:
+	PYTHONPATH=src .venv/bin/python scripts/train_reactive.py train --index "$(REACTIVE_INDEX)" --experiment "$(REACTIVE_EXPERIMENT)" --output "$(REACTIVE_MODEL)"
+
+reactive-evaluate:
+	PYTHONPATH=src .venv/bin/python scripts/train_reactive.py evaluate --model "$(REACTIVE_MODEL)" --baseline "$(BC_MODEL)" --output "$(REACTIVE_EVALUATION)"
+
+reactive-test:
+	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -p test_reactive.py -v

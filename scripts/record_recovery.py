@@ -16,13 +16,14 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--model", type=Path, default=Path("outputs/models/context-bc-v1"))
     parser.add_argument("--scenarios", type=Path, default=Path("config/slip-scenarios.json"))
+    parser.add_argument("--group", choices=("development", "test"), default="test")
     parser.add_argument("--validate-only", action="store_true")
     args = parser.parse_args()
     if args.validate_only:
         validate_recovery(args.output)
     else:
         # These scenarios have already been inspected; never label this batch as held-out test data.
-        cases = json.loads(args.scenarios.read_text())["test"]
+        cases = json.loads(args.scenarios.read_text())[args.group]
         record_recovery(args.output, args.model, cases)
 
 

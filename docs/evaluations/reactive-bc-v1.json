@@ -1,0 +1,403 @@
+{
+  "training": {
+    "schema_version": 1,
+    "feature_version": "red-moments-joints-contact-v1",
+    "algorithm": "causal RGB-moment and proprioception MLP action-chunk BC",
+    "control": "recompute every observation; execute first action of predicted chunk",
+    "history": 4,
+    "horizon": 8,
+    "hidden": 128,
+    "fps": 25,
+    "selected_epoch": 399,
+    "validation_normalized_mse": 0.0026800050400197506,
+    "hold_position_validation_normalized_mse": 0.032828014343976974,
+    "train_windows": 1395,
+    "validation_windows": 893,
+    "curve": [
+      {
+        "epoch": 1,
+        "train_mse": 0.016167156398296356,
+        "validation_mse": 0.01730331964790821
+      },
+      {
+        "epoch": 50,
+        "train_mse": 0.003910220693796873,
+        "validation_mse": 0.004726816434413195
+      },
+      {
+        "epoch": 100,
+        "train_mse": 0.0031335228122770786,
+        "validation_mse": 0.004129642155021429
+      },
+      {
+        "epoch": 150,
+        "train_mse": 0.0026570716872811317,
+        "validation_mse": 0.0036401322577148676
+      },
+      {
+        "epoch": 200,
+        "train_mse": 0.002234155312180519,
+        "validation_mse": 0.0031557597685605288
+      },
+      {
+        "epoch": 250,
+        "train_mse": 0.0019205545540899038,
+        "validation_mse": 0.002880030544474721
+      },
+      {
+        "epoch": 300,
+        "train_mse": 0.0017311720876023173,
+        "validation_mse": 0.0028027764055877924
+      },
+      {
+        "epoch": 350,
+        "train_mse": 0.0015914252726361156,
+        "validation_mse": 0.0027400744147598743
+      },
+      {
+        "epoch": 400,
+        "train_mse": 0.0015249972930178046,
+        "validation_mse": 0.0027994217816740274
+      }
+    ],
+    "source_sha256": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+    "split": {
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "validation": [
+        6,
+        7,
+        8
+      ],
+      "test": []
+    },
+    "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+    "experiment_sha256": "8116056a8cdb1354143246d8dddbee071e70594e554457ded306eea8ec65b960",
+    "weights_sha256": "3bc1960c18a49ad7e03a4b232e52560e64d13f0e97ac0e07ef26833e96e1c94e",
+    "normalization_sha256": "4a4850f1838ac2e3a3fc2b3b05d818c89dd217d6e8dbb5a981cf8ff930a472f3",
+    "input_keys": [
+      "observation.images.overhead",
+      "observation.state",
+      "observation.holding"
+    ],
+    "test_used_for_training": false,
+    "limitations": "fixed red cube/camera; hand-designed vision; no learned completion or stop classifier"
+  },
+  "evaluation": {
+    "scores": {
+      "open_loop": {
+        "task_success": 2,
+        "tasks": 3,
+        "disturbance_tasks": 1,
+        "valid_slip_trials": 1,
+        "recovery_success": 0,
+        "non_timeout_unrequested_stops": 0,
+        "timeouts": 0,
+        "mean_task_seconds": 10.12,
+        "user_stop_passed": true
+      },
+      "feedback": {
+        "task_success": 3,
+        "tasks": 3,
+        "disturbance_tasks": 1,
+        "valid_slip_trials": 1,
+        "recovery_success": 1,
+        "non_timeout_unrequested_stops": 0,
+        "timeouts": 0,
+        "mean_task_seconds": 11.36,
+        "user_stop_passed": true
+      },
+      "reactive": {
+        "task_success": 0,
+        "tasks": 3,
+        "disturbance_tasks": 1,
+        "valid_slip_trials": 0,
+        "recovery_success": 0,
+        "non_timeout_unrequested_stops": 0,
+        "timeouts": 3,
+        "mean_task_seconds": 25.040000000000003,
+        "user_stop_passed": true
+      }
+    },
+    "results": [
+      {
+        "case": "test-normal-313",
+        "controller": "open_loop",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.6401023018828921,
+          -6.772321090778625e-15,
+          0.03999041224240861
+        ]
+      },
+      {
+        "case": "test-normal-313",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.6401023018828921,
+          -6.772321090778625e-15,
+          0.03999041224240861
+        ]
+      },
+      {
+        "case": "test-normal-313",
+        "controller": "reactive",
+        "success": false,
+        "state": "stopped",
+        "reason": "execution timeout",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 25.04,
+        "requested_stop": false,
+        "stop_command_held": true,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.3130000000000046,
+          -5.649317392610832e-16,
+          0.02499041224240868
+        ]
+      },
+      {
+        "case": "test-normal-373",
+        "controller": "open_loop",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.6407676501904056,
+          1.3174870861082275e-15,
+          0.03999041224240862
+        ]
+      },
+      {
+        "case": "test-normal-373",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.6407676501904056,
+          1.3174870861082275e-15,
+          0.03999041224240862
+        ]
+      },
+      {
+        "case": "test-normal-373",
+        "controller": "reactive",
+        "success": false,
+        "state": "stopped",
+        "reason": "execution timeout",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 25.04,
+        "requested_stop": false,
+        "stop_command_held": true,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.5153513837353725,
+          0.00014596525126422337,
+          0.032250881232306974
+        ]
+      },
+      {
+        "case": "test-pull-333",
+        "controller": "open_loop",
+        "success": false,
+        "state": "completed",
+        "reason": "",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 11.48,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": {
+          "tick": 125,
+          "holding_before_force": true,
+          "force_z": -30,
+          "duration": 0.08
+        },
+        "contact_loss_after_force": true,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.36473949680423134,
+          -0.007765151719393783,
+          0.02499041224240861
+        ]
+      },
+      {
+        "case": "test-pull-333",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 15.2,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": {
+          "tick": 125,
+          "holding_before_force": true,
+          "force_z": -30,
+          "duration": 0.08
+        },
+        "contact_loss_after_force": true,
+        "regrasp_after_loss": true,
+        "recovery_success": true,
+        "final_block_xyz": [
+          0.6410430539666907,
+          -2.997145733793405e-14,
+          0.0399904122424087
+        ]
+      },
+      {
+        "case": "test-pull-333",
+        "controller": "reactive",
+        "success": false,
+        "state": "stopped",
+        "reason": "execution timeout",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 25.04,
+        "requested_stop": false,
+        "stop_command_held": true,
+        "user_stop_passed": false,
+        "disturbance": {
+          "tick": 125,
+          "holding_before_force": false,
+          "force_z": -30,
+          "duration": 0.08
+        },
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.33299999999999785,
+          4.687455988488561e-16,
+          0.024990412242408656
+        ]
+      },
+      {
+        "case": "test-user-stop-353",
+        "controller": "open_loop",
+        "success": false,
+        "state": "stopped",
+        "reason": "user stop",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 3.04,
+        "requested_stop": true,
+        "stop_command_held": true,
+        "user_stop_passed": true,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.353,
+          -1.0734934724575287e-15,
+          0.02499041224240868
+        ]
+      },
+      {
+        "case": "test-user-stop-353",
+        "controller": "feedback",
+        "success": false,
+        "state": "stopped",
+        "reason": "user stop",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 3.04,
+        "requested_stop": true,
+        "stop_command_held": true,
+        "user_stop_passed": true,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.353,
+          -1.0734934724575287e-15,
+          0.02499041224240868
+        ]
+      },
+      {
+        "case": "test-user-stop-353",
+        "controller": "reactive",
+        "success": false,
+        "state": "stopped",
+        "reason": "user stop",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 3.04,
+        "requested_stop": true,
+        "stop_command_held": true,
+        "user_stop_passed": true,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.34574654069701954,
+          0.0010921952848022163,
+          0.02496017823759782
+        ]
+      }
+    ],
+    "model_sha256": "3bc1960c18a49ad7e03a4b232e52560e64d13f0e97ac0e07ef26833e96e1c94e",
+    "experiment_sha256": "8116056a8cdb1354143246d8dddbee071e70594e554457ded306eea8ec65b960",
+    "baseline_sha256": "ff231781e359f4f8ec57585cdf5b1d9ca557f1bd43f01fd3b914d7949cbb3344",
+    "limitations": "four frozen interpolation cases; evaluation-only truth goal detection; no learned completion; fixed visual conditions"
+  },
+  "deployment_decision": "research baseline only; keep existing ROS feedback controller"
+}
