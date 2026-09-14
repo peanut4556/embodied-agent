@@ -16,6 +16,8 @@ from .temporal_data import read_json
 
 
 def run_case(policy, case, mode, max_seconds):
+    if mode not in {"open_loop", "feedback", "reactive", "memory"}:
+        raise ValueError("unknown evaluation controller")
     world = PhysicsWorld()
     renderer = None
     frames, stops = [], []
@@ -27,8 +29,12 @@ def run_case(policy, case, mode, max_seconds):
         renderer = mujoco.Renderer(world.model, height=240, width=320)
         renderer.update_scene(world.data, camera="perception")
         executor = (
-            ReactiveExecutor(policy, world.data.qpos[:5], max_seconds)
-            if mode == "reactive"
+            ReactiveExecutor(
+                policy.session() if mode == "memory" else policy,
+                world.data.qpos[:5],
+                max_seconds,
+            )
+            if mode in {"reactive", "memory"}
             else FeedbackExecutor(
                 policy, renderer.render(), world.data.qpos[:5], feedback=mode == "feedback"
             )

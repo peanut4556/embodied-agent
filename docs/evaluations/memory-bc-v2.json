@@ -1,0 +1,1160 @@
+{
+  "short_training": {
+    "status": "trained",
+    "source_sha256": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+    "experiment_sha256": "e0601d819050ae3e8a65623c89fe13efd5bc8f4aa6f21188b2603cb0010aa5a6",
+    "train_episodes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "validation_episodes": [
+      6,
+      7,
+      8
+    ],
+    "train_frames": 1445,
+    "validation_frames": 923,
+    "test_used_for_training": false,
+    "candidates": [
+      {
+        "directory": "epoch-150",
+        "epoch": 150,
+        "validation_mse": 0.003244206542149186,
+        "weights_sha256": "97db6debf93576f87c85a7787164bebe1bc4a8c2ba9476f2900529937208f87e"
+      },
+      {
+        "directory": "epoch-300",
+        "epoch": 300,
+        "validation_mse": 0.0028664646670222282,
+        "weights_sha256": "84837e46960cf34e124432f76eaee6e14c2d79ab43c2eeec468b34ab88b56900"
+      },
+      {
+        "directory": "epoch-600",
+        "epoch": 600,
+        "validation_mse": 0.0014205130282789469,
+        "weights_sha256": "121970dbe9557ef9e25cdae4ec92b1d660e16147349a4edd7519e3e5f0ad9b99"
+      }
+    ],
+    "curve": [
+      {
+        "epoch": 1,
+        "train_mse_before_update": 0.4429951608181,
+        "validation_mse": 0.37172138690948486
+      },
+      {
+        "epoch": 50,
+        "train_mse_before_update": 0.00448444252833724,
+        "validation_mse": 0.0045782169327139854
+      },
+      {
+        "epoch": 100,
+        "train_mse_before_update": 0.003299924312159419,
+        "validation_mse": 0.0035059477668255568
+      },
+      {
+        "epoch": 150,
+        "train_mse_before_update": 0.003039844334125519,
+        "validation_mse": 0.003244206542149186
+      },
+      {
+        "epoch": 200,
+        "train_mse_before_update": 0.0028933421708643436,
+        "validation_mse": 0.003098406596109271
+      },
+      {
+        "epoch": 250,
+        "train_mse_before_update": 0.0027760546654462814,
+        "validation_mse": 0.002983473241329193
+      },
+      {
+        "epoch": 300,
+        "train_mse_before_update": 0.002657668897882104,
+        "validation_mse": 0.0028664646670222282
+      },
+      {
+        "epoch": 350,
+        "train_mse_before_update": 0.002502571791410446,
+        "validation_mse": 0.002698938362300396
+      },
+      {
+        "epoch": 400,
+        "train_mse_before_update": 0.0022497226018458605,
+        "validation_mse": 0.0024351344909518957
+      },
+      {
+        "epoch": 450,
+        "train_mse_before_update": 0.001893210457637906,
+        "validation_mse": 0.0021454324014484882
+      },
+      {
+        "epoch": 500,
+        "train_mse_before_update": 0.0014307157834991813,
+        "validation_mse": 0.0018256198382005095
+      },
+      {
+        "epoch": 550,
+        "train_mse_before_update": 0.001001317286863923,
+        "validation_mse": 0.0014893251936882734
+      },
+      {
+        "epoch": 600,
+        "train_mse_before_update": 0.0006583717768080533,
+        "validation_mse": 0.0014205130282789469
+      }
+    ]
+  },
+  "short_development": {
+    "status": "selected",
+    "experiment_sha256": "e0601d819050ae3e8a65623c89fe13efd5bc8f4aa6f21188b2603cb0010aa5a6",
+    "source_sha256": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+    "test_cases_executed": false,
+    "selection_rule": "maximize development task successes, then minimize validation action MSE, then earlier epoch",
+    "candidates": [
+      {
+        "directory": "epoch-150",
+        "epoch": 150,
+        "validation_mse": 0.003244206542149186,
+        "weights_sha256": "97db6debf93576f87c85a7787164bebe1bc4a8c2ba9476f2900529937208f87e",
+        "task_success": 0,
+        "task_count": 3,
+        "results": [
+          {
+            "case": "development-normal-312",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.31200000000000044,
+              -5.676166964133697e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-normal-372",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.372,
+              -5.241247441740068e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-pull-332",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": {
+              "tick": 123,
+              "holding_before_force": false,
+              "force_z": -30,
+              "duration": 0.08
+            },
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.33199999999999175,
+              8.21640177500755e-15,
+              0.024990412242408656
+            ]
+          }
+        ]
+      },
+      {
+        "directory": "epoch-300",
+        "epoch": 300,
+        "validation_mse": 0.0028664646670222282,
+        "weights_sha256": "84837e46960cf34e124432f76eaee6e14c2d79ab43c2eeec468b34ab88b56900",
+        "task_success": 0,
+        "task_count": 3,
+        "results": [
+          {
+            "case": "development-normal-312",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.31200000000000044,
+              -5.463724146220412e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-normal-372",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.372,
+              -5.254400087560252e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-pull-332",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": {
+              "tick": 123,
+              "holding_before_force": false,
+              "force_z": -30,
+              "duration": 0.08
+            },
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.3320000000000088,
+              -3.221555211743728e-14,
+              0.024990412242408656
+            ]
+          }
+        ]
+      },
+      {
+        "directory": "epoch-600",
+        "epoch": 600,
+        "validation_mse": 0.0014205130282789469,
+        "weights_sha256": "121970dbe9557ef9e25cdae4ec92b1d660e16147349a4edd7519e3e5f0ad9b99",
+        "task_success": 0,
+        "task_count": 3,
+        "results": [
+          {
+            "case": "development-normal-312",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.31200000000000044,
+              -6.014132312321361e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-normal-372",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.372,
+              -8.546441742785759e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-pull-332",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": {
+              "tick": 123,
+              "holding_before_force": false,
+              "force_z": -30,
+              "duration": 0.08
+            },
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.33200000000000035,
+              4.081824362212928e-15,
+              0.024990412242408656
+            ]
+          }
+        ]
+      }
+    ],
+    "selected": "epoch-600",
+    "selected_weights_sha256": "121970dbe9557ef9e25cdae4ec92b1d660e16147349a4edd7519e3e5f0ad9b99",
+    "selected_task_success": 0
+  },
+  "extended_training": {
+    "status": "trained",
+    "source_sha256": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+    "experiment_sha256": "9bac907a42d01e9ac8b8611262547e0ca1e7528fe3c45286fb4092631e0765cf",
+    "train_episodes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "validation_episodes": [
+      6,
+      7,
+      8
+    ],
+    "train_frames": 1445,
+    "validation_frames": 923,
+    "test_used_for_training": false,
+    "candidates": [
+      {
+        "directory": "epoch-1200",
+        "epoch": 1200,
+        "validation_mse": 0.0029455346520990133,
+        "weights_sha256": "9655bcdcc1852d04eb9395bb6e20e4dcf4189a355294a58e8717c16493eccc73"
+      },
+      {
+        "directory": "epoch-2000",
+        "epoch": 2000,
+        "validation_mse": 0.000788812234532088,
+        "weights_sha256": "4169d360348bf9b5895d057cd8a8acea5e806b7baca1e31b2d4b6a0b47509481"
+      },
+      {
+        "directory": "epoch-3000",
+        "epoch": 3000,
+        "validation_mse": 0.0006940701277926564,
+        "weights_sha256": "940f1769655f6287b553f8818b56ddb59b5c7e57e39b32e3de04986f869e3a2b"
+      }
+    ],
+    "curve": [
+      {
+        "epoch": 1,
+        "train_mse_before_update": 0.4429951608181,
+        "validation_mse": 0.37172138690948486
+      },
+      {
+        "epoch": 50,
+        "train_mse_before_update": 0.00448444252833724,
+        "validation_mse": 0.0045782169327139854
+      },
+      {
+        "epoch": 100,
+        "train_mse_before_update": 0.003299924312159419,
+        "validation_mse": 0.0035059477668255568
+      },
+      {
+        "epoch": 150,
+        "train_mse_before_update": 0.003039844334125519,
+        "validation_mse": 0.003244206542149186
+      },
+      {
+        "epoch": 200,
+        "train_mse_before_update": 0.0028933421708643436,
+        "validation_mse": 0.003098406596109271
+      },
+      {
+        "epoch": 250,
+        "train_mse_before_update": 0.0027760546654462814,
+        "validation_mse": 0.002983473241329193
+      },
+      {
+        "epoch": 300,
+        "train_mse_before_update": 0.002657668897882104,
+        "validation_mse": 0.0028664646670222282
+      },
+      {
+        "epoch": 350,
+        "train_mse_before_update": 0.002502571791410446,
+        "validation_mse": 0.002698938362300396
+      },
+      {
+        "epoch": 400,
+        "train_mse_before_update": 0.0022497226018458605,
+        "validation_mse": 0.0024351344909518957
+      },
+      {
+        "epoch": 450,
+        "train_mse_before_update": 0.001893210457637906,
+        "validation_mse": 0.0021454324014484882
+      },
+      {
+        "epoch": 500,
+        "train_mse_before_update": 0.0014307157834991813,
+        "validation_mse": 0.0018256198382005095
+      },
+      {
+        "epoch": 550,
+        "train_mse_before_update": 0.001001317286863923,
+        "validation_mse": 0.0014893251936882734
+      },
+      {
+        "epoch": 600,
+        "train_mse_before_update": 0.0006583717768080533,
+        "validation_mse": 0.0014205130282789469
+      },
+      {
+        "epoch": 650,
+        "train_mse_before_update": 0.000427700491854921,
+        "validation_mse": 0.0012983037158846855
+      },
+      {
+        "epoch": 700,
+        "train_mse_before_update": 0.00028864675550721586,
+        "validation_mse": 0.0011743290815502405
+      },
+      {
+        "epoch": 750,
+        "train_mse_before_update": 0.00019382842583581805,
+        "validation_mse": 0.001080716960132122
+      },
+      {
+        "epoch": 800,
+        "train_mse_before_update": 0.0006184185622259974,
+        "validation_mse": 0.0015459901187568903
+      },
+      {
+        "epoch": 850,
+        "train_mse_before_update": 0.00010610857862047851,
+        "validation_mse": 0.0009495263220742345
+      },
+      {
+        "epoch": 900,
+        "train_mse_before_update": 7.564777479274198e-05,
+        "validation_mse": 0.0009696853812783957
+      },
+      {
+        "epoch": 950,
+        "train_mse_before_update": 5.6455613957950845e-05,
+        "validation_mse": 0.0009729210869409144
+      },
+      {
+        "epoch": 1000,
+        "train_mse_before_update": 4.332315438659862e-05,
+        "validation_mse": 0.0009797847596928477
+      },
+      {
+        "epoch": 1050,
+        "train_mse_before_update": 3.407746771699749e-05,
+        "validation_mse": 0.0009877743432298303
+      },
+      {
+        "epoch": 1100,
+        "train_mse_before_update": 2.7418831450631842e-05,
+        "validation_mse": 0.0009959954768419266
+      },
+      {
+        "epoch": 1150,
+        "train_mse_before_update": 2.2540478312294e-05,
+        "validation_mse": 0.0010040529305115342
+      },
+      {
+        "epoch": 1200,
+        "train_mse_before_update": 0.002331672701984644,
+        "validation_mse": 0.0029455346520990133
+      },
+      {
+        "epoch": 1250,
+        "train_mse_before_update": 0.00036462664138525724,
+        "validation_mse": 0.0008995188400149345
+      },
+      {
+        "epoch": 1300,
+        "train_mse_before_update": 0.00047110230661928654,
+        "validation_mse": 0.0010973301250487566
+      },
+      {
+        "epoch": 1350,
+        "train_mse_before_update": 4.101428930880502e-05,
+        "validation_mse": 0.0008227421785704792
+      },
+      {
+        "epoch": 1400,
+        "train_mse_before_update": 2.3140135454013944e-05,
+        "validation_mse": 0.0008148120250552893
+      },
+      {
+        "epoch": 1450,
+        "train_mse_before_update": 1.832322232075967e-05,
+        "validation_mse": 0.0008054929785430431
+      },
+      {
+        "epoch": 1500,
+        "train_mse_before_update": 1.5469311620108783e-05,
+        "validation_mse": 0.0007993227336555719
+      },
+      {
+        "epoch": 1550,
+        "train_mse_before_update": 1.3499829037755262e-05,
+        "validation_mse": 0.0007949804421514273
+      },
+      {
+        "epoch": 1600,
+        "train_mse_before_update": 1.2037798114761245e-05,
+        "validation_mse": 0.0007919297204352915
+      },
+      {
+        "epoch": 1650,
+        "train_mse_before_update": 1.0901462701440323e-05,
+        "validation_mse": 0.0007898263284005225
+      },
+      {
+        "epoch": 1700,
+        "train_mse_before_update": 9.98843643174041e-06,
+        "validation_mse": 0.0007884518126957119
+      },
+      {
+        "epoch": 1750,
+        "train_mse_before_update": 9.235091965820175e-06,
+        "validation_mse": 0.000787643133662641
+      },
+      {
+        "epoch": 1800,
+        "train_mse_before_update": 8.598927706771065e-06,
+        "validation_mse": 0.0007872862042859197
+      },
+      {
+        "epoch": 1850,
+        "train_mse_before_update": 8.051252734730951e-06,
+        "validation_mse": 0.0007872901624068618
+      },
+      {
+        "epoch": 1900,
+        "train_mse_before_update": 7.571773949166527e-06,
+        "validation_mse": 0.0007875866140238941
+      },
+      {
+        "epoch": 1950,
+        "train_mse_before_update": 7.146015832404373e-06,
+        "validation_mse": 0.0007881090277805924
+      },
+      {
+        "epoch": 2000,
+        "train_mse_before_update": 6.763855708413757e-06,
+        "validation_mse": 0.000788812234532088
+      },
+      {
+        "epoch": 2050,
+        "train_mse_before_update": 6.417572421923978e-06,
+        "validation_mse": 0.0007896524621173739
+      },
+      {
+        "epoch": 2100,
+        "train_mse_before_update": 6.101589406171115e-06,
+        "validation_mse": 0.0007905930979177356
+      },
+      {
+        "epoch": 2150,
+        "train_mse_before_update": 5.811694336443907e-06,
+        "validation_mse": 0.0007916121976450086
+      },
+      {
+        "epoch": 2200,
+        "train_mse_before_update": 5.544570285564987e-06,
+        "validation_mse": 0.0007926755351945758
+      },
+      {
+        "epoch": 2250,
+        "train_mse_before_update": 5.297496500134002e-06,
+        "validation_mse": 0.0007937641348689795
+      },
+      {
+        "epoch": 2300,
+        "train_mse_before_update": 5.068392965767998e-06,
+        "validation_mse": 0.0007948600687086582
+      },
+      {
+        "epoch": 2350,
+        "train_mse_before_update": 4.855399311054498e-06,
+        "validation_mse": 0.0007959576323628426
+      },
+      {
+        "epoch": 2400,
+        "train_mse_before_update": 4.991641617380083e-06,
+        "validation_mse": 0.0008026045397855341
+      },
+      {
+        "epoch": 2450,
+        "train_mse_before_update": 5.116866759635741e-06,
+        "validation_mse": 0.0007966034463606775
+      },
+      {
+        "epoch": 2500,
+        "train_mse_before_update": 4.388018169265706e-06,
+        "validation_mse": 0.0007846569642424583
+      },
+      {
+        "epoch": 2550,
+        "train_mse_before_update": 4.171268301433884e-06,
+        "validation_mse": 0.0007854163995943964
+      },
+      {
+        "epoch": 2600,
+        "train_mse_before_update": 4.015294507553335e-06,
+        "validation_mse": 0.0007869687979109585
+      },
+      {
+        "epoch": 2650,
+        "train_mse_before_update": 3.871570243063616e-06,
+        "validation_mse": 0.0007881796336732805
+      },
+      {
+        "epoch": 2700,
+        "train_mse_before_update": 3.7370323298091535e-06,
+        "validation_mse": 0.0007892083376646042
+      },
+      {
+        "epoch": 2750,
+        "train_mse_before_update": 5.982553557259962e-05,
+        "validation_mse": 0.0008072971249930561
+      },
+      {
+        "epoch": 2800,
+        "train_mse_before_update": 0.0005181606393307447,
+        "validation_mse": 0.0010278904810547829
+      },
+      {
+        "epoch": 2850,
+        "train_mse_before_update": 1.7578071492607705e-05,
+        "validation_mse": 0.0007115188054740429
+      },
+      {
+        "epoch": 2900,
+        "train_mse_before_update": 8.974760930868797e-06,
+        "validation_mse": 0.0006996009033173323
+      },
+      {
+        "epoch": 2950,
+        "train_mse_before_update": 6.7680566644412465e-06,
+        "validation_mse": 0.0006971567054279149
+      },
+      {
+        "epoch": 3000,
+        "train_mse_before_update": 5.647666057484457e-06,
+        "validation_mse": 0.0006940701277926564
+      }
+    ]
+  },
+  "extended_development": {
+    "status": "selected",
+    "experiment_sha256": "9bac907a42d01e9ac8b8611262547e0ca1e7528fe3c45286fb4092631e0765cf",
+    "source_sha256": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+    "test_cases_executed": false,
+    "selection_rule": "maximize development task successes, then minimize validation action MSE, then earlier epoch",
+    "candidates": [
+      {
+        "directory": "epoch-1200",
+        "epoch": 1200,
+        "validation_mse": 0.0029455346520990133,
+        "weights_sha256": "9655bcdcc1852d04eb9395bb6e20e4dcf4189a355294a58e8717c16493eccc73",
+        "task_success": 0,
+        "task_count": 3,
+        "results": [
+          {
+            "case": "development-normal-312",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.31200000000000044,
+              -7.715423509814088e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-normal-372",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.372,
+              -5.866053399924702e-16,
+              0.02499041224240868
+            ]
+          },
+          {
+            "case": "development-pull-332",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": {
+              "tick": 123,
+              "holding_before_force": false,
+              "force_z": -30,
+              "duration": 0.08
+            },
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.33199999999999763,
+              2.0224769252870418e-14,
+              0.024990412242408656
+            ]
+          }
+        ]
+      },
+      {
+        "directory": "epoch-2000",
+        "epoch": 2000,
+        "validation_mse": 0.000788812234532088,
+        "weights_sha256": "4169d360348bf9b5895d057cd8a8acea5e806b7baca1e31b2d4b6a0b47509481",
+        "task_success": 1,
+        "task_count": 3,
+        "results": [
+          {
+            "case": "development-normal-312",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.48824951025799457,
+              0.003426868792790179,
+              0.02499041224240861
+            ]
+          },
+          {
+            "case": "development-normal-372",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.4568791248870286,
+              -0.01188680196988965,
+              0.02499041224240869
+            ]
+          },
+          {
+            "case": "development-pull-332",
+            "controller": "memory",
+            "success": true,
+            "state": "running",
+            "reason": "",
+            "evaluator_detected_stable_goal": true,
+            "duration_seconds": 6.96,
+            "requested_stop": false,
+            "stop_command_held": false,
+            "user_stop_passed": false,
+            "disturbance": {
+              "tick": 123,
+              "holding_before_force": false,
+              "force_z": -30,
+              "duration": 0.08
+            },
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.6252481365408796,
+              0.006020200557113373,
+              0.0399904122424086
+            ]
+          }
+        ]
+      },
+      {
+        "directory": "epoch-3000",
+        "epoch": 3000,
+        "validation_mse": 0.0006940701277926564,
+        "weights_sha256": "940f1769655f6287b553f8818b56ddb59b5c7e57e39b32e3de04986f869e3a2b",
+        "task_success": 0,
+        "task_count": 3,
+        "results": [
+          {
+            "case": "development-normal-312",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.47142818528533437,
+              0.00022277831741993718,
+              0.024995106182007332
+            ]
+          },
+          {
+            "case": "development-normal-372",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": null,
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.4991486813425386,
+              -0.0042441089300917206,
+              0.03478151131774508
+            ]
+          },
+          {
+            "case": "development-pull-332",
+            "controller": "memory",
+            "success": false,
+            "state": "stopped",
+            "reason": "execution timeout",
+            "evaluator_detected_stable_goal": false,
+            "duration_seconds": 25.04,
+            "requested_stop": false,
+            "stop_command_held": true,
+            "user_stop_passed": false,
+            "disturbance": {
+              "tick": 123,
+              "holding_before_force": false,
+              "force_z": -30,
+              "duration": 0.08
+            },
+            "contact_loss_after_force": false,
+            "regrasp_after_loss": false,
+            "recovery_success": false,
+            "final_block_xyz": [
+              0.4977932500640669,
+              -0.01822886473037805,
+              0.02499041224240866
+            ]
+          }
+        ]
+      }
+    ],
+    "selected": "epoch-2000",
+    "selected_weights_sha256": "4169d360348bf9b5895d057cd8a8acea5e806b7baca1e31b2d4b6a0b47509481",
+    "selected_task_success": 1,
+    "eligible_for_reserved_test": true
+  },
+  "reserved_test": {
+    "status": "complete",
+    "selected": "epoch-2000",
+    "selection_sha256": "5be781a6f66ee8f8632156cde8d2e7c09a2bb8444088d23954854a359eea98ab",
+    "weights_sha256": "4169d360348bf9b5895d057cd8a8acea5e806b7baca1e31b2d4b6a0b47509481",
+    "experiment_sha256": "9bac907a42d01e9ac8b8611262547e0ca1e7528fe3c45286fb4092631e0765cf",
+    "baseline_sha256": "ff231781e359f4f8ec57585cdf5b1d9ca557f1bd43f01fd3b914d7949cbb3344",
+    "results": [
+      {
+        "case": "memory-test-normal-306",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.6409418897723328,
+          -2.21956678556412e-14,
+          0.0399904122424087
+        ]
+      },
+      {
+        "case": "memory-test-normal-306",
+        "controller": "memory",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 12.08,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.5803490029561492,
+          -0.02614687311116546,
+          0.03999041224240868
+        ]
+      },
+      {
+        "case": "memory-test-normal-366",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.64113247341153,
+          -1.8471697683158376e-15,
+          0.03999041224240869
+        ]
+      },
+      {
+        "case": "memory-test-normal-366",
+        "controller": "memory",
+        "success": false,
+        "state": "stopped",
+        "reason": "execution timeout",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 25.04,
+        "requested_stop": false,
+        "stop_command_held": true,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.3167934883145846,
+          0.004570532215902618,
+          0.02499041224240869
+        ]
+      },
+      {
+        "case": "memory-test-pull-326",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 15.16,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": {
+          "tick": 125,
+          "holding_before_force": true,
+          "force_z": -30,
+          "duration": 0.08
+        },
+        "contact_loss_after_force": true,
+        "regrasp_after_loss": true,
+        "recovery_success": true,
+        "final_block_xyz": [
+          0.6414182138048169,
+          4.531653968001459e-16,
+          0.03999041224240869
+        ]
+      },
+      {
+        "case": "memory-test-pull-326",
+        "controller": "memory",
+        "success": false,
+        "state": "stopped",
+        "reason": "execution timeout",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 25.04,
+        "requested_stop": false,
+        "stop_command_held": true,
+        "user_stop_passed": false,
+        "disturbance": {
+          "tick": 125,
+          "holding_before_force": false,
+          "force_z": -30,
+          "duration": 0.08
+        },
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.34214634743047595,
+          0.006387400045224298,
+          0.02499041224240864
+        ]
+      },
+      {
+        "case": "memory-test-stop-356",
+        "controller": "feedback",
+        "success": false,
+        "state": "stopped",
+        "reason": "user stop",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 3.04,
+        "requested_stop": true,
+        "stop_command_held": true,
+        "user_stop_passed": true,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.356,
+          -1.067058588191856e-15,
+          0.02499041224240868
+        ]
+      },
+      {
+        "case": "memory-test-stop-356",
+        "controller": "memory",
+        "success": false,
+        "state": "stopped",
+        "reason": "user stop",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 3.04,
+        "requested_stop": true,
+        "stop_command_held": true,
+        "user_stop_passed": true,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.356,
+          -1.0792059980040318e-15,
+          0.02499041224240868
+        ]
+      }
+    ],
+    "limitations": "fixed red cube/camera; small interpolation test; evaluator truth detects goal; no learned completion",
+    "scores": {
+      "feedback": {
+        "task_success": 3,
+        "tasks": 3,
+        "timeouts": 0,
+        "valid_slip_trials": 1,
+        "recoveries": 1,
+        "user_stop_passed": 1,
+        "stop_cases": 1
+      },
+      "memory": {
+        "task_success": 1,
+        "tasks": 3,
+        "timeouts": 2,
+        "valid_slip_trials": 0,
+        "recoveries": 0,
+        "user_stop_passed": 1,
+        "stop_cases": 1
+      }
+    }
+  },
+  "deployment_decision": "keep existing ROS feedback controller; memory policy remains research only",
+  "caveat": "Different test cases from reactive-bc-v1; do not interpret 0/3 versus 1/3 as a paired improvement estimate."
+}

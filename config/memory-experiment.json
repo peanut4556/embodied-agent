@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "description": "GRU sequence experiment; physical checkpoint selection uses development validation only. Test cases frozen before training and distinct from the previously inspected reactive test positions.",
+  "split": {"train": [0, 1, 2, 3, 4, 5], "validation": [6, 7, 8], "test": []},
+  "validation_cases": [
+    {"name": "development-normal-312", "x": 0.312},
+    {"name": "development-normal-372", "x": 0.372},
+    {"name": "development-pull-332", "x": 0.332, "force_at": 4.92, "force_duration": 0.08, "force_z": -30}
+  ],
+  "test": [
+    {"name": "memory-test-normal-306", "x": 0.306},
+    {"name": "memory-test-normal-366", "x": 0.366},
+    {"name": "memory-test-pull-326", "x": 0.326, "force_at": 5.0, "force_duration": 0.08, "force_z": -30},
+    {"name": "memory-test-stop-356", "x": 0.356, "stop_at": 2.0}
+  ],
+  "previous_test_positions": [0.313, 0.373, 0.333, 0.353],
+  "seed": 73,
+  "hidden": 64,
+  "learning_rate": 0.003,
+  "candidate_epochs": [150, 300, 600],
+  "max_seconds": 24,
+  "selection": "maximize development task successes, then minimize validation action MSE, then earlier epoch",
+  "test_policy": "evaluate selected candidate only; no test-based tuning"
+}

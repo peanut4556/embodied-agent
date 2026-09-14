@@ -152,3 +152,21 @@ reactive-evaluate:
 
 reactive-test:
 	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -p test_reactive.py -v
+
+MEMORY_DATASET ?= outputs/datasets/reactive-development-v2
+MEMORY_RUN ?= outputs/models/memory-bc-v2
+MEMORY_EXPERIMENT ?= config/memory-extended-experiment.json
+MEMORY_SELECTION ?= outputs/evaluations/memory-bc-v2-development
+MEMORY_EVALUATION ?= outputs/evaluations/memory-bc-v2-test
+.PHONY: memory-train memory-select memory-evaluate memory-test
+memory-train:
+	PYTHONPATH=src .venv/bin/python scripts/train_memory.py train --dataset "$(MEMORY_DATASET)" --experiment "$(MEMORY_EXPERIMENT)" --output "$(MEMORY_RUN)"
+
+memory-select:
+	PYTHONPATH=src .venv/bin/python scripts/train_memory.py select --run "$(MEMORY_RUN)" --output "$(MEMORY_SELECTION)"
+
+memory-evaluate:
+	PYTHONPATH=src .venv/bin/python scripts/train_memory.py evaluate --run "$(MEMORY_RUN)" --selection "$(MEMORY_SELECTION)/selection.json" --baseline "$(BC_MODEL)" --output "$(MEMORY_EVALUATION)"
+
+memory-test:
+	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -p test_memory_policy.py -v
