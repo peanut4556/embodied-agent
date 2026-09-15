@@ -71,7 +71,7 @@ def predict_context(coefficients, context, mean, scale):
 
 def dataset_manifest(root):
     manifest = json.loads((root / "recording.json").read_text())
-    if manifest.get("dataset_type") == "feedback_recovery":
+    if manifest.get("dataset_type") in {"feedback_recovery", "feedback_correction"}:
         raise ValueError(
             "recovery outcomes require a dedicated trainer; not fixed expert demonstrations"
         )

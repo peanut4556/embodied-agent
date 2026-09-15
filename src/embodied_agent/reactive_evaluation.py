@@ -9,6 +9,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 from .feedback import FeedbackExecutor
+from .grasp_quality import GraspQuality
 from .imitation import ContextPolicy
 from .physics import PhysicsWorld
 from .reactive import ReactiveExecutor, ReactivePolicy
@@ -40,6 +41,7 @@ def run_case(policy, case, mode, max_seconds):
             )
         )
         fps = policy.metadata["fps"]
+        quality = GraspQuality(fps)
         body = world.model.body("red_block").id
         start = round(case.get("force_at", -1) * fps)
         force_ticks = round(case.get("force_duration", 0) * fps)
@@ -71,6 +73,12 @@ def run_case(policy, case, mode, max_seconds):
                 world.data.ctrl[:] = command
             if executor.state == "stopped":
                 stops.append(world.data.ctrl.copy())
+            quality.observe(
+                holding,
+                world.data.body("red_block").xpos.copy(),
+                world.data.ctrl.copy(),
+                world.inside_box(),
+            )
             for _ in range(round(1 / fps / world.model.opt.timestep)):
                 mujoco.mj_step(world.model, world.data)
             mujoco.mj_forward(world.model, world.data)
@@ -118,6 +126,7 @@ def run_case(policy, case, mode, max_seconds):
                 and success
             ),
             "final_block_xyz": world.snapshot()["block_xyz"],
+            "quality": quality.result(),
         }
         return result, frames
     finally:
@@ -180,6 +189,7 @@ def evaluate(model_path, baseline_path, output):
         ]
         scores[mode] = {
             "task_success": sum(r["success"] for r in tasks),
+            "verified_pick_place": sum(r["quality"]["verified_pick_place"] for r in tasks),
             "tasks": len(tasks),
             "disturbance_tasks": len(pulls),
             "valid_slip_trials": len(valid_pulls),

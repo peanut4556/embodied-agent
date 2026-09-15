@@ -198,6 +198,7 @@ def evaluate(root, selection_path, baseline_path, output):
             ]
             report["scores"][mode] = {
                 "task_success": sum(r["success"] for r in tasks),
+                "verified_pick_place": sum(r["quality"]["verified_pick_place"] for r in tasks),
                 "tasks": len(tasks),
                 "timeouts": sum(r["reason"] == "execution timeout" for r in tasks),
                 "valid_slip_trials": len(slips),

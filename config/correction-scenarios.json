@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "description": "Previously inspected development positions only; expert takes over actual frozen learner state. No independent test episodes.",
+  "cases": [
+    {"name": "train-left-early", "x": 0.302, "takeover_seconds": 2.0},
+    {"name": "train-left-late", "x": 0.302, "takeover_seconds": 4.0},
+    {"name": "train-middle-early", "x": 0.342, "takeover_seconds": 2.0},
+    {"name": "train-right-late", "x": 0.382, "takeover_seconds": 4.0},
+    {"name": "validation-left-late", "x": 0.312, "takeover_seconds": 4.0},
+    {"name": "validation-right-late", "x": 0.372, "takeover_seconds": 4.0},
+    {"name": "train-user-stop", "x": 0.302, "takeover_seconds": 2.0, "stop_seconds": 3.0}
+  ],
+  "split": {"train": [0, 1, 2, 3, 6], "validation": [4, 5], "test": []}
+}

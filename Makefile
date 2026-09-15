@@ -170,3 +170,16 @@ memory-evaluate:
 
 memory-test:
 	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python -m unittest discover -s tests/dataset -p test_memory_policy.py -v
+
+CORRECTION_DATASET ?= outputs/datasets/corrections-v2
+CORRECTION_MODEL ?= outputs/models/memory-bc-v2/epoch-2000
+.PHONY: correction-record correction-check correction-test
+correction-record:
+	PYTHONPATH=src .venv/bin/python scripts/record_corrections.py --model "$(CORRECTION_MODEL)" --output "$(CORRECTION_DATASET)"
+
+correction-check:
+	PYTHONPATH=src .venv/bin/python scripts/record_corrections.py --output "$(CORRECTION_DATASET)" --validate-only
+
+correction-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_grasp_quality.py -v
+	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache CORRECTION_TEST_DATASET="$(CORRECTION_DATASET)" .venv/bin/python -m unittest discover -s tests/dataset -p test_correction_data.py -v

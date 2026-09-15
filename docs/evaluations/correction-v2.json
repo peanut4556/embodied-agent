@@ -1,0 +1,779 @@
+{
+  "dataset": "corrections-v2",
+  "provenance": {
+    "schema_version": 1,
+    "dataset_type": "feedback_correction",
+    "status": "validated",
+    "repo_id": "local/embodied-agent-corrections",
+    "fps": 25,
+    "joint_names": [
+      "shoulder",
+      "elbow",
+      "wrist",
+      "finger_left",
+      "finger_right"
+    ],
+    "source_names": [
+      "learner",
+      "expert",
+      "settle",
+      "stopped"
+    ],
+    "split": {
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        6
+      ],
+      "validation": [
+        4,
+        5
+      ],
+      "test": []
+    },
+    "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+    "learner_weights_sha256": "4169d360348bf9b5895d057cd8a8acea5e806b7baca1e31b2d4b6a0b47509481",
+    "scenarios_sha256": "1aac76c5e5a1b8112242a13a2b8b7f4acff18a170b918edc87da1fb919e258fd",
+    "collector_sha256": "37474dfafb440f85180ccc0c4dfad1c0e50badc78e68ba0995dc6135dc8b170a",
+    "policy_input_keys": [
+      "observation.images.overhead",
+      "observation.state",
+      "observation.holding"
+    ],
+    "excluded_input_keys": [
+      "controller.source",
+      "supervision.valid",
+      "replay.action",
+      "next.done",
+      "next.success"
+    ],
+    "sampling": "actual pre-action RGB/state/contact; executed action held for entire frame",
+    "training_use": "successful expert frames only; learner prefix is context, never imitation target"
+  },
+  "episodes": [
+    {
+      "index": 0,
+      "scenario": {
+        "name": "train-left-early",
+        "x": 0.302,
+        "takeover_seconds": 2.0
+      },
+      "frames": 387,
+      "success": true,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3166820677156987,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 188,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 226,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 312,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "supervised_frames": 311
+    },
+    {
+      "index": 1,
+      "scenario": {
+        "name": "train-left-late",
+        "x": 0.302,
+        "takeover_seconds": 4.0
+      },
+      "frames": 200,
+      "success": false,
+      "reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.035097364258684594,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "supervised_frames": 0
+    },
+    {
+      "index": 2,
+      "scenario": {
+        "name": "train-middle-early",
+        "x": 0.342,
+        "takeover_seconds": 2.0
+      },
+      "frames": 387,
+      "success": true,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3095354096966763,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 188,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 226,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 312,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "supervised_frames": 311
+    },
+    {
+      "index": 3,
+      "scenario": {
+        "name": "train-right-late",
+        "x": 0.382,
+        "takeover_seconds": 4.0
+      },
+      "frames": 200,
+      "success": false,
+      "reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.08791396749449734,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "supervised_frames": 0
+    },
+    {
+      "index": 4,
+      "scenario": {
+        "name": "validation-left-late",
+        "x": 0.312,
+        "takeover_seconds": 4.0
+      },
+      "frames": 437,
+      "success": true,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31143899172281664,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "supervised_frames": 311
+    },
+    {
+      "index": 5,
+      "scenario": {
+        "name": "validation-right-late",
+        "x": 0.372,
+        "takeover_seconds": 4.0
+      },
+      "frames": 437,
+      "success": true,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3079929167193938,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 277,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "supervised_frames": 311
+    },
+    {
+      "index": 6,
+      "scenario": {
+        "name": "train-user-stop",
+        "x": 0.302,
+        "takeover_seconds": 2.0,
+        "stop_seconds": 3.0
+      },
+      "frames": 101,
+      "success": false,
+      "reason": "user stop",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991627279042847,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "supervised_frames": 0
+    }
+  ],
+  "validation": {
+    "success": true,
+    "total_frames": 2149,
+    "episodes": [
+      {
+        "episode": 0,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1578785796828583e-07,
+          1.1900302254730377e-07,
+          5.835487892902336e-08,
+          1.8500510776120471e-09,
+          1.8431641282679045e-09
+        ]
+      },
+      {
+        "episode": 1,
+        "replay_matches": true,
+        "success": false,
+        "supervised_frames": 0,
+        "max_joint_error": [
+          1.1822499645930407e-07,
+          1.187289075943454e-07,
+          5.840410155499853e-08,
+          1.8500510776120471e-09,
+          1.8211008187551947e-09
+        ]
+      },
+      {
+        "episode": 2,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1904405461393708e-07,
+          1.1916207354190078e-07,
+          5.87107540361842e-08,
+          1.8372878773931234e-09,
+          1.8556184783191654e-09
+        ]
+      },
+      {
+        "episode": 3,
+        "replay_matches": true,
+        "success": false,
+        "supervised_frames": 0,
+        "max_joint_error": [
+          1.1777503283738611e-07,
+          1.1796837107169722e-07,
+          5.727240215414042e-08,
+          1.8477560870255871e-09,
+          1.803039897940728e-09
+        ]
+      },
+      {
+        "episode": 4,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1348581718806372e-07,
+          1.1859530424374043e-07,
+          5.8700251326371244e-08,
+          1.8577978599942924e-09,
+          1.8614367200409099e-09
+        ]
+      },
+      {
+        "episode": 5,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1854962655988288e-07,
+          1.188708886878942e-07,
+          5.835084704308713e-08,
+          1.8545337002184858e-09,
+          1.8076358118679359e-09
+        ]
+      },
+      {
+        "episode": 6,
+        "replay_matches": true,
+        "success": false,
+        "supervised_frames": 0,
+        "max_joint_error": [
+          1.0066659950069834e-07,
+          1.1900302254730377e-07,
+          5.616168841093838e-08,
+          1.8500510776120471e-09,
+          1.8211008187551947e-09
+        ]
+      }
+    ]
+  },
+  "selection": {
+    "usable": true,
+    "split": {
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        6
+      ],
+      "validation": [
+        4,
+        5
+      ],
+      "test": []
+    },
+    "successful_episodes": [
+      0,
+      2,
+      4,
+      5
+    ],
+    "failure_episodes": [
+      1,
+      3,
+      6
+    ],
+    "independent_test_episodes": [],
+    "required_loss_mask": "supervision.valid",
+    "payload_sha256": "a59bcbd4f2b65b46cf3a643f9303a0091c1c06991d2240e2bf5da2698befc6c4"
+  },
+  "training_readback": {
+    "success": true,
+    "episodes": [
+      {
+        "group": "train",
+        "episode": 0,
+        "frames": 387,
+        "supervised_frames": 311
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "frames": 387,
+        "supervised_frames": 311
+      },
+      {
+        "group": "validation",
+        "episode": 4,
+        "frames": 437,
+        "supervised_frames": 311
+      },
+      {
+        "group": "validation",
+        "episode": 5,
+        "frames": 437,
+        "supervised_frames": 311
+      }
+    ]
+  },
+  "quality_audit_is_posthoc": true,
+  "quality_summary": {
+    "feedback": {
+      "tasks": 3,
+      "endpoint_success": 3,
+      "verified_pick_place": 3
+    },
+    "memory": {
+      "tasks": 3,
+      "endpoint_success": 1,
+      "verified_pick_place": 0
+    }
+  },
+  "quality_audit": {
+    "status": "complete",
+    "selected": "epoch-2000",
+    "selection_sha256": "5be781a6f66ee8f8632156cde8d2e7c09a2bb8444088d23954854a359eea98ab",
+    "weights_sha256": "4169d360348bf9b5895d057cd8a8acea5e806b7baca1e31b2d4b6a0b47509481",
+    "experiment_sha256": "9bac907a42d01e9ac8b8611262547e0ca1e7528fe3c45286fb4092631e0765cf",
+    "baseline_sha256": "ff231781e359f4f8ec57585cdf5b1d9ca557f1bd43f01fd3b914d7949cbb3344",
+    "results": [
+      {
+        "case": "memory-test-normal-306",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.6409418897723328,
+          -2.21956678556412e-14,
+          0.0399904122424087
+        ],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.3132377678863183,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 63,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 102,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 187,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        }
+      },
+      {
+        "case": "memory-test-normal-306",
+        "controller": "memory",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 12.08,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.5803490029561492,
+          -0.02614687311116546,
+          0.03999041224240868
+        ],
+        "quality": {
+          "verified_pick_place": false,
+          "stable_goal": true,
+          "stable_grasp_observed": false,
+          "sustained_lift": false,
+          "intentional_release": false,
+          "max_height_m": 0.11771568265311667,
+          "classification": "goal_without_verified_pick_place",
+          "events": []
+        }
+      },
+      {
+        "case": "memory-test-normal-366",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 9.44,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.64113247341153,
+          -1.8471697683158376e-15,
+          0.03999041224240869
+        ],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.3090106278988367,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 63,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 102,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 187,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        }
+      },
+      {
+        "case": "memory-test-normal-366",
+        "controller": "memory",
+        "success": false,
+        "state": "stopped",
+        "reason": "execution timeout",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 25.04,
+        "requested_stop": false,
+        "stop_command_held": true,
+        "user_stop_passed": false,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.3167934883145846,
+          0.004570532215902618,
+          0.02499041224240869
+        ],
+        "quality": {
+          "verified_pick_place": false,
+          "stable_goal": false,
+          "stable_grasp_observed": false,
+          "sustained_lift": false,
+          "intentional_release": false,
+          "max_height_m": 0.03521914426727549,
+          "classification": "task_incomplete",
+          "events": []
+        }
+      },
+      {
+        "case": "memory-test-pull-326",
+        "controller": "feedback",
+        "success": true,
+        "state": "running",
+        "reason": "",
+        "evaluator_detected_stable_goal": true,
+        "duration_seconds": 15.16,
+        "requested_stop": false,
+        "stop_command_held": false,
+        "user_stop_passed": false,
+        "disturbance": {
+          "tick": 125,
+          "holding_before_force": true,
+          "force_z": -30,
+          "duration": 0.08
+        },
+        "contact_loss_after_force": true,
+        "regrasp_after_loss": true,
+        "recovery_success": true,
+        "final_block_xyz": [
+          0.6414182138048169,
+          4.531653968001459e-16,
+          0.03999041224240869
+        ],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.3092876565615652,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 63,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 102,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 126,
+              "event": "lift_contact_lost"
+            },
+            {
+              "tick": 245,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 330,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        }
+      },
+      {
+        "case": "memory-test-pull-326",
+        "controller": "memory",
+        "success": false,
+        "state": "stopped",
+        "reason": "execution timeout",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 25.04,
+        "requested_stop": false,
+        "stop_command_held": true,
+        "user_stop_passed": false,
+        "disturbance": {
+          "tick": 125,
+          "holding_before_force": false,
+          "force_z": -30,
+          "duration": 0.08
+        },
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.34214634743047595,
+          0.006387400045224298,
+          0.02499041224240864
+        ],
+        "quality": {
+          "verified_pick_place": false,
+          "stable_goal": false,
+          "stable_grasp_observed": false,
+          "sustained_lift": false,
+          "intentional_release": false,
+          "max_height_m": 0.0310269758448231,
+          "classification": "task_incomplete",
+          "events": []
+        }
+      },
+      {
+        "case": "memory-test-stop-356",
+        "controller": "feedback",
+        "success": false,
+        "state": "stopped",
+        "reason": "user stop",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 3.04,
+        "requested_stop": true,
+        "stop_command_held": true,
+        "user_stop_passed": true,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.356,
+          -1.067058588191856e-15,
+          0.02499041224240868
+        ],
+        "quality": {
+          "verified_pick_place": false,
+          "stable_goal": false,
+          "stable_grasp_observed": false,
+          "sustained_lift": false,
+          "intentional_release": false,
+          "max_height_m": 0.024991448833016197,
+          "classification": "task_incomplete",
+          "events": []
+        }
+      },
+      {
+        "case": "memory-test-stop-356",
+        "controller": "memory",
+        "success": false,
+        "state": "stopped",
+        "reason": "user stop",
+        "evaluator_detected_stable_goal": false,
+        "duration_seconds": 3.04,
+        "requested_stop": true,
+        "stop_command_held": true,
+        "user_stop_passed": true,
+        "disturbance": null,
+        "contact_loss_after_force": false,
+        "regrasp_after_loss": false,
+        "recovery_success": false,
+        "final_block_xyz": [
+          0.356,
+          -1.0792059980040318e-15,
+          0.02499041224240868
+        ],
+        "quality": {
+          "verified_pick_place": false,
+          "stable_goal": false,
+          "stable_grasp_observed": false,
+          "sustained_lift": false,
+          "intentional_release": false,
+          "max_height_m": 0.024991448833016197,
+          "classification": "task_incomplete",
+          "events": []
+        }
+      }
+    ],
+    "limitations": "fixed red cube/camera; small interpolation test; evaluator truth detects goal; no learned completion",
+    "scores": {
+      "feedback": {
+        "task_success": 3,
+        "tasks": 3,
+        "timeouts": 0,
+        "valid_slip_trials": 1,
+        "recoveries": 1,
+        "user_stop_passed": 1,
+        "stop_cases": 1
+      },
+      "memory": {
+        "task_success": 1,
+        "tasks": 3,
+        "timeouts": 2,
+        "valid_slip_trials": 0,
+        "recoveries": 0,
+        "user_stop_passed": 1,
+        "stop_cases": 1
+      }
+    }
+  },
+  "checks": {
+    "quality_tests": 4,
+    "correction_tests_including_real_replay_corruption": 6,
+    "memory_tests": 8,
+    "reactive_tests": 5,
+    "temporal_tests": 8,
+    "core_tests": 20
+  },
+  "new_policy_trained": false
+}
