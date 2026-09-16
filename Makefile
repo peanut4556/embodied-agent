@@ -183,3 +183,16 @@ correction-check:
 correction-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_grasp_quality.py -v
 	PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache CORRECTION_TEST_DATASET="$(CORRECTION_DATASET)" .venv/bin/python -m unittest discover -s tests/dataset -p test_correction_data.py -v
+
+.PHONY: correction-expand correction-finetune correction-select correction-finetune-test
+correction-expand:
+	PYTHONPATH=src .venv/bin/python scripts/record_corrections.py --output outputs/datasets/corrections-expanded-v1 --scenarios config/correction-expanded-scenarios.json
+
+correction-finetune:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py
+
+correction-select:
+	PYTHONPATH=src .venv/bin/python scripts/train_memory.py select --run outputs/models/memory-correction-v1 --output outputs/evaluations/memory-correction-v1-development
+
+correction-finetune-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_correction_finetune.py -v

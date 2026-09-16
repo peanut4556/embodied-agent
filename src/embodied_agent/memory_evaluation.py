@@ -48,10 +48,12 @@ def verify_physics(policy):
         world.close()
 
 
-def select_candidate(candidates):
+def select_candidate(candidates, metric="task_success"):
+    if metric not in ("task_success", "verified_pick_place"):
+        raise ValueError("unsupported selection metric")
     if not candidates:
         raise ValueError("no physical selection results")
-    return min(candidates, key=lambda c: (-c["task_success"], c["validation_mse"], c["epoch"]))
+    return min(candidates, key=lambda c: (-c[metric], c["validation_mse"], c["epoch"]))
 
 
 def save_preview(output, name, frames, fps):
@@ -97,18 +99,22 @@ def select(root, output):
             entry = {
                 **candidate,
                 "task_success": sum(r["success"] for r in results),
+                "verified_pick_place": sum(r["quality"]["verified_pick_place"] for r in results),
                 "task_count": len(results),
                 "results": results,
             }
             report["candidates"].append(entry)
             write(output / "selection.json", report)
-        chosen = select_candidate(report["candidates"])
+        metric = config.get("selection_metric", "task_success")
+        chosen = select_candidate(report["candidates"], metric)
         report.update(
             status="selected",
             selected=chosen["directory"],
             selected_weights_sha256=chosen["weights_sha256"],
             selected_task_success=chosen["task_success"],
-            eligible_for_reserved_test=chosen["task_success"] > 0,
+            selected_verified_pick_place=chosen["verified_pick_place"],
+            selection_metric=metric,
+            eligible_for_reserved_test=chosen[metric] > 0,
         )
     except BaseException as exc:
         report.update(status="failed", error=str(exc))
@@ -141,13 +147,18 @@ def selected_policy(root, selection_path):
             raise ValueError("selection cases differ from frozen development cases")
         if candidate["task_success"] != sum(r["success"] for r in candidate["results"]):
             raise ValueError("selection score disagrees with physical outcomes")
-    chosen = select_candidate(selection["candidates"])
+        if config.get("selection_metric") == "verified_pick_place" and candidate[
+            "verified_pick_place"
+        ] != sum(r["quality"]["verified_pick_place"] for r in candidate["results"]):
+            raise ValueError("qualified score disagrees with physical outcomes")
+    metric = config.get("selection_metric", "task_success")
+    chosen = select_candidate(selection["candidates"], metric)
     if (
         selection["selected"] != chosen["directory"]
         or selection["selected_weights_sha256"] != chosen["weights_sha256"]
     ):
         raise ValueError("selection does not follow the frozen criterion")
-    if chosen["task_success"] < 1:
+    if chosen[metric] < 1:
         raise ValueError("at least one development success required before reserved test")
     return MemoryPolicy(Path(root) / selection["selected"]), selection, config
 

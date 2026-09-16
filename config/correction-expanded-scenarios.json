@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "description": "Frozen development-only expansion: four training and three validation positions, takeover at one and three seconds.",
+  "cases": [
+    {
+      "name": "train-302-takeover-1",
+      "x": 0.302,
+      "takeover_seconds": 1
+    },
+    {
+      "name": "train-302-takeover-3",
+      "x": 0.302,
+      "takeover_seconds": 3
+    },
+    {
+      "name": "train-322-takeover-1",
+      "x": 0.322,
+      "takeover_seconds": 1
+    },
+    {
+      "name": "train-322-takeover-3",
+      "x": 0.322,
+      "takeover_seconds": 3
+    },
+    {
+      "name": "train-342-takeover-1",
+      "x": 0.342,
+      "takeover_seconds": 1
+    },
+    {
+      "name": "train-342-takeover-3",
+      "x": 0.342,
+      "takeover_seconds": 3
+    },
+    {
+      "name": "train-382-takeover-1",
+      "x": 0.382,
+      "takeover_seconds": 1
+    },
+    {
+      "name": "train-382-takeover-3",
+      "x": 0.382,
+      "takeover_seconds": 3
+    },
+    {
+      "name": "validation-312-takeover-1",
+      "x": 0.312,
+      "takeover_seconds": 1
+    },
+    {
+      "name": "validation-312-takeover-3",
+      "x": 0.312,
+      "takeover_seconds": 3
+    },
+    {
+      "name": "validation-372-takeover-1",
+      "x": 0.372,
+      "takeover_seconds": 1
+    },
+    {
+      "name": "validation-372-takeover-3",
+      "x": 0.372,
+      "takeover_seconds": 3
+    },
+    {
+      "name": "validation-332-takeover-1",
+      "x": 0.332,
+      "takeover_seconds": 1
+    },
+    {
+      "name": "validation-332-takeover-3",
+      "x": 0.332,
+      "takeover_seconds": 3
+    }
+  ],
+  "split": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "validation": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "test": []
+  }
+}
