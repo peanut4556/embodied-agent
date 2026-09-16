@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "description": "Earlier takeover from memory-correction-v1/epoch-600 at 0.4 and 0.8 seconds, covering measured 0.52-0.76s development divergence; same grouped development positions.",
+  "cases": [
+    {
+      "name": "train-302-takeover-0.4",
+      "x": 0.302,
+      "takeover_seconds": 0.4
+    },
+    {
+      "name": "train-302-takeover-0.8",
+      "x": 0.302,
+      "takeover_seconds": 0.8
+    },
+    {
+      "name": "train-322-takeover-0.4",
+      "x": 0.322,
+      "takeover_seconds": 0.4
+    },
+    {
+      "name": "train-322-takeover-0.8",
+      "x": 0.322,
+      "takeover_seconds": 0.8
+    },
+    {
+      "name": "train-342-takeover-0.4",
+      "x": 0.342,
+      "takeover_seconds": 0.4
+    },
+    {
+      "name": "train-342-takeover-0.8",
+      "x": 0.342,
+      "takeover_seconds": 0.8
+    },
+    {
+      "name": "train-382-takeover-0.4",
+      "x": 0.382,
+      "takeover_seconds": 0.4
+    },
+    {
+      "name": "train-382-takeover-0.8",
+      "x": 0.382,
+      "takeover_seconds": 0.8
+    },
+    {
+      "name": "validation-312-takeover-0.4",
+      "x": 0.312,
+      "takeover_seconds": 0.4
+    },
+    {
+      "name": "validation-312-takeover-0.8",
+      "x": 0.312,
+      "takeover_seconds": 0.8
+    },
+    {
+      "name": "validation-372-takeover-0.4",
+      "x": 0.372,
+      "takeover_seconds": 0.4
+    },
+    {
+      "name": "validation-372-takeover-0.8",
+      "x": 0.372,
+      "takeover_seconds": 0.8
+    },
+    {
+      "name": "validation-332-takeover-0.4",
+      "x": 0.332,
+      "takeover_seconds": 0.4
+    },
+    {
+      "name": "validation-332-takeover-0.8",
+      "x": 0.332,
+      "takeover_seconds": 0.8
+    }
+  ],
+  "split": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "validation": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "test": []
+  }
+}

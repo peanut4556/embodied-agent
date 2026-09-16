@@ -196,3 +196,19 @@ correction-select:
 
 correction-finetune-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_correction_finetune.py -v
+
+.PHONY: correction-diagnose correction-early-record correction-early-train correction-early-select diagnostics-test
+correction-diagnose:
+	PYTHONPATH=src .venv/bin/python scripts/diagnose_correction_policy.py
+
+correction-early-record:
+	PYTHONPATH=src .venv/bin/python scripts/record_corrections.py --model outputs/models/memory-correction-v1/epoch-600 --scenarios config/correction-early-scenarios.json --output outputs/datasets/corrections-early-v1
+
+correction-early-train:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/memory-correction-v1/epoch-600 --corrections outputs/datasets/corrections-early-v1 --experiment config/correction-early-experiment.json --output outputs/models/memory-correction-v2
+
+correction-early-select:
+	PYTHONPATH=src .venv/bin/python scripts/train_memory.py select --run outputs/models/memory-correction-v2 --output outputs/evaluations/memory-correction-v2-development
+
+diagnostics-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_policy_diagnostics.py -v

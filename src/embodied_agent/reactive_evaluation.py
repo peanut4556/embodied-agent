@@ -16,7 +16,7 @@ from .reactive import ReactiveExecutor, ReactivePolicy
 from .temporal_data import read_json
 
 
-def run_case(policy, case, mode, max_seconds):
+def run_case(policy, case, mode, max_seconds, trace=None):
     if mode not in {"open_loop", "feedback", "reactive", "memory"}:
         raise ValueError("unknown evaluation controller")
     world = PhysicsWorld()
@@ -71,6 +71,15 @@ def run_case(policy, case, mode, max_seconds):
                 if tick >= round(max_seconds * fps) and executor.state != "stopped":
                     command = executor.stop(world.data.qpos[:5], "execution timeout")
                 world.data.ctrl[:] = command
+            if trace is not None:
+                trace.append(
+                    {
+                        "tick": tick,
+                        "joints": world.data.qpos[:5].tolist(),
+                        "command": world.data.ctrl.tolist(),
+                        "holding": bool(holding),
+                    }
+                )
             if executor.state == "stopped":
                 stops.append(world.data.ctrl.copy())
             quality.observe(

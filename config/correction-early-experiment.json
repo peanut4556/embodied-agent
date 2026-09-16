@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "description": "Second correction iteration: warm-start memory-correction-v1/epoch-600 on its own early-rollout expert corrections plus original successful demonstrations. Same bounded optimizer and unopened test fixtures.",
+  "split": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "validation": [
+      6,
+      7,
+      8
+    ],
+    "test": []
+  },
+  "validation_cases": [
+    {
+      "name": "development-normal-312",
+      "x": 0.312
+    },
+    {
+      "name": "development-normal-372",
+      "x": 0.372
+    },
+    {
+      "name": "development-pull-332",
+      "x": 0.332,
+      "force_at": 4.92,
+      "force_duration": 0.08,
+      "force_z": -30
+    }
+  ],
+  "test": [
+    {
+      "name": "correction-test-308",
+      "x": 0.308
+    },
+    {
+      "name": "correction-test-368",
+      "x": 0.368
+    },
+    {
+      "name": "correction-test-328",
+      "x": 0.328,
+      "force_at": 5.0,
+      "force_duration": 0.08,
+      "force_z": -30
+    },
+    {
+      "name": "correction-test-358",
+      "x": 0.358,
+      "stop_at": 2.0
+    }
+  ],
+  "previous_test_positions": [
+    0.313,
+    0.373,
+    0.333,
+    0.353,
+    0.306,
+    0.366,
+    0.326,
+    0.356
+  ],
+  "seed": 73,
+  "hidden": 64,
+  "learning_rate": 0.0003,
+  "candidate_epochs": [
+    100,
+    300,
+    600
+  ],
+  "max_seconds": 24,
+  "selection": "maximize verified development pick-place, then minimize masked validation MSE, then earlier epoch",
+  "test_policy": "evaluate selected candidate only; no test-based tuning",
+  "selection_metric": "verified_pick_place"
+}
