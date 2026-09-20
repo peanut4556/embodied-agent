@@ -1,0 +1,515 @@
+{
+  "status": "complete",
+  "source_sha256": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+  "script_sha256": "72a9169dbdfd01e1df40d13cbe58fda57c59d1f23a17e2a5448a6514f3c76680",
+  "horizon_seconds": 2,
+  "test_executed": false,
+  "production_limits_changed": false,
+  "results": [
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference",
+      "trace": "memory-correction-v1-development-normal-312-reference.json",
+      "trace_sha256": "0a67391a1e347466379656e9387eefdf73e3ee2d2ebcd51c2212b04560b7215c",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 6.595950201305352e-08,
+        "finger_state_rmse_m": 1.886221151968846e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 5.907121159635433e-08,
+        "finger_state_rmse_m": 1.3337597673746867e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "limited",
+      "trace": "memory-correction-v1-development-normal-312-limited.json",
+      "trace_sha256": "14d36f7acf4187273718c8a536506a7fcdfba980909846bfe55ece8c2af207c8",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 18,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.07869105390361153,
+        "finger_state_rmse_m": 1.869184920743266e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.17792938961908342,
+        "finger_state_rmse_m": 9.827006182617996e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "unlimited",
+      "trace": "memory-correction-v1-development-normal-312-unlimited.json",
+      "trace_sha256": "14d36f7acf4187273718c8a536506a7fcdfba980909846bfe55ece8c2af207c8",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 18,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.07869105390361153,
+        "finger_state_rmse_m": 1.869184920743266e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.17792938961908342,
+        "finger_state_rmse_m": 9.827006182617996e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference",
+      "trace": "memory-correction-v1-development-normal-372-reference.json",
+      "trace_sha256": "293f579ade0347fdb27f4a7fdcc41af2af2eecd05ac947fda44814b6bc21c49c",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 5.6942209825970194e-08,
+        "finger_state_rmse_m": 1.886221151968846e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 5.582893772168209e-08,
+        "finger_state_rmse_m": 1.3337597673746867e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "limited",
+      "trace": "memory-correction-v1-development-normal-372-limited.json",
+      "trace_sha256": "328f3ed2b40f3ccb1505aee7351daa1fb0b7673902f26fe1d35b39ce1ff3dcd3",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13591274572123277,
+        "finger_state_rmse_m": 0.0004072953549610702,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.2760201314950767,
+        "finger_state_rmse_m": 0.00036737447673098695,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "unlimited",
+      "trace": "memory-correction-v1-development-normal-372-unlimited.json",
+      "trace_sha256": "328f3ed2b40f3ccb1505aee7351daa1fb0b7673902f26fe1d35b39ce1ff3dcd3",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13591274572123277,
+        "finger_state_rmse_m": 0.0004072953549610702,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.2760201314950767,
+        "finger_state_rmse_m": 0.00036737447673098695,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference",
+      "trace": "memory-correction-v1-development-pull-332-reference.json",
+      "trace_sha256": "f232dc982b4172588b7d03a7eae927f11f8a8f730fe63e80f396617a0ddd7f7e",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 6.625549886462576e-08,
+        "finger_state_rmse_m": 4.096309788174121e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 6.125196142111753e-08,
+        "finger_state_rmse_m": 2.896528429058758e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "limited",
+      "trace": "memory-correction-v1-development-pull-332-limited.json",
+      "trace_sha256": "bdf28459a2eeb6acf029bac397102b9ba1b53003fd83890d9f7d43c4c8ddc7a4",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 15,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.10287651113613028,
+        "finger_state_rmse_m": 0.00012205669245013481,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.22367967265032654,
+        "finger_state_rmse_m": 8.630711511915753e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "unlimited",
+      "trace": "memory-correction-v1-development-pull-332-unlimited.json",
+      "trace_sha256": "bdf28459a2eeb6acf029bac397102b9ba1b53003fd83890d9f7d43c4c8ddc7a4",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 15,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.10287651113613028,
+        "finger_state_rmse_m": 0.00012205669245013481,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.22367967265032654,
+        "finger_state_rmse_m": 8.630711511915753e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference",
+      "trace": "memory-correction-v2-development-normal-312-reference.json",
+      "trace_sha256": "0a67391a1e347466379656e9387eefdf73e3ee2d2ebcd51c2212b04560b7215c",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 6.595950201305352e-08,
+        "finger_state_rmse_m": 1.886221151968846e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 5.907121159635433e-08,
+        "finger_state_rmse_m": 1.3337597673746867e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "limited",
+      "trace": "memory-correction-v2-development-normal-312-limited.json",
+      "trace_sha256": "d523f4b4c37deaa9b1a6af82f19533974e05542b068b5113431b7bee279a052c",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 33,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.02779570454088024,
+        "finger_state_rmse_m": 6.282012034025393e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.09557049241140454,
+        "finger_state_rmse_m": 0.0002313202436779453,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "unlimited",
+      "trace": "memory-correction-v2-development-normal-312-unlimited.json",
+      "trace_sha256": "d523f4b4c37deaa9b1a6af82f19533974e05542b068b5113431b7bee279a052c",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 33,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.02779570454088024,
+        "finger_state_rmse_m": 6.282012034025393e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.09557049241140454,
+        "finger_state_rmse_m": 0.0002313202436779453,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference",
+      "trace": "memory-correction-v2-development-normal-372-reference.json",
+      "trace_sha256": "293f579ade0347fdb27f4a7fdcc41af2af2eecd05ac947fda44814b6bc21c49c",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 5.6942209825970194e-08,
+        "finger_state_rmse_m": 1.886221151968846e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 5.582893772168209e-08,
+        "finger_state_rmse_m": 1.3337597673746867e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "limited",
+      "trace": "memory-correction-v2-development-normal-372-limited.json",
+      "trace_sha256": "ecdc6a6bda7a55d261b6dd9fad18e338bc36b13c9179a83046bcd6aad238bdb2",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13617268250335238,
+        "finger_state_rmse_m": 0.000433020911302311,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.30142621412437615,
+        "finger_state_rmse_m": 0.00033930323027462326,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "unlimited",
+      "trace": "memory-correction-v2-development-normal-372-unlimited.json",
+      "trace_sha256": "ecdc6a6bda7a55d261b6dd9fad18e338bc36b13c9179a83046bcd6aad238bdb2",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13617268250335238,
+        "finger_state_rmse_m": 0.000433020911302311,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.30142621412437615,
+        "finger_state_rmse_m": 0.00033930323027462326,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference",
+      "trace": "memory-correction-v2-development-pull-332-reference.json",
+      "trace_sha256": "f232dc982b4172588b7d03a7eae927f11f8a8f730fe63e80f396617a0ddd7f7e",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 6.625549886462576e-08,
+        "finger_state_rmse_m": 4.096309788174121e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 6.125196142111753e-08,
+        "finger_state_rmse_m": 2.896528429058758e-10,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "limited",
+      "trace": "memory-correction-v2-development-pull-332-limited.json",
+      "trace_sha256": "decde50e38d1baa913b35fc9ee8226eae95c64ae65d3b6b262d48fef5cd29115",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 38,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.06155556478434744,
+        "finger_state_rmse_m": 9.155506925137117e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.1383241403761697,
+        "finger_state_rmse_m": 8.369904416695918e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "unlimited",
+      "trace": "memory-correction-v2-development-pull-332-unlimited.json",
+      "trace_sha256": "decde50e38d1baa913b35fc9ee8226eae95c64ae65d3b6b262d48fef5cd29115",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 38,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.06155556478434744,
+        "finger_state_rmse_m": 9.155506925137117e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.1383241403761697,
+        "finger_state_rmse_m": 8.369904416695918e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    }
+  ],
+  "regression_tests_passed": 10
+}

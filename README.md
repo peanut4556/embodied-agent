@@ -208,6 +208,9 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 三个候选合格抓放仍为 0/3，单个候选出现 1/3 稳定抓取但未完成抬升。
 见 [早期偏差与第二轮纠正](docs/correction-early.md)。
 
+后续短段对照确认：两个模型在三个开发场景的前两秒都未触发执行器限速，
+取消限速的轨迹完全相同。见 [动作链路对照](docs/action-chain.md)。
+
 下面保留无需物理引擎的二维快速演示：
 
 启动 Docker Desktop、Ollama 后，在两个终端分别运行 `make sim-ros` 和 `make sim-web`，

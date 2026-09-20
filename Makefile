@@ -212,3 +212,10 @@ correction-early-select:
 
 diagnostics-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_policy_diagnostics.py -v
+
+.PHONY: action-chain-audit action-chain-test
+action-chain-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_action_chain.py
+
+action-chain-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_action_chain.py -v
