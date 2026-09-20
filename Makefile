@@ -219,3 +219,10 @@ action-chain-audit:
 
 action-chain-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_action_chain.py -v
+
+.PHONY: input-feedback-audit input-feedback-test
+input-feedback-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_input_feedback.py
+
+input-feedback-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_input_feedback.py -v

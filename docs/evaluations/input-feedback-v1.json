@@ -1,0 +1,695 @@
+{
+  "status": "complete",
+  "source_sha256": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+  "experiment_sha256": "8f05ad07363d121d085ed759cc31c033697a5db45c6f98e5124c7af6f141aaf0",
+  "script_sha256": "98d94a0b3f6b5bcc2439b56b27549944e43f6ad417ba3c4909d5b4748d816bf0",
+  "action_chain_sha256": "5966f339d2e0d90e8b05144db20fe475887b6b80f44532c0130b12a66a0fbad6",
+  "horizon_seconds": 2,
+  "test_executed": false,
+  "models_retrained": false,
+  "modes": [
+    "actual",
+    "reference_vision",
+    "reference_joints",
+    "reference_both"
+  ],
+  "contact_input": "actual in every condition",
+  "results": [
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "actual",
+      "trace": "memory-correction-v1-development-normal-312-actual.json",
+      "trace_sha256": "c0180410eaac98d9f920ee01970516d739c3b73eeadcb137061815f9a369f815",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 18,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.07869105390361153,
+        "finger_state_rmse_m": 1.869184920743266e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.17792938961908342,
+        "finger_state_rmse_m": 9.827006182617996e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference_vision",
+      "trace": "memory-correction-v1-development-normal-312-reference_vision.json",
+      "trace_sha256": "5d162de8cef44b545b1ea3b6c30c9905175a84d6403d0cb469481f9a428ceb1b",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 18,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.07862372995376848,
+        "finger_state_rmse_m": 1.914747587726471e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.19111175307952186,
+        "finger_state_rmse_m": 1.3539310429429565e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference_joints",
+      "trace": "memory-correction-v1-development-normal-312-reference_joints.json",
+      "trace_sha256": "66a4396249ef3936af2a4641d38831d9976fe5904bf24ff4b9aac0e74e953ce3",
+      "rate_limited_frames": 1,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.02592781858821691,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.017745200521884705,
+        "finger_state_rmse_m": 9.201745011157843e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.018926053374624364,
+        "finger_state_rmse_m": 0.00011004051544805767,
+        "max_limit_action_change_arm_rad": 0.058636779785156024,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference_both",
+      "trace": "memory-correction-v1-development-normal-312-reference_both.json",
+      "trace_sha256": "e17d7a75b6db273d816ac5c09743368a86e63e6e3f6234210d145b8f8236640d",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.01767383586180581,
+        "finger_state_rmse_m": 9.134188497636547e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.015363382849392237,
+        "finger_state_rmse_m": 7.656085058512619e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "actual",
+      "trace": "memory-correction-v1-development-normal-372-actual.json",
+      "trace_sha256": "31ee9e3df471e24c4e1e84cf4d10fbb47c8393a647868b382b68059fa54f6eb3",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13591274572123277,
+        "finger_state_rmse_m": 0.0004072953549610702,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.2760201314950767,
+        "finger_state_rmse_m": 0.00036737447673098695,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference_vision",
+      "trace": "memory-correction-v1-development-normal-372-reference_vision.json",
+      "trace_sha256": "0c244c63b6f3661374115fe979b51d53dcbcad8bc16185314d1844000c1a0abc",
+      "rate_limited_frames": 1,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.00029629095202804434,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13397347749152635,
+        "finger_state_rmse_m": 0.0004122502394400486,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.18617224022119921,
+        "finger_state_rmse_m": 0.0004166326373929068,
+        "max_limit_action_change_arm_rad": 0.0005915474891660666,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference_joints",
+      "trace": "memory-correction-v1-development-normal-372-reference_joints.json",
+      "trace_sha256": "3b5457cb9a7ab58dc8b33a0a45debb6a72ced34185975068763af35f8631ff9f",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.0253884019823978,
+        "finger_state_rmse_m": 0.00034647165758787076,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.021937296184314926,
+        "finger_state_rmse_m": 0.000255113741102778,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference_both",
+      "trace": "memory-correction-v1-development-normal-372-reference_both.json",
+      "trace_sha256": "c2b6b5876433e4fe20063297353b9b92e1a2a1cd834cc014a0e01a6fcb39de91",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.025050521850893542,
+        "finger_state_rmse_m": 0.0003364474102393975,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.021812701098679665,
+        "finger_state_rmse_m": 0.0002710007354631626,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "actual",
+      "trace": "memory-correction-v1-development-pull-332-actual.json",
+      "trace_sha256": "002641808aaf1c954cce2f50745369554506a3fa39c34dc4d38ed24234b40cee",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 15,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.10287651113613028,
+        "finger_state_rmse_m": 0.00012205669245013481,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.22367967265032654,
+        "finger_state_rmse_m": 8.630711511915753e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference_vision",
+      "trace": "memory-correction-v1-development-pull-332-reference_vision.json",
+      "trace_sha256": "5def16ca304d59a5ed019e43b12e3d8359ff4042ca5df6cc895b352b1685d1bd",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 15,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.10387016718988697,
+        "finger_state_rmse_m": 0.00012448568730239658,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.1903034231959458,
+        "finger_state_rmse_m": 0.00014077323853905276,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference_joints",
+      "trace": "memory-correction-v1-development-pull-332-reference_joints.json",
+      "trace_sha256": "f4c18d804435a47c3830434aac59c806d2c2964ab8fd8a8fd22be815352ea80d",
+      "rate_limited_frames": 4,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.006716074501417979,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.022094599011598992,
+        "finger_state_rmse_m": 0.00011256785474498378,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.02012747370619863,
+        "finger_state_rmse_m": 0.0001092002254101625,
+        "max_limit_action_change_arm_rad": 0.014077920913695974,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v1/epoch-600",
+      "weights_sha256": "8bb2a7c6c5d5b229938870f05407f3493761d908a0bd265d9bb5b179b799581d",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference_both",
+      "trace": "memory-correction-v1-development-pull-332-reference_both.json",
+      "trace_sha256": "7ec1674f2ec748dc9cc53f586cea18a67d66f0ed7afbf7a0b15630a62e7ac3d0",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.021865020464486153,
+        "finger_state_rmse_m": 0.00011151006696362762,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.021100770655784407,
+        "finger_state_rmse_m": 0.00022670399704627372,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "actual",
+      "trace": "memory-correction-v2-development-normal-312-actual.json",
+      "trace_sha256": "f1490a58bdae86a394c879337ddd231288eacaa8dbb48951b0ed7bdff515928d",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 33,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.02779570454088024,
+        "finger_state_rmse_m": 6.282012034025393e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.09557049241140454,
+        "finger_state_rmse_m": 0.0002313202436779453,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference_vision",
+      "trace": "memory-correction-v2-development-normal-312-reference_vision.json",
+      "trace_sha256": "d63b06261b86939491eb397f341718b783b5bb2a3508c8839f9fdbe639abc31a",
+      "rate_limited_frames": 2,
+      "first_sustained_next_state_error_tick": 25,
+      "max_same_state_limit_effect_arm_rad": 0.0009728012664749208,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.03864956918264417,
+        "finger_state_rmse_m": 2.0273919321309746e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.19033648962772232,
+        "finger_state_rmse_m": 0.0003217038490613011,
+        "max_limit_action_change_arm_rad": 0.0019422245025633167,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference_joints",
+      "trace": "memory-correction-v2-development-normal-312-reference_joints.json",
+      "trace_sha256": "614c199cc5c175bb6369709fed4caf0e0796ebebf9ec1c53537c87b6c02e71cf",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.009673061612673386,
+        "finger_state_rmse_m": 3.369753353781132e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.01050121814080228,
+        "finger_state_rmse_m": 5.67989103818036e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-312",
+        "x": 0.312
+      },
+      "mode": "reference_both",
+      "trace": "memory-correction-v2-development-normal-312-reference_both.json",
+      "trace_sha256": "687467c59716459fd1995faf256e5bf38fc7aa3df8577ca2f3f7d1df8b099574",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.010048441627048117,
+        "finger_state_rmse_m": 1.3092105206677255e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.01066278704188423,
+        "finger_state_rmse_m": 5.269258629998578e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "actual",
+      "trace": "memory-correction-v2-development-normal-372-actual.json",
+      "trace_sha256": "109ccbe071e21b4716a07ddb2d82f7b60ccfdc9efdf2441ecd0ef9b7b2a01d26",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13617268250335238,
+        "finger_state_rmse_m": 0.000433020911302311,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.30142621412437615,
+        "finger_state_rmse_m": 0.00033930323027462326,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference_vision",
+      "trace": "memory-correction-v2-development-normal-372-reference_vision.json",
+      "trace_sha256": "61d950a4616d1f27c3f180895476bf5b06e368b262a9575238aea0c5d18b510f",
+      "rate_limited_frames": 1,
+      "first_sustained_next_state_error_tick": 13,
+      "max_same_state_limit_effect_arm_rad": 0.022313342872669395,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.13575298344315928,
+        "finger_state_rmse_m": 0.00044949626919819793,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.24304555827561214,
+        "finger_state_rmse_m": 0.0007847363337457106,
+        "max_limit_action_change_arm_rad": 0.05077298402786262,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference_joints",
+      "trace": "memory-correction-v2-development-normal-372-reference_joints.json",
+      "trace_sha256": "350575206dd1c8d80d1cc010213606bb989aca54daa2711ad6462dc67ff670f8",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.01472452634802797,
+        "finger_state_rmse_m": 0.00024334188034630513,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.015060620009717423,
+        "finger_state_rmse_m": 0.00018339623134026352,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-normal-372",
+        "x": 0.372
+      },
+      "mode": "reference_both",
+      "trace": "memory-correction-v2-development-normal-372-reference_both.json",
+      "trace_sha256": "c38ab721a42cacabd0d1923661f75e58cceedb4e7a011fd73086dd7ee5ecfa32",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.014678206942157533,
+        "finger_state_rmse_m": 0.0002462317883029341,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.014719089083447101,
+        "finger_state_rmse_m": 0.0002065055103399249,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "actual",
+      "trace": "memory-correction-v2-development-pull-332-actual.json",
+      "trace_sha256": "98302c4c9f502e87b4b6b5e6d0bf347388727c164a28f3b5b63be804a91d5e92",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 38,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.06155556478434744,
+        "finger_state_rmse_m": 9.155506925137117e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.1383241403761697,
+        "finger_state_rmse_m": 8.369904416695918e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference_vision",
+      "trace": "memory-correction-v2-development-pull-332-reference_vision.json",
+      "trace_sha256": "01b21e4f4db4fdf7e1fae9499aaf589a61cffb1b3c39d2f0cee235475d0ae31f",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": 25,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.06387243688117995,
+        "finger_state_rmse_m": 9.839408142381834e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.1462034268147648,
+        "finger_state_rmse_m": 0.00014978542168447493,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference_joints",
+      "trace": "memory-correction-v2-development-pull-332-reference_joints.json",
+      "trace_sha256": "2977e44dfec1c1207711236a91679dd57312658ffba9a88c052a56b28b965159",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.008060007749965861,
+        "finger_state_rmse_m": 6.177451459560915e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.010572097159426464,
+        "finger_state_rmse_m": 0.00011842964352026305,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    },
+    {
+      "model": "outputs/models/memory-correction-v2/epoch-600",
+      "weights_sha256": "3bd72d2b9575bd621fbfaa0ca5c1fceb312b87aa06aa4988f64ea49143863378",
+      "case": {
+        "name": "development-pull-332",
+        "x": 0.332,
+        "force_at": 4.92,
+        "force_duration": 0.08,
+        "force_z": -30
+      },
+      "mode": "reference_both",
+      "trace": "memory-correction-v2-development-pull-332-reference_both.json",
+      "trace_sha256": "7ef015ba254c84fd1034f1c643f865af6f57cc7f3934cc2ec48eb1060d376dad",
+      "rate_limited_frames": 0,
+      "first_sustained_next_state_error_tick": null,
+      "max_same_state_limit_effect_arm_rad": 0.0,
+      "max_same_state_limit_effect_finger_m": 0.0,
+      "first_second": {
+        "arm_state_rmse_rad": 0.008149595803842339,
+        "finger_state_rmse_m": 6.237972122731898e-05,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      },
+      "two_seconds": {
+        "arm_state_rmse_rad": 0.009954657779980905,
+        "finger_state_rmse_m": 0.00010898563562973206,
+        "max_limit_action_change_arm_rad": 0.0,
+        "max_limit_action_change_finger_m": 0.0
+      }
+    }
+  ],
+  "regression_tests_passed": 12,
+  "baseline_reproduced_exactly": true,
+  "executed_script_snapshot": "outputs/evaluations/input-feedback-v1/executed-script.py",
+  "interpretation": "Diagnostic same-time reference input intervention, not deployable control or proof of sensor error. Actual contact remains unchanged. Short development trajectories only."
+}

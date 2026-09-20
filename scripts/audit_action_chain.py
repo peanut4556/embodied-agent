@@ -44,7 +44,7 @@ def shadow_step(model, data, command, steps):
     return shadow.qpos[:5].copy()
 
 
-def run(policy, case, reference, mode, frames=50):
+def run(policy, case, reference, mode, frames=50, session_factory=None):
     if mode not in ("reference", "limited", "unlimited"):
         raise ValueError("unknown diagnostic mode")
     world = PhysicsWorld()
@@ -55,7 +55,7 @@ def run(policy, case, reference, mode, frames=50):
         world.tick(0.2)
         if not np.allclose(world.data.qpos[:5], reference["x"][0, 6:11], atol=1e-5, rtol=0):
             raise ValueError("reference initial state differs")
-        observed = ObservedSession(policy)
+        observed = (session_factory or ObservedSession)(policy)
         executor = ReactiveExecutor(observed, world.data.qpos[:5], max_seconds=3)
         if mode == "unlimited":
             executor.limit[:] = np.inf  # Counterfactual in this isolated world only.
