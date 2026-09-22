@@ -65,3 +65,5 @@ make input-feedback-test action-chain-test diagnostics-test reactive-test 共 12
 机器报告及文件哈希见 [input-feedback-v1.json](evaluations/input-feedback-v1.json)。
 执行时脚本快照保存在同一输出目录，之后仅将工厂 lambda 改为显式绑定当前 session
 以满足静态检查，不改变本轮实验行为。数据和模型仍在本地，控制台策略没有替换。
+
+后续已完成 [逐关节扰动与闭环敏感性实验](joint-sensitivity.md)：两个模型均对腕关节最敏感，第二轮部分位置出现明显的闭环扰动响应。

@@ -226,3 +226,10 @@ input-feedback-audit:
 
 input-feedback-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_input_feedback.py -v
+
+.PHONY: joint-sensitivity-audit joint-sensitivity-test
+joint-sensitivity-audit:
+	PYTHONPATH=src:. HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HOME=outputs/hf-cache .venv/bin/python scripts/audit_joint_sensitivity.py
+
+joint-sensitivity-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_joint_sensitivity.py -v
