@@ -1,5 +1,6 @@
 """Frozen paired normal and single-pulse development evaluation, final epoch only."""
 
+import argparse
 import json
 from pathlib import Path
 from types import SimpleNamespace
@@ -10,13 +11,11 @@ from embodied_agent.reactive_evaluation import run_case
 from scripts.audit_joint_sensitivity import PulseSession
 
 
-def main():
-    output = Path("outputs/evaluations/joint-training-v1")
+def evaluate(control_root, augmented_root, output):
+    output = Path(output)
     if output.exists():
         raise FileExistsError(output)
-    runs = {
-        arm: Path("outputs/models") / f"joint-training-{arm}" for arm in ("control", "augmented")
-    }
+    runs = {"control": Path(control_root), "augmented": Path(augmented_root)}
     verified = {arm: verify_run(root) for arm, root in runs.items()}
     first = verified["control"][1]
     second = verified["augmented"][1]
@@ -94,6 +93,17 @@ def main():
         raise
     finally:
         (output / "evaluation.json").write_text(json.dumps(report, indent=2) + "\n")
+
+    return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--control", default="outputs/models/joint-training-control")
+    parser.add_argument("--augmented", default="outputs/models/joint-training-augmented")
+    parser.add_argument("--output", default="outputs/evaluations/joint-training-v1")
+    args = parser.parse_args()
+    evaluate(args.control, args.augmented, args.output)
 
 
 if __name__ == "__main__":

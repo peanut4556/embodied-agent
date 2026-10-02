@@ -246,3 +246,13 @@ joint-training-evaluate:
 
 joint-augmentation-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_joint_augmentation.py -v
+
+.PHONY: joint-seeds-train joint-seeds-evaluate joint-replication-test
+joint-seeds-train:
+	PYTHONPATH=src:. .venv/bin/python scripts/replicate_joint_training.py train
+
+joint-seeds-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/replicate_joint_training.py evaluate
+
+joint-replication-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/dataset -p test_joint_replication.py -v

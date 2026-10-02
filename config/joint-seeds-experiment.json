@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "description": "Frozen replication of joint augmentation: same parent, full batch, optimizer, 300 epochs, data and evaluation conditions. Vary only training seed. Control has no stochastic updates and is not an independent initialization replicate.",
+  "previous_seed": 73,
+  "new_seeds": [101, 211],
+  "primary_metric": "normal-input verified pick-place on the three development cases",
+  "secondary_conditions": ["negative_wrist_pulse", "positive_wrist_pulse"],
+  "test_policy": "no reserved tests, no best-seed selection, no deployment"
+}

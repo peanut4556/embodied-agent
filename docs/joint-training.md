@@ -63,3 +63,5 @@ make joint-augmentation-test correction-finetune-test memory-test joint-sensitiv
 共 17 项相关测试通过，检查增强的范围、随机可复现性、padding 与非关节输入不变、
 禁用增强的恒等行为、监督屏蔽和现有记忆模型逻辑。两组检查点通过完整性验证，
 父模型、数据哈希、训练预算和监督帧数匹配。代码风格和差异检查通过。
+
+后续 [多种子复核](joint-seeds.md) 已完成：新增 101、211 未复现原单例合格成功，三个种子的正常输入均为 0/3。当前配置尚无稳定改善证据。
