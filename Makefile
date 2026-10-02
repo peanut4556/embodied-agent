@@ -233,3 +233,16 @@ joint-sensitivity-audit:
 
 joint-sensitivity-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_joint_sensitivity.py -v
+
+.PHONY: joint-training-control joint-training-augmented joint-training-evaluate joint-augmentation-test
+joint-training-control:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/memory-correction-v1/epoch-600 --corrections outputs/datasets/corrections-early-v1 --experiment config/joint-training-control.json --output outputs/models/joint-training-control
+
+joint-training-augmented:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/memory-correction-v1/epoch-600 --corrections outputs/datasets/corrections-early-v1 --experiment config/joint-training-augmented.json --output outputs/models/joint-training-augmented
+
+joint-training-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_joint_training.py
+
+joint-augmentation-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_joint_augmentation.py -v

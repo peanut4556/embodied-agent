@@ -70,3 +70,5 @@ make joint-sensitivity-test input-feedback-test action-chain-test diagnostics-te
 
 逐帧数据位于 outputs/evaluations/joint-sensitivity-v1；完整报告见
 [joint-sensitivity-v1.json](evaluations/joint-sensitivity-v1.json)。模型和数据仍保存在本地。
+
+后续已完成 [关节扰动增强训练对照](joint-training.md)：正常输入均为 0/3，增强组在正向单帧测量扰动条件下出现 1/3 合格抓放；尚不能认定鲁棒性普遍改善。

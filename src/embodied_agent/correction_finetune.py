@@ -79,6 +79,34 @@ def batch(episodes, policy):
     return x, y, mask
 
 
+def augment_joints(x, lengths, policy, config, generator):
+    """Training-only sparse measurement noise; leave targets and padding unchanged."""
+    import torch
+
+    if config is None:
+        return x
+    if set(config) != {"probability", "arm_radians", "finger_meters"} or not (
+        0 <= config["probability"] <= 1
+        and 0 <= config["arm_radians"] <= 0.05
+        and 0 <= config["finger_meters"] <= 0.005
+    ):
+        raise ValueError("invalid joint augmentation")
+    result = x.clone()
+    amplitudes = torch.tensor([config["arm_radians"]] * 3 + [config["finger_meters"]] * 2)
+    shape = x[:, :, 6:11].shape
+    active = torch.rand(shape, generator=generator) < config["probability"]
+    valid = torch.arange(x.shape[1])[None, :, None] < torch.tensor(lengths)[:, None, None]
+    active &= valid
+    noise = (2 * torch.rand(shape, generator=generator) - 1) * amplitudes
+    mean = torch.as_tensor(policy.mean[6:11], dtype=x.dtype)
+    scale = torch.as_tensor(policy.scale[6:11], dtype=x.dtype)
+    joints = x[:, :, 6:11] * scale + mean
+    bounds = torch.as_tensor(policy.bounds, dtype=x.dtype)
+    changed = torch.clamp(joints + noise, bounds[:, 0], bounds[:, 1])
+    result[:, :, 6:11] = torch.where(active, (changed - mean) / scale, x[:, :, 6:11])
+    return result
+
+
 def train(base_root, correction_roots, pretrained, experiment, output):
     import torch
 
@@ -120,6 +148,9 @@ def train(base_root, correction_roots, pretrained, experiment, output):
     vx, vy, vm = batch(groups["validation"], policy)
     torch.set_num_threads(2)
     torch.manual_seed(config["seed"])
+    noise_generator = torch.Generator().manual_seed(config["seed"])
+    augmentation = config.get("joint_augmentation")
+    lengths = [len(e["x"]) for e in groups["train"]]
     model = policy.model  # Actual pretrained weights, never a fresh network.
     optimizer = torch.optim.AdamW(model.parameters(), lr=config["learning_rate"], weight_decay=1e-4)
     output.mkdir(parents=True)
@@ -132,6 +163,7 @@ def train(base_root, correction_roots, pretrained, experiment, output):
         "experiment_sha256": digest(output / "experiment.json"),
         "pretrained_weights_sha256": policy.metadata["weights_sha256"],
         "normalization": "frozen pretrained training-only statistics",
+        "joint_augmentation": augmentation,
         "test_used_for_training": False,
         "candidates": [],
         "curve": [],
@@ -146,7 +178,8 @@ def train(base_root, correction_roots, pretrained, experiment, output):
         for epoch in range(1, max(config["candidate_epochs"]) + 1):
             model.train()
             optimizer.zero_grad()
-            loss = masked_loss(model(x)[0], y, mask)
+            training_x = augment_joints(x, lengths, policy, augmentation, noise_generator)
+            loss = masked_loss(model(training_x)[0], y, mask)
             if not torch.isfinite(loss):
                 raise ValueError("nonfinite loss")
             loss.backward()
@@ -182,6 +215,7 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                     "pretrained_weights_sha256": report["pretrained_weights_sha256"],
                     "finetune_source_sha256": digest(__file__),
                     "supervision": "expert-only mask plus base rehearsal",
+                    "joint_augmentation": augmentation,
                 }
                 (target / "training.json").write_text(json.dumps(metadata, indent=2))
                 report["candidates"].append(
