@@ -263,3 +263,19 @@ state-targets-audit:
 
 state-targets-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_state_targets.py -v
+
+.PHONY: state-distill-targets state-distill-control state-distill-train state-distill-evaluate local-targets-test
+state-distill-targets:
+	PYTHONPATH=src:. .venv/bin/python -c 'from scripts.audit_state_targets import audit; audit("outputs/datasets/state-distill-targets-v1", ("train",))'
+
+state-distill-control:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/joint-training-control/epoch-300 --corrections outputs/datasets/corrections-early-v1 --experiment config/state-distill-control.json --output outputs/models/state-distill-control
+
+state-distill-train:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/joint-training-control/epoch-300 --corrections outputs/datasets/corrections-early-v1 --experiment config/state-distill-distilled.json --output outputs/models/state-distill-distilled
+
+state-distill-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_state_distillation.py
+
+local-targets-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_local_targets.py -v

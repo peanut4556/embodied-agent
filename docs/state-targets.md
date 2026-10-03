@@ -62,3 +62,5 @@ make state-targets-test action-chain-test correction-finetune-test joint-sensiti
 共 12 项测试通过，覆盖已知线性系统的数值方向、投影边界和速率限制、单位归一化、
 复制仿真状态不修改主世界及既有监督屏蔽逻辑。数据来源哈希、模型完整性、
 全部实际状态回放、全部专家下一状态校验、代码风格与差异检查通过。
+
+后续已完成 [训练分组局部目标蒸馏对照](state-distillation.md)：101 个接受目标用于辅助训练，干净验证误差降低，但两组闭环合格抓放仍为 0/3。

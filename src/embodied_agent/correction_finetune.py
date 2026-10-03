@@ -126,7 +126,10 @@ def train(base_root, correction_roots, pretrained, experiment, output):
         raise ValueError("fine-tuning requires qualified selection and matching architecture")
     manifests = [read_json(Path(r) / "recording.json") for r in correction_roots]
     check_groups(base, config["split"], manifests, config, policy)
-    if any(m["learner_weights_sha256"] != policy.metadata["weights_sha256"] for m in manifests):
+    allowed_collectors = {policy.metadata["weights_sha256"]}
+    if config.get("local_targets"):
+        allowed_collectors.add(policy.metadata.get("pretrained_weights_sha256"))
+    if any(m["learner_weights_sha256"] not in allowed_collectors for m in manifests):
         raise ValueError("corrections must come from the frozen pretrained learner")
 
     def hashes():
@@ -143,9 +146,16 @@ def train(base_root, correction_roots, pretrained, experiment, output):
         corrections = [e for root in correction_roots for e in correction_sequences(root, group)]
         if not corrections:
             raise ValueError("successful expert corrections required in both groups")
+        for episode in corrections:
+            episode["is_correction"] = True
         groups[group] = original + corrections
     x, y, mask = batch(groups["train"], policy)
     vx, vy, vm = batch(groups["validation"], policy)
+    from .local_targets import auxiliary_batch
+
+    auxiliary = auxiliary_batch(
+        groups["train"], y, policy, config.get("local_targets"), correction_roots
+    )
     torch.set_num_threads(2)
     torch.manual_seed(config["seed"])
     noise_generator = torch.Generator().manual_seed(config["seed"])
@@ -164,6 +174,7 @@ def train(base_root, correction_roots, pretrained, experiment, output):
         "pretrained_weights_sha256": policy.metadata["weights_sha256"],
         "normalization": "frozen pretrained training-only statistics",
         "joint_augmentation": augmentation,
+        "local_targets": auxiliary[2] if auxiliary else None,
         "test_used_for_training": False,
         "candidates": [],
         "curve": [],
@@ -179,7 +190,12 @@ def train(base_root, correction_roots, pretrained, experiment, output):
             model.train()
             optimizer.zero_grad()
             training_x = augment_joints(x, lengths, policy, augmentation, noise_generator)
-            loss = masked_loss(model(training_x)[0], y, mask)
+            prediction = model(training_x)[0]
+            loss = masked_loss(prediction, y, mask)
+            if auxiliary and auxiliary[2]["weight"]:
+                loss = loss + auxiliary[2]["weight"] * masked_loss(
+                    prediction, auxiliary[0], auxiliary[1]
+                )
             if not torch.isfinite(loss):
                 raise ValueError("nonfinite loss")
             loss.backward()
@@ -216,6 +232,7 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                     "finetune_source_sha256": digest(__file__),
                     "supervision": "expert-only mask plus base rehearsal",
                     "joint_augmentation": augmentation,
+                    "local_targets": auxiliary[2] if auxiliary else None,
                 }
                 (target / "training.json").write_text(json.dumps(metadata, indent=2))
                 report["candidates"].append(
@@ -226,6 +243,8 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                         "weights_sha256": metadata["weights_sha256"],
                     }
                 )
+        if auxiliary and digest(config["local_targets"]["path"]) != auxiliary[2]["sha256"]:
+            raise ValueError("local targets changed during training")
         if hashes() != sources:
             raise ValueError("training sources changed")
         report["status"] = "trained"

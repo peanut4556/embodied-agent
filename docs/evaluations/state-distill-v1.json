@@ -1,0 +1,5996 @@
+{
+  "status": "complete",
+  "script_sha256": "243e43088a658385b8a0156c1e29016c74d192a3d674884355d43ce2ce39ef0f",
+  "test_executed": false,
+  "training": {
+    "control": {
+      "status": "trained",
+      "source_sha256": "060f0105caebfe4084cbc1fc395b3e191e4e0f3b9117a5dd45474999a3763dc0",
+      "sources": {
+        "base": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+        "corrections": [
+          "4ce67bfc15e945d9e2d71bca54f7e3e44e45ff10315f040babffbd8d1ef847ea"
+        ]
+      },
+      "experiment_sha256": "ee7a266d1bcd1d9ec2116f6032d2977c139024abb278ec8848ba1ee78a425061",
+      "pretrained_weights_sha256": "137b946675ef31ebd9a77d832a4e6b4471978ddba6a4b7d3de13932d207ae9a1",
+      "normalization": "frozen pretrained training-only statistics",
+      "joint_augmentation": null,
+      "local_targets": {
+        "accepted": 101,
+        "rejected": 3,
+        "sha256": "3f168abfadea2eca3979b7e67f146d450c9fdc5160e3b11953e39522a3f68fc6",
+        "weight": 0.0
+      },
+      "test_used_for_training": false,
+      "candidates": [
+        {
+          "directory": "epoch-300",
+          "epoch": 300,
+          "validation_mse": 0.001443530316464603,
+          "weights_sha256": "e0eda4d00a5cb370ff6bacceba2b283881e2042065538fd63aec36284fe90e3f"
+        }
+      ],
+      "curve": [
+        {
+          "epoch": 1,
+          "train_mse_before_update": 8.539878035662696e-05,
+          "validation_mse": 0.0015321559039875865
+        },
+        {
+          "epoch": 50,
+          "train_mse_before_update": 8.399409853154793e-05,
+          "validation_mse": 0.0014982853317633271
+        },
+        {
+          "epoch": 100,
+          "train_mse_before_update": 8.068773604463786e-05,
+          "validation_mse": 0.0014982691500335932
+        },
+        {
+          "epoch": 150,
+          "train_mse_before_update": 7.839519093977287e-05,
+          "validation_mse": 0.0014892088947817683
+        },
+        {
+          "epoch": 200,
+          "train_mse_before_update": 7.587042637169361e-05,
+          "validation_mse": 0.0014760001795366406
+        },
+        {
+          "epoch": 250,
+          "train_mse_before_update": 7.316404662560672e-05,
+          "validation_mse": 0.0014607426710426807
+        },
+        {
+          "epoch": 300,
+          "train_mse_before_update": 7.029636617517099e-05,
+          "validation_mse": 0.001443530316464603
+        }
+      ],
+      "train_episodes": 13,
+      "validation_episodes": 9,
+      "train_supervised_frames": 3933,
+      "validation_supervised_frames": 2789,
+      "initial_validation_mse": 0.0015184207586571574
+    },
+    "distilled": {
+      "status": "trained",
+      "source_sha256": "060f0105caebfe4084cbc1fc395b3e191e4e0f3b9117a5dd45474999a3763dc0",
+      "sources": {
+        "base": "a871eb3afbe857634206092373ca64daff29f0075bd3ad761319be36bdea1a62",
+        "corrections": [
+          "4ce67bfc15e945d9e2d71bca54f7e3e44e45ff10315f040babffbd8d1ef847ea"
+        ]
+      },
+      "experiment_sha256": "c4581b2913330ee8f99aeac22b761735773e3d11bd6eaca255adc041c8a7dc1f",
+      "pretrained_weights_sha256": "137b946675ef31ebd9a77d832a4e6b4471978ddba6a4b7d3de13932d207ae9a1",
+      "normalization": "frozen pretrained training-only statistics",
+      "joint_augmentation": null,
+      "local_targets": {
+        "accepted": 101,
+        "rejected": 3,
+        "sha256": "3f168abfadea2eca3979b7e67f146d450c9fdc5160e3b11953e39522a3f68fc6",
+        "weight": 0.1
+      },
+      "test_used_for_training": false,
+      "candidates": [
+        {
+          "directory": "epoch-300",
+          "epoch": 300,
+          "validation_mse": 0.0013161777751520276,
+          "weights_sha256": "13ed447a24b2ed35e9ff05d85292aa4d694eff1d53d286cd4b8bcdf12cb48f0f"
+        }
+      ],
+      "curve": [
+        {
+          "epoch": 1,
+          "train_mse_before_update": 8.579654240747914e-05,
+          "validation_mse": 0.0018916020635515451
+        },
+        {
+          "epoch": 50,
+          "train_mse_before_update": 8.411853923462331e-05,
+          "validation_mse": 0.0015046767657622695
+        },
+        {
+          "epoch": 100,
+          "train_mse_before_update": 8.007576980162412e-05,
+          "validation_mse": 0.0014778312761336565
+        },
+        {
+          "epoch": 150,
+          "train_mse_before_update": 7.658610411453992e-05,
+          "validation_mse": 0.0014482280239462852
+        },
+        {
+          "epoch": 200,
+          "train_mse_before_update": 7.275566167663783e-05,
+          "validation_mse": 0.0014140773564577103
+        },
+        {
+          "epoch": 250,
+          "train_mse_before_update": 6.857242988189682e-05,
+          "validation_mse": 0.0013729300117120147
+        },
+        {
+          "epoch": 300,
+          "train_mse_before_update": 6.345623114611953e-05,
+          "validation_mse": 0.0013161777751520276
+        }
+      ],
+      "train_episodes": 13,
+      "validation_episodes": 9,
+      "train_supervised_frames": 3933,
+      "validation_supervised_frames": 2789,
+      "initial_validation_mse": 0.0015184207586571574
+    }
+  },
+  "results": [
+    {
+      "arm": "control",
+      "weights_sha256": "e0eda4d00a5cb370ff6bacceba2b283881e2042065538fd63aec36284fe90e3f",
+      "case": "development-normal-312",
+      "controller": "memory",
+      "success": false,
+      "state": "stopped",
+      "reason": "execution timeout",
+      "evaluator_detected_stable_goal": false,
+      "duration_seconds": 25.04,
+      "requested_stop": false,
+      "stop_command_held": true,
+      "user_stop_passed": false,
+      "disturbance": null,
+      "contact_loss_after_force": false,
+      "regrasp_after_loss": false,
+      "recovery_success": false,
+      "final_block_xyz": [
+        0.3120000000000083,
+        -8.252862092728494e-16,
+        0.02499041224240868
+      ],
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991658214651522,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "arm": "control",
+      "weights_sha256": "e0eda4d00a5cb370ff6bacceba2b283881e2042065538fd63aec36284fe90e3f",
+      "case": "development-normal-372",
+      "controller": "memory",
+      "success": false,
+      "state": "stopped",
+      "reason": "execution timeout",
+      "evaluator_detected_stable_goal": false,
+      "duration_seconds": 25.04,
+      "requested_stop": false,
+      "stop_command_held": true,
+      "user_stop_passed": false,
+      "disturbance": null,
+      "contact_loss_after_force": false,
+      "regrasp_after_loss": false,
+      "recovery_success": false,
+      "final_block_xyz": [
+        0.372,
+        -7.019966506327711e-16,
+        0.02499041224240868
+      ],
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "arm": "control",
+      "weights_sha256": "e0eda4d00a5cb370ff6bacceba2b283881e2042065538fd63aec36284fe90e3f",
+      "case": "development-pull-332",
+      "controller": "memory",
+      "success": false,
+      "state": "stopped",
+      "reason": "execution timeout",
+      "evaluator_detected_stable_goal": false,
+      "duration_seconds": 25.04,
+      "requested_stop": false,
+      "stop_command_held": true,
+      "user_stop_passed": false,
+      "disturbance": {
+        "tick": 123,
+        "holding_before_force": false,
+        "force_z": -30,
+        "duration": 0.08
+      },
+      "contact_loss_after_force": false,
+      "regrasp_after_loss": false,
+      "recovery_success": false,
+      "final_block_xyz": [
+        0.3319999999999895,
+        2.885960165209588e-15,
+        0.024990412242408656
+      ],
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499120139148854,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "arm": "distilled",
+      "weights_sha256": "13ed447a24b2ed35e9ff05d85292aa4d694eff1d53d286cd4b8bcdf12cb48f0f",
+      "case": "development-normal-312",
+      "controller": "memory",
+      "success": false,
+      "state": "stopped",
+      "reason": "execution timeout",
+      "evaluator_detected_stable_goal": false,
+      "duration_seconds": 25.04,
+      "requested_stop": false,
+      "stop_command_held": true,
+      "user_stop_passed": false,
+      "disturbance": null,
+      "contact_loss_after_force": false,
+      "regrasp_after_loss": false,
+      "recovery_success": false,
+      "final_block_xyz": [
+        0.31200000000000355,
+        -5.790901647105733e-16,
+        0.02499041224240868
+      ],
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991658214651522,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "arm": "distilled",
+      "weights_sha256": "13ed447a24b2ed35e9ff05d85292aa4d694eff1d53d286cd4b8bcdf12cb48f0f",
+      "case": "development-normal-372",
+      "controller": "memory",
+      "success": false,
+      "state": "stopped",
+      "reason": "execution timeout",
+      "evaluator_detected_stable_goal": false,
+      "duration_seconds": 25.04,
+      "requested_stop": false,
+      "stop_command_held": true,
+      "user_stop_passed": false,
+      "disturbance": null,
+      "contact_loss_after_force": false,
+      "regrasp_after_loss": false,
+      "recovery_success": false,
+      "final_block_xyz": [
+        0.372,
+        -6.9583304907811e-16,
+        0.02499041224240868
+      ],
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "arm": "distilled",
+      "weights_sha256": "13ed447a24b2ed35e9ff05d85292aa4d694eff1d53d286cd4b8bcdf12cb48f0f",
+      "case": "development-pull-332",
+      "controller": "memory",
+      "success": false,
+      "state": "stopped",
+      "reason": "execution timeout",
+      "evaluator_detected_stable_goal": false,
+      "duration_seconds": 25.04,
+      "requested_stop": false,
+      "stop_command_held": true,
+      "user_stop_passed": false,
+      "disturbance": {
+        "tick": 123,
+        "holding_before_force": false,
+        "force_z": -30,
+        "duration": 0.08
+      },
+      "contact_loss_after_force": false,
+      "regrasp_after_loss": false,
+      "recovery_success": false,
+      "final_block_xyz": [
+        0.33199999999955065,
+        3.2734618816875183e-13,
+        0.024990412242408656
+      ],
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991552018854602,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    }
+  ],
+  "scores": {
+    "control": {
+      "tasks": 3,
+      "verified_pick_place": 0,
+      "endpoint_success": 0,
+      "stable_grasp": 0,
+      "sustained_lift": 0
+    },
+    "distilled": {
+      "tasks": 3,
+      "verified_pick_place": 0,
+      "endpoint_success": 0,
+      "stable_grasp": 0,
+      "sustained_lift": 0
+    }
+  },
+  "train_local_target_fit": {
+    "control": {
+      "targets": 101,
+      "normalized_action_mse_to_local_targets": 9.489993949182069e-07
+    },
+    "distilled": {
+      "targets": 101,
+      "normalized_action_mse_to_local_targets": 6.980956096566154e-07
+    }
+  },
+  "local_target_generation": {
+    "status": "complete",
+    "weights_sha256": "137b946675ef31ebd9a77d832a4e6b4471978ddba6a4b7d3de13932d207ae9a1",
+    "source_sha256": "4ce67bfc15e945d9e2d71bca54f7e3e44e45ff10315f040babffbd8d1ef847ea",
+    "script_sha256": "fe3cc74e912d86a6e825cfa3fc4cb6ccd0c7f48691342afedc67a91e51cc9da6",
+    "shadow_source_sha256": "5966f339d2e0d90e8b05144db20fe475887b6b80f44532c0130b12a66a0fbad6",
+    "design": {
+      "expert_sample_stride": 25,
+      "finite_difference_range_fraction": 0.001,
+      "normalized_gradient_step": 0.25,
+      "horizon_control_periods": 1,
+      "input_history": "recorded learner prefix then expert observations; not autonomous model rollout"
+    },
+    "test_executed": false,
+    "model_retrained": false,
+    "rows": [
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 10,
+        "loss_before": 7.238471924935126e-08,
+        "loss_after": 6.797395164661416e-08,
+        "arm_state_rmse_rad": 0.0014761060926029906,
+        "finger_state_rmse_m": 9.944754455633512e-07,
+        "model_command": [
+          -2.0461534976959226,
+          2.3070607423782348,
+          -0.2670117676258088,
+          0.04,
+          0.03983644008636475
+        ],
+        "expert_command": [
+          -2.043267346862826,
+          2.3081724010275138,
+          -0.2637447451028639,
+          0.039999999827374,
+          0.039838203436627605
+        ],
+        "projected_command": [
+          -2.0460908761854464,
+          2.307104857322785,
+          -0.26688215724803793,
+          0.04,
+          0.039836552257091484
+        ],
+        "gradient": [
+          -7.827688809537397e-05,
+          -6.0848199379862024e-05,
+          -8.938646742817982e-05,
+          -0.0001272234574348944,
+          -1.1217072673418117e-05
+        ],
+        "model_next_joints": [
+          -2.0447188816864785,
+          2.3075403308852054,
+          -0.2657845064349755,
+          0.03999999997792125,
+          0.039837177068166536
+        ],
+        "expert_next_joints": [
+          -2.043374527055823,
+          2.308239596431648,
+          -0.26372528184488037,
+          0.03999999984023941,
+          0.03983858346882236
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 35,
+        "loss_before": 5.547914833627144e-07,
+        "loss_after": 5.26236986421836e-07,
+        "arm_state_rmse_rad": 0.0036714746952449533,
+        "finger_state_rmse_m": 2.2753754798352282e-06,
+        "model_command": [
+          -2.0394083976745603,
+          2.3108253180980682,
+          -0.2892626762390136,
+          0.04,
+          0.0399278974533081
+        ],
+        "expert_command": [
+          -2.0294705072409696,
+          2.312589660684414,
+          -0.28257314314324655,
+          0.039999999918766835,
+          0.03992386288012002
+        ],
+        "projected_command": [
+          -2.0391927041104143,
+          2.310895331467767,
+          -0.2889995170225032,
+          0.04,
+          0.039927640804917765
+        ],
+        "gradient": [
+          -0.00026961695518270537,
+          -9.657016510178552e-05,
+          -0.00018148911483476145,
+          -0.0001272240388055928,
+          2.566483903403574e-05
+        ],
+        "model_next_joints": [
+          -2.034845737485868,
+          2.311495507667509,
+          -0.28616618957539536,
+          0.03999999998235064,
+          0.03992595080485976
+        ],
+        "expert_next_joints": [
+          -2.030216261476468,
+          2.3126035784528436,
+          -0.28194963762782643,
+          0.039999999917561264,
+          0.039922732937997335
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 60,
+        "loss_before": 4.2342076250191395e-07,
+        "loss_after": 3.947144055570762e-07,
+        "arm_state_rmse_rad": 0.00441753907500199,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -2.0222397327423094,
+          2.3168783009052274,
+          -0.310860198736191,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.022130659800965,
+          2.3168639070743007,
+          -0.31041112845396146,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -0.0001363411766802474,
+          1.9853559899224238e-05,
+          -0.0003097036429169198,
+          -0.00012722455554835832,
+          -0.0001272245555481922
+        ],
+        "model_next_joints": [
+          -2.0194945719700588,
+          2.3168993985119006,
+          -0.30657047726489284,
+          0.03999999999999207,
+          0.03999999255864945
+        ],
+        "expert_next_joints": [
+          -2.0171542143277024,
+          2.316669187635263,
+          -0.29928942764992317,
+          0.03999999999999207,
+          0.03999999255864945
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 85,
+        "loss_before": 3.482040292377209e-07,
+        "loss_after": 3.2303224155685437e-07,
+        "arm_state_rmse_rad": 0.004232601634500307,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -2.0194063663482664,
+          2.315856564044952,
+          -0.3113158404827119,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -2.0163402439529365,
+          2.3162532288352264,
+          -0.2999129848822899,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0193399865404946,
+          2.3158722915591934,
+          -0.3108732854463038,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -8.297475971471737e-05,
+          -2.1693123091525475e-05,
+          -0.00030521036993659133,
+          -0.00012722455554808155,
+          -0.00012722455554808155
+        ],
+        "model_next_joints": [
+          -2.0181252222519,
+          2.316258978548414,
+          -0.3068765125737704,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -2.016700615494091,
+          2.3165075968848945,
+          -0.29968948020307007,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 110,
+        "loss_before": 1.1528456764979763e-06,
+        "loss_after": 1.0921931582492058e-06,
+        "arm_state_rmse_rad": 0.00534516006075013,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.8075628280639648,
+          2.1710822761058806,
+          -0.3672353208065031,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.7933789303770773,
+          2.1704486792982096,
+          -0.3770697489211323,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.8072304870171678,
+          2.171057072615402,
+          -0.36762337324552935,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -0.0004154263084963739,
+          3.4763435142645324e-05,
+          0.00026762237174221315,
+          -0.0001272245555480815,
+          -0.0001272245555480815
+        ],
+        "model_next_joints": [
+          -1.820898016936467,
+          2.1737000853992106,
+          -0.3699945998587021,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.8140330110365137,
+          2.173291473301404,
+          -0.37619273977098605,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 135,
+        "loss_before": 9.030138948627125e-07,
+        "loss_after": 8.353357521973184e-07,
+        "arm_state_rmse_rad": 0.007083774849077978,
+        "finger_state_rmse_m": 5.120265849995039e-06,
+        "model_command": [
+          -1.337285041809082,
+          2.3991949260234833,
+          -1.0441901803016662,
+          0.04,
+          0.039990921020507816
+        ],
+        "expert_command": [
+          -1.3347272414632998,
+          2.3996455087862043,
+          -1.0649182673229045,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.337285041809082,
+          2.3992129008396668,
+          -1.044938364242178,
+          0.04,
+          0.03999248203334598
+        ],
+        "gradient": [
+          0.0,
+          -2.4792849908370464e-05,
+          0.0005159889244908186,
+          -0.0001272245555480815,
+          -0.00015610128381621447
+        ],
+        "model_next_joints": [
+          -1.4152919936198185,
+          2.396258005277208,
+          -1.0267540703964753,
+          0.03999999999999997,
+          0.039992758850591954
+        ],
+        "expert_next_joints": [
+          -1.4152685930353397,
+          2.396542995019773,
+          -1.0390201957666387,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 160,
+        "loss_before": 3.6417362465556547e-07,
+        "loss_after": 3.3651107068194353e-07,
+        "arm_state_rmse_rad": 0.0027590599512153646,
+        "finger_state_rmse_m": 3.469446951953614e-18,
+        "model_command": [
+          -1.1421575546264648,
+          2.399640715122223,
+          -1.257289469242096,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.1430398582998142,
+          2.4053382769570177,
+          -1.2622984186572035,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.1421473073012232,
+          2.3998704053203532,
+          -1.2574571548542848,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -1.2809156552057488e-05,
+          -0.0003168140663864795,
+          0.0001156452497854589,
+          0.00017754254044319236,
+          0.00017742844658180854
+        ],
+        "model_next_joints": [
+          -1.1424893486129273,
+          2.4018383755320265,
+          -1.2591370363791003,
+          0.01288043217387864,
+          0.01288043217387864
+        ],
+        "expert_next_joints": [
+          -1.1429220548259635,
+          2.4053968821361518,
+          -1.2622972628780713,
+          0.012880432173878643,
+          0.012880432173878643
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 185,
+        "loss_before": 1.6346735992225226e-06,
+        "loss_after": 1.45661756787545e-06,
+        "arm_state_rmse_rad": 0.0073104274245820305,
+        "finger_state_rmse_m": 1.969138076258632e-05,
+        "model_command": [
+          -1.6090145111083984,
+          2.3305233538150785,
+          -0.7100165426731109,
+          0.0,
+          5.217567086219787e-06
+        ],
+        "expert_command": [
+          -1.5979566011261914,
+          2.3272953657307025,
+          -0.7293387646045111,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.6088346011533188,
+          2.330409076995949,
+          -0.710624126988484,
+          0.0,
+          4.490643199255562e-06
+        ],
+        "gradient": [
+          -0.0002248874438496337,
+          0.0001576231987988037,
+          0.0004190236657745964,
+          4.8174869918777926e-05,
+          7.269238869642256e-05
+        ],
+        "model_next_joints": [
+          -1.5830771493194162,
+          2.33576839835288,
+          -0.7402441412452697,
+          0.012933753924797313,
+          0.012937797346445918
+        ],
+        "expert_next_joints": [
+          -1.576953057359063,
+          2.3337176670567956,
+          -0.7511352865570651,
+          0.012916226001293359,
+          0.012916157733456914
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 210,
+        "loss_before": 7.510410624853332e-05,
+        "loss_after": 7.007786660629813e-05,
+        "arm_state_rmse_rad": 0.03879031611394422,
+        "finger_state_rmse_m": 0.0001791531012938847,
+        "model_command": [
+          -1.7059783935546875,
+          2.1563570618629453,
+          -0.310138825109124,
+          0.000758260041475296,
+          0.00031038977205753325
+        ],
+        "expert_command": [
+          -1.6870666556453113,
+          2.080250889262357,
+          -0.3931842336170457,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.7055394610592576,
+          2.153694287836127,
+          -0.3124500814509523,
+          0.0007439539204835357,
+          0.00032468555335486303
+        ],
+        "gradient": [
+          -0.0005486656192874235,
+          0.0036727917611282207,
+          0.001593969890916106,
+          0.001430612099176024,
+          -0.00142957812973298
+        ],
+        "model_next_joints": [
+          -1.7107736557882032,
+          2.137341943059649,
+          -0.3440827961909594,
+          0.013078323878512982,
+          0.012719681942757726
+        ],
+        "expert_next_joints": [
+          -1.7018554072094036,
+          2.0904837714906095,
+          -0.39139920425573477,
+          0.012901900415676251,
+          0.012901523712346373
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 235,
+        "loss_before": 1.836754917570014e-05,
+        "loss_after": 1.707924548613718e-05,
+        "arm_state_rmse_rad": 0.015454521546717614,
+        "finger_state_rmse_m": 9.149294297093801e-05,
+        "model_command": [
+          -1.0170595169067382,
+          1.3195705622434615,
+          -0.2415177822113037,
+          0.0001940961182117462,
+          0.0
+        ],
+        "expert_command": [
+          -1.0275412831792998,
+          1.2789087248278623,
+          -0.2513674416485625,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0172721891736203,
+          1.3181178143302543,
+          -0.24156285908074313,
+          0.00018793619904958057,
+          5.487871579330487e-06
+        ],
+        "gradient": [
+          0.000265840333602568,
+          0.0020037902251134137,
+          3.108749616511379e-05,
+          0.0006159919162165632,
+          -0.0005487871579330487
+        ],
+        "model_next_joints": [
+          -1.0413513849257399,
+          1.319836944181062,
+          -0.25040468356464185,
+          0.01302824924717255,
+          0.012873903829252185
+        ],
+        "expert_next_joints": [
+          -1.0462705249650954,
+          1.2942400681866282,
+          -0.2564980167504001,
+          0.012901843289863378,
+          0.012901534449652717
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 260,
+        "loss_before": 8.776079561664257e-06,
+        "loss_after": 8.065243391545565e-06,
+        "arm_state_rmse_rad": 0.013288414949586696,
+        "finger_state_rmse_m": 3.0130238378283e-05,
+        "model_command": [
+          -0.7903940200805666,
+          1.3695532172918319,
+          -0.6166834473609923,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.7906891825030493,
+          1.3706769926832372,
+          -0.6158569796389503,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          0.0003689530281034441,
+          -0.001550035022627866,
+          -0.0005699777393393926,
+          7.888152613692743e-05,
+          9.513375665014458e-05
+        ],
+        "model_next_joints": [
+          -0.8137713531743517,
+          1.3763134624694437,
+          -0.5938578091381312,
+          0.01291056241261876,
+          0.012910562411896292
+        ],
+        "expert_next_joints": [
+          -0.8201180516210194,
+          1.3928075921337797,
+          -0.5791130127319296,
+          0.012880432174572288,
+          0.012880432173186199
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 285,
+        "loss_before": 2.8390544400046997e-06,
+        "loss_after": 2.655743635267823e-06,
+        "arm_state_rmse_rad": 0.011549056538490154,
+        "finger_state_rmse_m": 1.406459579598426e-06,
+        "model_command": [
+          -0.7197881698608399,
+          1.4132924050092697,
+          -0.6685477852821351,
+          0.04,
+          0.0399975061416626
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7195599816251989,
+          1.4131243030904352,
+          -0.6696729390325185,
+          0.04,
+          0.039998857707222724
+        ],
+        "gradient": [
+          -0.00028523529455140465,
+          0.00023186471563358448,
+          0.000775968103712662,
+          -0.00012722455554824733,
+          -0.00013515655601266114
+        ],
+        "model_next_joints": [
+          -0.7141200210251298,
+          1.4118756374613437,
+          -0.6806490826055756,
+          0.03999999999999827,
+          0.039998010965785875
+        ],
+        "expert_next_joints": [
+          -0.7091808715060544,
+          1.40919503948077,
+          -0.6998470334671255,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 0,
+        "tick": 310,
+        "loss_before": 2.6033609667768016e-06,
+        "loss_after": 2.45440104800461e-06,
+        "arm_state_rmse_rad": 0.009944414042228771,
+        "finger_state_rmse_m": 1.4492181021887682e-05,
+        "model_command": [
+          -0.9551395416259765,
+          1.3093308955430984,
+          -0.3374244928359986,
+          0.04,
+          0.039974303245544435
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9548237642707836,
+          1.3091465978351675,
+          -0.3382866915151444,
+          0.04,
+          0.039976392805641074
+        ],
+        "gradient": [
+          -0.000394721693991061,
+          0.00025420373507709527,
+          0.0005946197787212308,
+          -0.0001272245555480813,
+          -0.00020895600966416232
+        ],
+        "model_next_joints": [
+          -0.9347547742082367,
+          1.3147362345696272,
+          -0.36247639541772064,
+          0.03999999999999997,
+          0.039979504961050454
+        ],
+        "expert_next_joints": [
+          -0.927930347451501,
+          1.3117949425525668,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 20,
+        "loss_before": 5.206653589317841e-07,
+        "loss_after": 4.7651054432939686e-07,
+        "arm_state_rmse_rad": 0.002758100979158585,
+        "finger_state_rmse_m": 1.3989224836828832e-05,
+        "model_command": [
+          -2.0650460243225095,
+          2.3037609696388244,
+          -0.24969219565391532,
+          0.04,
+          0.03997519493103027
+        ],
+        "expert_command": [
+          -2.063530449803553,
+          2.2969405478506846,
+          -0.25281024577234973,
+          0.03999999999999997,
+          0.039999999870681
+        ],
+        "projected_command": [
+          -2.065013067971736,
+          2.3034903055934395,
+          -0.24981611728718456,
+          0.04,
+          0.03997725612182823
+        ],
+        "gradient": [
+          -4.11954384670531e-05,
+          0.00037332971777241777,
+          8.546319535809639e-05,
+          -0.0001272245555480815,
+          -0.00020611907979598007
+        ],
+        "model_next_joints": [
+          -2.064240869820941,
+          2.301333405239342,
+          -0.25082478186560314,
+          0.03999999999999997,
+          0.0399802161288275
+        ],
+        "expert_next_joints": [
+          -2.0635377325542823,
+          2.2970362881329858,
+          -0.2527899143273476,
+          0.03999999999999997,
+          0.03999999988031883
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 45,
+        "loss_before": 7.091210711955833e-07,
+        "loss_after": 6.664248803993655e-07,
+        "arm_state_rmse_rad": 0.003322583401330709,
+        "finger_state_rmse_m": 3.431981203621103e-11,
+        "model_command": [
+          -2.048191452026367,
+          2.3134030818939206,
+          -0.27775115370750436,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -2.039005779595226,
+          2.3073042520578393,
+          -0.27742766125536034,
+          0.03999999999999999,
+          0.03999999993914595
+        ],
+        "projected_command": [
+          -2.047991975200265,
+          2.31316107302036,
+          -0.27773880678855717,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -0.0002493460326277082,
+          0.00033380534284226045,
+          -8.515116515307955e-06,
+          -0.0001272245555480815,
+          -0.0001272241684417741
+        ],
+        "model_next_joints": [
+          -2.0446874845523575,
+          2.310969862874212,
+          -0.27681631248900945,
+          0.03999999999999997,
+          0.03999999998677837
+        ],
+        "expert_next_joints": [
+          -2.0404106420847623,
+          2.3071246572854456,
+          -0.27661212173533095,
+          0.03999999999999997,
+          0.039999999938242825
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 70,
+        "loss_before": 3.8157026599453966e-07,
+        "loss_after": 3.5611267512575146e-07,
+        "arm_state_rmse_rad": 0.00406826010768448,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -2.0223412990570067,
+          2.3176353991031644,
+          -0.3097665548324584,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0222300021202897,
+          2.3175909627351423,
+          -0.30935850677007565,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -0.00013912117089604536,
+          6.129154209931972e-05,
+          -0.00028141245681570086,
+          -0.00012722455554808144,
+          -0.0001272245555481922
+        ],
+        "model_next_joints": [
+          -2.0195802636987543,
+          2.3173707015477394,
+          -0.3058753137754859,
+          0.03999999999999997,
+          0.039999999999994054
+        ],
+        "expert_next_joints": [
+          -2.0171925889556284,
+          2.316663537411269,
+          -0.29928356521258853,
+          0.03999999999999997,
+          0.039999999999994054
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 95,
+        "loss_before": 3.187474502361838e-07,
+        "loss_after": 2.948983653639959e-07,
+        "arm_state_rmse_rad": 0.004072992312575622,
+        "finger_state_rmse_m": 2.105655546503102e-06,
+        "model_command": [
+          -2.0190445899963376,
+          2.3160389244556425,
+          -0.31092467308044425,
+          0.04,
+          0.03999626636505127
+        ],
+        "expert_command": [
+          -2.016340243957528,
+          2.3162532288345035,
+          -0.2999129848769755,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0189860592619384,
+          2.3160474154478794,
+          -0.3104967270610851,
+          0.04,
+          0.039997657363118486
+        ],
+        "gradient": [
+          -7.316341799890416e-05,
+          -1.1711713430212566e-05,
+          -0.00029513518576493856,
+          -0.00012722455554808144,
+          -0.00013909980672138436
+        ],
+        "model_next_joints": [
+          -2.017956685848412,
+          2.316373729751598,
+          -0.3066300973192477,
+          0.03999999999999997,
+          0.03999702215336842
+        ],
+        "expert_next_joints": [
+          -2.0167006154977654,
+          2.3165075968844486,
+          -0.29968948019972086,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 120,
+        "loss_before": 1.1239334441836788e-06,
+        "loss_after": 1.064166828173853e-06,
+        "arm_state_rmse_rad": 0.005360755394092869,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.8072154998779295,
+          2.170967328548431,
+          -0.36687941551208514,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.7933789303772865,
+          2.1704486792982065,
+          -0.37706974892092004,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.8068913006935696,
+          2.170946688999644,
+          -0.36728091631962445,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -0.00040524898044987285,
+          2.8468343155114356e-05,
+          0.0002768971086477959,
+          -0.0001272245555480817,
+          -0.0001272245555480817
+        ],
+        "model_next_joints": [
+          -1.8207301768317632,
+          2.1736274366774477,
+          -0.36977026407104446,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.8140330110369538,
+          2.1732914733013993,
+          -0.37619273977070083,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 145,
+        "loss_before": 1.0710071145756181e-06,
+        "loss_after": 9.88214289582343e-07,
+        "arm_state_rmse_rad": 0.007565683987704766,
+        "finger_state_rmse_m": 1.4024257567107579e-05,
+        "model_command": [
+          -1.3371295928955078,
+          2.399288958311081,
+          -1.0428225636482238,
+          0.04,
+          0.03997513294219971
+        ],
+        "expert_command": [
+          -1.3347272414632998,
+          2.3996455087862043,
+          -1.0649182673229045,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.3371295928955078,
+          2.3993032058298462,
+          -1.0436237249695293,
+          0.04,
+          0.0399771961128493
+        ],
+        "gradient": [
+          0.0,
+          -1.9651750021121946e-05,
+          0.0005525250491761933,
+          -0.0001272245555480815,
+          -0.0002063170649589976
+        ],
+        "model_next_joints": [
+          -1.41529269189871,
+          2.3963171917523103,
+          -1.0259180144698232,
+          0.03999999999999997,
+          0.039980166704746356
+        ],
+        "expert_next_joints": [
+          -1.415268593035294,
+          2.396542995019773,
+          -1.0390201957666387,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 170,
+        "loss_before": 2.1676345287718797e-07,
+        "loss_after": 4.2543264285198716e-07,
+        "arm_state_rmse_rad": 0.00227349038898796,
+        "finger_state_rmse_m": 4.773237310008033e-08,
+        "model_command": [
+          -1.1405771255493165,
+          2.399793690443039,
+          -1.2580731868743895,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.1430398582998142,
+          2.4053382769570177,
+          -1.2622984186572035,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.1405729333101036,
+          2.400024688162618,
+          -1.255239404112328,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -5.240299016116358e-06,
+          -0.0003186175442470166,
+          -0.0019543329393527788,
+          0.00016727267967777217,
+          0.0001514855646825925
+        ],
+        "model_next_joints": [
+          -1.1418647151388122,
+          2.402920195955184,
+          -1.2594240006495452,
+          0.012880479906251758,
+          0.012880479906251758
+        ],
+        "expert_next_joints": [
+          -1.1429183655568647,
+          2.405397849978396,
+          -1.2622975571539943,
+          0.012880432173878659,
+          0.012880432173878657
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 195,
+        "loss_before": 1.32011093851055e-06,
+        "loss_after": 1.3701907549539124e-06,
+        "arm_state_rmse_rad": 0.006999013636868121,
+        "finger_state_rmse_m": 1.867192025061682e-06,
+        "model_command": [
+          -1.60736083984375,
+          2.330959290266037,
+          -0.7102410793304443,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.5979566011261914,
+          2.3272953657307025,
+          -0.7293387646045111,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.607126775423135,
+          2.330813945499493,
+          -0.7108404470786498,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -0.00029258052576862684,
+          0.00020047554006090367,
+          0.0004133570677279243,
+          6.462838974454614e-05,
+          6.254736998660748e-05
+        ],
+        "model_next_joints": [
+          -1.5820119399981338,
+          2.336059682239794,
+          -0.7403704713383842,
+          0.012913713022055844,
+          0.0129134398978273
+        ],
+        "expert_next_joints": [
+          -1.5769530583943412,
+          2.333717666357357,
+          -0.7511352869054256,
+          0.01291544572932013,
+          0.012915432518627453
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 220,
+        "loss_before": 7.568666277248699e-05,
+        "loss_after": 7.060635736954816e-05,
+        "arm_state_rmse_rad": 0.038872713020511804,
+        "finger_state_rmse_m": 0.00018004947467598246,
+        "model_command": [
+          -1.704651641845703,
+          2.1569243669509888,
+          -0.3101388243835193,
+          0.0007474280893802643,
+          0.0002972791343927383
+        ],
+        "expert_command": [
+          -1.6870666558370957,
+          2.0802508887519924,
+          -0.3931842329148967,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.7042426112783535,
+          2.154243344055406,
+          -0.3124388283649451,
+          0.0007330507246164901,
+          0.0003116464077786637
+        ],
+        "gradient": [
+          -0.0005112882091868844,
+          0.0036979626145969514,
+          0.001586209642362608,
+          0.0014377364763774217,
+          -0.001436727338592537
+        ],
+        "model_next_joints": [
+          -1.7101429868313638,
+          2.137661133159485,
+          -0.3440824419211662,
+          0.013079040109812427,
+          0.012718610714447038
+        ],
+        "expert_next_joints": [
+          -1.7018554078340413,
+          2.090483770714895,
+          -0.391399203854546,
+          0.012901900328272547,
+          0.012901523602068983
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 245,
+        "loss_before": 1.849179334696482e-05,
+        "loss_after": 1.707578509917897e-05,
+        "arm_state_rmse_rad": 0.015492296491792725,
+        "finger_state_rmse_m": 9.211425288193106e-05,
+        "model_command": [
+          -1.0169084548950196,
+          1.3196855098009108,
+          -0.2416325569152833,
+          0.00019593954086303712,
+          0.0
+        ],
+        "expert_command": [
+          -1.0275412831837536,
+          1.278908724800099,
+          -0.2513674416163454,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0171239711345266,
+          1.3180689680968607,
+          -0.24167343074010011,
+          0.0001897210169377277,
+          5.546473883355818e-06
+        ],
+        "gradient": [
+          0.00026939529938366805,
+          0.0022297126952416156,
+          2.818884470124818e-05,
+          0.0006218523925309416,
+          -0.0005546473883355818
+        ],
+        "model_next_joints": [
+          -1.0412839052969898,
+          1.3199088984194718,
+          -0.25047485234901706,
+          0.013028987463948176,
+          0.01287317223932624
+        ],
+        "expert_next_joints": [
+          -1.0462705253117526,
+          1.294240067897451,
+          -0.2564980169847367,
+          0.012901843204914125,
+          0.01290153433661602
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 270,
+        "loss_before": 3.324493237142611e-05,
+        "loss_after": 3.0289199491825227e-05,
+        "arm_state_rmse_rad": 0.02075453957957131,
+        "finger_state_rmse_m": 0.00024183358238274224,
+        "model_command": [
+          -0.7788621902465822,
+          1.4324103444814682,
+          -0.5505825519561767,
+          0.0004956565797328949,
+          0.0010880545526742935
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.7793371182215506,
+          1.4310838423257324,
+          -0.5520963523448265,
+          0.0005145846094519358,
+          0.0010690840221993531
+        ],
+        "gradient": [
+          0.0005936599687104555,
+          0.001829658145842542,
+          0.0010440002680343068,
+          -0.001892802971904085,
+          0.0018970530474940342
+        ],
+        "model_next_joints": [
+          -0.8086550758726568,
+          1.4154647858422895,
+          -0.5536669042932273,
+          0.012705633071146593,
+          0.013180585975588847
+        ],
+        "expert_next_joints": [
+          -0.8201180522160201,
+          1.3928075916180718,
+          -0.5791130132829637,
+          0.01289755678823967,
+          0.012897509572557232
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 295,
+        "loss_before": 5.123721086365656e-06,
+        "loss_after": 4.792528394768267e-06,
+        "arm_state_rmse_rad": 0.0158049783345875,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -0.7151597976684569,
+          1.4179767340421676,
+          -0.6555998504161833,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7150287328921794,
+          1.4176232336137966,
+          -0.657096943214515,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -0.0001638309703469744,
+          0.00048758679775298724,
+          0.0010324777919528596,
+          -0.00012722455554830278,
+          -0.00012722455554830278
+        ],
+        "model_next_joints": [
+          -0.7119572056690461,
+          1.414816540174919,
+          -0.6731996561284163,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "expert_next_joints": [
+          -0.7091808715060767,
+          1.4091950394807704,
+          -0.6998470334671255,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 1,
+        "tick": 320,
+        "loss_before": 3.3561627805196007e-06,
+        "loss_after": 3.1589727205421022e-06,
+        "arm_state_rmse_rad": 0.011710378087354853,
+        "finger_state_rmse_m": 6.814471462128709e-06,
+        "model_command": [
+          -0.9538324356079102,
+          1.3119286239147185,
+          -0.3315552532672883,
+          0.04,
+          0.039987916946411135
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9535427839641025,
+          1.311641349001869,
+          -0.33257754040970455,
+          0.04,
+          0.039989573507247245
+        ],
+        "gradient": [
+          -0.00036206455475965737,
+          0.00039624125910269083,
+          0.0007050256154594939,
+          -0.0001272245555480817,
+          -0.00016565608361073243
+        ],
+        "model_next_joints": [
+          -0.9341486354976154,
+          1.31637004395883,
+          -0.3592587227545833,
+          0.03999999999999997,
+          0.039990362882037826
+        ],
+        "expert_next_joints": [
+          -0.927930347451501,
+          1.3117949425525668,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 10,
+        "loss_before": 1.7653491163029922e-07,
+        "loss_after": 1.6133705485260658e-07,
+        "arm_state_rmse_rad": 0.0016286473519319343,
+        "finger_state_rmse_m": 1.1494397148956971e-05,
+        "model_command": [
+          -2.023500871658325,
+          2.2835621774196624,
+          -0.2617788016796112,
+          0.04,
+          0.039803385734558105
+        ],
+        "expert_command": [
+          -2.02301295406535,
+          2.2872353886691332,
+          -0.2592443537232022,
+          0.03999999983945941,
+          0.03978300448892669
+        ],
+        "projected_command": [
+          -2.023490316673263,
+          2.283707947332011,
+          -0.26167816837839714,
+          0.04,
+          0.03980208923709962
+        ],
+        "gradient": [
+          -1.319373132751826e-05,
+          -0.00020106194806757808,
+          -6.940227669935617e-05,
+          -0.000127223534313,
+          0.0001296497458489139
+        ],
+        "model_next_joints": [
+          -2.0232656067655372,
+          2.284969741232514,
+          -0.260820395521396,
+          0.039999999979466974,
+          0.03979958801281944
+        ],
+        "expert_next_joints": [
+          -2.023036939100053,
+          2.2872835052807865,
+          -0.25922299650469804,
+          0.03999999985142413,
+          0.039783332480480584
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 35,
+        "loss_before": 3.984149124086197e-07,
+        "loss_after": 3.6764783129232436e-07,
+        "arm_state_rmse_rad": 0.003150301216630671,
+        "finger_state_rmse_m": 5.280257131015008e-06,
+        "model_command": [
+          -2.0217479705810546,
+          2.297357439994812,
+          -0.2871078848838806,
+          0.04,
+          0.039907250404357913
+        ],
+        "expert_command": [
+          -2.019939333646335,
+          2.302737264646869,
+          -0.28045537975669377,
+          0.03999999992445391,
+          0.03989788773694791
+        ],
+        "projected_command": [
+          -2.021708803063345,
+          2.2975709294783035,
+          -0.2868458463301758,
+          0.04,
+          0.03990665482375792
+        ],
+        "gradient": [
+          -4.895939713707677e-05,
+          -0.00029446825309160376,
+          -0.00018071624393435357,
+          -0.0001272240749822617,
+          5.955805999909958e-05
+        ],
+        "model_next_joints": [
+          -2.020870707952911,
+          2.298998852747164,
+          -0.2839458947340781,
+          0.03999999998358627,
+          0.03990383971199996
+        ],
+        "expert_next_joints": [
+          -2.0200272149997147,
+          2.302387163550654,
+          -0.279752916937407,
+          0.03999999992333274,
+          0.03989637230075271
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 60,
+        "loss_before": 3.321344678434385e-07,
+        "loss_after": 3.0745077389033175e-07,
+        "arm_state_rmse_rad": 0.0041297041893669706,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -2.014953374862671,
+          2.3151686072349547,
+          -0.310452091693878,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.015002513706324,
+          2.3152220535531893,
+          -0.3100178511721837,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          6.142355456655751e-05,
+          -7.371905963378014e-05,
+          -0.0002994762218581348,
+          -0.00012722455554824757,
+          -0.00012722455554824757
+        ],
+        "model_next_joints": [
+          -2.016062438378507,
+          2.315809054256356,
+          -0.30631063571689043,
+          0.03999999999999262,
+          0.03999999001993843
+        ],
+        "expert_next_joints": [
+          -2.017116282133136,
+          2.3166583251928796,
+          -0.29928699547181586,
+          0.03999999999999262,
+          0.03999999001993843
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 85,
+        "loss_before": 3.5451750396755146e-07,
+        "loss_after": 3.2529138481602097e-07,
+        "arm_state_rmse_rad": 0.0038022295498547766,
+        "finger_state_rmse_m": 1.0682112154688701e-05,
+        "model_command": [
+          -2.012895059585571,
+          2.3138592422008513,
+          -0.3099120974540712,
+          0.0399812388420105,
+          0.03999739646911621
+        ],
+        "expert_command": [
+          -2.0161399951896515,
+          2.3161432914444773,
+          -0.3000032962548258,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0129656924374335,
+          2.313949866094712,
+          -0.3095253647555696,
+          0.03998310780756267,
+          0.039998751522936575
+        ],
+        "gradient": [
+          8.829106482810983e-05,
+          -0.0001249984742908397,
+          -0.00026671220586319526,
+          -0.00018689655521771944,
+          -0.00013550538203670241
+        ],
+        "model_next_joints": [
+          -2.0150927810076826,
+          2.3149984905512633,
+          -0.30599171527870717,
+          0.03998503660591075,
+          0.03999792349391975
+        ],
+        "expert_next_joints": [
+          -2.0166073325724447,
+          2.316438274222635,
+          -0.29974639661696584,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 110,
+        "loss_before": 8.277329324228452e-07,
+        "loss_after": 7.648904076992486e-07,
+        "arm_state_rmse_rad": 0.004169102018931683,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.746778106689453,
+          2.1228544294834135,
+          -0.3800938904285429,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.743504224992293,
+          2.131128582292968,
+          -0.387624357300675,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.7467036302662238,
+          2.123182757763629,
+          -0.3803932148403477,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -9.309552903648866e-05,
+          -0.0004528665934009499,
+          0.0002064306288309022,
+          -0.0001272245555480815,
+          -0.0001272245555480815
+        ],
+        "model_next_joints": [
+          -1.761743440601814,
+          2.129537996273276,
+          -0.38203611275713173,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.7601715888804994,
+          2.134748065626648,
+          -0.38678255294236863,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 135,
+        "loss_before": 2.57655601281392e-07,
+        "loss_after": 2.348661999877231e-07,
+        "arm_state_rmse_rad": 0.0024981673328140276,
+        "finger_state_rmse_m": 1.4012156098446048e-05,
+        "model_command": [
+          -1.302223014831543,
+          2.3454295456409455,
+          -1.0542732417583465,
+          0.03997515439987183,
+          0.04
+        ],
+        "expert_command": [
+          -1.3012293681783433,
+          2.3491180866767425,
+          -1.0478887184983992,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.3022147707062315,
+          2.3455758494502357,
+          -1.0540682948127975,
+          0.03997721688803572,
+          0.04
+        ],
+        "gradient": [
+          -1.0305156639479665e-05,
+          -0.00020179835764178345,
+          -0.00014134272106819414,
+          -0.00020624881638888422,
+          -0.00012722455554808144
+        ],
+        "model_next_joints": [
+          -1.3567019980408586,
+          2.343836727800892,
+          -1.0272486853133056,
+          0.03998018381880746,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.3564113262761108,
+          2.346158075128107,
+          -1.023608716003019,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 160,
+        "loss_before": 5.156246309144941e-07,
+        "loss_after": 4.0760246148751977e-07,
+        "arm_state_rmse_rad": 0.003989526293027537,
+        "finger_state_rmse_m": 1.2653780515655196e-05,
+        "model_command": [
+          -1.127285575866699,
+          2.350672537088394,
+          -1.2426767826080323,
+          1.8999427556991577e-05,
+          0.0
+        ],
+        "expert_command": [
+          -1.1213017425632374,
+          2.354517707731637,
+          -1.2332159651683994,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.1271899655125004,
+          2.35108300849419,
+          -1.2417159730599723,
+          1.8493158904013144e-05,
+          0.0
+        ],
+        "gradient": [
+          -0.00011951294274845725,
+          -0.0005661674562697879,
+          -0.0006626272745241547,
+          5.062686529784321e-05,
+          3.850795303778887e-05
+        ],
+        "model_next_joints": [
+          -1.12402784969284,
+          2.3522229411957474,
+          -1.2391596584800455,
+          0.012903473084038502,
+          0.012880270940379687
+        ],
+        "expert_next_joints": [
+          -1.1213025508882264,
+          2.354479317285951,
+          -1.2332241320928239,
+          0.012913227128622546,
+          0.01289527410461025
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 185,
+        "loss_before": 1.6456383930398158e-06,
+        "loss_after": 1.4458514003928915e-06,
+        "arm_state_rmse_rad": 0.0056776004291538736,
+        "finger_state_rmse_m": 3.326409225667489e-05,
+        "model_command": [
+          -1.5660896301269531,
+          2.276828497648239,
+          -0.7186123728752136,
+          0.0,
+          4.8542991280555725e-05
+        ],
+        "expert_command": [
+          -1.5505483143494079,
+          2.280106829931098,
+          -0.7295585155816902,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.5656820249038739,
+          2.27687995607946,
+          -0.7191001430688262,
+          9.060270829000789e-07,
+          4.703373957656586e-05
+        ],
+        "gradient": [
+          -0.0005095065288489819,
+          -7.097714651170149e-05,
+          0.0003363932369741854,
+          -9.060270829000789e-05,
+          0.00015092517039898672
+        ],
+        "model_next_joints": [
+          -1.5472665056351096,
+          2.284195545969608,
+          -0.7440576805691123,
+          0.012891244455159549,
+          0.012929682340197958
+        ],
+        "expert_next_joints": [
+          -1.539995725618441,
+          2.286257872057679,
+          -0.7503495808349349,
+          0.012937587042873433,
+          0.012937767155056823
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 210,
+        "loss_before": 1.033220106682958e-07,
+        "loss_after": 9.572673745682082e-08,
+        "arm_state_rmse_rad": 0.0018415000201713865,
+        "finger_state_rmse_m": 2.3207819116258138e-07,
+        "model_command": [
+          -1.626603126525879,
+          2.040759402513504,
+          -0.41894547343254107,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.6283638659692297,
+          2.0429327733042433,
+          -0.4145689073350136,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.6266420760908382,
+          2.0408457756713534,
+          -0.4187713156743268,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          4.8686956199221366e-05,
+          -0.0001191353901371421,
+          -0.00012010879876847871,
+          6.183667737495159e-05,
+          6.552393017104047e-05
+        ],
+        "model_next_joints": [
+          -1.6296365146994376,
+          2.0516415833889443,
+          -0.4166508679593166,
+          0.012902020528310097,
+          0.012901988553258996
+        ],
+        "expert_next_joints": [
+          -1.630462935326376,
+          2.0530130102404374,
+          -0.41389232045904617,
+          0.012902278760451052,
+          0.012901785978001365
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 235,
+        "loss_before": 3.2526078159889254e-07,
+        "loss_after": 3.014528903659409e-07,
+        "arm_state_rmse_rad": 0.0032758491130652034,
+        "finger_state_rmse_m": 1.4628794277158216e-07,
+        "model_command": [
+          -1.0222391128540038,
+          1.2793189525604247,
+          -0.24266017079353341,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.0246282932085395,
+          1.275242080587493,
+          -0.25061378737895357,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.022289658312757,
+          1.2791572897394026,
+          -0.24296231140116217,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          6.31818234414858e-05,
+          0.0002229832014099622,
+          0.00020837283284742594,
+          6.289141620434707e-05,
+          6.4488559373237e-05
+        ],
+        "model_next_joints": [
+          -1.0408131750650256,
+          1.292250499407654,
+          -0.2506696475732377,
+          0.012901858970445441,
+          0.012901700037012423
+        ],
+        "expert_next_joints": [
+          -1.041921855622564,
+          1.2896875876551779,
+          -0.2556088654268119,
+          0.012901852109604674,
+          0.01290149326841407
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 260,
+        "loss_before": 8.7109349005853e-06,
+        "loss_after": 8.14489430536193e-06,
+        "arm_state_rmse_rad": 0.011129275785587357,
+        "finger_state_rmse_m": 7.677404976728554e-05,
+        "model_command": [
+          -0.8381771087646483,
+          1.410862085223198,
+          -0.5824484348297121,
+          0.00019225299358367921,
+          0.0
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.8374443542735829,
+          1.4102556557263148,
+          -0.5827985731907815,
+          0.00018612122331486348,
+          5.492794245927028e-06
+        ],
+        "gradient": [
+          -0.0009159431138318419,
+          0.0008364544784593501,
+          0.00024147473177199913,
+          0.000613177026881574,
+          -0.0005492794245927028
+        ],
+        "model_next_joints": [
+          -0.835853827920412,
+          1.4024668726736713,
+          -0.5735753671391158,
+          0.012957927274939093,
+          0.012804385880424296
+        ],
+        "expert_next_joints": [
+          -0.8201180976426099,
+          1.3928075312115038,
+          -0.5791130790923054,
+          0.012880433234855151,
+          0.012880433123548604
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 285,
+        "loss_before": 5.482503246128379e-07,
+        "loss_after": 5.086335504626086e-07,
+        "arm_state_rmse_rad": 0.0032462511805141188,
+        "finger_state_rmse_m": 2.4218268644177698e-05,
+        "model_command": [
+          -0.7175336837768556,
+          1.4101983278989791,
+          -0.7062042593955993,
+          0.039957206249237064,
+          0.03999642848968506
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7173524872723933,
+          1.4101529514313311,
+          -0.7059523717023175,
+          0.03995992845719759,
+          0.039997814331193655
+        ],
+        "gradient": [
+          -0.00022649563057783241,
+          6.258823123879087e-05,
+          -0.00017371565053917295,
+          -0.0002722207960528735,
+          -0.00013858415085959955
+        ],
+        "model_next_joints": [
+          -0.7130576515221906,
+          1.4099238117703266,
+          -0.7038537662830993,
+          0.039965868857475974,
+          0.03999715145960614
+        ],
+        "expert_next_joints": [
+          -0.7091808715087559,
+          1.4091950394808337,
+          -0.699847033467142,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 2,
+        "tick": 310,
+        "loss_before": 7.373479308499538e-07,
+        "loss_after": 6.927139414181227e-07,
+        "arm_state_rmse_rad": 0.004090374122330721,
+        "finger_state_rmse_m": 8.452203553866428e-06,
+        "model_command": [
+          -0.9502336502075195,
+          1.3091488808393479,
+          -0.35640535950660723,
+          0.04,
+          0.03998501300811768
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9500225163417183,
+          1.3089718367881416,
+          -0.35668029650495203,
+          0.04,
+          0.03998676193201847
+        ],
+        "gradient": [
+          -0.0002639173322514782,
+          0.00024419869131903093,
+          0.00018961172299642918,
+          -0.0001272245555480815,
+          -0.0001748923900788706
+        ],
+        "model_next_joints": [
+          -0.9324646303942495,
+          1.314614057220485,
+          -0.3733581997510314,
+          0.03999999999999997,
+          0.03998804677910216
+        ],
+        "expert_next_joints": [
+          -0.927930347451501,
+          1.3117949425525666,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 20,
+        "loss_before": 5.577236377288133e-07,
+        "loss_after": 5.000942779819111e-07,
+        "arm_state_rmse_rad": 0.0023213806129204605,
+        "finger_state_rmse_m": 3.5580463487015574e-05,
+        "model_command": [
+          -2.0234275341033934,
+          2.2587644457817078,
+          -0.23884045481681815,
+          0.04,
+          0.039936881065368655
+        ],
+        "expert_command": [
+          -2.024344481745166,
+          2.2542749833682696,
+          -0.2433242122771424,
+          0.03999999999999997,
+          0.03999997042591827
+        ],
+        "projected_command": [
+          -2.0234473808066125,
+          2.2585862819487676,
+          -0.23901849771296968,
+          0.04,
+          0.039940894323296526
+        ],
+        "gradient": [
+          2.480837902360511e-05,
+          0.00024574321784872656,
+          0.00012278820424243227,
+          -0.0001272245555480815,
+          -0.0004013257927873315
+        ],
+        "model_next_joints": [
+          -2.023830796448978,
+          2.257171423014956,
+          -0.2404736438693205,
+          0.03999999999999997,
+          0.03994965425585296
+        ],
+        "expert_next_joints": [
+          -2.0242596010863703,
+          2.254343673614423,
+          -0.24329966293522656,
+          0.03999999999999997,
+          0.039999972629871816
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 45,
+        "loss_before": 2.655416625992122e-08,
+        "loss_after": 2.469574857572189e-08,
+        "arm_state_rmse_rad": 0.0007055069585837297,
+        "finger_state_rmse_m": 7.848630731500432e-09,
+        "model_command": [
+          -2.0193790435791015,
+          2.288608634471893,
+          -0.27400282621383676,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -2.020565914832416,
+          2.2872269826150524,
+          -0.2729637885107473,
+          0.03999999999999999,
+          0.039999986083230944
+        ],
+        "projected_command": [
+          -2.0194048487453777,
+          2.2885537988225004,
+          -0.27396146947169026,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          3.225645784544346e-05,
+          7.563537847299478e-05,
+          -2.852189113550342e-05,
+          -0.0001272245555480815,
+          -0.00012713602781027144
+        ],
+        "model_next_joints": [
+          -2.0201434876693813,
+          2.2871756556252536,
+          -0.2726366942762313,
+          0.03999999999999997,
+          0.039999996976333815
+        ],
+        "expert_next_joints": [
+          -2.02069802909122,
+          2.2863057005634717,
+          -0.27198180328700067,
+          0.03999999999999997,
+          0.03999998587669379
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 70,
+        "loss_before": 3.25826997129522e-07,
+        "loss_after": 3.025780492939916e-07,
+        "arm_state_rmse_rad": 0.004037196004916262,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -2.01376690864563,
+          2.316465526819229,
+          -0.3101056933403017,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0138418078604436,
+          2.3164675027727903,
+          -0.30968436633821916,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          9.36240185171999e-05,
+          -2.72545318788785e-06,
+          -0.0002905703462638091,
+          -0.00012722455554808144,
+          -0.00012722455554824757
+        ],
+        "model_next_joints": [
+          -2.015511855613506,
+          2.3166087220826874,
+          -0.3060837428461122,
+          0.03999999999999997,
+          0.039999999998639825
+        ],
+        "expert_next_joints": [
+          -2.017119228694735,
+          2.316641414018251,
+          -0.2992784406660892,
+          0.03999999999999997,
+          0.039999999998639825
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 95,
+        "loss_before": 3.4819041087460943e-07,
+        "loss_after": 3.216423065423364e-07,
+        "arm_state_rmse_rad": 0.003777573282793481,
+        "finger_state_rmse_m": 8.593387354868572e-06,
+        "model_command": [
+          -2.0117496013641354,
+          2.3145423591136933,
+          -0.3097312927246092,
+          0.03998476266860962,
+          0.04
+        ],
+        "expert_command": [
+          -2.0161399951900436,
+          2.3161432914444156,
+          -0.30000329625437194,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0118451049835224,
+          2.3146058719127183,
+          -0.30935129811655737,
+          0.03998651955484357,
+          0.04
+        ],
+        "gradient": [
+          0.00011937952423400729,
+          -8.760386072392313e-05,
+          -0.00026206524693227657,
+          -0.0001756886233950815,
+          -0.00012722455554808144
+        ],
+        "model_next_joints": [
+          -2.0145586811670264,
+          2.315428410851613,
+          -0.3058777409317839,
+          0.03998784711505599,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -2.0166073325727596,
+          2.3164382742225955,
+          -0.2997463966166797,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 120,
+        "loss_before": 7.897552219060212e-07,
+        "loss_after": 7.292427116344977e-07,
+        "arm_state_rmse_rad": 0.0041655553546619175,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.7460168838500976,
+          2.123060643672943,
+          -0.37972657680511457,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.7435042249923105,
+          2.1311285822929684,
+          -0.3876243573006579,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.745959701716419,
+          2.1233807975415044,
+          -0.3800399191155808,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          -7.147766709818173e-05,
+          -0.0004415915428432433,
+          0.00021609814514914614,
+          -0.0001272245555480816,
+          -0.0001272245555480816
+        ],
+        "model_next_joints": [
+          -1.7613805352055165,
+          2.1296673372934,
+          -0.3818045812042484,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.7601715888805354,
+          2.1347480656266486,
+          -0.3867825529423457,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 145,
+        "loss_before": 2.0684429717775292e-07,
+        "loss_after": 1.871731281155546e-07,
+        "arm_state_rmse_rad": 0.0019876252889897794,
+        "finger_state_rmse_m": 1.514969415231115e-05,
+        "model_command": [
+          -1.3020462036132812,
+          2.345790982246399,
+          -1.0526634573936462,
+          0.039973137378692625,
+          0.04
+        ],
+        "expert_command": [
+          -1.3012293681783433,
+          2.3491180866767425,
+          -1.0478887184983992,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.302039386259807,
+          2.345922960881248,
+          -1.0525086787674713,
+          0.039975264020512276,
+          0.04
+        ],
+        "gradient": [
+          -8.5216918427481e-06,
+          -0.00018203949634387282,
+          -0.00010674388012061994,
+          -0.0002126641819653276,
+          -0.0001272245555480815
+        ],
+        "model_next_joints": [
+          -1.3566522339517588,
+          2.3440639886937427,
+          -1.0263306139374593,
+          0.03997857509706397,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.356411326276089,
+          2.346158075128107,
+          -1.023608716003019,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 170,
+        "loss_before": 4.423211817955623e-07,
+        "loss_after": 3.594236993860885e-07,
+        "arm_state_rmse_rad": 0.003970980206108323,
+        "finger_state_rmse_m": 9.175446010474888e-06,
+        "model_command": [
+          -1.1259687423706055,
+          2.3509027779102323,
+          -1.2430909395217895,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.1213017425632374,
+          2.354517707731637,
+          -1.2332159651683994,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.1259541034408629,
+          2.351221402557413,
+          -1.2419102586599817,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -1.8298662178255405e-05,
+          -0.000439482271973569,
+          -0.000814262663315675,
+          1.8788009347972043e-05,
+          0.00010299023965333829
+        ],
+        "model_next_joints": [
+          -1.1234146235238631,
+          2.3523691447175454,
+          -1.2394202898594031,
+          0.012915112328391721,
+          0.012908137188386
+        ],
+        "expert_next_joints": [
+          -1.1213025510872427,
+          2.354479317912691,
+          -1.233224132138616,
+          0.012913198049433031,
+          0.012895303126088714
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 195,
+        "loss_before": 1.389651902278835e-06,
+        "loss_after": 1.321827909367578e-06,
+        "arm_state_rmse_rad": 0.005375726436251377,
+        "finger_state_rmse_m": 2.924557984325709e-05,
+        "model_command": [
+          -1.5647933959960936,
+          2.277266854047775,
+          -0.7186822056770326,
+          0.0,
+          2.7007833123207094e-05
+        ],
+        "expert_command": [
+          -1.5505483143494079,
+          2.280106829931098,
+          -0.7295585155816902,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.5644327915112326,
+          2.2773003087502293,
+          -0.7191684996932349,
+          2.201452770068178e-07,
+          2.5977629925663754e-05
+        ],
+        "gradient": [
+          -0.00045075560607628427,
+          -4.614441717805449e-05,
+          0.0003353751835878492,
+          -2.201452770068178e-05,
+          0.00010302031975433393
+        ],
+        "model_next_joints": [
+          -1.5466605317046584,
+          2.284471553996014,
+          -0.7440978025467755,
+          0.012899769976293132,
+          0.012921019695283547
+        ],
+        "expert_next_joints": [
+          -1.5399957256156127,
+          2.286257872060481,
+          -0.7503495808314088,
+          0.012937587041410153,
+          0.012937767156782878
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 220,
+        "loss_before": 1.0740402418709536e-07,
+        "loss_after": 1.00130337459602e-07,
+        "arm_state_rmse_rad": 0.0019110252176854803,
+        "finger_state_rmse_m": 2.3140990635440188e-07,
+        "model_command": [
+          -1.625636100769043,
+          2.041258257627487,
+          -0.4191110670566558,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.6283638659681017,
+          2.042932773307705,
+          -0.4145689073396033,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.6256963265723101,
+          2.0413248570963685,
+          -0.41893033892634346,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          7.528225408405318e-05,
+          -9.186133638857615e-05,
+          -0.00012464008987058157,
+          6.184840905416301e-05,
+          6.551134346425113e-05
+        ],
+        "model_next_joints": [
+          -1.62918223263441,
+          2.051954876501495,
+          -0.41675522209234384,
+          0.01290201576989466,
+          0.012901980752288529
+        ],
+        "expert_next_joints": [
+          -1.6304629353224829,
+          2.0530130102464135,
+          -0.41389232046104074,
+          0.012902278760981921,
+          0.01290178597863133
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 245,
+        "loss_before": 3.3725728063449033e-07,
+        "loss_after": 3.1283044364406077e-07,
+        "arm_state_rmse_rad": 0.0032683647478989387,
+        "finger_state_rmse_m": 1.4705219867738545e-07,
+        "model_command": [
+          -1.0218050003051757,
+          1.2794278502464294,
+          -0.2428249001502989,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.0246282932085213,
+          1.2752420805876936,
+          -0.2506137873791723,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0218648659537641,
+          1.2792619093722275,
+          -0.24312084847382615,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          7.483206073542944e-05,
+          0.0002288839644163143,
+          0.00020410229208775386,
+          6.288850485144374e-05,
+          6.449156659206251e-05
+        ],
+        "model_next_joints": [
+          -1.0406117431721549,
+          1.2923179812291004,
+          -0.2507703471170264,
+          0.01290185929933573,
+          0.01290170110791317
+        ],
+        "expert_next_joints": [
+          -1.0419218556198366,
+          1.2896875876579894,
+          -0.2556088654244644,
+          0.01290185211015648,
+          0.012901493268999649
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 270,
+        "loss_before": 8.734882212888102e-06,
+        "loss_after": 8.166016386600824e-06,
+        "arm_state_rmse_rad": 0.011136587956414512,
+        "finger_state_rmse_m": 7.718142859190687e-05,
+        "model_command": [
+          -0.8381481170654297,
+          1.410913422703743,
+          -0.5824071228504182,
+          0.00019327312707901,
+          0.0
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.8374159796276718,
+          1.4103049576151947,
+          -0.5827588930378286,
+          0.00018710882036895122,
+          5.525324885493249e-06
+        ],
+        "gradient": [
+          -0.000915171797197328,
+          0.0008392621911010295,
+          0.00024260012924855214,
+          0.0006164306710058799,
+          -0.0005525324885493249
+        ],
+        "model_next_joints": [
+          -0.8358403064238803,
+          1.4024991572367067,
+          -0.5735493294598285,
+          0.012958338581539192,
+          0.012803982454165879
+        ],
+        "expert_next_joints": [
+          -0.8201180976411891,
+          1.3928075312133619,
+          -0.5791130790902455,
+          0.012880433341481376,
+          0.012880433218782784
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 295,
+        "loss_before": 5.483973376317928e-07,
+        "loss_after": 5.087324215030218e-07,
+        "arm_state_rmse_rad": 0.0032448720158248273,
+        "finger_state_rmse_m": 2.4255129543257917e-05,
+        "model_command": [
+          -0.7175298690795899,
+          1.4102012664079666,
+          -0.7062011480331423,
+          0.039957144260406495,
+          0.03999638557434082
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7173487554655117,
+          1.410155773548486,
+          -0.7059493797104646,
+          0.039959870411617734,
+          0.03999777278082082
+        ],
+        "gradient": [
+          -0.00022639201759777682,
+          6.274877169737941e-05,
+          -0.00017363332598463037,
+          -0.0002726151211237608,
+          -0.0001387206479995496
+        ],
+        "model_next_joints": [
+          -0.7130558664479174,
+          1.4099256553746788,
+          -0.7038518053500815,
+          0.039965819416855015,
+          0.03999711723148393
+        ],
+        "expert_next_joints": [
+          -0.7091808715087559,
+          1.4091950394808337,
+          -0.699847033467142,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 3,
+        "tick": 320,
+        "loss_before": 7.373638916969281e-07,
+        "loss_after": 6.927213907351649e-07,
+        "arm_state_rmse_rad": 0.00409036977946242,
+        "finger_state_rmse_m": 8.454892769119639e-06,
+        "model_command": [
+          -0.9502313613891602,
+          1.309151041507721,
+          -0.35640501379966727,
+          0.04,
+          0.039985008239746093
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9500202766684702,
+          1.3089739118151824,
+          -0.3566799620695332,
+          0.04,
+          0.03998675731531037
+        ],
+        "gradient": [
+          -0.00026385590086245073,
+          0.00024431681729446844,
+          0.0001896194964592254,
+          -0.00012722455554808142,
+          -0.00017490755642780067
+        ],
+        "model_next_joints": [
+          -0.9324635647216329,
+          1.3146154143384756,
+          -0.3733579954527792,
+          0.03999999999999997,
+          0.039988042975977474
+        ],
+        "expert_next_joints": [
+          -0.927930347451501,
+          1.3117949425525668,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 10,
+        "loss_before": 5.053231987276337e-07,
+        "loss_after": 4.6091527712521693e-07,
+        "arm_state_rmse_rad": 0.0023841349314334243,
+        "finger_state_rmse_m": 2.2130175333360826e-05,
+        "model_command": [
+          -2.0021316051483153,
+          2.2605253040790556,
+          -0.25579859018325823,
+          0.04,
+          0.03976254463195801
+        ],
+        "expert_command": [
+          -2.003899738046919,
+          2.266727253106632,
+          -0.2541278217825166,
+          0.039999999849050547,
+          0.03972330459757421
+        ],
+        "projected_command": [
+          -2.0021700478608984,
+          2.260771431512751,
+          -0.25573214742569816,
+          0.04,
+          0.03976004848399092
+        ],
+        "gradient": [
+          4.805339072870692e-05,
+          -0.00033948611544206553,
+          -4.582259142075053e-05,
+          -0.00012722359532439504,
+          0.0002496147967088575
+        ],
+        "model_next_joints": [
+          -2.0030209932819982,
+          2.2628492894434635,
+          -0.255157215635887,
+          0.039999999980693667,
+          0.03975484517425588
+        ],
+        "expert_next_joints": [
+          -2.00384175037211,
+          2.2667569709069975,
+          -0.25410427618253395,
+          0.03999999986030046,
+          0.039723548380161976
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 35,
+        "loss_before": 1.0480218598535851e-06,
+        "loss_after": 9.684226772485166e-07,
+        "arm_state_rmse_rad": 0.00432164839256343,
+        "finger_state_rmse_m": 1.1665142831253124e-05,
+        "model_command": [
+          -2.004966354370117,
+          2.284071922302246,
+          -0.2843961596488951,
+          0.03998175382614136,
+          0.03987953662872314
+        ],
+        "expert_command": [
+          -2.0109451672131593,
+          2.293086686517819,
+          -0.27804767716018625,
+          0.03999999992896724,
+          0.03986979457050492
+        ],
+        "projected_command": [
+          -2.0050963227376943,
+          2.2844296665710306,
+          -0.2841455033694512,
+          0.03998360640751819,
+          0.039878916914209674
+        ],
+        "gradient": [
+          0.00016246045947162165,
+          -0.0004934403707371284,
+          -0.00017286639961644942,
+          -0.00018525813768311086,
+          6.197145134687478e-05
+        ],
+        "model_next_joints": [
+          -2.0076291496244427,
+          2.2866989489549785,
+          -0.28125657602089127,
+          0.03998544732794403,
+          0.039875632210033804
+        ],
+        "expert_next_joints": [
+          -2.010412405269981,
+          2.292380010325038,
+          -0.2772554556517901,
+          0.039999999927913046,
+          0.03986786220690067
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 60,
+        "loss_before": 8.674689416409946e-07,
+        "loss_after": 8.072087942882355e-07,
+        "arm_state_rmse_rad": 0.004785871767913582,
+        "finger_state_rmse_m": 2.280857920528292e-05,
+        "model_command": [
+          -2.007898950576782,
+          2.3133090496063233,
+          -0.3100445032119752,
+          0.039959557056427,
+          0.04
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0081012622792738,
+          2.3134362841999487,
+          -0.30962512980192464,
+          0.03996212972418757,
+          0.04
+        ],
+        "gradient": [
+          0.0002528896281145579,
+          -0.00017549599120735948,
+          -0.00028922304141417473,
+          -0.0002572667760568,
+          -0.000127224555548303
+        ],
+        "model_next_joints": [
+          -2.0127407095018706,
+          2.31462443298427,
+          -0.3060507948903523,
+          0.03996774379794248,
+          0.03999998727421992
+        ],
+        "expert_next_joints": [
+          -2.0170805008745525,
+          2.31664768891562,
+          -0.29928423357646544,
+          0.039999999999993055,
+          0.03999998727421992
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 85,
+        "loss_before": 9.843949849846617e-07,
+        "loss_after": 9.070305393406384e-07,
+        "arm_state_rmse_rad": 0.004282566602852262,
+        "finger_state_rmse_m": 3.2681085073248814e-05,
+        "model_command": [
+          -2.0065873622894284,
+          2.311717414855957,
+          -0.3085807800292968,
+          0.03994403600692749,
+          0.03998496532440186
+        ],
+        "expert_command": [
+          -2.015939772338192,
+          2.3160333329278773,
+          -0.3000935605896853,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0067905858478197,
+          2.311888671270836,
+          -0.3082475772737904,
+          0.03994759600400016,
+          0.039986715764937536
+        ],
+        "gradient": [
+          0.00025402944798904556,
+          -0.00023621574466100385,
+          -0.0002297950037975146,
+          -0.0003559997072677057,
+          -0.0001750440535676955
+        ],
+        "model_next_joints": [
+          -2.0121553561832872,
+          2.313646907910687,
+          -0.3051524297125445,
+          0.03995536462708642,
+          0.039988008747855276
+        ],
+        "expert_next_joints": [
+          -2.0165140618532646,
+          2.316368938136383,
+          -0.2998032833828485,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 110,
+        "loss_before": 3.342214659098536e-06,
+        "loss_after": 3.1051942918901275e-06,
+        "arm_state_rmse_rad": 0.007037869485973107,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.6834886550903319,
+          2.0734020888805387,
+          -0.39841272830963126,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.6950466424677888,
+          2.090425581513836,
+          -0.39537893904604715,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.6837476762979815,
+          2.074066590914047,
+          -0.3982915621578001,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          0.0003237765095619609,
+          -0.0009165545289774147,
+          -8.356286333184656e-05,
+          -0.0001272245555480817,
+          -0.0001272245555480817
+        ],
+        "model_next_joints": [
+          -1.6886947534604453,
+          2.084133687588601,
+          -0.3965617645415148,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.6941477576486317,
+          2.094867062048458,
+          -0.39465015821884136,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 135,
+        "loss_before": 5.168264575060218e-06,
+        "loss_after": 4.786162436334941e-06,
+        "arm_state_rmse_rad": 0.016716555891678763,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.2683692932128905,
+          2.3031055092811585,
+          -0.9828908085823058,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.2683789770597107,
+          2.2979999389397823,
+          -1.0296209618800716,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.2683854055701849,
+          2.3029088674422353,
+          -0.9846773652703849,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          2.0140446617840076e-05,
+          0.00027123012265275543,
+          0.0012321080607441757,
+          -0.0001272245555480817,
+          -0.0001272245555480817
+        ],
+        "model_next_joints": [
+          -1.3016650672201358,
+          2.2985119273682235,
+          -0.9780037359456762,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.301667745865841,
+          2.295298810372224,
+          -1.0067788222988696,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 160,
+        "loss_before": 4.192181340717139e-08,
+        "loss_after": 4.004477485928464e-08,
+        "arm_state_rmse_rad": 0.0009505707384891494,
+        "finger_state_rmse_m": 6.753991757002423e-06,
+        "model_command": [
+          -1.1011976242065429,
+          2.3027069091796872,
+          -1.202241688966751,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.0988619322715778,
+          2.3031450620543654,
+          -1.2042831297827876,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.101146136087534,
+          2.302723655869351,
+          -1.2023297548349885,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -6.436014876103821e-05,
+          -2.3098882294867752e-05,
+          6.073508154305034e-05,
+          9.676725011051486e-06,
+          0.00011162407070153904
+        ],
+        "model_next_joints": [
+          -1.0998914240122992,
+          2.3028865367937152,
+          -1.2030031490850073,
+          0.01290612497756028,
+          0.01289908787460911
+        ],
+        "expert_next_joints": [
+          -1.0988877135225117,
+          2.303086686074256,
+          -1.2042928233480694,
+          0.012914361354876527,
+          0.012894251047342011
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 185,
+        "loss_before": 5.36997155500799e-07,
+        "loss_after": 5.052894320525736e-07,
+        "arm_state_rmse_rad": 0.0043344275393644265,
+        "finger_state_rmse_m": 2.861837180126481e-06,
+        "model_command": [
+          -1.5104705810546875,
+          2.2279949724674224,
+          -0.7154975533485413,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.5049923554514315,
+          2.231925648164177,
+          -0.7269332927127454,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.5103483717029373,
+          2.2281218477174027,
+          -0.7158766288644064,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -0.00015276168968765666,
+          -0.0001750003448007086,
+          0.00026143139025182365,
+          6.472135367690897e-05,
+          6.238313093116145e-05
+        ],
+        "model_next_joints": [
+          -1.494708256953349,
+          2.2353539676619327,
+          -0.7401893731128513,
+          0.012915972589067622,
+          0.012915674000926917
+        ],
+        "expert_next_joints": [
+          -1.492125803975925,
+          2.237828968617884,
+          -0.7467899104522985,
+          0.012918685508053179,
+          0.012918677381467061
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 210,
+        "loss_before": 1.327180353951269e-07,
+        "loss_after": 1.2661841037576256e-07,
+        "arm_state_rmse_rad": 0.0014774995517420932,
+        "finger_state_rmse_m": 6.240883830778436e-07,
+        "model_command": [
+          -1.5780445098876952,
+          2.0000617444515227,
+          -0.4204439401626585,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.5834820310523352,
+          2.002789537072554,
+          -0.4193075060202187,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.5780689017626162,
+          2.0001666645958047,
+          -0.42039823675271415,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          3.0489843651319e-05,
+          -0.00014471744038885913,
+          -3.151959306509312e-05,
+          5.8743511784455726e-05,
+          6.863068193803513e-05
+        ],
+        "model_next_joints": [
+          -1.58083329476127,
+          2.0108929277983743,
+          -0.41996567726884965,
+          0.012901728919292097,
+          0.012902467517711383
+        ],
+        "expert_next_joints": [
+          -1.5826364090530278,
+          2.012559084308514,
+          -0.4192433780851508,
+          0.012902273935440332,
+          0.012901773305915208
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 235,
+        "loss_before": 6.02057298062366e-07,
+        "loss_after": 5.547138656071934e-07,
+        "arm_state_rmse_rad": 0.00324119258039515,
+        "finger_state_rmse_m": 7.668584134233481e-06,
+        "model_command": [
+          -1.0240415573120116,
+          1.279179546236992,
+          -0.24474478363990793,
+          1.8720775842666625e-05,
+          0.0
+        ],
+        "expert_command": [
+          -1.0222627150259236,
+          1.271758078344253,
+          -0.24949536331832944,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0240019195814558,
+          1.2788842897053656,
+          -0.24492773474890941,
+          1.777010328655032e-05,
+          0.0
+        ],
+        "gradient": [
+          -4.9547163194809485e-05,
+          0.0004072503884501449,
+          0.00012617317862171685,
+          9.506725561163043e-05,
+          2.5124435968881386e-06
+        ],
+        "model_next_joints": [
+          -1.039241101578053,
+          1.290036611863321,
+          -0.2512577139647604,
+          0.012909875849368308,
+          0.012894249789867819
+        ],
+        "expert_next_joints": [
+          -1.0384256052061172,
+          1.2853548208914303,
+          -0.25424632350642135,
+          0.012902058933721322,
+          0.012901767116188761
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 260,
+        "loss_before": 2.0772393784733365e-06,
+        "loss_after": 1.9161974203198857e-06,
+        "arm_state_rmse_rad": 0.006042380322310058,
+        "finger_state_rmse_m": 2.0384661680519416e-16,
+        "model_command": [
+          -0.8063440322875977,
+          1.4097857266664504,
+          -0.5826368451118471,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.8062961375024099,
+          1.409224949569126,
+          -0.5829771856358664,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -5.9868481484707095e-05,
+          0.0007734856514819925,
+          0.00023471760277194166,
+          6.378851064233532e-05,
+          6.378851064509537e-05
+        ],
+        "model_next_joints": [
+          -0.8210896466731081,
+          1.4017089224286228,
+          -0.5736952556835258,
+          0.012880433458791045,
+          0.012880433323599458
+        ],
+        "expert_next_joints": [
+          -0.8201180854810163,
+          1.3928075451304374,
+          -0.5791130625205854,
+          0.012880433458790839,
+          0.01288043332359966
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 285,
+        "loss_before": 3.5436475364678783e-07,
+        "loss_after": 3.3229580609888867e-07,
+        "arm_state_rmse_rad": 0.0026204057190602524,
+        "finger_state_rmse_m": 1.1965663287611735e-05,
+        "model_command": [
+          -0.7170269012451174,
+          1.410549134016037,
+          -0.7038757503032684,
+          0.039978783130645755,
+          0.04
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7168566861896234,
+          1.4104898721485115,
+          -0.703716130980285,
+          0.039980730202894665,
+          0.04
+        ],
+        "gradient": [
+          -0.0002127688193674265,
+          8.174050693167879e-05,
+          -0.00011008229171271696,
+          -0.0001947072248913013,
+          -0.00012722455554824757
+        ],
+        "model_next_joints": [
+          -0.7128212707010595,
+          1.410143710241198,
+          -0.7023861466787666,
+          0.03998307799669414,
+          0.03999999999999827
+        ],
+        "expert_next_joints": [
+          -0.7091808715080616,
+          1.4091950394808173,
+          -0.6998470334671374,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 4,
+        "tick": 310,
+        "loss_before": 7.32701886201041e-07,
+        "loss_after": 6.9082207790348e-07,
+        "arm_state_rmse_rad": 0.0042468087020040715,
+        "finger_state_rmse_m": 1.707651688404635e-06,
+        "model_command": [
+          -0.9502401351928711,
+          1.3089679032564163,
+          -0.35562544465064994,
+          0.04,
+          0.03999697208404541
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9500288540353765,
+          1.3087980497248364,
+          -0.3559264009022449,
+          0.04,
+          0.03999834063591628
+        ],
+        "gradient": [
+          -0.0002641014468682801,
+          0.0002342807332138342,
+          0.0002075560355827617,
+          -0.0001272245555480817,
+          -0.00013685518708703983
+        ],
+        "model_next_joints": [
+          -0.9324683955708049,
+          1.3144999655723009,
+          -0.3728969434487841,
+          0.03999999999999997,
+          0.03999758501582242
+        ],
+        "expert_next_joints": [
+          -0.927930347451501,
+          1.3117949425525666,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 20,
+        "loss_before": 7.25160585574886e-07,
+        "loss_after": 6.506716549850308e-07,
+        "arm_state_rmse_rad": 0.0032537616767894842,
+        "finger_state_rmse_m": 3.9938036041169665e-05,
+        "model_command": [
+          -1.9922201156616208,
+          2.2186247587203978,
+          -0.22132158279418945,
+          0.04,
+          0.03988298416137696
+        ],
+        "expert_command": [
+          -1.998165693011566,
+          2.2142166549684585,
+          -0.22910150569581603,
+          0.03999999999999997,
+          0.0399538001347654
+        ],
+        "projected_command": [
+          -1.9922204627372733,
+          2.2184499744915,
+          -0.22163020304534223,
+          0.04,
+          0.03988748892674698
+        ],
+        "gradient": [
+          4.3384456566307435e-07,
+          0.000241081695031195,
+          0.0002128415525191566,
+          -0.00012722455554808142,
+          -0.00045047653700292504
+        ],
+        "model_next_joints": [
+          -1.9984008121194161,
+          2.2170366905604104,
+          -0.22416497397033522,
+          0.03999999999999997,
+          0.03989759113655004
+        ],
+        "expert_next_joints": [
+          -1.998464925962941,
+          2.2142600014455356,
+          -0.2290687258117762,
+          0.03999999999999997,
+          0.039954072048774006
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 45,
+        "loss_before": 5.153703515797209e-07,
+        "loss_after": 4.93324301312309e-07,
+        "arm_state_rmse_rad": 0.002954462089580424,
+        "finger_state_rmse_m": 6.885186519943805e-06,
+        "model_command": [
+          -1.997600746154785,
+          2.2670038521289824,
+          -0.26483415961265555,
+          0.04,
+          0.03999046802520752
+        ],
+        "expert_command": [
+          -2.008246879529205,
+          2.268376608490924,
+          -0.2662709645506499,
+          0.03999999999999999,
+          0.039978259583488746
+        ],
+        "projected_command": [
+          -1.9978320322306127,
+          2.267058308667463,
+          -0.2648906024126319,
+          0.04,
+          0.03999066048866308
+        ],
+        "gradient": [
+          0.00028910759478474113,
+          -7.51124668700629e-05,
+          3.892606894921889e-05,
+          -0.0001272245555480816,
+          -1.9246345556139355e-05
+        ],
+        "model_next_joints": [
+          -2.0025686273353225,
+          2.265890078800244,
+          -0.2641335631323941,
+          0.03999999999999997,
+          0.039987674060657036
+        ],
+        "expert_next_joints": [
+          -2.0075294990587738,
+          2.2667593846897995,
+          -0.2650394316273475,
+          0.03999999999999997,
+          0.03997793693650106
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 70,
+        "loss_before": 8.538946441430086e-07,
+        "loss_after": 8.031091179720501e-07,
+        "arm_state_rmse_rad": 0.0049272927798637445,
+        "finger_state_rmse_m": 1.1629511380430362e-05,
+        "model_command": [
+          -2.0059446334838866,
+          2.3152000665664674,
+          -0.3098999977111818,
+          0.03997937917709351,
+          0.04
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.0061893850556753,
+          2.315252247711133,
+          -0.3094859199905216,
+          0.039981307291406316,
+          0.04
+        ],
+        "gradient": [
+          0.0003059394647359856,
+          -7.19739926422237e-05,
+          -0.000285570841834611,
+          -0.00019281143128096464,
+          -0.00012722455554819225
+        ],
+        "model_next_joints": [
+          -2.0118187923521957,
+          2.3157879499183043,
+          -0.3059462523801503,
+          0.039983553387281996,
+          0.039999997875174935
+        ],
+        "expert_next_joints": [
+          -2.017070389141862,
+          2.3166207010659745,
+          -0.2992707824266331,
+          0.03999999999999997,
+          0.039999997875174935
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 95,
+        "loss_before": 8.999522840045489e-07,
+        "loss_after": 8.41172204953391e-07,
+        "arm_state_rmse_rad": 0.004374767221461084,
+        "finger_state_rmse_m": 2.3540555574699274e-05,
+        "model_command": [
+          -2.005018091201782,
+          2.3129401803016663,
+          -0.30844267010688764,
+          0.039958302974700925,
+          0.03999808788299561
+        ],
+        "expert_command": [
+          -2.0159397723370547,
+          2.316033332928055,
+          -0.30009356059100023,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -2.005255389841492,
+          2.3130629065104986,
+          -0.3081146078626585,
+          0.0399609554174566,
+          0.0399994209456101
+        ],
+        "gradient": [
+          0.0002966232996377006,
+          -0.00016927752942392553,
+          -0.0002262498236063031,
+          -0.0002652442755677814,
+          -0.00013330626144904828
+        ],
+        "model_next_joints": [
+          -2.0114234248703466,
+          2.314416589110229,
+          -0.3050653659678795,
+          0.03996674357615619,
+          0.039998474946999665
+        ],
+        "expert_next_joints": [
+          -2.016514061852355,
+          2.3163689381364923,
+          -0.29980328338367696,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 120,
+        "loss_before": 3.2565095556343863e-06,
+        "loss_after": 3.028412279158008e-06,
+        "arm_state_rmse_rad": 0.006952728415403333,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.6826021194458007,
+          2.073946923017502,
+          -0.3979195773601534,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.695046642467739,
+          2.0904255815138333,
+          -0.3953789390460942,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.6828809462710645,
+          2.0745923405739175,
+          -0.39781793941780885,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          0.00034853353157979667,
+          -0.0008902311122977586,
+          -7.00951326513808e-05,
+          -0.0001272245555480817,
+          -0.0001272245555480817
+        ],
+        "model_next_joints": [
+          -1.6882751802859939,
+          2.084476119684478,
+          -0.39625092339985,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.6941477576485358,
+          2.0948670620484555,
+          -0.39465015821890487,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 145,
+        "loss_before": 5.336369560965246e-06,
+        "loss_after": 4.928230151377331e-06,
+        "arm_state_rmse_rad": 0.01694020594320922,
+        "finger_state_rmse_m": 0.0,
+        "model_command": [
+          -1.2684282302856444,
+          2.303437042236328,
+          -0.982328861951828,
+          0.04,
+          0.04
+        ],
+        "expert_command": [
+          -1.2683789770597107,
+          2.2979999389397823,
+          -1.0296209618800716,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.268443555048247,
+          2.3032225071728485,
+          -0.9841343768362054,
+          0.04,
+          0.04
+        ],
+        "gradient": [
+          1.9155953253188986e-05,
+          0.0002959104323855939,
+          0.0012451826788810066,
+          -0.0001272245555480817,
+          -0.0001272245555480817
+        ],
+        "model_next_joints": [
+          -1.3007620618888087,
+          2.298704256881018,
+          -0.9776498950476901,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.301667745865841,
+          2.295298810372224,
+          -1.0067788222988696,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 170,
+        "loss_before": 2.6075916324347416e-08,
+        "loss_after": 2.271965059035311e-08,
+        "arm_state_rmse_rad": 0.0005924744350540264,
+        "finger_state_rmse_m": 8.339382630679265e-06,
+        "model_command": [
+          -1.0998731613159178,
+          2.3028028428554532,
+          -1.2027975857257842,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.0988619322715778,
+          2.3031450620543654,
+          -1.2042831297827876,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0998435997863243,
+          2.3028324191749387,
+          -1.2028756754237369,
+          4.2095447647545817e-08,
+          0.0
+        ],
+        "gradient": [
+          -3.6951911991890616e-05,
+          -4.0794923428123866e-05,
+          5.385496410527977e-05,
+          -4.209544764754581e-06,
+          0.00011394648754601267
+        ],
+        "model_next_joints": [
+          -1.0992751046472309,
+          2.302943175362947,
+          -1.2033541833516157,
+          0.012905007326628172,
+          0.012900366842950341
+        ],
+        "expert_next_joints": [
+          -1.0988861567824713,
+          2.3030878725569863,
+          -1.2042927248526234,
+          0.012914745083380362,
+          0.012893713520565477
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 195,
+        "loss_before": 4.553801465676302e-07,
+        "loss_after": 4.2783953634782445e-07,
+        "arm_state_rmse_rad": 0.004159395156826039,
+        "finger_state_rmse_m": 2.862185561045671e-06,
+        "model_command": [
+          -1.509047508239746,
+          2.2282599568367005,
+          -0.7155844986438753,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.5049923554514315,
+          2.231925648164177,
+          -0.7269332927127454,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.5089567854071946,
+          2.2283763245911667,
+          -0.7159608262400655,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -0.00011340354068934628,
+          -0.00016050724753931576,
+          0.0002595362732346534,
+          6.471253318855036e-05,
+          6.239190433564468e-05
+        ],
+        "model_next_joints": [
+          -1.4940387142286236,
+          2.235520516113243,
+          -0.7402390690238538,
+          0.012915970262525805,
+          0.012915673859520563
+        ],
+        "expert_next_joints": [
+          -1.4921258042712766,
+          2.237828968598359,
+          -0.7467899107125935,
+          0.012918684689804885,
+          0.012918676541141766
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 220,
+        "loss_before": 1.21029385203548e-07,
+        "loss_after": 1.1656757709438494e-07,
+        "arm_state_rmse_rad": 0.0014568468692681361,
+        "finger_state_rmse_m": 6.34545189857309e-07,
+        "model_command": [
+          -1.5766376495361327,
+          2.0004572331905366,
+          -0.4207602620124815,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.5834820310959885,
+          2.002789536925068,
+          -0.4193075058290794,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.576651973642422,
+          2.00054432150925,
+          -0.4207018939178978,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          1.7905132861584634e-05,
+          -0.00012012181891496372,
+          -4.025385833359288e-05,
+          5.8680327061061455e-05,
+          6.869642419509345e-05
+        ],
+        "model_next_joints": [
+          -1.5807384681324215,
+          2.0111756753876393,
+          -0.4201659878573481,
+          0.01290174072222898,
+          0.012902495782725914
+        ],
+        "expert_next_joints": [
+          -1.5826364092533796,
+          2.0125590839291525,
+          -0.4192433781293841,
+          0.012902275465793289,
+          0.01290177512711026
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 245,
+        "loss_before": 5.908571770810946e-07,
+        "loss_after": 5.448789628168945e-07,
+        "arm_state_rmse_rad": 0.0032090943681619744,
+        "finger_state_rmse_m": 5.310714333688579e-06,
+        "model_command": [
+          -1.0233694076538085,
+          1.279236587882042,
+          -0.24489240050315875,
+          1.338854432106018e-05,
+          0.0
+        ],
+        "expert_command": [
+          -1.0222627150264751,
+          1.271758078335494,
+          -0.2494953633090189,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0233442969736488,
+          1.2789392236996733,
+          -0.24506949291556418,
+          1.2541081174618426e-05,
+          0.0
+        ],
+        "gradient": [
+          -3.138835019962239e-05,
+          0.00041015749292242697,
+          0.00012213269821063466,
+          8.47463146441755e-05,
+          2.1307023887512835e-05
+        ],
+        "model_next_joints": [
+          -1.038929454901948,
+          1.2900707946552137,
+          -0.2513479474880332,
+          0.012907391624799855,
+          0.01289647846123839
+        ],
+        "expert_next_joints": [
+          -1.038425605417072,
+          1.2853548206459915,
+          -0.2542463237286613,
+          0.012902058913496214,
+          0.01290176708711097
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 270,
+        "loss_before": 2.1305840947058432e-06,
+        "loss_after": 1.9652946743899854e-06,
+        "arm_state_rmse_rad": 0.006152858945946521,
+        "finger_state_rmse_m": 2.688877346003571e-16,
+        "model_command": [
+          -0.8061765670776366,
+          1.4099418997764588,
+          -0.5822876811027529,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.8061322497940208,
+          1.4093749357316498,
+          -0.5826418301238937,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          -5.539660451989465e-05,
+          0.0007820193721503041,
+          0.000244240704235042,
+          6.378851047697289e-05,
+          6.378851048125423e-05
+        ],
+        "model_next_joints": [
+          -0.821011815347124,
+          1.4018069143712906,
+          -0.5734751892515633,
+          0.012880432174380172,
+          0.012880432174331938
+        ],
+        "expert_next_joints": [
+          -0.8201180855885586,
+          1.3928075449495965,
+          -0.5791130626765946,
+          0.012880432174380443,
+          0.012880432174331671
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 295,
+        "loss_before": 3.531741531832941e-07,
+        "loss_after": 3.311479945986884e-07,
+        "arm_state_rmse_rad": 0.002611907977839548,
+        "finger_state_rmse_m": 1.1989866224934799e-05,
+        "model_command": [
+          -0.7170080184936523,
+          1.4105646044015885,
+          -0.7038482666015624,
+          0.03997874021530151,
+          0.04
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7168382134687152,
+          1.4105047297212008,
+          -0.7036897377820358,
+          0.03998068865252182,
+          0.04
+        ],
+        "gradient": [
+          -0.00021225628117131672,
+          8.258576605188914e-05,
+          -0.00010933022036317066,
+          -0.00019484372203117385,
+          -0.00012722455554824757
+        ],
+        "model_next_joints": [
+          -0.7128124372188898,
+          1.4101534181284656,
+          -0.7023688246380762,
+          0.03998304376857193,
+          0.03999999999999827
+        ],
+        "expert_next_joints": [
+          -0.7091808715080684,
+          1.409195039480818,
+          -0.6998470334671373,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 5,
+        "tick": 320,
+        "loss_before": 7.324835236969649e-07,
+        "loss_after": 6.905969071235033e-07,
+        "arm_state_rmse_rad": 0.0042461173696992805,
+        "finger_state_rmse_m": 1.6942056121140437e-06,
+        "model_command": [
+          -0.9502304077148438,
+          1.3089754223823546,
+          -0.3556257903575899,
+          0.04,
+          0.03999699592590332
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9500193355994451,
+          1.3088052709178453,
+          -0.35592673393929725,
+          0.04,
+          0.039998363719456746
+        ],
+        "gradient": [
+          -0.00026384014424833723,
+          0.00023469167518531855,
+          0.00020754729772920371,
+          -0.0001272245555480816,
+          -0.00013677935534265513
+        ],
+        "model_next_joints": [
+          -0.932463867996897,
+          1.3145046851089632,
+          -0.3728971483416666,
+          0.03999999999999997,
+          0.03999760403144587
+        ],
+        "expert_next_joints": [
+          -0.927930347451501,
+          1.3117949425525666,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 10,
+        "loss_before": 1.5255433640679407e-06,
+        "loss_after": 1.3944280766040032e-06,
+        "arm_state_rmse_rad": 0.004049222427407344,
+        "finger_state_rmse_m": 4.136753828296943e-05,
+        "model_command": [
+          -1.9711051940917967,
+          2.2219451010227202,
+          -0.2392177939414979,
+          0.039979631900787356,
+          0.03968211650848389
+        ],
+        "expert_command": [
+          -1.9789275981957848,
+          2.2311865337638235,
+          -0.24037726017903138,
+          0.039998325134540734,
+          0.03961118776469048
+        ],
+        "projected_command": [
+          -1.9712940313905702,
+          2.222311860607647,
+          -0.23926321722337524,
+          0.03998144543492843,
+          0.03967760456953153
+        ],
+        "gradient": [
+          0.0002360466234668404,
+          -0.0005058752895539631,
+          3.1326401294726674e-05,
+          -0.00018135341410763863,
+          0.000451193895235833
+        ],
+        "model_next_joints": [
+          -1.9777208695689548,
+          2.2253639353296895,
+          -0.23961572356516214,
+          0.03998353683993046,
+          0.039667850894496176
+        ],
+        "expert_next_joints": [
+          -1.9815558063895173,
+          2.2311903564210525,
+          -0.24034694422150993,
+          0.03999844605947921,
+          0.03961128003963581
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 35,
+        "loss_before": 2.821262294157002e-06,
+        "loss_after": 2.5767952080092102e-06,
+        "arm_state_rmse_rad": 0.00545375363157886,
+        "finger_state_rmse_m": 5.6239038530036544e-05,
+        "model_command": [
+          -1.9806529998779294,
+          2.263093042373657,
+          -0.27290071249008196,
+          0.039900910854339604,
+          0.0398337984085083
+        ],
+        "expert_command": [
+          -1.9991939484859156,
+          2.2763621779570538,
+          -0.27157703195363797,
+          0.03999921185327057,
+          0.03981703539832037
+        ],
+        "projected_command": [
+          -1.9808659900902215,
+          2.263619551379502,
+          -0.2728474333151422,
+          0.039907164004789074,
+          0.039832732075247894
+        ],
+        "gradient": [
+          0.00026623776536514486,
+          -0.0007262193184063703,
+          -3.674425857914403e-05,
+          -0.0006253150449471673,
+          0.00010663332604050602
+        ],
+        "model_next_joints": [
+          -1.9944208047097105,
+          2.266676663424683,
+          -0.2713775436524303,
+          0.03992079792846966,
+          0.03982768976723379
+        ],
+        "expert_next_joints": [
+          -1.9987335140516063,
+          2.275039405733044,
+          -0.2705436580258884,
+          0.03999920015647682,
+          0.03981432004199057
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 60,
+        "loss_before": 4.2740404365307905e-06,
+        "loss_after": 3.944946018241713e-06,
+        "arm_state_rmse_rad": 0.007343902471400576,
+        "finger_state_rmse_m": 7.706016087442187e-05,
+        "model_command": [
+          -1.9951108932495116,
+          2.3091299712657927,
+          -0.3085712730884551,
+          0.039866502285003665,
+          0.039970870018005374
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.9955908512670235,
+          2.3094230449228808,
+          -0.30820673142497684,
+          0.03987499437873222,
+          0.039973068775813955
+        ],
+        "gradient": [
+          0.0005999475218899685,
+          -0.00040423952701818856,
+          -0.00025140804377811915,
+          -0.0008492093728557282,
+          -0.00021987578085808137
+        ],
+        "model_next_joints": [
+          -2.006738449053664,
+          2.3119683580473382,
+          -0.30511449119948214,
+          0.039893525742611256,
+          0.03997674882901476
+        ],
+        "expert_next_joints": [
+          -2.0170338875100975,
+          2.316629300795938,
+          -0.2992768315474989,
+          0.039999999922969556,
+          0.03999998211774046
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 85,
+        "loss_before": 4.382503716082487e-06,
+        "loss_after": 4.022400675770321e-06,
+        "arm_state_rmse_rad": 0.006700558317588536,
+        "finger_state_rmse_m": 8.457738445889918e-05,
+        "model_command": [
+          -1.9950416564941404,
+          2.306956857442856,
+          -0.3058756232261657,
+          0.03986095666885376,
+          0.039943809509277346
+        ],
+        "expert_command": [
+          -2.0155293964805847,
+          2.3158078519453102,
+          -0.30027845546472554,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.9954866106338773,
+          2.3073080950226648,
+          -0.3056525646081268,
+          0.03986980153185727,
+          0.039947383914381455
+        ],
+        "gradient": [
+          0.0005561926746711796,
+          -0.00048446562732291427,
+          -0.00015383352968198794,
+          -0.0008844863003513282,
+          -0.0003574405104111567
+        ],
+        "model_next_joints": [
+          -2.0067794825528447,
+          2.3106433756952742,
+          -0.30344707023586864,
+          0.03988910278562827,
+          0.03995518397866369
+        ],
+        "expert_next_joints": [
+          -2.016322895018691,
+          2.3162267572063526,
+          -0.2999198085910947,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 110,
+        "loss_before": 7.297037824617682e-06,
+        "loss_after": 6.901188176089168e-06,
+        "arm_state_rmse_rad": 0.012984059109921306,
+        "finger_state_rmse_m": 3.4788149891458166e-05,
+        "model_command": [
+          -1.5706827163696289,
+          1.9878130018711089,
+          -0.42836546897888184,
+          0.039968788623809814,
+          0.039946794509887695
+        ],
+        "expert_command": [
+          -1.5994818020718384,
+          2.002781745307978,
+          -0.4032999432361397,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.571163441066631,
+          1.9883940833997409,
+          -0.4274404321084302,
+          0.03997105358273126,
+          0.03995017903230383
+        ],
+        "gradient": [
+          0.0006009058712527224,
+          -0.0008014917636304877,
+          -0.0006379564623804438,
+          -0.00022649589214425567,
+          -0.0003384522416130201
+        ],
+        "model_next_joints": [
+          -1.5813848946406535,
+          1.9995844960185738,
+          -0.4185066002700864,
+          0.03997510664734752,
+          0.03995756473471906
+        ],
+        "expert_next_joints": [
+          -1.5946774866212483,
+          2.0090174827479492,
+          -0.40301198402086474,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 135,
+        "loss_before": 5.066053411389686e-06,
+        "loss_after": 4.644169046979559e-06,
+        "arm_state_rmse_rad": 0.012278681661695554,
+        "finger_state_rmse_m": 9.325795130229163e-05,
+        "model_command": [
+          -1.210822296142578,
+          2.1874867618083953,
+          -1.0266726911067963,
+          0.03983464002609253,
+          0.04
+        ],
+        "expert_command": [
+          -1.202350769029594,
+          2.191161409808463,
+          -0.9888106407788688,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.2107136857293619,
+          2.1876317936547505,
+          -1.0255892629690873,
+          0.03984515895068545,
+          0.04
+        ],
+        "gradient": [
+          -0.000135763016520354,
+          -0.00020004392600741114,
+          -0.0007471918191095969,
+          -0.0010518924592921074,
+          -0.0001272245555480817
+        ],
+        "model_next_joints": [
+          -1.2499127169998914,
+          2.1863163275373863,
+          -0.9893491606210408,
+          0.03986811334046914,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.2470823872130896,
+          2.1886109224668666,
+          -0.9683963055063954,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 160,
+        "loss_before": 1.4049595810550772e-06,
+        "loss_after": 1.3294497087663093e-06,
+        "arm_state_rmse_rad": 0.00479503600376781,
+        "finger_state_rmse_m": 5.818317146010566e-05,
+        "model_command": [
+          -1.0507043838500976,
+          2.2016521036624908,
+          -1.1324211597442626,
+          1.3887137174606324e-05,
+          0.0
+        ],
+        "expert_command": [
+          -1.0508341938638064,
+          2.1958823503435725,
+          -1.145048156479766,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0503617216101164,
+          2.2014055055668025,
+          -1.1333237776230876,
+          1.4485493473923206e-05,
+          0.0
+        ],
+        "gradient": [
+          -0.00042832779997641383,
+          0.00034013530439785955,
+          0.0006224950888447794,
+          -5.983562993168812e-05,
+          3.866789266726835e-05
+        ],
+        "model_next_joints": [
+          -1.0510687358797914,
+          2.1986928564710766,
+          -1.1372734694308129,
+          0.012844405732576376,
+          0.012851002156380938
+        ],
+        "expert_next_joints": [
+          -1.0508966980380716,
+          2.1958108217565244,
+          -1.1450607275951106,
+          0.012914362097348022,
+          0.01289432270474137
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 185,
+        "loss_before": 5.010967081989205e-06,
+        "loss_after": 4.683095150623563e-06,
+        "arm_state_rmse_rad": 0.008387199833274852,
+        "finger_state_rmse_m": 1.9575427193212548e-05,
+        "model_command": [
+          -1.4079172134399414,
+          2.107707625627518,
+          -0.7165301799774171,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.4161261162786065,
+          2.1300546202918516,
+          -0.713928504013245,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.4080907632038777,
+          2.1085238651263305,
+          -0.716499140235141,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          0.00021693720492048848,
+          -0.0011258475845693577,
+          -2.1406718811033453e-05,
+          6.68073965160964e-05,
+          6.2726753365777e-05
+        ],
+        "model_next_joints": [
+          -1.3807097706525897,
+          2.1216361845427167,
+          -0.7336098694729282,
+          0.012921127961931409,
+          0.012921495976284746
+        ],
+        "expert_next_joints": [
+          -1.38451813044109,
+          2.1355711866302283,
+          -0.7320777220674087,
+          0.012901300010877192,
+          0.012902176373375132
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 210,
+        "loss_before": 9.940096017451719e-07,
+        "loss_after": 9.091317058510134e-07,
+        "arm_state_rmse_rad": 0.0033680501264261144,
+        "finger_state_rmse_m": 3.1465521862948266e-05,
+        "model_command": [
+          -1.5047836303710938,
+          1.9239068269729613,
+          -0.40799814462661743,
+          0.0,
+          7.822148501873017e-05
+        ],
+        "expert_command": [
+          -1.5041808364424618,
+          1.9151497570796647,
+          -0.4109689206372029,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.504769822294589,
+          1.9235590284279964,
+          -0.4081190565616299,
+          1.8735792598476055e-06,
+          7.57105355362154e-05
+        ],
+        "gradient": [
+          -1.7260095630849326e-05,
+          0.0004797221309862124,
+          8.338754138788906e-05,
+          -0.00018735792598476055,
+          0.0002510949482514782
+        ],
+        "model_next_joints": [
+          -1.5346193866902162,
+          1.9295700308973789,
+          -0.40971373430260083,
+          0.012870763140356392,
+          0.012933355561604637
+        ],
+        "expert_next_joints": [
+          -1.5343623554120402,
+          1.9240510534469344,
+          -0.4115861946588918,
+          0.012901813592349206,
+          0.012901480374338406
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 235,
+        "loss_before": 1.989815385732038e-06,
+        "loss_after": 1.8349524433981976e-06,
+        "arm_state_rmse_rad": 0.005281783524299489,
+        "finger_state_rmse_m": 2.2136065534352526e-07,
+        "model_command": [
+          -1.0172958374023438,
+          1.2791709035634995,
+          -0.24666276574134827,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.0178500845523735,
+          1.2646601319950792,
+          -0.24681004744270574,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.017305860700045,
+          1.2785946183920478,
+          -0.24666826208619594,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          1.2529122126515935e-05,
+          0.0007948760985540226,
+          3.790582653558334e-06,
+          6.544034436490482e-05,
+          6.192795354704762e-05
+        ],
+        "model_next_joints": [
+          -1.0316237625324323,
+          1.2856791523910271,
+          -0.2508502302706756,
+          0.0129020124858282,
+          0.012901814183085603
+        ],
+        "expert_next_joints": [
+          -1.031903896256316,
+          1.276535596401532,
+          -0.250943077222125,
+          0.012901769911017227,
+          0.012902012068255714
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 260,
+        "loss_before": 7.746319734008333e-06,
+        "loss_after": 7.00548676171602e-06,
+        "arm_state_rmse_rad": 0.01102123147338122,
+        "finger_state_rmse_m": 0.00013028327598851874,
+        "model_command": [
+          -0.8235801696777343,
+          1.3898453503847121,
+          -0.5651577293872831,
+          0.0003992298245429993,
+          7.299818098545074e-05
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.823163438604608,
+          1.3900747135857905,
+          -0.5661938346928304,
+          0.000388824480819596,
+          8.340084307582678e-05
+        ],
+        "gradient": [
+          -0.0005209138414077395,
+          -0.0003163630359701851,
+          0.000714555383136041,
+          0.0010405343723403286,
+          -0.0010402662090376043
+        ],
+        "model_next_joints": [
+          -0.8291270836796195,
+          1.3891870497258447,
+          -0.562677431732473,
+          0.013012480431582946,
+          0.012751938118144346
+        ],
+        "expert_next_joints": [
+          -0.8201182200939466,
+          1.3928073857603072,
+          -0.5791132515617926,
+          0.012880432194881625,
+          0.012880432192671824
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 285,
+        "loss_before": 2.5335838391360184e-06,
+        "loss_after": 2.360436286712165e-06,
+        "arm_state_rmse_rad": 0.006390165619292045,
+        "finger_state_rmse_m": 4.7816936491093275e-05,
+        "model_command": [
+          -0.7274457931518556,
+          1.4028950959444046,
+          -0.7094134569168089,
+          0.04,
+          0.039915213584899904
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7270598287245872,
+          1.4031391681640841,
+          -0.7090399279352028,
+          0.04,
+          0.03992060704188872
+        ],
+        "gradient": [
+          -0.0004824555340856266,
+          -0.00033665133748878837,
+          -0.0002576061942111413,
+          -0.00012722455554830278,
+          -0.0005393456988817509
+        ],
+        "model_next_joints": [
+          -0.7176235668006808,
+          1.4053385884288754,
+          -0.705876240010171,
+          0.03999999999999827,
+          0.039932376639901436
+        ],
+        "expert_next_joints": [
+          -0.7091808715159685,
+          1.4091950394810042,
+          -0.6998470334671857,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 6,
+        "tick": 310,
+        "loss_before": 1.3511033245733488e-06,
+        "loss_after": 1.2681461327145445e-06,
+        "arm_state_rmse_rad": 0.004784725379816492,
+        "finger_state_rmse_m": 3.345114858626846e-05,
+        "model_command": [
+          -0.955500602722168,
+          1.3046967804431915,
+          -0.35674121379852286,
+          0.04,
+          0.039940686225891114
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9551789075180074,
+          1.3046961645637802,
+          -0.3570055492024246,
+          0.04,
+          0.03994445931016556
+        ],
+        "gradient": [
+          -0.00040211900520074857,
+          8.494888431938054e-07,
+          0.0001823002785529345,
+          -0.0001272245555480817,
+          -0.00037730842744447893
+        ],
+        "model_next_joints": [
+          -0.9349161849810624,
+          1.3118186125439097,
+          -0.37355655126558907,
+          0.03999999999999997,
+          0.039952692931992315
+        ],
+        "expert_next_joints": [
+          -0.9279303474515006,
+          1.3117949425525666,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 20,
+        "loss_before": 1.0590911998512271e-06,
+        "loss_after": 9.540747852323473e-07,
+        "arm_state_rmse_rad": 0.004670024571022593,
+        "finger_state_rmse_m": 4.588139283691747e-05,
+        "model_command": [
+          -1.920573043823242,
+          2.130317723751068,
+          -0.18803830146789569,
+          0.04,
+          0.03957015037536621
+        ],
+        "expert_command": [
+          -1.923053307508048,
+          2.134505931596522,
+          -0.2000186848144689,
+          0.039999999999998016,
+          0.03965150478875833
+        ],
+        "projected_command": [
+          -1.920631608997404,
+          2.1304839685611836,
+          -0.18850676626574164,
+          0.04,
+          0.03957532551490906
+        ],
+        "gradient": [
+          7.32064677024734e-05,
+          -0.00022930318636616538,
+          0.000323079170928251,
+          -0.00012722455553568454,
+          -0.0005175139542850605
+        ],
+        "model_next_joints": [
+          -1.918640010900428,
+          2.1318537283886134,
+          -0.19242240546007552,
+          0.03999999999999975,
+          0.03958624719022735
+        ],
+        "expert_next_joints": [
+          -1.9198369019974992,
+          2.1344943474297966,
+          -0.1999736948375896,
+          0.03999999999999817,
+          0.03965113327823789
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 45,
+        "loss_before": 4.483403125140793e-06,
+        "loss_after": 4.208353153280432e-06,
+        "arm_state_rmse_rad": 0.008347210318063339,
+        "finger_state_rmse_m": 2.1260141007164336e-05,
+        "model_command": [
+          -1.9492097854614256,
+          2.2173551499843596,
+          -0.25060624480247506,
+          0.03996690988540649,
+          0.03981794834136963
+        ],
+        "expert_command": [
+          -1.972901007031346,
+          2.230866881617922,
+          -0.25258536966694034,
+          0.03999999999999907,
+          0.03983600750768213
+        ],
+        "projected_command": [
+          -1.949779674008894,
+          2.2178913335957824,
+          -0.25068285181689,
+          0.03996923459974246,
+          0.039819097126073476
+        ],
+        "gradient": [
+          0.0007123606843354964,
+          -0.0007395636019625169,
+          5.283242373443899e-05,
+          -0.00023247143359728827,
+          -0.00011487847038405576
+        ],
+        "model_next_joints": [
+          -1.9613927209457094,
+          2.2193360765686916,
+          -0.24959532601250345,
+          0.03997360821621981,
+          0.039819170209773276
+        ],
+        "expert_next_joints": [
+          -1.973001366327962,
+          2.2278629982197096,
+          -0.2508438130282371,
+          0.03999999999999904,
+          0.03983357371421626
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 70,
+        "loss_before": 4.512020610830118e-06,
+        "loss_after": 4.215640736805827e-06,
+        "arm_state_rmse_rad": 0.00831479836296441,
+        "finger_state_rmse_m": 6.534658614614727e-05,
+        "model_command": [
+          -1.9908323287963867,
+          2.311795198917389,
+          -0.31023533344268817,
+          0.039884130954742435,
+          0.04
+        ],
+        "expert_command": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.9914052317886237,
+          2.311982472713161,
+          -0.30980772978282634,
+          0.03989150164863478,
+          0.04
+        ],
+        "gradient": [
+          0.0007161287402961965,
+          -0.00025830868382368215,
+          -0.00029489907576677225,
+          -0.0007370693892343413,
+          -0.00012722455554824773
+        ],
+        "model_next_joints": [
+          -2.0046384057684135,
+          2.313595546073546,
+          -0.3061415785035852,
+          0.039907585971617296,
+          0.03999998397200178
+        ],
+        "expert_next_joints": [
+          -2.0169299143554635,
+          2.3165793482684944,
+          -0.29925511667139876,
+          0.03999999999999996,
+          0.03999998397200178
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 95,
+        "loss_before": 3.747875498869847e-06,
+        "loss_after": 3.4978736085883643e-06,
+        "arm_state_rmse_rad": 0.007152618042481619,
+        "finger_state_rmse_m": 5.912605080283636e-05,
+        "model_command": [
+          -1.991900062561035,
+          2.3091522693634032,
+          -0.30634820461273193,
+          0.03989555597305298,
+          0.039990906715393064
+        ],
+        "expert_command": [
+          -2.0155293964683114,
+          2.31580785194723,
+          -0.3002784554789186,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.9924132443972706,
+          2.3094163648696586,
+          -0.30610676052536917,
+          0.03990219989550698,
+          0.03999246818322169
+        ],
+        "gradient": [
+          0.0006414772952945699,
+          -0.00036426966380067926,
+          -0.00016651316369846808,
+          -0.0006643922454000478,
+          -0.0001561467828628606
+        ],
+        "model_next_joints": [
+          -2.005314082833874,
+          2.3120250292815947,
+          -0.30374490618271327,
+          0.03991669825837236,
+          0.039992747441217884
+        ],
+        "expert_next_joints": [
+          -2.016322895008867,
+          2.3162267572075357,
+          -0.2999198086000383,
+          0.03999999999999996,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 120,
+        "loss_before": 6.954132562257009e-06,
+        "loss_after": 6.63246278295137e-06,
+        "arm_state_rmse_rad": 0.012877219858036033,
+        "finger_state_rmse_m": 7.66695269871178e-06,
+        "model_command": [
+          -1.5693111419677734,
+          1.9888575553894043,
+          -0.4277252197265624,
+          0.04,
+          0.03998640537261963
+        ],
+        "expert_command": [
+          -1.5994818020713244,
+          2.0027817453079186,
+          -0.40329994323659424,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.569696916393821,
+          1.989401351069772,
+          -0.4268214697543839,
+          0.04,
+          0.03998811001078169
+        ],
+        "gradient": [
+          0.0004822180325593583,
+          -0.0007500630074033996,
+          -0.0006232758428817222,
+          -0.0001272245555479716,
+          -0.00017046381620580177
+        ],
+        "model_next_joints": [
+          -1.5808256094609494,
+          2.0002371691930283,
+          -0.41812819938301155,
+          0.03999999999999996,
+          0.03998915729151138
+        ],
+        "expert_next_joints": [
+          -1.5946774866203457,
+          2.009017482747874,
+          -0.4030119840214808,
+          0.03999999999999996,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 145,
+        "loss_before": 4.454571039559769e-06,
+        "loss_after": 4.108401875466048e-06,
+        "arm_state_rmse_rad": 0.012337802716575605,
+        "finger_state_rmse_m": 7.902124572983195e-05,
+        "model_command": [
+          -1.210462188720703,
+          2.187769377231598,
+          -1.0269395768642424,
+          0.0398598837852478,
+          0.04
+        ],
+        "expert_command": [
+          -1.202350769029594,
+          2.191161409808463,
+          -0.9888106407788688,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -1.2103594400713085,
+          2.1879031746887976,
+          -1.0258501651034775,
+          0.039868796896821275,
+          0.04
+        ],
+        "gradient": [
+          -0.00012843581174302665,
+          -0.0001845482168271255,
+          -0.0007513184556999413,
+          -0.0008913111573472848,
+          -0.0001272245555480817
+        ],
+        "model_next_joints": [
+          -1.2497754189384749,
+          2.1864938029499257,
+          -0.989489657840638,
+          0.039888247082573214,
+          0.03999999999999997
+        ],
+        "expert_next_joints": [
+          -1.247082387213093,
+          2.188610922466866,
+          -0.9683963055063954,
+          0.03999999999999996,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 170,
+        "loss_before": 1.287975730250679e-06,
+        "loss_after": 1.3447627449230738e-06,
+        "arm_state_rmse_rad": 0.0048337086841759485,
+        "finger_state_rmse_m": 5.387303922659866e-05,
+        "model_command": [
+          -1.0501331329345702,
+          2.201856243610382,
+          -1.1322387993335723,
+          8.348077535629273e-06,
+          0.0
+        ],
+        "expert_command": [
+          -1.0508341938638064,
+          2.1958823503435725,
+          -1.145048156479766,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0497905940089594,
+          2.201703500772766,
+          -1.1331876595212504,
+          8.003895926040399e-06,
+          3.6001046949102893e-07
+        ],
+        "gradient": [
+          -0.00042817365701346393,
+          0.00021067977602152733,
+          0.0006543863363298042,
+          3.4418160958887476e-05,
+          -3.600104694910289e-05
+        ],
+        "model_next_joints": [
+          -1.0508694842222064,
+          2.1986685427821313,
+          -1.1371913623806562,
+          0.012872626579687605,
+          0.012830582958298203
+        ],
+        "expert_next_joints": [
+          -1.0508966980380716,
+          2.1958108217565244,
+          -1.1450607275951106,
+          0.012914362097348041,
+          0.01289432270474135
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 195,
+        "loss_before": 4.939694763477196e-06,
+        "loss_after": 4.607478082032818e-06,
+        "arm_state_rmse_rad": 0.00832295507748617,
+        "finger_state_rmse_m": 2.0613359153549448e-05,
+        "model_command": [
+          -1.407362937927246,
+          2.1080094277858734,
+          -0.7164117753505708,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.4161261162786065,
+          2.1300546202918516,
+          -0.713928504013245,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.4075544564831353,
+          2.108815669264093,
+          -0.716384984577557,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          0.00023939819486147034,
+          -0.0011120572113374045,
+          -1.8476395181907797e-05,
+          6.789775059681127e-05,
+          6.171029247546441e-05
+        ],
+        "model_next_joints": [
+          -1.3804454754338062,
+          2.121820166804691,
+          -0.7335398023028559,
+          0.012922297231637781,
+          0.012922398585705083
+        ],
+        "expert_next_joints": [
+          -1.38451813044109,
+          2.1355711866302283,
+          -0.7320777220674087,
+          0.01290130001087719,
+          0.012902176373375136
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 220,
+        "loss_before": 1.039472429196243e-06,
+        "loss_after": 9.511598485986561e-07,
+        "arm_state_rmse_rad": 0.0034666991226120617,
+        "finger_state_rmse_m": 3.1241283563489104e-05,
+        "model_command": [
+          -1.504543876647949,
+          1.9242049992084502,
+          -0.40801456570625305,
+          0.0,
+          7.765777409076691e-05
+        ],
+        "expert_command": [
+          -1.5041808364424618,
+          1.9151497570796652,
+          -0.41096892063720336,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.5045347815335834,
+          1.9238453755440557,
+          -0.40813479286325416,
+          1.855685761966459e-06,
+          7.516471954571335e-05
+        ],
+        "gradient": [
+          -1.1368892957177536e-05,
+          0.000496032640544087,
+          8.291528069043208e-05,
+          -0.0001855685761966459,
+          0.0002493054545053562
+        ],
+        "model_next_joints": [
+          -1.5345114997192213,
+          1.9297575665289097,
+          -0.4097240795064265,
+          0.012870986230362796,
+          0.012933130166602295
+        ],
+        "expert_next_joints": [
+          -1.5343623554120402,
+          1.9240510534469348,
+          -0.41158619465889223,
+          0.0129018135923492,
+          0.012901480374338399
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 245,
+        "loss_before": 2.013763200522781e-06,
+        "loss_after": 1.8570433014073939e-06,
+        "arm_state_rmse_rad": 0.005313364047872189,
+        "finger_state_rmse_m": 2.211239856244889e-07,
+        "model_command": [
+          -1.0172574996948243,
+          1.2792575895786285,
+          -0.2467414140701294,
+          0.0,
+          0.0
+        ],
+        "expert_command": [
+          -1.0178500845523735,
+          1.2646601319950792,
+          -0.24681004744270574,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -1.0172683368432913,
+          1.2786778653506328,
+          -0.24674383454854099,
+          0.0,
+          0.0
+        ],
+        "gradient": [
+          1.3546435583834591e-05,
+          0.0007996196248215048,
+          1.669295456269564e-06,
+          6.54387005411643e-05,
+          6.192954977426703e-05
+        ],
+        "model_next_joints": [
+          -1.0316058099091887,
+          1.285733682309476,
+          -0.25089980280245183,
+          0.01290201193777307,
+          0.012901814041279039
+        ],
+        "expert_next_joints": [
+          -1.031903896256316,
+          1.276535596401532,
+          -0.250943077222125,
+          0.012901769911017219,
+          0.012902012068255708
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 270,
+        "loss_before": 7.73596799112226e-06,
+        "loss_after": 6.996185539009301e-06,
+        "arm_state_rmse_rad": 0.01101271079585008,
+        "finger_state_rmse_m": 0.00013019341171572018,
+        "model_command": [
+          -0.823577880859375,
+          1.3898562401533125,
+          -0.5651815831661224,
+          0.0003994773328304291,
+          7.34708458185196e-05
+        ],
+        "expert_command": [
+          -0.8042025592144701,
+          1.3956694052814027,
+          -0.5914668460669326,
+          0.0,
+          0.0
+        ],
+        "projected_command": [
+          -0.823161198240558,
+          1.3900851712164584,
+          -0.5662168193155969,
+          0.0003890791676276905,
+          8.386632531665534e-05
+        ],
+        "gradient": [
+          -0.0005208532735212856,
+          -0.00031576698364936827,
+          0.0007139559651547424,
+          0.001039816520273859,
+          -0.001039547949813575
+        ],
+        "model_next_joints": [
+          -0.8291259942320484,
+          1.3891939059478011,
+          -0.5626924669903811,
+          0.013012393231805582,
+          0.012752030737686649
+        ],
+        "expert_next_joints": [
+          -0.8201182200939494,
+          1.3928073857603072,
+          -0.5791132515617926,
+          0.012880432194881615,
+          0.012880432192671822
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 295,
+        "loss_before": 2.533226821358406e-06,
+        "loss_after": 2.360109444459768e-06,
+        "arm_state_rmse_rad": 0.006389176535143967,
+        "finger_state_rmse_m": 4.781424727583516e-05,
+        "model_command": [
+          -0.7274457931518556,
+          1.4028958737850188,
+          -0.7094089627265929,
+          0.04,
+          0.039915218353271484
+        ],
+        "expert_command": [
+          -0.7092219603992461,
+          1.4090689894621378,
+          -0.6998470290628916,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.7270598285798731,
+          1.4031399151468378,
+          -0.7090356035473632,
+          0.04,
+          0.03992061150693332
+        ],
+        "gradient": [
+          -0.00048245571497820095,
+          -0.00033660877492280026,
+          -0.0002574890891239489,
+          -0.00012722455554824733,
+          -0.0005393153661842096
+        ],
+        "model_next_joints": [
+          -0.7176235672562837,
+          1.4053390783023219,
+          -0.7058734073700114,
+          0.03999999999999827,
+          0.039932380443026126
+        ],
+        "expert_next_joints": [
+          -0.7091808715159682,
+          1.409195039481004,
+          -0.6998470334671858,
+          0.03999999999999827,
+          0.03999999999999827
+        ],
+        "target_replay_max_error": 0.0
+      },
+      {
+        "group": "train",
+        "episode": 7,
+        "tick": 320,
+        "loss_before": 1.3512061827484223e-06,
+        "loss_after": 1.2682433791847348e-06,
+        "arm_state_rmse_rad": 0.004785129647553299,
+        "finger_state_rmse_m": 3.345114858626846e-05,
+        "model_command": [
+          -0.9555009841918944,
+          1.3046969532966612,
+          -0.3567394852638244,
+          0.04,
+          0.039940686225891114
+        ],
+        "expert_command": [
+          -0.9404606617275163,
+          1.304704031283233,
+          -0.3642433695557167,
+          0.04,
+          0.04
+        ],
+        "projected_command": [
+          -0.9551792817028739,
+          1.30469633054297,
+          -0.357003878625623,
+          0.04,
+          0.03994445931016556
+        ],
+        "gradient": [
+          -0.00040212811127568005,
+          8.589706087141072e-07,
+          0.0001823402495163044,
+          -0.0001272245555480817,
+          -0.0003773084274444788
+        ],
+        "model_next_joints": [
+          -0.9349163628447404,
+          1.311818722037967,
+          -0.37355552906007883,
+          0.03999999999999997,
+          0.039952692931992315
+        ],
+        "expert_next_joints": [
+          -0.9279303474515013,
+          1.3117949425525666,
+          -0.3780150605033114,
+          0.03999999999999997,
+          0.03999999999999997
+        ],
+        "target_replay_max_error": 0.0
+      }
+    ],
+    "scores": {
+      "train": {
+        "samples": 104,
+        "mean_loss_before": 3.933601174707091e-06,
+        "mean_loss_after": 3.6551603134421907e-06,
+        "improved": 101,
+        "worsened": 3,
+        "max_target_replay_error": 0.0
+      }
+    }
+  },
+  "local_target_file_sha256": "3f168abfadea2eca3979b7e67f146d450c9fdc5160e3b11953e39522a3f68fc6",
+  "configs": {
+    "control": {
+      "schema_version": 1,
+      "description": "Frozen 300-epoch local-state distillation versus original BC, same parent joint-training-control/epoch-300 and expert rehearsal. Final checkpoint only. Train-only accepted targets.",
+      "split": {
+        "train": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "validation": [
+          6,
+          7,
+          8
+        ],
+        "test": []
+      },
+      "validation_cases": [
+        {
+          "name": "development-normal-312",
+          "x": 0.312
+        },
+        {
+          "name": "development-normal-372",
+          "x": 0.372
+        },
+        {
+          "name": "development-pull-332",
+          "x": 0.332,
+          "force_at": 4.92,
+          "force_duration": 0.08,
+          "force_z": -30
+        }
+      ],
+      "test": [
+        {
+          "name": "correction-test-308",
+          "x": 0.308
+        },
+        {
+          "name": "correction-test-368",
+          "x": 0.368
+        },
+        {
+          "name": "correction-test-328",
+          "x": 0.328,
+          "force_at": 5.0,
+          "force_duration": 0.08,
+          "force_z": -30
+        },
+        {
+          "name": "correction-test-358",
+          "x": 0.358,
+          "stop_at": 2.0
+        }
+      ],
+      "previous_test_positions": [
+        0.313,
+        0.373,
+        0.333,
+        0.353,
+        0.306,
+        0.366,
+        0.326,
+        0.356
+      ],
+      "seed": 73,
+      "hidden": 64,
+      "learning_rate": 0.0003,
+      "candidate_epochs": [
+        300
+      ],
+      "max_seconds": 24,
+      "selection": "maximize verified development pick-place, then minimize masked validation MSE, then earlier epoch",
+      "test_policy": "evaluate selected candidate only; no test-based tuning",
+      "selection_metric": "verified_pick_place",
+      "joint_augmentation": null,
+      "local_targets": {
+        "path": "outputs/datasets/state-distill-targets-v1/audit.json",
+        "sha256": "3f168abfadea2eca3979b7e67f146d450c9fdc5160e3b11953e39522a3f68fc6",
+        "weight": 0.0
+      }
+    },
+    "distilled": {
+      "schema_version": 1,
+      "description": "Frozen 300-epoch local-state distillation versus original BC, same parent joint-training-control/epoch-300 and expert rehearsal. Final checkpoint only. Train-only accepted targets.",
+      "split": {
+        "train": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "validation": [
+          6,
+          7,
+          8
+        ],
+        "test": []
+      },
+      "validation_cases": [
+        {
+          "name": "development-normal-312",
+          "x": 0.312
+        },
+        {
+          "name": "development-normal-372",
+          "x": 0.372
+        },
+        {
+          "name": "development-pull-332",
+          "x": 0.332,
+          "force_at": 4.92,
+          "force_duration": 0.08,
+          "force_z": -30
+        }
+      ],
+      "test": [
+        {
+          "name": "correction-test-308",
+          "x": 0.308
+        },
+        {
+          "name": "correction-test-368",
+          "x": 0.368
+        },
+        {
+          "name": "correction-test-328",
+          "x": 0.328,
+          "force_at": 5.0,
+          "force_duration": 0.08,
+          "force_z": -30
+        },
+        {
+          "name": "correction-test-358",
+          "x": 0.358,
+          "stop_at": 2.0
+        }
+      ],
+      "previous_test_positions": [
+        0.313,
+        0.373,
+        0.333,
+        0.353,
+        0.306,
+        0.366,
+        0.326,
+        0.356
+      ],
+      "seed": 73,
+      "hidden": 64,
+      "learning_rate": 0.0003,
+      "candidate_epochs": [
+        300
+      ],
+      "max_seconds": 24,
+      "selection": "maximize verified development pick-place, then minimize masked validation MSE, then earlier epoch",
+      "test_policy": "evaluate selected candidate only; no test-based tuning",
+      "selection_metric": "verified_pick_place",
+      "joint_augmentation": null,
+      "local_targets": {
+        "path": "outputs/datasets/state-distill-targets-v1/audit.json",
+        "sha256": "3f168abfadea2eca3979b7e67f146d450c9fdc5160e3b11953e39522a3f68fc6",
+        "weight": 0.1
+      }
+    }
+  },
+  "regression_tests_passed": 21,
+  "limitations": "One seed, 101 static train-only local targets on expert-observation trajectories. Single control-period joint-state targets omit object/task objectives. No independent tests or deployment; lower offline error did not improve closed-loop grasping."
+}

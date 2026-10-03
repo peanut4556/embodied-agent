@@ -44,10 +44,10 @@ def improve(model, data, action, target, bounds, limit, steps):
     return updated, gradient
 
 
-def main():
+def audit(root, requested_groups=("train", "validation")):
     from lerobot.datasets.lerobot_dataset import LeRobotDataset
 
-    root = Path("outputs/evaluations/state-targets-v1")
+    root = Path(root)
     if root.exists():
         raise FileExistsError(root)
     source = Path("outputs/datasets/corrections-early-v1")
@@ -57,7 +57,9 @@ def main():
     manifest = json.loads((source / "recording.json").read_text())
     source_hash = payload_digest(source)
     # This loader enforces successful-only, validated source and expert-only masks.
-    groups = {g: correction_sequences(source, g) for g in ("train", "validation")}
+    if not requested_groups or any(g not in ("train", "validation") for g in requested_groups):
+        raise ValueError("development groups required")
+    groups = {g: correction_sequences(source, g) for g in requested_groups}
     dataset = LeRobotDataset(manifest["repo_id"], root=source, video_backend="pyav")
     exact = dataset.hf_dataset.data.column("replay.action")
     offsets = np.cumsum([0] + [e["frames"] for e in manifest["episodes"]])
@@ -176,4 +178,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    audit("outputs/evaluations/state-targets-v1")
