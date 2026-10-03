@@ -256,3 +256,10 @@ joint-seeds-evaluate:
 
 joint-replication-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/dataset -p test_joint_replication.py -v
+
+.PHONY: state-targets-audit state-targets-test
+state-targets-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_state_targets.py
+
+state-targets-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_state_targets.py -v

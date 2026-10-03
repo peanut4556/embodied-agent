@@ -64,3 +64,5 @@ joint-sensitivity-test 共 20 项相关测试通过，新增检查覆盖配对�
 完整报告见 [joint-seeds-v1.json](evaluations/joint-seeds-v1.json)，包括原始种子与两个
 新增种子的全部结果、训练曲线、参数一致性检查和来源哈希。
 模型与逐场景 GIF 保存在本地 outputs；本阶段没有提交或推送 Git。
+
+后续已完成 [同状态下一帧目标验证](state-targets.md)：182 个专家目标与真实推进一致，一次局部动作更新使平均状态误差下降；尚未训练或验证自主闭环改进。
