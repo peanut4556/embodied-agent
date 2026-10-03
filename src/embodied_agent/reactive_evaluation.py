@@ -16,9 +16,16 @@ from .reactive import ReactiveExecutor, ReactivePolicy
 from .temporal_data import read_json
 
 
-def run_case(policy, case, mode, max_seconds, trace=None):
+def run_case(policy, case, mode, max_seconds, trace=None, trace_until_tick=0):
     if mode not in {"open_loop", "feedback", "reactive", "memory"}:
         raise ValueError("unknown evaluation controller")
+    if (
+        type(trace_until_tick) is not int
+        or trace_until_tick < 0
+        or trace_until_tick > round(max_seconds * policy.metadata["fps"])
+        or (trace_until_tick and trace is None)
+    ):
+        raise ValueError("invalid minimum trace horizon")
     world = PhysicsWorld()
     renderer = None
     frames, stops = [], []
@@ -66,6 +73,7 @@ def run_case(policy, case, mode, max_seconds, trace=None):
             renderer.update_scene(world.data, camera="perception")
             rgb = renderer.render()
             user_stop = "stop_at" in case and tick >= round(case["stop_at"] * fps)
+            previous_command = world.data.ctrl.copy() if trace is not None else None
             if completed_at is None:
                 command = executor.step(rgb, world.data.qpos[:5].copy(), holding, stop=user_stop)
                 if tick >= round(max_seconds * fps) and executor.state != "stopped":
@@ -78,6 +86,11 @@ def run_case(policy, case, mode, max_seconds, trace=None):
                         "joints": world.data.qpos[:5].tolist(),
                         "command": world.data.ctrl.tolist(),
                         "holding": bool(holding),
+                        "block_xyz": world.data.body("red_block").xpos.tolist(),
+                        "inside_box": bool(world.inside_box()),
+                        "simulation_qpos": world.data.qpos.tolist(),
+                        "simulation_qvel": world.data.qvel.tolist(),
+                        "previous_command": previous_command.tolist(),
                     }
                 )
             if executor.state == "stopped":
@@ -109,7 +122,7 @@ def run_case(policy, case, mode, max_seconds, trace=None):
             ):
                 completed_at = tick
                 reached_goal = stable_goal >= fps
-            if completed_at is not None and tick - completed_at >= fps:
+            if completed_at is not None and tick - completed_at >= fps and tick >= trace_until_tick:
                 break
         success = bool(world.inside_box() and not world.holding)
         stop_ok = bool(stops) and bool(np.allclose(stops, stops[0]))

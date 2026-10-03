@@ -61,3 +61,5 @@ make local-targets-test correction-finetune-test memory-test state-targets-test 
 原监督不变、原训练入口和状态差分逻辑。两组数据与父模型相同，检查点完整性通过。
 代码风格与差异检查通过。完整报告见
 [state-distill-v1.json](evaluations/state-distill-v1.json)。
+
+后续已完成 [最新模型状态与多步物体目标验证](multistep-targets.md)：14 条实际接管轨迹全部可由专家恢复，生成训练 40 个、验证 30 个分时距目标；尚未用于训练。

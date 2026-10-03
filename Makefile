@@ -279,3 +279,13 @@ state-distill-evaluate:
 
 local-targets-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_local_targets.py -v
+
+.PHONY: correction-onpolicy-record multistep-targets-audit multistep-targets-test
+correction-onpolicy-record:
+	PYTHONPATH=src .venv/bin/python scripts/record_corrections.py --model outputs/models/state-distill-distilled/epoch-300 --scenarios config/correction-onpolicy-scenarios.json --output outputs/datasets/corrections-onpolicy-v1
+
+multistep-targets-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_multistep_targets.py
+
+multistep-targets-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_multistep_targets.py -v
