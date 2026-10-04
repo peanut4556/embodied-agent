@@ -156,13 +156,22 @@ def train(base_root, correction_roots, pretrained, experiment, output):
     auxiliary = auxiliary_batch(
         groups["train"], y, policy, config.get("local_targets"), correction_roots
     )
+    from .future_targets import future_batch
+
+    future = future_batch(
+        groups["train"], x, policy, config.get("future_targets"), correction_roots
+    )
     torch.set_num_threads(2)
     torch.manual_seed(config["seed"])
     noise_generator = torch.Generator().manual_seed(config["seed"])
     augmentation = config.get("joint_augmentation")
     lengths = [len(e["x"]) for e in groups["train"]]
     model = policy.model  # Actual pretrained weights, never a fresh network.
-    optimizer = torch.optim.AdamW(model.parameters(), lr=config["learning_rate"], weight_decay=1e-4)
+    future_head = torch.nn.Linear(config["hidden"], 25) if future else None
+    parameters = list(model.parameters()) + (
+        list(future_head.parameters()) if future_head is not None else []
+    )
+    optimizer = torch.optim.AdamW(parameters, lr=config["learning_rate"], weight_decay=1e-4)
     output.mkdir(parents=True)
     raw = Path(experiment).read_bytes()
     (output / "experiment.json").write_bytes(raw)
@@ -175,6 +184,7 @@ def train(base_root, correction_roots, pretrained, experiment, output):
         "normalization": "frozen pretrained training-only statistics",
         "joint_augmentation": augmentation,
         "local_targets": auxiliary[2] if auxiliary else None,
+        "future_targets": future[2] if future else None,
         "test_used_for_training": False,
         "candidates": [],
         "curve": [],
@@ -190,16 +200,25 @@ def train(base_root, correction_roots, pretrained, experiment, output):
             model.train()
             optimizer.zero_grad()
             training_x = augment_joints(x, lengths, policy, augmentation, noise_generator)
-            prediction = model(training_x)[0]
+            if future:
+                encoded, _ = model.gru(training_x)
+                prediction = model.head(encoded)
+            else:
+                prediction = model(training_x)[0]
             loss = masked_loss(prediction, y, mask)
             if auxiliary and auxiliary[2]["weight"]:
                 loss = loss + auxiliary[2]["weight"] * masked_loss(
                     prediction, auxiliary[0], auxiliary[1]
                 )
+            if future and future[2]["weight"]:
+                future_loss = (
+                    (future_head(encoded) - future[0]).square() * future[1]
+                ).sum() / future[1].sum()
+                loss = loss + future[2]["weight"] * future_loss
             if not torch.isfinite(loss):
                 raise ValueError("nonfinite loss")
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 1)
+            torch.nn.utils.clip_grad_norm_(parameters, 1)
             optimizer.step()
             if epoch == 1 or epoch % 50 == 0 or epoch in config["candidate_epochs"]:
                 model.eval()
@@ -216,6 +235,8 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                 target = output / f"epoch-{epoch}"
                 target.mkdir()
                 torch.save(model.state_dict(), target / "weights.pt")
+                if future_head is not None:
+                    torch.save(future_head.state_dict(), target / "future-head.pt")
                 # Byte-identical normalization makes pretrained input semantics explicit.
                 (target / "normalization.npz").write_bytes(
                     (Path(pretrained) / "normalization.npz").read_bytes()
@@ -233,6 +254,8 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                     "supervision": "expert-only mask plus base rehearsal",
                     "joint_augmentation": augmentation,
                     "local_targets": auxiliary[2] if auxiliary else None,
+                    "future_targets": future[2] if future else None,
+                    "future_head_sha256": digest(target / "future-head.pt") if future else None,
                 }
                 (target / "training.json").write_text(json.dumps(metadata, indent=2))
                 report["candidates"].append(
@@ -245,6 +268,8 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                 )
         if auxiliary and digest(config["local_targets"]["path"]) != auxiliary[2]["sha256"]:
             raise ValueError("local targets changed during training")
+        if future and digest(config["future_targets"]["path"]) != future[2]["sha256"]:
+            raise ValueError("future targets changed during training")
         if hashes() != sources:
             raise ValueError("training sources changed")
         report["status"] = "trained"

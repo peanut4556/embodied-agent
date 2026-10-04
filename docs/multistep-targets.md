@@ -73,3 +73,5 @@ make multistep-targets-test diagnostics-test reactive-test correction-test
 CORRECTION_DATASET=outputs/datasets/corrections-onpolicy-v1 共 21 项测试通过，
 包括接管位置/速度/控制不匹配拒绝、物体与关节目标分别计算、延长观察真实推进与停止锁定、
 既有控制逻辑以及真实新数据损坏/恢复校验。全部来源哈希、轨迹哈希和分组数量验证通过。
+
+后续已完成 [完成状态屏蔽训练对照](completion-mask.md)：屏蔽 4 个未来标签，三组各训练 300 轮，但均为验证 0/3，且未保留父模型的训练位置成功。

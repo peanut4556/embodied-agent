@@ -289,3 +289,18 @@ multistep-targets-audit:
 
 multistep-targets-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_multistep_targets.py -v
+
+.PHONY: completion-targets completion-train completion-evaluate future-targets-test
+completion-targets:
+	PYTHONPATH=src .venv/bin/python scripts/prepare_completion_targets.py
+
+completion-train:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/state-distill-distilled/epoch-300 --corrections outputs/datasets/corrections-onpolicy-v1 --experiment config/completion-bc.json --output outputs/models/completion-bc
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/state-distill-distilled/epoch-300 --corrections outputs/datasets/corrections-onpolicy-v1 --experiment config/completion-unmasked.json --output outputs/models/completion-unmasked
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/state-distill-distilled/epoch-300 --corrections outputs/datasets/corrections-onpolicy-v1 --experiment config/completion-masked.json --output outputs/models/completion-masked
+
+completion-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_completion_mask.py
+
+future-targets-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_future_targets.py -v

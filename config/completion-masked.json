@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "description": "Frozen 300-epoch comparison from state-distill-distilled/epoch-300 on fresh on-policy corrections: BC, future-outcome auxiliary loss, same loss with verified-completion masking. Future head is training-only.",
+  "split": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "validation": [
+      6,
+      7,
+      8
+    ],
+    "test": []
+  },
+  "validation_cases": [
+    {
+      "name": "development-normal-312",
+      "x": 0.312
+    },
+    {
+      "name": "development-normal-372",
+      "x": 0.372
+    },
+    {
+      "name": "development-pull-332",
+      "x": 0.332,
+      "force_at": 4.92,
+      "force_duration": 0.08,
+      "force_z": -30
+    }
+  ],
+  "test": [
+    {
+      "name": "correction-test-308",
+      "x": 0.308
+    },
+    {
+      "name": "correction-test-368",
+      "x": 0.368
+    },
+    {
+      "name": "correction-test-328",
+      "x": 0.328,
+      "force_at": 5.0,
+      "force_duration": 0.08,
+      "force_z": -30
+    },
+    {
+      "name": "correction-test-358",
+      "x": 0.358,
+      "stop_at": 2.0
+    }
+  ],
+  "previous_test_positions": [
+    0.313,
+    0.373,
+    0.333,
+    0.353,
+    0.306,
+    0.366,
+    0.326,
+    0.356
+  ],
+  "seed": 73,
+  "hidden": 64,
+  "learning_rate": 0.0003,
+  "candidate_epochs": [
+    300
+  ],
+  "max_seconds": 24,
+  "selection": "maximize verified development pick-place, then minimize masked validation MSE, then earlier epoch",
+  "test_policy": "evaluate selected candidate only; no test-based tuning",
+  "selection_metric": "verified_pick_place",
+  "joint_augmentation": null,
+  "future_targets": {
+    "path": "outputs/datasets/completion-targets-v1.json",
+    "sha256": "6822f120b9cc4c7886ddfb73c4b219fda104d8799d21f4f0376461c4b10b3deb",
+    "weight": 0.1,
+    "completion_mask": true
+  }
+}
