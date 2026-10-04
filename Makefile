@@ -318,3 +318,11 @@ success-replay-evaluate:
 
 success-replay-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_success_replay.py -v
+
+.PHONY: replay-divergence-audit trajectory-divergence-test
+replay-divergence-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_replay_divergence.py
+	PYTHONPATH=src .venv/bin/python scripts/summarize_replay_divergence.py
+
+trajectory-divergence-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_trajectory_divergence.py -v

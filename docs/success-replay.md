@@ -61,3 +61,5 @@ control 所有权重张量与上一轮 completion-bc 逐值相同，说明新增
 `make success-replay-test correction-finetune-test memory-test local-targets-test joint-augmentation-test future-targets-test`
 共 26 项测试，覆盖验证集隔离、成功判据、文件篡改、教师权重和标签一致性，及既有训练逻辑。
 机器报告见 [success-replay-v1.json](evaluations/success-replay-v1.json)。模型、轨迹和 GIF 在 outputs 中。
+
+后续已完成[自主轨迹首次偏离审计](replay-divergence.md)，定位初始残余偏差、提前闭合和不稳定接触。

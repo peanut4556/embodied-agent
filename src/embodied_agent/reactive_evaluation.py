@@ -86,6 +86,7 @@ def run_case(policy, case, mode, max_seconds, trace=None, trace_until_tick=0):
                         "joints": world.data.qpos[:5].tolist(),
                         "command": world.data.ctrl.tolist(),
                         "holding": bool(holding),
+                        "finger_contacts": world.contacts(),
                         "block_xyz": world.data.body("red_block").xpos.tolist(),
                         "inside_box": bool(world.inside_box()),
                         "simulation_qpos": world.data.qpos.tolist(),
