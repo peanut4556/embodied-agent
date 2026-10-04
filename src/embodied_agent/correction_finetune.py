@@ -161,6 +161,16 @@ def train(base_root, correction_roots, pretrained, experiment, output):
     future = future_batch(
         groups["train"], x, policy, config.get("future_targets"), correction_roots
     )
+    from .success_replay import replay_batch
+
+    positions = {
+        group: {m["episodes"][i]["scenario"]["x"] for m in manifests for i in m["split"][group]}
+        | {base["episodes"][i]["scenario"]["x"] for i in config["split"][group]}
+        for group in ("train", "validation")
+    }
+    replay = replay_batch(
+        config.get("success_replay"), policy, positions["train"], positions["validation"]
+    )
     torch.set_num_threads(2)
     torch.manual_seed(config["seed"])
     noise_generator = torch.Generator().manual_seed(config["seed"])
@@ -184,6 +194,7 @@ def train(base_root, correction_roots, pretrained, experiment, output):
         "normalization": "frozen pretrained training-only statistics",
         "joint_augmentation": augmentation,
         "local_targets": auxiliary[2] if auxiliary else None,
+        "success_replay": replay[2] if replay else None,
         "future_targets": future[2] if future else None,
         "test_used_for_training": False,
         "candidates": [],
@@ -215,6 +226,10 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                     (future_head(encoded) - future[0]).square() * future[1]
                 ).sum() / future[1].sum()
                 loss = loss + future[2]["weight"] * future_loss
+            if replay and replay[2]["weight"]:
+                loss = (
+                    loss + replay[2]["weight"] * (model(replay[0])[0] - replay[1]).square().mean()
+                )
             if not torch.isfinite(loss):
                 raise ValueError("nonfinite loss")
             loss.backward()
@@ -254,6 +269,7 @@ def train(base_root, correction_roots, pretrained, experiment, output):
                     "supervision": "expert-only mask plus base rehearsal",
                     "joint_augmentation": augmentation,
                     "local_targets": auxiliary[2] if auxiliary else None,
+                    "success_replay": replay[2] if replay else None,
                     "future_targets": future[2] if future else None,
                     "future_head_sha256": digest(target / "future-head.pt") if future else None,
                 }
@@ -270,6 +286,8 @@ def train(base_root, correction_roots, pretrained, experiment, output):
             raise ValueError("local targets changed during training")
         if future and digest(config["future_targets"]["path"]) != future[2]["sha256"]:
             raise ValueError("future targets changed during training")
+        if replay and digest(config["success_replay"]["path"]) != replay[2]["sha256"]:
+            raise ValueError("success replay changed during training")
         if hashes() != sources:
             raise ValueError("training sources changed")
         report["status"] = "trained"

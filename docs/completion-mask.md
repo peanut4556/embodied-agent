@@ -69,3 +69,6 @@ make future-targets-test correction-finetune-test memory-test local-targets-test
 完成标签零梯度、验证目标拒绝及既有训练监督逻辑。三个训练分支通过数据、父模型、预算和
 检查点一致性校验；移除辅助头文件后动作推理逐值相同，证明运行时不依赖该头。
 来源哈希、训练标签分组、代码风格及差异检查通过。
+
+后续已执行同历史动作冲突审计与成功轨迹回放对照，见
+[成功轨迹回放](success-replay.md)。

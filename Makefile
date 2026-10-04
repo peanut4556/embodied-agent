@@ -304,3 +304,17 @@ completion-evaluate:
 
 future-targets-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_future_targets.py -v
+
+.PHONY: success-replay-prepare success-replay-train success-replay-evaluate success-replay-test
+success-replay-prepare:
+	PYTHONPATH=src .venv/bin/python scripts/prepare_success_replay.py
+
+success-replay-train:
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/state-distill-distilled/epoch-300 --corrections outputs/datasets/corrections-onpolicy-v1 --experiment config/success-replay-control.json --output outputs/models/success-replay-control
+	PYTHONPATH=src .venv/bin/python scripts/finetune_corrections.py --pretrained outputs/models/state-distill-distilled/epoch-300 --corrections outputs/datasets/corrections-onpolicy-v1 --experiment config/success-replay-replay.json --output outputs/models/success-replay-replay
+
+success-replay-evaluate:
+	PYTHONPATH=src .venv/bin/python scripts/evaluate_success_replay.py
+
+success-replay-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/dataset -p test_success_replay.py -v
