@@ -1,0 +1,172 @@
+{
+  "status": "complete",
+  "source_sha256": "97b47d06213c399ff6d2903fe19481770e0ad3114cab8055b2a137bfbd62ab73",
+  "script_sha256": "2340d99f419e42daf61a003a4d99af3ec3af107d6755fd353ee184c6c3cf26c5",
+  "perception_sha256": "e84987ea4b32daf0709f78b43f788ded47206fe539c996af7d0fdff1a044a2a5",
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "cases": [
+    {
+      "episode": 3,
+      "takeover_tick": 79,
+      "decision_tick": 153,
+      "recorded_success": true,
+      "recorded_reason": "",
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.2957980742961863,
+          0.0,
+          0.02498536109924312
+        ],
+        "pixels": 646,
+        "bbox": [
+          255,
+          227,
+          280,
+          252
+        ]
+      },
+      "error": null,
+      "diagnostics": {
+        "red_pixels": 675,
+        "component_sizes": [
+          675
+        ],
+        "bbox": [
+          255,
+          227,
+          280,
+          252
+        ],
+        "top_z_m": 0.04998536109924312,
+        "top_pixels": 646,
+        "top_extent_xy_m": [
+          0.047635166036029075,
+          0.049619964620863655
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 0.0,
+          "extent_m": [
+            0.047635166036029075,
+            0.049619964620863655
+          ]
+        }
+      },
+      "visible_cube_pixels": 695,
+      "red_cube_pixels": 671,
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.29614666096106673,
+          0.00016650288760050694,
+          0.024990412242408618
+        ],
+        "nearest_face_tilt_degrees": 2.9575586669421963e-06
+      },
+      "image": "outputs/evaluations/contact-vision-v1/episode-3-tick-153.png",
+      "rgbd_sha256": "aead3856d8dd2dfa7b11798410dc8e6430c32608af01bda5e100421b31758cfb"
+    },
+    {
+      "episode": 4,
+      "takeover_tick": 82,
+      "decision_tick": 156,
+      "recorded_success": false,
+      "recorded_reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 646,
+        "component_sizes": [
+          646
+        ],
+        "bbox": [
+          262,
+          218,
+          293,
+          250
+        ],
+        "top_z_m": 0.04998536109924312,
+        "top_pixels": 636,
+        "top_extent_xy_m": [
+          0.06152875612987091,
+          0.06351355471470548
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 67.8,
+          "extent_m": [
+            0.049914423082346726,
+            0.04995494174664156
+          ]
+        }
+      },
+      "visible_cube_pixels": 664,
+      "red_cube_pixels": 644,
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.3165210063226981,
+          0.011134871273015094,
+          0.024990412242408663
+        ],
+        "nearest_face_tilt_degrees": 0.0
+      },
+      "image": "outputs/evaluations/contact-vision-v1/episode-4-tick-156.png",
+      "rgbd_sha256": "b142a9e4531f1bd9d160b8ad108590762be4d537ee7d5fe443191429c1d5fb36"
+    },
+    {
+      "episode": 5,
+      "takeover_tick": 84,
+      "decision_tick": 158,
+      "recorded_success": false,
+      "recorded_reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 885,
+        "component_sizes": [
+          885
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06673128604888912,
+        "top_pixels": 162,
+        "top_extent_xy_m": [
+          0.03335007732013201,
+          0.047020241366764845
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.299999999999997,
+          "extent_m": [
+            0.012853354339008749,
+            0.04995025673313053
+          ]
+        }
+      },
+      "visible_cube_pixels": 875,
+      "red_cube_pixels": 868,
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49713857641572423,
+          0.016197289690902603,
+          0.03500020978084117
+        ],
+        "nearest_face_tilt_degrees": 37.080481140398824
+      },
+      "image": "outputs/evaluations/contact-vision-v1/episode-5-tick-158.png",
+      "rgbd_sha256": "387b60184e521d4e23936a1bb2e4f20cb187f65c3e07516beb74e8bd17bb7e52"
+    }
+  ],
+  "recheck_perception_sha256": "994a4215e3d524ee79d9d2635f6a2a15c841bfdf3fe82160ce682c5e5bb473f5",
+  "recheck_script_sha256": "74246c0925b950d7751c1cf73e4f4f8222c329e44a4d15942f78c4f5e50189f2",
+  "limitations": [
+    "three inspected training trajectories only",
+    "oriented box is diagnostic and does not change acceptance",
+    "truth orientation used only to explain failure, never supplied to detector",
+    "visible segmentation is not a full occlusion fraction",
+    "no training, threshold relaxation or controller change"
+  ]
+}

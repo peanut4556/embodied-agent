@@ -344,3 +344,14 @@ contact-stable-test:
 .PHONY: contact-stable-compare
 contact-stable-compare:
 	PYTHONPATH=src .venv/bin/python scripts/compare_contact_experts.py
+
+.PHONY: contact-vision-audit contact-vision-summary perception-diagnostics-test
+contact-vision-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_contact_vision.py
+	PYTHONPATH=src .venv/bin/python scripts/summarize_contact_vision.py
+
+contact-vision-summary:
+	PYTHONPATH=src .venv/bin/python scripts/summarize_contact_vision.py
+
+perception-diagnostics-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_perception_diagnostics.py -v

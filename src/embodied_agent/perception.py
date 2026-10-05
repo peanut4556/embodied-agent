@@ -8,7 +8,22 @@ from collections import deque
 import numpy as np
 
 
-def locate_red_cube(rgb, depth, camera_position, camera_rotation, fovy):
+def oriented_extent(points):
+    """Diagnostic-only minimum-area XY box sampled at 0.1 degree resolution."""
+    points = np.asarray(points, dtype=float)
+    if points.ndim != 2 or points.shape[1] != 2 or len(points) < 3 or not np.isfinite(points).all():
+        raise ValueError("finite XY point cloud required")
+    best = None
+    for angle in np.deg2rad(np.arange(0, 90, 0.1)):
+        c, s = np.cos(angle), np.sin(angle)
+        extent = np.ptp(points @ np.array([[c, -s], [s, c]]), axis=0)
+        area = float(np.prod(extent))
+        if best is None or area < best[0]:
+            best = area, float(np.rad2deg(angle)), extent.tolist()
+    return {"angle_degrees": best[1], "extent_m": best[2]}
+
+
+def locate_red_cube(rgb, depth, camera_position, camera_rotation, fovy, diagnostics=None):
     rgb = np.asarray(rgb, dtype=float)
     depth = np.asarray(depth, dtype=float)
     if rgb.shape != (*depth.shape, 3) or depth.ndim != 2:
@@ -31,11 +46,15 @@ def locate_red_cube(rgb, depth, camera_position, camera_rotation, fovy):
                     pixels.append(neighbor)
         if len(pixels) >= 20:
             components.append(pixels)
+    if diagnostics is not None:
+        diagnostics.update(red_pixels=int(mask.sum()), component_sizes=[len(c) for c in components])
     if len(components) != 1:
         raise ValueError(f"vision requires one visible red cube; found {len(components)}")
     pixels = np.array(components[0])
     y, x = pixels.T
     height, width = depth.shape
+    if diagnostics is not None:
+        diagnostics["bbox"] = [int(x.min()), int(y.min()), int(x.max()), int(y.max())]
     if x.min() == 0 or y.min() == 0 or x.max() == width - 1 or y.max() == height - 1:
         raise ValueError("vision target is clipped by image boundary")
     focal = height / (2 * np.tan(np.deg2rad(fovy) / 2))
@@ -48,9 +67,14 @@ def locate_red_cube(rgb, depth, camera_position, camera_rotation, fovy):
     # Overhead view: select the top face, discard side faces and edge artifacts.
     top_z = np.percentile(points[:, 2], 90)
     top = points[np.abs(points[:, 2] - top_z) < 0.003]
+    if diagnostics is not None:
+        diagnostics.update(top_z_m=float(top_z), top_pixels=len(top))
     if len(top) < 20:
         raise ValueError("vision target has insufficient depth support")
     extent = np.ptp(top[:, :2], axis=0)
+    if diagnostics is not None:
+        diagnostics["top_extent_xy_m"] = extent.tolist()
+        diagnostics["oriented_top_box"] = oriented_extent(top[:, :2])
     if np.any(extent < 0.038) or np.any(extent > 0.060):
         raise ValueError("vision target size inconsistent or substantially occluded")
     center = (top.min(axis=0) + top.max(axis=0)) / 2
