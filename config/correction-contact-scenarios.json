@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "description": "Train-only recovery collection from fixed replay learner at ticks 75,77,78,79,82,84 around early closure/contact loss; keep all outcomes, no validation or test collection.",
+  "reference_trace": "outputs/evaluations/replay-divergence-v1/replay-trace.json",
+  "reference_trace_sha256": "a0791a9974de9000d9072eadd836ba651cafd1db2d5bff745e5e5fe82313f4e6",
+  "learner_weights_sha256": "ed5ccf103d27614afb4e5d9f727a93f5fc8a0d5632ab383c6acf64e88b919b3a",
+  "cases": [
+    {
+      "name": "train-302-contact-takeover-75",
+      "x": 0.302,
+      "takeover_seconds": 3.0
+    },
+    {
+      "name": "train-302-contact-takeover-77",
+      "x": 0.302,
+      "takeover_seconds": 3.08
+    },
+    {
+      "name": "train-302-contact-takeover-78",
+      "x": 0.302,
+      "takeover_seconds": 3.12
+    },
+    {
+      "name": "train-302-contact-takeover-79",
+      "x": 0.302,
+      "takeover_seconds": 3.16
+    },
+    {
+      "name": "train-302-contact-takeover-82",
+      "x": 0.302,
+      "takeover_seconds": 3.28
+    },
+    {
+      "name": "train-302-contact-takeover-84",
+      "x": 0.302,
+      "takeover_seconds": 3.36
+    }
+  ],
+  "split": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "validation": [],
+    "test": []
+  }
+}

@@ -326,3 +326,10 @@ replay-divergence-audit:
 
 trajectory-divergence-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_trajectory_divergence.py -v
+
+.PHONY: contact-recovery-record contact-recovery-test
+contact-recovery-record:
+	PYTHONPATH=src .venv/bin/python scripts/collect_contact_recovery.py
+
+contact-recovery-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_contact_recovery.py -v

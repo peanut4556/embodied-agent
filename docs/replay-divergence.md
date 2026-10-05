@@ -88,3 +88,5 @@ success-replay-replay/epoch-300，三组各执行一次，仍按完整抓放过�
 动作与下一帧状态的索引、接触与 holding 区别、有符号分解及原轨迹物理推进逻辑。
 代码风格和差异检查通过。初次沙箱渲染失败及初版过严的批量浮点校验失败保留在 outputs；
 最终完整报告的 status 为 complete。
+
+后续已完成固定六个接管点的[恢复样本采集](contact-recovery.md)，保留成功与失败结果。
