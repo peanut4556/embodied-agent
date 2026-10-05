@@ -44,15 +44,16 @@ def verify_branch(takeover, trace):
             raise ValueError("takeover differs from autonomous failure state")
 
 
-def main():
-    config = json.loads(PLAN.read_text())
+def main(plan=PLAN, output=OUTPUT, report_path="docs/evaluations/contact-recovery-v1.json"):
+    plan, output = Path(plan), Path(output)
+    config = json.loads(plan.read_text())
     policy = MemoryPolicy(MODEL)
     check_plan(config, policy.metadata["weights_sha256"])
     if digest(config["reference_trace"]) != config["reference_trace_sha256"]:
         raise ValueError("audited trace changed")
     reference = json.loads(Path(config["reference_trace"]).read_text())
-    validation = record(OUTPUT, MODEL, PLAN)
-    manifest = json.loads((OUTPUT / "recording.json").read_text())
+    validation = record(output, MODEL, plan)
+    manifest = json.loads((output / "recording.json").read_text())
     rows = []
     for episode in manifest["episodes"]:
         verify_branch(episode["takeover"], reference["trace"])
@@ -70,11 +71,12 @@ def main():
                 "reason": episode["reason"],
                 "supervised_frames": episode["supervised_frames"],
                 "quality": episode["quality"],
+                "contact_decision": episode.get("contact_decision"),
             }
         )
     # Read through the public training gate; verify causal prefix and expert-only masks.
     loaded = []
-    for episode in training_sequences(OUTPUT, "train"):
+    for episode in training_sequences(output, "train"):
         tick = manifest["episodes"][episode["episode"]]["takeover"]["tick"]
         inputs = episode["inputs"]
         images, joints, holding = (inputs[k] for k in manifest["policy_input_keys"])
@@ -97,10 +99,10 @@ def main():
         "status": "complete",
         "group": "train",
         "config": config,
-        "config_sha256": digest(PLAN),
+        "config_sha256": digest(plan),
         "script_sha256": digest(__file__),
-        "dataset": str(OUTPUT),
-        "dataset_sha256": payload_digest(OUTPUT),
+        "dataset": str(output),
+        "dataset_sha256": payload_digest(output),
         "validation": validation,
         "episodes": rows,
         "trainable_episodes": loaded,
@@ -114,10 +116,8 @@ def main():
             "no validation samples in this addition; training requires separate compatible validation data",
         ],
     }
-    (OUTPUT / "contact-audit.json").write_text(json.dumps(report, indent=2) + "\n")
-    Path("docs/evaluations/contact-recovery-v1.json").write_text(
-        json.dumps(report, indent=2) + "\n"
-    )
+    (output / "contact-audit.json").write_text(json.dumps(report, indent=2) + "\n")
+    Path(report_path).write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2), flush=True)
 
 

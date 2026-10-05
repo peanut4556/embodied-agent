@@ -1,0 +1,63 @@
+{
+  "status": "complete",
+  "source_reports": {
+    "docs/evaluations/contact-recovery-v1.json": "7fd3c525f32824e31ae8f005a3f33417736623030718fc473ae7a92819a3f3d3",
+    "docs/evaluations/contact-stable-v1.json": "ab2d1896ac3af3906338891b502ac70bc8aec3e7bd77c2589dd487c14bd4bab4"
+  },
+  "episodes": [
+    {
+      "tick": 75,
+      "consecutive_holding_ticks": 0,
+      "previous_success": true,
+      "stable_success": true,
+      "supervised_frames": 311,
+      "reason": ""
+    },
+    {
+      "tick": 77,
+      "consecutive_holding_ticks": 0,
+      "previous_success": true,
+      "stable_success": true,
+      "supervised_frames": 311,
+      "reason": ""
+    },
+    {
+      "tick": 78,
+      "consecutive_holding_ticks": 1,
+      "previous_success": false,
+      "stable_success": true,
+      "supervised_frames": 311,
+      "reason": ""
+    },
+    {
+      "tick": 79,
+      "consecutive_holding_ticks": 0,
+      "previous_success": true,
+      "stable_success": true,
+      "supervised_frames": 311,
+      "reason": ""
+    },
+    {
+      "tick": 82,
+      "consecutive_holding_ticks": 1,
+      "previous_success": false,
+      "stable_success": false,
+      "supervised_frames": 0,
+      "reason": "expert rejected state: vision target size inconsistent or substantially occluded"
+    },
+    {
+      "tick": 84,
+      "consecutive_holding_ticks": 0,
+      "previous_success": false,
+      "stable_success": false,
+      "supervised_frames": 0,
+      "reason": "expert rejected state: vision target size inconsistent or substantially occluded"
+    }
+  ],
+  "previous_successes": 3,
+  "stable_successes": 4,
+  "previous_supervised_frames": 933,
+  "stable_supervised_frames": 1244,
+  "training_performed": false,
+  "test_executed": false
+}

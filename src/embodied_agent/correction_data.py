@@ -66,7 +66,7 @@ def correction_features():
 class CorrectionExpert:
     """Finite RGB-D/IK supervisor; all targets execute at the recording clock."""
 
-    def __init__(self, world, fps):
+    def __init__(self, world, fps, holding_ticks=None):
         self.world, self.fps = world, fps
         self.stage, self.queue, self.index = "retreat", [], 0
         self.start = world.data.qpos[:5].copy()
@@ -76,10 +76,19 @@ class CorrectionExpert:
         self.detection = None
         # Move to the established observation posture from the actual arm state.
         # Preserve a contact grasp while retreating; do not teleport the object.
+        self.retreat_grasp = bool(world.holding) and (
+            holding_ticks is None or holding_ticks >= int(np.ceil(0.12 * fps))
+        )
+        self.contact_decision = {
+            "mode": "legacy" if holding_ticks is None else "stable-contact-v1",
+            "holding_ticks": holding_ticks,
+            "required_ticks": int(np.ceil(0.12 * fps)),
+            "holding_at_takeover": bool(world.holding),
+            "preserve_grasp": self.retreat_grasp,
+        }
         self.retreat_target = np.r_[
-            world.ik(0.22, 0.30), [0.0, 0.0] if world.holding else [0.04, 0.04]
+            world.ik(0.22, 0.30), [0.0, 0.0] if self.retreat_grasp else [0.04, 0.04]
         ]
-        self.retreat_grasp = world.holding
         self.rate = np.array([2.0, 2.0, 2.0, 1.0, 1.0]) / fps
 
     def stop(self, reason):
@@ -141,7 +150,9 @@ class CorrectionExpert:
             return self.stop(f"expert rejected state: {exc}")
 
 
-def collect(policy, case):
+def collect(policy, case, expert_mode="legacy"):
+    if expert_mode not in {"legacy", "stable-contact-v1"}:
+        raise ValueError("unknown correction expert mode")
     world = PhysicsWorld(perception="rgbd")
     renderer = None
     try:
@@ -158,17 +169,21 @@ def collect(policy, case):
         renderer = mujoco.Renderer(world.model, height=240, width=320)
         quality = GraspQuality(fps)
         rows, expert, takeover, terminal = [], None, None, None
+        holding_ticks = 0
         takeover_tick = round(case["takeover_seconds"] * fps)
         for tick in range(30 * fps):
             mujoco.mj_forward(world.model, world.data)
             renderer.update_scene(world.data, camera="perception")
             rgb, joints, holding = renderer.render(), world.data.qpos[:5].copy(), world.holding
+            holding_ticks = holding_ticks + 1 if holding else 0
             if tick == takeover_tick:
                 takeover = {
                     key: getattr(world.data, key).tolist() for key in ("qpos", "qvel", "ctrl")
                 }
                 takeover["tick"] = tick
-                expert = CorrectionExpert(world, fps)
+                expert = CorrectionExpert(
+                    world, fps, holding_ticks if expert_mode == "stable-contact-v1" else None
+                )
             if "stop_seconds" in case and tick >= round(case["stop_seconds"] * fps):
                 command = expert.stop("user stop") if expert else learner.stop(joints)
                 source = 3
@@ -225,6 +240,7 @@ def collect(policy, case):
             "success": success,
             "quality": result,
             "reason": expert.reason if expert else "no takeover",
+            "contact_decision": expert.contact_decision if expert else None,
             "detection": expert.detection if expert else None,
             "final_xyz": world.snapshot()["block_xyz"],
             "supervised_frames": sum(r["supervision.valid"].item() for r in rows),
@@ -244,6 +260,9 @@ def record(root, model, scenarios):
         raise FileExistsError(f"refusing to overwrite correction data: {root}")
     config = read_json(scenarios)
     cases, split = config["cases"], config["split"]
+    expert_mode = config.get("expert_mode", "legacy")
+    if expert_mode not in {"legacy", "stable-contact-v1"}:
+        raise ValueError("unknown correction expert mode")
     ids = [i for group in ("train", "validation", "test") for i in split[group]]
     if sorted(ids) != list(range(len(cases))) or split["test"]:
         raise ValueError("correction data must be development-only and split exactly once")
@@ -288,6 +307,7 @@ def record(root, model, scenarios):
         "learner_weights_sha256": policy.metadata["weights_sha256"],
         "scenarios_sha256": digest(scenarios),
         "collector_sha256": digest(__file__),
+        "expert_mode": expert_mode,
         "policy_input_keys": [IMAGE_KEY, "observation.state", "observation.holding"],
         "excluded_input_keys": [
             "controller.source",
@@ -302,7 +322,7 @@ def record(root, model, scenarios):
     write_json(root / "recording.json", manifest)
     try:
         for i, case in enumerate(cases):
-            rows, episode = collect(policy, case)
+            rows, episode = collect(policy, case, expert_mode)
             for row in rows:
                 dataset.add_frame(row)
             dataset.save_episode()

@@ -333,3 +333,14 @@ contact-recovery-record:
 
 contact-recovery-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_contact_recovery.py -v
+
+.PHONY: contact-stable-record contact-stable-test
+contact-stable-record:
+	PYTHONPATH=src:. .venv/bin/python -c 'from scripts.collect_contact_recovery import main; main("config/correction-contact-stable-scenarios.json", "outputs/datasets/corrections-contact-stable-v1", "docs/evaluations/contact-stable-v1.json")'
+
+contact-stable-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_stable_contact_expert.py -v
+
+.PHONY: contact-stable-compare
+contact-stable-compare:
+	PYTHONPATH=src .venv/bin/python scripts/compare_contact_experts.py
