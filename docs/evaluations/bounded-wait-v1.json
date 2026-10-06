@@ -1,0 +1,306 @@
+{
+  "status": "complete",
+  "source_sha256": "644e4bf3f2f59ff6a36f0510f697cd0fecdea2e189d2975224db696858531051",
+  "script_sha256": "04337eeb63e9d5c738a57b50a87f3360eda06cbef4e535a8a49697b1f8217e66",
+  "episode": 5,
+  "takeover_tick": 84,
+  "decision_tick": 158,
+  "wait_ticks": [
+    0,
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
+  "fps": 25,
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "observations": [
+    {
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 885,
+        "component_sizes": [
+          885
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06673128604888912,
+        "top_pixels": 162,
+        "top_extent_xy_m": [
+          0.03335007732013201,
+          0.047020241366764845
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.299999999999997,
+          "extent_m": [
+            0.012853354339008749,
+            0.04995025673313053
+          ]
+        },
+        "size_mode": "oriented"
+      },
+      "grasp_geometry_eligible": false,
+      "wait_seconds": 0.0,
+      "simulation_time": 6.819999999999471,
+      "image": "outputs/evaluations/bounded-wait-v1/wait-000.png",
+      "rgbd_sha256": "387b60184e521d4e23936a1bb2e4f20cb187f65c3e07516beb74e8bd17bb7e52",
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49713857641572423,
+          0.016197289690902603,
+          0.03500020978084117
+        ],
+        "displacement_m": 0.0,
+        "speed_m_s": 4.110943731974575e-05,
+        "nearest_face_tilt_degrees": 37.080481140398824
+      }
+    },
+    {
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 884,
+        "component_sizes": [
+          884
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06673175096511837,
+        "top_pixels": 164,
+        "top_extent_xy_m": [
+          0.033346313885601275,
+          0.047019273144432584
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.299999999999997,
+          "extent_m": [
+            0.012993866297393075,
+            0.049954890664606594
+          ]
+        },
+        "size_mode": "oriented"
+      },
+      "grasp_geometry_eligible": false,
+      "wait_seconds": 0.2,
+      "simulation_time": 7.019999999999449,
+      "image": "outputs/evaluations/bounded-wait-v1/wait-005.png",
+      "rgbd_sha256": "dd488608193c0d009de1fb94030cdf97660a5c459f6704fc3bfcf55827f4a26a",
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49714105084485766,
+          0.016204761609475916,
+          0.03499777533015048
+        ],
+        "displacement_m": 8.23886623680475e-06,
+        "speed_m_s": 4.127769422073124e-05,
+        "nearest_face_tilt_degrees": 37.05183861736874
+      }
+    },
+    {
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 884,
+        "component_sizes": [
+          884
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06674554347991939,
+        "top_pixels": 164,
+        "top_extent_xy_m": [
+          0.033343283201566876,
+          0.04701842754439314
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.5,
+          "extent_m": [
+            0.012940077592343446,
+            0.04995881422084697
+          ]
+        },
+        "size_mode": "oriented"
+      },
+      "grasp_geometry_eligible": false,
+      "wait_seconds": 0.4,
+      "simulation_time": 7.219999999999427,
+      "image": "outputs/evaluations/bounded-wait-v1/wait-010.png",
+      "rgbd_sha256": "1c757f318ddf437624eecd95c1065f3847cfbb8c115851b0d85248a3a116f7d3",
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49714354236023856,
+          0.016212259221149047,
+          0.03499532294868207
+        ],
+        "displacement_m": 1.651146781087923e-05,
+        "speed_m_s": 4.144682402134589e-05,
+        "nearest_face_tilt_degrees": 37.023088611680386
+      }
+    },
+    {
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 880,
+        "component_sizes": [
+          880
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06677980422973628,
+        "top_pixels": 162,
+        "top_extent_xy_m": [
+          0.03333330100625953,
+          0.04505183682697716
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.900000000000006,
+          "extent_m": [
+            0.01278456459478372,
+            0.04997487349089924
+          ]
+        },
+        "size_mode": "oriented"
+      },
+      "grasp_geometry_eligible": false,
+      "wait_seconds": 1.0,
+      "simulation_time": 7.819999999999361,
+      "image": "outputs/evaluations/bounded-wait-v1/wait-025.png",
+      "rgbd_sha256": "e294b50314c45334d01253992ac38c36106fe322ed7fe09ad1cdf999268c6bc1",
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.4971511206758598,
+          0.01623490711027646,
+          0.034987856859079854
+        ],
+        "displacement_m": 4.1533400760581456e-05,
+        "speed_m_s": 4.19595135562051e-05,
+        "nearest_face_tilt_degrees": 36.93618933795186
+      }
+    },
+    {
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 880,
+        "component_sizes": [
+          880
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06670495271682735,
+        "top_pixels": 162,
+        "top_extent_xy_m": [
+          0.03331566253010837,
+          0.04706148648596348
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.5,
+          "extent_m": [
+            0.012937010985086428,
+            0.04918756407570349
+          ]
+        },
+        "size_mode": "oriented"
+      },
+      "grasp_geometry_eligible": false,
+      "wait_seconds": 2.0,
+      "simulation_time": 8.819999999999615,
+      "image": "outputs/evaluations/bounded-wait-v1/wait-050.png",
+      "rgbd_sha256": "33572836d2506975901a852e2d3a29aacbae57bd596f7942c6920d29b426b930",
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49716410475796224,
+          0.016273175862738014,
+          0.03497504190085373
+        ],
+        "displacement_m": 8.392752537944072e-05,
+        "speed_m_s": 4.2832048297272065e-05,
+        "nearest_face_tilt_degrees": 36.789166557093566
+      }
+    },
+    {
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 878,
+        "component_sizes": [
+          878
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06666204929351803,
+        "top_pixels": 163,
+        "top_extent_xy_m": [
+          0.033279943129415734,
+          0.04705170447772135
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.299999999999997,
+          "extent_m": [
+            0.012989353835246908,
+            0.04918631271710036
+          ]
+        },
+        "size_mode": "oriented"
+      },
+      "grasp_geometry_eligible": false,
+      "wait_seconds": 4.0,
+      "simulation_time": 10.820000000000283,
+      "image": "outputs/evaluations/bounded-wait-v1/wait-100.png",
+      "rgbd_sha256": "41aaf6af6965f891d577bf82d83412911779585f5cbf3e4de7a11a41f1f8c9f4",
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49719145833846246,
+          0.016351713292023756,
+          0.03494795413214326
+        ],
+        "displacement_m": 0.00017138786175384738,
+        "speed_m_s": 4.464782872600796e-05,
+        "nearest_face_tilt_degrees": 36.4867030684842
+      }
+    }
+  ],
+  "held_command": [
+    -2.017207391938953,
+    2.3165158761059295,
+    -0.29930848416697664,
+    0.04,
+    0.04
+  ],
+  "eligible_observations": 0,
+  "limitations": [
+    "one fixed training failure; only sampled reinspection times",
+    "held existing actuator commands; no reposition or physical recovery action",
+    "truth diagnostics never used by perception",
+    "eligibility is not successful grasping; no retraining or deployment"
+  ]
+}

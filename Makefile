@@ -362,3 +362,7 @@ contact-oriented-record:
 
 contact-oriented-compare:
 	PYTHONPATH=src .venv/bin/python scripts/compare_oriented_recovery.py
+
+.PHONY: bounded-wait-audit
+bounded-wait-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_bounded_wait.py
