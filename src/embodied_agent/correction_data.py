@@ -150,10 +150,10 @@ class CorrectionExpert:
             return self.stop(f"expert rejected state: {exc}")
 
 
-def collect(policy, case, expert_mode="legacy"):
+def collect(policy, case, expert_mode="legacy", perception_size_mode="axis"):
     if expert_mode not in {"legacy", "stable-contact-v1"}:
         raise ValueError("unknown correction expert mode")
-    world = PhysicsWorld(perception="rgbd")
+    world = PhysicsWorld(perception="rgbd", perception_size_mode=perception_size_mode)
     renderer = None
     try:
         world.data.qpos[5] = case["x"]
@@ -260,6 +260,9 @@ def record(root, model, scenarios):
         raise FileExistsError(f"refusing to overwrite correction data: {root}")
     config = read_json(scenarios)
     cases, split = config["cases"], config["split"]
+    perception_size_mode = config.get("perception_size_mode", "axis")
+    if perception_size_mode not in {"axis", "oriented"}:
+        raise ValueError("unknown perception size mode")
     expert_mode = config.get("expert_mode", "legacy")
     if expert_mode not in {"legacy", "stable-contact-v1"}:
         raise ValueError("unknown correction expert mode")
@@ -308,6 +311,7 @@ def record(root, model, scenarios):
         "scenarios_sha256": digest(scenarios),
         "collector_sha256": digest(__file__),
         "expert_mode": expert_mode,
+        "perception_size_mode": perception_size_mode,
         "policy_input_keys": [IMAGE_KEY, "observation.state", "observation.holding"],
         "excluded_input_keys": [
             "controller.source",
@@ -322,7 +326,7 @@ def record(root, model, scenarios):
     write_json(root / "recording.json", manifest)
     try:
         for i, case in enumerate(cases):
-            rows, episode = collect(policy, case, expert_mode)
+            rows, episode = collect(policy, case, expert_mode, perception_size_mode)
             for row in rows:
                 dataset.add_frame(row)
             dataset.save_episode()

@@ -1,0 +1,137 @@
+{
+  "status": "complete",
+  "source_reports": {
+    "docs/evaluations/contact-stable-v1.json": "ab2d1896ac3af3906338891b502ac70bc8aec3e7bd77c2589dd487c14bd4bab4",
+    "docs/evaluations/contact-oriented-v1.json": "1190f7b0d07bb4d135a448c4e1c7190bce1f2b6b561fc4d941ce9054c5a11816"
+  },
+  "episodes": [
+    {
+      "tick": 75,
+      "axis_success": true,
+      "oriented_success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.30175247005069,
+          0.0,
+          0.02498536109924312
+        ],
+        "pixels": 648,
+        "bbox": [
+          258,
+          227,
+          283,
+          252
+        ],
+        "sim_time": 6.459999999999511
+      }
+    },
+    {
+      "tick": 77,
+      "axis_success": true,
+      "oriented_success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.30175247005069,
+          0.0,
+          0.02498536109924312
+        ],
+        "pixels": 648,
+        "bbox": [
+          258,
+          227,
+          283,
+          252
+        ],
+        "sim_time": 6.539999999999502
+      }
+    },
+    {
+      "tick": 78,
+      "axis_success": true,
+      "oriented_success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.3057220672203591,
+          0.0009923992924172724,
+          0.02498536109924312
+        ],
+        "pixels": 625,
+        "bbox": [
+          260,
+          227,
+          284,
+          252
+        ],
+        "sim_time": 6.579999999999497
+      }
+    },
+    {
+      "tick": 79,
+      "axis_success": true,
+      "oriented_success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.2957980742961863,
+          0.0,
+          0.02498536109924312
+        ],
+        "pixels": 646,
+        "bbox": [
+          255,
+          227,
+          280,
+          252
+        ],
+        "sim_time": 6.619999999999493
+      }
+    },
+    {
+      "tick": 82,
+      "axis_success": false,
+      "oriented_success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.3166384594369491,
+          0.010916392216590005,
+          0.02498536109924312
+        ],
+        "pixels": 636,
+        "bbox": [
+          262,
+          218,
+          293,
+          250
+        ],
+        "sim_time": 6.73999999999948
+      }
+    },
+    {
+      "tick": 84,
+      "axis_success": false,
+      "oriented_success": false,
+      "reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "supervised_frames": 0,
+      "detection": null
+    }
+  ],
+  "axis_successes": 4,
+  "oriented_successes": 5,
+  "supervised_frames": 1555,
+  "training_performed": false,
+  "test_executed": false
+}

@@ -1,0 +1,396 @@
+{
+  "status": "complete",
+  "group": "train",
+  "config": {
+    "schema_version": 1,
+    "description": "Same stable-contact expert and six takeover points; opt-in oriented top-face size with unchanged 38-60 mm acceptance bounds.",
+    "reference_trace": "outputs/evaluations/replay-divergence-v1/replay-trace.json",
+    "reference_trace_sha256": "a0791a9974de9000d9072eadd836ba651cafd1db2d5bff745e5e5fe82313f4e6",
+    "learner_weights_sha256": "ed5ccf103d27614afb4e5d9f727a93f5fc8a0d5632ab383c6acf64e88b919b3a",
+    "cases": [
+      {
+        "name": "train-302-contact-takeover-75",
+        "x": 0.302,
+        "takeover_seconds": 3.0
+      },
+      {
+        "name": "train-302-contact-takeover-77",
+        "x": 0.302,
+        "takeover_seconds": 3.08
+      },
+      {
+        "name": "train-302-contact-takeover-78",
+        "x": 0.302,
+        "takeover_seconds": 3.12
+      },
+      {
+        "name": "train-302-contact-takeover-79",
+        "x": 0.302,
+        "takeover_seconds": 3.16
+      },
+      {
+        "name": "train-302-contact-takeover-82",
+        "x": 0.302,
+        "takeover_seconds": 3.28
+      },
+      {
+        "name": "train-302-contact-takeover-84",
+        "x": 0.302,
+        "takeover_seconds": 3.36
+      }
+    ],
+    "split": {
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "validation": [],
+      "test": []
+    },
+    "expert_mode": "stable-contact-v1",
+    "perception_size_mode": "oriented"
+  },
+  "config_sha256": "697d6c1b9447c4b0d6b4eef88413ef952e8b85504735090b7304e0dea2dacf88",
+  "script_sha256": "7ed8714a42fdf24fdf2ec8e51ef006bcdd5aa10673a86014cf7d493a08ee7695",
+  "dataset": "outputs/datasets/corrections-contact-oriented-v1",
+  "dataset_sha256": "644e4bf3f2f59ff6a36f0510f697cd0fecdea2e189d2975224db696858531051",
+  "validation": {
+    "success": true,
+    "total_frames": 2260,
+    "episodes": [
+      {
+        "episode": 0,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1629635832122176e-07,
+          1.1865784310671756e-07,
+          5.67886626612335e-08,
+          1.8438040746970863e-09,
+          1.8552922045889098e-09
+        ]
+      },
+      {
+        "episode": 1,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1900062579783821e-07,
+          1.1865746873951366e-07,
+          5.917293810497881e-08,
+          1.8404025317608763e-09,
+          1.8460949227638856e-09
+        ]
+      },
+      {
+        "episode": 2,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1551350675986782e-07,
+          1.1877421890460482e-07,
+          5.705593708604795e-08,
+          1.8490501144108329e-09,
+          1.8460949227638856e-09
+        ]
+      },
+      {
+        "episode": 3,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1551350675986782e-07,
+          1.183149831440744e-07,
+          5.760349708339163e-08,
+          1.857626101553489e-09,
+          1.8460949227638856e-09
+        ]
+      },
+      {
+        "episode": 4,
+        "replay_matches": true,
+        "success": true,
+        "supervised_frames": 311,
+        "max_joint_error": [
+          1.1692547996489111e-07,
+          1.1859182480478125e-07,
+          5.892858601086459e-08,
+          1.8058345374605267e-09,
+          1.8460949227638856e-09
+        ]
+      },
+      {
+        "episode": 5,
+        "replay_matches": true,
+        "success": false,
+        "supervised_frames": 0,
+        "max_joint_error": [
+          1.1749858019882709e-07,
+          1.1821253842470014e-07,
+          5.290184312833901e-08,
+          1.8461792025692425e-09,
+          1.8460949227638856e-09
+        ]
+      }
+    ]
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "tick": 75,
+      "seconds": 3.0,
+      "takeover_matches": true,
+      "finger_contacts_before_takeover": 0,
+      "holding_before_takeover": false,
+      "success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.316667765737304,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 213,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 251,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 337,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "contact_decision": {
+        "mode": "stable-contact-v1",
+        "holding_ticks": 0,
+        "required_ticks": 3,
+        "holding_at_takeover": false,
+        "preserve_grasp": false
+      }
+    },
+    {
+      "episode": 1,
+      "tick": 77,
+      "seconds": 3.08,
+      "takeover_matches": true,
+      "finger_contacts_before_takeover": 0,
+      "holding_before_takeover": false,
+      "success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31666695684785173,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 215,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 253,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 339,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "contact_decision": {
+        "mode": "stable-contact-v1",
+        "holding_ticks": 0,
+        "required_ticks": 3,
+        "holding_at_takeover": false,
+        "preserve_grasp": false
+      }
+    },
+    {
+      "episode": 2,
+      "tick": 78,
+      "seconds": 3.12,
+      "takeover_matches": true,
+      "finger_contacts_before_takeover": 2,
+      "holding_before_takeover": true,
+      "success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3156518788126494,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 216,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 254,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 340,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "contact_decision": {
+        "mode": "stable-contact-v1",
+        "holding_ticks": 1,
+        "required_ticks": 3,
+        "holding_at_takeover": true,
+        "preserve_grasp": false
+      }
+    },
+    {
+      "episode": 3,
+      "tick": 79,
+      "seconds": 3.16,
+      "takeover_matches": true,
+      "finger_contacts_before_takeover": 0,
+      "holding_before_takeover": false,
+      "success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "contact_decision": {
+        "mode": "stable-contact-v1",
+        "holding_ticks": 0,
+        "required_ticks": 3,
+        "holding_at_takeover": false,
+        "preserve_grasp": false
+      }
+    },
+    {
+      "episode": 4,
+      "tick": 82,
+      "seconds": 3.28,
+      "takeover_matches": true,
+      "finger_contacts_before_takeover": 2,
+      "holding_before_takeover": true,
+      "success": true,
+      "reason": "",
+      "supervised_frames": 311,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3106603290529057,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 220,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 258,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 344,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "contact_decision": {
+        "mode": "stable-contact-v1",
+        "holding_ticks": 1,
+        "required_ticks": 3,
+        "holding_at_takeover": true,
+        "preserve_grasp": false
+      }
+    },
+    {
+      "episode": 5,
+      "tick": 84,
+      "seconds": 3.36,
+      "takeover_matches": true,
+      "finger_contacts_before_takeover": 0,
+      "holding_before_takeover": false,
+      "success": false,
+      "reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "supervised_frames": 0,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.06276285406386818,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "contact_decision": {
+        "mode": "stable-contact-v1",
+        "holding_ticks": 0,
+        "required_ticks": 3,
+        "holding_at_takeover": false,
+        "preserve_grasp": false
+      }
+    }
+  ],
+  "trainable_episodes": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "supervised_frames": 1555,
+  "training_performed": false,
+  "test_executed": false,
+  "limitations": [
+    "single previously inspected training position",
+    "scheduled handovers, not learned recovery triggers",
+    "success measures expert recoverability, not learner success",
+    "no validation samples in this addition; training requires separate compatible validation data"
+  ]
+}

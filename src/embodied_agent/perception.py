@@ -9,7 +9,7 @@ import numpy as np
 
 
 def oriented_extent(points):
-    """Diagnostic-only minimum-area XY box sampled at 0.1 degree resolution."""
+    """Minimum-area XY box sampled at 0.1 degree resolution."""
     points = np.asarray(points, dtype=float)
     if points.ndim != 2 or points.shape[1] != 2 or len(points) < 3 or not np.isfinite(points).all():
         raise ValueError("finite XY point cloud required")
@@ -23,7 +23,11 @@ def oriented_extent(points):
     return {"angle_degrees": best[1], "extent_m": best[2]}
 
 
-def locate_red_cube(rgb, depth, camera_position, camera_rotation, fovy, diagnostics=None):
+def locate_red_cube(
+    rgb, depth, camera_position, camera_rotation, fovy, diagnostics=None, size_mode="axis"
+):
+    if size_mode not in {"axis", "oriented"}:
+        raise ValueError("unknown size mode")
     rgb = np.asarray(rgb, dtype=float)
     depth = np.asarray(depth, dtype=float)
     if rgb.shape != (*depth.shape, 3) or depth.ndim != 2:
@@ -72,9 +76,15 @@ def locate_red_cube(rgb, depth, camera_position, camera_rotation, fovy, diagnost
     if len(top) < 20:
         raise ValueError("vision target has insufficient depth support")
     extent = np.ptp(top[:, :2], axis=0)
+    oriented = (
+        oriented_extent(top[:, :2]) if diagnostics is not None or size_mode == "oriented" else None
+    )
     if diagnostics is not None:
         diagnostics["top_extent_xy_m"] = extent.tolist()
-        diagnostics["oriented_top_box"] = oriented_extent(top[:, :2])
+        diagnostics["oriented_top_box"] = oriented
+        diagnostics["size_mode"] = size_mode
+    if size_mode == "oriented":
+        extent = np.asarray(oriented["extent_m"])
     if np.any(extent < 0.038) or np.any(extent > 0.060):
         raise ValueError("vision target size inconsistent or substantially occluded")
     center = (top.min(axis=0) + top.max(axis=0)) / 2

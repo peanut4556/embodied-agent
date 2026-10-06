@@ -11,7 +11,10 @@ import numpy as np
 
 
 class PhysicsWorld:
-    def __init__(self, perception="truth", policy_path=None):
+    def __init__(self, perception="truth", policy_path=None, perception_size_mode="axis"):
+        if perception_size_mode not in {"axis", "oriented"}:
+            raise ValueError("unknown perception size mode")
+        self.perception_size_mode = perception_size_mode
         if perception not in {"truth", "rgbd"}:
             raise ValueError("unknown perception mode")
         self.perception = perception
@@ -271,6 +274,7 @@ class PhysicsWorld:
             self.data.cam_xpos[camera],
             self.data.cam_xmat[camera],
             self.model.cam_fovy[camera],
+            size_mode=self.perception_size_mode,
         )
         self.detection["sim_time"] = float(self.data.time)
         return np.array(self.detection["xyz"])

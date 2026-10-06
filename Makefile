@@ -355,3 +355,10 @@ contact-vision-summary:
 
 perception-diagnostics-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_perception_diagnostics.py -v
+
+.PHONY: contact-oriented-record contact-oriented-compare
+contact-oriented-record:
+	PYTHONPATH=src:. .venv/bin/python -c 'from scripts.collect_contact_recovery import main; main("config/correction-contact-oriented-scenarios.json", "outputs/datasets/corrections-contact-oriented-v1", "docs/evaluations/contact-oriented-v1.json")'
+
+contact-oriented-compare:
+	PYTHONPATH=src .venv/bin/python scripts/compare_oriented_recovery.py
