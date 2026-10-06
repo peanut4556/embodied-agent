@@ -241,6 +241,7 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 剩余失败的 RGB-D 证据见 [视觉拒绝审计](docs/contact-vision.md)，分别涉及平面旋转尺寸误判和物体倾斜。
 可选旋转尺寸判据将同六个接管点专家恢复提高到 5/6，见 [旋转尺寸恢复对照](docs/contact-oriented.md)。
 剩余倾斜案例经四秒等待仍不满足视觉条件，见 [受限等待审计](docs/bounded-wait.md)。
+进一步支撑接触与静态可达约束见 [支撑与可达审计](docs/support-reach.md)。
 
 下面保留无需物理引擎的二维快速演示：
 

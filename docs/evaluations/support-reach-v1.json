@@ -1,0 +1,766 @@
+{
+  "status": "complete",
+  "source_sha256": "644e4bf3f2f59ff6a36f0510f697cd0fecdea2e189d2975224db696858531051",
+  "script_sha256": "be4a684d5dc9b4981b8d55dd1b86e020e2f440deb0b6be84cb5add023cb721b6",
+  "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "support": [
+    {
+      "wait_seconds": 0.0,
+      "xyz": [
+        0.49713857641572423,
+        0.016197289690902603,
+        0.03500020978084117
+      ],
+      "velocity": [
+        1.2329212669995867e-05,
+        3.729486858031778e-05,
+        -1.2127206160569025e-05,
+        0.00038836861924924774,
+        0.00249484846284833,
+        -0.00029528338756390244
+      ],
+      "contacts": [
+        {
+          "geoms": [
+            "table",
+            "red_block"
+          ],
+          "distance_m": -1.0003754428244869e-05,
+          "position": [
+            0.48023747655742655,
+            0.03524820055002461,
+            -1.0003754428243583e-05
+          ],
+          "contact_frame": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "force_contact_frame": [
+            0.3071149123148182,
+            -0.000424005482052165,
+            -0.020565161890333146,
+            5.783424468894928e-06,
+            0.0,
+            0.0
+          ],
+          "constraint_active": true
+        },
+        {
+          "geoms": [
+            "table",
+            "red_block"
+          ],
+          "distance_m": -7.926760461429603e-06,
+          "position": [
+            0.50565244856116,
+            -0.007810819187933103,
+            -7.926760461428317e-06
+          ],
+          "contact_frame": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "force_contact_frame": [
+            0.2433089998460389,
+            0.004337042775187021,
+            -0.028630179469020467,
+            5.783061683792404e-06,
+            0.0,
+            0.0
+          ],
+          "constraint_active": true
+        },
+        {
+          "geoms": [
+            "tray_left",
+            "red_block"
+          ],
+          "distance_m": -1.6021113037106758e-06,
+          "position": [
+            0.5400016021113038,
+            0.01246713252227277,
+            0.030130958249579436
+          ],
+          "contact_frame": [
+            [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "force_contact_frame": [
+            0.04919531591575605,
+            -0.003912998887104398,
+            -0.038176061144802466,
+            -1.5038394403140486e-05,
+            0.0,
+            0.0
+          ],
+          "constraint_active": true
+        }
+      ],
+      "mass_kg": 0.06,
+      "geom_friction": [
+        1.8,
+        0.01,
+        0.001
+      ]
+    },
+    {
+      "wait_seconds": 4.0,
+      "xyz": [
+        0.49719145833846246,
+        0.016351713292023756,
+        0.03494795413214326
+      ],
+      "velocity": [
+        1.415523819817905e-05,
+        3.994636884884197e-05,
+        -1.4047969863721294e-05,
+        0.0004120689075935901,
+        0.0026894654173662924,
+        -0.0003066446049657276
+      ],
+      "contacts": [
+        {
+          "geoms": [
+            "table",
+            "red_block"
+          ],
+          "distance_m": -1.0023034670098085e-05,
+          "position": [
+            0.4800159844689031,
+            0.035252561401702284,
+            -1.0023034670098019e-05
+          ],
+          "contact_frame": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "force_contact_frame": [
+            0.30770700971573517,
+            -0.0004224879885537278,
+            -0.021947318755158887,
+            6.089154590166607e-06,
+            0.0,
+            0.0
+          ],
+          "constraint_active": true
+        },
+        {
+          "geoms": [
+            "table",
+            "red_block"
+          ],
+          "distance_m": -7.800118774552927e-06,
+          "position": [
+            0.5053446639156479,
+            -0.007857274804419258,
+            -7.800118774554943e-06
+          ],
+          "contact_frame": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "force_contact_frame": [
+            0.23941870225209755,
+            0.004573102926712081,
+            -0.03044838800945749,
+            6.088748240825349e-06,
+            0.0,
+            0.0
+          ],
+          "constraint_active": true
+        },
+        {
+          "geoms": [
+            "tray_left",
+            "red_block"
+          ],
+          "distance_m": -1.7063424191229812e-06,
+          "position": [
+            0.5400017063424192,
+            0.012509133363549496,
+            0.029716210203287522
+          ],
+          "contact_frame": [
+            [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "force_contact_frame": [
+            0.0523956773229608,
+            -0.004150573763116835,
+            -0.04147425698770129,
+            -1.6156397540636128e-05,
+            0.0,
+            0.0
+          ],
+          "constraint_active": true
+        }
+      ],
+      "mass_kg": 0.06,
+      "geom_friction": [
+        1.8,
+        0.01,
+        0.001
+      ]
+    }
+  ],
+  "geometry": {
+    "cube_aabb_min": [
+      0.4543795039920866,
+      -0.022915542985623524,
+      -2.0046069340196038e-05
+    ],
+    "cube_aabb_max": [
+      0.5400034126848383,
+      0.05561896956967104,
+      0.06991595433362671
+    ],
+    "tip_jacobian_arm": [
+      [
+        0.17991423555787378,
+        -0.19894536234585042,
+        -0.07499999746361258
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.219987149669693,
+        -0.4012753320650947,
+        1.950533529965215e-05
+      ]
+    ],
+    "tip_y": 0.0,
+    "existing_pick_y_limit_m": 0.015,
+    "center_outside_existing_pick_plane": true,
+    "open_finger_inner_surfaces_y": [
+      -0.052,
+      0.052
+    ],
+    "independent_finger_gap_midpoint_range_m": [
+      -0.02,
+      0.02
+    ]
+  },
+  "paths": [
+    {
+      "x_offset_m": -0.05,
+      "samples": 48,
+      "all_within_joint_bounds": true,
+      "first_non_mount_collision": null,
+      "end_pose": {
+        "target_xz": [
+          0.44719145833846247,
+          0.03
+        ],
+        "reachable": true,
+        "joints": [
+          -0.9755137278114454,
+          2.01808767315643,
+          -1.0425739453449847
+        ],
+        "tip_xyz": [
+          0.4471914583384625,
+          0.0,
+          0.02999999999999993
+        ],
+        "fk_error_m": 8.886119947416683e-17,
+        "collisions": [
+          {
+            "geoms": [
+              "geom-7",
+              "pedestal"
+            ],
+            "penetration_m": 0.024999396363128777
+          }
+        ],
+        "non_mount_collisions": []
+      },
+      "non_mount_collision_free_samples": 48
+    },
+    {
+      "x_offset_m": 0.0,
+      "samples": 48,
+      "all_within_joint_bounds": true,
+      "first_non_mount_collision": {
+        "index": 44,
+        "target_xz": [
+          0.49719145833846246,
+          0.06
+        ],
+        "reachable": true,
+        "joints": [
+          -0.9672150930894913,
+          1.8741095541594313,
+          -0.90689446106994
+        ],
+        "tip_xyz": [
+          0.49719145833846257,
+          0.0,
+          0.059999999999999956
+        ],
+        "fk_error_m": 1.1857187100668868e-16,
+        "collisions": [
+          {
+            "geoms": [
+              "geom-7",
+              "pedestal"
+            ],
+            "penetration_m": 0.024999399254475696
+          },
+          {
+            "geoms": [
+              "finger_left",
+              "red_block"
+            ],
+            "penetration_m": 0.000481630014260516
+          }
+        ],
+        "non_mount_collisions": [
+          {
+            "geoms": [
+              "finger_left",
+              "red_block"
+            ],
+            "penetration_m": 0.000481630014260516
+          }
+        ]
+      },
+      "end_pose": {
+        "target_xz": [
+          0.49719145833846246,
+          0.03
+        ],
+        "reachable": true,
+        "joints": [
+          -0.90689446106994,
+          1.8741095541594313,
+          -0.9672150930894913
+        ],
+        "tip_xyz": [
+          0.49719145833846246,
+          0.0,
+          0.02999999999999993
+        ],
+        "fk_error_m": 6.938893903907228e-17,
+        "collisions": [
+          {
+            "geoms": [
+              "geom-7",
+              "pedestal"
+            ],
+            "penetration_m": 0.024999419986411173
+          },
+          {
+            "geoms": [
+              "finger_left",
+              "red_block"
+            ],
+            "penetration_m": 0.0018094847848355194
+          }
+        ],
+        "non_mount_collisions": [
+          {
+            "geoms": [
+              "finger_left",
+              "red_block"
+            ],
+            "penetration_m": 0.0018094847848355194
+          }
+        ]
+      },
+      "non_mount_collision_free_samples": 44
+    },
+    {
+      "x_offset_m": 0.05,
+      "samples": 48,
+      "all_within_joint_bounds": true,
+      "first_non_mount_collision": {
+        "index": 39,
+        "target_xz": [
+          0.5471914583384625,
+          0.10999999999999999
+        ],
+        "reachable": true,
+        "joints": [
+          -0.9735261785616899,
+          1.7105836398213063,
+          -0.7370574612596165
+        ],
+        "tip_xyz": [
+          0.5471914583384625,
+          0.0,
+          0.10999999999999995
+        ],
+        "fk_error_m": 4.163336342344337e-17,
+        "collisions": [
+          {
+            "geoms": [
+              "geom-7",
+              "pedestal"
+            ],
+            "penetration_m": 0.02499939705674825
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000245
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000245
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000245
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000245
+          }
+        ],
+        "non_mount_collisions": [
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000245
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_left"
+            ],
+            "penetration_m": 0.0010000000000000245
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000252
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000245
+          },
+          {
+            "geoms": [
+              "tray_left",
+              "finger_right"
+            ],
+            "penetration_m": 0.0010000000000000245
+          }
+        ]
+      },
+      "end_pose": {
+        "target_xz": [
+          0.5471914583384625,
+          0.03
+        ],
+        "reachable": true,
+        "joints": [
+          -0.8336154947033881,
+          1.7220426798367479,
+          -0.8884271851333597
+        ],
+        "tip_xyz": [
+          0.5471914583384625,
+          0.0,
+          0.029999999999999985
+        ],
+        "fk_error_m": 1.3877787807814457e-17,
+        "collisions": [
+          {
+            "geoms": [
+              "geom-7",
+              "pedestal"
+            ],
+            "penetration_m": 0.024999444991446556
+          },
+          {
+            "geoms": [
+              "geom-8",
+              "tray_left"
+            ],
+            "penetration_m": 0.007000000000000027
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000083
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000083
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000083
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000083
+          }
+        ],
+        "non_mount_collisions": [
+          {
+            "geoms": [
+              "geom-8",
+              "tray_left"
+            ],
+            "penetration_m": 0.007000000000000027
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000083
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_left"
+            ],
+            "penetration_m": 0.0035000000000000083
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000066
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000083
+          },
+          {
+            "geoms": [
+              "tray_floor",
+              "finger_right"
+            ],
+            "penetration_m": 0.0035000000000000083
+          }
+        ]
+      },
+      "non_mount_collision_free_samples": 44
+    }
+  ],
+  "limitations": [
+    "simulation truth used only for geometric feasibility audit, never recovery commands",
+    "sampled static paths do not prove swept-volume clearance, dynamic stability or controllability",
+    "no posture recovery action executed, no new successful sample",
+    "single fixed training failure; current RGB-D detector still rejects it"
+  ]
+}

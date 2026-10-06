@@ -366,3 +366,10 @@ contact-oriented-compare:
 .PHONY: bounded-wait-audit
 bounded-wait-audit:
 	PYTHONPATH=src .venv/bin/python scripts/audit_bounded_wait.py
+
+.PHONY: support-reach-audit support-reach-test
+support-reach-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_support_reach.py
+
+support-reach-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_support_reach.py -v
