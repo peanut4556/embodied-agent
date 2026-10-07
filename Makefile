@@ -373,3 +373,10 @@ support-reach-audit:
 
 support-reach-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p test_support_reach.py -v
+
+.PHONY: visible-geometry-audit visible-geometry-test
+visible-geometry-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_visible_geometry.py
+
+visible-geometry-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_visible_geometry.py -v

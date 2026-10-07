@@ -1,0 +1,175 @@
+{
+  "status": "complete",
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "cases": [
+    {
+      "source": "outputs/evaluations/contact-vision-v1/episode-3-tick-153-rgbd.npz",
+      "sha256": "aead3856d8dd2dfa7b11798410dc8e6430c32608af01bda5e100421b31758cfb",
+      "estimate": {
+        "visible_points": 675,
+        "visible_aabb_min": [
+          0.2719804912781718,
+          -0.02588834610525268,
+          7.152557368605983e-08
+        ],
+        "visible_aabb_max": [
+          0.32118107983937827,
+          0.024965991402866303,
+          0.04998536109924312
+        ],
+        "dominant_visible_plane": {
+          "normal": [
+            0.0,
+            1.6285479462633237e-26,
+            1.0
+          ],
+          "tilt_degrees": 0.0,
+          "inlier_count": 646,
+          "inlier_fraction": 0.957037037037037,
+          "residual_rmse_m": 4.2327252813834093e-16
+        },
+        "obstacle_points": 320,
+        "visible_wall_x": 0.5408069666265614,
+        "visible_x_gap_m": 0.2196258867871831,
+        "clearance_certified": false,
+        "scope": "visible surfaces only; hidden geometry and contact gap unresolved"
+      },
+      "scoring_only": {
+        "nearest_face_tilt_degrees": 2.9575586669421963e-06,
+        "dominant_plane_tilt_difference_degrees": -2.9575586669421963e-06
+      }
+    },
+    {
+      "source": "outputs/evaluations/contact-vision-v1/episode-4-tick-156-rgbd.npz",
+      "sha256": "b142a9e4531f1bd9d160b8ad108590762be4d537ee7d5fe443191429c1d5fb36",
+      "estimate": {
+        "visible_points": 646,
+        "visible_aabb_min": [
+          0.28587408137201364,
+          -0.020840385140762734,
+          7.152557368605983e-08
+        ],
+        "visible_aabb_max": [
+          0.34740283750188455,
+          0.042673169573942744,
+          0.04998536109924312
+        ],
+        "dominant_visible_plane": {
+          "normal": [
+            0.0,
+            -2.4401310616004335e-25,
+            1.0
+          ],
+          "tilt_degrees": 0.0,
+          "inlier_count": 635,
+          "inlier_fraction": 0.9829721362229102,
+          "residual_rmse_m": 4.510281037539698e-16
+        },
+        "obstacle_points": 380,
+        "visible_wall_x": 0.5408069666265614,
+        "visible_x_gap_m": 0.1934041291246768,
+        "clearance_certified": false,
+        "scope": "visible surfaces only; hidden geometry and contact gap unresolved"
+      },
+      "scoring_only": {
+        "nearest_face_tilt_degrees": 0.0,
+        "dominant_plane_tilt_difference_degrees": 0.0
+      }
+    },
+    {
+      "source": "outputs/evaluations/contact-vision-v1/episode-5-tick-158-rgbd.npz",
+      "sha256": "387b60184e521d4e23936a1bb2e4f20cb187f65c3e07516beb74e8bd17bb7e52",
+      "estimate": {
+        "visible_points": 885,
+        "visible_aabb_min": [
+          0.4550546905959959,
+          -0.02101642950196621,
+          7.152557368605983e-08
+        ],
+        "visible_aabb_max": [
+          0.5381012562544293,
+          0.05488329374313568,
+          0.06999940872192378
+        ],
+        "dominant_visible_plane": {
+          "normal": [
+            -0.5173195153611594,
+            -0.3057081534749658,
+            0.7993266190522006
+          ],
+          "tilt_degrees": 36.93415276333346,
+          "inlier_count": 550,
+          "inlier_fraction": 0.6214689265536724,
+          "residual_rmse_m": 0.00016654502284893326
+        },
+        "obstacle_points": 450,
+        "visible_wall_x": 0.5408069666265614,
+        "visible_x_gap_m": 0.002705710372132075,
+        "clearance_certified": false,
+        "scope": "visible surfaces only; hidden geometry and contact gap unresolved"
+      },
+      "scoring_only": {
+        "nearest_face_tilt_degrees": 37.080481140398824,
+        "dominant_plane_tilt_difference_degrees": -0.14632837706536606
+      }
+    }
+  ],
+  "estimator_sha256": "9599ce8cf7cf5da6c7879d882a70f4f2a944a721ee4258a2dd6223638d161a5a",
+  "four_second_contact_case": {
+    "estimate": {
+      "visible_points": 878,
+      "visible_aabb_min": [
+        0.4569540478805924,
+        -0.021012752684860418,
+        7.152557368605983e-08
+      ],
+      "visible_aabb_max": [
+        0.5381487789766457,
+        0.05341315542610071,
+        0.06987853050231929
+      ],
+      "dominant_visible_plane": {
+        "normal": [
+          -0.510320566784097,
+          -0.29997769840256283,
+          0.8059691678831513
+        ],
+        "tilt_degrees": 36.296042850862385,
+        "inlier_count": 555,
+        "inlier_fraction": 0.6321184510250569,
+        "residual_rmse_m": 0.0002081295108153633
+      },
+      "obstacle_points": 440,
+      "visible_wall_x": 0.5408069666265614,
+      "visible_x_gap_m": 0.0026581876499156554,
+      "clearance_certified": false,
+      "scope": "visible surfaces only; hidden geometry and contact gap unresolved"
+    },
+    "scoring_only": {
+      "cube_aabb_max": [
+        0.5400034126848383,
+        0.05561896956967104,
+        0.06991595433362671
+      ],
+      "visible_max_x_error_m": -0.00185463370819261,
+      "tray_left_surface_x": 0.54,
+      "true_signed_x_gap_m": -3.412684838277613e-06
+    },
+    "source_sha256": "41aaf6af6965f891d577bf82d83412911779585f5cbf3e4de7a11a41f1f8c9f4"
+  },
+  "source_reports": {
+    "contact-vision-v1.json": "f8a2ae920fbd0cbe0e8f99bbb95e17b960602628ed388eb65a99d3da12a9243d",
+    "bounded-wait-v1.json": "0949968647dd81301861811b8024fd0ab72b7acbf78d75a22b32b8a661f60242",
+    "support-reach-v1.json": "98efd4778539285f41b77e4c3625c68f19bbb7b9253406f991f74dcd51c78cca"
+  },
+  "script_sha256": "610bc6158b8bd60388948a505b9cf68c03c1ce3f5a89a76fddae27148f1d7de3",
+  "limitations": [
+    "four snapshots from one training scenario family, not an independent test set",
+    "dominant visible plane is not a unique full cube pose",
+    "red/teal color and right-side height/Y-window obstacle priors are fixture-specific",
+    "positive visible gap cannot establish absence of contact; occluded surfaces unresolved",
+    "no recovery action, perception gate change or training"
+  ]
+}

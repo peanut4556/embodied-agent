@@ -65,3 +65,5 @@
 工作空间外拒绝，以及底座分类不会隐藏托盘碰撞。代码风格和差异检查通过。
 采集来源哈希、物理模型与时钟已核验，回放状态匹配，保持命令和源状态未被探测修改。
 详见[机器报告](evaluations/support-reach-v1.json)，完整本地记录在 outputs/evaluations/support-reach-v1。
+
+后续[RGB-D 可见几何审计](visible-geometry.md)验证了倾角估计，但发现正可见间隙仍可能对应实际贴壁。
