@@ -380,3 +380,10 @@ visible-geometry-audit:
 
 visible-geometry-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_visible_geometry.py -v
+
+.PHONY: conservative-geometry-audit conservative-geometry-test
+conservative-geometry-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_conservative_geometry.py
+
+conservative-geometry-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_conservative_geometry.py -v
