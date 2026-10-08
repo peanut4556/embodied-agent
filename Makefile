@@ -387,3 +387,10 @@ conservative-geometry-audit:
 
 conservative-geometry-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_conservative_geometry.py -v
+
+.PHONY: geometry-error-audit geometry-error-test
+geometry-error-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_geometry_error.py
+
+geometry-error-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_geometry_error.py -v

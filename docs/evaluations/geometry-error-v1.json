@@ -1,0 +1,336 @@
+{
+  "status": "complete",
+  "source_sha256": "97b47d06213c399ff6d2903fe19481770e0ad3114cab8055b2a137bfbd62ab73",
+  "scoring_sha256": "ee54ef7662b44c3d43dc45e1de65490dbb69f37c10b9aa649e3024188dad29a2",
+  "script_sha256": "77849c4f271c70f1362eb6eb9253c76aaa9cf4d6745ee1256955638b6002ca7d",
+  "perception_sha256": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "cases": [
+    {
+      "episode": 3,
+      "error_audit": {
+        "wait_ticks": 0,
+        "red_pixels": 675,
+        "red_pixels_wrong_geom": 4,
+        "red_surface_distance": {
+          "count": 675,
+          "median_m": 5.051143165533956e-06,
+          "p95_m": 5.051143165533956e-06,
+          "max_m": 0.0010857397284073332
+        },
+        "red_points_incompatible_with_3mm_per_axis": 0,
+        "depth_interior": {
+          "count": 595,
+          "median_m": 5.051143165513139e-06,
+          "p95_m": 5.051143165513139e-06,
+          "max_m": 4.435632584787186e-05
+        },
+        "depth_boundary": {
+          "count": 99,
+          "median_m": 5.051143165513139e-06,
+          "p95_m": 2.856635954144869e-05,
+          "max_m": 4.0375996491537336e-05
+        },
+        "segmentation_cube_rays_missing_box": 1,
+        "wall_association_counts": {
+          "tray_left": 160,
+          "tray_right": 160
+        },
+        "wall_x_error_m": 0.0008069666265613229
+      },
+      "takeover_tick": 79,
+      "decision_tick": 153,
+      "recorded_success": true,
+      "recorded_reason": "",
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.2957980742961863,
+          0.0,
+          0.02498536109924312
+        ],
+        "pixels": 646,
+        "bbox": [
+          255,
+          227,
+          280,
+          252
+        ]
+      },
+      "error": null,
+      "diagnostics": {
+        "red_pixels": 675,
+        "component_sizes": [
+          675
+        ],
+        "bbox": [
+          255,
+          227,
+          280,
+          252
+        ],
+        "top_z_m": 0.04998536109924312,
+        "top_pixels": 646,
+        "top_extent_xy_m": [
+          0.047635166036029075,
+          0.049619964620863655
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 0.0,
+          "extent_m": [
+            0.047635166036029075,
+            0.049619964620863655
+          ]
+        },
+        "size_mode": "axis"
+      },
+      "visible_cube_pixels": 695,
+      "red_cube_pixels": 671,
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.29614666096106673,
+          0.00016650288760050694,
+          0.024990412242408618
+        ],
+        "nearest_face_tilt_degrees": 2.9575586669421963e-06
+      },
+      "image": "outputs/evaluations/geometry-error-v1/episode-3-tick-153-wait-0.png",
+      "rgbd_sha256": "aead3856d8dd2dfa7b11798410dc8e6430c32608af01bda5e100421b31758cfb"
+    },
+    {
+      "episode": 4,
+      "error_audit": {
+        "wait_ticks": 0,
+        "red_pixels": 646,
+        "red_pixels_wrong_geom": 2,
+        "red_surface_distance": {
+          "count": 646,
+          "median_m": 5.051143165527017e-06,
+          "p95_m": 5.051143165527017e-06,
+          "max_m": 0.004657881476251034
+        },
+        "red_points_incompatible_with_3mm_per_axis": 0,
+        "depth_interior": {
+          "count": 573,
+          "median_m": 5.051143165291094e-06,
+          "p95_m": 5.051143165291094e-06,
+          "max_m": 5.663944150113842e-05
+        },
+        "depth_boundary": {
+          "count": 91,
+          "median_m": 5.051143165291094e-06,
+          "p95_m": 4.943705845483759e-05,
+          "max_m": 6.780274592155244e-05
+        },
+        "segmentation_cube_rays_missing_box": 0,
+        "wall_association_counts": {
+          "tray_left": 190,
+          "tray_right": 190
+        },
+        "wall_x_error_m": 0.0008069666265613229
+      },
+      "takeover_tick": 82,
+      "decision_tick": 156,
+      "recorded_success": false,
+      "recorded_reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 646,
+        "component_sizes": [
+          646
+        ],
+        "bbox": [
+          262,
+          218,
+          293,
+          250
+        ],
+        "top_z_m": 0.04998536109924312,
+        "top_pixels": 636,
+        "top_extent_xy_m": [
+          0.06152875612987091,
+          0.06351355471470548
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 67.8,
+          "extent_m": [
+            0.049914423082346726,
+            0.04995494174664156
+          ]
+        },
+        "size_mode": "axis"
+      },
+      "visible_cube_pixels": 664,
+      "red_cube_pixels": 644,
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.3165210063226981,
+          0.011134871273015094,
+          0.024990412242408663
+        ],
+        "nearest_face_tilt_degrees": 0.0
+      },
+      "image": "outputs/evaluations/geometry-error-v1/episode-4-tick-156-wait-0.png",
+      "rgbd_sha256": "b142a9e4531f1bd9d160b8ad108590762be4d537ee7d5fe443191429c1d5fb36"
+    },
+    {
+      "episode": 5,
+      "error_audit": {
+        "wait_ticks": 0,
+        "red_pixels": 885,
+        "red_pixels_wrong_geom": 17,
+        "red_surface_distance": {
+          "count": 885,
+          "median_m": 3.937490954092349e-06,
+          "p95_m": 8.4611718745263e-06,
+          "max_m": 0.026333472677607037
+        },
+        "red_points_incompatible_with_3mm_per_axis": 16,
+        "depth_interior": {
+          "count": 777,
+          "median_m": 5.341410340475861e-06,
+          "p95_m": 1.0033883271409749e-05,
+          "max_m": 1.228825006371892e-05
+        },
+        "depth_boundary": {
+          "count": 98,
+          "median_m": 6.465694890378515e-06,
+          "p95_m": 2.6797046636017196e-05,
+          "max_m": 0.00027774485547160666
+        },
+        "segmentation_cube_rays_missing_box": 0,
+        "wall_association_counts": {
+          "tray_left": 225,
+          "tray_right": 225
+        },
+        "wall_x_error_m": 0.0008069666265613229
+      },
+      "takeover_tick": 84,
+      "decision_tick": 158,
+      "recorded_success": false,
+      "recorded_reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 885,
+        "component_sizes": [
+          885
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06673128604888912,
+        "top_pixels": 162,
+        "top_extent_xy_m": [
+          0.03335007732013201,
+          0.047020241366764845
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.299999999999997,
+          "extent_m": [
+            0.012853354339008749,
+            0.04995025673313053
+          ]
+        },
+        "size_mode": "axis"
+      },
+      "visible_cube_pixels": 875,
+      "red_cube_pixels": 868,
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49713857641572423,
+          0.016197289690902603,
+          0.03500020978084117
+        ],
+        "nearest_face_tilt_degrees": 37.080481140398824
+      },
+      "image": "outputs/evaluations/geometry-error-v1/episode-5-tick-158-wait-0.png",
+      "rgbd_sha256": "387b60184e521d4e23936a1bb2e4f20cb187f65c3e07516beb74e8bd17bb7e52"
+    },
+    {
+      "episode": 5,
+      "error_audit": {
+        "wait_ticks": 100,
+        "red_pixels": 878,
+        "red_pixels_wrong_geom": 17,
+        "red_surface_distance": {
+          "count": 878,
+          "median_m": 3.3485805951277703e-06,
+          "p95_m": 5.408473336630804e-06,
+          "max_m": 0.02580993097596672
+        },
+        "red_points_incompatible_with_3mm_per_axis": 17,
+        "depth_interior": {
+          "count": 774,
+          "median_m": 4.8151623499581575e-06,
+          "p95_m": 8.28244025307123e-06,
+          "max_m": 1.1508001374949117e-05
+        },
+        "depth_boundary": {
+          "count": 97,
+          "median_m": 4.764292645731416e-06,
+          "p95_m": 1.3156962692928376e-05,
+          "max_m": 0.0003425735411597408
+        },
+        "segmentation_cube_rays_missing_box": 1,
+        "wall_association_counts": {
+          "tray_left": 220,
+          "tray_right": 220
+        },
+        "wall_x_error_m": 0.0008069666265613229
+      },
+      "takeover_tick": 84,
+      "decision_tick": 158,
+      "recorded_success": false,
+      "recorded_reason": "expert rejected state: vision target size inconsistent or substantially occluded",
+      "detection": null,
+      "error": "vision target size inconsistent or substantially occluded",
+      "diagnostics": {
+        "red_pixels": 878,
+        "component_sizes": [
+          878
+        ],
+        "bbox": [
+          347,
+          213,
+          388,
+          250
+        ],
+        "top_z_m": 0.06666204929351803,
+        "top_pixels": 163,
+        "top_extent_xy_m": [
+          0.033279943129415734,
+          0.04705170447772135
+        ],
+        "oriented_top_box": {
+          "angle_degrees": 30.299999999999997,
+          "extent_m": [
+            0.012989353835246908,
+            0.04918631271710036
+          ]
+        },
+        "size_mode": "axis"
+      },
+      "visible_cube_pixels": 872,
+      "red_cube_pixels": 861,
+      "truth_diagnostic_only": {
+        "xyz": [
+          0.49719145833846246,
+          0.016351713292023756,
+          0.03494795413214326
+        ],
+        "nearest_face_tilt_degrees": 36.4867030684842
+      },
+      "image": "outputs/evaluations/geometry-error-v1/episode-5-tick-158-wait-100.png",
+      "rgbd_sha256": "41aaf6af6965f891d577bf82d83412911779585f5cbf3e4de7a11a41f1f8c9f4"
+    }
+  ],
+  "formatted_script_sha256": "4a7da2aab94121174f5c1403ba6b54146f8af7f94d79337a9d213ed3fc322202",
+  "post_run_change": "Import ordering only; script_sha256 identifies executed source, formatted_script_sha256 identifies final source."
+}
