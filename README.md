@@ -246,6 +246,7 @@ RGB-D 倾斜面与可见间隙估计见 [可见几何审计](docs/visible-geomet
 已验证带尺寸先验与误差预算的 [保守外形包络](docs/conservative-geometry.md)，尚不构成动作放行依据。
 [误差范围审计](docs/geometry-error.md)发现倾斜图像边缘存在约 26 mm 离群点，需先处理点归属与墙面关联。
 [过滤与墙面分组验证](docs/rgbd-filter.md)改善点归属，但过滤后的可见间隙仍不可直接用于动作放行。
+[组合压力验证](docs/envelope-stress.md)将可靠点接入包络，加入视点、图像遮挡与深度扰动，仍不提供路径安全许可。
 
 下面保留无需物理引擎的二维快速演示：
 

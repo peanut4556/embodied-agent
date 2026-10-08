@@ -401,3 +401,10 @@ rgbd-filter-audit:
 
 rgbd-filter-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_rgbd_filter.py -v
+
+.PHONY: envelope-stress-audit filtered-envelope-test
+envelope-stress-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_envelope_stress.py
+
+filtered-envelope-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_filtered_envelope.py -v
