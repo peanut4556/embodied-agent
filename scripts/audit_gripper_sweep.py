@@ -1,5 +1,6 @@
 """Scratch-state gripper geometry and interval sweep screening; no action execution."""
 
+import argparse
 import json
 from itertools import pairwise
 from pathlib import Path
@@ -7,7 +8,7 @@ from pathlib import Path
 import mujoco
 import numpy as np
 
-from embodied_agent.gripper_sweep import box_aabb, overlaps, swept_box
+from embodied_agent.gripper_sweep import box_aabb, overlaps, refine_overlap, swept_box
 from embodied_agent.memory_policy import digest
 from embodied_agent.physics import PhysicsWorld
 
@@ -25,7 +26,7 @@ def gripper_boxes(model, data, q):
     }
 
 
-def main():
+def main(refine=False):
     support = json.loads(Path("docs/evaluations/support-reach-v1.json").read_text())
     stress = json.loads(Path("docs/evaluations/envelope-stress-v1.json").read_text())
     selected = [
@@ -99,6 +100,7 @@ def main():
             boxes = [gripper_boxes(model, data, q) for q in waypoints]
             hits = []
             point_hits = []
+            refined = []
             max_padding = 0.0
             for i, box in enumerate(boxes):
                 for geom in GRIPPER:
@@ -123,7 +125,18 @@ def main():
                             raise ValueError("sweep underbound")
                     for obstacle, volume in obstacles.items():
                         if overlaps(sweep, volume):
-                            hits.append({"segment": i, "geom": geom, "obstacle": obstacle})
+                            hit = {"segment": i, "geom": geom, "obstacle": obstacle}
+                            hits.append(hit)
+                            if refine:
+                                result = refine_overlap(
+                                    lambda q, geom=geom: gripper_boxes(model, data, q)[geom],
+                                    q0,
+                                    q1,
+                                    radii,
+                                    volume,
+                                    max_depth=8,
+                                )
+                                refined.append({**hit, **result})
             report["paths"].append(
                 {
                     "name": name,
@@ -139,6 +152,14 @@ def main():
                     else "no_overlap_with_supplied_volumes",
                 }
             )
+            if refine:
+                report["paths"][-1]["refinement"] = {
+                    "counts": {
+                        status: sum(r["status"] == status for r in refined)
+                        for status in ("clear", "static_envelope_overlap", "unresolved")
+                    },
+                    "intervals": refined,
+                }
         if not np.array_equal(original, world.data.qpos):
             raise ValueError("audit changed live state")
     finally:
@@ -150,9 +171,20 @@ def main():
         "AABB overlap is conservative screening, not proof of physical collision",
         "no contact maneuver executed; no success-rate claim",
     ]
-    Path("docs/evaluations/gripper-sweep-v1.json").write_text(json.dumps(report, indent=2) + "\n")
+    name = "gripper-sweep-refined-v1" if refine else "gripper-sweep-v1"
+    if refine:
+        report["refinement_max_depth"] = 8
+        report["refinement_max_nodes_per_pair"] = 511
+        report["baseline_report_sha256"] = digest("docs/evaluations/gripper-sweep-v1.json")
+        baseline = json.loads(Path("docs/evaluations/gripper-sweep-v1.json").read_text())
+        for current, previous in zip(report["paths"], baseline["paths"], strict=True):
+            if {k: v for k, v in current.items() if k != "refinement"} != previous:
+                raise ValueError("coarse path audit differs from baseline")
+    Path(f"docs/evaluations/{name}.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--refine", action="store_true")
+    main(refine=parser.parse_args().refine)

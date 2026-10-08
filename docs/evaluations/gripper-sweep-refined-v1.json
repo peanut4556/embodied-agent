@@ -1,0 +1,1227 @@
+{
+  "status": "complete",
+  "lever_radii_m": [
+    0.9918699610603875,
+    0.5718699610603875,
+    0.15186996106038753
+  ],
+  "script_sha256": "d0c5e3cf9abb79a9a9c085a1bc04c3d09ac9c34b60c8c854489cf455412dcf26",
+  "sweep_sha256": "c6cf57fe244eb0583084f6a3feba6227881b58584397e1e0bcc106385b1cc887",
+  "source_reports": {
+    "support-reach-v1.json": "98efd4778539285f41b77e4c3625c68f19bbb7b9253406f991f74dcd51c78cca",
+    "envelope-stress-v1.json": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2"
+  },
+  "paths": [
+    {
+      "name": "high_only",
+      "waypoints": 29,
+      "endpoint_overlaps": 0,
+      "sweep_overlaps": 0,
+      "first_point_overlap": null,
+      "first_sweep_overlap": null,
+      "obstacles_hit": [],
+      "max_interval_padding_m": 0.020942571877575644,
+      "gripper_screen": "no_overlap_with_supplied_volumes",
+      "refinement": {
+        "counts": {
+          "clear": 0,
+          "static_envelope_overlap": 0,
+          "unresolved": 0
+        },
+        "intervals": []
+      }
+    },
+    {
+      "name": "descend--0.05",
+      "waypoints": 51,
+      "endpoint_overlaps": 16,
+      "sweep_overlaps": 20,
+      "first_point_overlap": {
+        "waypoint": 39,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "first_sweep_overlap": {
+        "segment": 37,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "obstacles_hit": [
+        "object_envelope",
+        "table"
+      ],
+      "max_interval_padding_m": 0.020896705010294336,
+      "gripper_screen": "blocked_or_uncertain",
+      "refinement": {
+        "counts": {
+          "clear": 4,
+          "static_envelope_overlap": 16,
+          "unresolved": 0
+        },
+        "intervals": [
+          {
+            "segment": 37,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "clear",
+            "nodes_visited": 5,
+            "deepest_level": 2,
+            "fk_evaluations": 4,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 38,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 39,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 40,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 41,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 42,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 43,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 44,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 45,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 45,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 46,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 46,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 47,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 47,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 48,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 48,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 49,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 49,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 49,
+            "geom": "finger_left",
+            "obstacle": "table",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 49,
+            "geom": "finger_right",
+            "obstacle": "table",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "descend-+0.00",
+      "waypoints": 56,
+      "endpoint_overlaps": 16,
+      "sweep_overlaps": 20,
+      "first_point_overlap": {
+        "waypoint": 44,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "first_sweep_overlap": {
+        "segment": 42,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "obstacles_hit": [
+        "object_envelope",
+        "table"
+      ],
+      "max_interval_padding_m": 0.020942571877575644,
+      "gripper_screen": "blocked_or_uncertain",
+      "refinement": {
+        "counts": {
+          "clear": 4,
+          "static_envelope_overlap": 16,
+          "unresolved": 0
+        },
+        "intervals": [
+          {
+            "segment": 42,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "clear",
+            "nodes_visited": 5,
+            "deepest_level": 2,
+            "fk_evaluations": 4,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 43,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 44,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 45,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 46,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 47,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 48,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 49,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 50,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 50,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 51,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 51,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 52,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 52,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 53,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 53,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 54,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 54,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 54,
+            "geom": "finger_left",
+            "obstacle": "table",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 54,
+            "geom": "finger_right",
+            "obstacle": "table",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "descend-+0.05",
+      "waypoints": 61,
+      "endpoint_overlaps": 37,
+      "sweep_overlaps": 46,
+      "first_point_overlap": {
+        "waypoint": 49,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "first_sweep_overlap": {
+        "segment": 47,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "obstacles_hit": [
+        "object_envelope",
+        "table",
+        "tray_floor",
+        "tray_left"
+      ],
+      "max_interval_padding_m": 0.020974539017129867,
+      "gripper_screen": "blocked_or_uncertain",
+      "refinement": {
+        "counts": {
+          "clear": 9,
+          "static_envelope_overlap": 37,
+          "unresolved": 0
+        },
+        "intervals": [
+          {
+            "segment": 47,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "clear",
+            "nodes_visited": 5,
+            "deepest_level": 2,
+            "fk_evaluations": 4,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 48,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 49,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 50,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 50,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 50,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 51,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 51,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 51,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 52,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 52,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 52,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 53,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 53,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 53,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 54,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 54,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 54,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 55,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 55,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 55,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 55,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 56,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 56,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 56,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 56,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 57,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 57,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 57,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 57,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 58,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 58,
+            "geom": "palm",
+            "obstacle": "tray_left",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 58,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 58,
+            "geom": "finger_left",
+            "obstacle": "tray_floor",
+            "status": "clear",
+            "nodes_visited": 5,
+            "deepest_level": 2,
+            "fk_evaluations": 4,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 58,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 58,
+            "geom": "finger_right",
+            "obstacle": "tray_floor",
+            "status": "clear",
+            "nodes_visited": 5,
+            "deepest_level": 2,
+            "fk_evaluations": 4,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 58,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "palm",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "palm",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "finger_left",
+            "obstacle": "object_envelope",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "finger_left",
+            "obstacle": "table",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "finger_left",
+            "obstacle": "tray_floor",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "finger_left",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "finger_right",
+            "obstacle": "table",
+            "status": "clear",
+            "nodes_visited": 3,
+            "deepest_level": 1,
+            "fk_evaluations": 3,
+            "static_witness_fractions": [],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "finger_right",
+            "obstacle": "tray_floor",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              1.0
+            ],
+            "unresolved_intervals": []
+          },
+          {
+            "segment": 59,
+            "geom": "finger_right",
+            "obstacle": "tray_left",
+            "status": "static_envelope_overlap",
+            "nodes_visited": 1,
+            "deepest_level": 0,
+            "fk_evaluations": 2,
+            "static_witness_fractions": [
+              0.0
+            ],
+            "unresolved_intervals": []
+          }
+        ]
+      }
+    }
+  ],
+  "training_performed": false,
+  "test_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "palm/fingers only: excludes arm links, self-collision, base overlap and unobserved obstacles",
+    "object bound conditional on size and sensing; tray geometry known from fixture, not estimated",
+    "linear joint interpolation only; no rate-limited/dynamic execution tracking",
+    "AABB overlap is conservative screening, not proof of physical collision",
+    "no contact maneuver executed; no success-rate claim"
+  ],
+  "refinement_max_depth": 8,
+  "refinement_max_nodes_per_pair": 511,
+  "baseline_report_sha256": "7ad85c37974501a2b01588e5c3b710f243be8eb8bffef08246a5f5b4e0641a21"
+}

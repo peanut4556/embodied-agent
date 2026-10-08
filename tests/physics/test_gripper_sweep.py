@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from embodied_agent.gripper_sweep import box_aabb, overlaps, swept_box
+from embodied_agent.gripper_sweep import box_aabb, overlaps, refine_overlap, swept_box
 
 
 class GripperSweepTests(unittest.TestCase):
@@ -43,3 +43,52 @@ class GripperSweepTests(unittest.TestCase):
         box = (np.zeros(3), np.ones(3))
         with self.assertRaises(ValueError):
             swept_box(box, box, np.zeros(5), np.zeros(5), [-1, 0, 0])
+
+
+class RefinementTests(unittest.TestCase):
+    @staticmethod
+    def point(q):
+        p = np.array([q[0], 0, 0])
+        return p, p
+
+    def test_padding_only_overlap_clears_after_subdivision(self):
+        obstacle = ([0.45, 0.1, -0.01], [0.55, 0.2, 0.01])
+        result = refine_overlap(self.point, np.zeros(5), [1, 0, 0, 0, 0], [1, 0, 0], obstacle)
+        self.assertEqual(result["status"], "clear")
+        self.assertGreater(result["deepest_level"], 0)
+        self.assertEqual(result["unresolved_intervals"], [])
+
+    def test_endpoint_clear_middle_overlap_retained(self):
+        obstacle = ([0.49, -0.01, -0.01], [0.51, 0.01, 0.01])
+        result = refine_overlap(self.point, np.zeros(5), [1, 0, 0, 0, 0], [1, 0, 0], obstacle)
+        self.assertEqual(result["status"], "static_envelope_overlap")
+        self.assertIn(0.5, result["static_witness_fractions"])
+
+    def test_depth_limit_never_passes_unresolved_interval(self):
+        obstacle = ([0.45, 0.001, -0.01], [0.55, 0.002, 0.01])
+        result = refine_overlap(
+            self.point, np.zeros(5), [1, 0, 0, 0, 0], [1, 0, 0], obstacle, max_depth=2
+        )
+        self.assertEqual(result["status"], "unresolved")
+        self.assertLessEqual(result["nodes_visited"], 7)
+        self.assertEqual(result["deepest_level"], 2)
+        self.assertTrue(result["unresolved_intervals"])
+
+    def test_stationary_touch_is_static_not_padding(self):
+        result = refine_overlap(
+            self.point, np.zeros(5), np.zeros(5), [1, 0, 0], ([0, 0, 0], [1, 1, 1])
+        )
+        self.assertEqual(result["status"], "static_envelope_overlap")
+        self.assertEqual(result["nodes_visited"], 1)
+
+    def test_invalid_budget_rejected(self):
+        for depth in (-1, 13, 1.5, True):
+            with self.assertRaises(ValueError):
+                refine_overlap(
+                    self.point,
+                    np.zeros(5),
+                    np.zeros(5),
+                    [1, 0, 0],
+                    ([0, 0, 0], [1, 1, 1]),
+                    max_depth=depth,
+                )

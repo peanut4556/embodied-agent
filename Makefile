@@ -415,3 +415,7 @@ gripper-sweep-audit:
 
 gripper-sweep-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_gripper_sweep.py -v
+
+.PHONY: gripper-sweep-refined-audit
+gripper-sweep-refined-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_gripper_sweep.py --refine
