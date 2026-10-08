@@ -408,3 +408,10 @@ envelope-stress-audit:
 
 filtered-envelope-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_filtered_envelope.py -v
+
+.PHONY: gripper-sweep-audit gripper-sweep-test
+gripper-sweep-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_gripper_sweep.py
+
+gripper-sweep-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_gripper_sweep.py -v

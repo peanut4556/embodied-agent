@@ -1,0 +1,105 @@
+{
+  "status": "complete",
+  "lever_radii_m": [
+    0.9918699610603875,
+    0.5718699610603875,
+    0.15186996106038753
+  ],
+  "script_sha256": "25a0e4e4699914816076d0277fe52b0c71f3e35abb6461d07affbd00502eccaf",
+  "sweep_sha256": "df00c9dc102c6f9c2dbcc6c9caf51c6c23226bfb5cdeaaebb4427f37e300a160",
+  "source_reports": {
+    "support-reach-v1.json": "98efd4778539285f41b77e4c3625c68f19bbb7b9253406f991f74dcd51c78cca",
+    "envelope-stress-v1.json": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2"
+  },
+  "paths": [
+    {
+      "name": "high_only",
+      "waypoints": 29,
+      "endpoint_overlaps": 0,
+      "sweep_overlaps": 0,
+      "first_point_overlap": null,
+      "first_sweep_overlap": null,
+      "obstacles_hit": [],
+      "max_interval_padding_m": 0.020942571877575644,
+      "gripper_screen": "no_overlap_with_supplied_volumes"
+    },
+    {
+      "name": "descend--0.05",
+      "waypoints": 51,
+      "endpoint_overlaps": 16,
+      "sweep_overlaps": 20,
+      "first_point_overlap": {
+        "waypoint": 39,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "first_sweep_overlap": {
+        "segment": 37,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "obstacles_hit": [
+        "object_envelope",
+        "table"
+      ],
+      "max_interval_padding_m": 0.020896705010294336,
+      "gripper_screen": "blocked_or_uncertain"
+    },
+    {
+      "name": "descend-+0.00",
+      "waypoints": 56,
+      "endpoint_overlaps": 16,
+      "sweep_overlaps": 20,
+      "first_point_overlap": {
+        "waypoint": 44,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "first_sweep_overlap": {
+        "segment": 42,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "obstacles_hit": [
+        "object_envelope",
+        "table"
+      ],
+      "max_interval_padding_m": 0.020942571877575644,
+      "gripper_screen": "blocked_or_uncertain"
+    },
+    {
+      "name": "descend-+0.05",
+      "waypoints": 61,
+      "endpoint_overlaps": 37,
+      "sweep_overlaps": 46,
+      "first_point_overlap": {
+        "waypoint": 49,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "first_sweep_overlap": {
+        "segment": 47,
+        "geom": "finger_left",
+        "obstacle": "object_envelope"
+      },
+      "obstacles_hit": [
+        "object_envelope",
+        "table",
+        "tray_floor",
+        "tray_left"
+      ],
+      "max_interval_padding_m": 0.020974539017129867,
+      "gripper_screen": "blocked_or_uncertain"
+    }
+  ],
+  "training_performed": false,
+  "test_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "palm/fingers only: excludes arm links, self-collision, base overlap and unobserved obstacles",
+    "object bound conditional on size and sensing; tray geometry known from fixture, not estimated",
+    "linear joint interpolation only; no rate-limited/dynamic execution tracking",
+    "AABB overlap is conservative screening, not proof of physical collision",
+    "no contact maneuver executed; no success-rate claim"
+  ]
+}
