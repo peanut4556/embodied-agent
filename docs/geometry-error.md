@@ -70,3 +70,5 @@
 覆盖解析射线求交、旋转表面距离、平行未命中、边缘划分与缺失值统计，以及前两轮几何逻辑。
 四组重新生成的 RGB-D 文件哈希与前轮观测逐一相同。代码风格和差异检查通过。
 详见[机器报告](evaluations/geometry-error-v1.json)，图像及原始观测在 outputs/evaluations/geometry-error-v1。
+
+后续[RGB-D 过滤与墙面分组对照](rgbd-filter.md)去除了当前快照中的误归属点，但确认边缘过滤会进一步缩小可见外形。

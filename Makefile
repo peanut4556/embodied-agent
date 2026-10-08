@@ -394,3 +394,10 @@ geometry-error-audit:
 
 geometry-error-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_geometry_error.py -v
+
+.PHONY: rgbd-filter-audit rgbd-filter-test
+rgbd-filter-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_rgbd_filter.py
+
+rgbd-filter-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_rgbd_filter.py -v

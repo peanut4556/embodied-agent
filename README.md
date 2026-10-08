@@ -245,6 +245,7 @@ RAI 在 `.venv-rai` 中运行，主程序在 `.venv` 中运行，两边只通过
 RGB-D 倾斜面与可见间隙估计见 [可见几何审计](docs/visible-geometry.md)，可见间隙不代表完整碰撞净空。
 已验证带尺寸先验与误差预算的 [保守外形包络](docs/conservative-geometry.md)，尚不构成动作放行依据。
 [误差范围审计](docs/geometry-error.md)发现倾斜图像边缘存在约 26 mm 离群点，需先处理点归属与墙面关联。
+[过滤与墙面分组验证](docs/rgbd-filter.md)改善点归属，但过滤后的可见间隙仍不可直接用于动作放行。
 
 下面保留无需物理引擎的二维快速演示：
 
