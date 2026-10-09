@@ -475,3 +475,17 @@ reference-plane-audit:
 
 reference-plane-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_plane.py -v
+
+.PHONY: reference-mismatch-audit reference-mismatch-test
+reference-mismatch-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_reference_mismatch.py
+
+reference-mismatch-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_mismatch.py -v
+
+.PHONY: multiplane-reference-audit multiplane-reference-test
+multiplane-reference-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_multiplane_reference.py
+
+multiplane-reference-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_multiplane_reference.py -v

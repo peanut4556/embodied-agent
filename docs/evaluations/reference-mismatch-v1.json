@@ -1,0 +1,2452 @@
+{
+  "status": "complete",
+  "script_sha256": "7d0ab2f4c558ebae64dbe7a6abff18930fa308c6ba84c0069ecb25c04f1e595e",
+  "implementation_sha256": "6950a7dcaa4c0d41f43248a44dc2986a1991a4966d044680007f693f43471689",
+  "source_report_sha256": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2",
+  "baseline_sha256": "a2d9017ba4702265201c2b9090c3c18453e57aed134162b1a89b7772ed01f9b7",
+  "parameters": {
+    "foreground_depth_offset_m": -0.02,
+    "residual_p95_threshold_m": 0.003,
+    "minimum_valid_fraction": 0.8,
+    "plan": [
+      [
+        "control",
+        0.0
+      ],
+      [
+        "missing",
+        0.1
+      ],
+      [
+        "missing",
+        0.25
+      ],
+      [
+        "missing",
+        1.0
+      ],
+      [
+        "foreground",
+        0.1
+      ],
+      [
+        "foreground",
+        0.25
+      ],
+      [
+        "foreground",
+        1.0
+      ],
+      [
+        "camera_z",
+        -0.006
+      ],
+      [
+        "camera_z",
+        -0.002
+      ],
+      [
+        "camera_z",
+        0.002
+      ],
+      [
+        "camera_z",
+        0.006
+      ],
+      [
+        "camera_pitch_degrees",
+        -1.0
+      ],
+      [
+        "camera_pitch_degrees",
+        -0.25
+      ],
+      [
+        "camera_pitch_degrees",
+        0.25
+      ],
+      [
+        "camera_pitch_degrees",
+        1.0
+      ],
+      [
+        "camera_x",
+        -0.02
+      ],
+      [
+        "camera_x",
+        0.02
+      ],
+      [
+        "camera_y",
+        -0.02
+      ],
+      [
+        "camera_y",
+        0.02
+      ],
+      [
+        "depth_bias",
+        -0.006
+      ],
+      [
+        "depth_bias",
+        0.006
+      ],
+      [
+        "depth_and_height_cancel",
+        0.006
+      ]
+    ]
+  },
+  "summary": {
+    "control:0": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ]
+    },
+    "missing:0.1": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ]
+    },
+    "missing:0.25": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 0,
+        "unknown": 6
+      },
+      "p95_range_m": null
+    },
+    "missing:1": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 0,
+        "unknown": 6
+      },
+      "p95_range_m": null
+    },
+    "foreground:0.1": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.020000052452087358,
+        0.020000052452087358
+      ]
+    },
+    "foreground:0.25": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.020000052452087358,
+        0.020000052452087358
+      ]
+    },
+    "foreground:1": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.020000052452087358,
+        0.020000052452087358
+      ]
+    },
+    "camera_z:-0.006": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.005999928474426319,
+        0.005999928474426319
+      ]
+    },
+    "camera_z:-0.002": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.0019999284744263157,
+        0.0019999284744263157
+      ]
+    },
+    "camera_z:0.002": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.002000071525573688,
+        0.002000071525573688
+      ]
+    },
+    "camera_z:0.006": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.006000071525573691,
+        0.006000071525573691
+      ]
+    },
+    "camera_pitch_degrees:-1": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.0037912160941617756,
+        0.005211470440969146
+      ]
+    },
+    "camera_pitch_degrees:-0.25": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.0009837466093542968,
+        0.0013368601023493465
+      ]
+    },
+    "camera_pitch_degrees:0.25": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.0010042938192971196,
+        0.0013560325662638206
+      ]
+    },
+    "camera_pitch_degrees:1": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.004158189899466702,
+        0.00555645996373344
+      ]
+    },
+    "camera_x:-0.02": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ]
+    },
+    "camera_x:0.02": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ]
+    },
+    "camera_y:-0.02": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ]
+    },
+    "camera_y:0.02": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ]
+    },
+    "depth_bias:-0.006": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.006000113487243608,
+        0.006000113487243608
+      ]
+    },
+    "depth_bias:0.006": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 6,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        0.005999970436096236,
+        0.005999970436096236
+      ]
+    },
+    "depth_and_height_cancel:0.006": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_range_m": [
+        2.95639037695139e-08,
+        2.95639037695139e-08
+      ]
+    }
+  },
+  "cases": [
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "control",
+      "value": 0.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "missing",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 9374,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "missing",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 7812,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "missing",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 0,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "foreground",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -0.020000052452087358,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999928474426319,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.005999928474426319,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0019999284744263157,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.0019999284744263157,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005211470440969146,
+        "signed_residual_median_m": -0.0016489772175787287,
+        "maximum_absolute_residual_m": 0.005576178204319104,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10480,
+        "valid_pixels": 10480,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0013368601023493465,
+        "signed_residual_median_m": -0.00045898721254311603,
+        "maximum_absolute_residual_m": 0.0014274354732455308,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0013560325662638206,
+        "signed_residual_median_m": 0.00047178368046396635,
+        "maximum_absolute_residual_m": 0.0014461887488685932,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10510,
+        "valid_pixels": 10510,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.00555645996373344,
+        "signed_residual_median_m": 0.002000601107143618,
+        "maximum_absolute_residual_m": 0.0059144641928075,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_x",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_x",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_y",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "camera_y",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "depth_bias",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000113487243608,
+        "signed_residual_median_m": -0.006000113487243608,
+        "maximum_absolute_residual_m": 0.006000113487243608,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "depth_bias",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999970436096236,
+        "signed_residual_median_m": 0.005999970436096236,
+        "maximum_absolute_residual_m": 0.005999970436096236,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera--0.08.npz",
+      "perturbation": "depth_and_height_cancel",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 2.95639037695139e-08,
+        "signed_residual_median_m": -2.95639037695139e-08,
+        "maximum_absolute_residual_m": 2.95639037695139e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "control",
+      "value": 0.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "missing",
+      "value": 0.1,
+      "modified_reference_pixels": 1047,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 9417,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "missing",
+      "value": 0.25,
+      "modified_reference_pixels": 2616,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 7848,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "missing",
+      "value": 1.0,
+      "modified_reference_pixels": 10464,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 0,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "foreground",
+      "value": 0.1,
+      "modified_reference_pixels": 1047,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "foreground",
+      "value": 0.25,
+      "modified_reference_pixels": 2616,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "foreground",
+      "value": 1.0,
+      "modified_reference_pixels": 10464,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -0.020000052452087358,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999928474426319,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.005999928474426319,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": -0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0019999284744263157,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.0019999284744263157,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": 0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10368,
+        "valid_pixels": 10368,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.0037912160941617756,
+        "signed_residual_median_m": -0.0002732623111156851,
+        "maximum_absolute_residual_m": 0.004155064670858577,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10441,
+        "valid_pixels": 10441,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0009837466093542968,
+        "signed_residual_median_m": -9.735128560151018e-05,
+        "maximum_absolute_residual_m": 0.001074268739743145,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10417,
+        "valid_pixels": 10417,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0010042938192971196,
+        "signed_residual_median_m": 0.00011952570502482551,
+        "maximum_absolute_residual_m": 0.0010945029198410339,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.004158189899466702,
+        "signed_residual_median_m": 0.0005939884471137802,
+        "maximum_absolute_residual_m": 0.004517032685441125,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_x",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_x",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_y",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "camera_y",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "depth_bias",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000113487243608,
+        "signed_residual_median_m": -0.006000113487243608,
+        "maximum_absolute_residual_m": 0.006000113487243608,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "depth_bias",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999970436096236,
+        "signed_residual_median_m": 0.005999970436096236,
+        "maximum_absolute_residual_m": 0.005999970436096236,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.00.npz",
+      "perturbation": "depth_and_height_cancel",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10368,
+        "valid_pixels": 10368,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 2.95639037695139e-08,
+        "signed_residual_median_m": -2.95639037695139e-08,
+        "maximum_absolute_residual_m": 2.95639037695139e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "control",
+      "value": 0.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "missing",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 9374,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "missing",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 7812,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "missing",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 0,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "foreground",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -0.020000052452087358,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999928474426319,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.005999928474426319,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0019999284744263157,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.0019999284744263157,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10517,
+        "valid_pixels": 10517,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.004696373330602244,
+        "signed_residual_median_m": 0.0011353840399863646,
+        "maximum_absolute_residual_m": 0.00505489324636943,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0011396023799925548,
+        "signed_residual_median_m": 0.00025051755526828146,
+        "maximum_absolute_residual_m": 0.0012297911219705249,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10504,
+        "valid_pixels": 10504,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.001119534922345844,
+        "signed_residual_median_m": -0.00023293922200950945,
+        "maximum_absolute_residual_m": 0.0012100775242962492,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.004337071452210628,
+        "signed_residual_median_m": -0.0008159312014195397,
+        "maximum_absolute_residual_m": 0.004701250125647816,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_x",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_x",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_y",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "camera_y",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "depth_bias",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000113487243608,
+        "signed_residual_median_m": -0.006000113487243608,
+        "maximum_absolute_residual_m": 0.006000113487243608,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "depth_bias",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999970436096236,
+        "signed_residual_median_m": 0.005999970436096236,
+        "maximum_absolute_residual_m": 0.005999970436096236,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-3-camera-+0.08.npz",
+      "perturbation": "depth_and_height_cancel",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 2.95639037695139e-08,
+        "signed_residual_median_m": -2.95639037695139e-08,
+        "maximum_absolute_residual_m": 2.95639037695139e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "control",
+      "value": 0.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "missing",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 9374,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "missing",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 7812,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "missing",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 0,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "foreground",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -0.020000052452087358,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999928474426319,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.005999928474426319,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0019999284744263157,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.0019999284744263157,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005211470440969146,
+        "signed_residual_median_m": -0.0016489772175787287,
+        "maximum_absolute_residual_m": 0.005576178204319104,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10480,
+        "valid_pixels": 10480,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0013368601023493465,
+        "signed_residual_median_m": -0.00045898721254311603,
+        "maximum_absolute_residual_m": 0.0014274354732455308,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0013560325662638206,
+        "signed_residual_median_m": 0.00047178368046396635,
+        "maximum_absolute_residual_m": 0.0014461887488685932,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10510,
+        "valid_pixels": 10510,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.00555645996373344,
+        "signed_residual_median_m": 0.002000601107143618,
+        "maximum_absolute_residual_m": 0.0059144641928075,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_x",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_x",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_y",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "camera_y",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "depth_bias",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000113487243608,
+        "signed_residual_median_m": -0.006000113487243608,
+        "maximum_absolute_residual_m": 0.006000113487243608,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "depth_bias",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999970436096236,
+        "signed_residual_median_m": 0.005999970436096236,
+        "maximum_absolute_residual_m": 0.005999970436096236,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera--0.08.npz",
+      "perturbation": "depth_and_height_cancel",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 2.95639037695139e-08,
+        "signed_residual_median_m": -2.95639037695139e-08,
+        "maximum_absolute_residual_m": 2.95639037695139e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "control",
+      "value": 0.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "missing",
+      "value": 0.1,
+      "modified_reference_pixels": 1047,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 9417,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "missing",
+      "value": 0.25,
+      "modified_reference_pixels": 2616,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 7848,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "missing",
+      "value": 1.0,
+      "modified_reference_pixels": 10464,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 0,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "foreground",
+      "value": 0.1,
+      "modified_reference_pixels": 1047,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "foreground",
+      "value": 0.25,
+      "modified_reference_pixels": 2616,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "foreground",
+      "value": 1.0,
+      "modified_reference_pixels": 10464,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -0.020000052452087358,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999928474426319,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.005999928474426319,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": -0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0019999284744263157,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.0019999284744263157,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": 0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_z",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10368,
+        "valid_pixels": 10368,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.0037912160941617756,
+        "signed_residual_median_m": -0.0002732623111156851,
+        "maximum_absolute_residual_m": 0.004155064670858577,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10441,
+        "valid_pixels": 10441,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0009837466093542968,
+        "signed_residual_median_m": -9.735128560151018e-05,
+        "maximum_absolute_residual_m": 0.001074268739743145,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10417,
+        "valid_pixels": 10417,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0010042938192971196,
+        "signed_residual_median_m": 0.00011952570502482551,
+        "maximum_absolute_residual_m": 0.0010945029198410339,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.004158189899466702,
+        "signed_residual_median_m": 0.0005939884471137802,
+        "maximum_absolute_residual_m": 0.004517032685441125,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_x",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_x",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_y",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "camera_y",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "depth_bias",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000113487243608,
+        "signed_residual_median_m": -0.006000113487243608,
+        "maximum_absolute_residual_m": 0.006000113487243608,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "depth_bias",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999970436096236,
+        "signed_residual_median_m": 0.005999970436096236,
+        "maximum_absolute_residual_m": 0.005999970436096236,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.00.npz",
+      "perturbation": "depth_and_height_cancel",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10368,
+        "valid_pixels": 10368,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 2.95639037695139e-08,
+        "signed_residual_median_m": -2.95639037695139e-08,
+        "maximum_absolute_residual_m": 2.95639037695139e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "control",
+      "value": 0.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "missing",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 9374,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "missing",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 7812,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "missing",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 0,
+        "clearance_certified": false,
+        "status": "unknown",
+        "reason": "insufficient_reference_coverage"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.1,
+      "modified_reference_pixels": 1042,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "foreground",
+      "value": 0.25,
+      "modified_reference_pixels": 2604,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "foreground",
+      "value": 1.0,
+      "modified_reference_pixels": 10416,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.020000052452087358,
+        "signed_residual_median_m": -0.020000052452087358,
+        "maximum_absolute_residual_m": 0.020000052452087358,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10682,
+        "valid_pixels": 10682,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999928474426319,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.005999928474426319,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": -0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0019999284744263157,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.0019999284744263157,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.002,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_z",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10517,
+        "valid_pixels": 10517,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.004696373330602244,
+        "signed_residual_median_m": 0.0011353840399863646,
+        "maximum_absolute_residual_m": 0.00505489324636943,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": -0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.0011396023799925548,
+        "signed_residual_median_m": 0.00025051755526828146,
+        "maximum_absolute_residual_m": 0.0012297911219705249,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 0.25,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10504,
+        "valid_pixels": 10504,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.001119534922345844,
+        "signed_residual_median_m": -0.00023293922200950945,
+        "maximum_absolute_residual_m": 0.0012100775242962492,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_pitch_degrees",
+      "value": 1.0,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10473,
+        "valid_pixels": 10473,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.004337071452210628,
+        "signed_residual_median_m": -0.0008159312014195397,
+        "maximum_absolute_residual_m": 0.004701250125647816,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_x",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_x",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_y",
+      "value": -0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10633,
+        "valid_pixels": 10633,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "camera_y",
+      "value": 0.02,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "depth_bias",
+      "value": -0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000113487243608,
+        "signed_residual_median_m": -0.006000113487243608,
+        "maximum_absolute_residual_m": 0.006000113487243608,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "depth_bias",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.005999970436096236,
+        "signed_residual_median_m": 0.005999970436096236,
+        "maximum_absolute_residual_m": 0.005999970436096236,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    },
+    {
+      "input": "outputs/evaluations/envelope-stress-v1/episode-5-camera-+0.08.npz",
+      "perturbation": "depth_and_height_cancel",
+      "value": 0.006,
+      "modified_reference_pixels": 0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 2.95639037695139e-08,
+        "signed_residual_median_m": -2.95639037695139e-08,
+        "maximum_absolute_residual_m": 2.95639037695139e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      }
+    }
+  ],
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "missing depth is not equivalent to a foreground return",
+    "foreground is a synthetic depth overlay, not a rendered occluder",
+    "extrinsics are metadata errors, not a physically moved camera",
+    "alarm has no unique causal interpretation; no automatic correction",
+    "same known planar fixture and six training images; local object errors remain unobserved"
+  ]
+}
