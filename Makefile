@@ -419,3 +419,10 @@ gripper-sweep-test:
 .PHONY: gripper-sweep-refined-audit
 gripper-sweep-refined-audit:
 	PYTHONPATH=src .venv/bin/python scripts/audit_gripper_sweep.py --refine
+
+.PHONY: overlap-attribution-audit box-overlap-test
+overlap-attribution-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_overlap_attribution.py
+
+box-overlap-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_box_overlap.py -v

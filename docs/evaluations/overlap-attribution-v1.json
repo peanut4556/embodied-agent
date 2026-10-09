@@ -1,0 +1,1452 @@
+{
+  "status": "complete",
+  "group": "train",
+  "source_sha256": "644e4bf3f2f59ff6a36f0510f697cd0fecdea2e189d2975224db696858531051",
+  "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+  "script_sha256": "51a8708eba06c1ab647d7921132a5498c919d2d47988fe976e85931926482f77",
+  "geometry_sha256": "1d9cfaa57b324b3ad28784bfe8ad99e34f54a742bcf1f4c868effd2a64701893",
+  "source_reports": {
+    "gripper-sweep-refined-v1.json": "103d849eef0f88261043c1a27255c120d986fc1a4b14c8c94545b1738b7fd8a0",
+    "support-reach-v1.json": "98efd4778539285f41b77e4c3625c68f19bbb7b9253406f991f74dcd51c78cca",
+    "envelope-stress-v1.json": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2"
+  },
+  "scoring_only_truth": {
+    "center": [
+      0.49719145833846246,
+      0.016351713292023756,
+      0.03494795413214326
+    ],
+    "rotation": [
+      [
+        0.5127296095363295,
+        -0.5065735889348961,
+        0.6931749753838076
+      ],
+      [
+        0.30116536362408536,
+        0.8621967241224308,
+        0.40732816335937505
+      ],
+      [
+        -0.8039948826067836,
+        -8.891663582180631e-05,
+        0.5946362088167324
+      ]
+    ],
+    "half_size": [
+      0.025,
+      0.025,
+      0.025
+    ]
+  },
+  "summary": {
+    "object_envelope_only": 45,
+    "truth_overlap": 24
+  },
+  "paths": {
+    "high_only": {},
+    "descend--0.05": {
+      "object_envelope_only": 16
+    },
+    "descend-+0.00": {
+      "object_envelope_only": 13,
+      "truth_overlap": 3
+    },
+    "descend-+0.05": {
+      "object_envelope_only": 16,
+      "truth_overlap": 21
+    }
+  },
+  "witnesses": [
+    {
+      "path": "descend--0.05",
+      "segment": 38,
+      "fraction": 1.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.2046253352461191,
+        1.990600492911259,
+        -0.7859751576651399,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05222236158598573,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 39,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.2046253352461191,
+        1.990600492911259,
+        -0.7859751576651399,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05222236158598573,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 40,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.1859318571236466,
+        1.9961946888775197,
+        -0.8102628317538731,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.04319033710975349,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 41,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.1667565636845902,
+        2.001179232131579,
+        -0.8344226684469886,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.034693448800758586,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 42,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.1471158169298816,
+        2.005550078802982,
+        -0.8584342618731002,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.0272372091031289,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 43,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.1270270544687238,
+        2.0093035892184608,
+        -0.882276534749737,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.021799499500359604,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 44,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.1065087190389515,
+        2.012436566830267,
+        -0.9059278477913153,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.01875696756516286,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 45,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0855801751293377,
+        2.0149462926866235,
+        -0.9293661175572858,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.018397641071768205,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 46,
+      "fraction": 1.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0425739453449847,
+        2.01808767315643,
+        -0.9755137278114454,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05147041401288819,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 46,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0642616135847438,
+        2.016830554966704,
+        -0.95256894138196,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.018397641071768146,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 47,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0425739453449847,
+        2.01808767315643,
+        -0.9755137278114454,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05147041401288819,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 47,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0425739453449847,
+        2.01808767315643,
+        -0.9755137278114454,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.018397641071768202,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 48,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0205386857164458,
+        2.0187165165085,
+        -0.9981778307920541,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.04180231678621206,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 48,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0205386857164458,
+        2.0187165165085,
+        -0.9981778307920541,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.018397641071768257,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 49,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9981778307920541,
+        2.0187165165085,
+        -1.0205386857164458,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.032336726159763705,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend--0.05",
+      "segment": 49,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9981778307920541,
+        2.0187165165085,
+        -1.0205386857164458,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.018397770366656064,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 43,
+      "fraction": 1.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.1128357623394372,
+        1.8480762815448037,
+        -0.7352405192053666,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.04943036078457111,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 44,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.1128357623394372,
+        1.8480762815448037,
+        -0.7352405192053666,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.04943036078457111,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 45,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0960158223516014,
+        1.8533849767884796,
+        -0.7573691544368781,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.039769218465159246,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 46,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0787738669250213,
+        1.8581106914967476,
+        -0.7793368245717263,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.03032854937787618,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 47,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0611226317383182,
+        1.8622511081628947,
+        -0.8011284764245765,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.021402127870914826,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 48,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0430754918729714,
+        1.8658041317373355,
+        -0.8227286398643641,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.014010040950679052,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 49,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0246464174582797,
+        1.8687679158212605,
+        -0.8441214983629808,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.010041879865389848,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 50,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0058499224060522,
+        1.8711408856051943,
+        -0.8652909631991421,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.0065340432388397264,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 51,
+      "fraction": 1.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9672150930894913,
+        1.8741095541594313,
+        -0.90689446106994,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05008404566637324,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 51,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9867010067342897,
+        1.872921757340879,
+        -0.8862207506065892,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.0030262066122896123,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 52,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9672150930894913,
+        1.8741095541594313,
+        -0.90689446106994,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05008404566637324,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 52,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9672150930894913,
+        1.8741095541594313,
+        -0.90689446106994,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.00048163001426051576,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 53,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9474079581776562,
+        1.8747036180788568,
+        -0.9272956599012006,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.04008404566637329,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 53,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9474079581776562,
+        1.8747036180788568,
+        -0.9272956599012006,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.0036189695696710396,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 54,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9272956599012006,
+        1.8747036180788568,
+        -0.9474079581776562,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.030084045666373276,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.00",
+      "segment": 54,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9272956599012006,
+        1.8747036180788568,
+        -0.9474079581776562,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.0036189695696710396,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 48,
+      "fraction": 1.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0203288634484724,
+        1.6968570027547691,
+        -0.6765281393062967,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.059113357705991465,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 49,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0203288634484724,
+        1.6968570027547691,
+        -0.6765281393062967,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.059113357705991465,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 50,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -1.0051077955887273,
+        1.7020015525242578,
+        -0.6968937569355305,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.0513091762050403,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 51,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9895034866062808,
+        1.706577415266235,
+        -0.7170739286599541,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.04439452741973961,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 51,
+      "fraction": 1.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9735261785616899,
+        1.7105836398213063,
+        -0.7370574612596165,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.00200000000000005,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 51,
+      "fraction": 1.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9735261785616899,
+        1.7105836398213063,
+        -0.7370574612596165,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.00200000000000005,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 52,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9735261785616899,
+        1.7105836398213063,
+        -0.7370574612596165,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.03839659296109727,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 52,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9735261785616899,
+        1.7105836398213063,
+        -0.7370574612596165,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.00200000000000005,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 52,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9735261785616899,
+        1.7105836398213063,
+        -0.7370574612596165,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.00200000000000005,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 53,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9571864809067377,
+        1.714019342438222,
+        -0.7568328615314842,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.03245023087292999,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 53,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9571864809067377,
+        1.714019342438222,
+        -0.7568328615314842,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.012000000000000116,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 53,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9571864809067377,
+        1.714019342438222,
+        -0.7568328615314842,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.012000000000000116,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 54,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9404953429281223,
+        1.7168837271151198,
+        -0.7763883841869975,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.0,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 54,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9404953429281223,
+        1.7168837271151198,
+        -0.7763883841869975,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.022000000000000075,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 54,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9404953429281223,
+        1.7168837271151198,
+        -0.7763883841869975,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.022000000000000075,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 55,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9234640220454645,
+        1.7191761032095811,
+        -0.7957120811641166,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.020557506696595357,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 55,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9234640220454645,
+        1.7191761032095811,
+        -0.7957120811641166,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.027808541661537567,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 55,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9234640220454645,
+        1.7191761032095811,
+        -0.7957120811641166,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.027808541661537567,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 56,
+      "fraction": 1.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.8884271851333597,
+        1.7220426798367479,
+        -0.8336154947033881,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05016362804037312,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 56,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.9061040482646034,
+        1.7208959002436595,
+        -0.814791851979056,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.014611144608428047,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 56,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9061040482646034,
+        1.7208959002436595,
+        -0.814791851979056,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.02780854166153757,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 56,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.9061040482646034,
+        1.7208959002436595,
+        -0.814791851979056,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.027808541661537567,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 57,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.8884271851333597,
+        1.7220426798367479,
+        -0.8336154947033881,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.05016362804037312,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 57,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.8884271851333597,
+        1.7220426798367479,
+        -0.8336154947033881,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.008664782520260716,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 57,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.8884271851333597,
+        1.7220426798367479,
+        -0.8336154947033881,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.027808541661537567,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 57,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.8884271851333597,
+        1.7220426798367479,
+        -0.8336154947033881,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.027808541661537567,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 58,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.8704453875886938,
+        1.7226161447088324,
+        -0.8521707571201386,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.04018343769322676,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 58,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.8704453875886938,
+        1.7226161447088324,
+        -0.8521707571201386,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.004647621372885228,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 58,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.8704453875886938,
+        1.7226161447088324,
+        -0.8521707571201386,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.027808541661537345,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 58,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.8704453875886938,
+        1.7226161447088324,
+        -0.8521707571201386,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.02780854166153734,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 59,
+      "fraction": 0.0,
+      "geom": "palm",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.8521707571201385,
+        1.7226161447088324,
+        -0.8704453875886939,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.030216349076583996,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 59,
+      "fraction": 1.0,
+      "geom": "palm",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.8336154947033881,
+        1.7220426798367479,
+        -0.8884271851333597,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": 0.0,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 59,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "object_envelope",
+      "joints": [
+        -0.8521707571201385,
+        1.7226161447088324,
+        -0.8704453875886939,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": false,
+      "obb_truth": false,
+      "truth_signed_distance_m": 0.004647621372885037,
+      "category": "object_envelope_only"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 59,
+      "fraction": 1.0,
+      "geom": "finger_left",
+      "obstacle": "tray_floor",
+      "joints": [
+        -0.8336154947033881,
+        1.7220426798367479,
+        -0.8884271851333597,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.007000000000000016,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 59,
+      "fraction": 0.0,
+      "geom": "finger_left",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.8521707571201385,
+        1.7226161447088324,
+        -0.8704453875886939,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.02780854166153757,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 59,
+      "fraction": 1.0,
+      "geom": "finger_right",
+      "obstacle": "tray_floor",
+      "joints": [
+        -0.8336154947033881,
+        1.7220426798367479,
+        -0.8884271851333597,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.007000000000000016,
+      "category": "truth_overlap"
+    },
+    {
+      "path": "descend-+0.05",
+      "segment": 59,
+      "fraction": 0.0,
+      "geom": "finger_right",
+      "obstacle": "tray_left",
+      "joints": [
+        -0.8521707571201385,
+        1.7226161447088324,
+        -0.8704453875886939,
+        0.04,
+        0.04
+      ],
+      "aabb_supplied": true,
+      "obb_supplied": true,
+      "aabb_truth": true,
+      "obb_truth": true,
+      "truth_signed_distance_m": -0.027808541661537567,
+      "category": "truth_overlap"
+    }
+  ],
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "static witnesses only, not a rescreened continuous path",
+    "ordered attribution: gripper AABB first, then object envelope",
+    "truth used only for scoring, not control or permission to move",
+    "single training fixture; no complete arm or unseen obstacles"
+  ]
+}
