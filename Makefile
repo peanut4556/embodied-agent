@@ -426,3 +426,10 @@ overlap-attribution-audit:
 
 box-overlap-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p test_box_overlap.py -v
+
+.PHONY: directional-envelope-audit directional-envelope-test
+directional-envelope-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_directional_envelope.py
+
+directional-envelope-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_directional_envelope.py -v

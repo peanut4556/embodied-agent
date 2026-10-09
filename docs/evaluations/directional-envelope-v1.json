@@ -1,0 +1,3628 @@
+{
+  "status": "complete",
+  "script_sha256": "9f41e59266834b76db273c1c3ebeb0a6a2652e1fb6e766916142d15d29effa87",
+  "implementation_sha256": "40702d14e218ba58d1fa3ad4addfab79d98365d0cc89352ccfd0189fba7525f7",
+  "source_report_sha256": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2",
+  "source_sha256": "644e4bf3f2f59ff6a36f0510f697cd0fecdea2e189d2975224db696858531051",
+  "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+  "summary": {
+    "trials": 54,
+    "bounds": 36,
+    "unknown": 18,
+    "containment_failures": 0,
+    "false_positive_gaps": 0,
+    "volume_reduction_min_max": [
+      0.0,
+      0.0
+    ]
+  },
+  "cases": [
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 561,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22940506032913885,
+          -0.06677735665284659,
+          -0.03961717927920075
+        ],
+        "aabb_max": [
+          0.362959773634832,
+          0.06677735665284659,
+          0.139587901477687
+        ],
+        "directions": [
+          [
+            0.5682848930903874,
+            0.8228318663525658,
+            3.971927151701454e-27
+          ],
+          [
+            -0.8228318663525658,
+            0.5682848930903874,
+            2.743192490554701e-27
+          ],
+          [
+            -0.0,
+            4.827143082472171e-27,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          0.10929259813113033,
+          -0.3027317259848308,
+          -0.139587901477687
+        ],
+        "projection_max": [
+          0.22733938820858995,
+          -0.18192384933188915,
+          0.03961717927920075
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22940506032913885,
+            -0.06677735665284659,
+            -0.03961717927920075
+          ],
+          "aabb_max": [
+            0.362959773634832,
+            0.06677735665284659,
+            0.139587901477687
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.17530831677833592
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 561,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.2294067860938909,
+          -0.0667431390666278,
+          -0.03761732423769684
+        ],
+        "aabb_max": [
+          0.3628804999684583,
+          0.06674082271917182,
+          0.13758888090120994
+        ],
+        "directions": [
+          [
+            0.5676015471479852,
+            0.8233011371880491,
+            0.0019290360491828792
+          ],
+          [
+            -0.8232839476998723,
+            0.5675704751633165,
+            0.008203486002985393
+          ],
+          [
+            -0.0056590754481222125,
+            0.006244455761127948,
+            -0.9999644901881866
+          ]
+        ],
+        "projection_min": [
+          0.10917429357644376,
+          -0.3024754869749154,
+          -0.13920369990656073
+        ],
+        "projection_max": [
+          0.2272786911206543,
+          -0.18163107980184545,
+          0.03582646200232767
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.2294067860938909,
+            -0.0667431390666278,
+            -0.03761732423769684
+          ],
+          "aabb_max": [
+            0.3628804999684583,
+            0.06674082271917182,
+            0.13758888090120994
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.1749900556579932
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 561,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22939988262339858,
+          -0.06665826942082029,
+          -0.04561722124087067
+        ],
+        "aabb_max": [
+          0.36271642146503913,
+          0.06665826942082029,
+          0.13358785951601707
+        ],
+        "directions": [
+          [
+            0.5682848930903848,
+            0.822831866352568,
+            3.8009319686849945e-27
+          ],
+          [
+            -0.822831866352568,
+            0.5682848930903848,
+            2.6250954852330104e-27
+          ],
+          [
+            -0.0,
+            4.619330052849906e-27,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          0.10938764448856345,
+          -0.3024638125898593,
+          -0.13358785951601707
+        ],
+        "projection_max": [
+          0.22710310607740816,
+          -0.1819728588390711,
+          0.04561722124087067
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22939988262339858,
+            -0.06665826942082029,
+            -0.04561722124087067
+          ],
+          "aabb_max": [
+            0.36271642146503913,
+            0.06665826942082029,
+            0.13358785951601707
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.176747718974132
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 254,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22940506032913885,
+          -0.06677735665284659,
+          -0.03961717927920075
+        ],
+        "aabb_max": [
+          0.3887621552376811,
+          0.06677735665284659,
+          0.139587901477687
+        ],
+        "directions": [
+          [
+            0.04494414483276097,
+            0.9989895013688844,
+            -1.967443029073333e-27
+          ],
+          [
+            -0.9989895013688844,
+            0.04494414483276097,
+            -8.851448821805608e-29
+          ],
+          [
+            -0.0,
+            -1.9694331385639256e-27,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.05259469859940802,
+          -0.3875657974317881,
+          -0.139587901477687
+        ],
+        "projection_max": [
+          0.08037769546670774,
+          -0.22935232548447645,
+          0.03961717927920075
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22940506032913885,
+            -0.06677735665284659,
+            -0.03961717927920075
+          ],
+          "aabb_max": [
+            0.3887621552376811,
+            0.06677735665284659,
+            0.139587901477687
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.14950593517548683
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 254,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.2294067860938909,
+          -0.06674417538959584,
+          -0.03761732423769684
+        ],
+        "aabb_max": [
+          0.38872662923456436,
+          0.06674082271917182,
+          0.13758888090120994
+        ],
+        "directions": [
+          [
+            0.044971024923582396,
+            0.9989875406230295,
+            0.0012249886831606231
+          ],
+          [
+            -0.9988089778869125,
+            0.04498615141509512,
+            -0.018891052732967692
+          ],
+          [
+            -0.018927033835869786,
+            -0.00037397969126369557,
+            0.9998207977079526
+          ]
+        ],
+        "projection_min": [
+          -0.05253175602953346,
+          -0.3885702936726554,
+          -0.043484617359023786
+        ],
+        "projection_max": [
+          0.08042120937474781,
+          -0.23022075316125387,
+          0.1316086853453355
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.2294067860938909,
+            -0.06674417538959584,
+            -0.03761732423769684
+          ],
+          "aabb_max": [
+            0.38872662923456436,
+            0.06674082271917182,
+            0.13758888090120994
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.14914392639188712
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 254,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22939988262339858,
+          -0.06665826942082029,
+          -0.04561722124087067
+        ],
+        "aabb_max": [
+          0.3886534234171354,
+          0.06665826942082029,
+          0.13358785951601707
+        ],
+        "directions": [
+          [
+            0.044944144832760984,
+            0.998989501368884,
+            2.0202537961289287e-27
+          ],
+          [
+            -0.998989501368884,
+            0.044944144832760984,
+            9.089042386104688e-29
+          ],
+          [
+            -0.0,
+            2.022297324807356e-27,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.052475964412423366,
+          -0.3874518232107942,
+          -0.13358785951601707
+        ],
+        "projection_max": [
+          0.08025384171347588,
+          -0.22934924737881077,
+          0.04561722124087067
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22939988262339858,
+            -0.06665826942082029,
+            -0.04561722124087067
+          ],
+          "aabb_max": [
+            0.3886534234171354,
+            0.06665826942082029,
+            0.13358785951601707
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.15081071702203575
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.2280283183509225,
+          -0.06677735665284659,
+          -0.03961717927920075
+        ],
+        "aabb_max": [
+          0.36356783024145023,
+          0.06677735665284659,
+          0.139587901477687
+        ],
+        "directions": [
+          [
+            0.16122667614267375,
+            0.9869174022682878,
+            -2.776472983143075e-26
+          ],
+          [
+            -0.9869174022682878,
+            0.16122667614267375,
+            -4.5357545569999286e-27
+          ],
+          [
+            -0.0,
+            -2.8132779670940554e-26,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.01630983399163498,
+          -0.3567480562925296,
+          -0.139587901477687
+        ],
+        "projection_max": [
+          0.11169091464799055,
+          -0.22678847538953337,
+          0.03961717927920075
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.2280283183509225,
+            -0.06677735665284659,
+            -0.03961717927920075
+          ],
+          "aabb_max": [
+            0.36356783024145023,
+            0.06677735665284659,
+            0.139587901477687
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.17423913638511113
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 555,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22997305401067678,
+          -0.06673824610795676,
+          -0.03761732423769684
+        ],
+        "aabb_max": [
+          0.3633518720153194,
+          0.06673802133471027,
+          0.13758840406405173
+        ],
+        "directions": [
+          [
+            0.29518064981993675,
+            0.9554399700744423,
+            0.001687470304713912
+          ],
+          [
+            -0.9554408807082581,
+            0.29517806507561895,
+            0.0016227660466150164
+          ],
+          [
+            -0.001052351323597649,
+            0.0020912872502504495,
+            -0.9999972595334091
+          ]
+        ],
+        "projection_min": [
+          0.025286289940841256,
+          -0.3450836130459249,
+          -0.13786692769708084
+        ],
+        "projection_max": [
+          0.14958892268364396,
+          -0.21929465962252453,
+          0.03728656894381312
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22997305401067678,
+            -0.06673824610795676,
+            -0.03761732423769684
+          ],
+          "aabb_max": [
+            0.3633518720153194,
+            0.06673802133471027,
+            0.13758840406405173
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.1742019213422077
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 549,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.2275985687744798,
+          -0.06665826942082029,
+          -0.04561722124087067
+        ],
+        "aabb_max": [
+          0.36291026161243545,
+          0.06665826942082029,
+          0.13358785951601707
+        ],
+        "directions": [
+          [
+            0.16122667614267341,
+            0.9869174022682878,
+            1.3004290097354652e-26
+          ],
+          [
+            -0.9869174022682878,
+            0.16122667614267341,
+            2.124431551386926e-27
+          ],
+          [
+            -0.0,
+            1.317667523894721e-26,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.01626159182574395,
+          -0.3560798903307786,
+          -0.13358785951601707
+        ],
+        "projection_max": [
+          0.111467367781924,
+          -0.22638187852394212,
+          0.04561722124087067
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.2275985687744798,
+            -0.06665826942082029,
+            -0.04561722124087067
+          ],
+          "aabb_max": [
+            0.36291026161243545,
+            0.06665826942082029,
+            0.13358785951601707
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.17565782775794614
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.2280283183509225,
+          -0.06677735665284659,
+          -0.03961717927920075
+        ],
+        "aabb_max": [
+          0.3893702118442993,
+          0.06677735665284659,
+          0.139587901477687
+        ],
+        "directions": [
+          [
+            0.013349336944889392,
+            0.9999108936315936,
+            3.088124884572307e-27
+          ],
+          [
+            -0.9999108936315936,
+            0.013349336944889392,
+            4.122809329772347e-29
+          ],
+          [
+            -0.0,
+            3.0884000806876832e-27,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.06257900985653315,
+          -0.3890785802590768,
+          -0.139587901477687
+        ],
+        "projection_max": [
+          0.07082087086538863,
+          -0.22823844005018315,
+          0.03961717927920075
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.2280283183509225,
+            -0.06677735665284659,
+            -0.03961717927920075
+          ],
+          "aabb_max": [
+            0.3893702118442993,
+            0.06677735665284659,
+            0.139587901477687
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.14843675478226204
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 243,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22997305401067678,
+          -0.06674066182884802,
+          -0.03762054288851471
+        ],
+        "aabb_max": [
+          0.38920142668168256,
+          0.06676318647418082,
+          0.13758840406405173
+        ],
+        "directions": [
+          [
+            0.018446337615170488,
+            0.9998279957423392,
+            0.0019265405379676867
+          ],
+          [
+            -0.9998169352197809,
+            0.018436270684963715,
+            0.005118590719635856
+          ],
+          [
+            0.005082192077395326,
+            -0.0020206071087758015,
+            0.9999850441234612
+          ]
+        ],
+        "projection_min": [
+          -0.06086426599728825,
+          -0.38857605655520305,
+          -0.03607634166856434
+        ],
+        "projection_max": [
+          0.07248569199341742,
+          -0.22968543356063165,
+          0.13920857095369674
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22997305401067678,
+            -0.06674066182884802,
+            -0.03762054288851471
+          ],
+          "aabb_max": [
+            0.38920142668168256,
+            0.06676318647418082,
+            0.13758840406405173
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.1483523666758445
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 237,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.2275985687744798,
+          -0.06665826942082029,
+          -0.04561722124087067
+        ],
+        "aabb_max": [
+          0.3888472635645317,
+          0.06665826942082029,
+          0.13358785951601707
+        ],
+        "directions": [
+          [
+            0.013349336944889349,
+            0.9999108936315936,
+            1.855198746798872e-27
+          ],
+          [
+            -0.9999108936315936,
+            0.013349336944889349,
+            2.476788014660759e-29
+          ],
+          [
+            -0.0,
+            1.8553640715533598e-27,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.06246567010783549,
+          -0.388554088841745,
+          -0.13358785951601707
+        ],
+        "projection_max": [
+          0.07069481323200172,
+          -0.22781018026487362,
+          0.04561722124087067
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.2275985687744798,
+            -0.06665826942082029,
+            -0.04561722124087067
+          ],
+          "aabb_max": [
+            0.3888472635645317,
+            0.06665826942082029,
+            0.13358785951601707
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.1497208258058499
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22863637495754066,
+          -0.06677735665284659,
+          -0.03961717927920075
+        ],
+        "aabb_max": [
+          0.36417588684806834,
+          0.06677735665284659,
+          0.139587901477687
+        ],
+        "directions": [
+          [
+            0.1612266761426747,
+            0.9869174022682876,
+            -6.71147924578344e-28
+          ],
+          [
+            -0.9869174022682876,
+            0.1612266761426747,
+            -1.0964134266061459e-28
+          ],
+          [
+            -0.0,
+            -6.8004467550760285e-28,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.016211799046043043,
+          -0.3573481579391651,
+          -0.139587901477687
+        ],
+        "projection_max": [
+          0.11178894959358245,
+          -0.22738857703616897,
+          0.03961717927920075
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22863637495754066,
+            -0.06677735665284659,
+            -0.03961717927920075
+          ],
+          "aabb_max": [
+            0.36417588684806834,
+            0.06677735665284659,
+            0.139587901477687
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.17316995599188656
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22889255617610701,
+          -0.06674074937211244,
+          -0.03762006605135651
+        ],
+        "aabb_max": [
+          0.3638965907100784,
+          0.06674192529109674,
+          0.1375906690405532
+        ],
+        "directions": [
+          [
+            0.15804637910919844,
+            0.9874308578477318,
+            -0.001281803637131491
+          ],
+          [
+            -0.9874190164434153,
+            0.15805079436315866,
+            0.004861313309440687
+          ],
+          [
+            0.005002800854473825,
+            0.000497364320377558,
+            0.9999873622263151
+          ]
+        ],
+        "projection_min": [
+          -0.01727299967752456,
+          -0.3573238600605585,
+          -0.03606604032458847
+        ],
+        "projection_max": [
+          0.1109233414569252,
+          -0.22702927716732701,
+          0.13906605622656268
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22889255617610701,
+            -0.06674074937211244,
+            -0.03762006605135651
+          ],
+          "aabb_max": [
+            0.3638965907100784,
+            0.06674192529109674,
+            0.1375906690405532
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.1733653377446488
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 549,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22779240892187605,
+          -0.06665826942082029,
+          -0.04561722124087067
+        ],
+        "aabb_max": [
+          0.36310410175983177,
+          0.06665826942082029,
+          0.13358785951601707
+        ],
+        "directions": [
+          [
+            0.16122667614267552,
+            0.9869174022682876,
+            2.321110128745645e-26
+          ],
+          [
+            -0.9869174022682876,
+            0.16122667614267552,
+            3.791856037381203e-27
+          ],
+          [
+            -0.0,
+            2.351878813172113e-26,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.016230339623075588,
+          -0.35627119454550216,
+          -0.13358785951601707
+        ],
+        "projection_max": [
+          0.11149861998459229,
+          -0.22657318273866575,
+          0.04561722124087067
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22779240892187605,
+            -0.06665826942082029,
+            -0.04561722124087067
+          ],
+          "aabb_max": [
+            0.36310410175983177,
+            0.06665826942082029,
+            0.13358785951601707
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.1745679365417604
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22863637495754066,
+          -0.06677735665284659,
+          -0.03961717927920075
+        ],
+        "aabb_max": [
+          0.38997826845091743,
+          0.06677735665284659,
+          0.139587901477687
+        ],
+        "directions": [
+          [
+            0.01334933694488938,
+            0.9999108936315936,
+            -5.3526295016029706e-27
+          ],
+          [
+            -0.9999108936315936,
+            0.01334933694488938,
+            -7.146042233677259e-29
+          ],
+          [
+            -0.0,
+            -5.353106497482654e-27,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.06257089270400984,
+          -0.38968658268397893,
+          -0.139587901477687
+        ],
+        "projection_max": [
+          0.07082898801791195,
+          -0.22884644247508532,
+          0.03961717927920075
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22863637495754066,
+            -0.06677735665284659,
+            -0.03961717927920075
+          ],
+          "aabb_max": [
+            0.38997826845091743,
+            0.06677735665284659,
+            0.139587901477687
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.14736757438903747
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22889255617610701,
+          -0.06674074937211244,
+          -0.03762006605135651
+        ],
+        "aabb_max": [
+          0.389687987947841,
+          0.06676230867550241,
+          0.1375906690405532
+        ],
+        "directions": [
+          [
+            0.013273989736434257,
+            0.9999118912607593,
+            0.00010445960454636932
+          ],
+          [
+            -0.9998141039838716,
+            0.013274152494397713,
+            -0.013984074888385484
+          ],
+          [
+            -0.013984229381897894,
+            8.118428061998362e-05,
+            0.9999022125876644
+          ]
+        ],
+        "projection_min": [
+          -0.06257767823332476,
+          -0.3900853527836159,
+          -0.04191839231202482
+        ],
+        "projection_max": [
+          0.07082845984355281,
+          -0.2294740313092878,
+          0.1332111002331396
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22889255617610701,
+            -0.06674074937211244,
+            -0.03762006605135651
+          ],
+          "aabb_max": [
+            0.389687987947841,
+            0.06676230867550241,
+            0.1375906690405532
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.14757394050688621
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 237,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.22779240892187605,
+          -0.06665826942082029,
+          -0.04561722124087067
+        ],
+        "aabb_max": [
+          0.3890411037119279,
+          0.06665826942082029,
+          0.13358785951601707
+        ],
+        "directions": [
+          [
+            0.013349336944889432,
+            0.9999108936315936,
+            -6.931893061932189e-29
+          ],
+          [
+            -0.9999108936315936,
+            0.013349336944889432,
+            -9.254442244707462e-31
+          ],
+          [
+            -0.0,
+            -6.932510792792872e-29,
+            -1.0
+          ]
+        ],
+        "projection_min": [
+          -0.06246308247039443,
+          -0.3887479117167497,
+          -0.13358785951601707
+        ],
+        "projection_max": [
+          0.07069740086944279,
+          -0.22800400313987831,
+          0.04561722124087067
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.22779240892187605,
+            -0.06665826942082029,
+            -0.04561722124087067
+          ],
+          "aabb_max": [
+            0.3890411037119279,
+            0.06665826942082029,
+            0.13358785951601707
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": 0.21881466836408742,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": 0.14863093458966425
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 758,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44458252789561004,
+          -0.03824198399523046,
+          -0.019740341548793033
+        ],
+        "aabb_max": [
+          0.5465783311670477,
+          0.07062216948881248,
+          0.12258746469485007
+        ],
+        "directions": [
+          [
+            -0.8552057471964071,
+            -0.5172782107854178,
+            -0.032347837777387076
+          ],
+          [
+            -0.5173442418051428,
+            0.8557492068497801,
+            -0.0069448143988625494
+          ],
+          [
+            -0.031274037687784764,
+            -0.01079572242185843,
+            0.9994525436178016
+          ]
+        ],
+        "projection_min": [
+          -0.49230580120156975,
+          -0.31043677354571225,
+          -0.035750636215620496
+        ],
+        "projection_max": [
+          -0.3767050929629643,
+          -0.17602135305987932,
+          0.10605324602911191
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44458252789561004,
+            -0.03824198399523046,
+            -0.019740341548793033
+          ],
+          "aabb_max": [
+            0.5465783311670477,
+            0.07062216948881248,
+            0.12258746469485007
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.00831024075387976
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 696,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44479927678863895,
+          -0.03818822389257708,
+          -0.017892359142176822
+        ],
+        "aabb_max": [
+          0.5464428378540616,
+          0.07059007382376321,
+          0.12136592710482322
+        ],
+        "directions": [
+          [
+            -0.8458250851714102,
+            -0.5235715287443882,
+            -0.10223883598242645
+          ],
+          [
+            -0.5254710830389584,
+            0.8507579038075093,
+            -0.00954620337712143
+          ],
+          [
+            -0.09197861808399313,
+            -0.045649133587810614,
+            0.9947140747059131
+          ]
+        ],
+        "projection_min": [
+          -0.49082036452520317,
+          -0.3143463645409592,
+          -0.06560135104919206
+        ],
+        "projection_max": [
+          -0.37438351809811105,
+          -0.18042503879717353,
+          0.0719187900128351
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44479927678863895,
+            -0.03818822389257708,
+            -0.017892359142176822
+          ],
+          "aabb_max": [
+            0.5464428378540616,
+            0.07059007382376321,
+            0.12136592710482322
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.008572282227610084
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 758,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.4456853792182883,
+          -0.0379779210024765,
+          -0.025740383510462955
+        ],
+        "aabb_max": [
+          0.5472876768534651,
+          0.07052379307974728,
+          0.11658742273318015
+        ],
+        "directions": [
+          [
+            -0.855220992055069,
+            -0.5172548472958495,
+            -0.03231838017739522
+          ],
+          [
+            -0.5173142012764894,
+            0.8557656993212195,
+            -0.0071473787454795846
+          ],
+          [
+            -0.03135397751499631,
+            -0.010606168686716808,
+            0.9994520685254386
+          ]
+        ],
+        "projection_min": [
+          -0.49277321504126753,
+          -0.3106683529627903,
+          -0.0418106601401762
+        ],
+        "projection_max": [
+          -0.37750817166186823,
+          -0.1765048178680695,
+          0.099990630481931
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.4456853792182883,
+            -0.0379779210024765,
+            -0.025740383510462955
+          ],
+          "aabb_max": [
+            0.5472876768534651,
+            0.07052379307974728,
+            0.11658742273318015
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.007823536414294008
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 333,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44458252789561004,
+          -0.03824198399523046,
+          -0.019740341548793033
+        ],
+        "aabb_max": [
+          0.5861744355445309,
+          0.08072855155200286,
+          0.12258746469485007
+        ],
+        "directions": [
+          [
+            -0.2696730295250848,
+            -0.773582016384178,
+            0.5734521087883035
+          ],
+          [
+            -0.7013839175056173,
+            0.5658321080821721,
+            0.4334681369233025
+          ],
+          [
+            0.6598007709992739,
+            0.2853154208770965,
+            0.6951676439525136
+          ]
+        ],
+        "projection_min": [
+          -0.18609312691319158,
+          -0.39205453448436794,
+          0.29518755440282446
+        ],
+        "projection_max": [
+          -0.06807388831511987,
+          -0.2595279378010413,
+          0.45778393055358635
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44458252789561004,
+            -0.03824198399523046,
+            -0.019740341548793033
+          ],
+          "aabb_max": [
+            0.5861744355445309,
+            0.08072855155200286,
+            0.12258746469485007
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.04790634513136294
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 272,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44479927678863895,
+          -0.03818822389257708,
+          -0.017892359142176822
+        ],
+        "aabb_max": [
+          0.5859925773230076,
+          0.08074318166713776,
+          0.12136592710482322
+        ],
+        "directions": [
+          [
+            -0.28407650909523274,
+            -0.7696000070099333,
+            0.5718534481758221
+          ],
+          [
+            -0.6881817980272275,
+            0.578951481498057,
+            0.43728822867213957
+          ],
+          [
+            0.6676124248726042,
+            0.2693158207040877,
+            0.6940912323853439
+          ]
+        ],
+        "projection_min": [
+          -0.19227679021135285,
+          -0.3845395962381459,
+          0.29948377649762353
+        ],
+        "projection_max": [
+          -0.0761019795683847,
+          -0.25263694570974154,
+          0.4628451721646655
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44479927678863895,
+            -0.03818822389257708,
+            -0.017892359142176822
+          ],
+          "aabb_max": [
+            0.5859925773230076,
+            0.08074318166713776,
+            0.12136592710482322
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.048122021696556105
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 333,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.4456853792182883,
+          -0.0379779210024765,
+          -0.025740383510462955
+        ],
+        "aabb_max": [
+          0.5871116002835204,
+          0.0806819522003404,
+          0.11658742273318015
+        ],
+        "directions": [
+          [
+            -0.2679154776335496,
+            -0.7765631471216349,
+            0.5702376481581423
+          ],
+          [
+            -0.7036386220001005,
+            0.5620165010892595,
+            0.4347759677502722
+          ],
+          [
+            0.658113961616213,
+            0.2847580218991702,
+            0.696992742063994
+          ]
+        ],
+        "projection_min": [
+          -0.1890054815932684,
+          -0.39641155120119975,
+          0.29094256997904205
+        ],
+        "projection_max": [
+          -0.07132921860199065,
+          -0.2640813104570101,
+          0.4534730738806797
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.4456853792182883,
+            -0.0379779210024765,
+            -0.025740383510462955
+          ],
+          "aabb_max": [
+            0.5871116002835204,
+            0.0806819522003404,
+            0.11658742273318015
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.04764745984434926
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 759,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.4462096368609981,
+          -0.038275860152430896,
+          -0.019724009876124576
+        ],
+        "aabb_max": [
+          0.5485291081552203,
+          0.07062298453614976,
+          0.12302031362520896
+        ],
+        "directions": [
+          [
+            -0.8589574910256357,
+            -0.5120153599518464,
+            0.005683289921010461
+          ],
+          [
+            -0.5120107760809872,
+            0.8589758252035316,
+            0.002344545341259477
+          ],
+          [
+            0.00608225187659927,
+            0.0008960408992257397,
+            0.9999811014828314
+          ]
+        ],
+        "projection_min": [
+          -0.4927873288063336,
+          -0.30771982290161354,
+          -0.01668462444235587
+        ],
+        "projection_max": [
+          -0.3767279824335217,
+          -0.1728398504265939,
+          0.12626679677020847
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.4462096368609981,
+            -0.038275860152430896,
+            -0.019724009876124576
+          ],
+          "aabb_max": [
+            0.5485291081552203,
+            0.07062298453614976,
+            0.12302031362520896
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.010722141528658913
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 730,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.4460220432697669,
+          -0.03825686809899035,
+          -0.01827668989168854
+        ],
+        "aabb_max": [
+          0.548530704405319,
+          0.0705921906013802,
+          0.12261977041231834
+        ],
+        "directions": [
+          [
+            -0.8719522664753895,
+            -0.4892903518799446,
+            -0.017152158628917558
+          ],
+          [
+            -0.4895597745021071,
+            0.8717566180336626,
+            0.019277606281825267
+          ],
+          [
+            -0.005520161037284757,
+            -0.025206159400254995,
+            0.9996670332417746
+          ]
+        ],
+        "projection_min": [
+          -0.499587658976038,
+          -0.2952363402627275,
+          -0.021339953767110842
+        ],
+        "projection_max": [
+          -0.38356196035099643,
+          -0.16125220223544973,
+          0.11865957169579933
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.4460220432697669,
+            -0.03825686809899035,
+            -0.01827668989168854
+          ],
+          "aabb_max": [
+            0.548530704405319,
+            0.0705921906013802,
+            0.12261977041231834
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.01097691104779197
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 759,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44690862713593504,
+          -0.03801179715967694,
+          -0.025724051837794498
+        ],
+        "aabb_max": [
+          0.5488345927938963,
+          0.07052460812708457,
+          0.11702027166353904
+        ],
+        "directions": [
+          [
+            -0.858956802264056,
+            -0.5120186846732592,
+            0.005484376881012051
+          ],
+          [
+            -0.5120150136255076,
+            0.8589737826142065,
+            0.0021602322823266852
+          ],
+          [
+            0.005817015246550446,
+            0.0009525370900838881,
+            0.9999826273524524
+          ]
+        ],
+        "projection_min": [
+          -0.4931316544201305,
+          -0.30780892599533044,
+          -0.022816153122657792
+        ],
+        "projection_max": [
+          -0.3774059783075071,
+          -0.17317853695538948,
+          0.12013249800121902
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44690862713593504,
+            -0.03801179715967694,
+            -0.025724051837794498
+          ],
+          "aabb_max": [
+            0.5488345927938963,
+            0.07052460812708457,
+            0.11702027166353904
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.010266503423514761
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 334,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.4462096368609981,
+          -0.038275860152430896,
+          -0.019724009876124576
+        ],
+        "aabb_max": [
+          0.5881010312519649,
+          0.08073381494932863,
+          0.12302031362520896
+        ],
+        "directions": [
+          [
+            -0.24993220237892755,
+            -0.7700437184894906,
+            0.5869979265967621
+          ],
+          [
+            -0.702725885605879,
+            0.5613176307136778,
+            0.43714854128707376
+          ],
+          [
+            0.6661157736560903,
+            0.30324114012591036,
+            0.6814210057091623
+          ]
+        ],
+        "projection_min": [
+          -0.17534906392076396,
+          -0.3940918409123611,
+          0.2974764782041348
+        ],
+        "projection_max": [
+          -0.05668253707909328,
+          -0.26252889619320247,
+          0.4611852309651452
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.4462096368609981,
+            -0.038275860152430896,
+            -0.019724009876124576
+          ],
+          "aabb_max": [
+            0.5881010312519649,
+            0.08073381494932863,
+            0.12302031362520896
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.050294064625403534
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 305,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.4460220432697669,
+          -0.03825686809899035,
+          -0.01827668989168854
+        ],
+        "aabb_max": [
+          0.5880137035023931,
+          0.08074519629380107,
+          0.12261977041231834
+        ],
+        "directions": [
+          [
+            -0.2799354675154551,
+            -0.7486006040957969,
+            0.6010268459680578
+          ],
+          [
+            -0.6881985289045038,
+            0.5929795619117737,
+            0.4180406965459194
+          ],
+          [
+            0.6693421537902571,
+            0.29660137339926285,
+            0.6811818453666326
+          ]
+        ],
+        "projection_min": [
+          -0.1888716347042535,
+          -0.386959842581881,
+          0.2999796098551028
+        ],
+        "projection_max": [
+          -0.07073937958082102,
+          -0.25419884847640706,
+          0.46303468235667383
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.4460220432697669,
+            -0.03825686809899035,
+            -0.01827668989168854
+          ],
+          "aabb_max": [
+            0.5880137035023931,
+            0.08074519629380107,
+            0.12261977041231834
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.05045991014486606
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 334,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44690862713593504,
+          -0.03801179715967694,
+          -0.025724051837794498
+        ],
+        "aabb_max": [
+          0.5886239795317325,
+          0.08068721559766617,
+          0.11702027166353904
+        ],
+        "directions": [
+          [
+            -0.24847948837016903,
+            -0.772886907820607,
+            0.5838696529010562
+          ],
+          [
+            -0.7048288328474653,
+            0.5577395311254886,
+            0.43834111352552807
+          ],
+          [
+            0.6644352942508239,
+            0.30260939036887263,
+            0.6833398105001645
+          ]
+        ],
+        "projection_min": [
+          -0.17837182438013297,
+          -0.39810477466314015,
+          0.2930474798554921
+        ],
+        "projection_max": [
+          -0.0600456957760766,
+          -0.26674772287334236,
+          0.4566949498178755
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44690862713593504,
+            -0.03801179715967694,
+            -0.025724051837794498
+          ],
+          "aabb_max": [
+            0.5886239795317325,
+            0.08068721559766617,
+            0.11702027166353904
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.050055890161350924
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 765,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44576994358322564,
+          -0.03830393376512712,
+          -0.019703863506190494
+        ],
+        "aabb_max": [
+          0.5486162275082473,
+          0.07062387385638588,
+          0.12265422189699851
+        ],
+        "directions": [
+          [
+            -0.8647875468776308,
+            -0.500603620218255,
+            0.03922389819672663
+          ],
+          [
+            -0.5010437397408687,
+            0.8654204333420059,
+            -0.0016261674635402827
+          ],
+          [
+            0.033131097655444475,
+            0.02105917801131023,
+            0.999229123569581
+          ]
+        ],
+        "projection_min": [
+          -0.4940939756319155,
+          -0.3026386171193192,
+          -0.002887758261562276
+        ],
+        "projection_max": [
+          -0.37853454732067665,
+          -0.16777150134876154,
+          0.14087500738943648
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44576994358322564,
+            -0.03830393376512712,
+            -0.019703863506190494
+          ],
+          "aabb_max": [
+            0.5486162275082473,
+            0.07062387385638588,
+            0.12265422189699851
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.011270384668292444
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 717,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.445678398634917,
+          -0.03825745045201021,
+          -0.01818823659884186
+        ],
+        "aabb_max": [
+          0.548631282583694,
+          0.07060024139270459,
+          0.12084951246248923
+        ],
+        "directions": [
+          [
+            -0.8747378328629739,
+            -0.4845787732776328,
+            -0.0041395950203353135
+          ],
+          [
+            -0.48459566134007287,
+            0.8747199408505968,
+            0.005663045885927654
+          ],
+          [
+            -0.0008767944829153625,
+            -0.006959710272219401,
+            0.9999753965295154
+          ]
+        ],
+        "projection_min": [
+          -0.5002351850688532,
+          -0.29383514141542977,
+          -0.0188572209331542
+        ],
+        "projection_max": [
+          -0.3849893443352248,
+          -0.15973525519941317,
+          0.12020619435509029
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.445678398634917,
+            -0.03825745045201021,
+            -0.01818823659884186
+          ],
+          "aabb_max": [
+            0.548631282583694,
+            0.07060024139270459,
+            0.12084951246248923
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.011380676219713726
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 765,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44605471739894076,
+          -0.03803987077237316,
+          -0.025703905467860416
+        ],
+        "aabb_max": [
+          0.5485074956877015,
+          0.07052549744732069,
+          0.11665417993532859
+        ],
+        "directions": [
+          [
+            -0.8648018021980441,
+            -0.5006089338736084,
+            0.03883990526434915
+          ],
+          [
+            -0.501039361225344,
+            0.8654230604099596,
+            -0.0015763925774895425
+          ],
+          [
+            0.032823793472322636,
+            0.02082358846568695,
+            0.9992442027580135
+          ]
+        ],
+        "projection_min": [
+          -0.4942957085247528,
+          -0.30247619917700774,
+          -0.009033647238868583
+        ],
+        "projection_max": [
+          -0.3790746652563256,
+          -0.16785087439473462,
+          0.1347205990801494
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44605471739894076,
+            -0.03803987077237316,
+            -0.025703905467860416
+          ],
+          "aabb_max": [
+            0.5485074956877015,
+            0.07052549744732069,
+            0.11665417993532859
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.01083545738610936
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 335,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44576994358322564,
+          -0.03830393376512712,
+          -0.019763110523097233
+        ],
+        "aabb_max": [
+          0.5900859394146735,
+          0.08271350866112703,
+          0.12265422189699851
+        ],
+        "directions": [
+          [
+            -0.2250835008873251,
+            -0.7620531760232575,
+            0.6071345604898237
+          ],
+          [
+            -0.7067764177923839,
+            0.5566198149949211,
+            0.4366250986917557
+          ],
+          [
+            0.6706746699263892,
+            0.3308312839921371,
+            0.6638871505393393
+          ]
+        ],
+        "projection_min": [
+          -0.16236358024553277,
+          -0.39749387818123416,
+          0.2985981224367209
+        ],
+        "projection_max": [
+          -0.04233733342763206,
+          -0.2641647824319976,
+          0.4646374060281854
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44576994358322564,
+            -0.03830393376512712,
+            -0.019763110523097233
+          ],
+          "aabb_max": [
+            0.5900859394146735,
+            0.08271350866112703,
+            0.12265422189699851
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.052740096574718565
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 296,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.445678398634917,
+          -0.03825745045201021,
+          -0.018677113895289615
+        ],
+        "aabb_max": [
+          0.5900634529345006,
+          0.08272283752238939,
+          0.12084951246248923
+        ],
+        "directions": [
+          [
+            -0.2346955045171638,
+            -0.759273377329311,
+            0.6069777249935746
+          ],
+          [
+            -0.7062552081332858,
+            0.5622370234250842,
+            0.43022448846469785
+          ],
+          [
+            0.6679233497520832,
+            0.3277094261217445,
+            0.6681952790067538
+          ]
+        ],
+        "projection_min": [
+          -0.1665979426139207,
+          -0.39713322139144813,
+          0.2980638583559722
+        ],
+        "projection_max": [
+          -0.047796355545599134,
+          -0.26363320976045435,
+          0.46454955766311173
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.445678398634917,
+            -0.03825745045201021,
+            -0.018677113895289615
+          ],
+          "aabb_max": [
+            0.5900634529345006,
+            0.08272283752238939,
+            0.12084951246248923
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.05281284657052032
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 335,
+      "status": "conditional_bound",
+      "bound": {
+        "aabb_min": [
+          0.44605471739894076,
+          -0.03803987077237316,
+          -0.025763152484767154
+        ],
+        "aabb_max": [
+          0.5901946712352192,
+          0.08267726472094512,
+          0.11665417993532859
+        ],
+        "directions": [
+          [
+            -0.2238534374717662,
+            -0.7648457370985178,
+            0.604070059657238
+          ],
+          [
+            -0.7087156879956229,
+            0.5532088448536605,
+            0.43781508375633804
+          ],
+          [
+            0.669037900362128,
+            0.330107516451691,
+            0.6658958743385724
+          ]
+        ],
+        "projection_min": [
+          -0.1655312845555242,
+          -0.4011274290200943,
+          0.29402105399562656
+        ],
+        "projection_max": [
+          -0.04582389143839832,
+          -0.26799839100203277,
+          0.46000685329680363
+        ],
+        "baseline": {
+          "aabb_min": [
+            0.44605471739894076,
+            -0.03803987077237316,
+            -0.025763152484767154
+          ],
+          "aabb_max": [
+            0.5901946712352192,
+            0.08267726472094512,
+            0.11665417993532859
+          ],
+          "side_upper_m": 0.05,
+          "point_error_m": 0.003,
+          "wall_error_m": null,
+          "conditional_x_gap_lower_m": null,
+          "conditional_positive_gap": false,
+          "clearance_certified": false,
+          "assumptions": [
+            "all input points lie within the stated coordinate error of this same cube",
+            "cube side length does not exceed the stated prior",
+            "wall observation is the nearest relevant planar X-facing surface with bounded error; no hidden closer obstacles"
+          ],
+          "scope": "conditional geometric bound; uncalibrated sensing and swept-volume clearance remain unresolved"
+        },
+        "aabb_volume_reduction_fraction": 0.0,
+        "clearance_certified": false,
+        "assumptions": [
+          "same cube and coordinate-wise error budget as baseline",
+          "directions are not assumed to be object axes"
+        ]
+      },
+      "scoring_only": {
+        "contained": true,
+        "true_x_gap_m": -3.412684838277613e-06,
+        "false_positive_gap": false
+      },
+      "conditional_x_gap_lower_m": -0.05252263293362702
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "status": "unknown",
+      "clearance_certified": false
+    }
+  ],
+  "witness_report_sha256": "70ba9b8afef443cada9cf11dd3ef8b1be3f8f80db20e4a1228bd127f696525b3",
+  "witness_screen": {
+    "object_witnesses": 48,
+    "separated": 0,
+    "truth_overlap_wrongly_separated": 0,
+    "rows": [
+      {
+        "path": "descend--0.05",
+        "segment": 38,
+        "fraction": 1.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 39,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 40,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 41,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 42,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 43,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 44,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 45,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 46,
+        "fraction": 1.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 46,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 47,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 47,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 48,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 48,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 49,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend--0.05",
+        "segment": 49,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 43,
+        "fraction": 1.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 44,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 45,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 46,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 47,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 48,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 49,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 50,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 51,
+        "fraction": 1.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 51,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 52,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 52,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "truth_overlap",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 53,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 53,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "truth_overlap",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 54,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.00",
+        "segment": 54,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "truth_overlap",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 48,
+        "fraction": 1.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 49,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 50,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 51,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 52,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 53,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 54,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 55,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 56,
+        "fraction": 1.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 56,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 57,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 57,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 58,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 58,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 59,
+        "fraction": 0.0,
+        "geom": "palm",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      },
+      {
+        "path": "descend-+0.05",
+        "segment": 59,
+        "fraction": 0.0,
+        "geom": "finger_left",
+        "category": "object_envelope_only",
+        "separated_by_directional_slab": false
+      }
+    ]
+  },
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "diameter slabs do not establish true object orientation",
+    "6mm bias exceeds nominal 3mm budget",
+    "image masking only; fixed camera translations, not physical occluders",
+    "single normal and single tilted training state; no continuous path rescreen"
+  ]
+}
