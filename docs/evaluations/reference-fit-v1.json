@@ -1,0 +1,3276 @@
+{
+  "status": "complete",
+  "experiment": "synthetic_finite_patch_calibration",
+  "script_sha256": "02d996fbb27e670b1456a1cfdbffa291f6a52fddf49dadcd541d06e59a968ed6",
+  "implementation_sha256": "a824f692fb2bb2b4a579c7a6e521b301d4c0a5f2fa66affea282e88e6e540ef3",
+  "geometry_sha256": "6a202bf93869af9a1ee2a18b9893a5a34762da77a9805b3dc0bdc267dce6d3da",
+  "true_parameters": [
+    0.002,
+    -0.003,
+    0.004,
+    0.003490658503988659,
+    -0.002617993877991494,
+    0.0017453292519943296,
+    0.002
+  ],
+  "summary": {
+    "wide": {
+      "cases": 28,
+      "statuses": {
+        "converged": 28
+      },
+      "condition_number_range": [
+        47.479133005354434,
+        47.5707063663437
+      ],
+      "max_translation_error_m": 0.002907647901714962,
+      "max_rotation_vector_error_degrees": 0.019080987508818047,
+      "max_absolute_depth_bias_error_m": 0.0007503755075359442
+    },
+    "medium": {
+      "cases": 28,
+      "statuses": {
+        "converged": 28
+      },
+      "condition_number_range": [
+        143.94459729460127,
+        144.4637937706202
+      ],
+      "max_translation_error_m": 0.004218132074445729,
+      "max_rotation_vector_error_degrees": 0.08068849621786431,
+      "max_absolute_depth_bias_error_m": 0.0026660643703193027
+    },
+    "narrow": {
+      "cases": 28,
+      "statuses": {
+        "converged": 26,
+        "stalled": 2
+      },
+      "condition_number_range": [
+        442.6658900651109,
+        446.61824379572573
+      ],
+      "max_translation_error_m": 0.009556412864145018,
+      "max_rotation_vector_error_degrees": 0.24128365507107766,
+      "max_absolute_depth_bias_error_m": 0.007706246902053301
+    }
+  },
+  "cases": [
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.001999999999999929,
+          -0.003000000000000082,
+          0.004000000000000242,
+          0.0034906585039886657,
+          -0.002617993877991587,
+          0.001745329251994386,
+          0.0019999999999999545
+        ],
+        "residual_rmse_m": 3.3066662151509165e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2560600886851926e-05,
+        "scaled_condition_number": 47.543096015155655,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 2.6521313777861606e-16,
+        "rotation_vector_error_norm_degrees": 6.232907833870981e-15,
+        "depth_bias_error_m": -4.5536491244391186e-17
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004414213562373125,
+          -0.003414213562373198,
+          0.0029999999999999146,
+          0.003490658503988685,
+          -0.0026179938779914915,
+          0.0017453292519943582,
+          0.0020000000000000508
+        ],
+        "residual_rmse_m": 2.015688188999047e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.254751660305897e-05,
+        "scaled_condition_number": 47.56497246073882,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002645751311064666,
+        "rotation_vector_error_norm_degrees": 2.221368630073071e-15,
+        "depth_bias_error_m": 5.074066167232161e-17
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0015857864376267576,
+          -0.0034142135623732818,
+          0.003000000000000242,
+          0.0034906585039886783,
+          -0.0026179938779914893,
+          0.0017453292519943474,
+          0.0019999999999998526
+        ],
+        "residual_rmse_m": 1.0635052816962631e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.256443127317077e-05,
+        "scaled_condition_number": 47.51115038182165,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.001158941651036588,
+        "rotation_vector_error_norm_degrees": 1.5191915825715927e-15,
+        "depth_bias_error_m": -1.474514954580286e-16
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0010000000000001596,
+          -0.0020000000000001223,
+          0.0020000000000000473,
+          0.003490658503988626,
+          -0.0026179938779915526,
+          0.0017453292519944348,
+          0.0019999999999999406
+        ],
+        "residual_rmse_m": 1.8096432715147812e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2559811862171156e-05,
+        "scaled_condition_number": 47.49965103520713,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0024494897427830243,
+        "rotation_vector_error_norm_degrees": 7.15694900826035e-15,
+        "depth_bias_error_m": -5.941427905220564e-17
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002080703025831081,
+          -0.003024987175895975,
+          0.0040077586619132995,
+          0.003536521681380245,
+          -0.0025907513630381925,
+          0.0016885144110648002,
+          0.0019658686590824288
+        ],
+        "residual_rmse_m": 0.0005851674902075967,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2559841109383596e-05,
+        "scaled_condition_number": 47.54503125120808,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 8.483828246866733e-05,
+        "rotation_vector_error_norm_degrees": 0.004465217031785076,
+        "depth_bias_error_m": -3.413134091757126e-05
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004494996273076758,
+          -0.0034391122559778433,
+          0.0030079314505344883,
+          0.003536504059298723,
+          -0.0025907195647362964,
+          0.0016885035865134466,
+          0.001965696145316709
+        ],
+        "residual_rmse_m": 0.0005851674535461005,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2546766568079056e-05,
+        "scaled_condition_number": 47.566881537519784,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002720666459317545,
+        "rotation_vector_error_norm_degrees": 0.004465712360966916,
+        "depth_bias_error_m": -3.4303854683291005e-05
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0016664908149573092,
+          -0.0034392035438825545,
+          0.0030077579260551863,
+          0.0035365779250846265,
+          -0.002590718460726088,
+          0.0016884489546326639,
+          0.001965869347278765
+        ],
+        "residual_rmse_m": 0.0005851674663656219,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.256367027040737e-05,
+        "scaled_condition_number": 47.51308667882854,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.001135197103050012,
+        "rotation_vector_error_norm_degrees": 0.0044705065831234635,
+        "depth_bias_error_m": -3.413065272123497e-05
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0010806448907589232,
+          -0.0020250444402100443,
+          0.0020076388027165017,
+          0.0035366064385395387,
+          -0.002590729796900567,
+          0.0016884251653187898,
+          0.001965988400144121
+        ],
+        "residual_rmse_m": 0.0005851675564626643,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2559044561294654e-05,
+        "scaled_condition_number": 47.50160597090277,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002401094604736338,
+        "rotation_vector_error_norm_degrees": 0.0044722348652116465,
+        "depth_bias_error_m": -3.401159985587897e-05
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0021505154989200615,
+          -0.00296668559242027,
+          0.004207076831150239,
+          0.0034679622208397213,
+          -0.002513216459715273,
+          0.0017725172258003675,
+          0.001750069245434175
+        ],
+        "residual_rmse_m": 0.0005673175105745014,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2564245156065344e-05,
+        "scaled_condition_number": 47.536251104876584,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0002581580507494736,
+        "rotation_vector_error_norm_degrees": 0.006336979152927477,
+        "depth_bias_error_m": -0.00024993075456582496
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004564591662126323,
+          -0.0033810304882682996,
+          0.003206792645928645,
+          0.0034680425086452134,
+          -0.0025134480822100362,
+          0.0017721471995547045,
+          0.0017503519633637295
+        ],
+        "residual_rmse_m": 0.0005673184482159158,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.255116160040646e-05,
+        "scaled_condition_number": 47.55811503339385,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0027113635929160653,
+        "rotation_vector_error_norm_degrees": 0.006318274770351047,
+        "depth_bias_error_m": -0.0002496480366362705
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0017363359351918078,
+          -0.003380886853924743,
+          0.003207130506634904,
+          0.0034679246620365986,
+          -0.002513066966879953,
+          0.0017725594924295116,
+          0.0017500158479261416
+        ],
+        "residual_rmse_m": 0.0005673172793483751,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2568080582838e-05,
+        "scaled_condition_number": 47.50430219321129,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0009182785895755661,
+        "rotation_vector_error_norm_degrees": 0.006346130364551444,
+        "depth_bias_error_m": -0.00024998415207385847
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.001150554752678379,
+          -0.001966613841341152,
+          0.0022071861347252,
+          0.003467886176936712,
+          -0.0025129231070756667,
+          0.0017728057953976105,
+          0.001749960482446463
+        ],
+        "residual_rmse_m": 0.0005673172401800521,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2563461508695374e-05,
+        "scaled_condition_number": 47.49281132244163,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0022368785699332337,
+        "rotation_vector_error_norm_degrees": 0.0063578713514359265,
+        "depth_bias_error_m": -0.000250039517553537
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002060886043827614,
+          -0.0030289942109888845,
+          0.00398787101900917,
+          0.003526874865212776,
+          -0.0025883952751280742,
+          0.001808205676443704,
+          0.0019932927343134844
+        ],
+        "residual_rmse_m": 0.0005766264850383662,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.256000023474477e-05,
+        "scaled_condition_number": 47.543623802685644,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 6.85192438933909e-05,
+        "rotation_vector_error_norm_degrees": 0.004490010681419564,
+        "depth_bias_error_m": -6.70726568651565e-06
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004475196504580988,
+          -0.00344311594407046,
+          0.0029880682335606226,
+          0.0035268426996369205,
+          -0.0025883535408374875,
+          0.0018083389913660347,
+          0.001993095849258922
+        ],
+        "residual_rmse_m": 0.0005766263667707763,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.254692363841682e-05,
+        "scaled_condition_number": 47.56547576044964,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0027105267709632594,
+        "rotation_vector_error_norm_degrees": 0.00449619402148207,
+        "depth_bias_error_m": -6.904150741077891e-06
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0016466489325375178,
+          -0.003443226536536358,
+          0.0029878256697636486,
+          0.003526932974282475,
+          -0.0025883791286597305,
+          0.0018082753638815456,
+          0.0019933379307815672
+        ],
+        "residual_rmse_m": 0.0005766264843722299,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.256382894992773e-05,
+        "scaled_condition_number": 47.511681470583724,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0011600877614888875,
+        "rotation_vector_error_norm_degrees": 0.00449510260663758,
+        "depth_bias_error_m": -6.662069218432796e-06
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0010608576212627788,
+          -0.002029027173421529,
+          0.0019878087722692206,
+          0.0035269317129408713,
+          -0.0025883439771494723,
+          0.0018082237395892087,
+          0.001993355001344119
+        ],
+        "residual_rmse_m": 0.000576626568836412,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.255920638458496e-05,
+        "scaled_condition_number": 47.50019542142524,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002423569717266391,
+        "rotation_vector_error_norm_degrees": 0.004493457398836367,
+        "depth_bias_error_m": -6.644998655881175e-06
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002242090793046918,
+          -0.0030749325104567245,
+          0.004023269599767696,
+          0.003628209700457602,
+          -0.0025362780911345043,
+          0.0015748914135653314,
+          0.0018976024719057686
+        ],
+        "residual_rmse_m": 0.001755502527118453,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.255832021899663e-05,
+        "scaled_condition_number": 47.54890840215528,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0002544883248300038,
+        "rotation_vector_error_norm_degrees": 0.013393843855988762,
+        "depth_bias_error_m": -0.00010239752809423149
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004656543398199672,
+          -0.0034888807254715715,
+          0.003023787912083169,
+          0.0036281568354744717,
+          -0.0025361826989276437,
+          0.0015748589375260754,
+          0.0018970849925568187
+        ],
+        "residual_rmse_m": 0.0017555024170460096,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2545265159344006e-05,
+        "scaled_condition_number": 47.5707063663437,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0028721450574180287,
+        "rotation_vector_error_norm_degrees": 0.013395330300655968,
+        "depth_bias_error_m": -0.00010291500744318135
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.001827881260465045,
+          -0.003489154459412003,
+          0.0030232673575316875,
+          0.0036283783471201115,
+          -0.002536179417412647,
+          0.0015746950585023975,
+          0.0018976045548236061
+        ],
+        "residual_rmse_m": 0.0017555024556671728,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2562146934028275e-05,
+        "scaled_condition_number": 47.5169659437465,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.001105849718779583,
+        "rotation_vector_error_norm_degrees": 0.013409708352588496,
+        "depth_bias_error_m": -0.00010239544517639393
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0012419163719248638,
+          -0.0020751041734049422,
+          0.0020229101022458916,
+          0.003628463829394725,
+          -0.0025362134198105017,
+          0.0015746236998732991,
+          0.0018979616007319476
+        ],
+        "residual_rmse_m": 0.0017555027260254112,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2557508645411115e-05,
+        "scaled_condition_number": 47.50552249456808,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002310629252175664,
+        "rotation_vector_error_norm_degrees": 0.0134148908504582,
+        "depth_bias_error_m": -0.00010203839926805247
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0024517748017080484,
+          -0.0028999495966953235,
+          0.004621449656661874,
+          0.003422507133094054,
+          -0.0023035852664567624,
+          0.0018270658573013633,
+          0.0012499518204274701
+        ],
+        "residual_rmse_m": 0.001701952201536302,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.257153726374325e-05,
+        "scaled_condition_number": 47.522562393508586,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0007747968962411605,
+        "rotation_vector_error_norm_degrees": 0.019018251279831085,
+        "depth_bias_error_m": -0.0007500481795725299
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0048655755426363105,
+          -0.003314557598154845,
+          0.0036205969857327274,
+          0.003422748025416603,
+          -0.002304280299407552,
+          0.0018259553398343336,
+          0.001250800312565743
+        ],
+        "residual_rmse_m": 0.0017019550163182265,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2558455164787244e-05,
+        "scaled_condition_number": 47.54440123162567,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002907647901714962,
+        "rotation_vector_error_norm_degrees": 0.01896209934538811,
+        "depth_bias_error_m": -0.000749199687434257
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002037663479070915,
+          -0.0033141261684726934,
+          0.0036216106870033613,
+          0.0034223943764420646,
+          -0.0023031366933000666,
+          0.001827193102339006,
+          0.00124979154329886
+        ],
+        "residual_rmse_m": 0.0017019515074376546,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.257538279167152e-05,
+        "scaled_condition_number": 47.490606910205024,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0004932263776047754,
+        "rotation_vector_error_norm_degrees": 0.01904571762515506,
+        "depth_bias_error_m": -0.00075020845670114
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0014518934304760054,
+          -0.00189973378843325,
+          0.0026217784508832296,
+          0.003422278657633615,
+          -0.0023027046892707087,
+          0.0018279323901712597,
+          0.0012496244924640558
+        ],
+        "residual_rmse_m": 0.0017019513885472828,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.257076440381159e-05,
+        "scaled_condition_number": 47.479133005354434,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0018467542300806138,
+        "rotation_vector_error_norm_degrees": 0.019080987508818047,
+        "depth_bias_error_m": -0.0007503755075359442
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0021826725559596877,
+          -0.003086950165523736,
+          0.003963625577832579,
+          0.003599286054595793,
+          -0.0025291943350207705,
+          0.0019339107523645,
+          0.001979857619002141
+        ],
+        "residual_rmse_m": 0.0017298794966146322,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2558799155588914e-05,
+        "scaled_condition_number": 47.54468235747301,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0002055545975488363,
+        "rotation_vector_error_norm_degrees": 0.013467346571002958,
+        "depth_bias_error_m": -2.0142380997859033e-05
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004597176849007849,
+          -0.0035008881580946456,
+          0.0029642173409687757,
+          0.00359918944940268,
+          -0.0025290691422048322,
+          0.001934310589823938,
+          0.001979266849823993
+        ],
+        "residual_rmse_m": 0.0017298791419715581,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.254573794719897e-05,
+        "scaled_condition_number": 47.56648531440081,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002840609485425897,
+        "rotation_vector_error_norm_degrees": 0.013485888234001202,
+        "depth_bias_error_m": -2.0733150176007256e-05
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0017683883716778813,
+          -0.0035012199698682064,
+          0.0029634895577525,
+          0.0035994603284910066,
+          -0.0025291458775693653,
+          0.00193411970169467,
+          0.0019799931689918238
+        ],
+        "residual_rmse_m": 0.0017298794946675519,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.25626245418835e-05,
+        "scaled_condition_number": 47.51274661947277,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.001174401678071356,
+        "rotation_vector_error_norm_degrees": 0.013482615872004252,
+        "depth_bias_error_m": -2.0006831008176264e-05
+      }
+    },
+    {
+      "patch": "wide",
+      "ray_half_widths": [
+        0.25,
+        0.2
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0011825872751367607,
+          -0.0020870490707094644,
+          0.0019634387553008037,
+          0.0035994566054636415,
+          -0.0025290404362211796,
+          0.0019339648581796686,
+          0.0019800444890358325
+        ],
+        "residual_rmse_m": 0.0017298797479613239,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.255799566657364e-05,
+        "scaled_condition_number": 47.50128717083902,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0023768097663615273,
+        "rotation_vector_error_norm_degrees": 0.013477683865383908,
+        "depth_bias_error_m": -1.9955510964167564e-05
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002000000000000117,
+          -0.0029999999999998656,
+          0.004000000000000256,
+          0.0034906585039885703,
+          -0.0026179938779915136,
+          0.0017453292519942329,
+          0.001999999999999894
+        ],
+        "residual_rmse_m": 3.3257703080621384e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3050292782645808e-05,
+        "scaled_condition_number": 144.30353669379863,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 3.118584624627537e-16,
+        "rotation_vector_error_norm_degrees": 7.60931732677226e-15,
+        "depth_bias_error_m": -1.0625181290357943e-16
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004414213562372886,
+          -0.003414213562373337,
+          0.0030000000000000764,
+          0.0034906585039887607,
+          -0.002617993877991582,
+          0.0017453292519943717,
+          0.002000000000000134
+        ],
+        "residual_rmse_m": 2.244650085287205e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3045449795735124e-05,
+        "scaled_condition_number": 144.35903921505493,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002645751311064409,
+        "rotation_vector_error_norm_degrees": 8.066026230793521e-15,
+        "depth_bias_error_m": 1.3400738851920835e-16
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0015857864376266951,
+          -0.003414213562373239,
+          0.0030000000000003895,
+          0.0034906585039886527,
+          -0.0026179938779915227,
+          0.0017453292519944176,
+          0.0019999999999999103
+        ],
+        "residual_rmse_m": 2.649724690697293e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3051668171770103e-05,
+        "scaled_condition_number": 144.22097864164473,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0011589416510364677,
+        "rotation_vector_error_norm_degrees": 5.317141509043193e-15,
+        "depth_bias_error_m": -8.977193988179977e-17
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0010000000000001791,
+          -0.0020000000000000057,
+          0.002000000000000087,
+          0.0034906585039886635,
+          -0.00261799387799148,
+          0.001745329251994423,
+          0.0019999999999999875
+        ],
+        "residual_rmse_m": 1.0661301444671104e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3050142917649055e-05,
+        "scaled_condition_number": 144.20868195986955,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0024494897427830317,
+        "rotation_vector_error_norm_degrees": 5.41917559481403e-15,
+        "depth_bias_error_m": -1.2576745200831851e-17
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0021750678401760105,
+          -0.0032432420331631015,
+          0.0041054731096983235,
+          0.003719421202516204,
+          -0.0025116422424883897,
+          0.0016383324759626935,
+          0.001867596381481576
+        ],
+        "residual_rmse_m": 0.0005851214166207039,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3049015665244855e-05,
+        "scaled_condition_number": 144.33859767930485,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.000317710579349582,
+        "rotation_vector_error_norm_degrees": 0.015700648695241848,
+        "depth_bias_error_m": -0.0001324036185184241
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004589560702058615,
+          -0.0036571431452474016,
+          0.0031060618285323398,
+          0.0037194302784392965,
+          -0.002511534856302905,
+          0.0016383632797929942,
+          0.0018670084960545903
+        ],
+        "residual_rmse_m": 0.0005851214160955432,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3044183792102659e-05,
+        "scaled_condition_number": 144.39384832968753,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0028172304125504,
+        "rotation_vector_error_norm_degrees": 0.01570278276709562,
+        "depth_bias_error_m": -0.00013299150394540976
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0017608586405323291,
+          -0.0036574499068700796,
+          0.00310548208741533,
+          0.0037196863123941525,
+          -0.0025115139523613954,
+          0.0016382071204537763,
+          0.001867587156428117
+        ],
+        "residual_rmse_m": 0.0005851213911351635,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3050389361615768e-05,
+        "scaled_condition_number": 144.25603638184796,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0011356017197003349,
+        "rotation_vector_error_norm_degrees": 0.015718986438577557,
+        "depth_bias_error_m": -0.00013241284357188307
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0011748646566787657,
+          -0.002243470478175409,
+          0.0021050450208470435,
+          0.003719801927806933,
+          -0.002511546050277516,
+          0.001638132085343939,
+          0.0018680241648179091
+        ],
+        "residual_rmse_m": 0.0005851214602700419,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3048856139452993e-05,
+        "scaled_condition_number": 144.24393016259458,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0022009179051492534,
+        "rotation_vector_error_norm_degrees": 0.015725482067077513,
+        "depth_bias_error_m": -0.0001319758351820909
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0025039089793454216,
+          -0.002824706363126591,
+          0.004845934909726375,
+          0.003350878910260818,
+          -0.002214869873896429,
+          0.0019361892154939786,
+          0.001112542790483314
+        ],
+        "residual_rmse_m": 0.0005672663324565204,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3055933214098311e-05,
+        "scaled_condition_number": 144.21546200095588,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0010001289867247226,
+        "rotation_vector_error_norm_degrees": 0.026780786710098408,
+        "depth_bias_error_m": -0.000887457209516686
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004917627988175974,
+          -0.003239480985461862,
+          0.0038448753623076238,
+          0.003351181564523082,
+          -0.0022157511607390056,
+          0.0019347639725126604,
+          0.0011135972906450209
+        ],
+        "residual_rmse_m": 0.0005672677127325864,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3051089470409064e-05,
+        "scaled_condition_number": 144.27088917830633,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0029315470101986692,
+        "rotation_vector_error_norm_degrees": 0.026698759462071207,
+        "depth_bias_error_m": -0.0008864027093549792
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0020897840183672503,
+          -0.0032388995628629094,
+          0.003846066159497483,
+          0.003350696391676525,
+          -0.0022143234505269125,
+          0.0019364510143714772,
+          0.0011124122864918779
+        ],
+        "residual_rmse_m": 0.0005672660724935931,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3057315191797101e-05,
+        "scaled_condition_number": 144.13285565241807,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.00029804328266564627,
+        "rotation_vector_error_norm_degrees": 0.02681704063759788,
+        "depth_bias_error_m": -0.0008875877135081222
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.001504107840110457,
+          -0.0018243456474630407,
+          0.00284645816057702,
+          0.0033504637973416477,
+          -0.002213699913713664,
+          0.0019374483041997802,
+          0.0011120214346096295
+        ],
+        "residual_rmse_m": 0.0005672657988918773,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3055795076926227e-05,
+        "scaled_condition_number": 144.12053130226587,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0017200962084076476,
+        "rotation_vector_error_norm_degrees": 0.02687519571290412,
+        "depth_bias_error_m": -0.0008879785653903706
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002122242090835039,
+          -0.0031795185904599506,
+          0.003932769527422301,
+          0.0036532192182481375,
+          -0.002536340541886477,
+          0.0018868212205441909,
+          0.0020479983407809934
+        ],
+        "residual_rmse_m": 0.0005766249113342181,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.304925547963992e-05,
+        "scaled_condition_number": 144.32198092103428,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.00022735432596603496,
+        "rotation_vector_error_norm_degrees": 0.013204561698085647,
+        "depth_bias_error_m": 4.799834078099332e-05
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004536878562246443,
+          -0.0035933208341412583,
+          0.0029336173830168165,
+          0.0036530672921599636,
+          -0.002536087316990237,
+          0.0018873589404357954,
+          0.0020471522958198482
+        ],
+        "residual_rmse_m": 0.0005766249158658035,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3044422693463616e-05,
+        "scaled_condition_number": 144.37725258890325,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002815129541888892,
+        "rotation_vector_error_norm_degrees": 0.01322251184584791,
+        "depth_bias_error_m": 4.7152295819848176e-05
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0017079523610908972,
+          -0.003593787717932085,
+          0.0029326292572384397,
+          0.0036534574953223866,
+          -0.0025363078249644256,
+          0.0018869655274169335,
+          0.002048138032750828
+        ],
+        "residual_rmse_m": 0.0005766249039468944,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3050628549159122e-05,
+        "scaled_condition_number": 144.23944676383599,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0012558487089863732,
+        "rotation_vector_error_norm_degrees": 0.013219932740261623,
+        "depth_bias_error_m": 4.8138032750827744e-05
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0011220735671656303,
+          -0.0021797138738289135,
+          0.0019324103058960937,
+          0.0036535174256979853,
+          -0.002536276197178034,
+          0.0018867155825027112,
+          0.002048357191034222
+        ],
+        "residual_rmse_m": 0.0005766249202018447,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3049098350745579e-05,
+        "scaled_condition_number": 144.2272778571492,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002391349262115999,
+        "rotation_vector_error_norm_degrees": 0.01321421323728083,
+        "depth_bias_error_m": 4.8357191034222036e-05
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0025250145555234496,
+          -0.003729510803039143,
+          0.004315770995329538,
+          0.004176574812022357,
+          -0.0022990992563153884,
+          0.001424367647885337,
+          0.001603208574070507
+        ],
+        "residual_rmse_m": 0.0017553643533792733,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3046453196503625e-05,
+        "scaled_condition_number": 144.40904646802394,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0009526476876336329,
+        "rotation_vector_error_norm_degrees": 0.047079956762032464,
+        "depth_bias_error_m": -0.00039679142592949313
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004940065509583989,
+          -0.004142787923567615,
+          0.0033175363433810734,
+          0.004176601764647066,
+          -0.0022987772690279424,
+          0.0014244598315864183,
+          0.0016014458180786172
+        ],
+        "residual_rmse_m": 0.0017553643515190753,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3041643505480543e-05,
+        "scaled_condition_number": 144.4637937706202,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.003227337305194953,
+        "rotation_vector_error_norm_degrees": 0.047086345972500554,
+        "depth_bias_error_m": -0.00039855418192138287
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0021108138569877837,
+          -0.0041437071056598385,
+          0.0033157968236659243,
+          0.004177369373881035,
+          -0.0022987148389620755,
+          0.0014239916512541419,
+          0.0016031816588426722
+        ],
+        "residual_rmse_m": 0.001755364277056109,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3047823483948021e-05,
+        "scaled_condition_number": 144.32647881479303,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0013373405104695484,
+        "rotation_vector_error_norm_degrees": 0.047134921654942805,
+        "depth_bias_error_m": -0.0003968183411573278
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.001524405041256516,
+          -0.00273019504598074,
+          0.0023144867734675133,
+          0.004177715767526769,
+          -0.0022988109724934665,
+          0.0014237667243282054,
+          0.0016044915632484058
+        ],
+        "residual_rmse_m": 0.0017553644846797307,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3046274363044208e-05,
+        "scaled_condition_number": 144.31475325685778,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0017719876170028688,
+        "rotation_vector_error_norm_degrees": 0.04715438719597431,
+        "depth_bias_error_m": -0.00039550843675159424
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0035141857549948197,
+          -0.002473042374951887,
+          0.00653928286668364,
+          0.0030712404284655966,
+          -0.0014082241271047363,
+          0.0023196871230862495,
+          -0.0006644968681927835
+        ],
+        "residual_rmse_m": 0.0017017974514298042,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3067207316492292e-05,
+        "scaled_condition_number": 144.03967768115376,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0030030651535154318,
+        "rotation_vector_error_norm_degrees": 0.08040501380023662,
+        "depth_bias_error_m": -0.0026644968681927834
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.00592691398198818,
+          -0.0028889402720302495,
+          0.005536115396823058,
+          0.003072144897995364,
+          -0.0014108635931013363,
+          0.002315412493687783,
+          -0.0006613411127903048
+        ],
+        "residual_rmse_m": 0.001701801595806078,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3062362183308823e-05,
+        "scaled_condition_number": 144.09495148745557,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.004218132074445729,
+        "rotation_vector_error_norm_degrees": 0.08015906984100861,
+        "depth_bias_error_m": -0.002661341112790305
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.003100240060282542,
+          -0.002887194157057811,
+          0.005539674680324716,
+          0.00307069361691579,
+          -0.001406585337281129,
+          0.002320476623054307,
+          -0.0006648876707804468
+        ],
+        "residual_rmse_m": 0.0017017966700420514,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3068602415468422e-05,
+        "scaled_condition_number": 143.95697580577468,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0018957456236756679,
+        "rotation_vector_error_norm_degrees": 0.08051383599764082,
+        "depth_bias_error_m": -0.0026648876707804467
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002514788988153301,
+          -0.0014719566645376582,
+          0.004540853334327445,
+          0.0030699957400987343,
+          -0.001404713666091137,
+          0.002323469650724511,
+          -0.0006660643703193026
+        ],
+        "residual_rmse_m": 0.0017017958451333143,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.306709256816733e-05,
+        "scaled_condition_number": 143.94459729460127,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0017007193967929846,
+        "rotation_vector_error_norm_degrees": 0.08068849621786431,
+        "depth_bias_error_m": -0.0026660643703193027
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0023668191166432008,
+          -0.0035383180774525916,
+          0.0037981445340409606,
+          0.003978219213883673,
+          -0.002373006320563506,
+          0.00216944058948966,
+          0.0021440401880608376
+        ],
+        "residual_rmse_m": 0.001729874785894928,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3047179126942224e-05,
+        "scaled_condition_number": 144.35898613521144,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.000681973786875048,
+        "rotation_vector_error_norm_degrees": 0.03959651487857678,
+        "depth_bias_error_m": 0.00014404018806083753
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004782302088010385,
+          -0.00395129674371395,
+          0.0028006900064954936,
+          0.003977762022546008,
+          -0.002372246481043741,
+          0.0021710530664366574,
+          0.002141500277939031
+        ],
+        "residual_rmse_m": 0.0017298747998870745,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3042366751391736e-05,
+        "scaled_condition_number": 144.41379586279118,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0031756125179353183,
+        "rotation_vector_error_norm_degrees": 0.039650268565860514,
+        "depth_bias_error_m": 0.00014150027793903086
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0019523772042477525,
+          -0.003952697999597287,
+          0.0027977234546590884,
+          0.003978933838703577,
+          -0.002372908069577818,
+          0.0021698726636630904,
+          0.002144459334621452
+        ],
+        "residual_rmse_m": 0.0017298747637858713,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.304854755455536e-05,
+        "scaled_condition_number": 144.27649976538663,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.001534721571031309,
+        "rotation_vector_error_norm_degrees": 0.03964259187396741,
+        "depth_bias_error_m": 0.00014445933462145207
+      }
+    },
+    {
+      "patch": "medium",
+      "ray_half_widths": [
+        0.08,
+        0.06
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0013663131575687786,
+          -0.002538904268208407,
+          0.0017970654013965105,
+          0.003979114275732544,
+          -0.002372813363232736,
+          0.00216912292601286,
+          0.0021451180159768658
+        ],
+        "residual_rmse_m": 0.0017298748123180773,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 1.3047007456445767e-05,
+        "scaled_condition_number": 144.2645866108743,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0023381807316525376,
+        "rotation_vector_error_norm_degrees": 0.039625472970479185,
+        "depth_bias_error_m": 0.00014511801597686573
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.001999999999999917,
+          -0.002999999999999683,
+          0.004000000000000697,
+          0.003490658503988321,
+          -0.0026179938779915743,
+          0.0017453292519939107,
+          0.001999999999999531
+        ],
+        "residual_rmse_m": 1.8047457164683736e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.202275708108547e-06,
+        "scaled_condition_number": 445.43448456857794,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 7.697167160611306e-16,
+        "rotation_vector_error_norm_degrees": 3.119182795448588e-14,
+        "depth_bias_error_m": -4.692427002517263e-16
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004414213562372848,
+          -0.0034142135623732362,
+          0.0029999999999998877,
+          0.00349065850398871,
+          -0.0026179938779916285,
+          0.001745329251994435,
+          0.002000000000000245
+        ],
+        "residual_rmse_m": 1.4212155370486327e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.20078386298096e-06,
+        "scaled_condition_number": 445.5935896959553,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.00264575131106443,
+        "rotation_vector_error_norm_degrees": 1.0210052997840835e-14,
+        "depth_bias_error_m": 2.45029690981724e-16
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0015857864376268573,
+          -0.003414213562373112,
+          0.002999999999999898,
+          0.0034906585039885395,
+          -0.002617993877991503,
+          0.0017453292519941028,
+          0.00200000000000025
+        ],
+        "residual_rmse_m": 1.1453326336210626e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.202713510830874e-06,
+        "scaled_condition_number": 445.1845905642486,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0011589416510367884,
+        "rotation_vector_error_norm_degrees": 1.4703390162084027e-14,
+        "depth_bias_error_m": 2.498001805406602e-16
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0010000000000001666,
+          -0.0020000000000002798,
+          0.0019999999999999146,
+          0.0034906585039888665,
+          -0.0026179938779914698,
+          0.0017453292519944157,
+          0.0020000000000001427
+        ],
+        "residual_rmse_m": 3.153803205659593e-16,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2021921289642306e-06,
+        "scaled_condition_number": 445.15531226345064,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0024494897427830655,
+        "rotation_vector_error_norm_degrees": 1.2935861888580088e-14,
+        "depth_bias_error_m": 1.4268100589909238e-16
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002459828032518884,
+          -0.0038556821764268645,
+          0.004386068195076437,
+          0.004227840553390986,
+          -0.0022752020181546744,
+          0.001491310674571062,
+          0.0015852471988467643
+        ],
+        "residual_rmse_m": 0.0005851082677910556,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.201011791677803e-06,
+        "scaled_condition_number": 445.7749037339693,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0010453145257741236,
+        "rotation_vector_error_norm_degrees": 0.04880137777137152,
+        "depth_bias_error_m": -0.00041475280115323577
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004874910362628427,
+          -0.0042689323053888666,
+          0.0033878944151937863,
+          0.004227903150088733,
+          -0.002274879475773781,
+          0.0014915143495589245,
+          0.001583423529812355
+        ],
+        "residual_rmse_m": 0.000585108281917667,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.199531106387061e-06,
+        "scaled_condition_number": 445.93159284586017,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.003201557751432695,
+        "rotation_vector_error_norm_degrees": 0.04880844367446056,
+        "depth_bias_error_m": -0.000416576470187645
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0020456321964753645,
+          -0.004269865526816823,
+          0.00338610998986422,
+          0.004228684752506913,
+          -0.0022747855223565106,
+          0.0014910112939670998,
+          0.0015852042543510693
+        ],
+        "residual_rmse_m": 0.0005851082426679543,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.201448031915604e-06,
+        "scaled_condition_number": 445.5249533230376,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0014112057603685728,
+        "rotation_vector_error_norm_degrees": 0.04885796074226679,
+        "depth_bias_error_m": -0.00041479574564893076
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0014591880482066266,
+          -0.002856407756300418,
+          0.0023847127902494577,
+          0.004229060256594677,
+          -0.0022748813290183367,
+          0.0014907463294967687,
+          0.0015866013073419505
+        ],
+        "residual_rmse_m": 0.000585108300587382,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.200918363170967e-06,
+        "scaled_condition_number": 445.4975339094578,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0017094587066194173,
+        "rotation_vector_error_norm_degrees": 0.048878902698910334,
+        "depth_bias_error_m": -0.00041339869265804956
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0034672097398314,
+          -0.00245773084036745,
+          0.006522709157311323,
+          0.0030434483336430314,
+          -0.0014151462461635498,
+          0.002294264663103707,
+          -0.0005613083898659626
+        ],
+        "residual_rmse_m": 0.0005673067619079546,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2078498527538955e-06,
+        "scaled_condition_number": 444.601853248571,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0029683028407706514,
+        "rotation_vector_error_norm_degrees": 0.07997163892845985,
+        "depth_bias_error_m": -0.0025613083898659624
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.005879796662079332,
+          -0.0028736481397953362,
+          0.005519348899365194,
+          0.0030443403759049872,
+          -0.0014178989467046824,
+          0.002289891185803619,
+          -0.0005579599829062777
+        ],
+        "residual_rmse_m": 0.0005673080944348396,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2063567758745425e-06,
+        "scaled_condition_number": 444.7604078665123,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.004168597846957814,
+        "rotation_vector_error_norm_degrees": 0.07972096579224319,
+        "depth_bias_error_m": -0.0025579599829062775
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.003053295518177596,
+          -0.0028718771619064202,
+          0.00552313061288647,
+          0.0030428645952671816,
+          -0.001413488038238171,
+          0.0022950313296340947,
+          -0.0005617287636013135
+        ],
+        "residual_rmse_m": 0.0005673065130738971,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2082942325464754e-06,
+        "scaled_condition_number": 444.35148573170954,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.001856279551728693,
+        "rotation_vector_error_norm_degrees": 0.08008150729097643,
+        "depth_bias_error_m": -0.0025617287636013134
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.002467859072146874,
+          -0.001456641143128115,
+          0.0045243644355681826,
+          0.0030421737098112476,
+          -0.0014116138797668001,
+          0.00229806256067258,
+          -0.0005629607605247213
+        ],
+        "residual_rmse_m": 0.0005673062413826781,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.207778069568766e-06,
+        "scaled_condition_number": 444.32186718859424,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0016958203719037474,
+        "rotation_vector_error_norm_degrees": 0.08025511731739196,
+        "depth_bias_error_m": -0.0025629607605247213
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0023415158745970807,
+          -0.003613755467714407,
+          0.0037912646696102114,
+          0.004014311993701845,
+          -0.002355656007733816,
+          0.002183436631954683,
+          0.002188367554785335
+        ],
+        "residual_rmse_m": 0.0005766154366586255,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.201276622843576e-06,
+        "scaled_condition_number": 445.6089548141243,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0007327341297524454,
+        "rotation_vector_error_norm_degrees": 0.0419071613700401,
+        "depth_bias_error_m": 0.0001883675547853349
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.004757016470875804,
+          -0.004026753008747985,
+          0.0027938083163159804,
+          0.0040139106266464065,
+          -0.0023548974069817668,
+          0.0021850724453830973,
+          0.0021858292826308265
+        ],
+        "residual_rmse_m": 0.000576615446572469,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.1997950976599804e-06,
+        "scaled_condition_number": 445.76585974655853,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.003179663494686506,
+        "rotation_vector_error_norm_degrees": 0.04196252351085947,
+        "depth_bias_error_m": 0.0001858292826308265
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 5,
+        "parameters": [
+          0.001927070097113823,
+          -0.004028131787672064,
+          0.0027908461955147047,
+          0.004015066416937273,
+          -0.0023555415816978917,
+          0.0021838908562775597,
+          0.0021887840264027784
+        ],
+        "residual_rmse_m": 0.0005766154284400244,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2017122005962605e-06,
+        "scaled_condition_number": 445.35927564339,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0015888444437571617,
+        "rotation_vector_error_norm_degrees": 0.041956050681944045,
+        "depth_bias_error_m": 0.0001887840264027784
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0013410039967565804,
+          -0.002614334336292242,
+          0.0017901820847670642,
+          0.004015232441932058,
+          -0.002355426193207203,
+          0.0021831161863373927,
+          0.002189448985555239
+        ],
+        "residual_rmse_m": 0.0005766154432506861,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.201185649889854e-06,
+        "scaled_condition_number": 445.3312292499976,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.002338013891091835,
+        "rotation_vector_error_norm_degrees": 0.041938671358703224,
+        "depth_bias_error_m": 0.00018944898555523903
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0033775941252384184,
+          -0.00556570752003878,
+          0.005150384861369043,
+          0.005699312103025465,
+          -0.001591350716578863,
+          0.0009833092406412803,
+          0.0007611835155711788
+        ],
+        "residual_rmse_m": 0.0017553250008548096,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.198453325213592e-06,
+        "scaled_condition_number": 446.4663761970572,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0031311349350582164,
+        "rotation_vector_error_norm_degrees": 0.1462201471942583,
+        "depth_bias_error_m": -0.0012388164844288213
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 5,
+        "parameters": [
+          0.0057944095679111135,
+          -0.005977037947022006,
+          0.004155856844277291,
+          0.005699496611186299,
+          -0.0015903842939735324,
+          0.0009839173248419224,
+          0.0007557200145866031
+        ],
+        "residual_rmse_m": 0.0017553250423557709,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.196994835558715e-06,
+        "scaled_condition_number": 446.61824379572573,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.004825410890584601,
+        "rotation_vector_error_norm_degrees": 0.14624118198586217,
+        "depth_bias_error_m": -0.001244279985413397
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 6,
+        "parameters": [
+          0.0029634317352464088,
+          -0.0059798291531447155,
+          0.0041504983044982555,
+          0.005701838709369027,
+          -0.0015901059081500177,
+          0.0009824112601619728,
+          0.0007610630976668214
+        ],
+        "residual_rmse_m": 0.0017553249257542948,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.198886370395602e-06,
+        "scaled_condition_number": 446.2163169934276,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0031353201160436404,
+        "rotation_vector_error_norm_degrees": 0.14638948822782674,
+        "depth_bias_error_m": -0.0012389369023331786
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0023756737253660697,
+          -0.004567876239716503,
+          0.0031463152076605743,
+          0.005702962336033859,
+          -0.0015903925658884237,
+          0.0009816179741669504,
+          0.0007652460106412317
+        ],
+        "residual_rmse_m": 0.0017553251001309596,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.198340205008926e-06,
+        "scaled_condition_number": 446.192612124282,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0018243202503040936,
+        "rotation_vector_error_norm_degrees": 0.1464521775036452,
+        "depth_bias_error_m": -0.0012347539893587684
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 7,
+        "parameters": [
+          0.006423434722114083,
+          -0.001364440715526225,
+          0.01157954242625377,
+          0.0021493726195400964,
+          0.0009941657888850673,
+          0.003407353158641851,
+          -0.005701268899508685
+        ],
+        "residual_rmse_m": 0.0017019159571367844,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.218972963505481e-06,
+        "scaled_condition_number": 442.94743785469916,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.008926997944730007,
+        "rotation_vector_error_norm_degrees": 0.2404312016093884,
+        "depth_bias_error_m": -0.007701268899508685
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "stalled",
+        "iterations": 6,
+        "parameters": [
+          0.008832754636010002,
+          -0.0017837715051473616,
+          0.010569572220653998,
+          0.002152014400530822,
+          0.0009859496655419057,
+          0.0033942405989063474,
+          -0.005691302431251154
+        ],
+        "residual_rmse_m": 0.001701919964346722,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.217477859160863e-06,
+        "scaled_condition_number": 443.1048076344112,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.009556412864145018,
+        "rotation_vector_error_norm_degrees": 0.23968055056121176,
+        "depth_bias_error_m": -0.007691302431251154
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 6,
+        "parameters": [
+          0.006010137943884077,
+          -0.0017784473619380792,
+          0.010580787131369179,
+          0.002147630741323373,
+          0.0009991362381681756,
+          0.003409689211369356,
+          -0.0057025217813812465
+        ],
+        "residual_rmse_m": 0.001701915206263682,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.2194303393565516e-06,
+        "scaled_condition_number": 442.69615277469074,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.007802573706472054,
+        "rotation_vector_error_norm_degrees": 0.24076125553390937,
+        "depth_bias_error_m": -0.0077025217813812465
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "stalled",
+        "iterations": 7,
+        "parameters": [
+          0.005425440253917203,
+          -0.00036114440427531275,
+          0.009584504090356214,
+          0.002145560180663057,
+          0.0010047663535039644,
+          0.003418791381490189,
+          -0.005706246902053301
+        ],
+        "residual_rmse_m": 0.0017019143803622208,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.218924553858222e-06,
+        "scaled_condition_number": 442.6658900651109,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.007062852520295829,
+        "rotation_vector_error_norm_degrees": 0.24128365507107766,
+        "depth_bias_error_m": -0.007706246902053301
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "none",
+      "plane_offset_errors_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 7,
+        "parameters": [
+          0.0030253419162519636,
+          -0.004838908059821951,
+          0.003371876354231404,
+          0.0050605118674322686,
+          -0.0018307545725298315,
+          0.003056280185138175,
+          0.002565790605251474
+        ],
+        "residual_rmse_m": 0.001729846474980028,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.199270760900944e-06,
+        "scaled_condition_number": 445.9617000289807,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0021971454690290788,
+        "rotation_vector_error_norm_degrees": 0.1255650786900928,
+        "depth_bias_error_m": 0.000565790605251474
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "independent_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        -0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.005443424435394292,
+          -0.005249463857171691,
+          0.002379527879583007,
+          0.005059293563584952,
+          -0.0018284759072297648,
+          0.003061183487520466,
+          0.0025581563614815706
+        ],
+        "residual_rmse_m": 0.001729846505903705,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.197809918072241e-06,
+        "scaled_condition_number": 446.1141962095216,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.00442076796270071,
+        "rotation_vector_error_norm_degrees": 0.12573032313134777,
+        "depth_bias_error_m": 0.0005581563614815706
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "common_normal_mm",
+      "plane_offset_errors_m": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 5,
+        "parameters": [
+          0.002610432757507406,
+          -0.005253606831271445,
+          0.0023706172561153986,
+          0.005062773563869823,
+          -0.0018304107342693124,
+          0.0030576348135561674,
+          0.002567041672062534
+        ],
+        "residual_rmse_m": 0.0017298464504848223,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.199701864885635e-06,
+        "scaled_condition_number": 445.7124512457301,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0028471494564669994,
+        "rotation_vector_error_norm_degrees": 0.12571141698172464,
+        "depth_bias_error_m": 0.000567041672062534
+      }
+    },
+    {
+      "patch": "narrow",
+      "ray_half_widths": [
+        0.025,
+        0.02
+      ],
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "plane_offset_errors_m": [
+        0.002,
+        0.0021213203435596424,
+        0.0007071067811865475
+      ],
+      "fit": {
+        "status": "converged",
+        "iterations": 4,
+        "parameters": [
+          0.0020238016782787344,
+          -0.003840648172090291,
+          0.0013686129213184735,
+          0.005063277873636971,
+          -0.001830066606079212,
+          0.003055310531261472,
+          0.0025690486980202345
+        ],
+        "residual_rmse_m": 0.0017298464942524967,
+        "rank": 7,
+        "minimum_singular_value_per_sqrt_sample": 4.199164967754307e-06,
+        "scaled_condition_number": 445.6868722033904,
+        "calibration_certified": false
+      },
+      "scoring_only": {
+        "translation_error_norm_m": 0.0027625086112046293,
+        "rotation_vector_error_norm_degrees": 0.12565961165676323,
+        "depth_bias_error_m": 0.0005690486980202344
+      }
+    }
+  ],
+  "parameters": {
+    "samples_per_plane": 441,
+    "max_iterations": 20,
+    "max_backtracks": 12,
+    "translation_and_bias_limit_m": 0.05,
+    "rotation_component_limit_degrees": 5,
+    "relative_rank_threshold": 1e-07,
+    "fixed_seeds": [
+      73,
+      91,
+      117
+    ]
+  },
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "calibration_certified": false,
+  "limitations": [
+    "finite ray patches with exact correspondence; no physical occlusion or registration uncertainty",
+    "same 441 samples per plane across patch widths, isolates spatial extent rather than pixel count",
+    "plane normal errors are not included; offsets only",
+    "error norms are scoring-only; low residual is not proof of correct extrinsics",
+    "all fits including stalled/limited results retained; no online correction"
+  ]
+}

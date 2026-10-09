@@ -489,3 +489,10 @@ multiplane-reference-audit:
 
 multiplane-reference-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_multiplane_reference.py -v
+
+.PHONY: reference-fit-audit reference-fit-test
+reference-fit-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_reference_fit.py
+
+reference-fit-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_fit.py -v
