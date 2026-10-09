@@ -433,3 +433,10 @@ directional-envelope-audit:
 
 directional-envelope-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_directional_envelope.py -v
+
+.PHONY: plane-groups-audit plane-groups-test
+plane-groups-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_plane_groups.py
+
+plane-groups-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_plane_groups.py -v

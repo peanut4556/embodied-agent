@@ -1,0 +1,3222 @@
+{
+  "status": "complete",
+  "script_sha256": "1836cf9d71cd56884e2649ee3b95b5877d27cb2164b97ffbee8ea299e8363626",
+  "implementation_sha256": "ea19b852befc1103cb2d53e3bd1a88949fb94841fa7cfd9fd6b1f9f75225fedc",
+  "source_report_sha256": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2",
+  "source_sha256": "644e4bf3f2f59ff6a36f0510f697cd0fecdea2e189d2975224db696858531051",
+  "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+  "group": "train",
+  "parameters": {
+    "seed": 73,
+    "ransac_trials": 256,
+    "max_groups": 3,
+    "inlier_threshold_m": 0.0015,
+    "minimum_points": 30,
+    "minimum_tangent_span_m": 0.01,
+    "maximum_residual_m": 0.002
+  },
+  "summary": {
+    "cases": 54,
+    "accepted_groups": 66,
+    "unknown_cases": 18,
+    "by_depth_perturbation": {
+      "none": {
+        "accepted_groups": 18,
+        "normal_error_max_degrees": 0.28510624961203906,
+        "groups_below_95_percent_dominant": 2
+      },
+      "uniform_2mm": {
+        "accepted_groups": 30,
+        "normal_error_max_degrees": 12.23780031056027,
+        "groups_below_95_percent_dominant": 3
+      },
+      "bias_6mm": {
+        "accepted_groups": 18,
+        "normal_error_max_degrees": 0.39755872008517473,
+        "groups_below_95_percent_dominant": 2
+      }
+    }
+  },
+  "cases": [
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 561,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -4.827143082472171e-27,
+              1.0
+            ],
+            "center": [
+              0.29600021176430447,
+              0.0002883441794367474,
+              0.049985361099242696
+            ],
+            "tangent_spans_m": [
+              0.06350499123608586,
+              0.060743904660603865
+            ],
+            "residual_rmse_m": 4.2327252813834093e-16,
+            "residual_max_m": 4.232725281384525e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                561
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 561
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 561,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.020221605767702912,
+              -0.0005244752247537399,
+              0.999795384859279
+            ],
+            "center": [
+              0.2954470733032578,
+              0.0005787151496883991,
+              0.050253011617395205
+            ],
+            "tangent_spans_m": [
+              0.06335283428901822,
+              0.06064957001552301
+            ],
+            "residual_rmse_m": 0.0008551280400441508,
+            "residual_max_m": 0.0015384938024515938,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                432
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 1.1590813531345314
+            },
+            "point_count": 432
+          },
+          {
+            "normal": [
+              0.01082144837465958,
+              0.0014147932833350335,
+              0.999940445534153
+            ],
+            "center": [
+              0.29323607562902465,
+              -0.0024003066016606203,
+              0.04837365284394689
+            ],
+            "tangent_spans_m": [
+              0.052647338609023736,
+              0.05027515426271158
+            ],
+            "residual_rmse_m": 0.0002739193019421842,
+            "residual_max_m": 0.0005793158673227203,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                89
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.6253122727562578
+            },
+            "point_count": 89
+          },
+          {
+            "normal": [
+              0.0019735467690567983,
+              -0.0023414552806722763,
+              0.9999953113391676
+            ],
+            "center": [
+              0.3081595242841473,
+              0.003120741058294661,
+              0.05178916752338405
+            ],
+            "tangent_spans_m": [
+              0.046033138141513094,
+              0.027254749188695727
+            ],
+            "residual_rmse_m": 0.00015609155592300207,
+            "residual_max_m": 0.00031014043765711615,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                40
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.17545356984612584
+            },
+            "point_count": 40
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 561,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -4.619330052849906e-27,
+              1.0
+            ],
+            "center": [
+              0.2958749961960722,
+              0.0002898485752222451,
+              0.0439853191375728
+            ],
+            "tangent_spans_m": [
+              0.06383631972470073,
+              0.061060827562757256
+            ],
+            "residual_rmse_m": 3.95516952522712e-16,
+            "residual_max_m": 3.9551695252281935e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                561
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 561
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 254,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              1.9694331385639256e-27,
+              1.0
+            ],
+            "center": [
+              0.3087397844065096,
+              0.0007345317597419179,
+              0.04998536109924298
+            ],
+            "tangent_spans_m": [
+              0.04649628856798184,
+              0.021255210686785913
+            ],
+            "residual_rmse_m": 1.3877787807814457e-16,
+            "residual_max_m": 1.3877787807818808e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                254
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 254
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 254,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.04212771563151808,
+              0.007527699914677166,
+              0.9990838750123356
+            ],
+            "center": [
+              0.30905111983198497,
+              0.0002715898898712153,
+              0.05005848739236434
+            ],
+            "tangent_spans_m": [
+              0.046399819174378035,
+              0.02108488400323033
+            ],
+            "residual_rmse_m": 0.000867988895706913,
+            "residual_max_m": 0.0016849832981502802,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                187
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.452721036242592
+            },
+            "point_count": 187
+          },
+          {
+            "normal": [
+              0.09018011519882796,
+              -0.08402600552773812,
+              0.9923745145950587
+            ],
+            "center": [
+              0.30832972592990965,
+              0.0004423842739978724,
+              0.049325795431394794
+            ],
+            "tangent_spans_m": [
+              0.045938377814792306,
+              0.022270208722155696
+            ],
+            "residual_rmse_m": 0.0008453377580613321,
+            "residual_max_m": 0.0015153730249683748,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                37
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 7.08023609044091
+            },
+            "point_count": 37
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 30
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 254,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -2.022297324807356e-27,
+              1.0
+            ],
+            "center": [
+              0.3086810357925587,
+              0.0007383640773764507,
+              0.04398531913757313
+            ],
+            "tangent_spans_m": [
+              0.04673887650819836,
+              0.02136610680211425
+            ],
+            "residual_rmse_m": 6.938893903907228e-17,
+            "residual_max_m": 6.938893903912018e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                254
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 254
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              2.8132779670940554e-26,
+              1.0
+            ],
+            "center": [
+              0.2956896153571245,
+              0.0001247277799212964,
+              0.049985361099242696
+            ],
+            "tangent_spans_m": [
+              0.052093196587727986,
+              0.050134364324357306
+            ],
+            "residual_rmse_m": 4.2327252813834093e-16,
+            "residual_max_m": 4.2327252813897956e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                549
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 549
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 555,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0030916109974795792,
+              -0.019785814455894835,
+              0.9997994616360609
+            ],
+            "center": [
+              0.29635260188863105,
+              0.0002547047299992723,
+              0.04975313811466572
+            ],
+            "tangent_spans_m": [
+              0.04864403764783955,
+              0.047858121993335445
+            ],
+            "residual_rmse_m": 0.0008870824839777809,
+            "residual_max_m": 0.0015287291785942602,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                435
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 1.1474760294650983
+            },
+            "point_count": 435
+          },
+          {
+            "normal": [
+              0.0007958334155485235,
+              -0.009742885563285581,
+              0.9999522202735864
+            ],
+            "center": [
+              0.2954173222633181,
+              -0.005481765828071641,
+              0.05158286037215274
+            ],
+            "tangent_spans_m": [
+              0.05729353333719687,
+              0.05186290145007551
+            ],
+            "residual_rmse_m": 0.00027077139576894913,
+            "residual_max_m": 0.0005384254527019754,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                83
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.5600943462433876
+            },
+            "point_count": 83
+          },
+          {
+            "normal": [
+              0.0008693632856146655,
+              -0.007942395130974243,
+              0.999968080774112
+            ],
+            "center": [
+              0.29230721379180746,
+              0.011631048312403594,
+              0.04822096051396546
+            ],
+            "tangent_spans_m": [
+              0.04816632611230791,
+              0.03391903661765726
+            ],
+            "residual_rmse_m": 0.00014136513265389404,
+            "residual_max_m": 0.00033421603500202084,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                37
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.45778858631981134
+            },
+            "point_count": 37
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -1.317667523894721e-26,
+              1.0
+            ],
+            "center": [
+              0.2951453903849157,
+              0.00012537852982307906,
+              0.04398531913757281
+            ],
+            "tangent_spans_m": [
+              0.052364985619685556,
+              0.050395933420517056
+            ],
+            "residual_rmse_m": 3.885780586188048e-16,
+            "residual_max_m": 3.8857805861910875e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                549
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 549
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -3.0884000806876832e-27,
+              1.0
+            ],
+            "center": [
+              0.30861133098309285,
+              0.0002889263762733835,
+              0.049985361099243016
+            ],
+            "tangent_spans_m": [
+              0.04588476141842483,
+              0.018444501931453035
+            ],
+            "residual_rmse_m": 1.0408340855860844e-16,
+            "residual_max_m": 1.040834085586798e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                237
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 237
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 243,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.06557448796744084,
+              -0.005298969548394483,
+              0.9978336070956586
+            ],
+            "center": [
+              0.3088535431815911,
+              -0.0007410568657427746,
+              0.0498538196402252
+            ],
+            "tangent_spans_m": [
+              0.04603769283960266,
+              0.020433567844481207
+            ],
+            "residual_rmse_m": 0.0008366547260478081,
+            "residual_max_m": 0.0014842199979950023,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                189
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 3.772112858986215
+            },
+            "point_count": 189
+          },
+          {
+            "normal": [
+              -0.21188161810285963,
+              0.0061063307313760085,
+              0.9772762621874701
+            ],
+            "center": [
+              0.30898476005374764,
+              0.0035327942994214908,
+              0.049902857181637755
+            ],
+            "tangent_spans_m": [
+              0.04384604560133703,
+              0.01887266924131249
+            ],
+            "residual_rmse_m": 0.0006727429375537549,
+            "residual_max_m": 0.0013503294141944512,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                43
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 12.23780031056027
+            },
+            "point_count": 43
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 11
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -1.8553640715533598e-27,
+              1.0
+            ],
+            "center": [
+              0.30813452327093466,
+              0.0002904338095901719,
+              0.04398531913757317
+            ],
+            "tangent_spans_m": [
+              0.04612415880050939,
+              0.018540733563475208
+            ],
+            "residual_rmse_m": 2.7755575615628914e-17,
+            "residual_max_m": 2.7755575615672024e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                237
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 237
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              6.8004467550760285e-28,
+              1.0
+            ],
+            "center": [
+              0.2962976719637425,
+              0.0001247277799212964,
+              0.049985361099242696
+            ],
+            "tangent_spans_m": [
+              0.05209319658772801,
+              0.05013436432435734
+            ],
+            "residual_rmse_m": 4.232725281383409e-16,
+            "residual_max_m": 4.2327252813835636e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                549
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 549
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0004972751449155611,
+              -0.007523743819290798,
+              0.9999715725941273
+            ],
+            "center": [
+              0.2960124858898374,
+              0.0004962940036317561,
+              0.04966587505752196
+            ],
+            "tangent_spans_m": [
+              0.052217561475550345,
+              0.05075438253423693
+            ],
+            "residual_rmse_m": 0.000851928556236391,
+            "residual_max_m": 0.0015520561623709518,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                417
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.4320234036944815
+            },
+            "point_count": 417
+          },
+          {
+            "normal": [
+              -0.003571016564180247,
+              -0.001594945616717247,
+              0.9999923519653429
+            ],
+            "center": [
+              0.2953766812935735,
+              -0.0025021760977426656,
+              0.051652744973060015
+            ],
+            "tangent_spans_m": [
+              0.04837503039289458,
+              0.051508699393277874
+            ],
+            "residual_rmse_m": 0.0002099846135496338,
+            "residual_max_m": 0.00043615132730033773,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                101
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.22408502290524152
+            },
+            "point_count": 101
+          },
+          {
+            "normal": [
+              -0.0001911343949827717,
+              -0.0048468188818597225,
+              0.999988235837987
+            ],
+            "center": [
+              0.3030373089439179,
+              0.0036868900001849583,
+              0.04813888611332058
+            ],
+            "tangent_spans_m": [
+              0.03988988925120762,
+              0.0416922913375134
+            ],
+            "residual_rmse_m": 9.357792196133382e-05,
+            "residual_max_m": 0.00020574173986393374,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                31
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.2779192022309481
+            },
+            "point_count": 31
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -2.351878813172113e-26,
+              1.0
+            ],
+            "center": [
+              0.2953392305323119,
+              0.00012537852982307906,
+              0.04398531913757281
+            ],
+            "tangent_spans_m": [
+              0.05236498561968564,
+              0.05039593342051714
+            ],
+            "residual_rmse_m": 3.885780586188048e-16,
+            "residual_max_m": 3.885780586193474e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                549
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 549
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              5.353106497482654e-27,
+              1.0
+            ],
+            "center": [
+              0.3092193875897112,
+              0.0002889263762733835,
+              0.049985361099243016
+            ],
+            "tangent_spans_m": [
+              0.04588476141842483,
+              0.018444501931453035
+            ],
+            "residual_rmse_m": 1.0408340855860844e-16,
+            "residual_max_m": 1.0408340855872906e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                237
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 237
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.004642790741174207,
+              -0.01357532524723628,
+              0.999897072222219
+            ],
+            "center": [
+              0.30922652484211643,
+              0.0005409462697815725,
+              0.04947674379822961
+            ],
+            "tangent_spans_m": [
+              0.04602168871928601,
+              0.018719086520739815
+            ],
+            "residual_rmse_m": 0.000826194456360123,
+            "residual_max_m": 0.00159591330271212,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                181
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.8220678306161234
+            },
+            "point_count": 181
+          },
+          {
+            "normal": [
+              0.006105894130834553,
+              -0.0066205892258466535,
+              0.9999594421051113
+            ],
+            "center": [
+              0.3099641882840411,
+              -0.0032823982466376046,
+              0.05159098042382133
+            ],
+            "tangent_spans_m": [
+              0.045623098860266095,
+              0.018761966100474942
+            ],
+            "residual_rmse_m": 0.0003190350888064125,
+            "residual_max_m": 0.0007103992063319685,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                45
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.5160321984188735
+            },
+            "point_count": 45
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 11
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              6.932510792792872e-29,
+              1.0
+            ],
+            "center": [
+              0.3083283634183311,
+              0.0002904338095901719,
+              0.04398531913757317
+            ],
+            "tangent_spans_m": [
+              0.04612415880050939,
+              0.018540733563475208
+            ],
+            "residual_rmse_m": 2.7755575615628914e-17,
+            "residual_max_m": 2.7755575615630485e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                237
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 237
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 758,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5116943092205186,
+              -0.30052459262569486,
+              0.8048937216418679
+            ],
+            "center": [
+              0.4853898415008975,
+              0.009657039491328859,
+              0.055988647586615016
+            ],
+            "tangent_spans_m": [
+              0.04975838055609549,
+              0.0480594379511346
+            ],
+            "residual_rmse_m": 0.00011284244114417561,
+            "residual_max_m": 0.001476881584167592,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                496,
+                0,
+                0,
+                0,
+                0,
+                3
+              ],
+              "ambiguous_or_off_surface": 17,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9612403100775194,
+              "normal_error_degrees": 0.08671080243486136
+            },
+            "point_count": 516
+          },
+          {
+            "normal": [
+              0.6931744511620525,
+              0.4073559507224591,
+              0.5946177845197611
+            ],
+            "center": [
+              0.5133383917115452,
+              0.026238037967878027,
+              0.05139102778158881
+            ],
+            "tangent_spans_m": [
+              0.04921290655994515,
+              0.046814898500617014
+            ],
+            "residual_rmse_m": 1.2074309378094354e-06,
+            "residual_max_m": 2.9946344032357602e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                242
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.0019105083099230933
+            },
+            "point_count": 242
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 696,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5186492018950116,
+              -0.30512753256845904,
+              0.7986865431709438
+            ],
+            "center": [
+              0.4850448719585664,
+              0.009645464038943926,
+              0.05605011012819033
+            ],
+            "tangent_spans_m": [
+              0.04905469207206352,
+              0.04685230339934057
+            ],
+            "residual_rmse_m": 0.0008801748643322871,
+            "residual_max_m": 0.0015170024646616119,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                434,
+                0,
+                0,
+                0,
+                0,
+                2
+              ],
+              "ambiguous_or_off_surface": 14,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9644444444444444,
+              "normal_error_degrees": 0.5089959925322486
+            },
+            "point_count": 450
+          },
+          {
+            "normal": [
+              0.6937314756123425,
+              0.4076874590282239,
+              0.5937403266545335
+            ],
+            "center": [
+              0.5126804700814406,
+              0.02611561906824049,
+              0.052235570469418076
+            ],
+            "tangent_spans_m": [
+              0.05547046725692502,
+              0.052749065193551575
+            ],
+            "residual_rmse_m": 0.0004700403738104413,
+            "residual_max_m": 0.0010850010834546325,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                183
+              ],
+              "ambiguous_or_off_surface": 2,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9891891891891892,
+              "normal_error_degrees": 0.06383765184876276
+            },
+            "point_count": 185
+          },
+          {
+            "normal": [
+              -0.5123549957918138,
+              -0.3036506842780413,
+              0.8032985872168877
+            ],
+            "center": [
+              0.4886614813914955,
+              0.012742424734566368,
+              0.05732809936299046
+            ],
+            "tangent_spans_m": [
+              0.046207313716690096,
+              0.045896643728138495
+            ],
+            "residual_rmse_m": 0.0001426107293084338,
+            "residual_max_m": 0.0003049097000851148,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                50,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 1,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9803921568627451,
+              "normal_error_degrees": 0.1494309226809469
+            },
+            "point_count": 51
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 10
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 758,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5097954707868965,
+              -0.2994092531057474,
+              0.8065126639550214
+            ],
+            "center": [
+              0.486257689202574,
+              0.00970791346052108,
+              0.04998860562494512
+            ],
+            "tangent_spans_m": [
+              0.04991892559090558,
+              0.048285667952487524
+            ],
+            "residual_rmse_m": 0.0001130680445123715,
+            "residual_max_m": 0.0014795758192559672,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                496,
+                0,
+                0,
+                0,
+                0,
+                3
+              ],
+              "ambiguous_or_off_surface": 17,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9612403100775194,
+              "normal_error_degrees": 0.24330370855277197
+            },
+            "point_count": 516
+          },
+          {
+            "normal": [
+              0.6921657682904832,
+              0.40676329156947744,
+              0.5961964221952437
+            ],
+            "center": [
+              0.5143481299128119,
+              0.0263749262378213,
+              0.045390985819918954
+            ],
+            "tangent_spans_m": [
+              0.049305191028889465,
+              0.046778752625962136
+            ],
+            "residual_rmse_m": 1.2249069706664328e-06,
+            "residual_max_m": 3.1101109099159786e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                242
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.11127551492828525
+            },
+            "point_count": 242
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 333,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.691054992514684,
+              0.40515217809691517,
+              0.5985772380435591
+            ],
+            "center": [
+              0.5132177924803926,
+              0.02490154776207494,
+              0.05237705566751656
+            ],
+            "tangent_spans_m": [
+              0.06328391544329895,
+              0.05056178425087564
+            ],
+            "residual_rmse_m": 0.00019575065004984952,
+            "residual_max_m": 0.0013705518162943561,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                236
+              ],
+              "ambiguous_or_off_surface": 13,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9291338582677166,
+              "normal_error_degrees": 0.28510624961203906
+            },
+            "point_count": 254
+          },
+          {
+            "normal": [
+              -0.5125434714705043,
+              -0.3011844171919007,
+              0.8041064212489163
+            ],
+            "center": [
+              0.5018671348649486,
+              0.005107502144151996,
+              0.06480905738057978
+            ],
+            "tangent_spans_m": [
+              0.03478275149916181,
+              0.016339982672787662
+            ],
+            "residual_rmse_m": 9.788555099922967e-07,
+            "residual_max_m": 1.9218455021227394e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                79,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.012480920785383065
+            },
+            "point_count": 79
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 272,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6934912830588339,
+              0.40608106062663774,
+              0.5951201664552774
+            ],
+            "center": [
+              0.5126990012238408,
+              0.02461074781880722,
+              0.05321961351009226
+            ],
+            "tangent_spans_m": [
+              0.06310765756485144,
+              0.051207708869302454
+            ],
+            "residual_rmse_m": 0.00047442095907922183,
+            "residual_max_m": 0.0010102717138056171,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                6,
+                0,
+                0,
+                0,
+                0,
+                175
+              ],
+              "ambiguous_or_off_surface": 12,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9067357512953368,
+              "normal_error_degrees": 0.0787589015688035
+            },
+            "point_count": 193
+          },
+          {
+            "normal": [
+              -0.5320908372841089,
+              -0.24151078692218753,
+              0.8115120952139419
+            ],
+            "center": [
+              0.501770965902409,
+              0.004918038019260579,
+              0.06482251062989242
+            ],
+            "tangent_spans_m": [
+              0.03419333919105447,
+              0.016091329775593383
+            ],
+            "residual_rmse_m": 0.0007671223793361052,
+            "residual_max_m": 0.0015295087269743208,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                64,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 3.6197882595456825
+            },
+            "point_count": 64
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 15
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 333,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.690031217199976,
+              0.404550521182358,
+              0.6001631404048415
+            ],
+            "center": [
+              0.5142277712544386,
+              0.025031479637620237,
+              0.0463770137058467
+            ],
+            "tangent_spans_m": [
+              0.06358016785739108,
+              0.05092873714803182
+            ],
+            "residual_rmse_m": 0.00019657506383779824,
+            "residual_max_m": 0.0013761092702484472,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                236
+              ],
+              "ambiguous_or_off_surface": 13,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9291338582677166,
+              "normal_error_degrees": 0.39755872008517473
+            },
+            "point_count": 254
+          },
+          {
+            "normal": [
+              -0.5106181098867667,
+              -0.30005304776778574,
+              0.8057526384573177
+            ],
+            "center": [
+              0.5028284185370068,
+              0.0051345704032752,
+              0.05880901541890985
+            ],
+            "tangent_spans_m": [
+              0.03494558371845989,
+              0.016411252789903123
+            ],
+            "residual_rmse_m": 9.880364380325756e-07,
+            "residual_max_m": 1.9318467539366536e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                79,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.16982559316999496
+            },
+            "point_count": 79
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 759,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5116684375882399,
+              -0.30051082593712986,
+              0.8049153082595671
+            ],
+            "center": [
+              0.48563666070362066,
+              0.009648034417360911,
+              0.0561420053001337
+            ],
+            "tangent_spans_m": [
+              0.048119205038518784,
+              0.046792144043470874
+            ],
+            "residual_rmse_m": 0.0001106008199100381,
+            "residual_max_m": 0.0013898027637589613,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                472,
+                0,
+                0,
+                0,
+                0,
+                3
+              ],
+              "ambiguous_or_off_surface": 17,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.959349593495935,
+              "normal_error_degrees": 0.0887934741227468
+            },
+            "point_count": 492
+          },
+          {
+            "normal": [
+              0.6931812213244454,
+              0.40732144042804663,
+              0.5946335330022782
+            ],
+            "center": [
+              0.5134313988422754,
+              0.02614842727208739,
+              0.051343317424759664
+            ],
+            "tangent_spans_m": [
+              0.04750626455076072,
+              0.045567421589327375
+            ],
+            "residual_rmse_m": 1.0357200223481973e-06,
+            "residual_max_m": 2.67322604454172e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                267
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.0005476743328569252
+            },
+            "point_count": 267
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 730,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5197646332767979,
+              -0.2915241044471488,
+              0.803030773084646
+            ],
+            "center": [
+              0.48523836295223316,
+              0.010401229726604249,
+              0.056491571175303
+            ],
+            "tangent_spans_m": [
+              0.05551497186533518,
+              0.05408268049182888
+            ],
+            "residual_rmse_m": 0.0007895040070009309,
+            "residual_max_m": 0.001489478466741407,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                397,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "ambiguous_or_off_surface": 16,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9589371980676329,
+              "normal_error_degrees": 0.686059620297442
+            },
+            "point_count": 414
+          },
+          {
+            "normal": [
+              0.694327791114739,
+              0.40627481074243577,
+              0.5940115290479854
+            ],
+            "center": [
+              0.5134254408888737,
+              0.025659557747427817,
+              0.051609326991797315
+            ],
+            "tangent_spans_m": [
+              0.05676228383389145,
+              0.05703709763157563
+            ],
+            "residual_rmse_m": 0.0005373850363392298,
+            "residual_max_m": 0.0011995313121815655,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                240
+              ],
+              "ambiguous_or_off_surface": 1,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.995850622406639,
+              "normal_error_degrees": 0.09636532384794105
+            },
+            "point_count": 241
+          },
+          {
+            "normal": [
+              -0.516461849107428,
+              -0.2974265271999065,
+              0.8029972723081565
+            ],
+            "center": [
+              0.4883209050141341,
+              0.0031815531105581947,
+              0.05366161664326992
+            ],
+            "tangent_spans_m": [
+              0.04903907302817506,
+              0.05207922176850504
+            ],
+            "residual_rmse_m": 0.0001520256240321115,
+            "residual_max_m": 0.0003540611536336038,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                69,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.30803505922276925
+            },
+            "point_count": 69
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 6
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 759,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5098461421410277,
+              -0.29944051728717136,
+              0.8064690247930805
+            ],
+            "center": [
+              0.48608625815206724,
+              0.009698864333469684,
+              0.050141963338463796
+            ],
+            "tangent_spans_m": [
+              0.04827558801048246,
+              0.047024436951364504
+            ],
+            "residual_rmse_m": 0.00011083957895615896,
+            "residual_max_m": 0.0013925537929210079,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                472,
+                0,
+                0,
+                0,
+                0,
+                3
+              ],
+              "ambiguous_or_off_surface": 17,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.959349593495935,
+              "normal_error_degrees": 0.239074382375859
+            },
+            "point_count": 492
+          },
+          {
+            "normal": [
+              0.6920687212420269,
+              0.40666762619719155,
+              0.5963743177582069
+            ],
+            "center": [
+              0.5140236546887682,
+              0.026284851091873257,
+              0.04534327546308981
+            ],
+            "tangent_spans_m": [
+              0.04759073322509587,
+              0.045461735169070344
+            ],
+            "residual_rmse_m": 1.0278243822236756e-06,
+            "residual_max_m": 2.712557371654131e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                267
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.12396471328824751
+            },
+            "point_count": 267
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 334,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6913023069209745,
+              0.4052906889974891,
+              0.5981977748685452
+            ],
+            "center": [
+              0.5138718952893561,
+              0.02462369017706254,
+              0.0518136735315674
+            ],
+            "tangent_spans_m": [
+              0.06257801751835042,
+              0.0515009469146986
+            ],
+            "residual_rmse_m": 0.00018738406465152068,
+            "residual_max_m": 0.001415149676986624,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                254
+              ],
+              "ambiguous_or_off_surface": 11,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9407407407407408,
+              "normal_error_degrees": 0.2584222346582357
+            },
+            "point_count": 270
+          },
+          {
+            "normal": [
+              -0.5127733952436967,
+              -0.3011829044489186,
+              0.8039603865850388
+            ],
+            "center": [
+              0.502872127220193,
+              0.003783419738295619,
+              0.06495337449014194
+            ],
+            "tangent_spans_m": [
+              0.030936780404200243,
+              0.014464268724227297
+            ],
+            "residual_rmse_m": 2.7973842769834113e-07,
+            "residual_max_m": 8.443769906243265e-07,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                64,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.0033481744546347905
+            },
+            "point_count": 64
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 305,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6951261145831877,
+              0.40383201926568646,
+              0.5947431252568448
+            ],
+            "center": [
+              0.5141064667746692,
+              0.023939719903326204,
+              0.051977410158180935
+            ],
+            "tangent_spans_m": [
+              0.06194225251212855,
+              0.05069448027573009
+            ],
+            "residual_rmse_m": 0.0005538386915545569,
+            "residual_max_m": 0.0013136985446264241,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                225
+              ],
+              "ambiguous_or_off_surface": 11,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9336099585062241,
+              "normal_error_degrees": 0.22947957712732503
+            },
+            "point_count": 241
+          },
+          {
+            "normal": [
+              -0.6240876142320367,
+              -0.23754477040968702,
+              0.7443702921350187
+            ],
+            "center": [
+              0.5027744969800968,
+              0.003977939694109286,
+              0.06490525305271154
+            ],
+            "tangent_spans_m": [
+              0.030325840080102286,
+              0.015162893368165923
+            ],
+            "residual_rmse_m": 0.0007934253615427997,
+            "residual_max_m": 0.0013733902332572414,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                56,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 8.110279895983611
+            },
+            "point_count": 56
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 8
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 334,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6901767456834168,
+              0.40462832945515304,
+              0.5999433095886478
+            ],
+            "center": [
+              0.5144667177954734,
+              0.02475209727942133,
+              0.04581363156989753
+            ],
+            "tangent_spans_m": [
+              0.06287423079457778,
+              0.05163221168186409
+            ],
+            "residual_rmse_m": 0.00018815275069949416,
+            "residual_max_m": 0.0014207358379146572,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                254
+              ],
+              "ambiguous_or_off_surface": 11,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9407407407407408,
+              "normal_error_degrees": 0.3819698145636657
+            },
+            "point_count": 270
+          },
+          {
+            "normal": [
+              -0.5109252259028304,
+              -0.3000974067932448,
+              0.8055414079810617
+            ],
+            "center": [
+              0.5034159481262261,
+              0.0038034833480391776,
+              0.058953332528472
+            ],
+            "tangent_spans_m": [
+              0.031080484635841205,
+              0.014527572658649582
+            ],
+            "residual_rmse_m": 2.746737223900781e-07,
+            "residual_max_m": 8.870763123689472e-07,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                64,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.14927806661223125
+            },
+            "point_count": 64
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 765,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5111643823858775,
+              -0.3002111322817863,
+              0.8053472854825751
+            ],
+            "center": [
+              0.4857440029975525,
+              0.009614210184200667,
+              0.05618928984591788
+            ],
+            "tangent_spans_m": [
+              0.04939717245967457,
+              0.048484378553678306
+            ],
+            "residual_rmse_m": 0.00014461172741335958,
+            "residual_max_m": 0.0014768106086115902,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                453,
+                0,
+                0,
+                0,
+                0,
+                5
+              ],
+              "ambiguous_or_off_surface": 17,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9536842105263158,
+              "normal_error_degrees": 0.13052236715516796
+            },
+            "point_count": 475
+          },
+          {
+            "normal": [
+              0.6931730082737805,
+              0.40733089605260264,
+              0.5946366299864657
+            ],
+            "center": [
+              0.5138093069998814,
+              0.0260306605280393,
+              0.050982424308513526
+            ],
+            "tangent_spans_m": [
+              0.04719338032218873,
+              0.04578005127503583
+            ],
+            "residual_rmse_m": 1.531628713096949e-06,
+            "residual_max_m": 4.427458738466908e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                290
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.0001944205878773387
+            },
+            "point_count": 290
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 717,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5222931323255986,
+              -0.2928407378418425,
+              0.8009083506780034
+            ],
+            "center": [
+              0.4858822516825227,
+              0.009046262368783193,
+              0.05607394874824537
+            ],
+            "tangent_spans_m": [
+              0.04897930320132171,
+              0.046500819357981275
+            ],
+            "residual_rmse_m": 0.0008251682244480966,
+            "residual_max_m": 0.0016172309086897613,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                395,
+                0,
+                0,
+                0,
+                0,
+                3
+              ],
+              "ambiguous_or_off_surface": 11,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9657701711491442,
+              "normal_error_degrees": 0.7476812927155622
+            },
+            "point_count": 409
+          },
+          {
+            "normal": [
+              0.6920715202046471,
+              0.4118361379859288,
+              0.5928136354457986
+            ],
+            "center": [
+              0.5137329476238375,
+              0.025181835918264842,
+              0.051767901375359505
+            ],
+            "tangent_spans_m": [
+              0.05102326280816556,
+              0.05195912000011877
+            ],
+            "residual_rmse_m": 0.0006090411502958732,
+            "residual_max_m": 0.0011918615561541603,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                251
+              ],
+              "ambiguous_or_off_surface": 2,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9920948616600791,
+              "normal_error_degrees": 0.28568294906046765
+            },
+            "point_count": 253
+          },
+          {
+            "normal": [
+              -0.4610702825505347,
+              -0.3687285814093346,
+              0.8071266491701471
+            ],
+            "center": [
+              0.4829864770217925,
+              0.012936270554208292,
+              0.05610249141852062
+            ],
+            "tangent_spans_m": [
+              0.05777998695459295,
+              0.05190889396050834
+            ],
+            "residual_rmse_m": 0.0006576317612155069,
+            "residual_max_m": 0.0014521034182003569,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                47,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 1,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9791666666666666,
+              "normal_error_degrees": 4.8777720482946885
+            },
+            "point_count": 48
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 7
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 765,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5094185221315746,
+              -0.2991856761287812,
+              0.8068337502290336
+            ],
+            "center": [
+              0.48577451330990407,
+              0.009664864496990248,
+              0.05018924788424799
+            ],
+            "tangent_spans_m": [
+              0.04963311065697487,
+              0.04881646758697647
+            ],
+            "residual_rmse_m": 0.00014493266948503456,
+            "residual_max_m": 0.001479892204737012,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                453,
+                0,
+                0,
+                0,
+                0,
+                5
+              ],
+              "ambiguous_or_off_surface": 17,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9536842105263158,
+              "normal_error_degrees": 0.27443228380933254
+            },
+            "point_count": 475
+          },
+          {
+            "normal": [
+              0.6919572844857721,
+              0.406616362933076,
+              0.5965385568780556
+            ],
+            "center": [
+              0.5139855632449437,
+              0.026166423543380793,
+              0.04498238234684366
+            ],
+            "tangent_spans_m": [
+              0.04726064370224563,
+              0.04563379814308058
+            ],
+            "residual_rmse_m": 1.5183905748499083e-06,
+            "residual_max_m": 3.9168671046880404e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                290
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.13568775009042308
+            },
+            "point_count": 290
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 335,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6916276286292673,
+              0.40551206465470113,
+              0.597671472245529
+            ],
+            "center": [
+              0.5146037089810039,
+              0.02440986016715155,
+              0.0511168131461508
+            ],
+            "tangent_spans_m": [
+              0.062088160299082824,
+              0.049644349633409315
+            ],
+            "residual_rmse_m": 0.00017336689017217652,
+            "residual_max_m": 0.0014673657032092356,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                4,
+                0,
+                0,
+                0,
+                0,
+                272
+              ],
+              "ambiguous_or_off_surface": 10,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.951048951048951,
+              "normal_error_degrees": 0.22120429873554903
+            },
+            "point_count": 286
+          },
+          {
+            "normal": [
+              -0.5126247030452861,
+              -0.3012624796882626,
+              0.8040253927332218
+            ],
+            "center": [
+              0.5039953623288853,
+              0.00296838923489451,
+              0.06536319888367947
+            ],
+            "tangent_spans_m": [
+              0.024772861561593598,
+              0.012688842015949482
+            ],
+            "residual_rmse_m": 6.479425050166592e-07,
+            "residual_max_m": 1.3740974709650598e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                49,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.008375335752828613
+            },
+            "point_count": 49
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 296,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6907073265297486,
+              0.409195951117574,
+              0.5962231651547192
+            ],
+            "center": [
+              0.5145596372486194,
+              0.023610526136820575,
+              0.05183942990918296
+            ],
+            "tangent_spans_m": [
+              0.06336965449454415,
+              0.04966112265437749
+            ],
+            "residual_rmse_m": 0.0006301098843556603,
+            "residual_max_m": 0.0014252229288119408,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                235
+              ],
+              "ambiguous_or_off_surface": 8,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9475806451612904,
+              "normal_error_degrees": 0.19927373755843447
+            },
+            "point_count": 248
+          },
+          {
+            "normal": [
+              -0.6139138177193134,
+              -0.2586458764580387,
+              0.7457963093261796
+            ],
+            "center": [
+              0.5040081380978025,
+              0.00316236231802097,
+              0.06535213958649409
+            ],
+            "tangent_spans_m": [
+              0.02442087927322074,
+              0.01339856852918862
+            ],
+            "residual_rmse_m": 0.0007829200481690061,
+            "residual_max_m": 0.0014885926281083817,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                42,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 7.122470212549337
+            },
+            "point_count": 42
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 6
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 335,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6904011249850149,
+              0.404789678836843,
+              0.5995761857567321
+            ],
+            "center": [
+              0.5147841683195324,
+              0.0245370579312465,
+              0.045116771184480944
+            ],
+            "tangent_spans_m": [
+              0.06237151245395328,
+              0.04978218613410586
+            ],
+            "residual_rmse_m": 0.00017406278159553634,
+            "residual_max_m": 0.0014730150216382461,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                4,
+                0,
+                0,
+                0,
+                0,
+                272
+              ],
+              "ambiguous_or_off_surface": 10,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.951048951048951,
+              "normal_error_degrees": 0.3557031896347302
+            },
+            "point_count": 286
+          },
+          {
+            "normal": [
+              -0.5108534409163031,
+              -0.30022157169700336,
+              0.8055406692351132
+            ],
+            "center": [
+              0.5041222689532541,
+              0.0029841336870435066,
+              0.05936315692200954
+            ],
+            "tangent_spans_m": [
+              0.0248863774202484,
+              0.01274296751172273
+            ],
+            "residual_rmse_m": 6.493376642803524e-07,
+            "residual_max_m": 1.3637537977311508e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "scoring_only": {
+              "face_counts": [
+                49,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.14941144295679282
+            },
+            "point_count": 49
+          }
+        ],
+        "status": "candidate_groups",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "status": "unknown",
+        "angle_bound_certified": false,
+        "unassigned_points": 0
+      }
+    }
+  ],
+  "angle_bound_certified": false,
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "empirical errors are not a certified angle bound",
+    "nearest-face labels exclude ambiguous edges; labels are scoring-only",
+    "sequential RANSAC may miss faces or split one face into multiple groups",
+    "two training states, image masking and camera translation only",
+    "6mm bias exceeds the original error budget; no envelope or policy update"
+  ]
+}
