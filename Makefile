@@ -461,3 +461,10 @@ depth-ramp-audit:
 
 depth-ramp-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_depth_ramp.py -v
+
+.PHONY: cube-consistency-audit cube-consistency-test
+cube-consistency-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_cube_consistency.py
+
+cube-consistency-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_cube_consistency.py -v
