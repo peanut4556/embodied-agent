@@ -1,0 +1,267 @@
+"""Fixed visible-face proposals and normal errors; no new orientation guarantee."""
+
+import json
+from pathlib import Path
+
+import mujoco
+import numpy as np
+import pyarrow.parquet as pq
+
+from embodied_agent.correction_data import payload_digest
+from embodied_agent.depth_ramp import depth_ramp
+from embodied_agent.memory_policy import digest
+from embodied_agent.physics import PhysicsWorld
+from embodied_agent.plane_holdout import heldout_groups
+from embodied_agent.rgbd_filter import filter_masks
+from embodied_agent.visible_geometry import point_cloud
+
+
+def summarize(rows):
+    scored = [g for g in rows if g["scoring_only"]["normal_error_degrees"] is not None]
+    return {
+        "groups": len(rows),
+        "statuses": {
+            status: sum(g["holdout"]["status"] == status for g in rows)
+            for status in ("consistent_candidate", "inconsistent", "unknown")
+        },
+        "low_error_at_most_3_degrees": sum(
+            g["scoring_only"]["normal_error_degrees"] <= 3 for g in scored
+        ),
+        "low_error_not_retained": sum(
+            g["scoring_only"]["normal_error_degrees"] <= 3
+            and g["holdout"]["status"] != "consistent_candidate"
+            for g in scored
+        ),
+        "high_error_above_5_degrees": sum(
+            g["scoring_only"]["normal_error_degrees"] > 5 for g in scored
+        ),
+        "high_error_retained": sum(
+            g["scoring_only"]["normal_error_degrees"] > 5
+            and g["holdout"]["status"] == "consistent_candidate"
+            for g in scored
+        ),
+        "max_retained_error_degrees": max(
+            (
+                g["scoring_only"]["normal_error_degrees"]
+                for g in scored
+                if g["holdout"]["status"] == "consistent_candidate"
+            ),
+            default=None,
+        ),
+    }
+
+
+def main():
+    source_path = Path("docs/evaluations/envelope-stress-v1.json")
+    source = json.loads(source_path.read_text())
+    root = Path("outputs/datasets/corrections-contact-oriented-v1")
+    manifest = json.loads((root / "recording.json").read_text())
+    if (
+        payload_digest(root) != source["source_sha256"]
+        or manifest["status"] != "validated"
+        or manifest["model_sha256"] != digest("src/embodied_agent/assets/tabletop.xml")
+        or manifest["fps"] != 25
+    ):
+        raise ValueError("source changed")
+    table = pq.read_table(
+        sorted((root / "data").rglob("*.parquet")), columns=["replay.action", "observation.state"]
+    )
+    actions, states = table["replay.action"].to_pylist(), table["observation.state"].to_pylist()
+    truths = {}
+    for ep, wait in ((3, 0), (5, 100)):
+        world = PhysicsWorld()
+        try:
+            record = manifest["episodes"][ep]
+            data, model = world.data, world.model
+            offset = sum(e["frames"] for e in manifest["episodes"][:ep])
+            for key in ("qpos", "qvel", "ctrl", "qacc_warmstart"):
+                getattr(data, key)[:] = record["initial_state"][key]
+            data.time = record["initial_state"]["time"]
+            tick = record["takeover"]["tick"] + 74
+            for t in range(tick + 1):
+                mujoco.mj_forward(model, data)
+                np.testing.assert_allclose(data.qpos[:5], states[offset + t], atol=1e-6, rtol=0)
+                if t < tick:
+                    data.ctrl[:] = actions[offset + t]
+                    for _ in range(20):
+                        mujoco.mj_step(model, data)
+            for _ in range(wait * 20):
+                mujoco.mj_step(model, data)
+            mujoco.mj_forward(model, data)
+            size = model.geom("red_block").size
+            truths[ep] = {
+                "center": data.geom("red_block").xpos.copy(),
+                "rotation": data.geom("red_block").xmat.reshape(3, 3).copy(),
+                "size": size.copy(),
+            }
+        finally:
+            world.close()
+    inputs = {i["path"]: i["sha256"] for i in source["inputs"]}
+    cases = []
+    configurations = [("none", 0.0)] + [
+        (mode, amplitude)
+        for mode in ("shared", "candidate", "validation")
+        for amplitude in (-0.006, -0.002, 0.002, 0.006)
+    ]
+    plan = [
+        {**c, "depth_perturbation": mode, "amplitude_m": amplitude}
+        for c in source["cases"]
+        if c["depth_perturbation"] == "none"
+        for mode, amplitude in configurations
+    ]
+    for case in plan:
+        ep, shift = case["episode"], case["camera_shift_x_m"]
+        path = f"outputs/evaluations/envelope-stress-v1/episode-{ep}-camera-{shift:+.2f}.npz"
+        if digest(path) != inputs[path]:
+            raise ValueError("raw RGB-D changed")
+        with np.load(path) as raw:
+            image, depth = raw["rgb"].copy(), raw["depth"].copy()
+            clean, _ = point_cloud(image, depth, raw["position"], raw["rotation"], raw["fovy"])
+            r, g, b = image.astype(float).transpose(2, 0, 1)
+            red = (r > 70) & (r > 1.6 * g) & (r > 1.4 * b)
+            if case["occlusion"] == "half_red":
+                _, xx = np.indices(depth.shape)
+                image[red & (xx <= np.median(np.nonzero(red)[1]))] = 0
+            elif case["occlusion"] == "all_red":
+                image[red] = 0
+            depth, _ = depth_ramp(depth, red, case["amplitude_m"], case["depth_perturbation"])
+            points, _ = point_cloud(image, depth, raw["position"], raw["rotation"], raw["fovy"])
+        mask = filter_masks(image, depth)["combined"]
+        reliable = points[mask]
+        if (
+            case["depth_perturbation"] == "none"
+            and len(reliable) != case["estimate"]["reliable_points"]
+        ):
+            raise ValueError("control reliable points changed")
+        actual_error = float(np.max(np.abs(points[red] - clean[red])))
+        case["beyond_nominal_error_budget"] = actual_error > 0.003 + 1e-9
+        result = heldout_groups(points, mask)
+        truth = truths[ep]
+        # Assign scoring labels using UNPERTURBED same-pixel points, so noise
+        # does not silently relabel a point to a different cube face.
+        local = (clean[mask] - truth["center"]) @ truth["rotation"]
+        distances = np.abs(np.abs(local) - truth["size"])
+        order = np.argsort(distances, axis=1)
+        labels = np.full(len(local), -1, dtype=int)
+        for i, (first, second, _) in enumerate(order):
+            if (
+                distances[i, first] <= 0.001
+                and distances[i, second] - distances[i, first] > 0.001
+                and np.all(np.abs(local[i]) <= truth["size"] + 0.001)
+            ):
+                labels[i] = 2 * first + int(local[i, first] >= 0)
+        for group in result["groups"]:
+            idx = group["indices"]
+            assigned = labels[idx]
+            counts = np.bincount(assigned[assigned >= 0], minlength=6)
+            face = int(counts.argmax()) if counts.sum() else None
+            normal = np.array(group["normal"])
+            angle = (
+                None
+                if face is None
+                else float(
+                    np.rad2deg(
+                        np.arccos(np.clip(abs(normal @ truth["rotation"][:, face // 2]), 0, 1))
+                    )
+                )
+            )
+            group["scoring_only"] = {
+                "face_counts": counts.tolist(),
+                "ambiguous_or_off_surface": int(np.sum(assigned < 0)),
+                "dominant_face": face,
+                "dominant_fraction_all_points": float(counts.max() / len(idx)),
+                "normal_error_degrees": angle,
+            }
+            group["point_count"] = len(group.pop("indices"))
+        cases.append(
+            {
+                k: case[k]
+                for k in (
+                    "episode",
+                    "camera_shift_x_m",
+                    "occlusion",
+                    "depth_perturbation",
+                    "beyond_nominal_error_budget",
+                    "amplitude_m",
+                )
+            }
+            | {
+                "reliable_points": len(reliable),
+                "max_coordinate_error_m": actual_error,
+                "result": result,
+            }
+        )
+    baseline_path = Path("docs/evaluations/plane-holdout-v1.json")
+    baseline = json.loads(baseline_path.read_text())
+    controls = [c for c in cases if c["depth_perturbation"] == "none"]
+    originals = [c for c in baseline["cases"] if c["depth_perturbation"] == "none"]
+    for c, old in zip(controls, originals, strict=True):
+        if {
+            k: v for k, v in c.items() if k not in ("amplitude_m", "max_coordinate_error_m")
+        } != old:
+            raise ValueError("control differs from original holdout experiment")
+    groups = [g for c in cases for g in c["result"]["groups"]]
+    summaries = {}
+    for mode in ("none", "shared", "candidate", "validation"):
+        for magnitude in (0.0,) if mode == "none" else (0.002, 0.006):
+            key = f"{mode}-{magnitude:.3f}"
+            selected_cases = [
+                c
+                for c in cases
+                if c["depth_perturbation"] == mode and abs(c["amplitude_m"]) == magnitude
+            ]
+            rows = [g for c in selected_cases for g in c["result"]["groups"]]
+            summaries[key] = summarize(rows)
+    if payload_digest(root) != source["source_sha256"]:
+        raise ValueError("dataset changed")
+    report = {
+        "status": "complete",
+        "script_sha256": digest(__file__),
+        "implementation_sha256": digest("src/embodied_agent/plane_holdout.py"),
+        "source_report_sha256": digest(source_path),
+        "source_sha256": source["source_sha256"],
+        "model_sha256": manifest["model_sha256"],
+        "group": "train",
+        "proposal_implementation_sha256": digest("src/embodied_agent/plane_groups.py"),
+        "parameters": {
+            "tile_pixels": 8,
+            "guard_pixels": 1,
+            "maximum_centroid_distance_m": 0.02,
+            "match_ambiguity_margin_m": 0.002,
+            "maximum_angle_difference_degrees": 5,
+            "maximum_plane_offset_m": 0.003,
+            "proposal_seed": 73,
+            "proposal_max_groups": 3,
+            "proposal_min_points": 30,
+        },
+        "baseline_report_sha256": digest(baseline_path),
+        "ramp_configurations": configurations,
+        "perturbation_sha256": digest("src/embodied_agent/depth_ramp.py"),
+        "summary": {
+            "cases": len(cases),
+            "accepted_groups": len(groups),
+            "unknown_cases": sum(c["result"]["status"] == "unknown" for c in cases),
+            "by_depth_perturbation": summaries,
+        },
+        "cases": cases,
+        "angle_bound_certified": False,
+        "training_performed": False,
+        "test_executed": False,
+        "recovery_executed": False,
+        "clearance_certified": False,
+        "limitations": [
+            "disjoint pixel subsets of one observation, not independent captures",
+            "spatial matching can be ambiguous and then remains unknown",
+            "candidate identities differ from previous full-pixel groups",
+            "synthetic X-depth slopes across original red extent; not calibrated sensor noise",
+            "ramps are applied before occlusion filtering; raw tile membership includes guard pixels",
+            "candidate identities can change with slope; no matched-group detection-rate claim",
+            "consistency does not establish a certified normal error bound",
+        ],
+    }
+    Path("docs/evaluations/depth-ramp-v1.json").write_text(json.dumps(report, indent=2) + "\n")
+    print(json.dumps(report["summary"], indent=2))
+
+
+if __name__ == "__main__":
+    main()

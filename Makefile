@@ -447,3 +447,17 @@ plane-stability-audit:
 
 plane-stability-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_plane_stability.py -v
+
+.PHONY: plane-holdout-audit plane-holdout-test
+plane-holdout-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_plane_holdout.py
+
+plane-holdout-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_plane_holdout.py -v
+
+.PHONY: depth-ramp-audit depth-ramp-test
+depth-ramp-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_depth_ramp.py
+
+depth-ramp-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_depth_ramp.py -v

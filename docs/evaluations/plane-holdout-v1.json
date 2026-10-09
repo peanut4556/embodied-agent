@@ -1,0 +1,3051 @@
+{
+  "status": "complete",
+  "script_sha256": "8539e216751356974315a7c6fd1ed9d544c5e0578bcc41816f2be551d2c85448",
+  "implementation_sha256": "11e623ab629e93c4356941ca1d5572dcf2aa65c0e149eb688b5310b25ae307f0",
+  "source_report_sha256": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2",
+  "source_sha256": "644e4bf3f2f59ff6a36f0510f697cd0fecdea2e189d2975224db696858531051",
+  "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+  "group": "train",
+  "proposal_implementation_sha256": "ea19b852befc1103cb2d53e3bd1a88949fb94841fa7cfd9fd6b1f9f75225fedc",
+  "parameters": {
+    "tile_pixels": 8,
+    "guard_pixels": 1,
+    "maximum_centroid_distance_m": 0.02,
+    "match_ambiguity_margin_m": 0.002,
+    "maximum_angle_difference_degrees": 5,
+    "maximum_plane_offset_m": 0.003,
+    "proposal_seed": 73,
+    "proposal_max_groups": 3,
+    "proposal_min_points": 30
+  },
+  "summary": {
+    "cases": 54,
+    "accepted_groups": 46,
+    "unknown_cases": 18,
+    "by_depth_perturbation": {
+      "none": {
+        "groups": 15,
+        "statuses": {
+          "consistent_candidate": 15,
+          "inconsistent": 0,
+          "unknown": 0
+        },
+        "low_error_at_most_3_degrees": 15,
+        "low_error_not_retained": 0,
+        "high_error_above_5_degrees": 0,
+        "high_error_retained": 0,
+        "max_retained_error_degrees": 0.9148067150214656
+      },
+      "uniform_2mm": {
+        "groups": 16,
+        "statuses": {
+          "consistent_candidate": 13,
+          "inconsistent": 1,
+          "unknown": 2
+        },
+        "low_error_at_most_3_degrees": 14,
+        "low_error_not_retained": 2,
+        "high_error_above_5_degrees": 0,
+        "high_error_retained": 0,
+        "max_retained_error_degrees": 4.383837799121276
+      },
+      "bias_6mm": {
+        "groups": 15,
+        "statuses": {
+          "consistent_candidate": 15,
+          "inconsistent": 0,
+          "unknown": 0
+        },
+        "low_error_at_most_3_degrees": 15,
+        "low_error_not_retained": 0,
+        "high_error_above_5_degrees": 0,
+        "high_error_retained": 0,
+        "max_retained_error_degrees": 1.0400782639348796
+      }
+    }
+  },
+  "cases": [
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 561,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              8.885964436772773e-28,
+              1.0
+            ],
+            "center": [
+              0.2958266511979113,
+              -0.00013107160465889063,
+              0.049985361099243286
+            ],
+            "tangent_spans_m": [
+              0.052310464950676525,
+              0.05214280547282214
+            ],
+            "residual_rmse_m": 1.6653345369377348e-16,
+            "residual_max_m": 1.6653345369379365e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007695747241206334,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907228e-18,
+              "validation_points": 162
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                159
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 159
+          }
+        ],
+        "candidate_pixels": 159,
+        "validation_pixels": 162,
+        "guard_or_unused_pixels": 240,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 561,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.01642968953089261,
+              -0.031542568192587606,
+              0.99936736573381
+            ],
+            "center": [
+              0.2952901997672096,
+              0.0003368251947962503,
+              0.0500005886202954
+            ],
+            "tangent_spans_m": [
+              0.05331937575603908,
+              0.05237201976318758
+            ],
+            "residual_rmse_m": 0.000834667968482444,
+            "residual_max_m": 0.0014849026555826682,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "unknown",
+              "reason": "no_unique_spatial_match"
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                122
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.0381534783765636
+            },
+            "point_count": 122
+          }
+        ],
+        "candidate_pixels": 159,
+        "validation_pixels": 162,
+        "guard_or_unused_pixels": 240,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 561,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -2.919480143459794e-28,
+              1.0
+            ],
+            "center": [
+              0.29570053010148317,
+              -0.00013175545258684146,
+              0.04398531913757335
+            ],
+            "tangent_spans_m": [
+              0.052583387550199714,
+              0.05241485333226086
+            ],
+            "residual_rmse_m": 1.5265566588595902e-16,
+            "residual_max_m": 1.5265566588596575e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007735898735641196,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907228e-18,
+              "validation_points": 162
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                159
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 159
+          }
+        ],
+        "candidate_pixels": 159,
+        "validation_pixels": 162,
+        "guard_or_unused_pixels": 240,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 254,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              2.95688401587281e-27,
+              1.0
+            ],
+            "center": [
+              0.3088247210114751,
+              0.00012944338596747047,
+              0.04998536109924321
+            ],
+            "tangent_spans_m": [
+              0.04579107378324104,
+              0.018173980016267285
+            ],
+            "residual_rmse_m": 9.020562075079398e-17,
+            "residual_max_m": 9.020562075086185e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007440475575069564,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903909291e-18,
+              "validation_points": 72
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 69
+          }
+        ],
+        "candidate_pixels": 69,
+        "validation_pixels": 72,
+        "guard_or_unused_pixels": 113,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 254,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.06520839482675247,
+              -0.006821207087375325,
+              0.9978483533974436
+            ],
+            "center": [
+              0.30870276202250096,
+              3.721849897526127e-05,
+              0.04985146384972793
+            ],
+            "tangent_spans_m": [
+              0.04555767603802326,
+              0.01853838827688429
+            ],
+            "residual_rmse_m": 0.0008995488793233948,
+            "residual_max_m": 0.0014705135540724018,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "inconsistent",
+              "validation_group": 0,
+              "center_distance_m": 0.0021266285022993733,
+              "angle_degrees": 12.152173919996125,
+              "plane_offset_m": 0.00017801309756174756,
+              "validation_points": 55
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                52
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 3.75924821962209
+            },
+            "point_count": 52
+          }
+        ],
+        "candidate_pixels": 69,
+        "validation_pixels": 72,
+        "guard_or_unused_pixels": 113,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 254,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              1.1899313559821655e-26,
+              1.0
+            ],
+            "center": [
+              0.30876641554248707,
+              0.0001301187388901107,
+              0.04398531913757327
+            ],
+            "tangent_spans_m": [
+              0.046029982363076136,
+              0.018268800237697135
+            ],
+            "residual_rmse_m": 6.938893903907228e-17,
+            "residual_max_m": 6.938893903934686e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007479295224972045,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903915572e-18,
+              "validation_points": 72
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 69
+          }
+        ],
+        "candidate_pixels": 69,
+        "validation_pixels": 72,
+        "guard_or_unused_pixels": 113,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              5.048709793414476e-29,
+              1.0
+            ],
+            "center": [
+              0.29679047358860355,
+              0.0005513329402318187,
+              0.04998536109924328
+            ],
+            "tangent_spans_m": [
+              0.045650367451194565,
+              0.0416807702815255
+            ],
+            "residual_rmse_m": 1.5959455978986625e-16,
+            "residual_max_m": 1.5959455978986744e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007695747241206077,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907472e-18,
+              "validation_points": 159
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                162
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 162
+          }
+        ],
+        "candidate_pixels": 162,
+        "validation_pixels": 159,
+        "guard_or_unused_pixels": 228,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 555,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -2.993489530251423e-05,
+              0.009065420893691568,
+              0.9999589077796758
+            ],
+            "center": [
+              0.2962267970561076,
+              -0.0005750352834990946,
+              0.04941496868287374
+            ],
+            "tangent_spans_m": [
+              0.05256511085755379,
+              0.05368121395631263
+            ],
+            "residual_rmse_m": 0.0008349714643218179,
+            "residual_max_m": 0.0015149535030466936,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0011365813883609816,
+              "angle_degrees": 1.9154991560774186,
+              "plane_offset_m": 0.00036609630242733047,
+              "validation_points": 123
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                124
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.519420303234236
+            },
+            "point_count": 124
+          },
+          {
+            "normal": [
+              -0.003978540821605558,
+              0.010525307033287738,
+              0.9999366925584768
+            ],
+            "center": [
+              0.298736802049419,
+              0.005618033778353295,
+              0.05143056511878963
+            ],
+            "tangent_spans_m": [
+              0.04918695230540304,
+              0.048731294877561074
+            ],
+            "residual_rmse_m": 0.00024857177079246447,
+            "residual_max_m": 0.0005168666966627315,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "unknown",
+              "reason": "no_unique_spatial_match"
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                36
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.6447142993597077
+            },
+            "point_count": 36
+          }
+        ],
+        "candidate_pixels": 162,
+        "validation_pixels": 159,
+        "guard_or_unused_pixels": 234,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "center": [
+              0.29625199219161524,
+              0.0005542094434208597,
+              0.04398531913757336
+            ],
+            "tangent_spans_m": [
+              0.045888541915247154,
+              0.04189823392261699
+            ],
+            "residual_rmse_m": 1.5959455978986625e-16,
+            "residual_max_m": 1.5959455978986625e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007735898735641196,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907228e-18,
+              "validation_points": 159
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                162
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 162
+          }
+        ],
+        "candidate_pixels": 162,
+        "validation_pixels": 159,
+        "guard_or_unused_pixels": 228,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              1.5443324081860672e-27,
+              1.0
+            ],
+            "center": [
+              0.30969166439002804,
+              0.000826999410347724,
+              0.04998536109924322
+            ],
+            "tangent_spans_m": [
+              0.046427700407474765,
+              0.019037449672940916
+            ],
+            "residual_rmse_m": 9.71445146547012e-17,
+            "residual_max_m": 9.714451465473772e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007440475575069564,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903908305e-18,
+              "validation_points": 69
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                72
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 72
+          }
+        ],
+        "candidate_pixels": 72,
+        "validation_pixels": 69,
+        "guard_or_unused_pixels": 96,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 243,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.0013900694122595792,
+              -0.03244460204489591,
+              0.9994725686606799
+            ],
+            "center": [
+              0.3098301990452243,
+              0.00010120120036483185,
+              0.04994442548070637
+            ],
+            "tangent_spans_m": [
+              0.045798685885732604,
+              0.018148772904556496
+            ],
+            "residual_rmse_m": 0.0008675048380025121,
+            "residual_max_m": 0.001431591759514175,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0008066096481737815,
+              "angle_degrees": 3.3851535524221554,
+              "plane_offset_m": 0.00020704365418233695,
+              "validation_points": 53
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                56
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 1.8609713459719421
+            },
+            "point_count": 56
+          }
+        ],
+        "candidate_pixels": 72,
+        "validation_pixels": 69,
+        "guard_or_unused_pixels": 102,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              6.660432741072109e-29,
+              1.0
+            ],
+            "center": [
+              0.30922049316766326,
+              0.0008313141651312932,
+              0.043985319137573274
+            ],
+            "tangent_spans_m": [
+              0.04666993049847165,
+              0.019136774927608975
+            ],
+            "residual_rmse_m": 7.632783294297951e-17,
+            "residual_max_m": 7.632783294298109e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007479295224972045,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903910872e-18,
+              "validation_points": 69
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                72
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 72
+          }
+        ],
+        "candidate_pixels": 72,
+        "validation_pixels": 69,
+        "guard_or_unused_pixels": 96,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -4.692090464127347e-28,
+              1.0
+            ],
+            "center": [
+              0.2970427644111477,
+              -0.00013107160465889063,
+              0.049985361099243286
+            ],
+            "tangent_spans_m": [
+              0.05231046495067651,
+              0.0521428054728221
+            ],
+            "residual_rmse_m": 1.6653345369377348e-16,
+            "residual_max_m": 1.6653345369378425e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007695747241206334,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907549e-18,
+              "validation_points": 162
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                159
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 159
+          }
+        ],
+        "candidate_pixels": 159,
+        "validation_pixels": 162,
+        "guard_or_unused_pixels": 228,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.034187921075479154,
+              -0.005236263561245513,
+              0.9994017048196655
+            ],
+            "center": [
+              0.29604631439006995,
+              -3.24047104266802e-05,
+              0.04960420958457465
+            ],
+            "tangent_spans_m": [
+              0.05200965250066831,
+              0.05292664174142528
+            ],
+            "residual_rmse_m": 0.0008609336537504371,
+            "residual_max_m": 0.0015902935181818078,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0013120456094378727,
+              "angle_degrees": 2.9404535447790203,
+              "plane_offset_m": 0.00017625970350882805,
+              "validation_points": 125
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                124
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 1.9820610985000386
+            },
+            "point_count": 124
+          }
+        ],
+        "candidate_pixels": 159,
+        "validation_pixels": 162,
+        "guard_or_unused_pixels": 228,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 549,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              1.6985681930893772e-28,
+              1.0
+            ],
+            "center": [
+              0.2960882103962757,
+              -0.00013175545258684146,
+              0.04398531913757335
+            ],
+            "tangent_spans_m": [
+              0.05258338755019972,
+              0.052414853332260855
+            ],
+            "residual_rmse_m": 1.52655665885959e-16,
+            "residual_max_m": 1.526556658859629e-16,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007735898735641709,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907345e-18,
+              "validation_points": 162
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                159
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 159
+          }
+        ],
+        "candidate_pixels": 159,
+        "validation_pixels": 162,
+        "guard_or_unused_pixels": 228,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              -2.7959716168026816e-27,
+              1.0
+            ],
+            "center": [
+              0.31004083422471135,
+              0.00012944338596747047,
+              0.04998536109924321
+            ],
+            "tangent_spans_m": [
+              0.04579107378324103,
+              0.018173980016267285
+            ],
+            "residual_rmse_m": 9.020562075079397e-17,
+            "residual_max_m": 9.020562075085742e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007440475575069757,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907424e-18,
+              "validation_points": 72
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 69
+          }
+        ],
+        "candidate_pixels": 69,
+        "validation_pixels": 72,
+        "guard_or_unused_pixels": 96,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.023953377196619618,
+              -0.008705222298110125,
+              0.999675174657057
+            ],
+            "center": [
+              0.30963786959767653,
+              -0.00040980318826179643,
+              0.04919037772159951
+            ],
+            "tangent_spans_m": [
+              0.04220891095566749,
+              0.022431156225852525
+            ],
+            "residual_rmse_m": 0.0007385544665444904,
+            "residual_max_m": 0.001649727809043141,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0014814659183810107,
+              "angle_degrees": 2.5752509338624745,
+              "plane_offset_m": 0.00022563651934877357,
+              "validation_points": 53
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                51
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 1.460408458230491
+            },
+            "point_count": 51
+          }
+        ],
+        "candidate_pixels": 69,
+        "validation_pixels": 72,
+        "guard_or_unused_pixels": 96,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 237,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.0,
+              7.831072336248265e-29,
+              1.0
+            ],
+            "center": [
+              0.3091540958372793,
+              0.0001301187388901107,
+              0.04398531913757327
+            ],
+            "tangent_spans_m": [
+              0.04602998236307612,
+              0.018268800237697128
+            ],
+            "residual_rmse_m": 6.938893903907228e-17,
+            "residual_max_m": 6.93889390390741e-17,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0007479295224972624,
+              "angle_degrees": 0.0,
+              "plane_offset_m": 6.938893903907284e-18,
+              "validation_points": 72
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 2.9575586669421963e-06
+            },
+            "point_count": 69
+          }
+        ],
+        "candidate_pixels": 69,
+        "validation_pixels": 72,
+        "guard_or_unused_pixels": 96,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 758,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5127762609003697,
+              -0.3011078640342236,
+              0.8039866668507529
+            ],
+            "center": [
+              0.48494249822747637,
+              0.008259192204018889,
+              0.05519575912680412
+            ],
+            "tangent_spans_m": [
+              0.05279628705204104,
+              0.04357047768668741
+            ],
+            "residual_rmse_m": 9.869290516728858e-07,
+            "residual_max_m": 2.6676579240820023e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.003732416130184002,
+              "angle_degrees": 0.1497451665314791,
+              "plane_offset_m": 2.0805387226434553e-05,
+              "validation_points": 132
+            },
+            "scoring_only": {
+              "face_counts": [
+                149,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.004268458913535366
+            },
+            "point_count": 149
+          },
+          {
+            "normal": [
+              0.6931488636524094,
+              0.4073591371158526,
+              0.5946454289958021
+            ],
+            "center": [
+              0.5114791009197958,
+              0.030747686714210253,
+              0.05046946680223627
+            ],
+            "tangent_spans_m": [
+              0.05356461900469437,
+              0.02775068395215689
+            ],
+            "residual_rmse_m": 1.1032766356243187e-06,
+            "residual_max_m": 2.4707721969197648e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.012398109909754002,
+              "angle_degrees": 0.0040087835810792925,
+              "plane_offset_m": 8.065879908382076e-07,
+              "validation_points": 65
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                74
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.0023805052701938003
+            },
+            "point_count": 74
+          }
+        ],
+        "candidate_pixels": 223,
+        "validation_pixels": 197,
+        "guard_or_unused_pixels": 338,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 696,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5097240934994232,
+              -0.31252265899670795,
+              0.8015677988291559
+            ],
+            "center": [
+              0.4849310335785441,
+              0.007317437834090965,
+              0.0552429177721994
+            ],
+            "tangent_spans_m": [
+              0.053981226595400875,
+              0.043718092524498105
+            ],
+            "residual_rmse_m": 0.0008147227530312434,
+            "residual_max_m": 0.0014805787240400395,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.004396599155440341,
+              "angle_degrees": 2.2765689517394456,
+              "plane_offset_m": 0.000293227961983852,
+              "validation_points": 106
+            },
+            "scoring_only": {
+              "face_counts": [
+                122,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.6873434080475402
+            },
+            "point_count": 122
+          },
+          {
+            "normal": [
+              0.6944954015155482,
+              0.40978042366023715,
+              0.5914018444835913
+            ],
+            "center": [
+              0.5113212138577363,
+              0.03119007045949642,
+              0.05031203356656163
+            ],
+            "tangent_spans_m": [
+              0.05417762746814085,
+              0.025223248719867166
+            ],
+            "residual_rmse_m": 0.0004400102064830362,
+            "residual_max_m": 0.0009590859192694298,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.0125478601016153,
+              "angle_degrees": 0.17162977276157207,
+              "plane_offset_m": 3.445061069212024e-05,
+              "validation_points": 51
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                55
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.2445546438312172
+            },
+            "point_count": 55
+          }
+        ],
+        "candidate_pixels": 203,
+        "validation_pixels": 181,
+        "guard_or_unused_pixels": 312,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 758,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5108803826293628,
+              -0.29999232046397195,
+              0.8056089884721478
+            ],
+            "center": [
+              0.48580738358431996,
+              0.00830266408241541,
+              0.04919571716513421
+            ],
+            "tangent_spans_m": [
+              0.05307386277644066,
+              0.04380389451157053
+            ],
+            "residual_rmse_m": 9.995032349043468e-07,
+            "residual_max_m": 2.889344513170005e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0037493634775898855,
+              "angle_degrees": 0.14980820443449383,
+              "plane_offset_m": 2.0835097361440605e-05,
+              "validation_points": 132
+            },
+            "scoring_only": {
+              "face_counts": [
+                149,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.15587203581132872
+            },
+            "point_count": 149
+          },
+          {
+            "normal": [
+              0.692141274586894,
+              0.4067657114306469,
+              0.5962232065405952
+            ],
+            "center": [
+              0.5124782581896757,
+              0.03090833553015172,
+              0.04446942484056632
+            ],
+            "tangent_spans_m": [
+              0.05377408169818266,
+              0.027819034478535072
+            ],
+            "residual_rmse_m": 1.125162450077976e-06,
+            "residual_max_m": 2.5978139625020165e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.012454184743350284,
+              "angle_degrees": 0.003755757354576979,
+              "plane_offset_m": 1.0473917275450467e-06,
+              "validation_points": 65
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                74
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.11320017152487037
+            },
+            "point_count": 74
+          }
+        ],
+        "candidate_pixels": 223,
+        "validation_pixels": 197,
+        "guard_or_unused_pixels": 338,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 333,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6913730905837974,
+              0.4013032172533757,
+              0.6007986163754856
+            ],
+            "center": [
+              0.5125213166361542,
+              0.029954625258165862,
+              0.04977214506694254
+            ],
+            "tangent_spans_m": [
+              0.05094562224270251,
+              0.040620535295698826
+            ],
+            "residual_rmse_m": 0.0001117781627039345,
+            "residual_max_m": 0.0008166326869104394,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.012801830051616475,
+              "angle_degrees": 0.4902639706365196,
+              "plane_offset_m": 5.736585763497712e-05,
+              "validation_points": 75
+            },
+            "scoring_only": {
+              "face_counts": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9857142857142858,
+              "normal_error_degrees": 0.5044714667740101
+            },
+            "point_count": 70
+          }
+        ],
+        "candidate_pixels": 99,
+        "validation_pixels": 95,
+        "guard_or_unused_pixels": 139,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 272,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.677900919497855,
+              0.3521240626174619,
+              0.6453363370132948
+            ],
+            "center": [
+              0.512030762420691,
+              0.028765275976742995,
+              0.050618181405244066
+            ],
+            "tangent_spans_m": [
+              0.05157205959785315,
+              0.045596669667196735
+            ],
+            "residual_rmse_m": 0.0006711538779058958,
+            "residual_max_m": 0.0013769260855003886,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.011477040761827496,
+              "angle_degrees": 4.556960491327143,
+              "plane_offset_m": 0.0011721202343944657,
+              "validation_points": 58
+            },
+            "scoring_only": {
+              "face_counts": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                49
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9074074074074074,
+              "normal_error_degrees": 4.383837799121276
+            },
+            "point_count": 54
+          }
+        ],
+        "candidate_pixels": 80,
+        "validation_pixels": 79,
+        "guard_or_unused_pixels": 113,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 333,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6903441549223357,
+              0.4007007920251736,
+              0.60238179175251
+            ],
+            "center": [
+              0.513525347746418,
+              0.030110991971522116,
+              0.0437721031052726
+            ],
+            "tangent_spans_m": [
+              0.05116472839222057,
+              0.04072455466000826
+            ],
+            "residual_rmse_m": 0.00011228091087623065,
+            "residual_max_m": 0.0008202670420309633,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.012846226668464881,
+              "angle_degrees": 0.49036660975420715,
+              "plane_offset_m": 5.73966342571593e-05,
+              "validation_points": 75
+            },
+            "scoring_only": {
+              "face_counts": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9857142857142858,
+              "normal_error_degrees": 0.6061738976006854
+            },
+            "point_count": 70
+          }
+        ],
+        "candidate_pixels": 99,
+        "validation_pixels": 95,
+        "guard_or_unused_pixels": 139,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 759,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5090928511325079,
+              -0.30045412820091033,
+              0.8065679052459283
+            ],
+            "center": [
+              0.48519062658286294,
+              0.0117352278510521,
+              0.05661374591290962
+            ],
+            "tangent_spans_m": [
+              0.05718671575949805,
+              0.05601811900611194
+            ],
+            "residual_rmse_m": 0.00018522676534710528,
+            "residual_max_m": 0.0014843747516168591,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.003847910298215591,
+              "angle_degrees": 0.19006341348385272,
+              "plane_offset_m": 2.3790391581772095e-05,
+              "validation_points": 147
+            },
+            "scoring_only": {
+              "face_counts": [
+                119,
+                0,
+                0,
+                0,
+                0,
+                2
+              ],
+              "ambiguous_or_off_surface": 7,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9296875,
+              "normal_error_degrees": 0.2584817512402251
+            },
+            "point_count": 128
+          },
+          {
+            "normal": [
+              0.6932114036848558,
+              0.4073091034749926,
+              0.5946067978317009
+            ],
+            "center": [
+              0.5138075959121733,
+              0.020691961981089482,
+              0.054642359746827074
+            ],
+            "tangent_spans_m": [
+              0.05158857164656789,
+              0.04374062198395044
+            ],
+            "residual_rmse_m": 8.403494128097579e-07,
+            "residual_max_m": 1.8667668819794675e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.01122607134409535,
+              "angle_degrees": 0.006241025674500654,
+              "plane_offset_m": 3.576594215558629e-07,
+              "validation_points": 75
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                72
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.002896303745262908
+            },
+            "point_count": 72
+          }
+        ],
+        "candidate_pixels": 200,
+        "validation_pixels": 222,
+        "guard_or_unused_pixels": 337,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 730,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5253117500508787,
+              -0.27935260130032236,
+              0.8037472795631885
+            ],
+            "center": [
+              0.48464386414493743,
+              0.01334881023600886,
+              0.05721873011544496
+            ],
+            "tangent_spans_m": [
+              0.060367229886143486,
+              0.05327320652862948
+            ],
+            "residual_rmse_m": 0.0007889308507993379,
+            "residual_max_m": 0.001497281860398979,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.005481081943206269,
+              "angle_degrees": 2.1788290654061826,
+              "plane_offset_m": 0.00018226105800107873,
+              "validation_points": 123
+            },
+            "scoring_only": {
+              "face_counts": [
+                99,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "ambiguous_or_off_surface": 7,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9252336448598131,
+              "normal_error_degrees": 1.4429003141232772
+            },
+            "point_count": 107
+          },
+          {
+            "normal": [
+              0.7042228438339818,
+              0.3975109471992526,
+              0.5882645944463527
+            ],
+            "center": [
+              0.5141058000551614,
+              0.019669751402385745,
+              0.05499754058780959
+            ],
+            "tangent_spans_m": [
+              0.05340985664927189,
+              0.04408909616610187
+            ],
+            "residual_rmse_m": 0.0005306857379581278,
+            "residual_max_m": 0.0011381210207141923,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.011304759955271165,
+              "angle_degrees": 1.0382537161564758,
+              "plane_offset_m": 0.00013023638576290094,
+              "validation_points": 65
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                67
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.9221527286875529
+            },
+            "point_count": 67
+          }
+        ],
+        "candidate_pixels": 194,
+        "validation_pixels": 211,
+        "guard_or_unused_pixels": 325,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 759,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5072706883487047,
+              -0.29937917746142706,
+              0.8081141978982617
+            ],
+            "center": [
+              0.4856380127194835,
+              0.01179703671332663,
+              0.0506137039512397
+            ],
+            "tangent_spans_m": [
+              0.057324419741882404,
+              0.05614985959552958
+            ],
+            "residual_rmse_m": 0.00018561044681556567,
+            "residual_max_m": 0.001487207613560266,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.0038674958050766007,
+              "angle_degrees": 0.18985741211232282,
+              "plane_offset_m": 2.3801647548076735e-05,
+              "validation_points": 147
+            },
+            "scoring_only": {
+              "face_counts": [
+                119,
+                0,
+                0,
+                0,
+                0,
+                2
+              ],
+              "ambiguous_or_off_surface": 7,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9296875,
+              "normal_error_degrees": 0.4049772050252952
+            },
+            "point_count": 128
+          },
+          {
+            "normal": [
+              0.6920929080928618,
+              0.40666325781044255,
+              0.5963492276464882
+            ],
+            "center": [
+              0.5144036073729427,
+              0.02079997467583796,
+              0.04864231778515714
+            ],
+            "tangent_spans_m": [
+              0.051780979645678724,
+              0.04395608513501771
+            ],
+            "residual_rmse_m": 7.73985055862992e-07,
+            "residual_max_m": 1.648538867736818e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.011272270137164885,
+              "angle_degrees": 0.005732187686780032,
+              "plane_offset_m": 3.832606355765565e-07,
+              "validation_points": 75
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                72
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.1221812077661334
+            },
+            "point_count": 72
+          }
+        ],
+        "candidate_pixels": 200,
+        "validation_pixels": 222,
+        "guard_or_unused_pixels": 337,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 334,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6892106795557364,
+              0.40886665997242533,
+              0.5981778109804086
+            ],
+            "center": [
+              0.5127526424529371,
+              0.020501138701034278,
+              0.05593489302864564
+            ],
+            "tangent_spans_m": [
+              0.052844280541087627,
+              0.04170843001628686
+            ],
+            "residual_rmse_m": 0.00021261695018573592,
+            "residual_max_m": 0.0014175702701519997,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.00983397021994867,
+              "angle_degrees": 2.9167313048874304,
+              "plane_offset_m": 0.0006424709557361751,
+              "validation_points": 76
+            },
+            "scoring_only": {
+              "face_counts": [
+                2,
+                0,
+                0,
+                0,
+                0,
+                74
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9367088607594937,
+              "normal_error_degrees": 0.31707733529323257
+            },
+            "point_count": 79
+          }
+        ],
+        "candidate_pixels": 95,
+        "validation_pixels": 100,
+        "guard_or_unused_pixels": 139,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 305,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.701082197724014,
+              0.3989894430419625,
+              0.5910086093920554
+            ],
+            "center": [
+              0.512928452232486,
+              0.019843009838915644,
+              0.05623620797510023
+            ],
+            "tangent_spans_m": [
+              0.05240124522203833,
+              0.04166841625618366
+            ],
+            "residual_rmse_m": 0.0005618142065017564,
+            "residual_max_m": 0.0013469733207078852,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.00810190499985934,
+              "angle_degrees": 4.958503213710565,
+              "plane_offset_m": 0.0012582426322604637,
+              "validation_points": 66
+            },
+            "scoring_only": {
+              "face_counts": [
+                2,
+                0,
+                0,
+                0,
+                0,
+                68
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9315068493150684,
+              "normal_error_degrees": 0.6904549304417639
+            },
+            "point_count": 73
+          }
+        ],
+        "candidate_pixels": 89,
+        "validation_pixels": 89,
+        "guard_or_unused_pixels": 127,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 334,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6880796251311626,
+              0.40820997792201286,
+              0.5999258649235489
+            ],
+            "center": [
+              0.5133437529348551,
+              0.020608297547684236,
+              0.049934851066975705
+            ],
+            "tangent_spans_m": [
+              0.05304096209105773,
+              0.04195325674706123
+            ],
+            "residual_rmse_m": 0.00021344416299952523,
+            "residual_max_m": 0.001423002267644689,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.009867017224600596,
+              "angle_degrees": 2.9199156898689305,
+              "plane_offset_m": 0.0006447168414894957,
+              "validation_points": 76
+            },
+            "scoring_only": {
+              "face_counts": [
+                2,
+                0,
+                0,
+                0,
+                0,
+                74
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9367088607594937,
+              "normal_error_degrees": 0.4238373813248101
+            },
+            "point_count": 79
+          }
+        ],
+        "candidate_pixels": 95,
+        "validation_pixels": 100,
+        "guard_or_unused_pixels": 139,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 765,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.5113034180783765,
+              -0.301065408834602,
+              0.8049400190477688
+            ],
+            "center": [
+              0.486776017856156,
+              0.008126741451878403,
+              0.05629598163578619
+            ],
+            "tangent_spans_m": [
+              0.051414279478669445,
+              0.042897186655471056
+            ],
+            "residual_rmse_m": 0.0001297719789684679,
+            "residual_max_m": 0.0013076649858315293,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.004433017137410492,
+              "angle_degrees": 0.16323876598202203,
+              "plane_offset_m": 1.8022176038660108e-05,
+              "validation_points": 120
+            },
+            "scoring_only": {
+              "face_counts": [
+                142,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9726027397260274,
+              "normal_error_degrees": 0.09819661949908931
+            },
+            "point_count": 146
+          },
+          {
+            "normal": [
+              0.6931517039105718,
+              0.4073091857744199,
+              0.5946763342774368
+            ],
+            "center": [
+              0.5132326338725434,
+              0.029825374785507074,
+              0.049056084950765036
+            ],
+            "tangent_spans_m": [
+              0.051853592374424426,
+              0.040171962560995755
+            ],
+            "residual_rmse_m": 1.2723585810735253e-06,
+            "residual_max_m": 3.3941072482019524e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.009338723665712378,
+              "angle_degrees": 0.005528298482621792,
+              "plane_offset_m": 1.1941045933022698e-06,
+              "validation_points": 83
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                78
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.002871520526651473
+            },
+            "point_count": 78
+          }
+        ],
+        "candidate_pixels": 224,
+        "validation_pixels": 203,
+        "guard_or_unused_pixels": 338,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 717,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.515049491296869,
+              -0.3209789636321747,
+              0.7947933859944053
+            ],
+            "center": [
+              0.48593189876285325,
+              0.007047373497504217,
+              0.0554703813838209
+            ],
+            "tangent_spans_m": [
+              0.05413236690377596,
+              0.0435562598133352
+            ],
+            "residual_rmse_m": 0.0008656023408511721,
+            "residual_max_m": 0.001502922801391568,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.004502935416276194,
+              "angle_degrees": 1.1635981660050425,
+              "plane_offset_m": 0.0001755344678843945,
+              "validation_points": 102
+            },
+            "scoring_only": {
+              "face_counts": [
+                125,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "ambiguous_or_off_surface": 2,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.984251968503937,
+              "normal_error_degrees": 1.258744786489223
+            },
+            "point_count": 127
+          },
+          {
+            "normal": [
+              0.6980726400740858,
+              0.40653067672419774,
+              0.589429722750865
+            ],
+            "center": [
+              0.5128295962925086,
+              0.02892506339953166,
+              0.05008044209745201
+            ],
+            "tangent_spans_m": [
+              0.05165882873960283,
+              0.039745993483055284
+            ],
+            "residual_rmse_m": 0.0006028444864910747,
+            "residual_max_m": 0.001448627232692866,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.009064684162778962,
+              "angle_degrees": 0.20225684112171483,
+              "plane_offset_m": 0.00013237217846941455,
+              "validation_points": 76
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                71
+              ],
+              "ambiguous_or_off_surface": 1,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9861111111111112,
+              "normal_error_degrees": 0.41209498807621
+            },
+            "point_count": 72
+          }
+        ],
+        "candidate_pixels": 216,
+        "validation_pixels": 190,
+        "guard_or_unused_pixels": 311,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "none",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 765,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              -0.509558884958609,
+              -0.3000359511359024,
+              0.8064292720293046
+            ],
+            "center": [
+              0.4868119780864344,
+              0.00816958164731848,
+              0.05029593967411628
+            ],
+            "tangent_spans_m": [
+              0.051651751091563135,
+              0.04313080179693726
+            ],
+            "residual_rmse_m": 0.00013005458308065808,
+            "residual_max_m": 0.0013104179162569916,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.004456347285793612,
+              "angle_degrees": 0.1628018374712986,
+              "plane_offset_m": 1.799472951022153e-05,
+              "validation_points": 120
+            },
+            "scoring_only": {
+              "face_counts": [
+                142,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 0,
+              "dominant_fraction_all_points": 0.9726027397260274,
+              "normal_error_degrees": 0.23800409975835474
+            },
+            "point_count": 146
+          },
+          {
+            "normal": [
+              0.6919384198451622,
+              0.406588695945312,
+              0.5965792952086675
+            ],
+            "center": [
+              0.5134056223489426,
+              0.02998097148108659,
+              0.04305604298909511
+            ],
+            "tangent_spans_m": [
+              0.05206850264865051,
+              0.04026295346895059
+            ],
+            "residual_rmse_m": 1.242360252330731e-06,
+            "residual_max_m": 2.923621969401491e-06,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 1,
+              "center_distance_m": 0.00937482863766041,
+              "angle_degrees": 0.005672696983729839,
+              "plane_offset_m": 1.4686791648941579e-06,
+              "validation_points": 83
+            },
+            "scoring_only": {
+              "face_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                78
+              ],
+              "ambiguous_or_off_surface": 0,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 1.0,
+              "normal_error_degrees": 0.1385974038927538
+            },
+            "point_count": 78
+          }
+        ],
+        "candidate_pixels": 224,
+        "validation_pixels": 203,
+        "guard_or_unused_pixels": 338,
+        "validation_groups": 2,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 335,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6893568706777785,
+              0.39684262739695464,
+              0.6060553059993968
+            ],
+            "center": [
+              0.5135879066736686,
+              0.027499095864530747,
+              0.05012582093477256
+            ],
+            "tangent_spans_m": [
+              0.05010342613721526,
+              0.044238603648587796
+            ],
+            "residual_rmse_m": 0.00023402702320583695,
+            "residual_max_m": 0.001280092413798865,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.007258600139897619,
+              "angle_degrees": 0.8346560187448906,
+              "plane_offset_m": 0.0001488387109527165,
+              "validation_points": 84
+            },
+            "scoring_only": {
+              "face_counts": [
+                3,
+                0,
+                0,
+                0,
+                0,
+                74
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.925,
+              "normal_error_degrees": 0.9148067150214656
+            },
+            "point_count": 80
+          }
+        ],
+        "candidate_pixels": 101,
+        "validation_pixels": 95,
+        "guard_or_unused_pixels": 139,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 296,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6976708820054025,
+              0.40180784148600723,
+              0.5931321934629404
+            ],
+            "center": [
+              0.5135411120059757,
+              0.027042364200650152,
+              0.05051399889126635
+            ],
+            "tangent_spans_m": [
+              0.04979753416793134,
+              0.045192288577895486
+            ],
+            "residual_rmse_m": 0.0006152953597249008,
+            "residual_max_m": 0.001291661081248615,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.007275247158590725,
+              "angle_degrees": 0.3766825930942171,
+              "plane_offset_m": 0.00020154355351488865,
+              "validation_points": 77
+            },
+            "scoring_only": {
+              "face_counts": [
+                2,
+                0,
+                0,
+                0,
+                0,
+                66
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.9295774647887324,
+              "normal_error_degrees": 0.4169205093337953
+            },
+            "point_count": 71
+          }
+        ],
+        "candidate_pixels": 93,
+        "validation_pixels": 89,
+        "guard_or_unused_pixels": 114,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "half_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 335,
+      "result": {
+        "groups": [
+          {
+            "normal": [
+              0.6880980582490803,
+              0.39610214408021827,
+              0.6079672307689775
+            ],
+            "center": [
+              0.5137629131276897,
+              0.027642518313536323,
+              0.04412577897310262
+            ],
+            "tangent_spans_m": [
+              0.05030427385736645,
+              0.04437062289854521
+            ],
+            "residual_rmse_m": 0.00023489490505787986,
+            "residual_max_m": 0.001284593706288771,
+            "proposal_accepted": true,
+            "reason": "candidate_plane_only",
+            "angle_bound_certified": false,
+            "holdout": {
+              "status": "consistent_candidate",
+              "validation_group": 0,
+              "center_distance_m": 0.00716858774434245,
+              "angle_degrees": 0.9010353983099528,
+              "plane_offset_m": 0.0001651728741332184,
+              "validation_points": 83
+            },
+            "scoring_only": {
+              "face_counts": [
+                3,
+                0,
+                0,
+                0,
+                0,
+                74
+              ],
+              "ambiguous_or_off_surface": 3,
+              "dominant_face": 5,
+              "dominant_fraction_all_points": 0.925,
+              "normal_error_degrees": 1.0400782639348796
+            },
+            "point_count": 80
+          }
+        ],
+        "candidate_pixels": 101,
+        "validation_pixels": 95,
+        "guard_or_unused_pixels": 139,
+        "validation_groups": 1,
+        "status": "candidate_groups",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "none",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "uniform_2mm",
+      "beyond_nominal_error_budget": false,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "occlusion": "all_red",
+      "depth_perturbation": "bias_6mm",
+      "beyond_nominal_error_budget": true,
+      "reliable_points": 0,
+      "result": {
+        "groups": [],
+        "candidate_pixels": 0,
+        "validation_pixels": 0,
+        "guard_or_unused_pixels": 0,
+        "validation_groups": 0,
+        "status": "unknown",
+        "angle_bound_certified": false
+      }
+    }
+  ],
+  "angle_bound_certified": false,
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "disjoint pixel subsets of one observation, not independent captures",
+    "spatial matching can be ambiguous and then remains unknown",
+    "candidate identities differ from previous full-pixel groups",
+    "6mm bias exceeds original error budget; no envelope or policy update",
+    "consistency does not establish a certified normal error bound"
+  ]
+}
