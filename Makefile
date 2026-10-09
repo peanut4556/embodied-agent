@@ -468,3 +468,10 @@ cube-consistency-audit:
 
 cube-consistency-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_cube_consistency.py -v
+
+.PHONY: reference-plane-audit reference-plane-test
+reference-plane-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_reference_plane.py
+
+reference-plane-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_plane.py -v

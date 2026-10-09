@@ -1,0 +1,1021 @@
+{
+  "status": "complete",
+  "script_sha256": "685105be3358b24ee582a6a0160cc88d197d31df92f73c5b76007b79e17f2930",
+  "implementation_sha256": "edfa9d893396192640832eded28730ba7f0930b2bd63993de0eb705f0e7f0bfe",
+  "source_report_sha256": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2",
+  "baseline_sha256": "d32ca3db22e331c79434338a32c65bebd8ebf0f66bb5c2c62d883b4c642043e9",
+  "model_sha256": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+  "summary": {
+    "none-0.000": {
+      "cases": 6,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 6,
+        "unknown": 0
+      },
+      "p95_absolute_residual_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ],
+      "prior_high_error_groups_in_no_alarm_cases": 0
+    },
+    "object_only-0.002": {
+      "cases": 12,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 12,
+        "unknown": 0
+      },
+      "p95_absolute_residual_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ],
+      "prior_high_error_groups_in_no_alarm_cases": 0
+    },
+    "object_only-0.006": {
+      "cases": 12,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 12,
+        "unknown": 0
+      },
+      "p95_absolute_residual_range_m": [
+        7.152557368605983e-08,
+        7.152557368605983e-08
+      ],
+      "prior_high_error_groups_in_no_alarm_cases": 12
+    },
+    "whole_frame-0.002": {
+      "cases": 12,
+      "statuses": {
+        "alarm": 0,
+        "no_alarm": 12,
+        "unknown": 0
+      },
+      "p95_absolute_residual_range_m": [
+        0.002000071525573688,
+        0.002000071525573688
+      ],
+      "prior_high_error_groups_in_no_alarm_cases": 0
+    },
+    "whole_frame-0.006": {
+      "cases": 12,
+      "statuses": {
+        "alarm": 12,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "p95_absolute_residual_range_m": [
+        0.006000071525573691,
+        0.006000071525573691
+      ],
+      "prior_high_error_groups_in_no_alarm_cases": 0
+    }
+  },
+  "cases": [
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "none",
+      "amplitude_m": 0.0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "none",
+      "amplitude_m": 0.0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "none",
+      "amplitude_m": 0.0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 3,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "none",
+      "amplitude_m": 0.0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": -0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "none",
+      "amplitude_m": 0.0,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "object_only",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.0,
+      "scope": "whole_frame",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10464,
+        "valid_pixels": 10464,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "none",
+      "amplitude_m": 0.0,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "object_only",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 7.152557368605983e-08,
+        "signed_residual_median_m": -7.152557368605983e-08,
+        "maximum_absolute_residual_m": 7.152557368605983e-08,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": 0.005999928474426319,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": -0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": 0.0019999284744263157,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.002,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "no_alarm",
+        "absolute_residual_p95_m": 0.002000071525573688,
+        "signed_residual_median_m": -0.002000071525573688,
+        "maximum_absolute_residual_m": 0.002000071525573688,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 0
+    },
+    {
+      "episode": 5,
+      "camera_shift_x_m": 0.08,
+      "scope": "whole_frame",
+      "amplitude_m": 0.006,
+      "reference": {
+        "reference_pixels": 10416,
+        "valid_pixels": 10416,
+        "clearance_certified": false,
+        "status": "alarm",
+        "absolute_residual_p95_m": 0.006000071525573691,
+        "signed_residual_median_m": -0.006000071525573691,
+        "maximum_absolute_residual_m": 0.006000071525573691,
+        "scope": "known reference ROI only; object-local errors may be invisible"
+      },
+      "prior_object_only_high_error_groups": 1
+    }
+  ],
+  "parameters": {
+    "known_plane_world_z_m": 0,
+    "reference_x_m": [
+      0.2,
+      0.65
+    ],
+    "reference_y_m": [
+      0.2,
+      0.3
+    ],
+    "residual_p95_threshold_m": 0.003,
+    "minimum_pixels": 100,
+    "minimum_valid_fraction": 0.8
+  },
+  "group": "train",
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "clearance_certified": false,
+  "limitations": [
+    "known empty ROI and camera calibration assumed; not observation-only plane discovery",
+    "reference-only detection, no depth correction or policy change",
+    "object-local slopes can evade an unaffected reference",
+    "frame-wide slopes saturate outside original object X range",
+    "object scores are historical context; no frame-wide policy/holdout rerun"
+  ]
+}
