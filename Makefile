@@ -496,3 +496,10 @@ reference-fit-audit:
 
 reference-fit-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_fit.py -v
+
+.PHONY: redundant-reference-audit redundant-reference-test
+redundant-reference-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_redundant_reference.py
+
+redundant-reference-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_redundant_reference.py -v
