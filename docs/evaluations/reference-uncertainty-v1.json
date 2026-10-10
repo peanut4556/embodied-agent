@@ -1,0 +1,3186 @@
+{
+  "status": "complete",
+  "script_sha256": "3e8be95000334ff656d3fc5fadf1d3ba22fcdff5f29260156583e2d1a9a34887",
+  "implementation_sha256": "4883dfd30ff6ef2a92ff7652485c6cc83bc09940c637954caa5c30c290b63a5f",
+  "baseline_sha256": "855f099c1f905eeedd9f068e15dc7769c8180fd7c5bdfab87df23d394af12b37",
+  "summary": {
+    "none": {
+      "cases": 21,
+      "original": {
+        "alarm": 2,
+        "no_alarm": 19,
+        "unknown": 0
+      },
+      "propagated": {
+        "alarm": 0,
+        "no_alarm": 21,
+        "unknown": 0
+      }
+    },
+    "first_three_inconsistent": {
+      "cases": 21,
+      "original": {
+        "alarm": 20,
+        "no_alarm": 0,
+        "unknown": 1
+      },
+      "propagated": {
+        "alarm": 12,
+        "no_alarm": 8,
+        "unknown": 1
+      }
+    },
+    "rigid_layout_shift": {
+      "cases": 21,
+      "original": {
+        "alarm": 1,
+        "no_alarm": 19,
+        "unknown": 1
+      },
+      "propagated": {
+        "alarm": 0,
+        "no_alarm": 20,
+        "unknown": 1
+      }
+    },
+    "fourth_only:-0.006": {
+      "cases": 21,
+      "original": {
+        "alarm": 21,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "propagated": {
+        "alarm": 14,
+        "no_alarm": 7,
+        "unknown": 0
+      }
+    },
+    "fourth_only:-0.001": {
+      "cases": 21,
+      "original": {
+        "alarm": 9,
+        "no_alarm": 12,
+        "unknown": 0
+      },
+      "propagated": {
+        "alarm": 0,
+        "no_alarm": 21,
+        "unknown": 0
+      }
+    },
+    "fourth_only:+0.001": {
+      "cases": 21,
+      "original": {
+        "alarm": 12,
+        "no_alarm": 9,
+        "unknown": 0
+      },
+      "propagated": {
+        "alarm": 0,
+        "no_alarm": 21,
+        "unknown": 0
+      }
+    },
+    "fourth_only:+0.006": {
+      "cases": 21,
+      "original": {
+        "alarm": 21,
+        "no_alarm": 0,
+        "unknown": 0
+      },
+      "propagated": {
+        "alarm": 12,
+        "no_alarm": 9,
+        "unknown": 0
+      }
+    }
+  },
+  "cases": [
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 1.4802973661668753e-13,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9443251412611486,
+          16.13075909105673
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.8917809938990466,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.948955523804465,
+          16.061461352399483
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 2.9605947323337506e-13,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9419435775963296,
+          16.17266057425166
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 5.135258984630371,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9443251412611486,
+          16.13075909105673
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.8558764974383829,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9443251412611486,
+          16.13075909105673
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.855876497438309,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9443251412611486,
+          16.13075909105673
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 5.135258984630076,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9443251412611486,
+          16.13075909105673
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20784160740745622,
+        "threshold_range_m": [
+          0.00394458626209692,
+          0.017133382461251564
+        ],
+        "noise_gain_range": [
+          2.9445862620969194,
+          16.133382461251564
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0966221493904489,
+        "threshold_range_m": [
+          0.003949219652704262,
+          0.01706406909937593
+        ],
+        "noise_gain_range": [
+          2.9492196527042616,
+          16.064069099375928
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20811586398643522,
+        "threshold_range_m": [
+          0.003942203828966851,
+          0.01717529708539106
+        ],
+        "noise_gain_range": [
+          2.942203828966851,
+          16.175297085391062
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6987373098478336,
+        "threshold_range_m": [
+          0.00394458626209692,
+          0.017133382461251564
+        ],
+        "noise_gain_range": [
+          2.9445862620969194,
+          16.133382461251564
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.589355222435298,
+        "threshold_range_m": [
+          0.00394458626209692,
+          0.017133382461251564
+        ],
+        "noise_gain_range": [
+          2.9445862620969194,
+          16.133382461251564
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.537477867345509,
+        "threshold_range_m": [
+          0.00394458626209692,
+          0.017133382461251564
+        ],
+        "noise_gain_range": [
+          2.9445862620969194,
+          16.133382461251564
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6411120673873123,
+        "threshold_range_m": [
+          0.00394458626209692,
+          0.017133382461251564
+        ],
+        "noise_gain_range": [
+          2.9445862620969194,
+          16.133382461251564
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.21314857468660348,
+        "threshold_range_m": [
+          0.003944697889751921,
+          0.017134953699917552
+        ],
+        "noise_gain_range": [
+          2.944697889751921,
+          16.134953699917553
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0880076729598283,
+        "threshold_range_m": [
+          0.003949326616840245,
+          0.017065639519174405
+        ],
+        "noise_gain_range": [
+          2.9493266168402448,
+          16.065639519174404
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2132014997967516,
+        "threshold_range_m": [
+          0.003942317213918039,
+          0.01717687163315708
+        ],
+        "noise_gain_range": [
+          2.9423172139180394,
+          16.176871633157077
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6921871931515318,
+        "threshold_range_m": [
+          0.003944697889751921,
+          0.017134953699917552
+        ],
+        "noise_gain_range": [
+          2.944697889751921,
+          16.134953699917553
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5999843409568905,
+        "threshold_range_m": [
+          0.003944697889751921,
+          0.017134953699917552
+        ],
+        "noise_gain_range": [
+          2.944697889751921,
+          16.134953699917553
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.569962923426797,
+        "threshold_range_m": [
+          0.003944697889751921,
+          0.017134953699917552
+        ],
+        "noise_gain_range": [
+          2.944697889751921,
+          16.134953699917553
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6996674469417656,
+        "threshold_range_m": [
+          0.003944697889751921,
+          0.017134953699917552
+        ],
+        "noise_gain_range": [
+          2.944697889751921,
+          16.134953699917553
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20853885548842965,
+        "threshold_range_m": [
+          0.003944538898600823,
+          0.017133216347155283
+        ],
+        "noise_gain_range": [
+          2.9445388986008227,
+          16.133216347155283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0710378280426671,
+        "threshold_range_m": [
+          0.0039491707015313375,
+          0.017063906102164232
+        ],
+        "noise_gain_range": [
+          2.949170701531337,
+          16.063906102164232
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20878764535508626,
+        "threshold_range_m": [
+          0.003942157146904557,
+          0.017175130790590565
+        ],
+        "noise_gain_range": [
+          2.942157146904557,
+          16.175130790590565
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.711247599807019,
+        "threshold_range_m": [
+          0.003944538898600823,
+          0.017133216347155283
+        ],
+        "noise_gain_range": [
+          2.9445388986008227,
+          16.133216347155283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5706663040154089,
+        "threshold_range_m": [
+          0.003944538898600823,
+          0.017133216347155283
+        ],
+        "noise_gain_range": [
+          2.9445388986008227,
+          16.133216347155283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5728094634985964,
+        "threshold_range_m": [
+          0.003944538898600823,
+          0.017133216347155283
+        ],
+        "noise_gain_range": [
+          2.9445388986008227,
+          16.133216347155283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.712799893607316,
+        "threshold_range_m": [
+          0.003944538898600823,
+          0.017133216347155283
+        ],
+        "noise_gain_range": [
+          2.9445388986008227,
+          16.133216347155283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20781164547797334,
+        "threshold_range_m": [
+          0.01183532544806806,
+          0.05141589122509429
+        ],
+        "noise_gain_range": [
+          2.9451084826893537,
+          16.13863040836476
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.4750194284292861,
+        "threshold_range_m": [
+          0.01184924366856294,
+          0.051207857425360596
+        ],
+        "noise_gain_range": [
+          2.94974788952098,
+          16.069285808453532
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20808582803267284,
+        "threshold_range_m": [
+          0.011828172924520798,
+          0.0515417139992913
+        ],
+        "noise_gain_range": [
+          2.942724308173599,
+          16.1805713330971
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0061061922155194,
+        "threshold_range_m": [
+          0.01183532544806806,
+          0.05141589122509429
+        ],
+        "noise_gain_range": [
+          2.9451084826893537,
+          16.13863040836476
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.3185424026537744,
+        "threshold_range_m": [
+          0.01183532544806806,
+          0.05141589122509429
+        ],
+        "noise_gain_range": [
+          2.9451084826893537,
+          16.13863040836476
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2893654714678233,
+        "threshold_range_m": [
+          0.01183532544806806,
+          0.05141589122509429
+        ],
+        "noise_gain_range": [
+          2.9451084826893537,
+          16.13863040836476
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9486925462107518,
+        "threshold_range_m": [
+          0.01183532544806806,
+          0.05141589122509429
+        ],
+        "noise_gain_range": [
+          2.9451084826893537,
+          16.13863040836476
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "none",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.21310946941652165,
+        "threshold_range_m": [
+          0.011836330974693483,
+          0.05143004215748377
+        ],
+        "noise_gain_range": [
+          2.945443658231161,
+          16.143347385827923
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.49236466789978034,
+        "threshold_range_m": [
+          0.011850207209746203,
+          0.05122200099557678
+        ],
+        "noise_gain_range": [
+          2.9500690699154006,
+          16.074000331858926
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.21315960568337403,
+        "threshold_range_m": [
+          0.011829194281324899,
+          0.051555894736045264
+        ],
+        "noise_gain_range": [
+          2.943064760441633,
+          16.18529824534842
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9998282453539349,
+        "threshold_range_m": [
+          0.011836330974693483,
+          0.05143004215748377
+        ],
+        "noise_gain_range": [
+          2.945443658231161,
+          16.143347385827923
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.33202544328159717,
+        "threshold_range_m": [
+          0.011836330974693483,
+          0.05143004215748377
+        ],
+        "noise_gain_range": [
+          2.945443658231161,
+          16.143347385827923
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.29654262756436084,
+        "threshold_range_m": [
+          0.011836330974693483,
+          0.05143004215748377
+        ],
+        "noise_gain_range": [
+          2.945443658231161,
+          16.143347385827923
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9747190349859947,
+        "threshold_range_m": [
+          0.011836330974693483,
+          0.05143004215748377
+        ],
+        "noise_gain_range": [
+          2.945443658231161,
+          16.143347385827923
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20852719078161153,
+        "threshold_range_m": [
+          0.011834899449173215,
+          0.051414395895492064
+        ],
+        "noise_gain_range": [
+          2.9449664830577382,
+          16.13813196516402
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.46719509742603677,
+        "threshold_range_m": [
+          0.01184880337732717,
+          0.051206390136300566
+        ],
+        "noise_gain_range": [
+          2.949601125775723,
+          16.068796712100188
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20877592185290567,
+        "threshold_range_m": [
+          0.011827753069987467,
+          0.051540217097416186
+        ],
+        "noise_gain_range": [
+          2.942584356662489,
+          16.180072365805394
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.982398300964967,
+        "threshold_range_m": [
+          0.011834899449173215,
+          0.051414395895492064
+        ],
+        "noise_gain_range": [
+          2.9449664830577382,
+          16.13813196516402
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.31235519414894203,
+        "threshold_range_m": [
+          0.011834899449173215,
+          0.051414395895492064
+        ],
+        "noise_gain_range": [
+          2.9449664830577382,
+          16.13813196516402
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.310316142633408,
+        "threshold_range_m": [
+          0.011834899449173215,
+          0.051414395895492064
+        ],
+        "noise_gain_range": [
+          2.9449664830577382,
+          16.13813196516402
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "wide",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9946138946875466,
+        "threshold_range_m": [
+          0.011834899449173215,
+          0.051414395895492064
+        ],
+        "noise_gain_range": [
+          2.9449664830577382,
+          16.13813196516402
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 7.401486830834377e-14,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9762575738583212,
+          9.274267881930038
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.419555338376825,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9815503474470075,
+          9.19022437209893
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 1.4802973661668753e-13,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.973974418087539,
+          9.32598853284834
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 3.8533975809515266,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9762575738583212,
+          9.274267881930038
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.6422329301585261,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9762575738583212,
+          9.274267881930038
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.6422329301586002,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9762575738583212,
+          9.274267881930038
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 3.8533975809515266,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9762575738583212,
+          9.274267881930038
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2038728315214313,
+        "threshold_range_m": [
+          0.003977188136085174,
+          0.010277501714203456
+        ],
+        "noise_gain_range": [
+          2.9771881360851737,
+          9.277501714203456
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0828716942833652,
+        "threshold_range_m": [
+          0.003982500566712008,
+          0.010193418319131845
+        ],
+        "noise_gain_range": [
+          2.982500566712008,
+          9.193418319131846
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20332630303477336,
+        "threshold_range_m": [
+          0.003974897978399838,
+          0.010329249172397895
+        ],
+        "noise_gain_range": [
+          2.974897978399838,
+          9.329249172397894
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.695592535285122,
+        "threshold_range_m": [
+          0.003977188136085174,
+          0.010277501714203456
+        ],
+        "noise_gain_range": [
+          2.9771881360851737,
+          9.277501714203456
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5845992076997555,
+        "threshold_range_m": [
+          0.003977188136085174,
+          0.010277501714203456
+        ],
+        "noise_gain_range": [
+          2.9771881360851737,
+          9.277501714203456
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5329661573602276,
+        "threshold_range_m": [
+          0.003977188136085174,
+          0.010277501714203456
+        ],
+        "noise_gain_range": [
+          2.9771881360851737,
+          9.277501714203456
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.606180917986279,
+        "threshold_range_m": [
+          0.003977188136085174,
+          0.010277501714203456
+        ],
+        "noise_gain_range": [
+          2.9771881360851737,
+          9.277501714203456
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.21162932843883045,
+        "threshold_range_m": [
+          0.0039775756023942965,
+          0.010276410814473216
+        ],
+        "noise_gain_range": [
+          2.977575602394296,
+          9.276410814473216
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0894657077066288,
+        "threshold_range_m": [
+          0.003982861485644498,
+          0.010192422630452122
+        ],
+        "noise_gain_range": [
+          2.9828614856444977,
+          9.192422630452123
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.21213296650691207,
+        "threshold_range_m": [
+          0.003975297366422472,
+          0.010328103400808985
+        ],
+        "noise_gain_range": [
+          2.975297366422472,
+          9.328103400808985
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6580693937119313,
+        "threshold_range_m": [
+          0.0039775756023942965,
+          0.010276410814473216
+        ],
+        "noise_gain_range": [
+          2.977575602394296,
+          9.276410814473216
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5991039647058453,
+        "threshold_range_m": [
+          0.0039775756023942965,
+          0.010276410814473216
+        ],
+        "noise_gain_range": [
+          2.977575602394296,
+          9.276410814473216
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5634546894736397,
+        "threshold_range_m": [
+          0.0039775756023942965,
+          0.010276410814473216
+        ],
+        "noise_gain_range": [
+          2.977575602394296,
+          9.276410814473216
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6607589673034893,
+        "threshold_range_m": [
+          0.0039775756023942965,
+          0.010276410814473216
+        ],
+        "noise_gain_range": [
+          2.977575602394296,
+          9.276410814473216
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20452852827482815,
+        "threshold_range_m": [
+          0.003976930787171132,
+          0.010276555232261026
+        ],
+        "noise_gain_range": [
+          2.9769307871711317,
+          9.276555232261027
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0601465316599892,
+        "threshold_range_m": [
+          0.003982234165242641,
+          0.010192482953350453
+        ],
+        "noise_gain_range": [
+          2.982234165242641,
+          9.192482953350453
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20447497666581946,
+        "threshold_range_m": [
+          0.0039746442786056406,
+          0.01032829803935123
+        ],
+        "noise_gain_range": [
+          2.9746442786056404,
+          9.32829803935123
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.643919874172573,
+        "threshold_range_m": [
+          0.003976930787171132,
+          0.010276555232261026
+        ],
+        "noise_gain_range": [
+          2.9769307871711317,
+          9.276555232261027
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5725237084876903,
+        "threshold_range_m": [
+          0.003976930787171132,
+          0.010276555232261026
+        ],
+        "noise_gain_range": [
+          2.9769307871711317,
+          9.276555232261027
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5737328680448708,
+        "threshold_range_m": [
+          0.003976930787171132,
+          0.010276555232261026
+        ],
+        "noise_gain_range": [
+          2.9769307871711317,
+          9.276555232261027
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.665789179897081,
+        "threshold_range_m": [
+          0.003976930787171132,
+          0.010276555232261026
+        ],
+        "noise_gain_range": [
+          2.9769307871711317,
+          9.276555232261027
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20380886422429972,
+        "threshold_range_m": [
+          0.011937148717431035,
+          0.030851926611996185
+        ],
+        "noise_gain_range": [
+          2.9790495724770114,
+          9.283975537332061
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.4761213293491653,
+        "threshold_range_m": [
+          0.011953204000583504,
+          0.030599439791129675
+        ],
+        "noise_gain_range": [
+          2.9844013335278348,
+          9.199813263709892
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2032625210334363,
+        "threshold_range_m": [
+          0.01193023621546716,
+          0.0310073299725222
+        ],
+        "noise_gain_range": [
+          2.97674540515572,
+          9.335776657507399
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.997962177311952,
+        "threshold_range_m": [
+          0.011937148717431035,
+          0.030851926611996185
+        ],
+        "noise_gain_range": [
+          2.9790495724770114,
+          9.283975537332061
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.31296338137259627,
+        "threshold_range_m": [
+          0.011937148717431035,
+          0.030851926611996185
+        ],
+        "noise_gain_range": [
+          2.9790495724770114,
+          9.283975537332061
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.28711268497764575,
+        "threshold_range_m": [
+          0.011937148717431035,
+          0.030851926611996185
+        ],
+        "noise_gain_range": [
+          2.9790495724770114,
+          9.283975537332061
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9288504507585444,
+        "threshold_range_m": [
+          0.011937148717431035,
+          0.030851926611996185
+        ],
+        "noise_gain_range": [
+          2.9790495724770114,
+          9.283975537332061
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.21148946489446263,
+        "threshold_range_m": [
+          0.011940642870951847,
+          0.03084212332154277
+        ],
+        "noise_gain_range": [
+          2.9802142903172824,
+          9.28070777384759
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.49370595933484895,
+        "threshold_range_m": [
+          0.011956459201514861,
+          0.030590486067936382
+        ],
+        "noise_gain_range": [
+          2.9854864005049535,
+          9.196828689312127
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.21199271119386284,
+        "threshold_range_m": [
+          0.011933837716410017,
+          0.030996987131234142
+        ],
+        "noise_gain_range": [
+          2.9779459054700057,
+          9.332329043744714
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0002702452231131,
+        "threshold_range_m": [
+          0.011940642870951847,
+          0.03084212332154277
+        ],
+        "noise_gain_range": [
+          2.9802142903172824,
+          9.28070777384759
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.332234437485764,
+        "threshold_range_m": [
+          0.011940642870951847,
+          0.03084212332154277
+        ],
+        "noise_gain_range": [
+          2.9802142903172824,
+          9.28070777384759
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2969847160424687,
+        "threshold_range_m": [
+          0.011940642870951847,
+          0.03084212332154277
+        ],
+        "noise_gain_range": [
+          2.9802142903172824,
+          9.28070777384759
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9513744210924453,
+        "threshold_range_m": [
+          0.011940642870951847,
+          0.03084212332154277
+        ],
+        "noise_gain_range": [
+          2.9802142903172824,
+          9.28070777384759
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20444786719121558,
+        "threshold_range_m": [
+          0.011934834869445212,
+          0.03084339988667701
+        ],
+        "noise_gain_range": [
+          2.9782782898150706,
+          9.281133295559004
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.4623577436740841,
+        "threshold_range_m": [
+          0.011950808638972021,
+          0.03059101024683029
+        ],
+        "noise_gain_range": [
+          2.98360287965734,
+          9.197003415610096
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20440589300832115,
+        "threshold_range_m": [
+          0.011927955225712154,
+          0.03099876141410542
+        ],
+        "noise_gain_range": [
+          2.975985075237385,
+          9.332920471368473
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9675670666638077,
+        "threshold_range_m": [
+          0.011934834869445212,
+          0.03084339988667701
+        ],
+        "noise_gain_range": [
+          2.9782782898150706,
+          9.281133295559004
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.3082179972973422,
+        "threshold_range_m": [
+          0.011934834869445212,
+          0.03084339988667701
+        ],
+        "noise_gain_range": [
+          2.9782782898150706,
+          9.281133295559004
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.30703196760989315,
+        "threshold_range_m": [
+          0.011934834869445212,
+          0.03084339988667701
+        ],
+        "noise_gain_range": [
+          2.9782782898150706,
+          9.281133295559004
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "medium",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9946504925637647,
+        "threshold_range_m": [
+          0.011934834869445212,
+          0.03084339988667701
+        ],
+        "noise_gain_range": [
+          2.9782782898150706,
+          9.281133295559004
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 1.4802973661668753e-13,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9956635220012346,
+          7.881228450016568
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.320158528068142,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          3.0006493190546504,
+          7.895179172502688
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 1.4802973661668753e-13,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9941007232573424,
+          8.009057767680359
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 3.5835839160360075,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9956635220012346,
+          7.881228450016568
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5972639860059766,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9956635220012346,
+          7.881228450016568
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5972639860059766,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9956635220012346,
+          7.881228450016568
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.0,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 3.5835839160359333,
+        "threshold_range_m": [
+          0.003,
+          0.003
+        ],
+        "noise_gain_range": [
+          2.9956635220012346,
+          7.881228450016568
+        ],
+        "assumed_noise_bound_m": 0.0,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20303010840726327,
+        "threshold_range_m": [
+          0.003998566731652525,
+          0.00888870109817993
+        ],
+        "noise_gain_range": [
+          2.9985667316525255,
+          7.888701098179929
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0774868825363346,
+        "threshold_range_m": [
+          0.004003543512395949,
+          0.008905121574777847
+        ],
+        "noise_gain_range": [
+          3.0035435123959484,
+          7.905121574777846
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20457619112260567,
+        "threshold_range_m": [
+          0.003996983242482697,
+          0.009016696473422132
+        ],
+        "noise_gain_range": [
+          2.996983242482697,
+          8.016696473422133
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6837458220819146,
+        "threshold_range_m": [
+          0.003998566731652525,
+          0.00888870109817993
+        ],
+        "noise_gain_range": [
+          2.9985667316525255,
+          7.888701098179929
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5792054765877266,
+        "threshold_range_m": [
+          0.003998566731652525,
+          0.00888870109817993
+        ],
+        "noise_gain_range": [
+          2.9985667316525255,
+          7.888701098179929
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5363473356282376,
+        "threshold_range_m": [
+          0.003998566731652525,
+          0.00888870109817993
+        ],
+        "noise_gain_range": [
+          2.9985667316525255,
+          7.888701098179929
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.5920981530241107,
+        "threshold_range_m": [
+          0.003998566731652525,
+          0.00888870109817993
+        ],
+        "noise_gain_range": [
+          2.9985667316525255,
+          7.888701098179929
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20876964266677597,
+        "threshold_range_m": [
+          0.003999571917816874,
+          0.008885801048858891
+        ],
+        "noise_gain_range": [
+          2.9995719178168736,
+          7.885801048858892
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0772281853796535,
+        "threshold_range_m": [
+          0.0040045579665584745,
+          0.00889781909318073
+        ],
+        "noise_gain_range": [
+          3.0045579665584747,
+          7.897819093180729
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20870685599042402,
+        "threshold_range_m": [
+          0.0039980275733713854,
+          0.009013385946712136
+        ],
+        "noise_gain_range": [
+          2.998027573371385,
+          8.013385946712136
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6392278674533873,
+        "threshold_range_m": [
+          0.003999571917816874,
+          0.008885801048858891
+        ],
+        "noise_gain_range": [
+          2.9995719178168736,
+          7.885801048858892
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.593177529407695,
+        "threshold_range_m": [
+          0.003999571917816874,
+          0.008885801048858891
+        ],
+        "noise_gain_range": [
+          2.9995719178168736,
+          7.885801048858892
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.554952579809864,
+        "threshold_range_m": [
+          0.003999571917816874,
+          0.008885801048858891
+        ],
+        "noise_gain_range": [
+          2.9995719178168736,
+          7.885801048858892
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.647518899650788,
+        "threshold_range_m": [
+          0.003999571917816874,
+          0.008885801048858891
+        ],
+        "noise_gain_range": [
+          2.9995719178168736,
+          7.885801048858892
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20211439106539064,
+        "threshold_range_m": [
+          0.003997797271446946,
+          0.008886804256876282
+        ],
+        "noise_gain_range": [
+          2.997797271446945,
+          7.886804256876283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 1.0701564048473748,
+        "threshold_range_m": [
+          0.0040027804682168195,
+          0.008901871406328895
+        ],
+        "noise_gain_range": [
+          3.0027804682168195,
+          7.901871406328894
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20351954340155964,
+        "threshold_range_m": [
+          0.003996225404910478,
+          0.009014788027653929
+        ],
+        "noise_gain_range": [
+          2.9962254049104784,
+          8.014788027653928
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.64341093187522,
+        "threshold_range_m": [
+          0.003997797271446946,
+          0.008886804256876282
+        ],
+        "noise_gain_range": [
+          2.997797271446945,
+          7.886804256876283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5742400164132722,
+        "threshold_range_m": [
+          0.003997797271446946,
+          0.008886804256876282
+        ],
+        "noise_gain_range": [
+          2.997797271446945,
+          7.886804256876283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.5720501201177689,
+        "threshold_range_m": [
+          0.003997797271446946,
+          0.008886804256876282
+        ],
+        "noise_gain_range": [
+          2.997797271446945,
+          7.886804256876283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.001,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "alarm",
+        "normalized_residual_p95": 2.6554281727522673,
+        "threshold_range_m": [
+          0.003997797271446946,
+          0.008886804256876282
+        ],
+        "noise_gain_range": [
+          2.997797271446945,
+          7.886804256876283
+        ],
+        "assumed_noise_bound_m": 0.001,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20268435579752225,
+        "threshold_range_m": [
+          0.012013133189918044,
+          0.026711103439758507
+        ],
+        "noise_gain_range": [
+          3.0043777299726813,
+          7.903701146586168
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.47080784858809777,
+        "threshold_range_m": [
+          0.012028009497124651,
+          0.026775279192290845
+        ],
+        "noise_gain_range": [
+          3.0093364990415505,
+          7.9250930640969495
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20422823850565408,
+        "threshold_range_m": [
+          0.012008258455741367,
+          0.02709607150992678
+        ],
+        "noise_gain_range": [
+          3.0027528185804564,
+          8.03202383664226
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9923719083685149,
+        "threshold_range_m": [
+          0.012013133189918044,
+          0.026711103439758507
+        ],
+        "noise_gain_range": [
+          3.0043777299726813,
+          7.903701146586168
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.31353376001119343,
+        "threshold_range_m": [
+          0.012013133189918044,
+          0.026711103439758507
+        ],
+        "noise_gain_range": [
+          3.0043777299726813,
+          7.903701146586168
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2845462921747993,
+        "threshold_range_m": [
+          0.012013133189918044,
+          0.026711103439758507
+        ],
+        "noise_gain_range": [
+          3.0043777299726813,
+          7.903701146586168
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 73,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9210575514914353,
+        "threshold_range_m": [
+          0.012013133189918044,
+          0.026711103439758507
+        ],
+        "noise_gain_range": [
+          3.0043777299726813,
+          7.903701146586168
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "none",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20820231644951465,
+        "threshold_range_m": [
+          0.012022243904530123,
+          0.0266848126176053
+        ],
+        "noise_gain_range": [
+          3.007414634843374,
+          7.8949375392017656
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "unknown",
+      "propagated": {
+        "status": "unknown",
+        "reason": "training_fit_not_converged",
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "unknown",
+      "propagated": {
+        "status": "unknown",
+        "reason": "training_fit_not_converged",
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9960560011094457,
+        "threshold_range_m": [
+          0.012022243904530123,
+          0.0266848126176053
+        ],
+        "noise_gain_range": [
+          3.007414634843374,
+          7.8949375392017656
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.3325825847601509,
+        "threshold_range_m": [
+          0.012022243904530123,
+          0.0266848126176053
+        ],
+        "noise_gain_range": [
+          3.007414634843374,
+          7.8949375392017656
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2937934164040817,
+        "threshold_range_m": [
+          0.012022243904530123,
+          0.0266848126176053
+        ],
+        "noise_gain_range": [
+          3.007414634843374,
+          7.8949375392017656
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 91,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.950499695105641,
+        "threshold_range_m": [
+          0.012022243904530123,
+          0.0266848126176053
+        ],
+        "noise_gain_range": [
+          3.007414634843374,
+          7.8949375392017656
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "none",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.20188580291563815,
+        "threshold_range_m": [
+          0.012006227112084308,
+          0.02669394176264651
+        ],
+        "noise_gain_range": [
+          3.0020757040281025,
+          7.897980587548837
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "first_three_inconsistent",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.46417219645020746,
+        "threshold_range_m": [
+          0.012021161213763698,
+          0.02674587798453888
+        ],
+        "noise_gain_range": [
+          3.0070537379212325,
+          7.915292661512959
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "rigid_layout_shift",
+      "original_status": "no_alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.2032491351819884,
+        "threshold_range_m": [
+          0.01200145714135567,
+          0.027078857799996196
+        ],
+        "noise_gain_range": [
+          3.000485713785223,
+          8.026285933332066
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.974388869411094,
+        "threshold_range_m": [
+          0.012006227112084308,
+          0.02669394176264651
+        ],
+        "noise_gain_range": [
+          3.0020757040281025,
+          7.897980587548837
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:-0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.31433314067546286,
+        "threshold_range_m": [
+          0.012006227112084308,
+          0.02669394176264651
+        ],
+        "noise_gain_range": [
+          3.0020757040281025,
+          7.897980587548837
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.001",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.3040709997420979,
+        "threshold_range_m": [
+          0.012006227112084308,
+          0.02669394176264651
+        ],
+        "noise_gain_range": [
+          3.0020757040281025,
+          7.897980587548837
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    },
+    {
+      "patch": "narrow",
+      "noise_bound_m": 0.003,
+      "seed": 117,
+      "plane_error": "fourth_only:+0.006",
+      "original_status": "alarm",
+      "propagated": {
+        "status": "no_alarm",
+        "normalized_residual_p95": 0.9923772004496264,
+        "threshold_range_m": [
+          0.012006227112084308,
+          0.02669394176264651
+        ],
+        "noise_gain_range": [
+          3.0020757040281025,
+          7.897980587548837
+        ],
+        "assumed_noise_bound_m": 0.003,
+        "calibration_certified": false
+      }
+    }
+  ],
+  "parameters": {
+    "threshold_floor_m": 0.003,
+    "percentile": 0.95,
+    "relative_rank_threshold": 1e-07
+  },
+  "training_performed": false,
+  "test_executed": false,
+  "recovery_executed": false,
+  "calibration_certified": false,
+  "limitations": [
+    "synthetic noise bound supplied as an explicit assumption, not estimated from heldout data",
+    "first-order propagation only; no nonlinear remainder or plane-location uncertainty bound",
+    "worst-case pointwise bounded errors may be correlated; not a probabilistic confidence interval",
+    "P95 rule permits sparse threshold violations; no all-pixel guarantee",
+    "common reference translation remains unidentifiable; no correction applied"
+  ]
+}

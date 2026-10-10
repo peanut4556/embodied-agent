@@ -503,3 +503,10 @@ redundant-reference-audit:
 
 redundant-reference-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_redundant_reference.py -v
+
+.PHONY: reference-uncertainty-audit reference-uncertainty-test
+reference-uncertainty-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_reference_uncertainty.py
+
+reference-uncertainty-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_uncertainty.py -v
