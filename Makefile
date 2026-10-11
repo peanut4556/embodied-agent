@@ -517,3 +517,10 @@ reference-statistics-audit:
 
 reference-statistics-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_statistics.py -v
+
+.PHONY: repeated-exposure-audit repeated-exposure-test
+repeated-exposure-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_repeated_exposure.py
+
+repeated-exposure-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_repeated_exposure.py -v
