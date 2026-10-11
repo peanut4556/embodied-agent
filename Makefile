@@ -510,3 +510,10 @@ reference-uncertainty-audit:
 
 reference-uncertainty-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_uncertainty.py -v
+
+.PHONY: reference-statistics-audit reference-statistics-test
+reference-statistics-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_reference_statistics.py
+
+reference-statistics-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_reference_statistics.py -v
