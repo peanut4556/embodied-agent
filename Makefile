@@ -524,3 +524,10 @@ repeated-exposure-audit:
 
 repeated-exposure-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/vision -p test_repeated_exposure.py -v
+
+.PHONY: exposure-batches-audit exposure-batches-test
+exposure-batches-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_exposure_batches.py
+
+exposure-batches-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_exposure_batches.py -v

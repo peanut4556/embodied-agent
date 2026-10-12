@@ -1,0 +1,9 @@
+{
+  "batch_count": 32,
+  "repeats_per_batch": 128,
+  "calibration_seed_start": 4000,
+  "validation_seed_start": 10000,
+  "validation_count": 512,
+  "fourth_plane_offsets_m": [0.0, -0.001, 0.001, 0.006],
+  "two_sided_nominal_alpha": 0.01
+}
