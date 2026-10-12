@@ -531,3 +531,10 @@ exposure-batches-audit:
 
 exposure-batches-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_exposure_batches.py -v
+
+.PHONY: exposure-uncertainty-audit exposure-uncertainty-test
+exposure-uncertainty-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_exposure_uncertainty.py
+
+exposure-uncertainty-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_exposure_uncertainty.py -v
