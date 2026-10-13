@@ -538,3 +538,10 @@ exposure-uncertainty-audit:
 
 exposure-uncertainty-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_exposure_uncertainty.py -v
+
+.PHONY: exposure-ablation-audit exposure-ablation-test
+exposure-ablation-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_exposure_ablation.py
+
+exposure-ablation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_exposure_ablation.py -v

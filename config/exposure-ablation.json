@@ -1,0 +1,15 @@
+{
+  "batch_count": 32,
+  "repeats_per_batch": 128,
+  "validation_per_batch": 80,
+  "calibration_seed_start": 40000,
+  "validation_seed_start": 50000,
+  "fourth_plane_offsets_m": [0.0, -0.001, 0.001, 0.006],
+  "nominal_alpha": 0.01,
+  "calibration_failure_probability": 0.005,
+  "bounded_rule_tail_probability": 0.005,
+  "cluster_bootstrap_seed": 91000,
+  "cluster_bootstrap_replicates": 10000,
+  "rule_order": ["plugin", "split_only", "lm", "chernoff", "oracle"],
+  "rule": "fixed five-rule ablation; optimized chi-square Chernoff bounds with same five-event budget"
+}

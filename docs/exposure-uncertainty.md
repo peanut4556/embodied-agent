@@ -124,6 +124,9 @@ U_global   = max(0, U_C − L_B/E)
 不确定性传播和预算分拆各自的代价，再用独立批次验证。拟合停滞仍需独立诊断；
 阈值改进不能解决不可用的拟合输出。不得用本轮验证数据挑选最佳放大系数。
 
+已完成：[更紧方差界与尾概率预算的消融验证](exposure-ablation.md)。预算分拆和方差界
+均影响误报与检出；更紧界只恢复少量检出，窄区域拟合停滞仍需独立诊断。
+
 ## 复现
 
 `make exposure-uncertainty-audit` 生成[机器报告](evaluations/exposure-uncertainty-v1.json)，
