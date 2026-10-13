@@ -545,3 +545,10 @@ exposure-ablation-audit:
 
 exposure-ablation-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_exposure_ablation.py -v
+
+.PHONY: fit-stalls-audit fit-stalls-test
+fit-stalls-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_fit_stalls.py
+
+fit-stalls-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_diagnostics.py -v

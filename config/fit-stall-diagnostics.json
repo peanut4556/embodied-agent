@@ -1,0 +1,8 @@
+{
+  "source_report": "docs/evaluations/exposure-ablation-v1.json",
+  "selection": "all narrow stalled cases; same-noise same-seed wide counterparts; first converged narrow controls in source order",
+  "converged_controls_per_noise": 64,
+  "finite_difference_steps": [1e-7, 1e-6, 1e-5],
+  "production_solver_modified": false,
+  "classification_thresholds_changed": false
+}
