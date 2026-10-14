@@ -573,3 +573,10 @@ fit-reliability-audit:
 
 fit-reliability-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_reliability.py -v
+
+.PHONY: external-reference-audit external-reference-test
+external-reference-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_external_reference.py
+
+external-reference-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_external_reference.py -v
