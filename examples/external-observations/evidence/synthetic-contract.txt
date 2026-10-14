@@ -1,0 +1,10 @@
+SYNTHETIC FIXTURE ONLY. This is not a calibration certificate or measured evidence.
+All six evidence roles refer to this fixture solely to exercise file-integrity checking.
+Noise: illustrative isotropic Gaussian sigma 0.5 mm.
+Geometry: upstream-normalized camera origin in lab_world; illustrative static/mount/frame bounds 0.1/0.2/0.1 mm.
+Synchronization: shared corrected clock lab_clock; illustrative residual bound 5 ms.
+Motion: illustrative speed bound 0.01 m/s.
+Drift: illustrative rate bound 0.000001 m/s from the policy reference time.
+Independence: fixture asserts a separate external source; importer cannot establish physical independence.
+No real device performance, installation, timestamps or independence are certified.
+Geometry convention: translation_from_nominal_camera_origin; fixture_origin_v1 is [0.4, 0, 1.2] m in lab_world. Inputs are translation offsets, not absolute world positions.

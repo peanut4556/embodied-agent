@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "sensor_id": "fixture_tracker",
+  "camera_id": "fixture_camera",
+  "frame_id": "lab_world",
+  "clock_id": "lab_clock",
+  "mount_id": "fixture_mount_v1",
+  "measurement_point": "camera_origin",
+  "noise_model": "isotropic_gaussian",
+  "valid_from": "2026-10-14T09:00:00+08:00",
+  "valid_until": "2026-10-14T11:00:00+08:00",
+  "reference_time": "2026-10-14T09:59:00+08:00",
+  "max_age_s": 2.0,
+  "max_skew_s": 0.05,
+  "sigma_m": 0.0005,
+  "static_error_bound_m": 0.0001,
+  "mount_error_bound_m": 0.0002,
+  "frame_error_bound_m": 0.0001,
+  "clock_error_bound_s": 0.005,
+  "speed_bound_m_s": 0.01,
+  "drift_rate_bound_m_s": 1e-06,
+  "evidence": {
+    "noise": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "geometry": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "synchronization": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "motion": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "drift": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "independence": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    }
+  },
+  "position_semantics": "translation_from_nominal_camera_origin",
+  "reference_origin_id": "fixture_origin_v1",
+  "nominal_camera_origin_m": [
+    0.4,
+    0.0,
+    1.2
+  ]
+}

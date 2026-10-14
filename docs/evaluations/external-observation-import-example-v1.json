@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "validated",
+  "normalized": [
+    {
+      "observation_id": "fixture_001",
+      "data_kind": "synthetic",
+      "sensor_id": "fixture_tracker",
+      "camera_id": "fixture_camera",
+      "frame_id": "lab_world",
+      "clock_id": "lab_clock",
+      "mount_id": "fixture_mount_v1",
+      "measurement_point": "camera_origin",
+      "position_semantics": "translation_from_nominal_camera_origin",
+      "reference_origin_id": "fixture_origin_v1",
+      "measurement_time": "2026-10-14T02:00:00+00:00",
+      "camera_time": "2026-10-14T02:00:00.020000+00:00",
+      "translation_m": [
+        0.001,
+        -0.002,
+        0.003
+      ],
+      "nominal_camera_origin_m": [
+        0.4,
+        0.0,
+        1.2
+      ],
+      "axes": [
+        0,
+        1,
+        2
+      ],
+      "sigma_m": 0.0005,
+      "systematic_error_bound_m": 0.000710025,
+      "budget_components_m": {
+        "static_m": 0.0001,
+        "mount_m": 0.0002,
+        "frame_m": 0.0001,
+        "motion_m": 0.00025,
+        "drift_m": 6.0025e-05
+      },
+      "effective_skew_s": 0.025,
+      "age_s": 1.005,
+      "drift_age_s": 60.025000000000006
+    }
+  ],
+  "errors": [],
+  "eligible_for_offline_check": true,
+  "calibration_certified": false,
+  "correction_applied": false,
+  "evidence_contents_authenticated": false,
+  "evidence": {
+    "noise": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "geometry": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "synchronization": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "motion": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "drift": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    },
+    "independence": {
+      "path": "synthetic-contract.txt",
+      "sha256": "36a59415ded611ae41fd540267e5f838de5c9910896a5b249b2686765a851f6e"
+    }
+  },
+  "as_of": "2026-10-14T02:00:01+00:00",
+  "source_sha256": {
+    "input": "6eb308514e65940f1fd5624bd15eb97a55c929c1ba206988c52d0d63fa36c63f",
+    "policy": "0e8294a1a61bba923af0f87c79e2fc2c8636e713ab40529d6ab984338ed177b9"
+  },
+  "implementation_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/import_external_observations.py": "5a338392f53d29565b6d94b4b44cd6a7644a0f041a74a12ceec64f5972216254",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/src/embodied_agent/external_observation_contract.py": "cb7ece691049c237955b5447a2b61491a1b6e84d28f5e409d3158471c23252e1"
+  }
+}

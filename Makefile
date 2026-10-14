@@ -587,3 +587,10 @@ external-reference-stress-audit:
 
 external-reference-stress-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_external_reference_stress.py -v
+
+.PHONY: external-observation-contract-test external-observation-contract-demo
+external-observation-contract-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_external_observation_contract.py -v
+
+external-observation-contract-demo:
+	PYTHONPATH=src:. .venv/bin/python scripts/import_external_observations.py --input examples/external-observations/observations.json --policy examples/external-observations/policy.json --evidence-root examples/external-observations/evidence --as-of 2026-10-14T10:00:01+08:00 --report outputs/external-observation-import.json
