@@ -559,3 +559,10 @@ fit-stop-audit:
 
 fit-stop-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_candidate.py -v
+
+.PHONY: fit-stress-audit fit-stress-test
+fit-stress-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_fit_stress.py
+
+fit-stress-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_stress.py -v
