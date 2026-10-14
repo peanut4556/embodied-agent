@@ -1,0 +1,16 @@
+{
+  "batch_count": 32,
+  "repeats_per_batch": 128,
+  "validation_per_batch": 80,
+  "calibration_seed_start": 60000,
+  "validation_seed_start": 70000,
+  "fourth_plane_offsets_m": [0.0, -0.001, 0.001, 0.006],
+  "nominal_alpha": 0.01,
+  "cluster_bootstrap_seed": 92000,
+  "cluster_bootstrap_replicates": 10000,
+  "gradient_cosine_limit": "sqrt(float64 epsilon)",
+  "relative_linear_gain_limit": "float64 epsilon",
+  "boundary_guard": "current parameters and full proposed step strictly inside original limits",
+  "threshold_rules": ["plugin", "oracle"],
+  "production_solver_modified": false
+}

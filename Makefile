@@ -552,3 +552,10 @@ fit-stalls-audit:
 
 fit-stalls-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_diagnostics.py -v
+
+.PHONY: fit-stop-audit fit-stop-test
+fit-stop-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_fit_stop.py
+
+fit-stop-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_candidate.py -v
