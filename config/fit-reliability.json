@@ -1,0 +1,47 @@
+{
+  "batch_count": 32,
+  "repeats_per_batch": 128,
+  "validation_per_batch": 32,
+  "calibration_seed_start": 130000,
+  "validation_seed_start": 140000,
+  "fourth_plane_offsets_m": [
+    0.0
+  ],
+  "nominal_alpha": 0.01,
+  "cluster_bootstrap_seed": 150000,
+  "cluster_bootstrap_replicates": 10000,
+  "scenarios": [
+    "baseline",
+    "heteroscedastic",
+    "pixel_outliers",
+    "validation_bursts",
+    "single_reference_shift",
+    "coherent_reference_shift",
+    "near_degenerate"
+  ],
+  "pixel_sigma_m": 0.001,
+  "exposure_sigma_m": 0.001,
+  "hetero_exposure_multipliers": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "outlier_probability": 0.01,
+  "outlier_magnitude_m": 0.02,
+  "validation_burst_probability": 0.05,
+  "validation_burst_magnitude_m": 0.01,
+  "single_reference_shift_m": 0.006,
+  "coherent_reference_translation_m": [
+    0.008,
+    0.0,
+    0.0
+  ],
+  "near_degenerate_ray_multiplier": 0.01,
+  "scoring_translation_error_limit_m": 0.005,
+  "production_solver_modified": false,
+  "candidate_rule_retuned": false,
+  "calibration_failure_probability": 0.005,
+  "parameter_failure_probability": 0.045,
+  "quiet_noise_multiplier": 0.25
+}

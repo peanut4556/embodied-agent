@@ -566,3 +566,10 @@ fit-stress-audit:
 
 fit-stress-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_stress.py -v
+
+.PHONY: fit-reliability-audit fit-reliability-test
+fit-reliability-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_fit_reliability.py
+
+fit-reliability-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_fit_reliability.py -v
