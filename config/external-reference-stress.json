@@ -1,0 +1,186 @@
+{
+  "batch_count": 32,
+  "repeats_per_batch": 128,
+  "validation_per_batch": 32,
+  "calibration_seed_start": 200000,
+  "validation_seed_start": 210000,
+  "fourth_plane_offsets_m": [
+    0.0
+  ],
+  "nominal_alpha": 0.01,
+  "cluster_bootstrap_seed": 230000,
+  "cluster_bootstrap_replicates": 10000,
+  "scenarios": [
+    "baseline",
+    "heteroscedastic",
+    "pixel_outliers",
+    "validation_bursts",
+    "single_reference_shift",
+    "coherent_reference_shift",
+    "near_degenerate"
+  ],
+  "pixel_sigma_m": 0.001,
+  "exposure_sigma_m": 0.001,
+  "hetero_exposure_multipliers": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "outlier_probability": 0.01,
+  "outlier_magnitude_m": 0.02,
+  "validation_burst_probability": 0.05,
+  "validation_burst_magnitude_m": 0.01,
+  "single_reference_shift_m": 0.006,
+  "coherent_reference_translation_m": [
+    0.008,
+    0.0,
+    0.0
+  ],
+  "near_degenerate_ray_multiplier": 0.01,
+  "scoring_translation_error_limit_m": 0.005,
+  "production_solver_modified": false,
+  "candidate_rule_retuned": false,
+  "calibration_failure_probability": 0.005,
+  "parameter_failure_probability": 0.045,
+  "quiet_noise_multiplier": 0.25,
+  "anchor_seed_start": 220000,
+  "anchor_sigma_m": 0.0005,
+  "anchor_failure_probability": 0.01,
+  "anchor_systematic_error_bound_m": 0.0,
+  "designs": [
+    {
+      "name": "x_shift_0mm",
+      "noise_multiplier": 0.25,
+      "reference_shift_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "x_shift_4mm",
+      "noise_multiplier": 0.25,
+      "reference_shift_m": [
+        0.004,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "x_shift_5mm",
+      "noise_multiplier": 0.25,
+      "reference_shift_m": [
+        0.005,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "x_shift_6mm",
+      "noise_multiplier": 0.25,
+      "reference_shift_m": [
+        0.006,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "x_shift_8mm",
+      "noise_multiplier": 0.25,
+      "reference_shift_m": [
+        0.008,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "external_scenarios": [
+    {
+      "name": "nominal",
+      "kind": "gaussian",
+      "actual_sigma_m": 0.0005,
+      "budget_sigma_m": 0.0005,
+      "budget_bias_m": 0.0
+    },
+    {
+      "name": "noise_understated",
+      "kind": "gaussian",
+      "actual_sigma_m": 0.002,
+      "budget_sigma_m": 0.002,
+      "budget_bias_m": 0.0
+    },
+    {
+      "name": "mount_1mm",
+      "kind": "mount",
+      "actual_sigma_m": 0.0005,
+      "budget_sigma_m": 0.0005,
+      "budget_bias_m": 0.001,
+      "offset_m": [
+        -0.001,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "mount_3mm",
+      "kind": "mount",
+      "actual_sigma_m": 0.0005,
+      "budget_sigma_m": 0.0005,
+      "budget_bias_m": 0.003,
+      "offset_m": [
+        -0.003,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "drift_6mm",
+      "kind": "drift",
+      "actual_sigma_m": 0.0005,
+      "budget_sigma_m": 0.0005,
+      "budget_bias_m": 0.006,
+      "end_offset_m": [
+        -0.006,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "frame_rotation",
+      "kind": "frame",
+      "actual_sigma_m": 0.0005,
+      "budget_sigma_m": 0.0005,
+      "budget_bias_m": 0.00449999831250019,
+      "rotation_y_rad": -0.003,
+      "nominal_camera_origin_m": [
+        0.4,
+        0.0,
+        1.2
+      ],
+      "world_position_bound_m": 1.5
+    },
+    {
+      "name": "latency_1s",
+      "kind": "latency",
+      "actual_sigma_m": 0.0005,
+      "budget_sigma_m": 0.0005,
+      "budget_bias_m": 0.004,
+      "delay_s": 1.0,
+      "velocity_m_s": [
+        0.004,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "outliers_1pct",
+      "kind": "outliers",
+      "actual_sigma_m": 0.0005,
+      "budget_sigma_m": 0.0005,
+      "budget_bias_m": 0.01,
+      "outlier_probability": 0.01,
+      "outlier_magnitude_m": 0.01
+    }
+  ]
+}

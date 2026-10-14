@@ -580,3 +580,10 @@ external-reference-audit:
 
 external-reference-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_external_reference.py -v
+
+.PHONY: external-reference-stress-audit external-reference-stress-test
+external-reference-stress-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_external_reference_stress.py
+
+external-reference-stress-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_external_reference_stress.py -v
