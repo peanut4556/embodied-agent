@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "observations": [
+    {
+      "data_kind": "synthetic",
+      "sensor_id": "fixture_tracker",
+      "camera_id": "fixture_camera",
+      "frame_id": "lab_world",
+      "clock_id": "lab_clock",
+      "mount_id": "fixture_mount_v1",
+      "measurement_point": "camera_origin",
+      "observation_id": "joint_fixture_1",
+      "measurement_time": "2026-10-14T10:00:00+08:00",
+      "camera_time": "2026-10-14T10:00:00.020+08:00",
+      "units": "m",
+      "position": [
+        0.002,
+        -0.003,
+        0.004
+      ],
+      "position_semantics": "translation_from_nominal_camera_origin",
+      "reference_origin_id": "fixture_origin_v1"
+    },
+    {
+      "data_kind": "synthetic",
+      "sensor_id": "fixture_tracker",
+      "camera_id": "fixture_camera",
+      "frame_id": "lab_world",
+      "clock_id": "lab_clock",
+      "mount_id": "fixture_mount_v1",
+      "measurement_point": "camera_origin",
+      "observation_id": "joint_fixture_2",
+      "measurement_time": "2026-10-14T10:00:00+08:00",
+      "camera_time": "2026-10-14T10:00:00.040+08:00",
+      "units": "m",
+      "position": [
+        0.002,
+        -0.003,
+        0.004
+      ],
+      "position_semantics": "translation_from_nominal_camera_origin",
+      "reference_origin_id": "fixture_origin_v1"
+    }
+  ]
+}

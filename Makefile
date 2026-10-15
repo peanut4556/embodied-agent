@@ -594,3 +594,10 @@ external-observation-contract-test:
 
 external-observation-contract-demo:
 	PYTHONPATH=src:. .venv/bin/python scripts/import_external_observations.py --input examples/external-observations/observations.json --policy examples/external-observations/policy.json --evidence-root examples/external-observations/evidence --as-of 2026-10-14T10:00:01+08:00 --report outputs/external-observation-import.json
+
+.PHONY: external-joint-test external-joint-demo
+external-joint-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/vision -p test_external_joint.py -v
+
+external-joint-demo:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_external_joint.py --observations examples/external-joint/observations.json --policy examples/external-observations/policy.json --evidence-root examples/external-observations/evidence --visual examples/external-joint/visual.json --as-of 2026-10-14T10:00:01+08:00 --report outputs/external-joint-report.json
