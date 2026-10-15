@@ -601,3 +601,12 @@ external-joint-test:
 
 external-joint-demo:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_external_joint.py --observations examples/external-joint/observations.json --policy examples/external-observations/policy.json --evidence-root examples/external-observations/evidence --visual examples/external-joint/visual.json --as-of 2026-10-14T10:00:01+08:00 --report outputs/external-joint-report.json
+
+CONTACT_WATCHDOG_OUTPUT ?= outputs/evaluations/contact-watchdog-v1
+
+.PHONY: contact-watchdog-audit contact-watchdog-test
+contact-watchdog-audit:
+	PYTHONPATH=src .venv/bin/python scripts/audit_contact_watchdog.py --output "$(CONTACT_WATCHDOG_OUTPUT)"
+
+contact-watchdog-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p 'test_contact_watchdog.py' -v
