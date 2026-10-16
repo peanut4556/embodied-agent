@@ -31,9 +31,29 @@ def bridge(payload=None):
     return result
 
 
+def failure_details(error):
+    detail = str(error)
+    if isinstance(error, OSError):
+        title, recovery = "执行服务连接失败", "检查仿真服务是否启动；连接恢复后重置场景再试。"
+    elif "模型未配置" in detail:
+        title, recovery = "学习模型不可用", "选择预设轨迹执行，或配置模型后重启仿真服务。"
+    elif any(word in detail.lower() for word in ("grasp", "depth", "red", "像素", "定位")):
+        title, recovery = (
+            "未能可靠定位或抓住积木",
+            "检查画面中积木是否直立且无遮挡；重置场景后重试。",
+        )
+    elif any(word in detail.lower() for word in ("timeout", "deadline", "超时")):
+        title, recovery = "规划或执行超时", "查看执行记录确认停在哪一步；等待停止确认后重置并重试。"
+    else:
+        title, recovery = "规划、执行或验收未通过", "查看下方详细原因；检查指令与场景，重置后重试。"
+    return {"title": title, "detail": detail, "recovery": recovery}
+
+
 class SimulationApp:
     def __init__(self):
         self.lock = threading.Lock()
+        self.condition = threading.Condition(self.lock)
+        self.pause_requested = False
         self.cancel = threading.Event()
         self.busy = False
         self.run_id = ""
@@ -61,9 +81,15 @@ class SimulationApp:
                 raise ValueError("任务仍在运行")
             self.busy = True
             self.cancel.clear()
+            self.pause_requested = False
             self.run_id = uuid.uuid4().hex
             self.task = {
                 "phase": "planning",
+                "started_at": time.time(),
+                "completed": 0,
+                "current": None,
+                "failure": None,
+                "instruction": instruction,
                 "plan": [],
                 "events": [],
                 "execution": execution,
@@ -96,7 +122,10 @@ class SimulationApp:
                 self.event("抓取与放置合并为学习模型执行；视觉与夹爪接触反馈最多恢复 2 次")
             stopped = False
             for index, step in enumerate(steps):
-                with self.lock:
+                with self.condition:
+                    while self.pause_requested and not self.cancel.is_set():
+                        self.task.update(phase="paused", message="已暂停，可以继续执行剩余步骤")
+                        self.condition.wait()
                     if self.cancel.is_set():
                         raise RuntimeError("任务已由用户停止")
                     self.task.update(
@@ -117,6 +146,7 @@ class SimulationApp:
                 )
                 if self.cancel.is_set():
                     raise RuntimeError("任务已由用户停止")
+                self.update(completed=index + 1)
                 self.event(f"ROS ← 完成 {step.action} · {result['id'][:8]}")
                 if step.action == "learned_pick_place":
                     feedback = result["state"]["execution"]
@@ -125,6 +155,7 @@ class SimulationApp:
                 if detection and step.action in {"locate", "pick"}:
                     xyz = ", ".join(f"{value:.3f}" for value in detection["xyz"])
                     self.event(f"RGB-D 定位：({xyz}) m · {detection['pixels']} 像素")
+            self.update(phase="verifying", message="正在验收积木位置与夹爪状态")
             final = bridge()
             if self.cancel.is_set():
                 raise RuntimeError("任务已由用户停止")
@@ -136,7 +167,12 @@ class SimulationApp:
             self.update(phase="success", message="完成：红色积木已进入盒子")
         except (OSError, RuntimeError, ValueError, TypeError, KeyError) as exc:
             self.event(str(exc))
-            self.update(phase="stopped" if self.cancel.is_set() else "failed", message=str(exc))
+            stopped = self.cancel.is_set()
+            self.update(
+                phase="stopped" if stopped else "failed",
+                message="任务已停止" if stopped else "任务未完成",
+                failure=None if stopped else failure_details(exc),
+            )
             try:
                 bridge({"name": "stop", "run_id": self.run_id})
             except (OSError, RuntimeError, ValueError) as stop_error:
@@ -144,9 +180,38 @@ class SimulationApp:
         finally:
             with self.lock:
                 self.busy = False
+                self.pause_requested = False
+                self.task["finished_at"] = time.time()
+
+    def pause(self):
+        with self.condition:
+            if not self.busy or self.task["phase"] not in {
+                "planning",
+                "executing",
+                "pause_pending",
+                "paused",
+            }:
+                raise ValueError("当前阶段不可暂停")
+            if self.pause_requested:
+                return
+            self.pause_requested = True
+            self.task.update(phase="pause_pending", message="暂停已请求：当前动作完成后暂停")
+
+    def resume(self):
+        with self.condition:
+            if not self.busy or not self.pause_requested:
+                raise ValueError("当前没有待继续的任务")
+            self.pause_requested = False
+            self.task.update(phase="executing", message="继续执行")
+            self.condition.notify_all()
 
     def stop(self):
-        self.cancel.set()
+        with self.condition:
+            self.cancel.set()
+            self.pause_requested = False
+            if self.busy:
+                self.task.update(phase="stopping", message="正在停止，等待执行端确认")
+            self.condition.notify_all()
         bridge({"name": "stop", "run_id": self.run_id})
         self.event("用户发出停止指令")
 
@@ -190,14 +255,17 @@ def main():
                 self.end_headers()
                 self.wfile.write((ROOT / "web/simulation.html").read_bytes())
             elif self.path == "/api/state":
+                error = None
                 try:
                     world = bridge()
-                    with app.lock:
-                        task = json.loads(json.dumps(app.task))
-                        busy = app.busy
-                    self.respond(200, {"world": world, "task": task, "busy": busy})
                 except (OSError, RuntimeError, ValueError) as exc:
-                    self.respond(503, {"error": str(exc)})
+                    world, error = None, str(exc)
+                with app.lock:
+                    task = json.loads(json.dumps(app.task))
+                    busy = app.busy
+                self.respond(
+                    200, {"world": world, "task": task, "busy": busy, "connection_error": error}
+                )
             else:
                 self.respond(404, {"error": "not found"})
 
@@ -221,6 +289,10 @@ def main():
                         payload.get("planner", "rai"),
                         payload.get("execution", "scripted"),
                     )
+                elif self.path == "/api/pause":
+                    app.pause()
+                elif self.path == "/api/resume":
+                    app.resume()
                 elif self.path == "/api/stop":
                     app.stop()
                 elif self.path == "/api/reset":

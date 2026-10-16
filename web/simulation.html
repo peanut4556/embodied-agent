@@ -7,14 +7,49 @@
 </style>
 <header><div><div class="eyebrow">EMBODIED AGENT / LOCAL LAB</div><h1>从一句话，到一次抓取</h1><p>Qwen 规划 · ROS 2 执行 · 仿真位置验收</p></div><span class="badge" id="connection">正在连接</span></header>
 <main><div class="card scene"><canvas id="scene" width="1120" height="700" aria-label="二维机械臂、红色积木和目标盒子的实时仿真"></canvas><div class="scene-footer"><span><span class="dot">●</span> 二维运动学</span><span id="holding">夹爪：空</span><span id="position">积木：桌面</span></div></div>
-<section class="card"><h2>任务控制</h2><label for="instruction">告诉机械臂要做什么</label><textarea id="instruction">把桌上的红色积木放进盒子</textarea><label for="planner" style="margin-top:12px">规划方式</label><select id="planner"><option value="rai">本地 Qwen · 自然语言规划</option><option value="rule">规则计划 · 快速验证链路</option></select><label for="execution">执行方式</label><select id="execution"><option value="scripted">预设轨迹 · RGB-D 定位</option><option value="feedback" disabled>学习模型 · 视觉与接触反馈</option></select><div class="controls"><button id="run">执行任务</button><button id="stop" class="stop">停止</button><button id="reset" class="secondary">重置</button></div><div id="error" role="alert"></div><div id="status" aria-live="polite">准备就绪</div><p class="small">首次模型规划可能需要一分钟。此演示只验证积木入盒任务；重试前可重置场景。</p><div id="feedback" aria-live="polite"></div><ol id="plan"></ol><details id="original" hidden><summary>查看规划器原始计划</summary><pre id="model-plan" style="white-space:pre-wrap;font-size:12px"></pre></details></section></main>
+<section class="card"><h2>任务控制</h2><label for="instruction">告诉机械臂要做什么</label><textarea id="instruction">把桌上的红色积木放进盒子</textarea><label for="planner" style="margin-top:12px">规划方式</label><select id="planner"><option value="rai">本地 Qwen · 自然语言规划</option><option value="rule">规则计划 · 快速验证链路</option></select><label for="execution">执行方式</label><select id="execution"><option value="scripted">预设轨迹 · RGB-D 定位</option><option value="feedback" disabled>学习模型 · 视觉与接触反馈</option></select><div class="controls"><button id="run">执行任务</button><button id="pause" class="secondary" disabled>完成当前动作后暂停</button><button id="resume" class="secondary" hidden>继续</button><button id="stop" class="stop">停止</button><button id="reset" class="secondary">重置</button></div><div id="error" role="alert"></div><div id="status" aria-live="polite">准备就绪</div><progress id="progress" max="1" value="0" style="width:100%" aria-label="已完成步骤"></progress><p id="progress-text" aria-live="polite">等待启动</p><section id="failure" hidden role="alert"><strong id="failure-title"></strong><p id="recovery"></p><details><summary>详细原因</summary><pre id="failure-detail" style="white-space:pre-wrap"></pre></details></section><p class="small">首次模型规划可能需要一分钟。暂停会等待当前动作完成；学习抓放是一个完整动作。立即中断请使用停止，停止后需重新启动任务。</p><div id="feedback" aria-live="polite"></div><ol id="plan"></ol><details id="original" hidden><summary>查看规划器原始计划</summary><pre id="model-plan" style="white-space:pre-wrap;font-size:12px"></pre></details></section></main>
 <section class="card wide"><h2>执行记录</h2><div id="events">等待任务。每一步完成后，由 ROS 2 状态 Topic 返回结果。</div></section>
 <p class="small">当前为两连杆运动学仿真，使用预设抓放轨迹与夹爪附着规则；不包含接触动力学、摩擦和碰撞检测。</p>
 <script>
-const $=id=>document.getElementById(id),c=$('scene'),ctx=c.getContext('2d');let world=null,busy=false,lastEvents='',displayedRun='';
-async function command(path,payload={}){try{$('error').textContent='';const r=await fetch('/api/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok)throw Error(d.error);await poll()}catch(e){$('error').textContent=e.message}}
-$('run').onclick=()=>command('run',{instruction:$('instruction').value,planner:$('planner').value,execution:$('execution').value});$('stop').onclick=()=>command('stop');$('reset').onclick=()=>command('reset');
-async function poll(){try{const r=await fetch('/api/state');const d=await r.json();if(!r.ok)throw Error(d.error);world=d.world;busy=d.busy;$('connection').textContent='● ROS 2 已连接';$('status').textContent=d.task.message;$('status').style.color=d.task.phase==='success'?'#70e1cc':d.task.phase==='failed'?'#ffb4c0':'#e2eaf5';$('run').disabled=busy;$('reset').disabled=busy;$('execution').disabled=busy;$('planner').disabled=busy;$('execution').querySelector('[value=feedback]').disabled=!world.feedback_available;showFeedback(d);$('holding').textContent='夹爪：'+(world.holding?'红色积木':'空');$('position').textContent='积木：'+(world.inside_box?'盒内':world.holding?'随夹爪移动':'桌面');const list=$('plan');list.replaceChildren();d.task.plan.forEach((step,i)=>{const li=document.createElement('li');li.textContent=(i+1)+'. '+(step.action==='learned_pick_place'?'学习抓取并放置':step.action)+' '+(step.arguments.object||'')+(step.arguments.destination?' → '+step.arguments.destination:'');if(i===d.task.current&&busy)li.className='active';list.appendChild(li)});const events=d.task.events.map(e=>e.time+'  '+e.text).join('\n');if(events!==lastEvents){$('events').textContent=events||'等待任务';$('events').scrollTop=$('events').scrollHeight;lastEvents=events}draw()}catch(e){$('connection').textContent='ROS 2 连接中断';$('error').textContent=e.message}}
+const $=id=>document.getElementById(id),c=$('scene'),ctx=c.getContext('2d');let world=null,busy=false,lastEvents='',displayedRun='',sending=false,polling=false,connected=false,task={};
+function controls(){const pending=['pause_pending','paused'].includes(task.phase);$('run').disabled=sending||busy||!connected||!$('instruction').value.trim();$('reset').disabled=sending||busy||!connected;$('pause').disabled=sending||!connected||!busy||!['planning','executing'].includes(task.phase);$('pause').hidden=pending;$('resume').hidden=!pending;$('resume').disabled=sending||!connected;$('stop').disabled=task.phase==='stopping'||(!busy&&connected);$('instruction').disabled=busy||sending;$('planner').disabled=busy||sending;$('execution').disabled=busy||sending;}
+$('instruction').oninput=controls;
+async function command(path,payload={}){if(sending&&path!=='stop')return;sending=true;controls();try{$('error').textContent='';const r=await fetch('/api/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(30000)});const d=await r.json();if(!r.ok)throw Error(d.error);await poll()}catch(e){$('error').textContent=e.name==='TimeoutError'?'请求超时，执行状态尚未确认，请等待连接恢复。':e.message}finally{sending=false;controls()}}
+$('run').onclick=()=>command('run',{instruction:$('instruction').value,planner:$('planner').value,execution:$('execution').value});$('stop').onclick=()=>command('stop');$('reset').onclick=()=>command('reset');$('pause').onclick=()=>command('pause');$('resume').onclick=()=>command('resume');
+async function poll(){
+ if(polling)return;polling=true;
+ try{
+  const r=await fetch('/api/state',{signal:AbortSignal.timeout(8000)}),d=await r.json();
+  if(!r.ok)throw Error(d.error);
+  const wasConnected=connected;connected=!!d.world&&!d.connection_error;
+  world=d.world||world;busy=d.busy;task=d.task;
+  $('connection').textContent=connected?'● ROS 2 已连接':'连接中断 · 画面可能已过期';
+  if(!connected)$('error').textContent='执行服务不可用，请检查服务连接。';
+  else if(!wasConnected)$('error').textContent='';
+  $('status').textContent=task.message;
+  $('status').style.color=task.phase==='success'?'#70e1cc':task.phase==='failed'?'#ffb4c0':'#e2eaf5';
+  const completed=task.completed||0,total=task.plan.length;
+  $('progress').max=total||1;$('progress').value=completed;
+  const elapsed=task.started_at?Math.max(0,Math.floor((task.finished_at||Date.now()/1000)-task.started_at)):0;
+  $('progress-text').textContent=(total?'已完成 '+completed+'/'+total+' 步':'尚未生成计划')+(task.started_at?' · 已用 '+elapsed+' 秒':'');
+  $('failure').hidden=!task.failure;$('failure-title').textContent=task.failure?.title||'';
+  $('recovery').textContent=task.failure?.recovery||'';$('failure-detail').textContent=task.failure?.detail||'';
+  if(world){
+   $('execution').querySelector('[value=feedback]').disabled=!world.feedback_available;showFeedback(d);
+   $('holding').textContent='夹爪：'+(world.holding?'红色积木':'空');
+   $('position').textContent='积木：'+(world.inside_box?'盒内':world.holding?'随夹爪移动':'桌面');
+  }
+  const list=$('plan');list.replaceChildren();
+  task.plan.forEach((step,i)=>{const li=document.createElement('li');
+   li.textContent=(i<completed?'✓ ':'')+(i+1)+'. '+({locate:'定位',pick:'抓取',place:'放置',verify:'验收',stop:'停止',learned_pick_place:'学习抓取并放置'}[step.action]||step.action);
+   if(i===task.current&&busy)li.className='active';list.appendChild(li);
+  });
+  const events=task.events.map(e=>e.time+'  '+e.text).join('\n');
+  if(events!==lastEvents){$('events').textContent=events||'等待任务';$('events').scrollTop=$('events').scrollHeight;lastEvents=events}
+  controls();draw();
+ }catch(e){connected=false;$('connection').textContent='连接中断 · 状态可能已过期';$('error').textContent='无法获取实时状态，请检查控制台服务。';controls()}
+ finally{polling=false}
+}
 function point(p){return [180+p[0]*1100,570-p[1]*1100]}
 function line(a,b,color,width){ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineCap='round';ctx.stroke()}
 function circle(p,r,color){ctx.beginPath();ctx.arc(...p,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()}
@@ -29,7 +64,7 @@ function showFeedback(d){
  $('original').hidden=!d.task.model_plan;
  $('model-plan').textContent=(d.task.model_plan||[]).map((s,i)=>(i+1)+'. '+s.action+' '+JSON.stringify(s.arguments)).join('\n');
 }
-draw();poll();setInterval(poll,180);
+controls();draw();poll();setInterval(poll,500);
 </script>
 <script>
 // MuJoCo frames are rendered from physics state inside the ROS container.
@@ -42,7 +77,7 @@ setInterval(()=>{
  const physical=world?.engine==='mujoco';
  c.style.display=physical?'none':'block';
  physicsImage.style.display=physical?'block':'none';
- if(!physical)return;
+ if(!physical||!connected)return;
  const learned=world.execution&&world.execution.run_id===document.body.dataset.runId;
  document.querySelector('.scene-footer span').textContent='● MuJoCo 接触物理 · '+(learned?'学习反馈执行':world.perception==='rgbd'?'RGB-D 视觉抓取':'真值定位');
  $('holding').textContent='夹爪接触：'+world.finger_contacts+'/2'+(world.holding?' · 已抓住':'');
