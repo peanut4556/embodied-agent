@@ -610,3 +610,11 @@ contact-watchdog-audit:
 
 contact-watchdog-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests/physics -p 'test_contact_watchdog.py' -v
+
+POLICY_GENERALIZATION_OUTPUT ?= outputs/evaluations/policy-generalization-v1
+.PHONY: policy-generalization-evaluate policy-generalization-test
+policy-generalization-evaluate:
+	PYTHONPATH=src .venv/bin/python scripts/evaluate_policy_generalization.py --output "$(POLICY_GENERALIZATION_OUTPUT)"
+
+policy-generalization-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_policy_generalization.py' -v

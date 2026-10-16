@@ -1,0 +1,4220 @@
+{
+  "status": "complete",
+  "config": {
+    "schema_version": 1,
+    "policy": "outputs/models/state-distill-distilled/epoch-300",
+    "weights_sha256": "13ed447a24b2ed35e9ff05d85292aa4d694eff1d53d286cd4b8bcdf12cb48f0f",
+    "max_seconds": 30,
+    "positions": [
+      0.283,
+      0.293,
+      0.323,
+      0.343,
+      0.363,
+      0.393
+    ],
+    "visuals": [
+      {
+        "name": "nominal",
+        "light_scale": 1.0,
+        "camera_dx": 0.0
+      },
+      {
+        "name": "dim",
+        "light_scale": 0.55,
+        "camera_dx": 0.0
+      },
+      {
+        "name": "camera-shift",
+        "light_scale": 1.0,
+        "camera_dx": 0.015
+      },
+      {
+        "name": "dim-camera-shift",
+        "light_scale": 0.55,
+        "camera_dx": 0.015
+      }
+    ],
+    "modes": [
+      "policy",
+      "guarded"
+    ],
+    "excluded_positions": [
+      0.286,
+      0.3,
+      0.302,
+      0.306,
+      0.308,
+      0.312,
+      0.313,
+      0.318,
+      0.32,
+      0.322,
+      0.326,
+      0.328,
+      0.332,
+      0.333,
+      0.338,
+      0.34,
+      0.342,
+      0.348,
+      0.353,
+      0.356,
+      0.358,
+      0.366,
+      0.368,
+      0.372,
+      0.373,
+      0.38,
+      0.382,
+      0.388,
+      0.398
+    ],
+    "inventory_sha256": {
+      "config/completion-bc.json": "a81bff3a744f67a96254c97ddc75f8ed444db69476df3b714153560fa4eb4c5d",
+      "config/completion-masked.json": "371a310fed32bb09850ca654b245ad6b920678d8d0dc752464747400cf1002f7",
+      "config/completion-unmasked.json": "0a525f5160db0bce99e766035daa6863f2d68a336865e3f9d0d6fd73c6bc1f1f",
+      "config/correction-contact-oriented-scenarios.json": "697d6c1b9447c4b0d6b4eef88413ef952e8b85504735090b7304e0dea2dacf88",
+      "config/correction-contact-scenarios.json": "622d7380af78ac376175868f2794030326fe02cb3df5ab4c1627bbfdafe77bde",
+      "config/correction-contact-stable-scenarios.json": "486597c7c73a482731e10fd3d2beb381bc0b4f29f5111aafe5bf6ccba10c17e2",
+      "config/correction-early-experiment.json": "8f05ad07363d121d085ed759cc31c033697a5db45c6f98e5124c7af6f141aaf0",
+      "config/correction-early-scenarios.json": "b02ab0fcbc4f5dbd9ac886624ee558a6e4aee8cf3044af7a18dab1c335451030",
+      "config/correction-expanded-scenarios.json": "b3334b82702e0a4021664c845bcf3371bf083d6fdcf5915a90626157311844a9",
+      "config/correction-finetune-experiment.json": "4af8fcf655b3a88667088e23977907c520f2cbaca2c71e15aae2921b9dbd9bd6",
+      "config/correction-onpolicy-scenarios.json": "26b706e504a1a412d94834668bf6aa14072742001baab0e3b8991209bc9ebc2c",
+      "config/correction-scenarios.json": "1aac76c5e5a1b8112242a13a2b8b7f4acff18a170b918edc87da1fb919e258fd",
+      "config/exposure-ablation.json": "e4969b9d817ff179b2a5b81e6b02c0111dba36694a329874dad29de9f3c57e0c",
+      "config/exposure-uncertainty.json": "4de302afde4a3b35556e39d6f2e8c5995cb4d19dcbc0349b7c0f1c2e74697e18",
+      "config/external-reference-stress.json": "a42785b9a08c9b5aaf91b509f8a3c6d8a197fa54629f81f5cb01a890fcec9f32",
+      "config/external-reference.json": "077b5a2f73ff1fef0d4f1f5d2866dbc0e7ea7f7f583f13c0c478812ad381c85f",
+      "config/feedback-scenarios.json": "cedc1fa5eaf1bc5f0720588d847ee7ba7663a89fca9d99eba67d150aca320397",
+      "config/fit-reliability.json": "ce64b737cb2dbf997cae9ecae4180907badb887d9d45fc7b83d757d95b863037",
+      "config/fit-stall-diagnostics.json": "5390a5814e9a68431cfd86924374554c6ab14d3a3ea13f10f56fff39b010c7df",
+      "config/fit-stop-validation.json": "fd8cbd6e847657fd15cb8eb308b924e7399516a43af91f0c63e6c3bced4fb66a",
+      "config/fit-stress.json": "0de2a2cd6b6fb852e7412a99106e907c0edef05c35bad6db2db32f8294e4e030",
+      "config/imitation-split.json": "c6279c479cc548b3c7188b7c99a84c25a60f7f152c2d1b1ce137445d8f732c4d",
+      "config/joint-seeds-experiment.json": "e3d4c344949adff033473cb2d090eae166c82fe78d7d00e1940ba82b49a9eb77",
+      "config/joint-training-augmented.json": "77ac831ce57e988e009e8209829cdcd4939369ce9d17da4fa293b011257b5248",
+      "config/joint-training-control.json": "064b21dfe7b64b3effadeacb79ec9139fea838cda7dfef4fb865210455e0d182",
+      "config/memory-experiment.json": "e0601d819050ae3e8a65623c89fe13efd5bc8f4aa6f21188b2603cb0010aa5a6",
+      "config/memory-extended-experiment.json": "9bac907a42d01e9ac8b8611262547e0ca1e7528fe3c45286fb4092631e0765cf",
+      "config/reactive-experiment.json": "8116056a8cdb1354143246d8dddbee071e70594e554457ded306eea8ec65b960",
+      "config/repeated-exposure-batches.json": "24cd2a3e4c54e6a3c07449e4b848285d71c15cc0393cb2efa9b8c0fb748cf046",
+      "config/robot.example.json": "4ff892ed862144cb4dd0851b693c8094d097122280993e9d27c54f21e5e05f33",
+      "config/slip-scenarios.json": "3d47102cba7c177667eeeff60dc75aca2d8a35747d866a0ce90f856ba3b71872",
+      "config/state-distill-control.json": "ee7a266d1bcd1d9ec2116f6032d2977c139024abb278ec8848ba1ee78a425061",
+      "config/state-distill-distilled.json": "c4581b2913330ee8f99aeac22b761735773e3d11bd6eaca255adc041c8a7dc1f",
+      "config/success-replay-control.json": "9a23f1f6e91c799862013619e80a3323a736d4d5f3f7e8d973e17a7434375d78",
+      "config/success-replay-replay.json": "7ef7eab3bce6aafcc35c060ed250892eba5d78210ae516e66f2695869abc2dd9",
+      "config/temporal-curation-split.json": "c846601ff8096bf6cfe07da15da4fa3d0721c5c9baed2a7abbc4ed8a437dc2f1",
+      "docs/evaluations/action-chain-v1.json": "4b80ae3ce30bc9336c2372503ab38ab8d1d0fe00aea727a290574ead2a0f0a6d",
+      "docs/evaluations/bounded-wait-v1.json": "0949968647dd81301861811b8024fd0ab72b7acbf78d75a22b32b8a661f60242",
+      "docs/evaluations/completion-mask-v1.json": "647fd0ba4d37a608db9d4a03baf753b7e91f48fd5321aa1b909a8d7b97d95f2c",
+      "docs/evaluations/conservative-geometry-v1.json": "38a85a963408589fc8c9af24116872227db63649cfce80ff274db7147159b8ef",
+      "docs/evaluations/contact-expert-comparison-v1.json": "2d6fa7eaf9933a79a9a201cd5784cb940158b707e9958ab3053b427312d02db0",
+      "docs/evaluations/contact-oriented-comparison-v1.json": "18a7a09dd6490502aaa30456e68c73ca70411a9eb141b3fdc20a0ef53be049cc",
+      "docs/evaluations/contact-oriented-v1.json": "1190f7b0d07bb4d135a448c4e1c7190bce1f2b6b561fc4d941ce9054c5a11816",
+      "docs/evaluations/contact-recovery-v1.json": "7fd3c525f32824e31ae8f005a3f33417736623030718fc473ae7a92819a3f3d3",
+      "docs/evaluations/contact-stable-v1.json": "ab2d1896ac3af3906338891b502ac70bc8aec3e7bd77c2589dd487c14bd4bab4",
+      "docs/evaluations/contact-vision-v1.json": "f8a2ae920fbd0cbe0e8f99bbb95e17b960602628ed388eb65a99d3da12a9243d",
+      "docs/evaluations/contact-watchdog-v1.json": "3d085d49342a64a484c8a852ccd08c79f1fa817966068ecc34c4340e77c9c377",
+      "docs/evaluations/correction-early-v1.json": "797863ca5f3380d6780b8b55fe7ee81223e3f4a78fde65beb12db90695e9e9ef",
+      "docs/evaluations/correction-finetune-v1.json": "89ffdd742f375cc6ad367ddff59e4c4d0c03c8c6322c4f024d71c49a87f60aa0",
+      "docs/evaluations/correction-v2.json": "1ee04b045ed501f148e82db74299a7617d6686c6f8fb63d348e37f8555316880",
+      "docs/evaluations/cube-consistency-v1.json": "437aa4bd602a7a5875212e44bbaab7039f79b29677afbbd19ad80ac14f34bd22",
+      "docs/evaluations/depth-ramp-v1.json": "d32ca3db22e331c79434338a32c65bebd8ebf0f66bb5c2c62d883b4c642043e9",
+      "docs/evaluations/directional-envelope-v1.json": "eb3c4d6dcac38008b0b29b35a4dd1b7c580edbdc8c50b916f43c8bb3e1ce577f",
+      "docs/evaluations/envelope-stress-v1.json": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2",
+      "docs/evaluations/exposure-ablation-v1.json": "df46ff4279e097c1a8f1e6fb7f0a522221d8492897fb24141dee0c3ee9d9ad71",
+      "docs/evaluations/exposure-uncertainty-v1.json": "b64160a1de0fb53359a27c9180d1792c22a56570f623a674d13a73b4e7bd6fb5",
+      "docs/evaluations/external-joint-example-v1.json": "7d66bbbafaacc57913d0c1da4c79f251d408abf69fbf5a9ac6229588e4a94d0e",
+      "docs/evaluations/external-observation-import-example-v1.json": "b22b81a0d3db704b8c36ee21d579fc83bd007eb77095ef3bfc936ccdc020eae1",
+      "docs/evaluations/external-reference-stress-v1.json": "f5c52808345dbfd3b404c5aa3aae8edabee5acb15e0ee586f42541ef84166030",
+      "docs/evaluations/external-reference-v1.json": "6525a7312e3d9a596293bc632409c9d6e0ce8db5d0703d6bcd59045a2f9c74b9",
+      "docs/evaluations/fit-reliability-v1.json": "7c89c4072f5c83d8e18cabcab1d4ed72fd6f281e7e244c651765a4e1514b8cc3",
+      "docs/evaluations/fit-stalls-v1.json": "047d6d06587db9a2bfe334e440b779aad8090da2741c74e9d592097ff5017077",
+      "docs/evaluations/fit-stop-validation-v1.json": "47ea31fe488858b02cbd1f8f007b1c5d15490810c39bb08c65c9eba55cccbfe4",
+      "docs/evaluations/fit-stress-v1.json": "62b781b1027951e653acb82bc8e189acd6247937fc82cd41214cb759562c8a56",
+      "docs/evaluations/geometry-error-v1.json": "8ba5977bf254d23539695154ce08b8891457961870aa93fb651ff07d6ec4901d",
+      "docs/evaluations/gripper-sweep-refined-v1.json": "103d849eef0f88261043c1a27255c120d986fc1a4b14c8c94545b1738b7fd8a0",
+      "docs/evaluations/gripper-sweep-v1.json": "7ad85c37974501a2b01588e5c3b710f243be8eb8bffef08246a5f5b4e0641a21",
+      "docs/evaluations/input-feedback-v1.json": "82f07f0e0c24098f85d156c43ebb3a6e3fb60b2e0b2cd2303da6eca7e9ed4e11",
+      "docs/evaluations/joint-seeds-v1.json": "e4b3542f36467bf8858914ce0407f5aaa59b3c561bd56f44e77ee3241140ee11",
+      "docs/evaluations/joint-sensitivity-v1.json": "3ea57c78dbbfb7fa0a5ffccac640ebe555ff435aea42f3cece9bcfb3e2406e59",
+      "docs/evaluations/joint-training-v1.json": "061a1a1473080f589212efee3e8cb773192ec7d3dad8eefcbff9c5af13944a97",
+      "docs/evaluations/memory-bc-v2.json": "8ccc502ccafa91a3d0561b483766ce8c184a710f9ed7c83acb5e0f1b434813d9",
+      "docs/evaluations/multiplane-reference-v1.json": "62562b72684bfcd5b69f970dcac29dd5202c43bf174dc0e9af415e406454c2b9",
+      "docs/evaluations/multistep-targets-v2.json": "7602480551fcf585908f9a3a588915fa38b885d501fcb9285bd5d4bdcc05dafd",
+      "docs/evaluations/overlap-attribution-v1.json": "70ba9b8afef443cada9cf11dd3ef8b1be3f8f80db20e4a1228bd127f696525b3",
+      "docs/evaluations/plane-groups-v1.json": "3b171b00a7157e032d2cf9bfbde18b48663fdd3b38ebb5d620a6f937a5ee7d06",
+      "docs/evaluations/plane-holdout-v1.json": "b681445a15affc6d1ec9a3a2a7b733ee41b7014fa108e56e15c75aa608a6e381",
+      "docs/evaluations/plane-stability-v1.json": "7564b2e57d4c1e6c4fc997f7a6576cb01df41f4109345a049010c564484fa84e",
+      "docs/evaluations/reactive-bc-v1.json": "c976ab671dde0359cad070e74d30aa0af4122e0faa0fe73f88eadf6f6146ae5e",
+      "docs/evaluations/redundant-reference-v1.json": "855f099c1f905eeedd9f068e15dc7769c8180fd7c5bdfab87df23d394af12b37",
+      "docs/evaluations/reference-fit-v1.json": "80f45cfb1ea189dac03396032d9087701d449f272ba525469ae73f5e84294f7c",
+      "docs/evaluations/reference-mismatch-v1.json": "90b748a6c26c8630feb8762280786a608b59e4196df246ef42f67e1caa83ab4a",
+      "docs/evaluations/reference-plane-v1.json": "a2d9017ba4702265201c2b9090c3c18453e57aed134162b1a89b7772ed01f9b7",
+      "docs/evaluations/reference-statistics-v1.json": "ceae6afd3fb8d7b84773d45afe50f46692e0c3e0378cb33c83a8a6aa277eafad",
+      "docs/evaluations/reference-uncertainty-v1.json": "576986545d7b97feaec28a6cf4e1fb9c68909ecd5f47ba777fe169db68ddb332",
+      "docs/evaluations/repeated-exposure-batches-v1.json": "9ed9f61a2f5d7e2dc1ca0fd13764483f1ade3149d35e86a95ef5cbed75a7ef58",
+      "docs/evaluations/repeated-exposure-v1.json": "93fb4311dc264705a7e1cf14443f69de8cef6fe3cb93a80505ae411731b197ff",
+      "docs/evaluations/replay-divergence-v1.json": "b885676487bf3bfd4f84dd26b7aabbe85a1953a70218116a42628a29caf4dc5a",
+      "docs/evaluations/rgbd-filter-v1.json": "0a6082de620bdb9d3b1befe33d5ba7f7f74e9544ad220e6d22c2133f2cf1a422",
+      "docs/evaluations/state-distill-v1.json": "7f7b32fee3231bcaf52719fb3c4740e2781e1cb6d21b001b7d53be86318289f5",
+      "docs/evaluations/state-targets-v1.json": "68c094adf1889aac319bea5e7454a8263c729b14b01a6b12847ab6a4d588f5e9",
+      "docs/evaluations/success-replay-v1.json": "2e5007f72655ec84e91484b9b200c3f492f9c863ccefa81552a34398fd5a27d0",
+      "docs/evaluations/support-reach-v1.json": "98efd4778539285f41b77e4c3625c68f19bbb7b9253406f991f74dcd51c78cca",
+      "docs/evaluations/visible-geometry-v1.json": "8e80cab4488246282267923a28899bae10e60e25560e5f02ca3e0f95b3780e6c",
+      "outputs/datasets/bc-positions-v1/recording.json": "01f9dbcbe037c4656848cbb85eb7aea97a967604a1343208551784b49a64230e",
+      "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+      "outputs/datasets/corrections-contact-stable-v1/recording.json": "265e0a32aeceb08611320b34fdca2601ed413c011bab822fdb86c2194f51cb98",
+      "outputs/datasets/corrections-contact-v1/recording.json": "e0953b2f7003b6041d53a4cfb19c1d94e07544c7686a17f1eb613dd173b2ce86",
+      "outputs/datasets/corrections-contact-v1-sandbox-failed/recording.json": "d1844732fe30835ffbb669479c30d5507e4cd08206baced008736c76fb63d5d9",
+      "outputs/datasets/corrections-early-v1/recording.json": "1a352b19c7bcaf6b48b567086e3724faa03e243c75982a1d228b01f99eb4e1bd",
+      "outputs/datasets/corrections-expanded-v1/recording.json": "6ebaaadc22e8f96358b3eda8d53d49246fd9e3ccb39519f39f7185f86a2fb88f",
+      "outputs/datasets/corrections-onpolicy-v1/recording.json": "ce4b23adc317cfe476a44e4051d3723d5a5cccc41de915e7f46d12b493d53094",
+      "outputs/datasets/corrections-v1/recording.json": "15bca6ef00ffaebb2be1a713c5bb63686bdd8ed92788ad0b12d91f4fcbcef870",
+      "outputs/datasets/corrections-v2/recording.json": "6f7738b41a3b67539cc6a2bfe3161be369ae9830df1c32ce6bce69e8253c9a90",
+      "outputs/datasets/reactive-development-v1/recording.json": "99071ae43991cc9e45fd059c26cf19115a4f92bb2f924da8618786cb6a93a544",
+      "outputs/datasets/reactive-development-v2/recording.json": "7d06aa48022e438ae310474b9667b6594dec7272f6396c371b430ac595eb2344",
+      "outputs/datasets/recovery-v1/recording.json": "6ee9838ce311e7f4f00c399871d2ddc3c205acd423e610536160d7996144fc13",
+      "outputs/datasets/recovery-v2/recording.json": "a94a0d59013cffdfd9db3710f6b6eaa12d923fc1b56837f9c1bf4dd2d808ae23",
+      "outputs/datasets/rgbd-demo-v1/recording.json": "ccf92c52b858b3e07ae6c6f3170ffe015f47e70032c8afe8b0e98cd87a2ce982",
+      "outputs/datasets/rgbd-demo-v2/recording.json": "d91eecaa822cdf38233c6a86518a15cafc32be3a679430dec0e47d98cd157ea8"
+    },
+    "scope": "Frozen-model exploratory generalization grid. These cases become inspected development data after execution; do not use them as untouched test data later. No checkpoint selection, retraining or original reserved-test opening."
+  },
+  "config_sha256": "89c094d543a6338a3450407f2c3cfe132cb10aa2d3a7e2c66d81bb8848ed7484",
+  "results": [
+    {
+      "case_id": "x283-nominal",
+      "x": 0.283,
+      "visual": "nominal",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_sustained_lift",
+      "frames": 750,
+      "trace": "x283-nominal-policy.npz",
+      "trace_sha256": "fbb8980559396141208253ca5b2117f4a83940aba759fa671fae2b136ca74eb7",
+      "initial_image_sha256": "13e2db5d4aadf5ac3324bef07fe6e187eab80e459a18732759f37767e3d162ae",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.22123412614242852,
+        "classification": "goal_without_verified_pick_place",
+        "events": [
+          {
+            "tick": 100,
+            "event": "stable_bilateral_grasp"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x283-nominal",
+      "x": 0.283,
+      "visual": "nominal",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 103,
+      "watchdog_events": [
+        {
+          "tick": 103,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 103,
+      "reason": "expert rejected state: block not graspable from current pose",
+      "failure": "expert_rejected",
+      "frames": 178,
+      "trace": "x283-nominal-guarded.npz",
+      "trace_sha256": "b95684bab2a8f88b70801ef528c90870e10c28d33f66b36b66db962f24f43b6f",
+      "initial_image_sha256": "13e2db5d4aadf5ac3324bef07fe6e187eab80e459a18732759f37767e3d162ae",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.21556884673916982,
+        "classification": "task_incomplete",
+        "events": [
+          {
+            "tick": 100,
+            "event": "stable_bilateral_grasp"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x283-dim",
+      "x": 0.283,
+      "visual": "dim",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_sustained_lift",
+      "frames": 750,
+      "trace": "x283-dim-policy.npz",
+      "trace_sha256": "9361fe58c46d316d42bef3a6a2a46f40bd2702b557562780d84053ca2c161327",
+      "initial_image_sha256": "f437374479624a566355574628a6153398673b4b4b27feb6e847a46439bce8a0",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.25238080164695403,
+        "classification": "task_incomplete",
+        "events": [
+          {
+            "tick": 100,
+            "event": "stable_bilateral_grasp"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x283-dim",
+      "x": 0.283,
+      "visual": "dim",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 103,
+      "watchdog_events": [
+        {
+          "tick": 103,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 103,
+      "reason": "expert rejected state: block not graspable from current pose",
+      "failure": "expert_rejected",
+      "frames": 178,
+      "trace": "x283-dim-guarded.npz",
+      "trace_sha256": "7c5d7cc08af19dc28ecf6eff51aa63cace79ff9b259f4d297b1224cd46433ce0",
+      "initial_image_sha256": "f437374479624a566355574628a6153398673b4b4b27feb6e847a46439bce8a0",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.21700074562608732,
+        "classification": "goal_without_verified_pick_place",
+        "events": [
+          {
+            "tick": 100,
+            "event": "stable_bilateral_grasp"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x283-camera-shift",
+      "x": 0.283,
+      "visual": "camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x283-camera-shift-policy.npz",
+      "trace_sha256": "0b46e08297c82083ebdc4866aa6dc78010699eb17399544ff21650679046aa88",
+      "initial_image_sha256": "c6da1471e3e8d29f798206cccfb5f755f69974f783b9c0b046d6dcaae1295294",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499109757314656,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x283-camera-shift",
+      "x": 0.283,
+      "visual": "camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x283-camera-shift-guarded.npz",
+      "trace_sha256": "0b46e08297c82083ebdc4866aa6dc78010699eb17399544ff21650679046aa88",
+      "initial_image_sha256": "c6da1471e3e8d29f798206cccfb5f755f69974f783b9c0b046d6dcaae1295294",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499109757314656,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x283-dim-camera-shift",
+      "x": 0.283,
+      "visual": "dim-camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_sustained_lift",
+      "frames": 750,
+      "trace": "x283-dim-camera-shift-policy.npz",
+      "trace_sha256": "b8f178d5c2ce1c18cf8851260ef445f5249210846afbca61a7cc2720452f6981",
+      "initial_image_sha256": "44076a88c4363699d7a56111f244668da517b358ebbf9c0adf017fdcadb3b68a",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.20243550599058552,
+        "classification": "goal_without_verified_pick_place",
+        "events": [
+          {
+            "tick": 95,
+            "event": "stable_bilateral_grasp"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x283-dim-camera-shift",
+      "x": 0.283,
+      "visual": "dim-camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.283,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 97,
+      "watchdog_events": [
+        {
+          "tick": 97,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 97,
+      "reason": "",
+      "failure": "none",
+      "frames": 384,
+      "trace": "x283-dim-camera-shift-guarded.npz",
+      "trace_sha256": "dd998ac224cb9d4cbcb4a0c6457fe8ba9c34653613541fa588946531322162ab",
+      "initial_image_sha256": "44076a88c4363699d7a56111f244668da517b358ebbf9c0adf017fdcadb3b68a",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3099877001865749,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 95,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 273,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 359,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x293-nominal",
+      "x": 0.293,
+      "visual": "nominal",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x293-nominal-policy.npz",
+      "trace_sha256": "8fc737c2daf11a460d9e310192274592c3084133eeb3adc146873984bc4c77c8",
+      "initial_image_sha256": "5fb3d1352698d1eb6a115bba3db1f6c03a0adae2d1c3ebc76f0d512f512aa211",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991005611230997,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x293-nominal",
+      "x": 0.293,
+      "visual": "nominal",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x293-nominal-guarded.npz",
+      "trace_sha256": "8fc737c2daf11a460d9e310192274592c3084133eeb3adc146873984bc4c77c8",
+      "initial_image_sha256": "5fb3d1352698d1eb6a115bba3db1f6c03a0adae2d1c3ebc76f0d512f512aa211",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991005611230997,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x293-dim",
+      "x": 0.293,
+      "visual": "dim",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x293-dim-policy.npz",
+      "trace_sha256": "efe5eaad54d9dea2d5fd6bf94ca009f67e729edc451df7350664a808701a69e8",
+      "initial_image_sha256": "39bf38ac4ecef889ec767d32051c1113ae97b67ecc700eae97d8e4bfd46776bf",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991005611230997,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x293-dim",
+      "x": 0.293,
+      "visual": "dim",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x293-dim-guarded.npz",
+      "trace_sha256": "efe5eaad54d9dea2d5fd6bf94ca009f67e729edc451df7350664a808701a69e8",
+      "initial_image_sha256": "39bf38ac4ecef889ec767d32051c1113ae97b67ecc700eae97d8e4bfd46776bf",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991005611230997,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x293-camera-shift",
+      "x": 0.293,
+      "visual": "camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x293-camera-shift-policy.npz",
+      "trace_sha256": "d9e94cb1c90fc8becc3be1fefdfe1ac6689a57c4e7bfbab202a3b2a94a021cc4",
+      "initial_image_sha256": "7988ced5324f93baac622f42a2dc0566ad7695a6031e0a75966966f07cd12b07",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499118654813691,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x293-camera-shift",
+      "x": 0.293,
+      "visual": "camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 82,
+      "watchdog_events": [
+        {
+          "tick": 82,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 82,
+      "reason": "",
+      "failure": "none",
+      "frames": 370,
+      "trace": "x293-camera-shift-guarded.npz",
+      "trace_sha256": "76f2af4c6595912e4fc39220d9a9263f3fbc9085cd64a8c9185888d23a68a35b",
+      "initial_image_sha256": "7988ced5324f93baac622f42a2dc0566ad7695a6031e0a75966966f07cd12b07",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.32080315504397133,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 220,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 258,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 344,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x293-dim-camera-shift",
+      "x": 0.293,
+      "visual": "dim-camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x293-dim-camera-shift-policy.npz",
+      "trace_sha256": "a4cbf3f101b6370a5be0939c0f7de4027a3f0d60b68263d0a7eaeeb1f9fb80f6",
+      "initial_image_sha256": "12eade63b2bc3ca811c9e6c8c26f009fb6e67b20ec874dd25c710e590ed45aed",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499118654813691,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x293-dim-camera-shift",
+      "x": 0.293,
+      "visual": "dim-camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.293,
+          -1.1288630541466231e-15,
+          0.024991005611230997,
+          1.0,
+          -1.239005207599177e-17,
+          -2.7183784155025246e-15,
+          7.345974204096963e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323932e-15,
+          -2.912164521762918e-17,
+          -2.534119266930365e-05,
+          8.966644769861116e-16,
+          2.0535514569818454e-13,
+          3.905880457962145e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.40265878383439e-14,
+          2.5717574413580235e-15,
+          -0.00040837219485317456,
+          1.5065128676469617e-13,
+          2.832667717309041e-11,
+          -3.729690947254637e-24
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x293-dim-camera-shift-guarded.npz",
+      "trace_sha256": "a4cbf3f101b6370a5be0939c0f7de4027a3f0d60b68263d0a7eaeeb1f9fb80f6",
+      "initial_image_sha256": "12eade63b2bc3ca811c9e6c8c26f009fb6e67b20ec874dd25c710e590ed45aed",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499118654813691,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-nominal",
+      "x": 0.323,
+      "visual": "nominal",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-nominal-policy.npz",
+      "trace_sha256": "cb0b23f43eed379b918ae75be459957d712039b9ee9ab365ca25ddd56effc650",
+      "initial_image_sha256": "793bdbafe0c995aa1dd24057c535620ee3c47bdc62f28203242720f689025be6",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990733463978485,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-nominal",
+      "x": 0.323,
+      "visual": "nominal",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-nominal-guarded.npz",
+      "trace_sha256": "cb0b23f43eed379b918ae75be459957d712039b9ee9ab365ca25ddd56effc650",
+      "initial_image_sha256": "793bdbafe0c995aa1dd24057c535620ee3c47bdc62f28203242720f689025be6",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990733463978485,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-dim",
+      "x": 0.323,
+      "visual": "dim",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-dim-policy.npz",
+      "trace_sha256": "cb0b23f43eed379b918ae75be459957d712039b9ee9ab365ca25ddd56effc650",
+      "initial_image_sha256": "23ac38321618a5f86f3bf2ab16676fb0260553e789cc6cbedd0dd3cc1efe197c",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990733463978485,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-dim",
+      "x": 0.323,
+      "visual": "dim",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-dim-guarded.npz",
+      "trace_sha256": "cb0b23f43eed379b918ae75be459957d712039b9ee9ab365ca25ddd56effc650",
+      "initial_image_sha256": "23ac38321618a5f86f3bf2ab16676fb0260553e789cc6cbedd0dd3cc1efe197c",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990733463978485,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-camera-shift",
+      "x": 0.323,
+      "visual": "camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-camera-shift-policy.npz",
+      "trace_sha256": "21eb6307f5e80f6545a6854cb88723dc102648cd773a03ec8f9bbea490243d5f",
+      "initial_image_sha256": "0c2a481bc673e2e12b0b334b2ee80066d41b9f064b23d7ec9ea87a43730cc5f0",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499107474770387,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-camera-shift",
+      "x": 0.323,
+      "visual": "camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-camera-shift-guarded.npz",
+      "trace_sha256": "21eb6307f5e80f6545a6854cb88723dc102648cd773a03ec8f9bbea490243d5f",
+      "initial_image_sha256": "0c2a481bc673e2e12b0b334b2ee80066d41b9f064b23d7ec9ea87a43730cc5f0",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499107474770387,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-dim-camera-shift",
+      "x": 0.323,
+      "visual": "dim-camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-dim-camera-shift-policy.npz",
+      "trace_sha256": "4e67e47f44595b5cd6d99e09c226c46e8079348f49950ec713526769dda976f9",
+      "initial_image_sha256": "66ec75f581b1feaa915c6d4e218971666195d321604a7d3e5944dab384a92b25",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.029167292928995614,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x323-dim-camera-shift",
+      "x": 0.323,
+      "visual": "dim-camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.32300000000000045,
+          -1.1281756931200444e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913467836091e-18,
+          -2.4125247831888305e-15,
+          7.346492331507221e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.534353036680759e-15,
+          1.8039699155170607e-17,
+          -7.137783113938212e-06,
+          -6.353763783676209e-16,
+          2.2097501349106553e-13,
+          -5.451978682863309e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807663e-13,
+          -6.61850653522503e-16,
+          0.00032661586970466954,
+          -4.695969195603108e-14,
+          -1.0094191568594405e-11,
+          -8.840788225091244e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x323-dim-camera-shift-guarded.npz",
+      "trace_sha256": "4e67e47f44595b5cd6d99e09c226c46e8079348f49950ec713526769dda976f9",
+      "initial_image_sha256": "66ec75f581b1feaa915c6d4e218971666195d321604a7d3e5944dab384a92b25",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.029167292928995614,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x343-nominal",
+      "x": 0.343,
+      "visual": "nominal",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x343-nominal-policy.npz",
+      "trace_sha256": "3af621c19b11662128641f5bb89291fbc80a73086e77cfb408d8df17ccfb8391",
+      "initial_image_sha256": "071722c7a1e8d46e579e817eed260fee27dcf0181619b6ed078a75d01b77d1a0",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991552018854602,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x343-nominal",
+      "x": 0.343,
+      "visual": "nominal",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x343-nominal-guarded.npz",
+      "trace_sha256": "3af621c19b11662128641f5bb89291fbc80a73086e77cfb408d8df17ccfb8391",
+      "initial_image_sha256": "071722c7a1e8d46e579e817eed260fee27dcf0181619b6ed078a75d01b77d1a0",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991552018854602,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x343-dim",
+      "x": 0.343,
+      "visual": "dim",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x343-dim-policy.npz",
+      "trace_sha256": "3af621c19b11662128641f5bb89291fbc80a73086e77cfb408d8df17ccfb8391",
+      "initial_image_sha256": "61a68b9a8c41a9e612c1ccb46fba64b877c2bec722c78c3d0ea368c2ef129971",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991552018854602,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x343-dim",
+      "x": 0.343,
+      "visual": "dim",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x343-dim-guarded.npz",
+      "trace_sha256": "3af621c19b11662128641f5bb89291fbc80a73086e77cfb408d8df17ccfb8391",
+      "initial_image_sha256": "61a68b9a8c41a9e612c1ccb46fba64b877c2bec722c78c3d0ea368c2ef129971",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991552018854602,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x343-camera-shift",
+      "x": 0.343,
+      "visual": "camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x343-camera-shift-policy.npz",
+      "trace_sha256": "989de98555cbd91dd9959a8c4bc9b93f458c28e8e5c35c5e11969381dc73d626",
+      "initial_image_sha256": "89323a428b2729ed9c48b9d33a6ce924ccd6a856dddbd908c4aaf9c9dcc8f3f7",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991127929395743,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x343-camera-shift",
+      "x": 0.343,
+      "visual": "camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x343-camera-shift-guarded.npz",
+      "trace_sha256": "989de98555cbd91dd9959a8c4bc9b93f458c28e8e5c35c5e11969381dc73d626",
+      "initial_image_sha256": "89323a428b2729ed9c48b9d33a6ce924ccd6a856dddbd908c4aaf9c9dcc8f3f7",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991127929395743,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x343-dim-camera-shift",
+      "x": 0.343,
+      "visual": "dim-camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 147,
+      "reason": "",
+      "failure": "none",
+      "frames": 147,
+      "trace": "x343-dim-camera-shift-policy.npz",
+      "trace_sha256": "ec0bf5f100389a43de5b0e53ce3f047ce06b4a2c7684b23ae9185c430c7b9b0a",
+      "initial_image_sha256": "9f4709999b9804c3ecea78f4599d632695c0564781341e0009201c439fc54141",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.28038357035438527,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 62,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 83,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 119,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x343-dim-camera-shift",
+      "x": 0.343,
+      "visual": "dim-camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.34300000000000047,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469203e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413388441039214e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652966606366e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 79,
+      "watchdog_events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 79,
+      "reason": "",
+      "failure": "none",
+      "frames": 366,
+      "trace": "x343-dim-camera-shift-guarded.npz",
+      "trace_sha256": "82a06c734800271198977c45ab9c185551e156cf52881adbbcaa34dc276c89e6",
+      "initial_image_sha256": "9f4709999b9804c3ecea78f4599d632695c0564781341e0009201c439fc54141",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3133020457114114,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 62,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x363-nominal",
+      "x": 0.363,
+      "visual": "nominal",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x363-nominal-policy.npz",
+      "trace_sha256": "a4ff49e08ea4edc7f917363374bcc025182f8171e3c6727dcde7843375b149a9",
+      "initial_image_sha256": "b6e1ba28c348c2500443abd917da4e5e4bd20dc2d561cccad157e6ea6e6c92bb",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.09383200195793644,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x363-nominal",
+      "x": 0.363,
+      "visual": "nominal",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 173,
+      "watchdog_events": [
+        {
+          "tick": 173,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 173,
+      "reason": "",
+      "failure": "none",
+      "frames": 460,
+      "trace": "x363-nominal-guarded.npz",
+      "trace_sha256": "74a86a4f21f539944f57b680bafda6dd86bf8453152b67f0234f2b0b1acc9958",
+      "initial_image_sha256": "b6e1ba28c348c2500443abd917da4e5e4bd20dc2d561cccad157e6ea6e6c92bb",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.30573885587650507,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 312,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 350,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 435,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x363-dim",
+      "x": 0.363,
+      "visual": "dim",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x363-dim-policy.npz",
+      "trace_sha256": "ce76728c86664485369ddd25649335601093e405d6ecd738b979b354320a65f0",
+      "initial_image_sha256": "f1f0c9017bdd41cf53505b711ed9f60a33a9bf309d6dd70b340d16c86a183f7f",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.09382212219153407,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x363-dim",
+      "x": 0.363,
+      "visual": "dim",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 173,
+      "watchdog_events": [
+        {
+          "tick": 173,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 173,
+      "reason": "",
+      "failure": "none",
+      "frames": 460,
+      "trace": "x363-dim-guarded.npz",
+      "trace_sha256": "f98aa080935e240077a9fdd1d432a104f269552fd223571b09930a066866f44f",
+      "initial_image_sha256": "f1f0c9017bdd41cf53505b711ed9f60a33a9bf309d6dd70b340d16c86a183f7f",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.30574370274283996,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 312,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 350,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 435,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x363-camera-shift",
+      "x": 0.363,
+      "visual": "camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x363-camera-shift-policy.npz",
+      "trace_sha256": "2fc01f52b962044671cf125e19f4587f89d84fef14362c0286edda39314e0e9c",
+      "initial_image_sha256": "a4a7e142e40f2e1ff5d7aa3b86f4a67f3fd50518c353b4aed7cc455c1a4b7f39",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x363-camera-shift",
+      "x": 0.363,
+      "visual": "camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x363-camera-shift-guarded.npz",
+      "trace_sha256": "2fc01f52b962044671cf125e19f4587f89d84fef14362c0286edda39314e0e9c",
+      "initial_image_sha256": "a4a7e142e40f2e1ff5d7aa3b86f4a67f3fd50518c353b4aed7cc455c1a4b7f39",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x363-dim-camera-shift",
+      "x": 0.363,
+      "visual": "dim-camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x363-dim-camera-shift-policy.npz",
+      "trace_sha256": "cf4ffd3a71e3cfbcc1b6eabbfc364fcee8b443c86e6802d436b912cfcea480b8",
+      "initial_image_sha256": "5dd8533001f63c2f75ed4bff9d25f6cd38fda23a77dcbd7f84bcd982f2ee84c8",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x363-dim-camera-shift",
+      "x": 0.363,
+      "visual": "dim-camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.363,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x363-dim-camera-shift-guarded.npz",
+      "trace_sha256": "cf4ffd3a71e3cfbcc1b6eabbfc364fcee8b443c86e6802d436b912cfcea480b8",
+      "initial_image_sha256": "5dd8533001f63c2f75ed4bff9d25f6cd38fda23a77dcbd7f84bcd982f2ee84c8",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-nominal",
+      "x": 0.393,
+      "visual": "nominal",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-nominal-policy.npz",
+      "trace_sha256": "87530d583b4e112ede71c9490e486ddff886dd8d58f18e99ae0d625d9a642dc5",
+      "initial_image_sha256": "0f45fec5dba1180186304fc0418719bbbbbdcb74675d0332eb3b67d0f64a5255",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-nominal",
+      "x": 0.393,
+      "visual": "nominal",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-nominal-guarded.npz",
+      "trace_sha256": "87530d583b4e112ede71c9490e486ddff886dd8d58f18e99ae0d625d9a642dc5",
+      "initial_image_sha256": "0f45fec5dba1180186304fc0418719bbbbbdcb74675d0332eb3b67d0f64a5255",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-dim",
+      "x": 0.393,
+      "visual": "dim",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-dim-policy.npz",
+      "trace_sha256": "87530d583b4e112ede71c9490e486ddff886dd8d58f18e99ae0d625d9a642dc5",
+      "initial_image_sha256": "9052fd62f750e9610e6e0c57d24d9a2e4fb3834f8cb4b0cff86a32b81267896b",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-dim",
+      "x": 0.393,
+      "visual": "dim",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-dim-guarded.npz",
+      "trace_sha256": "87530d583b4e112ede71c9490e486ddff886dd8d58f18e99ae0d625d9a642dc5",
+      "initial_image_sha256": "9052fd62f750e9610e6e0c57d24d9a2e4fb3834f8cb4b0cff86a32b81267896b",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-camera-shift",
+      "x": 0.393,
+      "visual": "camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-camera-shift-policy.npz",
+      "trace_sha256": "d6ebcd629f045d0fe447ba033e9af1eac3102c99010b206f9924716022bfceeb",
+      "initial_image_sha256": "968410dc4b79aa1898cb9706e226534d6e0bd598ea269848f9be6f7c3e013046",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-camera-shift",
+      "x": 0.393,
+      "visual": "camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-camera-shift-guarded.npz",
+      "trace_sha256": "d6ebcd629f045d0fe447ba033e9af1eac3102c99010b206f9924716022bfceeb",
+      "initial_image_sha256": "968410dc4b79aa1898cb9706e226534d6e0bd598ea269848f9be6f7c3e013046",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-dim-camera-shift",
+      "x": 0.393,
+      "visual": "dim-camera-shift",
+      "mode": "policy",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-dim-camera-shift-policy.npz",
+      "trace_sha256": "9734c8e43f455cbf0824a24ae24408e188bb7afcde80da53718e348268f97982",
+      "initial_image_sha256": "d5193c5b87e1f18b33f2de7b2b3803fd68634de8d6a134bd4703d4bd39fad360",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    },
+    {
+      "case_id": "x393-dim-camera-shift",
+      "x": 0.393,
+      "visual": "dim-camera-shift",
+      "mode": "guarded",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.393,
+          -1.1236113929310769e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545932442e-18,
+          -1.0647162601761002e-16,
+          7.345572657225218e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.4451996540494576e-16,
+          6.6491126072097434e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383790822e-16,
+          9.77134334694941e-15,
+          -8.611099873098142e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030695e-14,
+          -2.279005657247453e-16,
+          4.87819686706337e-05,
+          -1.3989627832420115e-15,
+          -4.975924891518924e-13,
+          -4.430299585132601e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": null,
+      "watchdog_events": [],
+      "learner_ticks": 750,
+      "reason": "execution timeout",
+      "failure": "no_stable_grasp",
+      "frames": 750,
+      "trace": "x393-dim-camera-shift-guarded.npz",
+      "trace_sha256": "9734c8e43f455cbf0824a24ae24408e188bb7afcde80da53718e348268f97982",
+      "initial_image_sha256": "d5193c5b87e1f18b33f2de7b2b3803fd68634de8d6a134bd4703d4bd39fad360",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024990435539916287,
+        "classification": "task_incomplete",
+        "events": []
+      }
+    }
+  ],
+  "limitations": "24 correlated grid scenarios at 6 positions; descriptive rates only, no population confidence interval. Correct camera calibration is supplied to expert. No retraining.",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_policy_generalization.py": "b5e33872b4070371035ac8c4dd5249e87506109639000473992edce28c79d0a6",
+    "src/embodied_agent/contact_watchdog.py": "8694f6c32167a68d9ef9041e94a6aea5d1f23535b4dbf0bf5475674a3d5013a5",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/correction_data.py": "69163bbe44bcb5d15df207542253adc1e25f2bfc81c634b40aec1758e5ae9e8d",
+    "src/embodied_agent/grasp_quality.py": "b189cef7b266d3ede48eea2176040c90532ebd4515dd4276d9d1cd52a622619c",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "paired_checks": [
+    {
+      "case_id": "x283-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x283-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x283-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x283-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x293-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x293-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x293-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x293-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x323-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x323-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x323-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x323-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x343-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x343-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x343-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x343-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x363-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x363-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x363-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x363-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x393-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x393-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x393-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x393-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    }
+  ],
+  "scores": {
+    "policy": {
+      "all": {
+        "successes": 1,
+        "cases": 24,
+        "success_rate": 0.041666666666666664,
+        "takeovers": 0,
+        "successful_after_takeover": 0,
+        "failures": {
+          "no_stable_grasp": 20,
+          "no_sustained_lift": 3
+        }
+      },
+      "camera-shift": {
+        "successes": 0,
+        "cases": 6,
+        "success_rate": 0.0,
+        "takeovers": 0,
+        "successful_after_takeover": 0,
+        "failures": {
+          "no_stable_grasp": 6
+        }
+      },
+      "dim": {
+        "successes": 0,
+        "cases": 6,
+        "success_rate": 0.0,
+        "takeovers": 0,
+        "successful_after_takeover": 0,
+        "failures": {
+          "no_stable_grasp": 5,
+          "no_sustained_lift": 1
+        }
+      },
+      "dim-camera-shift": {
+        "successes": 1,
+        "cases": 6,
+        "success_rate": 0.16666666666666666,
+        "takeovers": 0,
+        "successful_after_takeover": 0,
+        "failures": {
+          "no_stable_grasp": 4,
+          "no_sustained_lift": 1
+        }
+      },
+      "nominal": {
+        "successes": 0,
+        "cases": 6,
+        "success_rate": 0.0,
+        "takeovers": 0,
+        "successful_after_takeover": 0,
+        "failures": {
+          "no_stable_grasp": 5,
+          "no_sustained_lift": 1
+        }
+      }
+    },
+    "guarded": {
+      "all": {
+        "successes": 5,
+        "cases": 24,
+        "success_rate": 0.20833333333333334,
+        "takeovers": 7,
+        "successful_after_takeover": 5,
+        "failures": {
+          "expert_rejected": 2,
+          "no_stable_grasp": 17
+        }
+      },
+      "camera-shift": {
+        "successes": 1,
+        "cases": 6,
+        "success_rate": 0.16666666666666666,
+        "takeovers": 1,
+        "successful_after_takeover": 1,
+        "failures": {
+          "no_stable_grasp": 5
+        }
+      },
+      "dim": {
+        "successes": 1,
+        "cases": 6,
+        "success_rate": 0.16666666666666666,
+        "takeovers": 2,
+        "successful_after_takeover": 1,
+        "failures": {
+          "expert_rejected": 1,
+          "no_stable_grasp": 4
+        }
+      },
+      "dim-camera-shift": {
+        "successes": 2,
+        "cases": 6,
+        "success_rate": 0.3333333333333333,
+        "takeovers": 2,
+        "successful_after_takeover": 2,
+        "failures": {
+          "no_stable_grasp": 4
+        }
+      },
+      "nominal": {
+        "successes": 1,
+        "cases": 6,
+        "success_rate": 0.16666666666666666,
+        "takeovers": 2,
+        "successful_after_takeover": 1,
+        "failures": {
+          "expert_rejected": 1,
+          "no_stable_grasp": 4
+        }
+      }
+    }
+  }
+}
