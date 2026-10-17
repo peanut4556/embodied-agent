@@ -108,3 +108,13 @@ python3.12 scripts/check_simulation.py  # 两个服务运行时，执行并重�
 复现：启动带模型挂载的 `physics-feedback`、控制台及 Ollama 后，运行既有 `scripts/check_simulation.py --execution feedback --rai --expect-perception rgbd --report <新报告路径>`；额外边界检查运行 `make learned-interaction-check`。后者默认输出已存在时拒绝覆盖，可用 `.venv/bin/python scripts/check_learned_interactions.py --report outputs/learned-interactions-new.json` 指定新路径。检查会重置空闲场景，不应与人工操作同时运行。
 
 [机器报告](evaluations/learned-console-v2.json)记录实际计划、状态、失败原因、Qwen digest 和权重/源码 SHA256。3 项新增实际链路检查、既有端到端回归与 17 项相关单元测试通过（新增规划阶段停止的迟到计划测试）。本轮没有验证多任务、多种自然语言表达或真实机器人泛化。
+
+### 规划停止响应修复（2026-10-17）
+
+已修复上一节的 RAI 工作进程等待问题：控制台把本次任务的取消事件交给规划器，每 100 ms 检查一次。取消或超时后先终止本地 RAI 工作进程，若 0.5 秒内未退出则强制结束，随后回收进程并关闭通信管道。已取消的任务不会启动工作进程；取消和结果同时到达时优先处理取消。共享 Ollama 服务不受此操作影响。
+
+这消除了等待完整规划返回/180 秒规划超时的必要，但不保证 Ollama 服务内部立即停止底层推理，也不改变 ROS 停止请求在网络故障时的等待时间。其他不传取消事件的规划调用保持原有接口和执行方式。
+
+7 项新增测试使用真实 Python 子进程验证正常 JSON、错误/无效输出、提前取消、运行中取消、忽略 TERM 后强制结束、超时以及控制台停止后释放忙碌状态。取消测试以 2 秒为测试上限，检查工作进程退出和管道关闭；控制台测试的 bridge 为替身，验证零运动下发及可重置。全部 33 项核心测试、Ruff 和 diff 检查通过。本次没有重跑 Qwen/ROS/MuJoCo 全链路，前一轮记录仍仅代表修复前的集成运行。
+
+复现：`PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v`。

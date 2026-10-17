@@ -111,7 +111,11 @@ class SimulationApp:
             observation = Observation(
                 objects=state["objects"], gripper_holding=state["gripper_holding"]
             )
-            backend = RAISubprocessPlanner() if planner == "rai" else RuleBasedPlanner()
+            backend = (
+                RAISubprocessPlanner(cancel_event=self.cancel)
+                if planner == "rai"
+                else RuleBasedPlanner()
+            )
             self.event("发送场景观测给规划器")
             plan = backend.create_plan(instruction, observation)
             self.update(model_plan=[asdict(step) for step in plan.steps])

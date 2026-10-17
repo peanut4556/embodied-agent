@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import subprocess
+import threading
+import time
 from collections.abc import Callable, Mapping
 from dataclasses import asdict
 from pathlib import Path
@@ -42,11 +44,53 @@ class RAISubprocessPlanner:
         worker_script: Path | str = PROJECT_ROOT / "scripts/rai_plan.py",
         config_path: Path | str = PROJECT_ROOT / "config/rai.ollama.toml",
         timeout_seconds: float = 180,
+        cancel_event: threading.Event | None = None,
     ) -> None:
         self.python_executable = Path(python_executable)
         self.worker_script = Path(worker_script)
         self.config_path = Path(config_path)
         self.timeout_seconds = timeout_seconds
+        self.cancel_event = cancel_event
+
+    def _run_cancellable(self, command, *, input, timeout, **kwargs):
+        # Kill only our RAI worker, never the shared Ollama server.
+        if self.cancel_event.is_set():
+            raise RuntimeError("RAI planning cancelled")
+        process = subprocess.Popen(
+            command,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        deadline = time.monotonic() + timeout
+        pending_input = input
+        try:
+            while True:
+                if self.cancel_event.is_set():
+                    raise RuntimeError("RAI planning cancelled")
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise subprocess.TimeoutExpired(command, timeout)
+                try:
+                    stdout, stderr = process.communicate(pending_input, timeout=min(0.1, remaining))
+                    # Cancellation wins over a result arriving in the same polling window.
+                    if self.cancel_event.is_set():
+                        raise RuntimeError("RAI planning cancelled")
+                    return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+                except subprocess.TimeoutExpired:
+                    pending_input = None
+        finally:
+            if process.poll() is None:
+                process.terminate()
+                try:
+                    process.communicate(timeout=0.5)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    process.communicate()
+            for stream in (process.stdin, process.stdout, process.stderr):
+                if stream is not None:
+                    stream.close()
 
     def create_plan(self, instruction: str, observation: Observation) -> Plan:
         request = {
@@ -60,7 +104,8 @@ class RAISubprocessPlanner:
             str(self.config_path),
         ]
         try:
-            completed = subprocess.run(
+            runner = subprocess.run if self.cancel_event is None else self._run_cancellable
+            completed = runner(
                 command,
                 input=json.dumps(request, ensure_ascii=False),
                 capture_output=True,
