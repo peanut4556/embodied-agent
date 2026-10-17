@@ -622,3 +622,7 @@ policy-generalization-test:
 .PHONY: console-interaction-check
 console-interaction-check:
 	.venv/bin/python scripts/check_console_interactions.py
+
+.PHONY: learned-interaction-check
+learned-interaction-check:
+	.venv/bin/python scripts/check_learned_interactions.py

@@ -91,3 +91,20 @@ python3.12 scripts/check_simulation.py  # 两个服务运行时，执行并重�
 新增 `make console-interaction-check`（要求控制台和 RGB-D MuJoCo 服务已启动），默认报告 `outputs/console-interactions.json` 已存在时拒绝覆盖；可直接运行 `.venv/bin/python scripts/check_console_interactions.py --report outputs/console-interactions-new.json` 保存新结果。脚本拒绝中断已有任务，失败时尝试停止本轮任务并保存失败报告。检查会重置空闲场景，因此应在无人工操作的本地测试会话运行。
 
 [完整联调报告](evaluations/console-interactions-v1.json)包含逐阶段状态、原始事件、既有回归结果与源码哈希。6 项交互检查和 10 项仿真/控制台单元测试通过，未发现需要修改运行逻辑的问题。本轮未验证 Qwen/RAI 规划及真实学习模型执行，也未接入真实机器人。
+
+### Qwen 与学习执行联调补验（2026-10-17）
+
+已使用本地 `qwen3.5:4b`、隔离的 RAI 环境、ROS 2 与 MuJoCo RGB-D 完成实际联调。控制台挂载既有 `context-bc-v1` 视觉条件策略及有界恢复规则，**不是**位置泛化实验中的 GRU 模型；本轮未训练或替换权重。
+
+- 规则和 Qwen 计划均由学习技能完成入盒，恢复次数均为 0；本次任务墙钟耗时分别约 16.25 秒、33.10 秒，只是单次观察值。
+- Qwen 输出定位、抓取、放置、验收、停止，编译为定位、学习抓放、验收、停止；末尾停止实际执行，最终目标验收通过。
+- 未重置直接再次启动被视觉条件拒绝，返回定位/抓取失败原因与恢复建议，没有切换到预设轨迹。
+- 学习运动中停止、取消后的后续指令拒绝、重置清空学习状态通过。
+- 学习动作中请求暂停，完整抓放结束后停在 2/3 步；保持 0.6 秒未执行验收，继续后完成验收。
+- Qwen 规划中停止后，最终状态 stopped、完成 0 步、没有运动下发，学习执行状态仍为空；迟到计划不被执行。
+
+规划停止目前不立即终止 RAI 子进程：取消先锁存，任务保持忙碌直到规划返回或达到既有超时，然后退出。界面在此期间显示正在停止，不能重置或重新启动。这不影响阻止后续运动，但仍存在停止等待时间。
+
+复现：启动带模型挂载的 `physics-feedback`、控制台及 Ollama 后，运行既有 `scripts/check_simulation.py --execution feedback --rai --expect-perception rgbd --report <新报告路径>`；额外边界检查运行 `make learned-interaction-check`。后者默认输出已存在时拒绝覆盖，可用 `.venv/bin/python scripts/check_learned_interactions.py --report outputs/learned-interactions-new.json` 指定新路径。检查会重置空闲场景，不应与人工操作同时运行。
+
+[机器报告](evaluations/learned-console-v2.json)记录实际计划、状态、失败原因、Qwen digest 和权重/源码 SHA256。3 项新增实际链路检查、既有端到端回归与 17 项相关单元测试通过（新增规划阶段停止的迟到计划测试）。本轮没有验证多任务、多种自然语言表达或真实机器人泛化。

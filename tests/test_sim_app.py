@@ -105,6 +105,31 @@ class SimulationAppTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.app.start(instruction, "rule")
 
+    @patch("embodied_agent.sim_app.RAISubprocessPlanner")
+    @patch("embodied_agent.sim_app.bridge")
+    def test_stop_during_planning_discards_late_plan(self, bridge, planner):
+        from embodied_agent.planner import RuleBasedPlanner
+
+        bridge.side_effect = self.bridge
+
+        def delayed_plan(instruction, observation):
+            self.entered.set()
+            if not self.release.wait(2):
+                raise RuntimeError("test release timeout")
+            return RuleBasedPlanner().create_plan(instruction, observation)
+
+        planner.return_value.create_plan.side_effect = delayed_plan
+        self.app.start("把桌上的红色积木放进盒子", "rai", "scripted")
+        self.assertTrue(self.entered.wait(2))
+        self.app.stop()
+        self.assertTrue(self.app.busy)
+        self.release.set()
+        self.wait_for(lambda: not self.app.busy)
+        self.assertEqual(self.app.task["phase"], "stopped")
+        self.assertEqual(self.app.task["completed"], 0)
+        self.assertTrue(self.commands)
+        self.assertTrue(all(command == "stop" for command in self.commands))
+
     def test_failure_categories(self):
         for message, title in [
             ("block not graspable", "未能可靠定位或抓住积木"),
