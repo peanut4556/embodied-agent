@@ -77,3 +77,17 @@ python3.12 scripts/check_simulation.py  # 两个服务运行时，执行并重�
 断连时禁止启动、重置和暂停/继续，并标记画面可能已过期，停止入口保留。`/api/state` 在执行服务断连时仍返回任务状态：`world=null`、`connection_error` 为错误详情，HTTP 200 仅表示控制台可达，不代表 ROS 在线。客户端应同时检查这两个字段。恢复连接后重新获取真实状态。
 
 验证：10 项仿真/控制台测试通过，覆盖暂停边界、继续、暂停中停止、重复启动/重置保护和失败解释；JavaScript 语法及 Ruff 检查通过。浏览器检查了无 ROS 服务时的断连提示与禁用状态。本轮没有启动 Docker/ROS/MuJoCo 全链路，暂停逻辑通过模拟 bridge 的线程测试验证；未改动物理执行器或训练策略。
+
+### ROS/MuJoCo 实际联调补验（2026-10-17）
+
+已使用本地 `embodied-agent-physics` 镜像及只读挂载的当前源码，实际执行控制台 HTTP → ROS 2 Jazzy action/status → MuJoCo RGB-D 抓放；本轮使用规则规划和预设轨迹，没有模拟 bridge。
+
+- 在真实 `pick` 过程中请求暂停；抓取完成后停在 2/4 步，ROS 没有活动动作，等待 0.8 秒仍保持夹持且没有进入放置。
+- 继续后完成 4/4 步，位置验收确认积木在盒内且夹爪松开。
+- 暂停中再次启动或重置均返回错误；暂停中停止后仍停在 2/4 步，后续继续请求被拒绝。
+- 未挂载学习模型时，任务进入失败态，返回“学习模型不可用”、原始原因与恢复建议；重置后恢复 idle。
+- 既有 RGB-D 抓放、盒外验收拒绝、运动中停止、取消任务拒绝后续动作及重置回归全部通过。
+
+新增 `make console-interaction-check`（要求控制台和 RGB-D MuJoCo 服务已启动），默认报告 `outputs/console-interactions.json` 已存在时拒绝覆盖；可直接运行 `.venv/bin/python scripts/check_console_interactions.py --report outputs/console-interactions-new.json` 保存新结果。脚本拒绝中断已有任务，失败时尝试停止本轮任务并保存失败报告。检查会重置空闲场景，因此应在无人工操作的本地测试会话运行。
+
+[完整联调报告](evaluations/console-interactions-v1.json)包含逐阶段状态、原始事件、既有回归结果与源码哈希。6 项交互检查和 10 项仿真/控制台单元测试通过，未发现需要修改运行逻辑的问题。本轮未验证 Qwen/RAI 规划及真实学习模型执行，也未接入真实机器人。

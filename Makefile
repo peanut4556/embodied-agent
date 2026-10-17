@@ -618,3 +618,7 @@ policy-generalization-evaluate:
 
 policy-generalization-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_policy_generalization.py' -v
+
+.PHONY: console-interaction-check
+console-interaction-check:
+	.venv/bin/python scripts/check_console_interactions.py

@@ -1,0 +1,866 @@
+{
+  "status": "passed",
+  "scope": "Local HTTP console to ROS 2 Jazzy and MuJoCo RGB-D, rule planner, scripted execution; no RAI or learned-policy execution.",
+  "container_image": "embodied-agent-physics:latest (local image e4ccce3c1021)",
+  "mounts": "Current src and ros2_ws/src mounted read-only over image source paths.",
+  "source_sha256": {
+    "scripts/check_console_interactions.py": "d29ae821916be6584d1367a0133f128b0f68f5c6cd41dc440b1d554c5b93a2e2",
+    "scripts/check_simulation.py": "3261f41e8528bccf4ee13928d077b9e95ee279b6ea3ec87fc07f468f5b0cc7bc",
+    "src/embodied_agent/sim_app.py": "cd231ccb13d9231a9342c77b5dca138b5061fca30d0b6af59bd8dfc842b2833a",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "ros2_ws/src/embodied_agent_ros/embodied_agent_ros/simulation_server.py": "44e0a1612263a7e462085e7bd3629bdd6791d5b452fbf650b398fcf17a94f674",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "interactions": {
+    "status": "passed",
+    "engine": "mujoco",
+    "perception": "rgbd",
+    "checks": {
+      "pause_resume_to_goal": true,
+      "busy_rejects_start_and_reset": true,
+      "stop_from_pause": true,
+      "cannot_resume_stopped_run": true,
+      "actionable_failure": true,
+      "reset_to_idle": true
+    },
+    "paused": {
+      "world": {
+        "engine": "mujoco",
+        "feedback_available": false,
+        "execution": null,
+        "perception": "rgbd",
+        "detection": {
+          "source": "rgbd",
+          "xyz": [
+            0.31961601561407166,
+            0.0,
+            0.024990487098693802
+          ],
+          "pixels": 639,
+          "bbox": [
+            267,
+            227,
+            292,
+            252
+          ],
+          "sim_time": 0.46000000000000035
+        },
+        "sim_time": 5.7799999999995855,
+        "tip": [
+          0.3217881731808098,
+          0.2958879239007738
+        ],
+        "elbow": [
+          -0.06380836324970725,
+          0.5351246713692086
+        ],
+        "base": [
+          0,
+          0.12
+        ],
+        "joints": [
+          1.7233115948495383,
+          -2.125088570797635
+        ],
+        "block": [
+          0.3232518167650343,
+          0.29315637776342607
+        ],
+        "block_xyz": [
+          0.3232518167650343,
+          -2.487398410390208e-06,
+          0.29315637776342607
+        ],
+        "box": [
+          0.64,
+          0.04
+        ],
+        "holding": true,
+        "active": "",
+        "inside_box": false,
+        "finger_contacts": 2,
+        "error": "",
+        "objects": {
+          "red_block": "gripper",
+          "box": "table"
+        },
+        "gripper_holding": "red_block"
+      },
+      "task": {
+        "phase": "paused",
+        "started_at": 1792206958.321044,
+        "completed": 2,
+        "current": 1,
+        "failure": null,
+        "instruction": "把桌上的红色积木放进盒子",
+        "plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ],
+        "events": [
+          {
+            "time": "11:15:58",
+            "text": "发送场景观测给规划器"
+          },
+          {
+            "time": "11:15:58",
+            "text": "计划通过校验，共 4 步；执行方式：scripted"
+          },
+          {
+            "time": "11:15:58",
+            "text": "ROS → locate {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:15:58",
+            "text": "ROS ← 完成 locate · 105b6020"
+          },
+          {
+            "time": "11:15:58",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          },
+          {
+            "time": "11:15:58",
+            "text": "ROS → pick {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:16:03",
+            "text": "ROS ← 完成 pick · 16fffb48"
+          },
+          {
+            "time": "11:16:03",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          }
+        ],
+        "execution": "scripted",
+        "planner": "rule",
+        "run_id": "348482e1b573417fa724be9dd030b4e6",
+        "message": "已暂停，可以继续执行剩余步骤",
+        "model_plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ]
+      },
+      "busy": true,
+      "connection_error": null
+    },
+    "duplicate_start": {
+      "error": "任务仍在运行"
+    },
+    "reset_while_paused": {
+      "error": "请先停止任务并等待规划或执行结束"
+    },
+    "resumed": {
+      "world": {
+        "engine": "mujoco",
+        "feedback_available": false,
+        "execution": null,
+        "perception": "rgbd",
+        "detection": {
+          "source": "rgbd",
+          "xyz": [
+            0.31961601561407166,
+            0.0,
+            0.024990487098693802
+          ],
+          "pixels": 639,
+          "bbox": [
+            267,
+            227,
+            292,
+            252
+          ],
+          "sim_time": 0.46000000000000035
+        },
+        "sim_time": 10.620000000000216,
+        "tip": [
+          0.6400860712779741,
+          0.2994228858303014
+        ],
+        "elbow": [
+          0.23129603768361762,
+          0.47057401921970565
+        ],
+        "base": [
+          0,
+          0.12
+        ],
+        "joints": [
+          0.9876016419814059,
+          -1.218558484727743
+        ],
+        "block": [
+          0.6415365527677466,
+          0.03999041224240868
+        ],
+        "block_xyz": [
+          0.6415365527677466,
+          -5.624486902894366e-15,
+          0.03999041224240868
+        ],
+        "box": [
+          0.64,
+          0.04
+        ],
+        "holding": false,
+        "active": "",
+        "inside_box": true,
+        "finger_contacts": 0,
+        "error": "",
+        "objects": {
+          "red_block": "box",
+          "box": "table"
+        },
+        "gripper_holding": ""
+      },
+      "task": {
+        "phase": "success",
+        "started_at": 1792206958.321044,
+        "completed": 4,
+        "current": 3,
+        "failure": null,
+        "instruction": "把桌上的红色积木放进盒子",
+        "plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ],
+        "events": [
+          {
+            "time": "11:15:58",
+            "text": "发送场景观测给规划器"
+          },
+          {
+            "time": "11:15:58",
+            "text": "计划通过校验，共 4 步；执行方式：scripted"
+          },
+          {
+            "time": "11:15:58",
+            "text": "ROS → locate {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:15:58",
+            "text": "ROS ← 完成 locate · 105b6020"
+          },
+          {
+            "time": "11:15:58",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          },
+          {
+            "time": "11:15:58",
+            "text": "ROS → pick {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:16:03",
+            "text": "ROS ← 完成 pick · 16fffb48"
+          },
+          {
+            "time": "11:16:03",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          },
+          {
+            "time": "11:16:04",
+            "text": "ROS → place {\"object\": \"red_block\", \"destination\": \"box\"}"
+          },
+          {
+            "time": "11:16:09",
+            "text": "ROS ← 完成 place · 1cc4e49e"
+          },
+          {
+            "time": "11:16:09",
+            "text": "ROS → verify {\"object\": \"red_block\", \"destination\": \"box\"}"
+          },
+          {
+            "time": "11:16:10",
+            "text": "ROS ← 完成 verify · 08b6adec"
+          },
+          {
+            "time": "11:16:10",
+            "text": "位置验收通过：积木在盒内，夹爪已松开"
+          }
+        ],
+        "execution": "scripted",
+        "planner": "rule",
+        "run_id": "348482e1b573417fa724be9dd030b4e6",
+        "message": "完成：红色积木已进入盒子",
+        "model_plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ],
+        "finished_at": 1792206970.00581
+      },
+      "busy": false,
+      "connection_error": null
+    },
+    "stopped": {
+      "world": {
+        "engine": "mujoco",
+        "feedback_available": false,
+        "execution": null,
+        "perception": "rgbd",
+        "detection": {
+          "source": "rgbd",
+          "xyz": [
+            0.3196160489442922,
+            0.0,
+            0.024990963935852005
+          ],
+          "pixels": 639,
+          "bbox": [
+            267,
+            227,
+            292,
+            252
+          ],
+          "sim_time": 0.4200000000000003
+        },
+        "sim_time": 6.09999999999955,
+        "tip": [
+          0.32493013305514823,
+          0.28968584951955895
+        ],
+        "elbow": [
+          -0.05602498690046542,
+          0.5362465625597437
+        ],
+        "base": [
+          0,
+          0.12
+        ],
+        "joints": [
+          1.704551328629707,
+          -2.1254732411402393
+        ],
+        "block": [
+          0.32632754649317924,
+          0.2867954497236368
+        ],
+        "block_xyz": [
+          0.32632754649317924,
+          -2.603034428975589e-06,
+          0.2867954497236368
+        ],
+        "box": [
+          0.64,
+          0.04
+        ],
+        "holding": true,
+        "active": "",
+        "inside_box": false,
+        "finger_contacts": 2,
+        "error": "",
+        "objects": {
+          "red_block": "gripper",
+          "box": "table"
+        },
+        "gripper_holding": "red_block"
+      },
+      "task": {
+        "phase": "stopped",
+        "started_at": 1792206970.190799,
+        "completed": 2,
+        "current": 1,
+        "failure": null,
+        "instruction": "把桌上的红色积木放进盒子",
+        "plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ],
+        "events": [
+          {
+            "time": "11:16:10",
+            "text": "发送场景观测给规划器"
+          },
+          {
+            "time": "11:16:10",
+            "text": "计划通过校验，共 4 步；执行方式：scripted"
+          },
+          {
+            "time": "11:16:10",
+            "text": "ROS → locate {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:16:10",
+            "text": "ROS ← 完成 locate · 21c9d2db"
+          },
+          {
+            "time": "11:16:10",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          },
+          {
+            "time": "11:16:10",
+            "text": "ROS → pick {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:16:14",
+            "text": "ROS ← 完成 pick · 8a84bd3e"
+          },
+          {
+            "time": "11:16:14",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          },
+          {
+            "time": "11:16:15",
+            "text": "任务已由用户停止"
+          },
+          {
+            "time": "11:16:15",
+            "text": "用户发出停止指令"
+          }
+        ],
+        "execution": "scripted",
+        "planner": "rule",
+        "run_id": "015771029f304e978135290d4cf7dad3",
+        "message": "任务已停止",
+        "model_plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ],
+        "finished_at": 1792206975.894591
+      },
+      "busy": false,
+      "connection_error": null
+    },
+    "failed": {
+      "world": {
+        "engine": "mujoco",
+        "feedback_available": false,
+        "execution": null,
+        "perception": "rgbd",
+        "detection": null,
+        "sim_time": 0.46000000000000035,
+        "tip": [
+          0.2199734746824153,
+          0.2998437147840776
+        ],
+        "elbow": [
+          -0.18126026027740014,
+          0.4988729576575361
+        ],
+        "base": [
+          0,
+          0.12
+        ],
+        "joints": [
+          2.017030116182705,
+          -2.31680978309262
+        ],
+        "block": [
+          0.320000000000477,
+          0.024990558782163812
+        ],
+        "block_xyz": [
+          0.320000000000477,
+          -1.129062781381328e-15,
+          0.024990558782163812
+        ],
+        "box": [
+          0.64,
+          0.04
+        ],
+        "holding": false,
+        "active": "",
+        "inside_box": false,
+        "finger_contacts": 0,
+        "error": "",
+        "objects": {
+          "red_block": "table",
+          "box": "table"
+        },
+        "gripper_holding": ""
+      },
+      "task": {
+        "phase": "failed",
+        "started_at": 1792206976.276119,
+        "completed": 0,
+        "current": null,
+        "failure": {
+          "title": "学习模型不可用",
+          "detail": "学习模型未配置，请挂载训练权重后重启物理服务",
+          "recovery": "选择预设轨迹执行，或配置模型后重启仿真服务。"
+        },
+        "instruction": "把桌上的红色积木放进盒子",
+        "plan": [],
+        "events": [
+          {
+            "time": "11:16:16",
+            "text": "学习模型未配置，请挂载训练权重后重启物理服务"
+          }
+        ],
+        "execution": "feedback",
+        "planner": "rule",
+        "run_id": "5afba4b1a00041f2a35b840f51685533",
+        "message": "任务未完成",
+        "finished_at": 1792206976.334806
+      },
+      "busy": false,
+      "connection_error": null
+    }
+  },
+  "physics_regression": {
+    "rule": {
+      "world": {
+        "engine": "mujoco",
+        "feedback_available": false,
+        "execution": null,
+        "perception": "rgbd",
+        "detection": {
+          "source": "rgbd",
+          "xyz": [
+            0.31961601561407166,
+            0.0,
+            0.024990487098693802
+          ],
+          "pixels": 639,
+          "bbox": [
+            267,
+            227,
+            292,
+            252
+          ],
+          "sim_time": 0.5400000000000004
+        },
+        "sim_time": 10.180000000000069,
+        "tip": [
+          0.6400309285705253,
+          0.2997231652678565
+        ],
+        "elbow": [
+          0.2311699764551876,
+          0.47065715732850505
+        ],
+        "base": [
+          0,
+          0.12
+        ],
+        "joints": [
+          0.9879492285446634,
+          -1.2183956399938112
+        ],
+        "block": [
+          0.6416105593579113,
+          0.03999041224240863
+        ],
+        "block_xyz": [
+          0.6416105593579113,
+          4.851091199257811e-09,
+          0.03999041224240863
+        ],
+        "box": [
+          0.64,
+          0.04
+        ],
+        "holding": false,
+        "active": "",
+        "inside_box": true,
+        "finger_contacts": 0,
+        "error": "",
+        "objects": {
+          "red_block": "box",
+          "box": "table"
+        },
+        "gripper_holding": ""
+      },
+      "task": {
+        "phase": "success",
+        "started_at": 1792206988.077474,
+        "completed": 4,
+        "current": 3,
+        "failure": null,
+        "instruction": "把桌上的红色积木放进盒子",
+        "plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ],
+        "events": [
+          {
+            "time": "11:16:28",
+            "text": "发送场景观测给规划器"
+          },
+          {
+            "time": "11:16:28",
+            "text": "计划通过校验，共 4 步；执行方式：scripted"
+          },
+          {
+            "time": "11:16:28",
+            "text": "ROS → locate {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:16:28",
+            "text": "ROS ← 完成 locate · 6bee0287"
+          },
+          {
+            "time": "11:16:28",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          },
+          {
+            "time": "11:16:28",
+            "text": "ROS → pick {\"object\": \"red_block\"}"
+          },
+          {
+            "time": "11:16:34",
+            "text": "ROS ← 完成 pick · 2420a67e"
+          },
+          {
+            "time": "11:16:34",
+            "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+          },
+          {
+            "time": "11:16:34",
+            "text": "ROS → place {\"object\": \"red_block\", \"destination\": \"box\"}"
+          },
+          {
+            "time": "11:16:40",
+            "text": "ROS ← 完成 place · 0aa19baa"
+          },
+          {
+            "time": "11:16:40",
+            "text": "ROS → verify {\"object\": \"red_block\", \"destination\": \"box\"}"
+          },
+          {
+            "time": "11:16:40",
+            "text": "ROS ← 完成 verify · ff08231b"
+          },
+          {
+            "time": "11:16:40",
+            "text": "位置验收通过：积木在盒内，夹爪已松开"
+          }
+        ],
+        "execution": "scripted",
+        "planner": "rule",
+        "run_id": "28249f143d2d48779801fa3ea450f905",
+        "message": "完成：红色积木已进入盒子",
+        "model_plan": [
+          {
+            "action": "locate",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "red_block is localized"
+          },
+          {
+            "action": "pick",
+            "arguments": {
+              "object": "red_block"
+            },
+            "success_condition": "gripper holds red_block"
+          },
+          {
+            "action": "place",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "red_block is in box"
+          },
+          {
+            "action": "verify",
+            "arguments": {
+              "object": "red_block",
+              "destination": "box"
+            },
+            "success_condition": "goal is visually verified"
+          }
+        ],
+        "finished_at": 1792207000.543558
+      },
+      "busy": false,
+      "connection_error": null
+    },
+    "stop_and_reset": "passed"
+  }
+}
