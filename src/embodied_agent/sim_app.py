@@ -89,6 +89,8 @@ class SimulationApp:
                 "completed": 0,
                 "current": None,
                 "failure": None,
+                "stop_confirmation": "not_requested",
+                "stop_error": "",
                 "instruction": instruction,
                 "plan": [],
                 "events": [],
@@ -173,11 +175,11 @@ class SimulationApp:
             stopped = self.cancel.is_set()
             self.update(
                 phase="stopped" if stopped else "failed",
-                message="任务已停止" if stopped else "任务未完成",
+                message="任务已取消，正在确认执行端停止" if stopped else "任务未完成",
                 failure=None if stopped else failure_details(exc),
             )
             try:
-                bridge({"name": "stop", "run_id": self.run_id})
+                self._stop_execution(self.run_id)
             except (OSError, RuntimeError, ValueError) as stop_error:
                 self.event(f"停止反馈不可用：{stop_error}")
         finally:
@@ -208,15 +210,48 @@ class SimulationApp:
             self.task.update(phase="executing", message="继续执行")
             self.condition.notify_all()
 
+    def _stop_execution(self, run_id):
+        with self.lock:
+            if (
+                self.task.get("run_id", "") == run_id
+                and self.task.get("stop_confirmation") != "confirmed"
+            ):
+                self.task.update(stop_confirmation="pending", stop_error="")
+        error = None
+        try:
+            bridge({"name": "stop", "run_id": run_id})
+        except (OSError, RuntimeError, ValueError) as exc:
+            error = exc
+        with self.lock:
+            # A late reply from a previous run must not overwrite a reset/new task.
+            if self.task.get("run_id", "") == run_id:
+                if error is None:
+                    self.task.update(stop_confirmation="confirmed", stop_error="")
+                elif self.task.get("stop_confirmation") != "confirmed":
+                    self.task.update(stop_confirmation="unconfirmed", stop_error=str(error))
+                if self.task["phase"] == "stopped":
+                    self.task["message"] = (
+                        "任务已取消，执行端已确认停止"
+                        if self.task.get("stop_confirmation") == "confirmed"
+                        else "任务已取消，但执行端停止尚未确认"
+                    )
+        if error is not None:
+            raise error
+
     def stop(self):
         with self.condition:
+            run_id = self.run_id
             self.cancel.set()
             self.pause_requested = False
             if self.busy:
                 self.task.update(phase="stopping", message="正在停止，等待执行端确认")
             self.condition.notify_all()
-        bridge({"name": "stop", "run_id": self.run_id})
-        self.event("用户发出停止指令")
+        self._stop_execution(run_id)
+        with self.lock:
+            if self.task.get("run_id", "") == run_id:
+                self.task["events"].append(
+                    {"time": time.strftime("%H:%M:%S"), "text": "执行端已确认用户停止指令"}
+                )
 
     def reset(self):
         with self.lock:
