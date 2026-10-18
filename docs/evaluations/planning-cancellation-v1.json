@@ -1,0 +1,502 @@
+{
+  "status": "passed",
+  "trials": [
+    {
+      "delay_after_worker_seconds": 0.3,
+      "observed_worker_pids": [
+        7322
+      ],
+      "stop_ack_seconds": 0.2927191669587046,
+      "idle_after_stop_seconds": 0.7292803750024177,
+      "remaining_workers": [],
+      "state": {
+        "world": {
+          "engine": "mujoco",
+          "feedback_available": true,
+          "execution": null,
+          "perception": "rgbd",
+          "detection": null,
+          "sim_time": 0.9400000000000007,
+          "tip": [
+            0.21996216635817642,
+            0.2997844516449836
+          ],
+          "elbow": [
+            -0.1812365347639536,
+            0.49888430749604057
+          ],
+          "base": [
+            0,
+            0.12
+          ],
+          "joints": [
+            2.0169679790901696,
+            -2.3169224521146665
+          ],
+          "block": [
+            0.320000000000477,
+            0.024990412242463535
+          ],
+          "block_xyz": [
+            0.320000000000477,
+            -1.1147866190855238e-15,
+            0.024990412242463535
+          ],
+          "box": [
+            0.64,
+            0.04
+          ],
+          "holding": false,
+          "active": "",
+          "inside_box": false,
+          "finger_contacts": 0,
+          "error": "",
+          "objects": {
+            "red_block": "table",
+            "box": "table"
+          },
+          "gripper_holding": ""
+        },
+        "task": {
+          "phase": "stopped",
+          "started_at": 1792292930.893503,
+          "completed": 0,
+          "current": null,
+          "failure": null,
+          "instruction": "把桌上的红色积木放进盒子",
+          "plan": [],
+          "events": [
+            {
+              "time": "11:08:50",
+              "text": "发送场景观测给规划器"
+            },
+            {
+              "time": "11:08:51",
+              "text": "RAI planning cancelled"
+            },
+            {
+              "time": "11:08:51",
+              "text": "用户发出停止指令"
+            }
+          ],
+          "execution": "feedback",
+          "planner": "rai",
+          "run_id": "0766f3614b46446dafc70d1537917978",
+          "message": "任务已停止",
+          "finished_at": 1792292931.9886878
+        },
+        "busy": false,
+        "connection_error": null
+      }
+    },
+    {
+      "delay_after_worker_seconds": 1.0,
+      "observed_worker_pids": [
+        7329
+      ],
+      "stop_ack_seconds": 0.09308879199670628,
+      "idle_after_stop_seconds": 0.16911866696318612,
+      "remaining_workers": [],
+      "state": {
+        "world": {
+          "engine": "mujoco",
+          "feedback_available": true,
+          "execution": null,
+          "perception": "rgbd",
+          "detection": null,
+          "sim_time": 1.6200000000000012,
+          "tip": [
+            0.21997630825242676,
+            0.2998655455400037
+          ],
+          "elbow": [
+            -0.18127074232750373,
+            0.4988679426608112
+          ],
+          "base": [
+            0,
+            0.12
+          ],
+          "joints": [
+            2.017056860154322,
+            -2.3167724956914784
+          ],
+          "block": [
+            0.320000000000477,
+            0.024990412242408687
+          ],
+          "block_xyz": [
+            0.320000000000477,
+            -1.0980874758042377e-15,
+            0.024990412242408687
+          ],
+          "box": [
+            0.64,
+            0.04
+          ],
+          "holding": false,
+          "active": "",
+          "inside_box": false,
+          "finger_contacts": 0,
+          "error": "",
+          "objects": {
+            "red_block": "table",
+            "box": "table"
+          },
+          "gripper_holding": ""
+        },
+        "task": {
+          "phase": "stopped",
+          "started_at": 1792292932.2223842,
+          "completed": 0,
+          "current": null,
+          "failure": null,
+          "instruction": "把桌上的红色积木放进盒子",
+          "plan": [],
+          "events": [
+            {
+              "time": "11:08:52",
+              "text": "发送场景观测给规划器"
+            },
+            {
+              "time": "11:08:53",
+              "text": "RAI planning cancelled"
+            },
+            {
+              "time": "11:08:53",
+              "text": "用户发出停止指令"
+            }
+          ],
+          "execution": "feedback",
+          "planner": "rai",
+          "run_id": "d91f05697a8841c695700c37711ef11c",
+          "message": "任务已停止",
+          "finished_at": 1792292933.723789
+        },
+        "busy": false,
+        "connection_error": null
+      }
+    },
+    {
+      "delay_after_worker_seconds": 2.0,
+      "observed_worker_pids": [
+        7334
+      ],
+      "stop_ack_seconds": 0.10764683299930766,
+      "idle_after_stop_seconds": 0.29470437503186986,
+      "remaining_workers": [],
+      "state": {
+        "world": {
+          "engine": "mujoco",
+          "feedback_available": true,
+          "execution": null,
+          "perception": "rgbd",
+          "detection": null,
+          "sim_time": 2.539999999999942,
+          "tip": [
+            0.2199593338117525,
+            0.29975525405355385
+          ],
+          "elbow": [
+            -0.18122124733341638,
+            0.49889161974754825
+          ],
+          "base": [
+            0,
+            0.12
+          ],
+          "joints": [
+            2.016927621981112,
+            -2.316973111353429
+          ],
+          "block": [
+            0.320000000000477,
+            0.024990412242408687
+          ],
+          "block_xyz": [
+            0.320000000000477,
+            -1.0758694185768109e-15,
+            0.024990412242408687
+          ],
+          "box": [
+            0.64,
+            0.04
+          ],
+          "holding": false,
+          "active": "",
+          "inside_box": false,
+          "finger_contacts": 0,
+          "error": "",
+          "objects": {
+            "red_block": "table",
+            "box": "table"
+          },
+          "gripper_holding": ""
+        },
+        "task": {
+          "phase": "stopped",
+          "started_at": 1792292933.781554,
+          "completed": 0,
+          "current": null,
+          "failure": null,
+          "instruction": "把桌上的红色积木放进盒子",
+          "plan": [],
+          "events": [
+            {
+              "time": "11:08:53",
+              "text": "发送场景观测给规划器"
+            },
+            {
+              "time": "11:08:55",
+              "text": "RAI planning cancelled"
+            },
+            {
+              "time": "11:08:55",
+              "text": "用户发出停止指令"
+            }
+          ],
+          "execution": "feedback",
+          "planner": "rai",
+          "run_id": "45fdd798b32d46eca7a8eaf101c24fee",
+          "message": "任务已停止",
+          "finished_at": 1792292936.074295
+        },
+        "busy": false,
+        "connection_error": null
+      }
+    }
+  ],
+  "limit_seconds": 3,
+  "scope": "Local RAI worker cancellation, not proof of Ollama GPU inference cancellation.",
+  "restarted": {
+    "world": {
+      "engine": "mujoco",
+      "feedback_available": true,
+      "execution": {
+        "mode": "feedback",
+        "run_id": "4f693ad8731f4aaeb447e2476bab46a7",
+        "state": "completed",
+        "reason": "",
+        "retries": 0,
+        "slips": 0,
+        "elapsed": 10.48,
+        "events": [
+          {
+            "tick": 0,
+            "event": "planned",
+            "context": 0.4375
+          },
+          {
+            "tick": 187,
+            "event": "intentional_release"
+          }
+        ]
+      },
+      "perception": "rgbd",
+      "detection": {
+        "source": "rgbd",
+        "xyz": [
+          0.3196160072815165,
+          0.0,
+          0.02499036788940425
+        ],
+        "pixels": 639,
+        "bbox": [
+          267,
+          227,
+          292,
+          252
+        ],
+        "sim_time": 13.940000000001325
+      },
+      "sim_time": 24.8599999999971,
+      "tip": [
+        0.6400399557614285,
+        0.2995341086731781
+      ],
+      "elbow": [
+        0.23123985251679657,
+        0.4706110816959586
+      ],
+      "base": [
+        0,
+        0.12
+      ],
+      "joints": [
+        0.9877474913929005,
+        -1.2185466148941895
+      ],
+      "block": [
+        0.6410402537092601,
+        0.039990412242408624
+      ],
+      "block_xyz": [
+        0.6410402537092601,
+        -1.27591185124521e-14,
+        0.039990412242408624
+      ],
+      "box": [
+        0.64,
+        0.04
+      ],
+      "holding": false,
+      "active": "",
+      "inside_box": true,
+      "finger_contacts": 0,
+      "error": "",
+      "objects": {
+        "red_block": "box",
+        "box": "table"
+      },
+      "gripper_holding": ""
+    },
+    "task": {
+      "phase": "success",
+      "started_at": 1792292936.386959,
+      "completed": 3,
+      "current": 3,
+      "failure": null,
+      "instruction": "把桌上的红色积木放进盒子",
+      "plan": [
+        {
+          "action": "locate",
+          "arguments": {
+            "object": "red_block"
+          },
+          "success_condition": ""
+        },
+        {
+          "action": "learned_pick_place",
+          "arguments": {
+            "object": "red_block",
+            "destination": "box"
+          },
+          "success_condition": ""
+        },
+        {
+          "action": "verify",
+          "arguments": {
+            "object": "red_block",
+            "destination": null
+          },
+          "success_condition": ""
+        },
+        {
+          "action": "stop",
+          "arguments": {
+            "reason": ""
+          },
+          "success_condition": ""
+        }
+      ],
+      "events": [
+        {
+          "time": "11:08:56",
+          "text": "发送场景观测给规划器"
+        },
+        {
+          "time": "11:09:10",
+          "text": "计划通过校验，共 5 步；执行方式：feedback"
+        },
+        {
+          "time": "11:09:10",
+          "text": "抓取与放置合并为学习模型执行；视觉与夹爪接触反馈最多恢复 2 次"
+        },
+        {
+          "time": "11:09:10",
+          "text": "ROS → locate {\"object\": \"red_block\"}"
+        },
+        {
+          "time": "11:09:10",
+          "text": "ROS ← 完成 locate · 575a139e"
+        },
+        {
+          "time": "11:09:10",
+          "text": "RGB-D 定位：(0.320, 0.000, 0.025) m · 639 像素"
+        },
+        {
+          "time": "11:09:10",
+          "text": "ROS → learned_pick_place {\"object\": \"red_block\", \"destination\": \"box\"}"
+        },
+        {
+          "time": "11:09:25",
+          "text": "ROS ← 完成 learned_pick_place · 69ad83c2"
+        },
+        {
+          "time": "11:09:25",
+          "text": "学习执行完成，恢复 0 次"
+        },
+        {
+          "time": "11:09:25",
+          "text": "ROS → verify {\"object\": \"red_block\", \"destination\": null}"
+        },
+        {
+          "time": "11:09:25",
+          "text": "ROS ← 完成 verify · 747f3f62"
+        },
+        {
+          "time": "11:09:25",
+          "text": "已执行规划器的停止指令"
+        },
+        {
+          "time": "11:09:25",
+          "text": "位置验收通过：积木在盒内，夹爪已松开"
+        }
+      ],
+      "execution": "feedback",
+      "planner": "rai",
+      "run_id": "4f693ad8731f4aaeb447e2476bab46a7",
+      "message": "完成：红色积木已进入盒子",
+      "model_plan": [
+        {
+          "action": "locate",
+          "arguments": {
+            "object": "red_block"
+          },
+          "success_condition": ""
+        },
+        {
+          "action": "pick",
+          "arguments": {
+            "object": "red_block"
+          },
+          "success_condition": ""
+        },
+        {
+          "action": "place",
+          "arguments": {
+            "object": "red_block",
+            "destination": "box"
+          },
+          "success_condition": ""
+        },
+        {
+          "action": "verify",
+          "arguments": {
+            "object": "red_block",
+            "destination": null
+          },
+          "success_condition": ""
+        },
+        {
+          "action": "stop",
+          "arguments": {
+            "reason": ""
+          },
+          "success_condition": ""
+        }
+      ],
+      "finished_at": 1792292965.677545
+    },
+    "busy": false,
+    "connection_error": null
+  },
+  "source_sha256": {
+    "scripts/check_planning_cancellation.py": "83248847a1e284ddb89207305e3f177e818aa84b6bdf9ce9ef0de0b8eb6e0235",
+    "src/embodied_agent/sim_app.py": "8d0894c6f8bdb68b8c53486c433d935142ffa5cc69260d237f33d1763ba06b9e",
+    "src/embodied_agent/adapters/rai_planner.py": "9f88e86fcae79773d3a9e631a0e26badc31c2efc46d62f9aa07621ba9c50ebab",
+    "scripts/rai_plan.py": "3289ef83177aafc7e074f99e9b8476985b36a8e041ecded50da0950b15d78cb7",
+    "config/rai.ollama.toml": "ed05188ce7f178eefdffea02e3995c37b71612f0ec30da4b5e1627a0129259e9",
+    "outputs/models/context-bc-v1/policy.npz": "ff231781e359f4f8ec57585cdf5b1d9ca557f1bd43f01fd3b914d7949cbb3344"
+  }
+}

@@ -626,3 +626,7 @@ console-interaction-check:
 .PHONY: learned-interaction-check
 learned-interaction-check:
 	.venv/bin/python scripts/check_learned_interactions.py
+
+.PHONY: planning-cancellation-check
+planning-cancellation-check:
+	.venv/bin/python -u scripts/check_planning_cancellation.py
