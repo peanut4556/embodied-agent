@@ -56,6 +56,7 @@ def main():
     request(8765, "api/run", task)
     result = wait_task(timeout=110)
     assert result["task"]["phase"] == "success", result
+    assert result["task"]["completed"] == len(result["task"]["plan"]), result
     assert result["world"]["inside_box"] and not result["world"]["holding"]
     report["rule"] = result
     if args.execution == "feedback":
@@ -146,6 +147,7 @@ def main():
         request(8765, "api/run", dict(task, planner="rai"))
         result = wait_task(timeout=250)
         assert result["task"]["phase"] == "success", result
+        assert result["task"]["completed"] == len(result["task"]["plan"]), result
         assert result["world"]["inside_box"] and not result["world"]["holding"]
         report["rai"] = result
         if args.expect_perception == "rgbd":

@@ -139,11 +139,6 @@ class SimulationApp:
                         if step.action == "learned_pick_place"
                         else f"执行 {step.action}",
                     )
-                if step.action == "stop":
-                    bridge({"name": "stop", "parameters": step.arguments, "run_id": self.run_id})
-                    self.event("已执行规划器的停止指令")
-                    stopped = True
-                    break
                 self.event(f"ROS → {step.action} {json.dumps(step.arguments, ensure_ascii=False)}")
                 result = bridge(
                     {"name": step.action, "parameters": step.arguments, "run_id": self.run_id}
@@ -152,6 +147,10 @@ class SimulationApp:
                     raise RuntimeError("任务已由用户停止")
                 self.update(completed=index + 1)
                 self.event(f"ROS ← 完成 {step.action} · {result['id'][:8]}")
+                if step.action == "stop":
+                    self.event("已执行规划器的停止指令")
+                    stopped = True
+                    break
                 if step.action == "learned_pick_place":
                     feedback = result["state"]["execution"]
                     self.event(f"学习执行完成，恢复 {feedback['retries']} 次")
