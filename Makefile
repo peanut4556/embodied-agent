@@ -630,3 +630,7 @@ learned-interaction-check:
 .PHONY: planning-cancellation-check
 planning-cancellation-check:
 	.venv/bin/python -u scripts/check_planning_cancellation.py
+
+.PHONY: stop-disconnect-check
+stop-disconnect-check:
+	.venv/bin/python -u scripts/check_stop_disconnect.py
