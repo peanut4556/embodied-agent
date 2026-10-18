@@ -23,7 +23,10 @@ BRIDGE = "http://127.0.0.1:8766"
 def bridge(payload=None):
     data = None if payload is None else json.dumps(payload).encode()
     req = Request(BRIDGE, data=data, headers={"Content-Type": "application/json"})
-    timeout = 95 if payload and payload.get("name") == "learned_pick_place" else 25
+    if payload is None or payload.get("name") == "stop":
+        timeout = 3
+    else:
+        timeout = 95 if payload.get("name") == "learned_pick_place" else 25
     with urlopen(req, timeout=timeout) as response:
         result = json.load(response)
     if payload is not None and not result.get("success"):

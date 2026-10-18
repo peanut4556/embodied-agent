@@ -634,3 +634,7 @@ planning-cancellation-check:
 .PHONY: stop-disconnect-check
 stop-disconnect-check:
 	.venv/bin/python -u scripts/check_stop_disconnect.py
+
+.PHONY: stop-timeout-check
+stop-timeout-check:
+	.venv/bin/python -u scripts/check_stop_disconnect.py --fault timeout --report outputs/stop-timeout-v1.json

@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", type=Path, default=Path("outputs/stop-disconnect-v1.json"))
+    parser.add_argument("--fault", choices=["http503", "timeout"], default="http503")
     args = parser.parse_args()
     if args.report.exists():
         raise FileExistsError("refusing to overwrite report")
@@ -32,6 +33,7 @@ def main():
     assert initial["engine"] == "mujoco" and initial["perception"] == "rgbd"
     assert not initial["active"], "do not interrupt an existing motion"
     blocked = threading.Event()
+    released = threading.Event()
 
     class Proxy(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -39,7 +41,12 @@ def main():
 
         def forward(self):
             if blocked.is_set():
-                self.send_error(503, "Injected test disconnect")
+                if args.fault == "timeout":
+                    # Accept the socket but send no response headers or body.
+                    released.wait(35)
+                    self.close_connection = True
+                else:
+                    self.send_error(503, "Injected test disconnect")
                 return
             data = (
                 self.rfile.read(int(self.headers.get("Content-Length", 0)))
@@ -72,7 +79,8 @@ def main():
     threading.Thread(target=server.serve_forever, daemon=True).start()
     report = {
         "status": "running",
-        "fault": "HTTP 503 for new requests at local proxy; already forwarded action stays in flight",
+        "fault": args.fault,
+        "scope": "New requests fail or receive no bytes; already forwarded action stays in flight",
         "checks": {},
     }
     process = None
@@ -103,6 +111,7 @@ def main():
         active = wait_until(lambda s: s["world"]["active"] == "pick")
         report["active_before_fault"] = active
         blocked.set()
+        started = time.monotonic()
         try:
             request(8765, "api/stop", {})
         except HTTPError as error:
@@ -110,6 +119,15 @@ def main():
             report["stop_http_error"] = json.load(error)
         else:
             raise AssertionError("stop unexpectedly acknowledged across broken link")
+        report["stop_response_seconds"] = time.monotonic() - started
+        started = time.monotonic()
+        sample = request(8765, "api/state")
+        report["state_response_seconds"] = time.monotonic() - started
+        assert sample["world"] is None and sample["connection_error"]
+        if args.fault == "timeout":
+            assert 2.5 <= report["stop_response_seconds"] < 6, report
+            assert 2.5 <= report["state_response_seconds"] < 6, report
+            report["checks"]["silent_socket_requests_time_out"] = True
         offline = wait_task(timeout=35)
         report["offline"] = offline
         assert offline["world"] is None and offline["connection_error"]
@@ -119,6 +137,7 @@ def main():
         report["backend_during_fault"] = request(8766)
         report["checks"]["offline_cancel_is_not_stop_ack"] = True
         blocked.clear()
+        released.set()
         request(8765, "api/stop", {})
         recovered = request(8765, "api/state")
         report["recovered"] = recovered
@@ -142,6 +161,7 @@ def main():
         raise
     finally:
         blocked.clear()
+        released.set()
         if process is not None:
             try:
                 request(8765, "api/stop", {})

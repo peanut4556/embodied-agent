@@ -166,3 +166,13 @@ python3.12 scripts/check_simulation.py  # 两个服务运行时，执行并重�
 3 项实际链路检查及 42 项核心测试全部通过，Ruff 与 diff 检查通过。没有修改生产逻辑；本轮通过真实 HTTP 接口验证提供给页面的状态，未做浏览器视觉检查、TCP 超时或网络抖动测试。
 
 复现：先启动空闲的 RGB-D MuJoCo 服务，保持 8765、8767 端口空闲，再运行 `make stop-disconnect-check`。脚本创建自己的临时控制台和本地代理，结束时关闭；已有控制台或活动仿真动作会被拒绝。运行会重置测试场景，不应与人工操作同时进行。报告默认位于 `outputs/stop-disconnect-v1.json`，存在时拒绝覆盖，可用 `scripts/check_stop_disconnect.py --report <新路径>` 指定新报告。完整状态和源码哈希见[机器报告](evaluations/stop-disconnect-v1.json)。
+
+### 无响应连接的超时与恢复（2026-10-18）
+
+状态查询和停止请求原先共享 25 秒 socket 超时，可能让页面长时间等不到停止反馈。现在这两类请求使用 3 秒超时；普通动作/重置仍为 25 秒，学习抓放仍为 95 秒，不压缩动作执行预算。底层 bridge 超时直接报错，不自动重发命令；控制台既有的异常清理停止仍保留。
+
+真实 ROS/MuJoCo 联调通过本地代理接受 TCP 连接后不返回任何响应头或内容，已转发的抓取继续运行。实测停止请求约 3.002 秒返回错误，状态查询约 3.003 秒返回连接错误和保留的任务状态。停止保持 unconfirmed；恢复代理后同一任务重试得到 confirmed，再重置的新任务成功入盒。4 项联调检查通过，后端在故障和恢复之间未重启。
+
+这是无数据返回时的 socket 超时，不是严格的请求总墙钟截止时间；未覆盖持续缓慢发送字节、DNS 卡住或操作系统级丢包。本轮没有浏览器交互验证。新增 2 项超时预算/不自动重发测试，全部 44 项核心测试、Ruff、diff 检查通过。
+
+复现使用 `make stop-timeout-check`，要求空闲的 RGB-D MuJoCo 服务、空闲的 8765/8767 端口；临时控制台和故障代理由脚本创建并回收。报告默认 `outputs/stop-timeout-v1.json` 已存在时拒绝覆盖。可用 `scripts/check_stop_disconnect.py --fault timeout --report <新路径>` 指定新报告。默认 `--fault http503` 保留上一轮的立即失败模式。[机器报告](evaluations/stop-timeout-v1.json)保存实测时延、故障和恢复状态及源码哈希。
