@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import json
 import threading
 import time
@@ -60,7 +61,26 @@ class SimulationApp:
         self.cancel = threading.Event()
         self.busy = False
         self.run_id = ""
+        self.history = []
         self.task = {"phase": "idle", "plan": [], "events": [], "message": "准备就绪"}
+
+    def _remember_task(self):
+        """Caller holds lock; keep bounded snapshots, never active task references."""
+        if not self.task.get("run_id") or "finished_at" not in self.task:
+            return
+        record = copy.deepcopy(self.task)
+        for index, previous in enumerate(self.history):
+            if previous["run_id"] == record["run_id"]:
+                self.history[index] = record
+                break
+        else:
+            self.history.insert(0, record)
+            del self.history[20:]
+
+    def task_history(self):
+        with self.lock:
+            self._remember_task()
+            return {"tasks": copy.deepcopy(self.history), "limit": 20, "scope": "session"}
 
     def update(self, **values):
         with self.lock:
@@ -82,6 +102,7 @@ class SimulationApp:
         with self.lock:
             if self.busy:
                 raise ValueError("任务仍在运行")
+            self._remember_task()
             self.busy = True
             self.cancel.clear()
             self.pause_requested = False
@@ -190,6 +211,7 @@ class SimulationApp:
                 self.busy = False
                 self.pause_requested = False
                 self.task["finished_at"] = time.time()
+                self._remember_task()
 
     def pause(self):
         with self.condition:
@@ -238,6 +260,7 @@ class SimulationApp:
                         if self.task.get("stop_confirmation") == "confirmed"
                         else "任务已取消，但执行端停止尚未确认"
                     )
+                self._remember_task()
         if error is not None:
             raise error
 
@@ -261,6 +284,7 @@ class SimulationApp:
             if self.busy:
                 raise ValueError("请先停止任务并等待规划或执行结束")
             bridge({"name": "reset"})
+            self._remember_task()
             self.task = {"phase": "idle", "plan": [], "events": [], "message": "场景已重置"}
 
 
@@ -295,6 +319,8 @@ def main():
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.end_headers()
                 self.wfile.write((ROOT / "web/simulation.html").read_bytes())
+            elif self.path == "/api/history":
+                self.respond(200, app.task_history())
             elif self.path == "/api/state":
                 error = None
                 try:
