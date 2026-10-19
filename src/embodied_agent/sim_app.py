@@ -16,6 +16,7 @@ from .adapters.rai_planner import RAISubprocessPlanner
 from .execution_plan import execution_steps
 from .models import Observation
 from .planner import RuleBasedPlanner
+from .task_history import TaskHistoryStore
 
 ROOT = Path(__file__).resolve().parents[2]
 BRIDGE = "http://127.0.0.1:8766"
@@ -54,14 +55,15 @@ def failure_details(error):
 
 
 class SimulationApp:
-    def __init__(self):
+    def __init__(self, history_path=None):
         self.lock = threading.Lock()
         self.condition = threading.Condition(self.lock)
         self.pause_requested = False
         self.cancel = threading.Event()
         self.busy = False
         self.run_id = ""
-        self.history = []
+        self.history_store = TaskHistoryStore(history_path) if history_path is not None else None
+        self.history = self.history_store.load() if self.history_store else []
         self.task = {"phase": "idle", "plan": [], "events": [], "message": "准备就绪"}
 
     def _remember_task(self):
@@ -76,11 +78,18 @@ class SimulationApp:
         else:
             self.history.insert(0, record)
             del self.history[20:]
+        if self.history_store:
+            self.history_store.save(self.history)
 
     def task_history(self):
         with self.lock:
             self._remember_task()
-            return {"tasks": copy.deepcopy(self.history), "limit": 20, "scope": "session"}
+            return {
+                "tasks": copy.deepcopy(self.history),
+                "limit": 20,
+                "scope": "local" if self.history_store else "session",
+                "storage_warning": self.history_store.warning if self.history_store else "",
+            }
 
     def update(self, **values):
         with self.lock:
@@ -278,6 +287,7 @@ class SimulationApp:
                 self.task["events"].append(
                     {"time": time.strftime("%H:%M:%S"), "text": "执行端已确认用户停止指令"}
                 )
+                self._remember_task()
 
     def reset(self):
         with self.lock:
@@ -289,7 +299,7 @@ class SimulationApp:
 
 
 def main():
-    app = SimulationApp()
+    app = SimulationApp(history_path=ROOT / "outputs/task-history.json")
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):

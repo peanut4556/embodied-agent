@@ -12,7 +12,7 @@
     });
   }
   function exportData(data, tasks, filter, query, stale) {
-    return {scope: data.scope, limit: data.limit, exported_at: new Date().toISOString(),
+    return {scope: data.scope, limit: data.limit, storage_warning: data.storage_warning || '', exported_at: new Date().toISOString(),
       selection: {filter, query}, snapshot_stale: stale, tasks};
   }
   const api = {select, exportData};

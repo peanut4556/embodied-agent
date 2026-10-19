@@ -82,3 +82,8 @@ test('expanded record survives refresh and filter changes',async()=>{
  p.$('history-filter').value='all';p.$('history-filter').onchange();
  assert.equal(p.$('history').children[0].open,true);
 });
+test('persistent storage warning is retained in exports',()=>{
+ const result=exportData({scope:'local',limit:20,storage_warning:'disk full'},tasks,'all','',false);
+ assert.equal(result.storage_warning,'disk full');assert.equal(result.scope,'local');
+ assert.equal(result.snapshot_stale,false);
+});
