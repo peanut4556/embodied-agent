@@ -319,6 +319,12 @@ def main():
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.end_headers()
                 self.wfile.write((ROOT / "web/simulation.html").read_bytes())
+            elif self.path == "/history.js":
+                self.send_response(200)
+                self.send_header("Content-Type", "text/javascript; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self.wfile.write((ROOT / "web/history.js").read_bytes())
             elif self.path == "/api/history":
                 self.respond(200, app.task_history())
             elif self.path == "/api/state":

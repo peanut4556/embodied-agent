@@ -638,3 +638,7 @@ stop-disconnect-check:
 .PHONY: stop-timeout-check
 stop-timeout-check:
 	.venv/bin/python -u scripts/check_stop_disconnect.py --fault timeout --report outputs/stop-timeout-v1.json
+
+.PHONY: history-web-test
+history-web-test:
+	node --test tests/web/history.test.cjs

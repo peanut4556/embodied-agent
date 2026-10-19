@@ -9,8 +9,9 @@
 <main><div class="card scene"><canvas id="scene" width="1120" height="700" aria-label="二维机械臂、红色积木和目标盒子的实时仿真"></canvas><div class="scene-footer"><span><span class="dot">●</span> 二维运动学</span><span id="holding">夹爪：空</span><span id="position">积木：桌面</span></div></div>
 <section class="card"><h2>任务控制</h2><label for="instruction">告诉机械臂要做什么</label><textarea id="instruction">把桌上的红色积木放进盒子</textarea><label for="planner" style="margin-top:12px">规划方式</label><select id="planner"><option value="rai">本地 Qwen · 自然语言规划</option><option value="rule">规则计划 · 快速验证链路</option></select><label for="execution">执行方式</label><select id="execution"><option value="scripted">预设轨迹 · RGB-D 定位</option><option value="feedback" disabled>学习模型 · 视觉与接触反馈</option></select><div class="controls"><button id="run">执行任务</button><button id="pause" class="secondary" disabled>完成当前动作后暂停</button><button id="resume" class="secondary" hidden>继续</button><button id="stop" class="stop">停止</button><button id="reset" class="secondary">重置</button></div><div id="error" role="alert"></div><div id="status" aria-live="polite">准备就绪</div><progress id="progress" max="1" value="0" style="width:100%" aria-label="已完成步骤"></progress><p id="stop-confirmation" role="status"></p><p id="progress-text" aria-live="polite">等待启动</p><section id="failure" hidden role="alert"><strong id="failure-title"></strong><p id="recovery"></p><details><summary>详细原因</summary><pre id="failure-detail" style="white-space:pre-wrap"></pre></details></section><p class="small">首次模型规划可能需要一分钟。暂停会等待当前动作完成；学习抓放是一个完整动作。立即中断请使用停止，停止后需重新启动任务。</p><div id="feedback" aria-live="polite"></div><ol id="plan"></ol><details id="original" hidden><summary>查看规划器原始计划</summary><pre id="model-plan" style="white-space:pre-wrap;font-size:12px"></pre></details></section></main>
 <section class="card wide"><h2>执行记录</h2><div id="events">等待任务。每一步完成后，由 ROS 2 状态 Topic 返回结果。</div></section>
-<section class="card wide"><h2>最近任务</h2><p class="small">保留本次服务启动以来最近 20 个已结束任务。重置场景不会清除记录；重启控制台服务后清空。</p><div class="controls"><button id="refresh-history" class="secondary">刷新记录</button><button id="export-history" class="secondary" disabled>导出 JSON</button></div><p id="history-state" role="status">正在读取任务记录</p><div id="history"></div></section>
+<section class="card wide"><h2>最近任务</h2><p class="small">保留本次服务启动以来最近 20 个已结束任务。重置场景不会清除记录；重启控制台服务后清空。</p><div class="controls"><button id="refresh-history" class="secondary">刷新记录</button><button id="export-history" class="secondary" disabled>导出筛选结果</button></div><label for="history-filter" style="margin-top:16px">筛选结果</label><select id="history-filter"><option value="all">全部任务</option><option value="success">完成</option><option value="failed">失败</option><option value="stopped">已取消</option><option value="unconfirmed">停止未确认</option></select><label for="history-search">搜索指令、任务编号或错误</label><input id="history-search" type="search" maxlength="200" placeholder="输入关键词" style="width:100%;padding:12px;background:#0c1422;color:#e2eaf5;border:1px solid #354760;border-radius:8px"><p id="history-state" role="status">正在读取任务记录</p><div id="history"></div></section>
 <p class="small">当前为两连杆运动学仿真，使用预设抓放轨迹与夹爪附着规则；不包含接触动力学、摩擦和碰撞检测。</p>
+<script src="/history.js"></script>
 <script>
 const $=id=>document.getElementById(id),c=$('scene'),ctx=c.getContext('2d');let world=null,busy=false,lastEvents='',displayedRun='',sending=false,polling=false,connected=false,task={};
 function controls(){const pending=['pause_pending','paused'].includes(task.phase);$('run').disabled=sending||busy||!connected||!$('instruction').value.trim();$('reset').disabled=sending||busy||!connected;$('pause').disabled=sending||!connected||!busy||!['planning','executing'].includes(task.phase);$('pause').hidden=pending;$('resume').hidden=!pending;$('resume').disabled=sending||!connected;$('stop').disabled=task.phase==='stopping'||(!busy&&connected&&task.stop_confirmation!=='unconfirmed');$('instruction').disabled=busy||sending;$('planner').disabled=busy||sending;$('execution').disabled=busy||sending;}
@@ -54,36 +55,50 @@ async function poll(){
  }catch(e){connected=false;$('connection').textContent='连接中断 · 状态可能已过期';$('error').textContent='无法获取实时状态，请检查控制台服务。';controls()}
  finally{polling=false}
 }
-let historyData=null,historyKey='',historyLoading=false;
-async function refreshHistory(){
- if(historyLoading)return;historyLoading=true;
- try{
-  const response=await fetch('/api/history',{signal:AbortSignal.timeout(5000)});
-  if(!response.ok)throw Error('history unavailable');
-  const data=await response.json(),key=JSON.stringify(data);
-  historyData=data;$('export-history').disabled=!data.tasks.length;
-  $('history-state').textContent=data.tasks.length?'共 '+data.tasks.length+' 个已结束任务':'暂无已结束任务';
-  if(key!==historyKey){
-   historyKey=key;const list=$('history');list.replaceChildren();
-   for(const record of data.tasks){
-    const details=document.createElement('details'),summary=document.createElement('summary'),body=document.createElement('pre');
-    details.style.margin='16px 0';body.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.8';
+let historyData=null,historyKey='',historyLoading=false,historyStale=false;
+const expandedHistory=new Set();
+function selectedHistory(){return TaskHistory.select(historyData?.tasks||[],$('history-filter').value,$('history-search').value);}
+function downloadHistory(records,filter,query){
+ if(!historyData)return;
+ const data=TaskHistory.exportData(historyData,records,filter,query,historyStale);
+ const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),link=document.createElement('a');
+ link.href=url;link.download=filter==='single'?'task-'+records[0].run_id+'.json':'task-history-filtered.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function renderHistory(){
+ const records=selectedHistory(),total=historyData?.tasks.length||0;
+ $('export-history').disabled=!records.length;
+ $('history-state').textContent=(historyStale?'更新失败，显示的是旧快照。':'')+(total?'显示 '+records.length+' / '+total+' 个任务'+(!records.length?'，没有匹配结果。':''):'暂无已结束任务');
+ const list=$('history');list.replaceChildren();
+ for(const record of records){
+  const details=document.createElement('details'),summary=document.createElement('summary'),body=document.createElement('pre'),exportButton=document.createElement('button');
+  details.open=expandedHistory.has(record.run_id);
+  details.ontoggle=()=>{if(!details.isConnected)return;if(details.open)expandedHistory.add(record.run_id);else expandedHistory.delete(record.run_id);};
+  details.style.margin='16px 0';body.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.8';
     const duration=Math.max(0,Math.round(record.finished_at-record.started_at));
     summary.textContent=({success:'完成',failed:'失败',stopped:'已取消'}[record.phase]||record.phase)+' · '+new Date(record.started_at*1000).toLocaleString()+' · '+(record.instruction||'任务')+' · '+duration+' 秒';
     const confirmation={not_requested:'未请求停止',pending:'等待停止确认',confirmed:'执行端已确认停止',unconfirmed:'执行端停止未确认'}[record.stop_confirmation]||'未记录停止确认';
     body.textContent='任务编号：'+record.run_id+'\n已完成 '+(record.completed||0)+'/'+record.plan.length+' 步 · '+confirmation+'\n'+record.message+(record.stop_error?'\n停止错误：'+record.stop_error:'')+(record.failure?'\n失败原因：'+record.failure.detail+'\n建议：'+record.failure.recovery:'')+'\n\n'+record.events.map(e=>e.time+'  '+e.text).join('\n');
-    details.append(summary,body);list.append(details);
-   }
-  }
- }catch(error){$('history-state').textContent='记录暂时无法更新，当前显示可能已过期。';}
- finally{historyLoading=false;}
+
+  exportButton.textContent='导出此任务';exportButton.className='secondary';
+  exportButton.onclick=()=>downloadHistory([record],'single',record.run_id);
+  details.append(summary,body,exportButton);list.append(details);
+ }
+}
+async function refreshHistory(){
+ if(historyLoading)return;historyLoading=true;$('refresh-history').disabled=true;
+ try{
+  const response=await fetch('/api/history',{signal:AbortSignal.timeout(5000)});
+  if(!response.ok)throw Error('history unavailable');
+  const data=await response.json(),key=JSON.stringify(data),changed=key!==historyKey||historyStale;
+  historyData=data;historyKey=key;historyStale=false;
+  const ids=new Set(data.tasks.map(task=>task.run_id));for(const id of expandedHistory)if(!ids.has(id))expandedHistory.delete(id);
+  if(changed)renderHistory();
+ }catch(error){historyStale=true;renderHistory();}
+ finally{historyLoading=false;$('refresh-history').disabled=false;}
 }
 $('refresh-history').onclick=refreshHistory;
-$('export-history').onclick=()=>{
- if(!historyData)return;
- const url=URL.createObjectURL(new Blob([JSON.stringify(historyData,null,2)],{type:'application/json'})),link=document.createElement('a');
- link.href=url;link.download='task-history.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
-};
+$('history-filter').onchange=renderHistory;$('history-search').oninput=renderHistory;
+$('export-history').onclick=()=>downloadHistory(selectedHistory(),$('history-filter').value,$('history-search').value);
 refreshHistory();setInterval(refreshHistory,5000);
 
 function point(p){return [180+p[0]*1100,570-p[1]*1100]}
