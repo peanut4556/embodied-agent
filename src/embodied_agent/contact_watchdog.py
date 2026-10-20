@@ -44,12 +44,42 @@ class ContactWatchdog:
         return event
 
 
+class AcquisitionWatchdog:
+    """One deadline for first stable contact; no object pose or scoring signals."""
+
+    def __init__(self, fps, seconds):
+        if fps not in (25, 50) or not np.isfinite(seconds) or not 0 < seconds < 30:
+            raise ValueError("invalid acquisition deadline")
+        self.deadline = int(np.ceil(seconds * fps))
+        self.minimum = int(np.ceil(0.12 * fps))
+        self.holding_ticks = 0
+        self.acquired = False
+        self.finished = False
+        self.tick = 0
+
+    def observe(self, holding):
+        self.holding_ticks = self.holding_ticks + 1 if holding else 0
+        self.acquired |= self.holding_ticks >= self.minimum
+        event = None
+        # Never open the fingers during a newly forming contact grasp.
+        if not self.finished and not self.acquired and not holding and self.tick >= self.deadline:
+            event = "acquisition_timeout"
+            self.finished = True
+        self.tick += 1
+        return event
+
+
 class GuardedExecutor:
     """Freeze learner on loss, then run the existing strict RGB-D expert once."""
 
-    def __init__(self, world, learner):
+    def __init__(self, world, learner, acquisition_seconds=None):
         self.world, self.learner = world, learner
         self.watchdog = ContactWatchdog(learner.fps)
+        self.acquisition = (
+            AcquisitionWatchdog(learner.fps, acquisition_seconds)
+            if acquisition_seconds is not None
+            else None
+        )
         self.expert = None
         self.tick = 0
         self.takeover_tick = None
@@ -75,11 +105,15 @@ class GuardedExecutor:
                 self.world.data.site("tip").xpos[[0, 2]],
                 self.world.data.ctrl,
             )
+            acquisition_event = (
+                self.acquisition.observe(self.world.holding) if self.acquisition else None
+            )
+            event = event or acquisition_event
             if event:
                 self.events.append({"tick": self.tick, "event": event})
-            if event == "contact_lost":
+            if event in {"contact_lost", "acquisition_timeout"}:
                 self.takeover_tick = self.tick
-                self.learner.stop(joints, "contact loss takeover")
+                self.learner.stop(joints, f"{event} takeover")
                 self.expert = CorrectionExpert(self.world, self.learner.fps, holding_ticks=0)
         self.command = (
             self.expert.step()

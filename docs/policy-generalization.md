@@ -64,3 +64,7 @@ make policy-generalization-evaluate POLICY_GENERALIZATION_OUTPUT=outputs/evaluat
 ```
 
 渲染需要本地图形连接，输出目录已存在时拒绝覆盖。依赖本地冻结 checkpoint 与原始清单；清单哈希或模型哈希变化会拒绝执行。本轮轨迹与首末帧在 `outputs/evaluations/policy-generalization-v1/`，汇总及逐案例记录见 [机器报告](evaluations/policy-generalization-v1.json)。6 项新增测试和 7 项既有监控测试通过，Ruff 与 diff 检查通过。
+
+## 后续恢复能力实验
+
+[首次抓持超时恢复](acquisition-recovery.md)在新的四位置、四视觉条件网格上完成三组配对对照，原恢复器 2/16、新恢复器 14/16。该提升来自一次 RGB-D 专家接管；模型权重未变，不能替换本文的历史策略成绩。

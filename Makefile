@@ -642,3 +642,11 @@ stop-timeout-check:
 .PHONY: history-web-test
 history-web-test:
 	node --test tests/web/history.test.cjs
+
+ACQUISITION_RECOVERY_OUTPUT ?= outputs/evaluations/acquisition-recovery-v1
+.PHONY: acquisition-recovery-test acquisition-recovery-evaluate
+acquisition-recovery-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_acquisition*.py' -v
+
+acquisition-recovery-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_acquisition_recovery.py --output "$(ACQUISITION_RECOVERY_OUTPUT)"

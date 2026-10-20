@@ -1,0 +1,341 @@
+{
+  "report_sha256": "cfbce265727a8cc6955b39c1ad56a94ab261c19c9062dbfab8a9d8b818721590",
+  "checks": [
+    {
+      "case_id": "x287-nominal",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-nominal",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-nominal",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-dim",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-dim",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-dim",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-dim-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-dim-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x287-dim-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-nominal",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-nominal",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-nominal",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-dim",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-dim",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-dim",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-dim-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-dim-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x317-dim-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-nominal",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-nominal",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-nominal",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-dim",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-dim",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-dim",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-dim-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-dim-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x347-dim-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-nominal",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-nominal",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-nominal",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-dim",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-dim",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-dim",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-dim-camera-shift",
+      "mode": "policy",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-dim-camera-shift",
+      "mode": "guarded",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    },
+    {
+      "case_id": "x387-dim-camera-shift",
+      "mode": "acquisition",
+      "hash_matches": true,
+      "finite_commands": true,
+      "rate_bounded": true
+    }
+  ]
+}
