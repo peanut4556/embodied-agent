@@ -33,6 +33,26 @@
       return matches && inRange && (!needle || text.includes(needle));
     });
   }
+  function durationSeconds(task) {
+    const duration = task.finished_at - task.started_at;
+    return Number.isFinite(task.started_at) && Number.isFinite(task.finished_at) &&
+      Number.isFinite(duration) && duration >= 0 ? duration : null;
+  }
+  function order(tasks, mode = 'archived') {
+    if (mode === 'archived') return [...tasks];
+    if (!['newest', 'oldest', 'longest', 'shortest'].includes(mode))
+      throw Error('未知的任务排序方式。');
+    const duration = mode === 'longest' || mode === 'shortest';
+    const descending = mode === 'newest' || mode === 'longest';
+    return tasks.map((task, index) => ({task, index,
+      value: duration ? durationSeconds(task) : Number.isFinite(task.finished_at) ? task.finished_at : null}))
+      .sort((a, b) => {
+        if (a.value === null || b.value === null)
+          return a.value === b.value ? a.index - b.index : a.value === null ? 1 : -1;
+        if (a.value === b.value) return a.index - b.index;
+        return (a.value < b.value ? -1 : 1) * (descending ? -1 : 1);
+      }).map(entry => entry.task);
+  }
   function summarize(tasks) {
     const outcomes = {success: 0, failed: 0, stopped: 0, other: 0};
     const durations = [], failures = new Map();
@@ -42,9 +62,8 @@
       outcomes[phase]++;
       if (task.stop_confirmation === 'unconfirmed') unconfirmed++;
       if (task.stop_confirmation === 'pending') pending++;
-      const duration = task.finished_at - task.started_at;
-      if (Number.isFinite(task.started_at) && Number.isFinite(task.finished_at) &&
-          Number.isFinite(duration) && duration >= 0) durations.push(duration);
+      const duration = durationSeconds(task);
+      if (duration !== null) durations.push(duration);
       if (phase === 'failed') {
         const title = task.failure?.title?.trim() || '未分类失败';
         failures.set(title, (failures.get(title) || 0) + 1);
@@ -62,11 +81,11 @@
       failure_groups: [...failures].map(([title, count]) => ({title, count}))
         .sort((a, b) => b.count - a.count || (a.title < b.title ? -1 : a.title > b.title ? 1 : 0))};
   }
-  function exportData(data, tasks, filter, query, stale, range = null) {
+  function exportData(data, tasks, filter, query, stale, range = null, sort = 'archived') {
     return {scope: data.scope, limit: data.limit, storage_warning: data.storage_warning || '', exported_at: new Date().toISOString(),
-      selection: {filter, query, time_range: range}, snapshot_stale: stale, summary: summarize(tasks), tasks};
+      selection: {filter, query, time_range: range, sort}, snapshot_stale: stale, summary: summarize(tasks), tasks};
   }
-  const api = {select, summarize, exportData, dateRange};
+  const api = {select, summarize, exportData, dateRange, order, durationSeconds};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.TaskHistory = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

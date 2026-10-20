@@ -1,6 +1,6 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
-const {select,summarize,exportData,dateRange}=require('../../web/history.js');
+const {select,summarize,exportData,dateRange,order,durationSeconds}=require('../../web/history.js');
 const tasks=[
  {run_id:'one',phase:'failed',instruction:'抓取红块',failure:{detail:'Camera OFFLINE'},stop_confirmation:'confirmed'},
  {run_id:'two',phase:'stopped',instruction:'放进盒子',stop_confirmation:'unconfirmed'},
@@ -48,10 +48,10 @@ async function page(){
   click(){this.onclick?.();}
  }
  const elements={};const $=id=>elements[id]??=(new Element());
- $('history-filter').value='all';
+ $('history-filter').value='all';$('history-sort').value='archived';
  let rows=tasks.map(t=>({...t,started_at:1,finished_at:2,plan:[],events:t.events||[],message:'result'}));
  let fail=false, blob;
- const context=vm.createContext({$,TaskHistory:{select,summarize,exportData,dateRange},
+ const context=vm.createContext({$,TaskHistory:{select,summarize,exportData,dateRange,order,durationSeconds},
   document:{createElement:()=>new Element()},Date,Set,JSON,Blob,
   AbortSignal:{timeout:()=>undefined},setTimeout:()=>{},setInterval:()=>{},
   URL:{createObjectURL:value=>{blob=value;return 'blob:test';},revokeObjectURL:()=>{}},
@@ -206,4 +206,58 @@ test('invalid date range blocks exports and clearing restores all records',async
  assert.equal(p.$('history-date-error').textContent,'');assert.equal(p.$('history').children.length,3);
  assert.equal(p.$('history-filter').value,'all');assert.equal(p.$('history-search').value,'');
  assert.equal(p.$('history-from').value,'');assert.equal(p.$('history-until').value,'');
+});
+test('all sort modes preserve input and stable ties',()=>{
+ const rows=[{run_id:'a',started_at:0,finished_at:20},
+  {run_id:'b',started_at:25,finished_at:30},{run_id:'c',started_at:15,finished_at:20}];
+ const before=JSON.stringify(rows),ids=mode=>order(rows,mode).map(t=>t.run_id);
+ assert.deepEqual(ids('archived'),['a','b','c']);
+ assert.deepEqual(ids('newest'),['b','a','c']);assert.deepEqual(ids('oldest'),['a','c','b']);
+ assert.deepEqual(ids('longest'),['a','b','c']);assert.deepEqual(ids('shortest'),['b','c','a']);
+ assert.equal(JSON.stringify(rows),before);assert.notEqual(order(rows),rows);
+ assert.throws(()=>order(rows,'unsupported'),/未知/);
+});
+test('invalid sort values go last in both directions and zero duration remains valid',()=>{
+ const rows=[{run_id:'missing'},{run_id:'negative',started_at:2,finished_at:1},
+  {run_id:'zero',started_at:2,finished_at:2},{run_id:'long',started_at:0,finished_at:5},
+  {run_id:'string',started_at:0,finished_at:'6'}];
+ assert.deepEqual(order(rows,'longest').map(t=>t.run_id),['long','zero','missing','negative','string']);
+ assert.deepEqual(order(rows,'shortest').map(t=>t.run_id),['zero','long','missing','negative','string']);
+ for(const mode of ['newest','oldest'])
+  assert.deepEqual(order(rows,mode).slice(-2).map(t=>t.run_id),['missing','string']);
+ assert.equal(durationSeconds(rows[1]),null);assert.equal(durationSeconds(rows[2]),0);
+});
+test('sort changes order without changing summary and composes with selection',()=>{
+ const rows=[{phase:'failed',started_at:0,finished_at:10},{phase:'success',started_at:0,finished_at:5},
+  {phase:'failed',started_at:0,finished_at:3}];
+ assert.deepEqual(summarize(order(rows,'shortest')),summarize(rows));
+ assert.deepEqual(order(select(rows,'failed'),'shortest').map(t=>t.finished_at),[3,10]);
+ assert.deepEqual(order([],'newest'),[]);
+});
+test('page sorting preserves expanded tasks and exports visible order with sort metadata',async()=>{
+ const p=await page();
+ const rows=tasks.map((t,i)=>({...t,started_at:0,finished_at:[10,30,20][i],plan:[],events:[]}));
+ p.setRows(rows);await vm.runInContext('refreshHistory()',p.context);
+ const detail=p.$('history').children[0];detail.open=true;detail.ontoggle();
+ p.$('history-sort').value='longest';p.$('history-sort').onchange();
+ assert.equal(p.$('history').children[2].open,true);
+ p.$('export-history').click();const result=await p.getExport();
+ assert.deepEqual(result.tasks.map(t=>t.run_id),['two','three','one']);
+ assert.equal(result.selection.sort,'longest');assert.deepEqual(result.summary,summarize(rows));
+ p.$('history').children[0].children[2].click();
+ const single=await p.getExport();assert.equal(single.tasks[0].run_id,'two');assert.equal(single.selection.sort,null);
+ p.$('history-filter').value='success';p.$('history-filter').onchange();
+ p.$('clear-history-filters').click();assert.equal(p.$('history-sort').value,'longest');
+ p.setFail(true);await vm.runInContext('refreshHistory()',p.context);
+ p.$('export-history').click();assert.equal((await p.getExport()).snapshot_stale,true);
+ p.setFail(false);p.setRows([...rows,{run_id:'new',phase:'success',started_at:0,finished_at:40,plan:[],events:[]}]);
+ await vm.runInContext('refreshHistory()',p.context);
+ p.$('export-history').click();const fresh=await p.getExport();
+ assert.equal(fresh.tasks[0].run_id,'new');assert.equal(fresh.snapshot_stale,false);
+});
+test('record duration display agrees with overview exclusions',async()=>{
+ const p=await page();p.setRows([{run_id:'bad',phase:'failed',started_at:5,finished_at:4,plan:[],events:[]}]);
+ await vm.runInContext('refreshHistory()',p.context);
+ assert.match(p.$('history').children[0].children[0].textContent,/耗时未知/);
+ assert.match(p.$('history-summary').textContent,/排除异常时间 1 条/);
 });
