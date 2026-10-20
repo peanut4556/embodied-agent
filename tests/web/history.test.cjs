@@ -1,6 +1,6 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
-const {select,summarize,exportData}=require('../../web/history.js');
+const {select,summarize,exportData,dateRange}=require('../../web/history.js');
 const tasks=[
  {run_id:'one',phase:'failed',instruction:'抓取红块',failure:{detail:'Camera OFFLINE'},stop_confirmation:'confirmed'},
  {run_id:'two',phase:'stopped',instruction:'放进盒子',stop_confirmation:'unconfirmed'},
@@ -51,7 +51,7 @@ async function page(){
  $('history-filter').value='all';
  let rows=tasks.map(t=>({...t,started_at:1,finished_at:2,plan:[],events:t.events||[],message:'result'}));
  let fail=false, blob;
- const context=vm.createContext({$,TaskHistory:{select,summarize,exportData},
+ const context=vm.createContext({$,TaskHistory:{select,summarize,exportData,dateRange},
   document:{createElement:()=>new Element()},Date,Set,JSON,Blob,
   AbortSignal:{timeout:()=>undefined},setTimeout:()=>{},setInterval:()=>{},
   URL:{createObjectURL:value=>{blob=value;return 'blob:test';},revokeObjectURL:()=>{}},
@@ -147,4 +147,63 @@ test('failed refresh preserves overview and recovery replaces it, rendering titl
  assert.match(p.$('history-failures').textContent,/<script>bad\(\)<\/script> × 1/);
  assert.equal(p.$('history-failures').children.length,0);
  p.$('export-history').click();assert.equal((await p.getExport()).snapshot_stale,false);
+});
+test('date filter uses completion time and includes the entire end date',()=>{
+ const range=dateRange('2026-10-20','2026-10-20'),from=range.from_inclusive,to=range.until_exclusive;
+ const rows=[{run_id:'before',finished_at:from-1},{run_id:'start',finished_at:from},
+  {run_id:'last',finished_at:to-0.001},{run_id:'next',finished_at:to},
+  {run_id:'missing'},{run_id:'string',finished_at:String(from)}];
+ assert.deepEqual(select(rows,'all','',range).map(t=>t.run_id),['start','last']);
+ assert.equal(select(rows).length,6);
+ assert.equal(select(rows,'all','last',range).length,1);
+});
+test('open date bounds and empty date selection are supported',()=>{
+ const rows=[{finished_at:0},{finished_at:2000000000},{}];
+ assert.equal(select(rows,'all','',dateRange()).length,3);
+ assert.equal(select(rows,'all','',dateRange('2026-10-20')).length,1);
+ assert.equal(select(rows,'all','',dateRange('','2026-10-20')).length,1);
+ assert.equal(dateRange('2026-10-20').until_exclusive,null);
+ assert.equal(dateRange('','2026-10-20').from_inclusive,null);
+});
+test('invalid, normalized and reversed dates are rejected, leap day is accepted',()=>{
+ for(const value of ['2026-02-29','2026-02-31','2026-13-01','2026-00-01','2026-10-00','20/10/2026'])
+  assert.throws(()=>dateRange(value),/有效日期/);
+ assert.throws(()=>dateRange('2026-10-21','2026-10-20'),/不能晚于/);
+ assert.ok(Number.isFinite(dateRange('2024-02-29','2024-02-29').from_inclusive));
+});
+test('local calendar boundaries account for 23 and 25 hour DST days',()=>{
+ const {execFileSync}=require('node:child_process');
+ const modulePath=require.resolve('../../web/history.js');
+ const script=`const {dateRange}=require(${JSON.stringify(modulePath)});
+ console.log(JSON.stringify(['2026-03-08','2026-11-01'].map(d=>{
+ const r=dateRange(d,d);return (r.until_exclusive-r.from_inclusive)/3600;})));`;
+ const hours=JSON.parse(execFileSync(process.execPath,['-e',script],
+  {env:{...process.env,TZ:'America/New_York'},encoding:'utf8'}));
+ assert.deepEqual(hours,[23,25]);
+});
+test('page date filtering, summary and export share bounds, single export is independent',async()=>{
+ const p=await page(),range=dateRange('2026-10-20','2026-10-20');
+ p.setRows([{run_id:'a',phase:'success',started_at:range.from_inclusive-10,
+  finished_at:range.from_inclusive,plan:[],events:[]},
+ {run_id:'b',phase:'failed',started_at:1,finished_at:2,plan:[],events:[]}]);
+ await vm.runInContext('refreshHistory()',p.context);
+ p.$('history-from').value='2026-10-20';p.$('history-until').value='2026-10-20';
+ p.$('history-from').onchange();
+ assert.equal(p.$('history').children.length,1);
+ assert.match(p.$('history-summary').textContent,/100.0%（1\/1）/);
+ p.$('export-history').click();const batch=await p.getExport();
+ assert.deepEqual(batch.selection.time_range,range);assert.equal(batch.tasks[0].run_id,'a');
+ p.$('history').children[0].children[2].click();
+ assert.equal((await p.getExport()).selection.time_range,null);
+});
+test('invalid date range blocks exports and clearing restores all records',async()=>{
+ const p=await page();p.$('history-from').value='2026-10-21';p.$('history-until').value='2026-10-20';
+ p.$('history-until').onchange();
+ assert.match(p.$('history-date-error').textContent,/不能晚于/);
+ assert.equal(p.$('export-history').disabled,true);assert.equal(p.$('history').children.length,0);
+ p.$('history-filter').value='failed';p.$('history-search').value='missing';
+ p.$('clear-history-filters').click();
+ assert.equal(p.$('history-date-error').textContent,'');assert.equal(p.$('history').children.length,3);
+ assert.equal(p.$('history-filter').value,'all');assert.equal(p.$('history-search').value,'');
+ assert.equal(p.$('history-from').value,'');assert.equal(p.$('history-until').value,'');
 });
