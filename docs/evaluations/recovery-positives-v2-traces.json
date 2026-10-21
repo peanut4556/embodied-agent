@@ -1,0 +1,131 @@
+{
+  "report_sha256": "268156f000a92626b87981a5b8a492fe525ac95994e10967cc4ef1172616ae94",
+  "checks": [
+    {
+      "trace": "stretch-1-baseline.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1-fixed.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.25-baseline.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.25-fixed.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.25-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.5-baseline.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.5-fixed.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.5-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.75-baseline.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.75-fixed.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-1.75-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2-baseline.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2-fixed.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2.25-baseline.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2.25-fixed.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2.25-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2.5-baseline.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2.5-fixed.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "stretch-2.5-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    }
+  ]
+}

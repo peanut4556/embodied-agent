@@ -1,0 +1,919 @@
+{
+  "scope": "Known training scene. Playback positive controls, not policy generalization.",
+  "manifest_sha256": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+  "actions_sha256": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_recovery_positives.py": "14ab966a41999946e2e55083206143aeb7f68a9801f9f355cfccc1fa61cf089f",
+    "src/embodied_agent/contact_watchdog.py": "1612fb9112c03bdf4d268f25c620e8c098bc8010ce8d5fe945c53fe277d82f62",
+    "scripts/audit_contact_watchdog.py": "f9b385e2cb2f69fc996a5fb102f00fe375580b5208a2734a48ae1f05e465963c",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/grasp_quality.py": "b189cef7b266d3ede48eea2176040c90532ebd4515dd4276d9d1cd52a622619c",
+    "src/embodied_agent/correction_data.py": "69163bbe44bcb5d15df207542253adc1e25f2bfc81c634b40aec1758e5ae9e8d",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "stretches": [
+    1,
+    1.25,
+    1.5,
+    1.75,
+    2,
+    2.25,
+    2.5
+  ],
+  "results": [
+    {
+      "name": "stretch-1-baseline",
+      "stretch": 1,
+      "mode": "baseline",
+      "frames": 217,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1-baseline.npz",
+      "trace_sha256": "4153db7875ccb69294ddbdb5b53a807fb2cf92b4520e874a05569dd0e28af4a8"
+    },
+    {
+      "name": "stretch-1-fixed",
+      "stretch": 1,
+      "mode": "fixed",
+      "frames": 217,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 191,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1-fixed.npz",
+      "trace_sha256": "4153db7875ccb69294ddbdb5b53a807fb2cf92b4520e874a05569dd0e28af4a8"
+    },
+    {
+      "name": "stretch-1-descent",
+      "stretch": 1,
+      "mode": "descent",
+      "frames": 217,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 191,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1-descent.npz",
+      "trace_sha256": "4153db7875ccb69294ddbdb5b53a807fb2cf92b4520e874a05569dd0e28af4a8"
+    },
+    {
+      "name": "stretch-1.25-baseline",
+      "stretch": 1.25,
+      "mode": "baseline",
+      "frames": 266,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660007854474209,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 108,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 123,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 238,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.25-baseline.npz",
+      "trace_sha256": "4f3d3cdc67152235cf01e798607f04e5d1c4e58da705eaa0f88ed2beae2e496c"
+    },
+    {
+      "name": "stretch-1.25-fixed",
+      "stretch": 1.25,
+      "mode": "fixed",
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3166769863182013,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.25-fixed.npz",
+      "trace_sha256": "8ff418004d46031fd83a981102b824f4c9ebb0da299a03061ec63a2ce0bbacf9"
+    },
+    {
+      "name": "stretch-1.25-descent",
+      "stretch": 1.25,
+      "mode": "descent",
+      "frames": 266,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 238,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 6,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660007854474209,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 108,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 123,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 238,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.25-descent.npz",
+      "trace_sha256": "4f3d3cdc67152235cf01e798607f04e5d1c4e58da705eaa0f88ed2beae2e496c"
+    },
+    {
+      "name": "stretch-1.5-baseline",
+      "stretch": 1.5,
+      "mode": "baseline",
+      "frames": 314,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26717473976927825,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 129,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 147,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 286,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.5-baseline.npz",
+      "trace_sha256": "8aa9b335053a412408faec27bfe49e0601338f23620c76c669154a819f7a91e2"
+    },
+    {
+      "name": "stretch-1.5-fixed",
+      "stretch": 1.5,
+      "mode": "fixed",
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3166698062735603,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.5-fixed.npz",
+      "trace_sha256": "81c1fe2b3f1ef44477f79d46ad8ed6bfb4048e982b8e3f3c9c6f9a6de2bf0129"
+    },
+    {
+      "name": "stretch-1.5-descent",
+      "stretch": 1.5,
+      "mode": "descent",
+      "frames": 314,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 286,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 27,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26717473976927825,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 129,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 147,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 286,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.5-descent.npz",
+      "trace_sha256": "8aa9b335053a412408faec27bfe49e0601338f23620c76c669154a819f7a91e2"
+    },
+    {
+      "name": "stretch-1.75-baseline",
+      "stretch": 1.75,
+      "mode": "baseline",
+      "frames": 360,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2677547980893601,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 150,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 171,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 333,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.75-baseline.npz",
+      "trace_sha256": "fc7268e6bbb378c241d89324ca6e592199a99603c203a35619abd62594d1fde0"
+    },
+    {
+      "name": "stretch-1.75-fixed",
+      "stretch": 1.75,
+      "mode": "fixed",
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31666685169474806,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.75-fixed.npz",
+      "trace_sha256": "3b45af0bc60862230bb1d803bd67055f82ca7997e8d49c84a133d17843cb1076"
+    },
+    {
+      "name": "stretch-1.75-descent",
+      "stretch": 1.75,
+      "mode": "descent",
+      "frames": 360,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 333,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 48,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2677547980893601,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 150,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 171,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 333,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.75-descent.npz",
+      "trace_sha256": "fc7268e6bbb378c241d89324ca6e592199a99603c203a35619abd62594d1fde0"
+    },
+    {
+      "name": "stretch-2-baseline",
+      "stretch": 2,
+      "mode": "baseline",
+      "frames": 409,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2681205061109618,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 171,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 195,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 380,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2-baseline.npz",
+      "trace_sha256": "276c04a768605b37563ed973c90617bafa604cb70aafa5fdac0d188e8334524d"
+    },
+    {
+      "name": "stretch-2-fixed",
+      "stretch": 2,
+      "mode": "fixed",
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.316669892191524,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2-fixed.npz",
+      "trace_sha256": "bdfb03ec2dce4b7e8751de5610e824e0b7faf767f4f634f0cddf6aa7ded5b7a7"
+    },
+    {
+      "name": "stretch-2-descent",
+      "stretch": 2,
+      "mode": "descent",
+      "frames": 409,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 380,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 69,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2681205061109618,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 171,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 195,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 380,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2-descent.npz",
+      "trace_sha256": "276c04a768605b37563ed973c90617bafa604cb70aafa5fdac0d188e8334524d"
+    },
+    {
+      "name": "stretch-2.25-baseline",
+      "stretch": 2.25,
+      "mode": "baseline",
+      "frames": 750,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.26779905142607174,
+        "classification": "goal_without_verified_pick_place",
+        "events": [
+          {
+            "tick": 192,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 219,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 364,
+            "event": "lift_contact_lost"
+          }
+        ]
+      },
+      "trace": "stretch-2.25-baseline.npz",
+      "trace_sha256": "f88a636909ced6af5fdec7f5095122a39553353a54cc60ee2b404f86c1054993"
+    },
+    {
+      "name": "stretch-2.25-fixed",
+      "stretch": 2.25,
+      "mode": "fixed",
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3166719656120519,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.25-fixed.npz",
+      "trace_sha256": "599a439ba0d02bbc8d342d1cfa2eabee023f5f378e02bb641c763273a8733626"
+    },
+    {
+      "name": "stretch-2.25-descent",
+      "stretch": 2.25,
+      "mode": "descent",
+      "frames": 651,
+      "takeover_tick": 364,
+      "events": [
+        {
+          "tick": 364,
+          "event": "contact_lost"
+        }
+      ],
+      "deferred_ticks": 90,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2973845983339489,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 192,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 219,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 364,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 540,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 626,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.25-descent.npz",
+      "trace_sha256": "2707a6c2d47724a29fa25dfd39345150ba2a8cf62808deed5326eb522bd17a40"
+    },
+    {
+      "name": "stretch-2.5-baseline",
+      "stretch": 2.5,
+      "mode": "baseline",
+      "frames": 504,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26763177653688786,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 213,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 242,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 404,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 412,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 475,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.5-baseline.npz",
+      "trace_sha256": "2506a5849c60eceac4952428c3474f87e33d305ad0b951172003b2fc0082ee32"
+    },
+    {
+      "name": "stretch-2.5-fixed",
+      "stretch": 2.5,
+      "mode": "fixed",
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31667481461781805,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.5-fixed.npz",
+      "trace_sha256": "61ff0d21380f7cea5761d0afe182436e8c84d24ebbcd88fb04e3e0551fabe467"
+    },
+    {
+      "name": "stretch-2.5-descent",
+      "stretch": 2.5,
+      "mode": "descent",
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31667481461781805,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.5-descent.npz",
+      "trace_sha256": "61ff0d21380f7cea5761d0afe182436e8c84d24ebbcd88fb04e3e0551fabe467"
+    }
+  ],
+  "status": "complete",
+  "paired_checks": [
+    {
+      "stretch": 1,
+      "mode": "fixed",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 1,
+      "mode": "descent",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 1.25,
+      "mode": "fixed",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 1.25,
+      "mode": "descent",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 1.5,
+      "mode": "fixed",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 1.5,
+      "mode": "descent",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 1.75,
+      "mode": "fixed",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 1.75,
+      "mode": "descent",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 2,
+      "mode": "fixed",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 2,
+      "mode": "descent",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 2.25,
+      "mode": "fixed",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 2.25,
+      "mode": "descent",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 2.5,
+      "mode": "fixed",
+      "same_pre_takeover_or_entire_trace": true
+    },
+    {
+      "stretch": 2.5,
+      "mode": "descent",
+      "same_pre_takeover_or_entire_trace": true
+    }
+  ]
+}

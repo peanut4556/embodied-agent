@@ -1,5 +1,7 @@
 """Opt-in, single-attempt recovery from causal contact loss (development only)."""
 
+from collections import deque
+
 import numpy as np
 
 from .correction_data import CorrectionExpert
@@ -69,16 +71,56 @@ class AcquisitionWatchdog:
         return event
 
 
+class DescentAcquisitionWatchdog(AcquisitionWatchdog):
+    """Bounded grace for measured downward approach in this tabletop workspace."""
+
+    def __init__(self, fps, seconds):
+        super().__init__(fps, seconds)
+        if seconds >= 8:
+            raise ValueError("descent grace requires deadline below eight seconds")
+        self.hard_deadline = 8 * fps
+        self.window = int(np.ceil(0.48 * fps))
+        self.tips = deque(maxlen=self.window + 1)
+        self.deferred_ticks = 0
+        self.last_progress = None
+        self.settle_ticks = fps
+
+    def observe(self, holding, tip_xz):
+        tip = np.asarray(tip_xz, dtype=float)
+        if tip.shape != (2,) or not np.isfinite(tip).all():
+            raise ValueError("invalid descent observation")
+        self.tips.append(tip.copy())
+        elapsed = self.tick
+        event = super().observe(holding)
+        descending = (
+            len(self.tips) == self.window + 1
+            and 0.25 <= tip[0] <= 0.45
+            and tip[1] >= 0.06
+            and self.tips[0][1] - tip[1] >= 0.005
+        )
+        if elapsed >= self.deadline and descending:
+            self.last_progress = elapsed
+        settling = (
+            self.last_progress is not None and elapsed - self.last_progress <= self.settle_ticks
+        )
+        if event and elapsed < self.hard_deadline and settling:
+            self.finished = False
+            self.deferred_ticks += 1
+            return None
+        return event
+
+
 class GuardedExecutor:
     """Freeze learner on loss, then run the existing strict RGB-D expert once."""
 
-    def __init__(self, world, learner, acquisition_seconds=None):
+    def __init__(self, world, learner, acquisition_seconds=None, descent_grace=False):
         self.world, self.learner = world, learner
         self.watchdog = ContactWatchdog(learner.fps)
+        if descent_grace and acquisition_seconds is None:
+            raise ValueError("descent grace requires an acquisition deadline")
+        monitor = DescentAcquisitionWatchdog if descent_grace else AcquisitionWatchdog
         self.acquisition = (
-            AcquisitionWatchdog(learner.fps, acquisition_seconds)
-            if acquisition_seconds is not None
-            else None
+            monitor(learner.fps, acquisition_seconds) if acquisition_seconds is not None else None
         )
         self.expert = None
         self.tick = 0
@@ -105,9 +147,14 @@ class GuardedExecutor:
                 self.world.data.site("tip").xpos[[0, 2]],
                 self.world.data.ctrl,
             )
-            acquisition_event = (
-                self.acquisition.observe(self.world.holding) if self.acquisition else None
-            )
+            if isinstance(self.acquisition, DescentAcquisitionWatchdog):
+                acquisition_event = self.acquisition.observe(
+                    self.world.holding, self.world.data.site("tip").xpos[[0, 2]]
+                )
+            else:
+                acquisition_event = (
+                    self.acquisition.observe(self.world.holding) if self.acquisition else None
+                )
             event = event or acquisition_event
             if event:
                 self.events.append({"tick": self.tick, "event": event})

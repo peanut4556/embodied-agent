@@ -1,0 +1,1850 @@
+{
+  "status": "complete",
+  "scope": "Regression on 16 already observed scenes, not unseen generalization.",
+  "baseline_sha256": "cfbce265727a8cc6955b39c1ad56a94ab261c19c9062dbfab8a9d8b818721590",
+  "config": {
+    "schema_version": 1,
+    "policy": "outputs/models/state-distill-distilled/epoch-300",
+    "weights_sha256": "13ed447a24b2ed35e9ff05d85292aa4d694eff1d53d286cd4b8bcdf12cb48f0f",
+    "max_seconds": 30,
+    "positions": [
+      0.287,
+      0.317,
+      0.347,
+      0.387
+    ],
+    "visuals": [
+      {
+        "name": "nominal",
+        "light_scale": 1.0,
+        "camera_dx": 0.0
+      },
+      {
+        "name": "dim",
+        "light_scale": 0.55,
+        "camera_dx": 0.0
+      },
+      {
+        "name": "camera-shift",
+        "light_scale": 1.0,
+        "camera_dx": 0.015
+      },
+      {
+        "name": "dim-camera-shift",
+        "light_scale": 0.55,
+        "camera_dx": 0.015
+      }
+    ],
+    "modes": [
+      "policy",
+      "guarded",
+      "acquisition"
+    ],
+    "excluded_positions": [
+      0.283,
+      0.286,
+      0.293,
+      0.3,
+      0.302,
+      0.306,
+      0.308,
+      0.312,
+      0.313,
+      0.318,
+      0.32,
+      0.322,
+      0.323,
+      0.326,
+      0.328,
+      0.332,
+      0.333,
+      0.338,
+      0.34,
+      0.342,
+      0.343,
+      0.348,
+      0.353,
+      0.356,
+      0.358,
+      0.363,
+      0.366,
+      0.368,
+      0.372,
+      0.373,
+      0.38,
+      0.382,
+      0.388,
+      0.393,
+      0.398
+    ],
+    "inventory_sha256": {
+      "config/completion-bc.json": "a81bff3a744f67a96254c97ddc75f8ed444db69476df3b714153560fa4eb4c5d",
+      "config/completion-masked.json": "371a310fed32bb09850ca654b245ad6b920678d8d0dc752464747400cf1002f7",
+      "config/completion-unmasked.json": "0a525f5160db0bce99e766035daa6863f2d68a336865e3f9d0d6fd73c6bc1f1f",
+      "config/correction-contact-oriented-scenarios.json": "697d6c1b9447c4b0d6b4eef88413ef952e8b85504735090b7304e0dea2dacf88",
+      "config/correction-contact-scenarios.json": "622d7380af78ac376175868f2794030326fe02cb3df5ab4c1627bbfdafe77bde",
+      "config/correction-contact-stable-scenarios.json": "486597c7c73a482731e10fd3d2beb381bc0b4f29f5111aafe5bf6ccba10c17e2",
+      "config/correction-early-experiment.json": "8f05ad07363d121d085ed759cc31c033697a5db45c6f98e5124c7af6f141aaf0",
+      "config/correction-early-scenarios.json": "b02ab0fcbc4f5dbd9ac886624ee558a6e4aee8cf3044af7a18dab1c335451030",
+      "config/correction-expanded-scenarios.json": "b3334b82702e0a4021664c845bcf3371bf083d6fdcf5915a90626157311844a9",
+      "config/correction-finetune-experiment.json": "4af8fcf655b3a88667088e23977907c520f2cbaca2c71e15aae2921b9dbd9bd6",
+      "config/correction-onpolicy-scenarios.json": "26b706e504a1a412d94834668bf6aa14072742001baab0e3b8991209bc9ebc2c",
+      "config/correction-scenarios.json": "1aac76c5e5a1b8112242a13a2b8b7f4acff18a170b918edc87da1fb919e258fd",
+      "config/exposure-ablation.json": "e4969b9d817ff179b2a5b81e6b02c0111dba36694a329874dad29de9f3c57e0c",
+      "config/exposure-uncertainty.json": "4de302afde4a3b35556e39d6f2e8c5995cb4d19dcbc0349b7c0f1c2e74697e18",
+      "config/external-reference-stress.json": "a42785b9a08c9b5aaf91b509f8a3c6d8a197fa54629f81f5cb01a890fcec9f32",
+      "config/external-reference.json": "077b5a2f73ff1fef0d4f1f5d2866dbc0e7ea7f7f583f13c0c478812ad381c85f",
+      "config/feedback-scenarios.json": "cedc1fa5eaf1bc5f0720588d847ee7ba7663a89fca9d99eba67d150aca320397",
+      "config/fit-reliability.json": "ce64b737cb2dbf997cae9ecae4180907badb887d9d45fc7b83d757d95b863037",
+      "config/fit-stall-diagnostics.json": "5390a5814e9a68431cfd86924374554c6ab14d3a3ea13f10f56fff39b010c7df",
+      "config/fit-stop-validation.json": "fd8cbd6e847657fd15cb8eb308b924e7399516a43af91f0c63e6c3bced4fb66a",
+      "config/fit-stress.json": "0de2a2cd6b6fb852e7412a99106e907c0edef05c35bad6db2db32f8294e4e030",
+      "config/imitation-split.json": "c6279c479cc548b3c7188b7c99a84c25a60f7f152c2d1b1ce137445d8f732c4d",
+      "config/joint-seeds-experiment.json": "e3d4c344949adff033473cb2d090eae166c82fe78d7d00e1940ba82b49a9eb77",
+      "config/joint-training-augmented.json": "77ac831ce57e988e009e8209829cdcd4939369ce9d17da4fa293b011257b5248",
+      "config/joint-training-control.json": "064b21dfe7b64b3effadeacb79ec9139fea838cda7dfef4fb865210455e0d182",
+      "config/memory-experiment.json": "e0601d819050ae3e8a65623c89fe13efd5bc8f4aa6f21188b2603cb0010aa5a6",
+      "config/memory-extended-experiment.json": "9bac907a42d01e9ac8b8611262547e0ca1e7528fe3c45286fb4092631e0765cf",
+      "config/policy-generalization.json": "89c094d543a6338a3450407f2c3cfe132cb10aa2d3a7e2c66d81bb8848ed7484",
+      "config/reactive-experiment.json": "8116056a8cdb1354143246d8dddbee071e70594e554457ded306eea8ec65b960",
+      "config/repeated-exposure-batches.json": "24cd2a3e4c54e6a3c07449e4b848285d71c15cc0393cb2efa9b8c0fb748cf046",
+      "config/robot.example.json": "4ff892ed862144cb4dd0851b693c8094d097122280993e9d27c54f21e5e05f33",
+      "config/slip-scenarios.json": "3d47102cba7c177667eeeff60dc75aca2d8a35747d866a0ce90f856ba3b71872",
+      "config/state-distill-control.json": "ee7a266d1bcd1d9ec2116f6032d2977c139024abb278ec8848ba1ee78a425061",
+      "config/state-distill-distilled.json": "c4581b2913330ee8f99aeac22b761735773e3d11bd6eaca255adc041c8a7dc1f",
+      "config/success-replay-control.json": "9a23f1f6e91c799862013619e80a3323a736d4d5f3f7e8d973e17a7434375d78",
+      "config/success-replay-replay.json": "7ef7eab3bce6aafcc35c060ed250892eba5d78210ae516e66f2695869abc2dd9",
+      "config/temporal-curation-split.json": "c846601ff8096bf6cfe07da15da4fa3d0721c5c9baed2a7abbc4ed8a437dc2f1",
+      "docs/evaluations/action-chain-v1.json": "4b80ae3ce30bc9336c2372503ab38ab8d1d0fe00aea727a290574ead2a0f0a6d",
+      "docs/evaluations/bounded-wait-v1.json": "0949968647dd81301861811b8024fd0ab72b7acbf78d75a22b32b8a661f60242",
+      "docs/evaluations/completion-mask-v1.json": "647fd0ba4d37a608db9d4a03baf753b7e91f48fd5321aa1b909a8d7b97d95f2c",
+      "docs/evaluations/conservative-geometry-v1.json": "38a85a963408589fc8c9af24116872227db63649cfce80ff274db7147159b8ef",
+      "docs/evaluations/console-interactions-v1.json": "ba33858d1789aac070bc8554ad520513a8b3e890eea32bbda078326016782ec0",
+      "docs/evaluations/contact-expert-comparison-v1.json": "2d6fa7eaf9933a79a9a201cd5784cb940158b707e9958ab3053b427312d02db0",
+      "docs/evaluations/contact-oriented-comparison-v1.json": "18a7a09dd6490502aaa30456e68c73ca70411a9eb141b3fdc20a0ef53be049cc",
+      "docs/evaluations/contact-oriented-v1.json": "1190f7b0d07bb4d135a448c4e1c7190bce1f2b6b561fc4d941ce9054c5a11816",
+      "docs/evaluations/contact-recovery-v1.json": "7fd3c525f32824e31ae8f005a3f33417736623030718fc473ae7a92819a3f3d3",
+      "docs/evaluations/contact-stable-v1.json": "ab2d1896ac3af3906338891b502ac70bc8aec3e7bd77c2589dd487c14bd4bab4",
+      "docs/evaluations/contact-vision-v1.json": "f8a2ae920fbd0cbe0e8f99bbb95e17b960602628ed388eb65a99d3da12a9243d",
+      "docs/evaluations/contact-watchdog-v1.json": "3d085d49342a64a484c8a852ccd08c79f1fa817966068ecc34c4340e77c9c377",
+      "docs/evaluations/correction-early-v1.json": "797863ca5f3380d6780b8b55fe7ee81223e3f4a78fde65beb12db90695e9e9ef",
+      "docs/evaluations/correction-finetune-v1.json": "89ffdd742f375cc6ad367ddff59e4c4d0c03c8c6322c4f024d71c49a87f60aa0",
+      "docs/evaluations/correction-v2.json": "1ee04b045ed501f148e82db74299a7617d6686c6f8fb63d348e37f8555316880",
+      "docs/evaluations/cube-consistency-v1.json": "437aa4bd602a7a5875212e44bbaab7039f79b29677afbbd19ad80ac14f34bd22",
+      "docs/evaluations/depth-ramp-v1.json": "d32ca3db22e331c79434338a32c65bebd8ebf0f66bb5c2c62d883b4c642043e9",
+      "docs/evaluations/directional-envelope-v1.json": "eb3c4d6dcac38008b0b29b35a4dd1b7c580edbdc8c50b916f43c8bb3e1ce577f",
+      "docs/evaluations/envelope-stress-v1.json": "5fe2d729d15861990647720ce632cc1be946aea3aa763fc892610656413892c2",
+      "docs/evaluations/exposure-ablation-v1.json": "df46ff4279e097c1a8f1e6fb7f0a522221d8492897fb24141dee0c3ee9d9ad71",
+      "docs/evaluations/exposure-uncertainty-v1.json": "b64160a1de0fb53359a27c9180d1792c22a56570f623a674d13a73b4e7bd6fb5",
+      "docs/evaluations/external-joint-example-v1.json": "7d66bbbafaacc57913d0c1da4c79f251d408abf69fbf5a9ac6229588e4a94d0e",
+      "docs/evaluations/external-observation-import-example-v1.json": "b22b81a0d3db704b8c36ee21d579fc83bd007eb77095ef3bfc936ccdc020eae1",
+      "docs/evaluations/external-reference-stress-v1.json": "f5c52808345dbfd3b404c5aa3aae8edabee5acb15e0ee586f42541ef84166030",
+      "docs/evaluations/external-reference-v1.json": "6525a7312e3d9a596293bc632409c9d6e0ce8db5d0703d6bcd59045a2f9c74b9",
+      "docs/evaluations/fit-reliability-v1.json": "7c89c4072f5c83d8e18cabcab1d4ed72fd6f281e7e244c651765a4e1514b8cc3",
+      "docs/evaluations/fit-stalls-v1.json": "047d6d06587db9a2bfe334e440b779aad8090da2741c74e9d592097ff5017077",
+      "docs/evaluations/fit-stop-validation-v1.json": "47ea31fe488858b02cbd1f8f007b1c5d15490810c39bb08c65c9eba55cccbfe4",
+      "docs/evaluations/fit-stress-v1.json": "62b781b1027951e653acb82bc8e189acd6247937fc82cd41214cb759562c8a56",
+      "docs/evaluations/geometry-error-v1.json": "8ba5977bf254d23539695154ce08b8891457961870aa93fb651ff07d6ec4901d",
+      "docs/evaluations/gripper-sweep-refined-v1.json": "103d849eef0f88261043c1a27255c120d986fc1a4b14c8c94545b1738b7fd8a0",
+      "docs/evaluations/gripper-sweep-v1.json": "7ad85c37974501a2b01588e5c3b710f243be8eb8bffef08246a5f5b4e0641a21",
+      "docs/evaluations/input-feedback-v1.json": "82f07f0e0c24098f85d156c43ebb3a6e3fb60b2e0b2cd2303da6eca7e9ed4e11",
+      "docs/evaluations/joint-seeds-v1.json": "e4b3542f36467bf8858914ce0407f5aaa59b3c561bd56f44e77ee3241140ee11",
+      "docs/evaluations/joint-sensitivity-v1.json": "3ea57c78dbbfb7fa0a5ffccac640ebe555ff435aea42f3cece9bcfb3e2406e59",
+      "docs/evaluations/joint-training-v1.json": "061a1a1473080f589212efee3e8cb773192ec7d3dad8eefcbff9c5af13944a97",
+      "docs/evaluations/learned-console-v2.json": "e686b28a59f2b1570bc3b2dc51cf6973949934a2b8f89466b9cad5082b27fbd3",
+      "docs/evaluations/memory-bc-v2.json": "8ccc502ccafa91a3d0561b483766ce8c184a710f9ed7c83acb5e0f1b434813d9",
+      "docs/evaluations/multiplane-reference-v1.json": "62562b72684bfcd5b69f970dcac29dd5202c43bf174dc0e9af415e406454c2b9",
+      "docs/evaluations/multistep-targets-v2.json": "7602480551fcf585908f9a3a588915fa38b885d501fcb9285bd5d4bdcc05dafd",
+      "docs/evaluations/overlap-attribution-v1.json": "70ba9b8afef443cada9cf11dd3ef8b1be3f8f80db20e4a1228bd127f696525b3",
+      "docs/evaluations/plane-groups-v1.json": "3b171b00a7157e032d2cf9bfbde18b48663fdd3b38ebb5d620a6f937a5ee7d06",
+      "docs/evaluations/plane-holdout-v1.json": "b681445a15affc6d1ec9a3a2a7b733ee41b7014fa108e56e15c75aa608a6e381",
+      "docs/evaluations/plane-stability-v1.json": "7564b2e57d4c1e6c4fc997f7a6576cb01df41f4109345a049010c564484fa84e",
+      "docs/evaluations/planning-cancellation-v1.json": "7e87890466852211792af89e856a489e124a142b7837b4d799a053b2fe4e1df5",
+      "docs/evaluations/policy-generalization-v1.json": "e857a9785edfb6b590a6b728ee809899282ece0a7c6217f8a33ef399273a0752",
+      "docs/evaluations/reactive-bc-v1.json": "c976ab671dde0359cad070e74d30aa0af4122e0faa0fe73f88eadf6f6146ae5e",
+      "docs/evaluations/redundant-reference-v1.json": "855f099c1f905eeedd9f068e15dc7769c8180fd7c5bdfab87df23d394af12b37",
+      "docs/evaluations/reference-fit-v1.json": "80f45cfb1ea189dac03396032d9087701d449f272ba525469ae73f5e84294f7c",
+      "docs/evaluations/reference-mismatch-v1.json": "90b748a6c26c8630feb8762280786a608b59e4196df246ef42f67e1caa83ab4a",
+      "docs/evaluations/reference-plane-v1.json": "a2d9017ba4702265201c2b9090c3c18453e57aed134162b1a89b7772ed01f9b7",
+      "docs/evaluations/reference-statistics-v1.json": "ceae6afd3fb8d7b84773d45afe50f46692e0c3e0378cb33c83a8a6aa277eafad",
+      "docs/evaluations/reference-uncertainty-v1.json": "576986545d7b97feaec28a6cf4e1fb9c68909ecd5f47ba777fe169db68ddb332",
+      "docs/evaluations/repeated-exposure-batches-v1.json": "9ed9f61a2f5d7e2dc1ca0fd13764483f1ade3149d35e86a95ef5cbed75a7ef58",
+      "docs/evaluations/repeated-exposure-v1.json": "93fb4311dc264705a7e1cf14443f69de8cef6fe3cb93a80505ae411731b197ff",
+      "docs/evaluations/replay-divergence-v1.json": "b885676487bf3bfd4f84dd26b7aabbe85a1953a70218116a42628a29caf4dc5a",
+      "docs/evaluations/rgbd-filter-v1.json": "0a6082de620bdb9d3b1befe33d5ba7f7f74e9544ad220e6d22c2133f2cf1a422",
+      "docs/evaluations/state-distill-v1.json": "7f7b32fee3231bcaf52719fb3c4740e2781e1cb6d21b001b7d53be86318289f5",
+      "docs/evaluations/state-targets-v1.json": "68c094adf1889aac319bea5e7454a8263c729b14b01a6b12847ab6a4d588f5e9",
+      "docs/evaluations/stop-disconnect-v1.json": "4ffa59f8044743d91170bd16beebc71761efc6f6be9bec3ac9564ee724906ec2",
+      "docs/evaluations/stop-timeout-v1.json": "10c17e8f5304548f40a512e2c12b7268d06362ae3513bcb964def340085971d2",
+      "docs/evaluations/success-replay-v1.json": "2e5007f72655ec84e91484b9b200c3f492f9c863ccefa81552a34398fd5a27d0",
+      "docs/evaluations/support-reach-v1.json": "98efd4778539285f41b77e4c3625c68f19bbb7b9253406f991f74dcd51c78cca",
+      "docs/evaluations/visible-geometry-v1.json": "8e80cab4488246282267923a28899bae10e60e25560e5f02ca3e0f95b3780e6c",
+      "outputs/datasets/bc-positions-v1/recording.json": "01f9dbcbe037c4656848cbb85eb7aea97a967604a1343208551784b49a64230e",
+      "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+      "outputs/datasets/corrections-contact-stable-v1/recording.json": "265e0a32aeceb08611320b34fdca2601ed413c011bab822fdb86c2194f51cb98",
+      "outputs/datasets/corrections-contact-v1-sandbox-failed/recording.json": "d1844732fe30835ffbb669479c30d5507e4cd08206baced008736c76fb63d5d9",
+      "outputs/datasets/corrections-contact-v1/recording.json": "e0953b2f7003b6041d53a4cfb19c1d94e07544c7686a17f1eb613dd173b2ce86",
+      "outputs/datasets/corrections-early-v1/recording.json": "1a352b19c7bcaf6b48b567086e3724faa03e243c75982a1d228b01f99eb4e1bd",
+      "outputs/datasets/corrections-expanded-v1/recording.json": "6ebaaadc22e8f96358b3eda8d53d49246fd9e3ccb39519f39f7185f86a2fb88f",
+      "outputs/datasets/corrections-onpolicy-v1/recording.json": "ce4b23adc317cfe476a44e4051d3723d5a5cccc41de915e7f46d12b493d53094",
+      "outputs/datasets/corrections-v1/recording.json": "15bca6ef00ffaebb2be1a713c5bb63686bdd8ed92788ad0b12d91f4fcbcef870",
+      "outputs/datasets/corrections-v2/recording.json": "6f7738b41a3b67539cc6a2bfe3161be369ae9830df1c32ce6bce69e8253c9a90",
+      "outputs/datasets/reactive-development-v1/recording.json": "99071ae43991cc9e45fd059c26cf19115a4f92bb2f924da8618786cb6a93a544",
+      "outputs/datasets/reactive-development-v2/recording.json": "7d06aa48022e438ae310474b9667b6594dec7272f6396c371b430ac595eb2344",
+      "outputs/datasets/recovery-v1/recording.json": "6ee9838ce311e7f4f00c399871d2ddc3c205acd423e610536160d7996144fc13",
+      "outputs/datasets/recovery-v2/recording.json": "a94a0d59013cffdfd9db3710f6b6eaa12d923fc1b56837f9c1bf4dd2d808ae23",
+      "outputs/datasets/rgbd-demo-v1/recording.json": "ccf92c52b858b3e07ae6c6f3170ffe015f47e70032c8afe8b0e98cd87a2ce982",
+      "outputs/datasets/rgbd-demo-v2/recording.json": "d91eecaa822cdf38233c6a86518a15cafc32be3a679430dec0e47d98cd157ea8"
+    },
+    "scope": "Frozen-model exploratory generalization grid. These cases become inspected development data after execution; do not use them as untouched test data later. No checkpoint selection, retraining or original reserved-test opening.",
+    "acquisition_seconds": 4
+  },
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_descent_recovery.py": "15e92a51329b04cbc415dafca2b8fe9662f94b31683fea4d6ff9bb5d317f5d83",
+    "scripts/evaluate_policy_generalization.py": "14607ab69027c816eb32d19ddbf6511325baffeb4345ffc89cbbce9454da5ab1",
+    "src/embodied_agent/contact_watchdog.py": "1612fb9112c03bdf4d268f25c620e8c098bc8010ce8d5fe945c53fe277d82f62",
+    "src/embodied_agent/correction_data.py": "69163bbe44bcb5d15df207542253adc1e25f2bfc81c634b40aec1758e5ae9e8d",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/grasp_quality.py": "b189cef7b266d3ede48eea2176040c90532ebd4515dd4276d9d1cd52a622619c",
+    "src/embodied_agent/reactive.py": "2091a48032a975ecc6f6409dd7d36b0a65bc729a9c758e89c1e97b6167fa60e8",
+    "src/embodied_agent/memory_policy.py": "7d0db8b0d68466ea740e31bcad6d320e82c94b71fee39f7fbee83507a3ef62f0",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "results": [
+    {
+      "case_id": "x287-nominal",
+      "x": 0.287,
+      "visual": "nominal",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.287,
+          -1.1288630541466225e-15,
+          0.024991005611230997,
+          1.0,
+          -1.2390052076014707e-17,
+          -2.7183784155027025e-15,
+          7.345132924308873e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323725e-15,
+          -2.912164521763342e-17,
+          -2.534119266930365e-05,
+          8.966644769860155e-16,
+          2.0535514569818315e-13,
+          2.1745712328782445e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.402658783818941e-14,
+          2.571757441369926e-15,
+          -0.00040837219485317456,
+          1.506512867648903e-13,
+          2.8326677173087658e-11,
+          -8.486653213211485e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 388,
+      "trace": "x287-nominal-descent.npz",
+      "trace_sha256": "faebf38e6a1eafa40a6a66049f65f7e3e20283f5fc95beb0843f65ab4a65e73e",
+      "initial_image_sha256": "557baa68e045750476db6f904c6b72a842ac3ecd5b039c2808dccc05ab6571be",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.32189609484338855,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x287-dim",
+      "x": 0.287,
+      "visual": "dim",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.287,
+          -1.1288630541466225e-15,
+          0.024991005611230997,
+          1.0,
+          -1.2390052076014707e-17,
+          -2.7183784155027025e-15,
+          7.345132924308873e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323725e-15,
+          -2.912164521763342e-17,
+          -2.534119266930365e-05,
+          8.966644769860155e-16,
+          2.0535514569818315e-13,
+          2.1745712328782445e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.402658783818941e-14,
+          2.571757441369926e-15,
+          -0.00040837219485317456,
+          1.506512867648903e-13,
+          2.8326677173087658e-11,
+          -8.486653213211485e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "expert rejected state: block not graspable from current pose",
+      "failure": "expert_rejected",
+      "frames": 175,
+      "trace": "x287-dim-descent.npz",
+      "trace_sha256": "6915215802b766d57bb1c1daaa11f647720ae0b4eacf61d29d0baaa0d9223453",
+      "initial_image_sha256": "5cf615f7ac148efde6eb2f21308763f20954b9682c3e7698df8bfc6dbbc78d64",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.22740114228572317,
+        "classification": "goal_without_verified_pick_place",
+        "events": [
+          {
+            "tick": 97,
+            "event": "stable_bilateral_grasp"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x287-camera-shift",
+      "x": 0.287,
+      "visual": "camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.287,
+          -1.1288630541466225e-15,
+          0.024991005611230997,
+          1.0,
+          -1.2390052076014707e-17,
+          -2.7183784155027025e-15,
+          7.345132924308873e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323725e-15,
+          -2.912164521763342e-17,
+          -2.534119266930365e-05,
+          8.966644769860155e-16,
+          2.0535514569818315e-13,
+          2.1745712328782445e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.402658783818941e-14,
+          2.571757441369926e-15,
+          -0.00040837219485317456,
+          1.506512867648903e-13,
+          2.8326677173087658e-11,
+          -8.486653213211485e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 90,
+      "watchdog_events": [
+        {
+          "tick": 90,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 90,
+      "reason": "expert rejected state: block not graspable from current pose",
+      "failure": "expert_rejected",
+      "frames": 165,
+      "trace": "x287-camera-shift-descent.npz",
+      "trace_sha256": "1f0dbe0cf618b603fe0d0a49f4afe148c00dffa14dc26bf1cc84bb95baed1086",
+      "initial_image_sha256": "6a1458c91d28f0f6b70f799b80c754e2563f51c82001c19c8a5f242672f5a38f",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": true,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.2320957392606823,
+        "classification": "task_incomplete",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x287-dim-camera-shift",
+      "x": 0.287,
+      "visual": "dim-camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.287,
+          -1.1288630541466225e-15,
+          0.024991005611230997,
+          1.0,
+          -1.2390052076014707e-17,
+          -2.7183784155027025e-15,
+          7.345132924308873e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.777749991323725e-15,
+          -2.912164521763342e-17,
+          -2.534119266930365e-05,
+          8.966644769860155e-16,
+          2.0535514569818315e-13,
+          2.1745712328782445e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.402658783818941e-14,
+          2.571757441369926e-15,
+          -0.00040837219485317456,
+          1.506512867648903e-13,
+          2.8326677173087658e-11,
+          -8.486653213211485e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 388,
+      "trace": "x287-dim-camera-shift-descent.npz",
+      "trace_sha256": "7df2e6969c5f3ddf5460219db6e1426a7f916c05cc4d813b78e4da1578598128",
+      "initial_image_sha256": "9eca51408af58b15b3d3b987752008168aca27b8e9f5457504e7e0bd916c016b",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3218394034700202,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x317-nominal",
+      "x": 0.317,
+      "visual": "nominal",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.31700000000000045,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469095e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413470021647945e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652691988929e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x317-nominal-descent.npz",
+      "trace_sha256": "d6de6a702d45643a62bf04f5fac2c1fd4cb4e9e49009b86070a568472d636f4c",
+      "initial_image_sha256": "9df591f715a1ca3198764c6937f06369329f05957ff5497e633330e06c641e7e",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31071928036135477,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x317-dim",
+      "x": 0.317,
+      "visual": "dim",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.31700000000000045,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469095e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413470021647945e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652691988929e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x317-dim-descent.npz",
+      "trace_sha256": "27af98c84d3f88569606ba650671ceb68c9f71f431e4bfc2d82bef2827245f3a",
+      "initial_image_sha256": "0686a43bf68dccc7e2b175269ad5adc8001d1775a063064ef13a50bd43aaf589",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31071928036135477,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x317-camera-shift",
+      "x": 0.317,
+      "visual": "camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.31700000000000045,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469095e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413470021647945e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652691988929e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x317-camera-shift-descent.npz",
+      "trace_sha256": "d2fb8367bda6be6fbdf26f1ba02cfbbbe665b960212b82cf8cfc5de4c26d0427",
+      "initial_image_sha256": "8a1f8adcaf040e8df9f41e903f8cc1c442b7327147193034e489ceba313afa63",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3107546233228916,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x317-dim-camera-shift",
+      "x": 0.317,
+      "visual": "dim-camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.31700000000000045,
+          -1.1281756931200537e-15,
+          0.024990568229532894,
+          1.0,
+          8.056913468017528e-18,
+          -2.4125247831891106e-15,
+          7.344521388469095e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          5.5343530366804054e-15,
+          1.8039699154860434e-17,
+          -7.137783113938212e-06,
+          -6.353763783550642e-16,
+          2.2097501349104998e-13,
+          -3.6413470021647945e-31
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -2.5346888619807693e-13,
+          -6.618506535207036e-16,
+          0.00032661586970466954,
+          -4.6959691956086664e-14,
+          -1.009419156859395e-11,
+          -8.497652691988929e-27
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x317-dim-camera-shift-descent.npz",
+      "trace_sha256": "e663a2af45739d520537d9252769bd44e2f9c3a003d763e81e7ed18dc0dcb7d8",
+      "initial_image_sha256": "f303bf31859e97232141d624769cf57367e2733b4a698a0c8c2f355990b11413",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3107546233228916,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x347-nominal",
+      "x": 0.347,
+      "visual": "nominal",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.347,
+          -1.1276091199194935e-15,
+          0.024991448833016197,
+          1.0,
+          4.4061627897762137e-17,
+          -2.227887482509419e-15,
+          7.3448361832752185e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          4.7277110469435366e-15,
+          9.59464567034559e-17,
+          -4.504353512568464e-05,
+          -3.221012459077774e-15,
+          1.6830517724448384e-13,
+          1.394266517541662e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.294788610933971e-14,
+          -1.6676400731656191e-15,
+          -8.045752003645142e-06,
+          -4.561834823416159e-13,
+          2.322981035361282e-11,
+          -9.63989042628451e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x347-nominal-descent.npz",
+      "trace_sha256": "111c844612b3801246adeb3038a543c58dd36870b4cb9531dd6703c7f7390e9d",
+      "initial_image_sha256": "528f5dedf71ef15b2487f2c61b673912b7f205aac2aac355f32e24814174b493",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.30891778757071303,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x347-dim",
+      "x": 0.347,
+      "visual": "dim",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.347,
+          -1.1276091199194935e-15,
+          0.024991448833016197,
+          1.0,
+          4.4061627897762137e-17,
+          -2.227887482509419e-15,
+          7.3448361832752185e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          4.7277110469435366e-15,
+          9.59464567034559e-17,
+          -4.504353512568464e-05,
+          -3.221012459077774e-15,
+          1.6830517724448384e-13,
+          1.394266517541662e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.294788610933971e-14,
+          -1.6676400731656191e-15,
+          -8.045752003645142e-06,
+          -4.561834823416159e-13,
+          2.322981035361282e-11,
+          -9.63989042628451e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x347-dim-descent.npz",
+      "trace_sha256": "f03033c95bac941e5ef5ba1e3fcd8a7ab0282d6d609214cb9496f606ede37ec2",
+      "initial_image_sha256": "a433b82c1413188aa5e1fe733298da5c6ee3662c6aceb187450f2c3f0491086b",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.30891778757071303,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x347-camera-shift",
+      "x": 0.347,
+      "visual": "camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.347,
+          -1.1276091199194935e-15,
+          0.024991448833016197,
+          1.0,
+          4.4061627897762137e-17,
+          -2.227887482509419e-15,
+          7.3448361832752185e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          4.7277110469435366e-15,
+          9.59464567034559e-17,
+          -4.504353512568464e-05,
+          -3.221012459077774e-15,
+          1.6830517724448384e-13,
+          1.394266517541662e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.294788610933971e-14,
+          -1.6676400731656191e-15,
+          -8.045752003645142e-06,
+          -4.561834823416159e-13,
+          2.322981035361282e-11,
+          -9.63989042628451e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 76,
+      "watchdog_events": [
+        {
+          "tick": 76,
+          "event": "contact_lost"
+        }
+      ],
+      "learner_ticks": 76,
+      "reason": "",
+      "failure": "none",
+      "frames": 363,
+      "trace": "x347-camera-shift-descent.npz",
+      "trace_sha256": "89e011a7d73999928ae3745c2c11329e107049f549f4556a16ae8a6ef34acad2",
+      "initial_image_sha256": "5b742186e1a61b5f5b13976f9c1b645a7a59f8f627fefb19067e675b1ce57102",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.309670007187328,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 214,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 252,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 338,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x347-dim-camera-shift",
+      "x": 0.347,
+      "visual": "dim-camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.347,
+          -1.1276091199194935e-15,
+          0.024991448833016197,
+          1.0,
+          4.4061627897762137e-17,
+          -2.227887482509419e-15,
+          7.3448361832752185e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          4.7277110469435366e-15,
+          9.59464567034559e-17,
+          -4.504353512568464e-05,
+          -3.221012459077774e-15,
+          1.6830517724448384e-13,
+          1.394266517541662e-27
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          4.294788610933971e-14,
+          -1.6676400731656191e-15,
+          -8.045752003645142e-06,
+          -4.561834823416159e-13,
+          2.322981035361282e-11,
+          -9.63989042628451e-25
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x347-dim-camera-shift-descent.npz",
+      "trace_sha256": "665acbd36dff5599cd54ceca525e61215f7d2278dd1d015f92276012f4ef5946",
+      "initial_image_sha256": "bfa4dc0a004ebcbd8de20d99e414c6c203ce935309de9f21faf02a5dd57ab74b",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3090060644725113,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x387-nominal",
+      "x": 0.387,
+      "visual": "nominal",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.387,
+          -1.1236113929310753e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545891106e-18,
+          -1.0647162601761817e-16,
+          7.34497967826463e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.445199654049544e-16,
+          6.649112607231931e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383876155e-16,
+          9.77134334694934e-15,
+          1.1748909070887336e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030588e-14,
+          -2.279005657247603e-16,
+          4.87819686706337e-05,
+          -1.3989627832541789e-15,
+          -4.975924891517507e-13,
+          -4.995588525561247e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x387-nominal-descent.npz",
+      "trace_sha256": "01391104aad56b33b141e3d599ab630e40779aad05f2d7a5c059b706df8b2c65",
+      "initial_image_sha256": "f0c6832989e8ac4c68ad00753dc7258b73f76208ce5bd67605ab466aab3e5a09",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3091830988588428,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 277,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x387-dim",
+      "x": 0.387,
+      "visual": "dim",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.387,
+          -1.1236113929310753e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545891106e-18,
+          -1.0647162601761817e-16,
+          7.34497967826463e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.445199654049544e-16,
+          6.649112607231931e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383876155e-16,
+          9.77134334694934e-15,
+          1.1748909070887336e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030588e-14,
+          -2.279005657247603e-16,
+          4.87819686706337e-05,
+          -1.3989627832541789e-15,
+          -4.975924891517507e-13,
+          -4.995588525561247e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x387-dim-descent.npz",
+      "trace_sha256": "cb49f91174a672a46831e466d3ee9b2c428952aa7769f2fe0bd684ac01ee6e41",
+      "initial_image_sha256": "0954604622339733ba561a5d887a71e262cc79ed04c3f1bda00e0665674805ce",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3091830988588428,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 277,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x387-camera-shift",
+      "x": 0.387,
+      "visual": "camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.387,
+          -1.1236113929310753e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545891106e-18,
+          -1.0647162601761817e-16,
+          7.34497967826463e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.445199654049544e-16,
+          6.649112607231931e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383876155e-16,
+          9.77134334694934e-15,
+          1.1748909070887336e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030588e-14,
+          -2.279005657247603e-16,
+          4.87819686706337e-05,
+          -1.3989627832541789e-15,
+          -4.975924891517507e-13,
+          -4.995588525561247e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x387-camera-shift-descent.npz",
+      "trace_sha256": "c1fd6ff8da268a9cbd77f702c2f1e28c4c0646b9d8df923e812b90e8965406b9",
+      "initial_image_sha256": "359e36e202673034925bb0507aab13a381643f017ccea20f9624669f0be6bd80",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3089423532760246,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 277,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "x387-dim-camera-shift",
+      "x": 0.387,
+      "visual": "dim-camera-shift",
+      "mode": "descent",
+      "initial_state": {
+        "qpos": [
+          -2.017104795517609,
+          2.3166733361907186,
+          -0.2993084918260472,
+          0.04,
+          0.04,
+          0.387,
+          -1.1236113929310753e-15,
+          0.024990435539916287,
+          1.0,
+          3.017847545891106e-18,
+          -1.0647162601761817e-16,
+          7.34497967826463e-25
+        ],
+        "qvel": [
+          3.800905398457584e-07,
+          1.0346653111802026e-08,
+          6.976288632474006e-11,
+          0.0,
+          0.0,
+          2.445199654049544e-16,
+          6.649112607231931e-18,
+          -1.0660668198658615e-06,
+          -2.0846415383876155e-16,
+          9.77134334694934e-15,
+          1.1748909070887336e-30
+        ],
+        "ctrl": [
+          -2.017207391938953,
+          2.3165158761059295,
+          -0.29930848416697664,
+          0.04,
+          0.04
+        ],
+        "qacc_warmstart": [
+          -1.7215366373407104e-05,
+          7.4391661461573e-07,
+          -7.340217432409182e-07,
+          0.0,
+          0.0,
+          -1.1329446091030588e-14,
+          -2.279005657247603e-16,
+          4.87819686706337e-05,
+          -1.3989627832541789e-15,
+          -4.975924891517507e-13,
+          -4.995588525561247e-28
+        ],
+        "time": 0.5000000000000003
+      },
+      "takeover_tick": 100,
+      "watchdog_events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "learner_ticks": 100,
+      "reason": "",
+      "failure": "none",
+      "frames": 387,
+      "trace": "x387-dim-camera-shift-descent.npz",
+      "trace_sha256": "4ceed4fbae293e5febeb4036008813b8a27a8ee3f262d8371daac01139b9d1f9",
+      "initial_image_sha256": "4da4e264230aedc9d19c8d7f17b087a3cc7470658940e5a33bb12cb189e943db",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3089423532760246,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 277,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      }
+    }
+  ],
+  "paired_checks": [
+    {
+      "case_id": "x287-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x287-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x287-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x287-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x317-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x317-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x317-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x317-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x347-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x347-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x347-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x347-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x387-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x387-dim",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x387-dim-camera-shift",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    },
+    {
+      "case_id": "x387-nominal",
+      "equal_initial_state": true,
+      "equal_initial_image": true,
+      "equal_pre_takeover_prefix": true,
+      "baseline_success_lost": false
+    }
+  ],
+  "scores": {
+    "all": {
+      "successes": 14,
+      "cases": 16,
+      "success_rate": 0.875,
+      "takeovers": 16,
+      "successful_after_takeover": 14,
+      "failures": {
+        "expert_rejected": 2
+      }
+    },
+    "camera-shift": {
+      "successes": 3,
+      "cases": 4,
+      "success_rate": 0.75,
+      "takeovers": 4,
+      "successful_after_takeover": 3,
+      "failures": {
+        "expert_rejected": 1
+      }
+    },
+    "dim": {
+      "successes": 3,
+      "cases": 4,
+      "success_rate": 0.75,
+      "takeovers": 4,
+      "successful_after_takeover": 3,
+      "failures": {
+        "expert_rejected": 1
+      }
+    },
+    "dim-camera-shift": {
+      "successes": 4,
+      "cases": 4,
+      "success_rate": 1.0,
+      "takeovers": 4,
+      "successful_after_takeover": 4,
+      "failures": {}
+    },
+    "nominal": {
+      "successes": 4,
+      "cases": 4,
+      "success_rate": 1.0,
+      "takeovers": 4,
+      "successful_after_takeover": 4,
+      "failures": {}
+    }
+  },
+  "regressions_vs_fixed": []
+}

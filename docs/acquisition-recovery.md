@@ -46,3 +46,7 @@ make acquisition-recovery-evaluate ACQUISITION_RECOVERY_OUTPUT=outputs/evaluatio
 ```
 
 需要本地冻结模型、原始清单与 MuJoCo 图形连接。输出目录必须不存在；模型或清单校验不一致即拒绝运行。任意中途异常会保存 failed 报告并以非零状态退出。实验未接入默认控制台，也未重新训练。
+
+## 后续：减少不必要接管
+
+[有限下降宽限](descent-recovery.md)补充正常及慢速物理正对照：6 个原本成功的对照中，不必要接管由 5 次降至 1 次，同时在本页已观察网格上保持 14/16。该结果是开发正对照与已见网格回归，尚不构成新的未见泛化成绩。

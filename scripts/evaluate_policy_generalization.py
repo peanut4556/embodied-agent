@@ -58,7 +58,7 @@ def apply_visual(world, case):
     mujoco.mj_forward(world.model, world.data)
 
 
-def run(policy, case, mode, output, seconds, acquisition_seconds=None):
+def run(policy, case, mode, output, seconds, acquisition_seconds=None, descent_grace=False):
     world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
     renderer = None
     try:
@@ -74,7 +74,9 @@ def run(policy, case, mode, output, seconds, acquisition_seconds=None):
         fps = policy.metadata["fps"]
         learner = ReactiveExecutor(policy.session(), world.data.qpos[:5], max_seconds=seconds)
         controller = (
-            GuardedExecutor(world, learner, acquisition_seconds=acquisition_seconds)
+            GuardedExecutor(
+                world, learner, acquisition_seconds=acquisition_seconds, descent_grace=descent_grace
+            )
             if mode != "policy"
             else None
         )

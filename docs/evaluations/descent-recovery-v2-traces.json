@@ -1,0 +1,101 @@
+{
+  "report_sha256": "f3bfe5e182954c22481c74f86fe5547545845f874ceb1d9b0f67b17bce843b93",
+  "checks": [
+    {
+      "trace": "x287-nominal-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x287-dim-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x287-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x287-dim-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x317-nominal-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x317-dim-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x317-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x317-dim-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x347-nominal-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x347-dim-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x347-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x347-dim-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x387-nominal-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x387-dim-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x387-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    },
+    {
+      "trace": "x387-dim-camera-shift-descent.npz",
+      "hash_matches": true,
+      "finite": true,
+      "rate_bounded": true
+    }
+  ]
+}

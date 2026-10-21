@@ -650,3 +650,15 @@ acquisition-recovery-test:
 
 acquisition-recovery-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_acquisition_recovery.py --output "$(ACQUISITION_RECOVERY_OUTPUT)"
+
+RECOVERY_POSITIVES_OUTPUT ?= outputs/evaluations/recovery-positives-v2
+DESCENT_RECOVERY_OUTPUT ?= outputs/evaluations/descent-recovery-v2
+.PHONY: descent-recovery-test recovery-positives-evaluate descent-recovery-evaluate
+descent-recovery-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_descent_watchdog.py' -v
+
+recovery-positives-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_recovery_positives.py --output "$(RECOVERY_POSITIVES_OUTPUT)"
+
+descent-recovery-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_descent_recovery.py --output "$(DESCENT_RECOVERY_OUTPUT)"
