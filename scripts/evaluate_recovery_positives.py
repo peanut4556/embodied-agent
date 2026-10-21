@@ -45,7 +45,13 @@ class ReplayLearner:
         return self.command.copy()
 
 
-def run(initial, actions, stretch, mode, output):
+def run(initial, actions, stretch, mode, output, stop_tick=None):
+    if mode not in {"baseline", "fixed", "descent"} or not np.isfinite(stretch) or stretch <= 0:
+        raise ValueError("invalid replay mode or stretch")
+    if stop_tick is not None and (
+        type(stop_tick) is not int or not 0 <= stop_tick < 725 or mode == "baseline"
+    ):
+        raise ValueError("stop checks require a guarded mode and a full post-stop window")
     world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
     try:
         restore(world, initial)
@@ -60,7 +66,7 @@ def run(initial, actions, stretch, mode, output):
         for tick in range(750):
             mujoco.mj_forward(world.model, world.data)
             command = (
-                guard.step(None)
+                guard.step(None, stop=stop_tick is not None and tick >= stop_tick)
                 if guard
                 else learner.step(None, world.data.qpos[:5], world.holding)
             )
@@ -72,9 +78,12 @@ def run(initial, actions, stretch, mode, output):
             tips.append(world.data.site("tip").xpos[[0, 2]].copy())
             contacts.append(world.holding)
             advance(world, command, 25)
-            if quality.result()["verified_pick_place"] or (guard and guard.reason):
+            if stop_tick is not None:
+                if tick >= stop_tick + 25:
+                    break
+            elif quality.result()["verified_pick_place"] or (guard and guard.reason):
                 break
-        name = f"stretch-{stretch}-{mode}"
+        name = f"stretch-{stretch}-{mode}" + (f"-stop-{stop_tick}" if stop_tick is not None else "")
         path = output / f"{name}.npz"
         np.savez_compressed(path, actions=commands, qpos=states, tips=tips, holding=contacts)
         return {
@@ -82,6 +91,8 @@ def run(initial, actions, stretch, mode, output):
             "stretch": stretch,
             "mode": mode,
             "frames": len(commands),
+            "stop_tick": stop_tick,
+            "learner_ticks": learner.ticks,
             "takeover_tick": guard.takeover_tick if guard else None,
             "events": guard.events if guard else [],
             "deferred_ticks": getattr(guard.acquisition, "deferred_ticks", 0) if guard else 0,

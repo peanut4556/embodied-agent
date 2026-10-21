@@ -1,0 +1,1384 @@
+{
+  "status": "complete",
+  "config": {
+    "stretches": [
+      1.1,
+      1.4,
+      1.6,
+      1.9,
+      2.1,
+      2.4,
+      2.8,
+      3.0
+    ],
+    "excluded_stretches": [
+      1,
+      1.25,
+      1.5,
+      1.75,
+      2,
+      2.25,
+      2.5
+    ],
+    "modes": [
+      "baseline",
+      "fixed",
+      "descent"
+    ],
+    "manifest": "outputs/datasets/corrections-contact-oriented-v1/recording.json",
+    "trace": "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz",
+    "inputs_sha256": {
+      "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+      "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+      "docs/evaluations/recovery-positives-v2.json": "268156f000a92626b87981a5b8a492fe525ac95994e10967cc4ef1172616ae94",
+      "src/embodied_agent/contact_watchdog.py": "1612fb9112c03bdf4d268f25c620e8c098bc8010ce8d5fe945c53fe277d82f62"
+    },
+    "stops": [
+      {
+        "stretch": 1.6,
+        "tick": 90,
+        "expected_takeover_tick": null,
+        "during_grace": false
+      },
+      {
+        "stretch": 1.6,
+        "tick": 110,
+        "expected_takeover_tick": null,
+        "during_grace": true
+      },
+      {
+        "stretch": 3.0,
+        "tick": 110,
+        "expected_takeover_tick": 100,
+        "during_grace": false
+      }
+    ]
+  },
+  "config_sha256": "ec7bba3ad6dfa8cc79e87b5a0f92a0f2d91f68094ae6bb8e32177d219c6edbdc",
+  "scope": "Unseen playback timing values in one known training scene; not new learned-policy or spatial generalization.",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_recovery_validation.py": "9d968fb30f37ce6c6eef53a9c6435e70001ed33fe54af6eea1dd732d9741062d",
+    "scripts/evaluate_recovery_positives.py": "029005c3ea57787a3e71c90cecd64545bbdc080127b132967f3703f890896a52",
+    "scripts/audit_contact_watchdog.py": "f9b385e2cb2f69fc996a5fb102f00fe375580b5208a2734a48ae1f05e465963c",
+    "src/embodied_agent/contact_watchdog.py": "1612fb9112c03bdf4d268f25c620e8c098bc8010ce8d5fe945c53fe277d82f62",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/correction_data.py": "69163bbe44bcb5d15df207542253adc1e25f2bfc81c634b40aec1758e5ae9e8d",
+    "src/embodied_agent/grasp_quality.py": "b189cef7b266d3ede48eea2176040c90532ebd4515dd4276d9d1cd52a622619c",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "results": [
+    {
+      "name": "stretch-1.1-baseline",
+      "stretch": 1.1,
+      "mode": "baseline",
+      "frames": 238,
+      "stop_tick": null,
+      "learner_ticks": 238,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26574666147684434,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 96,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 109,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 210,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.1-baseline.npz",
+      "trace_sha256": "00ea71a186ff605edceb6c45b02a278fa8bd282920f3f6fb75dc33841c62f35e"
+    },
+    {
+      "name": "stretch-1.1-fixed",
+      "stretch": 1.1,
+      "mode": "fixed",
+      "frames": 238,
+      "stop_tick": null,
+      "learner_ticks": 238,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 210,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26574666147684434,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 96,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 109,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 210,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.1-fixed.npz",
+      "trace_sha256": "00ea71a186ff605edceb6c45b02a278fa8bd282920f3f6fb75dc33841c62f35e"
+    },
+    {
+      "name": "stretch-1.1-descent",
+      "stretch": 1.1,
+      "mode": "descent",
+      "frames": 238,
+      "stop_tick": null,
+      "learner_ticks": 238,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 210,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26574666147684434,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 96,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 109,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 210,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.1-descent.npz",
+      "trace_sha256": "00ea71a186ff605edceb6c45b02a278fa8bd282920f3f6fb75dc33841c62f35e"
+    },
+    {
+      "name": "stretch-1.4-baseline",
+      "stretch": 1.4,
+      "mode": "baseline",
+      "frames": 295,
+      "stop_tick": null,
+      "learner_ticks": 295,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26702002872597413,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 121,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 138,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 267,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.4-baseline.npz",
+      "trace_sha256": "70ce09f74ab711513d2bea12b1427262b4a652c5741f0ffd6afb40eed6bc6cf8"
+    },
+    {
+      "name": "stretch-1.4-fixed",
+      "stretch": 1.4,
+      "mode": "fixed",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31666871499530613,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.4-fixed.npz",
+      "trace_sha256": "2d13b2c4e386169ba9bd8bcd89f7bc1c61ef22fd4f309671ca0d6a75386302f1"
+    },
+    {
+      "name": "stretch-1.4-descent",
+      "stretch": 1.4,
+      "mode": "descent",
+      "frames": 295,
+      "stop_tick": null,
+      "learner_ticks": 295,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 267,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 19,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26702002872597413,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 121,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 138,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 267,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.4-descent.npz",
+      "trace_sha256": "70ce09f74ab711513d2bea12b1427262b4a652c5741f0ffd6afb40eed6bc6cf8"
+    },
+    {
+      "name": "stretch-1.6-baseline",
+      "stretch": 1.6,
+      "mode": "baseline",
+      "frames": 333,
+      "stop_tick": null,
+      "learner_ticks": 333,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2680955836595412,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 138,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 157,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 305,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.6-baseline.npz",
+      "trace_sha256": "2ad5163aa7fb01a8683931cb54e1da8f1b60b37b958e8a826969268b11647ee4"
+    },
+    {
+      "name": "stretch-1.6-fixed",
+      "stretch": 1.6,
+      "mode": "fixed",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31666647782675517,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.6-fixed.npz",
+      "trace_sha256": "121b9d54b7211769b4577086a154b21b371e7b8cc700c7a60fe8b0b4d7e569db"
+    },
+    {
+      "name": "stretch-1.6-descent",
+      "stretch": 1.6,
+      "mode": "descent",
+      "frames": 333,
+      "stop_tick": null,
+      "learner_ticks": 333,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 305,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 36,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2680955836595412,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 138,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 157,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 305,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.6-descent.npz",
+      "trace_sha256": "2ad5163aa7fb01a8683931cb54e1da8f1b60b37b958e8a826969268b11647ee4"
+    },
+    {
+      "name": "stretch-1.9-baseline",
+      "stretch": 1.9,
+      "mode": "baseline",
+      "frames": 389,
+      "stop_tick": null,
+      "learner_ticks": 389,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26802608544916406,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 163,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 185,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 361,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.9-baseline.npz",
+      "trace_sha256": "bb2dd754903b1e6dc7f834703000a55498b2037b7a3f1ad1bded96edc5f3bb90"
+    },
+    {
+      "name": "stretch-1.9-fixed",
+      "stretch": 1.9,
+      "mode": "fixed",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31668262267253444,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.9-fixed.npz",
+      "trace_sha256": "7de4795b647bf53995fc32ceba9f2624832bfba4be03743a7c02f0d0ec22091c"
+    },
+    {
+      "name": "stretch-1.9-descent",
+      "stretch": 1.9,
+      "mode": "descent",
+      "frames": 389,
+      "stop_tick": null,
+      "learner_ticks": 389,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 361,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 61,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26802608544916406,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 163,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 185,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 361,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-1.9-descent.npz",
+      "trace_sha256": "bb2dd754903b1e6dc7f834703000a55498b2037b7a3f1ad1bded96edc5f3bb90"
+    },
+    {
+      "name": "stretch-2.1-baseline",
+      "stretch": 2.1,
+      "mode": "baseline",
+      "frames": 427,
+      "stop_tick": null,
+      "learner_ticks": 427,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2684446049933192,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 179,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 204,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 399,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.1-baseline.npz",
+      "trace_sha256": "293eef5312fba7a916c851b0257b18ea5ee0f419b7e71b06087b9fb76d8293ee"
+    },
+    {
+      "name": "stretch-2.1-fixed",
+      "stretch": 2.1,
+      "mode": "fixed",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3166687781107055,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.1-fixed.npz",
+      "trace_sha256": "b2f48016777b17c3f9152169678158b27dfac1b4176a1ffe61e5a369672ab45e"
+    },
+    {
+      "name": "stretch-2.1-descent",
+      "stretch": 2.1,
+      "mode": "descent",
+      "frames": 427,
+      "stop_tick": null,
+      "learner_ticks": 427,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 399,
+          "event": "intentional_release"
+        }
+      ],
+      "deferred_ticks": 77,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2684446049933192,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 179,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 204,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 399,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.1-descent.npz",
+      "trace_sha256": "293eef5312fba7a916c851b0257b18ea5ee0f419b7e71b06087b9fb76d8293ee"
+    },
+    {
+      "name": "stretch-2.4-baseline",
+      "stretch": 2.4,
+      "mode": "baseline",
+      "frames": 485,
+      "stop_tick": null,
+      "learner_ticks": 485,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2683635648024708,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 205,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 233,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 456,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.4-baseline.npz",
+      "trace_sha256": "ac6558f876a831d81b00f7a7d44d1e1eb79ebc4b36b00445b7f416f3218f73ac"
+    },
+    {
+      "name": "stretch-2.4-fixed",
+      "stretch": 2.4,
+      "mode": "fixed",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31667054430810626,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.4-fixed.npz",
+      "trace_sha256": "4e5001a38e999c528520813eacdd244e0b711b4d1b7a4970d1f659803409e481"
+    },
+    {
+      "name": "stretch-2.4-descent",
+      "stretch": 2.4,
+      "mode": "descent",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31667054430810626,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.4-descent.npz",
+      "trace_sha256": "4e5001a38e999c528520813eacdd244e0b711b4d1b7a4970d1f659803409e481"
+    },
+    {
+      "name": "stretch-2.8-baseline",
+      "stretch": 2.8,
+      "mode": "baseline",
+      "frames": 561,
+      "stop_tick": null,
+      "learner_ticks": 561,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26753808582584454,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 271,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 452,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 460,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 532,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.8-baseline.npz",
+      "trace_sha256": "60904e604f346022a4dbea5209bdf52f050eeb3e8ae140238b764ed9d81d55a1"
+    },
+    {
+      "name": "stretch-2.8-fixed",
+      "stretch": 2.8,
+      "mode": "fixed",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3166691081820973,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.8-fixed.npz",
+      "trace_sha256": "e53fca3bc92887ec5fe5f1d2aa7b1b68490ed93430988e17cce79f553882a0e7"
+    },
+    {
+      "name": "stretch-2.8-descent",
+      "stretch": 2.8,
+      "mode": "descent",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3166691081820973,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-2.8-descent.npz",
+      "trace_sha256": "e53fca3bc92887ec5fe5f1d2aa7b1b68490ed93430988e17cce79f553882a0e7"
+    },
+    {
+      "name": "stretch-3.0-baseline",
+      "stretch": 3.0,
+      "mode": "baseline",
+      "frames": 598,
+      "stop_tick": null,
+      "learner_ticks": 598,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.26727875486971725,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 255,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 290,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 484,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 493,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 570,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-3.0-baseline.npz",
+      "trace_sha256": "485952b7087a8f413fa3bb0630f8f79af9218d098f42672f72d32cea46594b17"
+    },
+    {
+      "name": "stretch-3.0-fixed",
+      "stretch": 3.0,
+      "mode": "fixed",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31668212229903764,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-3.0-fixed.npz",
+      "trace_sha256": "55ac313db9b72a20fd7c8fe4c4b02b661d9a1ac9a2e72adc6f62c79692d221e2"
+    },
+    {
+      "name": "stretch-3.0-descent",
+      "stretch": 3.0,
+      "mode": "descent",
+      "frames": 387,
+      "stop_tick": null,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "",
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.31668212229903764,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "stretch-3.0-descent.npz",
+      "trace_sha256": "55ac313db9b72a20fd7c8fe4c4b02b661d9a1ac9a2e72adc6f62c79692d221e2"
+    }
+  ],
+  "stops": [
+    {
+      "name": "stretch-1.6-descent-stop-90",
+      "stretch": 1.6,
+      "mode": "descent",
+      "frames": 116,
+      "stop_tick": 90,
+      "learner_ticks": 90,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 0,
+      "reason": "user stop",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991627468881665,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "trace": "stretch-1.6-descent-stop-90.npz",
+      "trace_sha256": "28802d933e4e18d242ed00b50fc6ff9477f493f77c4272f202bb040cb40b9f71",
+      "checks": {
+        "command_latched_26_frames": true,
+        "user_stop_reason": true,
+        "expected_takeover": true,
+        "learner_frozen": true,
+        "grace_observed": true
+      }
+    },
+    {
+      "name": "stretch-1.6-descent-stop-110",
+      "stretch": 1.6,
+      "mode": "descent",
+      "frames": 136,
+      "stop_tick": 110,
+      "learner_ticks": 110,
+      "takeover_tick": null,
+      "events": [],
+      "deferred_ticks": 10,
+      "reason": "user stop",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.024991627468881665,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "trace": "stretch-1.6-descent-stop-110.npz",
+      "trace_sha256": "be3d3ef1d2e99185cce991c4a6c5ca7f5b5fe5a53a3bf7fcc0a84cf9fa5ad5d3",
+      "checks": {
+        "command_latched_26_frames": true,
+        "user_stop_reason": true,
+        "expected_takeover": true,
+        "learner_frozen": true,
+        "grace_observed": true
+      }
+    },
+    {
+      "name": "stretch-3.0-descent-stop-110",
+      "stretch": 3.0,
+      "mode": "descent",
+      "frames": 136,
+      "stop_tick": 110,
+      "learner_ticks": 100,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "deferred_ticks": 0,
+      "reason": "user stop",
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499107474770387,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "trace": "stretch-3.0-descent-stop-110.npz",
+      "trace_sha256": "8be7e60e5bcd38f638afcd3becea8102ba049a7670a62a6277cc9005f7c7df09",
+      "checks": {
+        "command_latched_26_frames": true,
+        "user_stop_reason": true,
+        "expected_takeover": true,
+        "learner_frozen": true,
+        "grace_observed": true
+      }
+    }
+  ],
+  "scores": {
+    "baseline": {
+      "cases": 8,
+      "successes": 8,
+      "baseline_successes": 8,
+      "unnecessary_takeovers": 0,
+      "rescued_failures": 0,
+      "lost_successes": 0
+    },
+    "fixed": {
+      "cases": 8,
+      "successes": 8,
+      "baseline_successes": 8,
+      "unnecessary_takeovers": 7,
+      "rescued_failures": 0,
+      "lost_successes": 0
+    },
+    "descent": {
+      "cases": 8,
+      "successes": 8,
+      "baseline_successes": 8,
+      "unnecessary_takeovers": 3,
+      "rescued_failures": 0,
+      "lost_successes": 0
+    }
+  },
+  "paired_checks": [
+    {
+      "name": "stretch-1.1-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-1.1-descent",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-1.4-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-1.4-descent",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-1.6-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-1.6-descent",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-1.9-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-1.9-descent",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-2.1-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-2.1-descent",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-2.4-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-2.4-descent",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-2.8-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-2.8-descent",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-3.0-fixed",
+      "same_prefix_or_entire_trace": true
+    },
+    {
+      "name": "stretch-3.0-descent",
+      "same_prefix_or_entire_trace": true
+    }
+  ],
+  "trace_checks": [
+    {
+      "name": "stretch-1.1-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.1-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.1-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.4-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.4-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.4-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.6-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.6-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.6-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.9-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.9-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.9-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.1-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.1-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.1-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.4-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.4-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.4-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.8-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.8-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-2.8-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-3.0-baseline",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-3.0-fixed",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-3.0-descent",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.6-descent-stop-90",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-1.6-descent-stop-110",
+      "hash_matches": true,
+      "finite": true
+    },
+    {
+      "name": "stretch-3.0-descent-stop-110",
+      "hash_matches": true,
+      "finite": true
+    }
+  ]
+}

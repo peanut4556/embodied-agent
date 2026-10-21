@@ -662,3 +662,11 @@ recovery-positives-evaluate:
 
 descent-recovery-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_descent_recovery.py --output "$(DESCENT_RECOVERY_OUTPUT)"
+
+RECOVERY_VALIDATION_OUTPUT ?= outputs/evaluations/recovery-validation-v1
+.PHONY: recovery-validation-test recovery-validation-evaluate
+recovery-validation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_recovery_validation.py' -v
+
+recovery-validation-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_recovery_validation.py --output "$(RECOVERY_VALIDATION_OUTPUT)"

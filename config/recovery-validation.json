@@ -1,0 +1,54 @@
+{
+  "stretches": [
+    1.1,
+    1.4,
+    1.6,
+    1.9,
+    2.1,
+    2.4,
+    2.8,
+    3.0
+  ],
+  "excluded_stretches": [
+    1,
+    1.25,
+    1.5,
+    1.75,
+    2,
+    2.25,
+    2.5
+  ],
+  "modes": [
+    "baseline",
+    "fixed",
+    "descent"
+  ],
+  "manifest": "outputs/datasets/corrections-contact-oriented-v1/recording.json",
+  "trace": "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz",
+  "inputs_sha256": {
+    "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+    "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+    "docs/evaluations/recovery-positives-v2.json": "268156f000a92626b87981a5b8a492fe525ac95994e10967cc4ef1172616ae94",
+    "src/embodied_agent/contact_watchdog.py": "1612fb9112c03bdf4d268f25c620e8c098bc8010ce8d5fe945c53fe277d82f62"
+  },
+  "stops": [
+    {
+      "stretch": 1.6,
+      "tick": 90,
+      "expected_takeover_tick": null,
+      "during_grace": false
+    },
+    {
+      "stretch": 1.6,
+      "tick": 110,
+      "expected_takeover_tick": null,
+      "during_grace": true
+    },
+    {
+      "stretch": 3.0,
+      "tick": 110,
+      "expected_takeover_tick": 100,
+      "during_grace": false
+    }
+  ]
+}
