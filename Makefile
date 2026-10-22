@@ -670,3 +670,11 @@ recovery-validation-test:
 
 recovery-validation-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_recovery_validation.py --output "$(RECOVERY_VALIDATION_OUTPUT)"
+
+CONTACT_FAULTS_OUTPUT ?= outputs/evaluations/contact-faults-v2
+.PHONY: contact-faults-test contact-faults-evaluate
+contact-faults-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_contact_faults.py' -v
+
+contact-faults-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --output "$(CONTACT_FAULTS_OUTPUT)"

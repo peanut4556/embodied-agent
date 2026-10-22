@@ -1,0 +1,56 @@
+{
+  "manifest": "outputs/datasets/corrections-contact-oriented-v1/recording.json",
+  "sources": [
+    {
+      "name": "healthy",
+      "trace": "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz"
+    },
+    {
+      "name": "failed",
+      "trace": "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz"
+    }
+  ],
+  "faults": [
+    {
+      "name": "nominal",
+      "start": 0,
+      "end": 750,
+      "value": null
+    },
+    {
+      "name": "drop-1",
+      "start": 110,
+      "end": 111,
+      "value": false
+    },
+    {
+      "name": "drop-3",
+      "start": 110,
+      "end": 113,
+      "value": false
+    },
+    {
+      "name": "drop-25",
+      "start": 110,
+      "end": 135,
+      "value": false
+    },
+    {
+      "name": "stuck-false",
+      "start": 0,
+      "end": 750,
+      "value": false
+    },
+    {
+      "name": "stuck-true",
+      "start": 0,
+      "end": 750,
+      "value": true
+    }
+  ],
+  "inputs_sha256": {
+    "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+    "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+    "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz": "d80b5b4d343be713bfa8c4ca7fe5dc63da8af8155750ac3d74ab464508e364fa"
+  }
+}

@@ -129,7 +129,7 @@ class GuardedExecutor:
         self.reason = ""
         self.command = world.data.ctrl.copy()
 
-    def step(self, rgb, stop=False):
+    def step(self, rgb, stop=False, *, monitor_holding=None):
         joints = self.world.data.qpos[:5]
         if self.reason:
             return self.command.copy()
@@ -142,19 +142,22 @@ class GuardedExecutor:
             )
             return self.command.copy()
         if self.expert is None:
+            # Optional monitor-only observation for fault audits. Learner, expert and
+            # physical scoring continue to use their original world observations.
+            if monitor_holding is not None and not isinstance(monitor_holding, (bool, np.bool_)):
+                raise ValueError("monitor contact must be boolean")
+            contact = self.world.holding if monitor_holding is None else bool(monitor_holding)
             event = self.watchdog.observe(
-                self.world.holding,
+                contact,
                 self.world.data.site("tip").xpos[[0, 2]],
                 self.world.data.ctrl,
             )
             if isinstance(self.acquisition, DescentAcquisitionWatchdog):
                 acquisition_event = self.acquisition.observe(
-                    self.world.holding, self.world.data.site("tip").xpos[[0, 2]]
+                    contact, self.world.data.site("tip").xpos[[0, 2]]
                 )
             else:
-                acquisition_event = (
-                    self.acquisition.observe(self.world.holding) if self.acquisition else None
-                )
+                acquisition_event = self.acquisition.observe(contact) if self.acquisition else None
             event = event or acquisition_event
             if event:
                 self.events.append({"tick": self.tick, "event": event})

@@ -45,3 +45,7 @@ make recovery-validation-evaluate RECOVERY_VALIDATION_OUTPUT=outputs/evaluations
 ```
 
 需要本地历史轨迹、初始状态和 MuJoCo 图形连接；输出目录必须不存在。输入/控制器哈希变化时拒绝运行。运行过的速度从此成为已观察条件，后续调参不能继续将本轮当作独立测试。
+
+## 后续接触信号审计
+
+[监控输入故障审计](contact-faults.md)扩展到单帧/持续假丢失和持续假持物。发现单帧假丢失会误接管、持续假持物可屏蔽失败恢复；独立物理评分没有误报成功。该轮没有宣称已解决传感器容错问题。
