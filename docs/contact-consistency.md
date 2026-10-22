@@ -44,3 +44,7 @@ make contact-consistency-evaluate CONTACT_CONSISTENCY_OUTPUT=outputs/evaluations
 ```
 
 需要原始初始状态、轨迹和本地 MuJoCo 图形连接；输出目录不得存在。下一步需验证命令过渡时的误停止边界，以及只在夹爪闭合阶段出现的假持物，不宜仅凭当前案例默认启用。
+
+## 后续边界验证
+
+[释放滞后与闭爪假持物对照](contact-boundaries.md)发现正常释放的信号滞后 3 帧会提前停止、终止稳定入盒验收；闭爪期间的假持物也不触发一致性检测。28 次物理对照完成，控制器未调参，检查继续保持默认关闭。

@@ -1,0 +1,192 @@
+{
+  "off_report_sha256": "3050f93b306a8b400bca3456c76d08175f481017326350fe8fa939f40c9276ff",
+  "on_report_sha256": "a6ac0d6fc33965cb7040349d284ce17f5ecd7363502b9dc584dd836af3d084d2",
+  "cases": [
+    {
+      "name": "healthy-baseline",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": null,
+      "on_takeover": null,
+      "on_events": []
+    },
+    {
+      "name": "healthy-nominal",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": null,
+      "on_takeover": null,
+      "on_events": [
+        {
+          "tick": 191,
+          "event": "intentional_release"
+        }
+      ]
+    },
+    {
+      "name": "healthy-release-lag-1",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": null,
+      "on_takeover": null,
+      "on_events": [
+        {
+          "tick": 192,
+          "event": "intentional_release"
+        }
+      ]
+    },
+    {
+      "name": "healthy-release-lag-2",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": null,
+      "on_takeover": null,
+      "on_events": [
+        {
+          "tick": 193,
+          "event": "intentional_release"
+        }
+      ]
+    },
+    {
+      "name": "healthy-release-lag-3",
+      "same_full_trace": false,
+      "off_success": true,
+      "on_success": false,
+      "off_takeover": null,
+      "on_takeover": null,
+      "on_events": [
+        {
+          "tick": 193,
+          "event": "contact_inconsistent"
+        }
+      ]
+    },
+    {
+      "name": "healthy-release-lag-6",
+      "same_full_trace": false,
+      "off_success": true,
+      "on_success": false,
+      "off_takeover": 197,
+      "on_takeover": null,
+      "on_events": [
+        {
+          "tick": 193,
+          "event": "contact_inconsistent"
+        }
+      ]
+    },
+    {
+      "name": "healthy-closed-only-true",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": null,
+      "on_takeover": null,
+      "on_events": [
+        {
+          "tick": 191,
+          "event": "intentional_release"
+        }
+      ]
+    },
+    {
+      "name": "failed-baseline",
+      "same_full_trace": true,
+      "off_success": false,
+      "on_success": false,
+      "off_takeover": null,
+      "on_takeover": null,
+      "on_events": []
+    },
+    {
+      "name": "failed-nominal",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": 79,
+      "on_takeover": 79,
+      "on_events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ]
+    },
+    {
+      "name": "failed-release-lag-1",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": 79,
+      "on_takeover": 79,
+      "on_events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ]
+    },
+    {
+      "name": "failed-release-lag-2",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": 79,
+      "on_takeover": 79,
+      "on_events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ]
+    },
+    {
+      "name": "failed-release-lag-3",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": 79,
+      "on_takeover": 79,
+      "on_events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ]
+    },
+    {
+      "name": "failed-release-lag-6",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": 79,
+      "on_takeover": 79,
+      "on_events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ]
+    },
+    {
+      "name": "failed-closed-only-true",
+      "same_full_trace": true,
+      "off_success": true,
+      "on_success": true,
+      "off_takeover": 83,
+      "on_takeover": 83,
+      "on_events": [
+        {
+          "tick": 83,
+          "event": "contact_lost"
+        }
+      ]
+    }
+  ]
+}

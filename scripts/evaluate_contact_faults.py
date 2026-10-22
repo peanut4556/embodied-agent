@@ -21,6 +21,36 @@ def observed_contact(truth, tick, fault):
     return bool(truth)
 
 
+class ContactFaultSignal:
+    """Stateful diagnostic signal; physical contact is never mutated."""
+
+    def __init__(self, fault):
+        self.fault = fault
+        self.previous_truth = False
+        self.remaining = 0
+
+    def observe(self, truth, tick, command):
+        fault = self.fault
+        active = fault["start"] <= tick < fault["end"]
+        kind = fault.get("kind", "override")
+        if kind == "release_lag":
+            if (
+                active
+                and self.previous_truth
+                and not truth
+                and np.all(np.asarray(command)[3:] >= 0.01)
+            ):
+                self.remaining = fault["frames"]
+            result = bool(truth) or (active and self.remaining > 0)
+            self.remaining = max(0, self.remaining - 1)
+        elif kind == "closed_only":
+            result = True if active and np.all(np.asarray(command)[3:] < 0.01) else bool(truth)
+        else:
+            result = observed_contact(truth, tick, fault)
+        self.previous_truth = bool(truth)
+        return result
+
+
 def validate(config):
     names = set()
     for fault in config["faults"]:
@@ -33,6 +63,15 @@ def validate(config):
             or not 0 <= fault["start"] < fault["end"] <= 750
         ):
             raise ValueError("invalid fault window")
+        kind = fault.get("kind", "override")
+        if kind not in {"override", "closed_only", "release_lag"}:
+            raise ValueError("unknown fault kind")
+        if kind != "override" and fault["value"] is not True:
+            raise ValueError("derived faults must force true contact")
+        if kind == "release_lag" and (
+            type(fault.get("frames")) is not int or not 1 <= fault["frames"] <= 25
+        ):
+            raise ValueError("invalid release lag")
         names.add(fault["name"])
     if not names or len({s["name"] for s in config["sources"]}) != len(config["sources"]):
         raise ValueError("invalid sources or empty faults")
@@ -50,13 +89,14 @@ def run(initial, actions, source, fault, output, baseline=False, contact_consist
                 world, learner, 4, descent_grace=True, contact_consistency=contact_consistency
             )
         )
+        signal_model = ContactFaultSignal(fault)
         quality = GraspQuality(25)
         commands, states, truth_rows, observed, active = [], [], [], [], []
         velocities, controls = [], []
         for tick in range(750):
             mujoco.mj_forward(world.model, world.data)
             truth = bool(world.holding)
-            signal = observed_contact(truth, tick, fault)
+            signal = signal_model.observe(truth, tick, world.data.ctrl)
             monitoring = guard is not None and guard.expert is None and not guard.reason
             command = (
                 guard.step(None, monitor_holding=signal)

@@ -686,3 +686,13 @@ contact-consistency-test:
 
 contact-consistency-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --contact-consistency --output "$(CONTACT_CONSISTENCY_OUTPUT)"
+
+CONTACT_BOUNDARIES_OFF_OUTPUT ?= outputs/evaluations/contact-boundaries-off-v1
+CONTACT_BOUNDARIES_ON_OUTPUT ?= outputs/evaluations/contact-boundaries-on-v1
+.PHONY: contact-boundaries-test contact-boundaries-evaluate
+contact-boundaries-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_contact_boundaries.py' -v
+
+contact-boundaries-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --config config/contact-consistency-boundaries.json --output "$(CONTACT_BOUNDARIES_OFF_OUTPUT)"
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --config config/contact-consistency-boundaries.json --contact-consistency --output "$(CONTACT_BOUNDARIES_ON_OUTPUT)"
