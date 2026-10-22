@@ -678,3 +678,11 @@ contact-faults-test:
 
 contact-faults-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --output "$(CONTACT_FAULTS_OUTPUT)"
+
+CONTACT_CONSISTENCY_OUTPUT ?= outputs/evaluations/contact-consistency-v1
+.PHONY: contact-consistency-test contact-consistency-evaluate
+contact-consistency-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_contact_consistency.py' -v
+
+contact-consistency-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --contact-consistency --output "$(CONTACT_CONSISTENCY_OUTPUT)"

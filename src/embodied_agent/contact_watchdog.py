@@ -110,12 +110,40 @@ class DescentAcquisitionWatchdog(AcquisitionWatchdog):
         return event
 
 
+class ContactConsistency:
+    """Reject persistent holding claims while both fingers are commanded open.
+
+    This is a bounded contradiction check, not a replacement contact sensor.
+    """
+
+    def __init__(self, fps):
+        if fps not in (25, 50):
+            raise ValueError("unsupported sampling rate")
+        self.minimum = int(np.ceil(0.12 * fps))
+        self.run = 0
+
+    def observe(self, holding, command):
+        command = np.asarray(command)
+        if command.shape != (5,) or not np.isfinite(command).all():
+            raise ValueError("invalid consistency command")
+        self.run = self.run + 1 if holding and np.all(command[3:] >= 0.01) else 0
+        return self.run >= self.minimum
+
+
 class GuardedExecutor:
     """Freeze learner on loss, then run the existing strict RGB-D expert once."""
 
-    def __init__(self, world, learner, acquisition_seconds=None, descent_grace=False):
+    def __init__(
+        self,
+        world,
+        learner,
+        acquisition_seconds=None,
+        descent_grace=False,
+        contact_consistency=False,
+    ):
         self.world, self.learner = world, learner
         self.watchdog = ContactWatchdog(learner.fps)
+        self.consistency = ContactConsistency(learner.fps) if contact_consistency else None
         if descent_grace and acquisition_seconds is None:
             raise ValueError("descent grace requires an acquisition deadline")
         monitor = DescentAcquisitionWatchdog if descent_grace else AcquisitionWatchdog
@@ -147,6 +175,11 @@ class GuardedExecutor:
             if monitor_holding is not None and not isinstance(monitor_holding, (bool, np.bool_)):
                 raise ValueError("monitor contact must be boolean")
             contact = self.world.holding if monitor_holding is None else bool(monitor_holding)
+            if self.consistency and self.consistency.observe(contact, self.world.data.ctrl):
+                self.events.append({"tick": self.tick, "event": "contact_inconsistent"})
+                self.reason = "holding signal inconsistent with open gripper command"
+                self.command = self.learner.stop(joints, self.reason)
+                return self.command.copy()
             event = self.watchdog.observe(
                 contact,
                 self.world.data.site("tip").xpos[[0, 2]],

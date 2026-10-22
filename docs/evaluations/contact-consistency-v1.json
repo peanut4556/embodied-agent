@@ -1,0 +1,791 @@
+{
+  "status": "complete",
+  "scope": "Monitor-only injected contact values; one known initial scene, two recorded action traces. Not policy generalization or end-to-end sensor failure.",
+  "config": {
+    "manifest": "outputs/datasets/corrections-contact-oriented-v1/recording.json",
+    "sources": [
+      {
+        "name": "healthy",
+        "trace": "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz"
+      },
+      {
+        "name": "failed",
+        "trace": "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz"
+      }
+    ],
+    "faults": [
+      {
+        "name": "nominal",
+        "start": 0,
+        "end": 750,
+        "value": null
+      },
+      {
+        "name": "drop-1",
+        "start": 110,
+        "end": 111,
+        "value": false
+      },
+      {
+        "name": "drop-3",
+        "start": 110,
+        "end": 113,
+        "value": false
+      },
+      {
+        "name": "drop-25",
+        "start": 110,
+        "end": 135,
+        "value": false
+      },
+      {
+        "name": "stuck-false",
+        "start": 0,
+        "end": 750,
+        "value": false
+      },
+      {
+        "name": "stuck-true",
+        "start": 0,
+        "end": 750,
+        "value": true
+      }
+    ],
+    "inputs_sha256": {
+      "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+      "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+      "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz": "d80b5b4d343be713bfa8c4ca7fe5dc63da8af8155750ac3d74ab464508e364fa"
+    }
+  },
+  "contact_consistency": true,
+  "config_sha256": "48559d1b90d0d1bd1ebb33dc3ec67c53c1d30f738b6897c4955d7ca2a483e235",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_contact_faults.py": "0e51acdf5aecda8fea662c6527875e83ae91087725682b84a7ca7df78eef0c06",
+    "scripts/evaluate_recovery_positives.py": "029005c3ea57787a3e71c90cecd64545bbdc080127b132967f3703f890896a52",
+    "scripts/audit_contact_watchdog.py": "f9b385e2cb2f69fc996a5fb102f00fe375580b5208a2734a48ae1f05e465963c",
+    "src/embodied_agent/contact_watchdog.py": "e2477ef21f0019dd6b99c9dabb21ca7184192959f6bf2a4e8748fc438bec0ed4",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/grasp_quality.py": "b189cef7b266d3ede48eea2176040c90532ebd4515dd4276d9d1cd52a622619c",
+    "src/embodied_agent/correction_data.py": "69163bbe44bcb5d15df207542253adc1e25f2bfc81c634b40aec1758e5ae9e8d",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "results": [
+    {
+      "name": "healthy-baseline",
+      "source": "healthy",
+      "fault": null,
+      "baseline": true,
+      "frames": 217,
+      "takeover_tick": null,
+      "events": [],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-baseline.npz",
+      "trace_sha256": "a12bba05ec0d0e0e2f0c3814f39ad0c63f7b9a4fc3354a93af3ab294ed2c0da0"
+    },
+    {
+      "name": "healthy-nominal",
+      "source": "healthy",
+      "fault": {
+        "name": "nominal",
+        "start": 0,
+        "end": 750,
+        "value": null
+      },
+      "baseline": false,
+      "frames": 217,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 191,
+          "event": "intentional_release"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-nominal.npz",
+      "trace_sha256": "7cdfedbeeaa06eb5484565279e3c373c457625a461b99f5171164231aa308bbe"
+    },
+    {
+      "name": "healthy-drop-1",
+      "source": "healthy",
+      "fault": {
+        "name": "drop-1",
+        "start": 110,
+        "end": 111,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 397,
+      "takeover_tick": 110,
+      "events": [
+        {
+          "tick": 110,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 1,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.309594899952504,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 111,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 286,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 372,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-drop-1.npz",
+      "trace_sha256": "bbbd64b924de4832e99464960fc0128bf5796f0d5f124ff02343e3fed5c4f4ba"
+    },
+    {
+      "name": "healthy-drop-3",
+      "source": "healthy",
+      "fault": {
+        "name": "drop-3",
+        "start": 110,
+        "end": 113,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 397,
+      "takeover_tick": 110,
+      "events": [
+        {
+          "tick": 110,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 1,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.309594899952504,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 111,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 286,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 372,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-drop-3.npz",
+      "trace_sha256": "bbbd64b924de4832e99464960fc0128bf5796f0d5f124ff02343e3fed5c4f4ba"
+    },
+    {
+      "name": "healthy-drop-25",
+      "source": "healthy",
+      "fault": {
+        "name": "drop-25",
+        "start": 110,
+        "end": 135,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 397,
+      "takeover_tick": 110,
+      "events": [
+        {
+          "tick": 110,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 1,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.309594899952504,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 111,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 286,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 372,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-drop-25.npz",
+      "trace_sha256": "bbbd64b924de4832e99464960fc0128bf5796f0d5f124ff02343e3fed5c4f4ba"
+    },
+    {
+      "name": "healthy-stuck-false",
+      "source": "healthy",
+      "fault": {
+        "name": "stuck-false",
+        "start": 0,
+        "end": 750,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 16,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.30901498594930904,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 101,
+            "event": "lift_contact_lost"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-stuck-false.npz",
+      "trace_sha256": "a2a2d7ac6842033bd857ba571bc03fe4c784d2ea8e7ed12fa680648576bc0e44"
+    },
+    {
+      "name": "healthy-stuck-true",
+      "source": "healthy",
+      "fault": {
+        "name": "stuck-true",
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 3,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 2,
+          "event": "contact_inconsistent"
+        }
+      ],
+      "reason": "holding signal inconsistent with open gripper command",
+      "effective_changed_monitor_frames": 3,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499107474770387,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "trace": "healthy-stuck-true.npz",
+      "trace_sha256": "3708b31b4653dae086152b136b10f4e5eb53e70e3b1f0c47054b6a3913414995"
+    },
+    {
+      "name": "failed-baseline",
+      "source": "failed",
+      "fault": null,
+      "baseline": true,
+      "frames": 750,
+      "takeover_tick": null,
+      "events": [],
+      "reason": "execution timeout",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.06276285406386818,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "trace": "failed-baseline.npz",
+      "trace_sha256": "8283f1de7c162d315378dbdb06bb5cb38cddc8433c3c656c1a8683b0a31b6383"
+    },
+    {
+      "name": "failed-nominal",
+      "source": "failed",
+      "fault": {
+        "name": "nominal",
+        "start": 0,
+        "end": 750,
+        "value": null
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-nominal.npz",
+      "trace_sha256": "d603d36c0ce5840d6ccff272570f5a5cd827e63337d2b845c1100eaaaed6f05c"
+    },
+    {
+      "name": "failed-drop-1",
+      "source": "failed",
+      "fault": {
+        "name": "drop-1",
+        "start": 110,
+        "end": 111,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-drop-1.npz",
+      "trace_sha256": "d603d36c0ce5840d6ccff272570f5a5cd827e63337d2b845c1100eaaaed6f05c"
+    },
+    {
+      "name": "failed-drop-3",
+      "source": "failed",
+      "fault": {
+        "name": "drop-3",
+        "start": 110,
+        "end": 113,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-drop-3.npz",
+      "trace_sha256": "d603d36c0ce5840d6ccff272570f5a5cd827e63337d2b845c1100eaaaed6f05c"
+    },
+    {
+      "name": "failed-drop-25",
+      "source": "failed",
+      "fault": {
+        "name": "drop-25",
+        "start": 110,
+        "end": 135,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-drop-25.npz",
+      "trace_sha256": "d603d36c0ce5840d6ccff272570f5a5cd827e63337d2b845c1100eaaaed6f05c"
+    },
+    {
+      "name": "failed-stuck-false",
+      "source": "failed",
+      "fault": {
+        "name": "stuck-false",
+        "start": 0,
+        "end": 750,
+        "value": false
+      },
+      "baseline": false,
+      "frames": 387,
+      "takeover_tick": 100,
+      "events": [
+        {
+          "tick": 100,
+          "event": "acquisition_timeout"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 2,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3132544761532081,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 238,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 276,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 362,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-stuck-false.npz",
+      "trace_sha256": "605846f2c728703ccac6856592c3b1ed39694e50f69b64d2d3761258370bbc2e"
+    },
+    {
+      "name": "failed-stuck-true",
+      "source": "failed",
+      "fault": {
+        "name": "stuck-true",
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 3,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 2,
+          "event": "contact_inconsistent"
+        }
+      ],
+      "reason": "holding signal inconsistent with open gripper command",
+      "effective_changed_monitor_frames": 3,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.02499107474770387,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "trace": "failed-stuck-true.npz",
+      "trace_sha256": "82a6768ce25f217c6ede75905eb5adb19cdca7a2467a85f659d81b2ff682ced2"
+    }
+  ],
+  "checks": [
+    {
+      "name": "healthy-baseline",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-nominal",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-drop-1",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-drop-3",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-drop-25",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-stuck-false",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-stuck-true",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-baseline",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-nominal",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-drop-1",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-drop-3",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-drop-25",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-stuck-false",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-stuck-true",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    }
+  ]
+}

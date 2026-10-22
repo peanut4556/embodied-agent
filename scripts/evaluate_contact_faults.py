@@ -38,12 +38,18 @@ def validate(config):
         raise ValueError("invalid sources or empty faults")
 
 
-def run(initial, actions, source, fault, output, baseline=False):
+def run(initial, actions, source, fault, output, baseline=False, contact_consistency=False):
     world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
     try:
         restore(world, initial)
         learner = ReplayLearner(actions, 1)
-        guard = None if baseline else GuardedExecutor(world, learner, 4, descent_grace=True)
+        guard = (
+            None
+            if baseline
+            else GuardedExecutor(
+                world, learner, 4, descent_grace=True, contact_consistency=contact_consistency
+            )
+        )
         quality = GraspQuality(25)
         commands, states, truth_rows, observed, active = [], [], [], [], []
         velocities, controls = [], []
@@ -111,6 +117,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="config/contact-faults.json")
     parser.add_argument("--output", required=True)
+    parser.add_argument("--contact-consistency", action="store_true")
     args = parser.parse_args()
     config = json.loads(Path(args.config).read_text())
     validate(config)
@@ -139,6 +146,7 @@ def main():
         "status": "running",
         "scope": "Monitor-only injected contact values; one known initial scene, two recorded action traces. Not policy generalization or end-to-end sensor failure.",
         "config": config,
+        "contact_consistency": args.contact_consistency,
         "config_sha256": digest(args.config),
         "source_sha256": {str(p): digest(p) for p in sources},
         "results": [],
@@ -154,7 +162,15 @@ def main():
                 actions = data["actions"].copy()
             nominal = next(f for f in config["faults"] if f["value"] is None)
             for fault, baseline in [(nominal, True)] + [(f, False) for f in config["faults"]]:
-                row = run(initial, actions, source["name"], fault, output, baseline)
+                row = run(
+                    initial,
+                    actions,
+                    source["name"],
+                    fault,
+                    output,
+                    baseline,
+                    args.contact_consistency,
+                )
                 report["results"].append(row)
                 save()
                 print(
@@ -174,6 +190,8 @@ def main():
                 np.load(output / base["trace"]) as original,
             ):
                 prefix = row["takeover_tick"]
+                if row["events"] and row["events"][-1]["event"] == "contact_inconsistent":
+                    prefix = row["events"][-1]["tick"]
                 same = all(
                     np.array_equal(data[k][:prefix], original[k][:prefix])
                     for k in ("actions", "qpos", "true_holding")
@@ -207,7 +225,7 @@ def main():
                 finite = bool(np.isfinite(data["actions"]).all())
             check = {
                 "name": row["name"],
-                "same_pre_takeover_or_entire_trace": same,
+                "same_pre_intervention_or_entire_trace": same,
                 "physical_quality_recomputed": independent.result() == row["quality"],
                 "hash_matches": digest(output / row["trace"]) == row["trace_sha256"],
                 "finite_commands": finite,

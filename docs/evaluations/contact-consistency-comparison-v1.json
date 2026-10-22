@@ -1,0 +1,104 @@
+{
+  "previous_report_sha256": "2e4efa973fab1fa0706776871e154a6ff9e6884fa04ff94ce158ad10d227f35e",
+  "current_report_sha256": "29ed91e419daebbd45782fce914aebd09fceb5812d29810e681bee3eceff5307",
+  "checks": [
+    {
+      "name": "healthy-baseline",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "healthy-nominal",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "healthy-drop-1",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "healthy-drop-3",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "healthy-drop-25",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "healthy-stuck-false",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "healthy-stuck-true",
+      "unchanged_trace": false,
+      "contradiction_stop": true,
+      "previous_success": true,
+      "current_success": false
+    },
+    {
+      "name": "failed-baseline",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": false,
+      "current_success": false
+    },
+    {
+      "name": "failed-nominal",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "failed-drop-1",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "failed-drop-3",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "failed-drop-25",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "failed-stuck-false",
+      "unchanged_trace": true,
+      "contradiction_stop": false,
+      "previous_success": true,
+      "current_success": true
+    },
+    {
+      "name": "failed-stuck-true",
+      "unchanged_trace": false,
+      "contradiction_stop": true,
+      "previous_success": false,
+      "current_success": false
+    }
+  ]
+}
