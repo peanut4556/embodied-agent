@@ -25,6 +25,23 @@ class ContactConsistencyTests(unittest.TestCase):
             for _ in range(30):
                 self.assertFalse(check.observe(True, [0, 0, 0, *fingers]))
 
+    def test_release_window_is_bounded_and_not_refreshed(self):
+        for fps in (25, 50):
+            check = ContactConsistency(fps)
+            for i in range(check.release_limit - 1):
+                self.assertFalse(check.observe(True, [0, 0, 0, 0.04, 0.04], release_context=i == 0))
+            self.assertTrue(check.observe(True, [0, 0, 0, 0.04, 0.04], release_context=True))
+            check.observe(False, [0, 0, 0, 0.04, 0.04])
+            for _ in range(check.minimum - 1):
+                self.assertFalse(check.observe(True, [0, 0, 0, 0.04, 0.04]))
+            self.assertTrue(check.observe(True, [0, 0, 0, 0.04, 0.04]))
+
+    def test_late_release_context_cannot_extend_existing_contradiction(self):
+        check = ContactConsistency(25)
+        self.assertFalse(check.observe(True, [0, 0, 0, 0.04, 0.04]))
+        self.assertFalse(check.observe(True, [0, 0, 0, 0.04, 0.04], release_context=True))
+        self.assertTrue(check.observe(True, [0, 0, 0, 0.04, 0.04], release_context=True))
+
     def test_invalid_inputs(self):
         with self.assertRaises(ValueError):
             ContactConsistency(10)

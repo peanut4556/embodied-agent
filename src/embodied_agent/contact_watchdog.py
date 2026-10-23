@@ -121,13 +121,19 @@ class ContactConsistency:
             raise ValueError("unsupported sampling rate")
         self.minimum = int(np.ceil(0.12 * fps))
         self.run = 0
+        self.release_limit = int(np.ceil(0.4 * fps))
+        self.release_window = False
 
-    def observe(self, holding, command):
+    def observe(self, holding, command, release_context=False):
         command = np.asarray(command)
         if command.shape != (5,) or not np.isfinite(command).all():
             raise ValueError("invalid consistency command")
         self.run = self.run + 1 if holding and np.all(command[3:] >= 0.01) else 0
-        return self.run >= self.minimum
+        if self.run == 1:
+            self.release_window = bool(release_context)
+        elif self.run == 0:
+            self.release_window = False
+        return self.run >= (self.release_limit if self.release_window else self.minimum)
 
 
 class GuardedExecutor:
@@ -175,7 +181,13 @@ class GuardedExecutor:
             if monitor_holding is not None and not isinstance(monitor_holding, (bool, np.bool_)):
                 raise ValueError("monitor contact must be boolean")
             contact = self.world.holding if monitor_holding is None else bool(monitor_holding)
-            if self.consistency and self.consistency.observe(contact, self.world.data.ctrl):
+            tip = self.world.data.site("tip").xpos[[0, 2]]
+            release_context = (
+                self.watchdog.lifted and abs(tip[0] - 0.64) < 0.09 and 0.02 <= tip[1] <= 0.12
+            )
+            if self.consistency and self.consistency.observe(
+                contact, self.world.data.ctrl, release_context=release_context
+            ):
                 self.events.append({"tick": self.tick, "event": "contact_inconsistent"})
                 self.reason = "holding signal inconsistent with open gripper command"
                 self.command = self.learner.stop(joints, self.reason)

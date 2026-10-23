@@ -1,0 +1,67 @@
+{
+  "manifest": "outputs/datasets/corrections-contact-oriented-v1/recording.json",
+  "sources": [
+    {
+      "name": "healthy",
+      "trace": "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz"
+    },
+    {
+      "name": "failed",
+      "trace": "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz"
+    }
+  ],
+  "faults": [
+    {
+      "name": "nominal",
+      "start": 0,
+      "end": 750,
+      "value": null
+    },
+    {
+      "name": "release-lag-1",
+      "kind": "release_lag",
+      "frames": 1,
+      "start": 0,
+      "end": 750,
+      "value": true
+    },
+    {
+      "name": "release-lag-2",
+      "kind": "release_lag",
+      "frames": 2,
+      "start": 0,
+      "end": 750,
+      "value": true
+    },
+    {
+      "name": "release-lag-3",
+      "kind": "release_lag",
+      "frames": 3,
+      "start": 0,
+      "end": 750,
+      "value": true
+    },
+    {
+      "name": "release-lag-6",
+      "kind": "release_lag",
+      "frames": 6,
+      "start": 0,
+      "end": 750,
+      "value": true
+    },
+    {
+      "name": "closed-only-true",
+      "kind": "closed_only",
+      "start": 0,
+      "end": 750,
+      "value": true
+    }
+  ],
+  "inputs_sha256": {
+    "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+    "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+    "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz": "d80b5b4d343be713bfa8c4ca7fe5dc63da8af8155750ac3d74ab464508e364fa",
+    "src/embodied_agent/contact_watchdog.py": "028d24605776f412429870ad3fdc2d97e63f380e92295b7ced0d849655ba2b82",
+    "docs/evaluations/contact-consistency-v1.json": "29ed91e419daebbd45782fce914aebd09fceb5812d29810e681bee3eceff5307"
+  }
+}
