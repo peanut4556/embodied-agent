@@ -1,0 +1,817 @@
+{
+  "status": "complete",
+  "scope": "Monitor-only injected contact values; one known initial scene, two recorded action traces. Not policy generalization or end-to-end sensor failure.",
+  "config": {
+    "manifest": "outputs/datasets/corrections-contact-oriented-v1/recording.json",
+    "sources": [
+      {
+        "name": "healthy",
+        "trace": "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz"
+      },
+      {
+        "name": "failed",
+        "trace": "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz"
+      }
+    ],
+    "faults": [
+      {
+        "name": "nominal",
+        "start": 0,
+        "end": 750,
+        "value": null
+      },
+      {
+        "name": "release-lag-7",
+        "kind": "release_lag",
+        "frames": 7,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      {
+        "name": "release-lag-9",
+        "kind": "release_lag",
+        "frames": 9,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      {
+        "name": "release-lag-10",
+        "kind": "release_lag",
+        "frames": 10,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      {
+        "name": "release-lag-11",
+        "kind": "release_lag",
+        "frames": 11,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      {
+        "name": "release-lag-25",
+        "kind": "release_lag",
+        "frames": 25,
+        "start": 0,
+        "end": 750,
+        "value": true
+      }
+    ],
+    "inputs_sha256": {
+      "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+      "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+      "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz": "d80b5b4d343be713bfa8c4ca7fe5dc63da8af8155750ac3d74ab464508e364fa",
+      "src/embodied_agent/contact_watchdog.py": "028d24605776f412429870ad3fdc2d97e63f380e92295b7ced0d849655ba2b82",
+      "docs/evaluations/contact-consistency-v1.json": "29ed91e419daebbd45782fce914aebd09fceb5812d29810e681bee3eceff5307"
+    }
+  },
+  "contact_consistency": true,
+  "config_sha256": "61600f51941ca2a9737bb2a30f0626db8c5e41e004a5d4642b3266daa7cfc2cc",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_contact_faults.py": "73a569f28895049100dbe708d3d4fc975d307c4345c0613ed91affed22f8e429",
+    "scripts/evaluate_recovery_positives.py": "029005c3ea57787a3e71c90cecd64545bbdc080127b132967f3703f890896a52",
+    "scripts/audit_contact_watchdog.py": "f9b385e2cb2f69fc996a5fb102f00fe375580b5208a2734a48ae1f05e465963c",
+    "src/embodied_agent/contact_watchdog.py": "028d24605776f412429870ad3fdc2d97e63f380e92295b7ced0d849655ba2b82",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/grasp_quality.py": "b189cef7b266d3ede48eea2176040c90532ebd4515dd4276d9d1cd52a622619c",
+    "src/embodied_agent/correction_data.py": "69163bbe44bcb5d15df207542253adc1e25f2bfc81c634b40aec1758e5ae9e8d",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "results": [
+    {
+      "name": "healthy-baseline",
+      "source": "healthy",
+      "fault": null,
+      "baseline": true,
+      "frames": 217,
+      "takeover_tick": null,
+      "events": [],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-baseline.npz",
+      "trace_sha256": "a12bba05ec0d0e0e2f0c3814f39ad0c63f7b9a4fc3354a93af3ab294ed2c0da0"
+    },
+    {
+      "name": "healthy-nominal",
+      "source": "healthy",
+      "fault": {
+        "name": "nominal",
+        "start": 0,
+        "end": 750,
+        "value": null
+      },
+      "baseline": false,
+      "frames": 217,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 191,
+          "event": "intentional_release"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-nominal.npz",
+      "trace_sha256": "7cdfedbeeaa06eb5484565279e3c373c457625a461b99f5171164231aa308bbe"
+    },
+    {
+      "name": "healthy-release-lag-7",
+      "source": "healthy",
+      "fault": {
+        "name": "release-lag-7",
+        "kind": "release_lag",
+        "frames": 7,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 217,
+      "takeover_tick": 198,
+      "events": [
+        {
+          "tick": 198,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 7,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-release-lag-7.npz",
+      "trace_sha256": "aacabc18bd990057807919935f06ed5eba8f3adcd582bc6ed2380979b6cd33ab"
+    },
+    {
+      "name": "healthy-release-lag-9",
+      "source": "healthy",
+      "fault": {
+        "name": "release-lag-9",
+        "kind": "release_lag",
+        "frames": 9,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 217,
+      "takeover_tick": 200,
+      "events": [
+        {
+          "tick": 200,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 9,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-release-lag-9.npz",
+      "trace_sha256": "a3d0449e0f9455dbe1a0bc5fd6c97bb7554a549a8ddd135d4e7c7b1df5f1aa01"
+    },
+    {
+      "name": "healthy-release-lag-10",
+      "source": "healthy",
+      "fault": {
+        "name": "release-lag-10",
+        "kind": "release_lag",
+        "frames": 10,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 201,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 200,
+          "event": "contact_inconsistent"
+        }
+      ],
+      "reason": "holding signal inconsistent with open gripper command",
+      "effective_changed_monitor_frames": 10,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "task_incomplete",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-release-lag-10.npz",
+      "trace_sha256": "59f71de2c221eaa8cb9dcd2df39cace6229769e7c2fbd71698bb2a34215f925b"
+    },
+    {
+      "name": "healthy-release-lag-11",
+      "source": "healthy",
+      "fault": {
+        "name": "release-lag-11",
+        "kind": "release_lag",
+        "frames": 11,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 201,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 200,
+          "event": "contact_inconsistent"
+        }
+      ],
+      "reason": "holding signal inconsistent with open gripper command",
+      "effective_changed_monitor_frames": 10,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "task_incomplete",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-release-lag-11.npz",
+      "trace_sha256": "59f71de2c221eaa8cb9dcd2df39cace6229769e7c2fbd71698bb2a34215f925b"
+    },
+    {
+      "name": "healthy-release-lag-25",
+      "source": "healthy",
+      "fault": {
+        "name": "release-lag-25",
+        "kind": "release_lag",
+        "frames": 25,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 201,
+      "takeover_tick": null,
+      "events": [
+        {
+          "tick": 200,
+          "event": "contact_inconsistent"
+        }
+      ],
+      "reason": "holding signal inconsistent with open gripper command",
+      "effective_changed_monitor_frames": 10,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.2660268832989572,
+        "classification": "task_incomplete",
+        "events": [
+          {
+            "tick": 87,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 100,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 191,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "healthy-release-lag-25.npz",
+      "trace_sha256": "59f71de2c221eaa8cb9dcd2df39cace6229769e7c2fbd71698bb2a34215f925b"
+    },
+    {
+      "name": "failed-baseline",
+      "source": "failed",
+      "fault": null,
+      "baseline": true,
+      "frames": 750,
+      "takeover_tick": null,
+      "events": [],
+      "reason": "execution timeout",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": false,
+        "stable_goal": false,
+        "stable_grasp_observed": false,
+        "sustained_lift": false,
+        "intentional_release": false,
+        "max_height_m": 0.06276285406386818,
+        "classification": "task_incomplete",
+        "events": []
+      },
+      "trace": "failed-baseline.npz",
+      "trace_sha256": "8283f1de7c162d315378dbdb06bb5cb38cddc8433c3c656c1a8683b0a31b6383"
+    },
+    {
+      "name": "failed-nominal",
+      "source": "failed",
+      "fault": {
+        "name": "nominal",
+        "start": 0,
+        "end": 750,
+        "value": null
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-nominal.npz",
+      "trace_sha256": "d603d36c0ce5840d6ccff272570f5a5cd827e63337d2b845c1100eaaaed6f05c"
+    },
+    {
+      "name": "failed-release-lag-7",
+      "source": "failed",
+      "fault": {
+        "name": "release-lag-7",
+        "kind": "release_lag",
+        "frames": 7,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-release-lag-7.npz",
+      "trace_sha256": "c84a9ed99bc7a4b212b466b3ecb9fa9f0165c122955e171dae4e78e74eca0439"
+    },
+    {
+      "name": "failed-release-lag-9",
+      "source": "failed",
+      "fault": {
+        "name": "release-lag-9",
+        "kind": "release_lag",
+        "frames": 9,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-release-lag-9.npz",
+      "trace_sha256": "150c0deb64c0acb8d16351458457bb738ce939505b75c9706d16bef530ee7bb1"
+    },
+    {
+      "name": "failed-release-lag-10",
+      "source": "failed",
+      "fault": {
+        "name": "release-lag-10",
+        "kind": "release_lag",
+        "frames": 10,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-release-lag-10.npz",
+      "trace_sha256": "a0990d4f09600db89921441b8813c8624d509e47e20d922be769b3b2ac017db4"
+    },
+    {
+      "name": "failed-release-lag-11",
+      "source": "failed",
+      "fault": {
+        "name": "release-lag-11",
+        "kind": "release_lag",
+        "frames": 11,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-release-lag-11.npz",
+      "trace_sha256": "25bb97c011926af9f19432aaef99347a52faad1f485f16188f7b349a7f946607"
+    },
+    {
+      "name": "failed-release-lag-25",
+      "source": "failed",
+      "fault": {
+        "name": "release-lag-25",
+        "kind": "release_lag",
+        "frames": 25,
+        "start": 0,
+        "end": 750,
+        "value": true
+      },
+      "baseline": false,
+      "frames": 367,
+      "takeover_tick": 79,
+      "events": [
+        {
+          "tick": 79,
+          "event": "contact_lost"
+        }
+      ],
+      "reason": "",
+      "effective_changed_monitor_frames": 0,
+      "quality": {
+        "verified_pick_place": true,
+        "stable_goal": true,
+        "stable_grasp_observed": true,
+        "sustained_lift": true,
+        "intentional_release": true,
+        "max_height_m": 0.3191822189461851,
+        "classification": "verified_pick_place",
+        "events": [
+          {
+            "tick": 217,
+            "event": "stable_bilateral_grasp"
+          },
+          {
+            "tick": 255,
+            "event": "sustained_lift"
+          },
+          {
+            "tick": 341,
+            "event": "intentional_release_at_tray"
+          }
+        ]
+      },
+      "trace": "failed-release-lag-25.npz",
+      "trace_sha256": "b175fc8a29f5c2affad3e11c01d4b3235df4323a9941751fd3c5b4a7662f6704"
+    }
+  ],
+  "checks": [
+    {
+      "name": "healthy-baseline",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-nominal",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-release-lag-7",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-release-lag-9",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-release-lag-10",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-release-lag-11",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "healthy-release-lag-25",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-baseline",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-nominal",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-release-lag-7",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-release-lag-9",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-release-lag-10",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-release-lag-11",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    },
+    {
+      "name": "failed-release-lag-25",
+      "same_pre_intervention_or_entire_trace": true,
+      "physical_quality_recomputed": true,
+      "hash_matches": true,
+      "finite_commands": true
+    }
+  ]
+}

@@ -38,3 +38,5 @@ PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --contact-c
 ```
 
 需要本地历史输入和 MuJoCo 图形连接，输出目录必须不存在。新回归配置校验当前控制器哈希；旧边界配置仍保留旧哈希，不能用旧配置冒充对旧版本的重现。
+
+后续已补充[释放等待上限的物理验证](contact-release-limit.md)，覆盖 7、9、10、11、25 帧滞后及独立轨迹计数。

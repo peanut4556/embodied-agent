@@ -696,3 +696,12 @@ contact-boundaries-test:
 contact-boundaries-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --config config/contact-consistency-boundaries.json --output "$(CONTACT_BOUNDARIES_OFF_OUTPUT)"
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --config config/contact-consistency-boundaries.json --contact-consistency --output "$(CONTACT_BOUNDARIES_ON_OUTPUT)"
+
+CONTACT_RELEASE_LIMIT_OUTPUT ?= outputs/evaluations/contact-release-limit-v2
+.PHONY: contact-release-limit-test contact-release-limit-evaluate
+contact-release-limit-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_release_limit.py' -v
+
+contact-release-limit-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --config config/contact-release-limit.json --contact-consistency --output "$(CONTACT_RELEASE_LIMIT_OUTPUT)"
+	PYTHONPATH=src:. .venv/bin/python scripts/check_release_limit.py --report "$(CONTACT_RELEASE_LIMIT_OUTPUT)/report.json" --output "$(CONTACT_RELEASE_LIMIT_OUTPUT)/limit-check.json"
