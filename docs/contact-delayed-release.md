@@ -43,3 +43,5 @@ make contact-delayed-release-evaluate CONTACT_DELAYED_RELEASE_OUTPUT=outputs/eva
 ```
 
 需要本地历史输入和 MuJoCo 图形连接；输出目录必须不存在。
+
+后续新增[释放后的独立 RGB-D 落点确认](release-confirmation.md)，完成六组独立物理对照，尚未接入执行器。

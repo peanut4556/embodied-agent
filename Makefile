@@ -710,3 +710,11 @@ CONTACT_DELAYED_RELEASE_OUTPUT ?= outputs/evaluations/contact-delayed-release-v2
 .PHONY: contact-delayed-release-evaluate
 contact-delayed-release-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_contact_faults.py --config config/contact-delayed-release.json --contact-consistency --output "$(CONTACT_DELAYED_RELEASE_OUTPUT)"
+
+RELEASE_CONFIRMATION_OUTPUT ?= outputs/evaluations/release-confirmation-v3
+.PHONY: release-confirmation-test release-confirmation-evaluate
+release-confirmation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_release_confirmation.py' -v
+
+release-confirmation-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --output "$(RELEASE_CONFIRMATION_OUTPUT)"

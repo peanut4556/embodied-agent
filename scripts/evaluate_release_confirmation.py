@@ -1,0 +1,108 @@
+"""Standalone rendered landing audit; does not drive the guarded policy."""
+
+import argparse
+import json
+from pathlib import Path
+
+import mujoco
+import numpy as np
+
+from embodied_agent.memory_policy import digest
+from embodied_agent.physics import PhysicsWorld
+from embodied_agent.release_confirmation import ReleaseConfirmation
+from scripts.audit_contact_watchdog import advance
+
+CASES = [
+    ("center", [0.64, 0, 0.12], False),
+    ("inner_left", [0.61, 0, 0.12], False),
+    ("near_edge", [0.69, 0, 0.12], False),
+    ("outside_x", [0.80, 0, 0.12], False),
+    ("outside_y", [0.64, 0.16, 0.12], False),
+    ("missing_observation", [0.64, 0, 0.12], True),
+]
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", required=True)
+    args = parser.parse_args()
+    output = Path(args.output)
+    output.mkdir(parents=True, exist_ok=False)
+    paths = (
+        [Path(__file__)]
+        + [
+            Path("src/embodied_agent") / name
+            for name in (
+                "release_confirmation.py",
+                "perception.py",
+                "physics.py",
+                "assets/tabletop.xml",
+            )
+        ]
+        + [Path("scripts/audit_contact_watchdog.py")]
+    )
+    hashes = {str(p): digest(p) for p in paths}
+    report = {
+        "status": "running",
+        "scope": "Six synthetic free-drop scenes, fixed arm; not end-to-end policy validation.",
+        "source_sha256": hashes,
+        "cases": [],
+    }
+    for name, position, missing in CASES:
+        world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
+        try:
+            world.data.qpos[5:8] = position
+            world.data.qpos[8:12] = [1, 0, 0, 0]
+            world.data.qvel[:] = 0
+            command = np.r_[world.data.qpos[:3], [0.04, 0.04]]
+            world.data.ctrl[:] = command
+            mujoco.mj_forward(world.model, world.data)
+            check = ReleaseConfirmation(float(world.data.time))
+            rows = []
+            for i in range(17):
+                point, error = None, None
+                if not missing:
+                    try:
+                        point = world.locate_block().tolist()
+                    except ValueError as exc:
+                        error = str(exc)
+                status = check.observe(float(world.data.time), point)
+                rows.append(
+                    {
+                        "time": float(world.data.time),
+                        "xyz": point,
+                        "error": error,
+                        "truth_xyz": world.data.body("red_block").xpos.tolist(),
+                        "truth_inside": world.inside_box(),
+                        "status": status,
+                    }
+                )
+                if status != "pending":
+                    break
+                for _ in range(5):
+                    advance(world, command, 25)
+            row = {
+                "name": name,
+                "initial_xyz": position,
+                "missing_observation": missing,
+                "status": check.status,
+                "observations": rows,
+            }
+            report["cases"].append(row)
+            print(name, check.status, rows[-1]["truth_inside"], flush=True)
+        finally:
+            world.close()
+    assert hashes == {str(p): digest(p) for p in paths}, "sources changed during audit"
+    report["false_confirmations"] = sum(
+        c["status"] == "confirmed_in_tray" and not c["observations"][-1]["truth_inside"]
+        for c in report["cases"]
+    )
+    report["status"] = "complete"
+    (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+    assert report["false_confirmations"] == 0, "false confirmation observed"
+    assert report["cases"][0]["status"] == "confirmed_in_tray", "center did not confirm"
+    assert report["cases"][-1]["status"] == "unconfirmed", "missing evidence confirmed"
+
+
+if __name__ == "__main__":
+    main()
