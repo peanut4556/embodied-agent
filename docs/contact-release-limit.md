@@ -37,3 +37,5 @@ make contact-release-limit-evaluate CONTACT_RELEASE_LIMIT_OUTPUT=outputs/evaluat
 需要配置中带哈希的本地历史输入及 MuJoCo 图形连接。输出目录必须不存在。评估完成后自动运行独立计数检查；检查输出也拒绝覆盖。配置冻结当前控制器哈希，后续改动需另建实验配置。
 
 下一步可诊断释放滞后消失后触发 contact_lost 的原因，验证减少误接管是否会漏掉托盘外真实掉落。
+
+后续：[延迟释放边沿的有限意图保留](contact-delayed-release.md)，修复误接管，并区分本轮物理回归和集成反例的验证范围。

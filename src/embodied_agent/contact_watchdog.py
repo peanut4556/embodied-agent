@@ -185,6 +185,15 @@ class GuardedExecutor:
             release_context = (
                 self.watchdog.lifted and abs(tip[0] - 0.64) < 0.09 and 0.02 <= tip[1] <= 0.12
             )
+            # Read the bounded release evidence before observe(False) resets it.
+            # A delayed falling edge may arrive after the arm has withdrawn.
+            delayed_release = (
+                self.consistency is not None
+                and self.consistency.release_window
+                and 0 < self.consistency.run < self.consistency.release_limit
+                and not contact
+                and np.all(self.world.data.ctrl[3:] >= 0.01)
+            )
             if self.consistency and self.consistency.observe(
                 contact, self.world.data.ctrl, release_context=release_context
             ):
@@ -197,6 +206,8 @@ class GuardedExecutor:
                 self.world.data.site("tip").xpos[[0, 2]],
                 self.world.data.ctrl,
             )
+            if event == "contact_lost" and delayed_release:
+                event = "intentional_release"
             if isinstance(self.acquisition, DescentAcquisitionWatchdog):
                 acquisition_event = self.acquisition.observe(
                     contact, self.world.data.site("tip").xpos[[0, 2]]

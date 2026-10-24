@@ -49,6 +49,36 @@ class ContactConsistencyTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 ContactConsistency(25).observe(True, command)
 
+    @patch("embodied_agent.contact_watchdog.CorrectionExpert")
+    def test_delayed_release_requires_qualified_opening_and_no_reclosure(self, factory):
+        for fps in (25, 50):
+            for enabled, start_tip, reclose, expected in [
+                (True, [0.64, 0, 0.06], False, "intentional_release"),
+                (False, [0.64, 0, 0.06], False, "contact_lost"),
+                (True, [0.3, 0, 0.06], False, "contact_lost"),
+                (True, [0.64, 0, 0.2], False, "contact_lost"),
+                (True, [0.64, 0, 0.06], True, "contact_lost"),
+            ]:
+                with self.subTest(fps=fps, enabled=enabled, tip=start_tip, reclose=reclose):
+                    factory.return_value.reason = ""
+                    factory.return_value.step.return_value = np.zeros(5)
+                    learner, guard = self.executor(enabled)
+                    learner.fps = fps
+                    guard = GuardedExecutor(guard.world, learner, contact_consistency=enabled)
+                    data = guard.world.data
+                    data.ctrl[3:] = 0
+                    for _ in range(int(np.ceil(0.12 * fps))):
+                        guard.step(None, monitor_holding=True)
+                    data.site = lambda _, tip=start_tip: SimpleNamespace(xpos=np.array(tip))
+                    data.ctrl[3:] = 0.04
+                    guard.step(None, monitor_holding=True)
+                    data.site = lambda _: SimpleNamespace(xpos=np.array([0.64, 0, 0.2]))
+                    if reclose:
+                        data.ctrl[3:] = 0
+                    guard.step(None, monitor_holding=False)
+                    self.assertEqual(guard.events[-1]["event"], expected)
+                    self.assertEqual(guard.takeover_tick is None, expected == "intentional_release")
+
     def executor(self, enabled=True):
         data = SimpleNamespace(
             qpos=np.zeros(12),
