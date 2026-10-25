@@ -67,6 +67,9 @@ def run(initial, actions, lag, missing, enabled, path, view="original"):
             "reason": guard.reason,
             "frames": len(states),
             "confirmation": observer.status,
+            "confirmation_result": (
+                observer.confirmation.result() if observer.confirmation else None
+            ),
             "observations": observer.rows,
             "quality": quality.result(),
             "trace": path.name,
@@ -112,6 +115,7 @@ def main():
     hashes = {str(p): digest(p) for p in paths}
     report = {
         "status": "running",
+        "confirmation_schema_version": 2,
         "view": args.view,
         "camera_position": [0.64, 0.35, 1.2] if args.view == "offset" else [0.4, 0, 1.2],
         "source_sha256": hashes,

@@ -737,3 +737,8 @@ RELEASE_EXPANDED_OUTPUT ?= outputs/evaluations/release-offset-expanded-v2
 .PHONY: release-offset-expanded-evaluate
 release-offset-expanded-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite expanded --output "$(RELEASE_EXPANDED_OUTPUT)"
+
+RELEASE_SEMANTICS_OUTPUT ?= outputs/evaluations/release-semantics-v3
+.PHONY: release-semantics-evaluate
+release-semantics-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite expanded --output "$(RELEASE_SEMANTICS_OUTPUT)"

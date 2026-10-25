@@ -29,6 +29,7 @@ class ReleaseObserver:
                 "xyz": None if point is None else list(point),
                 "error": error,
                 "status": status,
+                "reason": self.confirmation.reason,
             }
         )
         self.next_time = timestamp + 0.2

@@ -21,6 +21,7 @@ class ReleaseObserverTests(unittest.TestCase):
         for i in range(76):
             observer.step(i / 25, [{"event": "intentional_release"}], locate)
         self.assertEqual(observer.status, "unconfirmed")
+        self.assertEqual(observer.rows[-1]["reason"], "missing_observation")
         self.assertEqual(len(observer.rows), 16)
         self.assertTrue(all(row["xyz"] is None for row in observer.rows))
         observer.step(4, [{"event": "intentional_release"}], locate)

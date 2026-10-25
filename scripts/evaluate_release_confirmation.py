@@ -71,6 +71,7 @@ def main():
     hashes = {str(p): digest(p) for p in paths}
     report = {
         "status": "running",
+        "confirmation_schema_version": 2,
         "view": args.view,
         "camera_position": [0.64, 0.35, 1.2] if args.view == "offset" else [0.4, 0, 1.2],
         "scope": "Synthetic free-drop scenes, fixed arm; not end-to-end policy validation.",
@@ -108,6 +109,7 @@ def main():
                         "truth_quaternion": world.data.qpos[8:12].tolist(),
                         "truth_inside": world.inside_box(),
                         "status": status,
+                        "reason": check.reason,
                     }
                 )
                 if status != "pending":
@@ -120,6 +122,7 @@ def main():
                 "initial_quaternion": quaternion,
                 "missing_observation": missing,
                 "status": check.status,
+                "confirmation_result": check.result(),
                 "observations": rows,
             }
             report["cases"].append(row)
@@ -134,7 +137,7 @@ def main():
     report["status"] = "complete"
     report["outcomes"] = {
         status: sum(c["status"] == status for c in report["cases"])
-        for status in ("confirmed_in_tray", "outside_tray", "unconfirmed")
+        for status in ("confirmed_in_tray", "outside_confirmation_region", "unconfirmed")
     }
     report["unconfirmed_true_goals"] = sum(
         c["status"] != "confirmed_in_tray"

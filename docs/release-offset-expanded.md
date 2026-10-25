@@ -48,3 +48,5 @@ make release-offset-expanded-evaluate RELEASE_EXPANDED_OUTPUT=outputs/evaluation
 需要 MuJoCo 图形连接，输出目录必须不存在。旧 baseline 实验集与 original 视角仍是脚本默认值。
 
 下一步优先区分“确认区域外”和“证据不足”的对外语义，再以独立场景验证边界误差容限；不能直接扩大区域以消除本轮失败。
+
+后续[结果语义 v2](release-semantics.md)将 outside_tray 更名为 outside_confirmation_region，并增加结构化原因；本页和旧报告保留原实验结果。

@@ -4,6 +4,41 @@ from embodied_agent.release_confirmation import ReleaseConfirmation
 
 
 class ReleaseConfirmationTests(unittest.TestCase):
+    def test_timeout_reasons_distinguish_region_from_missing_and_unstable(self):
+        for point, status, reason in [
+            (
+                [0.690029, 0.01666, 0.03998],
+                "outside_confirmation_region",
+                "observed_outside_confirmation_region",
+            ),
+            (
+                [0.64, 0, 0.15],
+                "outside_confirmation_region",
+                "observed_outside_confirmation_region",
+            ),
+            (None, "unconfirmed", "missing_observation"),
+            ([0.64, 0, 0.04], "unconfirmed", "insufficient_stable_evidence"),
+        ]:
+            with self.subTest(point=point):
+                check = ReleaseConfirmation(0)
+                self.assertEqual(check.observe(3, point), status)
+                self.assertEqual(
+                    check.result(), {"schema_version": 2, "status": status, "reason": reason}
+                )
+                check.observe(4, [0.64, 0, 0.04])
+                self.assertEqual(check.reason, reason)
+
+    def test_result_is_snapshot_and_success_retains_its_evidence_reason(self):
+        check = ReleaseConfirmation(0)
+        snapshot = check.result()
+        snapshot["status"] = "changed"
+        self.assertEqual(check.status, "pending")
+        for i in range(6):
+            check.observe(i / 5, [0.64, 0, 0.04])
+        self.assertEqual(check.reason, "stable_visual_evidence")
+        check.observe(2, None)
+        self.assertEqual(check.result()["status"], "confirmed_in_tray")
+
     def test_stable_goal_requires_full_second(self):
         check = ReleaseConfirmation(0)
         for t in (0, 0.2, 0.4, 0.6, 0.8):

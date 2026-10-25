@@ -14,6 +14,7 @@ class ReleaseConfirmation:
         self.previous = None
         self.since = None
         self.status = "pending"
+        self.reason = "collecting_evidence"
 
     def observe(self, timestamp, xyz):
         if not np.isfinite(timestamp) or timestamp < self.start:
@@ -47,7 +48,20 @@ class ReleaseConfirmation:
             and timestamp - self.since >= 1 - 1e-9
         ):
             self.status = "confirmed_in_tray"
+            self.reason = "stable_visual_evidence"
         elif timestamp - self.start >= 3 - 1e-9:
-            self.status = "outside_tray" if point is not None and not inside else "unconfirmed"
+            # The conservative visual region is narrower than the physical tray.
+            # Rejecting this region cannot establish an actual placement failure.
+            self.status = (
+                "outside_confirmation_region" if point is not None and not inside else "unconfirmed"
+            )
+            self.reason = (
+                "observed_outside_confirmation_region"
+                if self.status == "outside_confirmation_region"
+                else ("missing_observation" if point is None else "insufficient_stable_evidence")
+            )
         self.last_time, self.previous = timestamp, point
         return self.status
+
+    def result(self):
+        return {"schema_version": 2, "status": self.status, "reason": self.reason}
