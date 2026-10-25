@@ -35,3 +35,5 @@ make release-observer-evaluate RELEASE_OBSERVER_OUTPUT=outputs/evaluations/relea
 机器报告：[开关对照及逐次观测](evaluations/release-observer-v1.json)。原始 NPZ 位于 outputs/evaluations/release-observer-v1，未纳入 Git。报告保存源代码和输入哈希；开启视觉的结果不用于修改控制动作。
 
 下一步应设计独立的撤臂观测姿态或第二视角，先验证无碰撞与可见性，再评估是否能在限定时间内取得连续落点证据。
+
+后续[偏置观测视角对照](release-offset-view.md)在不改变动作的条件下解除本场景的遮挡，旧报告及失败结论保留。

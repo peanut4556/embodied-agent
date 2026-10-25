@@ -1,0 +1,672 @@
+{
+  "status": "complete",
+  "view": "offset",
+  "camera_position": [
+    0.64,
+    0.35,
+    1.2
+  ],
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_release_observer.py": "8ebfbd3eaf71c916bd0fcc199058af126041d599337099981d0a87b142cbd568",
+    "config/contact-delayed-release.json": "2620bc967ad8c7c702f697c5c98cc8710d8ebbad30ea548ded5684ada7ef4067",
+    "scripts/audit_contact_watchdog.py": "f9b385e2cb2f69fc996a5fb102f00fe375580b5208a2734a48ae1f05e465963c",
+    "scripts/evaluate_contact_faults.py": "73a569f28895049100dbe708d3d4fc975d307c4345c0613ed91affed22f8e429",
+    "scripts/evaluate_recovery_positives.py": "029005c3ea57787a3e71c90cecd64545bbdc080127b132967f3703f890896a52",
+    "src/embodied_agent/release_observer.py": "589b967edbd98b1ffa1cbec6a9ab8cb65193785e0a6d04978c55da876cba05ce",
+    "src/embodied_agent/release_confirmation.py": "44e4cbc8ebcec5782bcd071216af86ff65d506c4cb1bc8f5a26bd318025370bd",
+    "src/embodied_agent/contact_watchdog.py": "52d5e98642a61e891f84312e0abfcd85071dee6868e581ff9b2f5f60a70fa055",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/grasp_quality.py": "b189cef7b266d3ede48eea2176040c90532ebd4515dd4276d9d1cd52a622619c",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "inputs_sha256": {
+    "outputs/datasets/corrections-contact-oriented-v1/recording.json": "1b6be5746767431baeaf4a08ab103046a5a2b9d2a2e66abbb66b47947cf0411a",
+    "outputs/evaluations/contact-watchdog-v1-verified/parent-baseline.npz": "37d4e77e082b0f3bbf909caf2cd9ef6ad885ac9ac31c30a13322ec0bfa35f0fe",
+    "outputs/evaluations/contact-watchdog-v1-verified/replay-baseline.npz": "d80b5b4d343be713bfa8c4ca7fe5dc63da8af8155750ac3d74ab464508e364fa",
+    "src/embodied_agent/contact_watchdog.py": "52d5e98642a61e891f84312e0abfcd85071dee6868e581ff9b2f5f60a70fa055",
+    "docs/evaluations/contact-consistency-v1.json": "29ed91e419daebbd45782fce914aebd09fceb5812d29810e681bee3eceff5307"
+  },
+  "cases": [
+    {
+      "name": "nominal",
+      "identical_execution": true,
+      "expected": "confirmed_in_tray",
+      "matches_expected": true,
+      "off": {
+        "release_tick": 191,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 191,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 272,
+        "confirmation": "not_started",
+        "observations": [],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "nominal-False.npz",
+        "trace_sha256": "10b99c2b5c96ee0cd172e269fc7962dc98871e5681ebd239b368fddc6b442967"
+      },
+      "on": {
+        "release_tick": 191,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 191,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 272,
+        "confirmation": "confirmed_in_tray",
+        "observations": [
+          {
+            "time": 8.139999999999388,
+            "xyz": null,
+            "error": "vision target size inconsistent or substantially occluded",
+            "status": "pending"
+          },
+          {
+            "time": 8.339999999999455,
+            "xyz": [
+              0.6654658510467639,
+              -0.0006448349818991284,
+              0.03998606204986568
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 8.539999999999521,
+            "xyz": [
+              0.6654658521269099,
+              -0.0006451946705290368,
+              0.03998451232910152
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 8.739999999999588,
+            "xyz": [
+              0.6654658521269099,
+              -0.0006451946705290368,
+              0.03998451232910152
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 8.939999999999655,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.139999999999722,
+            "xyz": [
+              0.6654657424663695,
+              -0.0006436847292420333,
+              0.0399893999099731
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.339999999999788,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "confirmed_in_tray"
+          }
+        ],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "nominal-True.npz",
+        "trace_sha256": "10b99c2b5c96ee0cd172e269fc7962dc98871e5681ebd239b368fddc6b442967"
+      }
+    },
+    {
+      "name": "lag9",
+      "identical_execution": true,
+      "expected": "confirmed_in_tray",
+      "matches_expected": true,
+      "off": {
+        "release_tick": 200,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 200,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 281,
+        "confirmation": "not_started",
+        "observations": [],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "lag9-False.npz",
+        "trace_sha256": "c38586bd2797bb2c225b47b8f8a34d9e675304a68a1df52a64449e8ae5f99a7e"
+      },
+      "on": {
+        "release_tick": 200,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 200,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 281,
+        "confirmation": "confirmed_in_tray",
+        "observations": [
+          {
+            "time": 8.499999999999508,
+            "xyz": [
+              0.6654658521269099,
+              -0.0006451946705290368,
+              0.03998451232910152
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 8.699999999999575,
+            "xyz": [
+              0.6654658521269099,
+              -0.0006451946705290368,
+              0.03998451232910152
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 8.899999999999642,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.099999999999708,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.299999999999775,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.499999999999842,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "confirmed_in_tray"
+          }
+        ],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "lag9-True.npz",
+        "trace_sha256": "c38586bd2797bb2c225b47b8f8a34d9e675304a68a1df52a64449e8ae5f99a7e"
+      }
+    },
+    {
+      "name": "early_missing",
+      "identical_execution": true,
+      "expected": "confirmed_in_tray",
+      "matches_expected": true,
+      "off": {
+        "release_tick": 191,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 191,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 272,
+        "confirmation": "not_started",
+        "observations": [],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "early_missing-False.npz",
+        "trace_sha256": "10b99c2b5c96ee0cd172e269fc7962dc98871e5681ebd239b368fddc6b442967"
+      },
+      "on": {
+        "release_tick": 191,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 191,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 272,
+        "confirmation": "confirmed_in_tray",
+        "observations": [
+          {
+            "time": 8.139999999999388,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 8.339999999999455,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 8.539999999999521,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 8.739999999999588,
+            "xyz": [
+              0.6654658521269099,
+              -0.0006451946705290368,
+              0.03998451232910152
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 8.939999999999655,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.139999999999722,
+            "xyz": [
+              0.6654657424663695,
+              -0.0006436847292420333,
+              0.0399893999099731
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.339999999999788,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.539999999999855,
+            "xyz": [
+              0.6654657959593161,
+              -0.0006444212859674225,
+              0.03998701572418208
+            ],
+            "error": null,
+            "status": "pending"
+          },
+          {
+            "time": 9.739999999999922,
+            "xyz": [
+              0.6654658521269099,
+              -0.0006451946705290368,
+              0.03998451232910152
+            ],
+            "error": null,
+            "status": "confirmed_in_tray"
+          }
+        ],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "early_missing-True.npz",
+        "trace_sha256": "10b99c2b5c96ee0cd172e269fc7962dc98871e5681ebd239b368fddc6b442967"
+      }
+    },
+    {
+      "name": "all_missing",
+      "identical_execution": true,
+      "expected": "unconfirmed",
+      "matches_expected": true,
+      "off": {
+        "release_tick": 191,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 191,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 272,
+        "confirmation": "not_started",
+        "observations": [],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "all_missing-False.npz",
+        "trace_sha256": "10b99c2b5c96ee0cd172e269fc7962dc98871e5681ebd239b368fddc6b442967"
+      },
+      "on": {
+        "release_tick": 191,
+        "takeover_tick": null,
+        "events": [
+          {
+            "tick": 191,
+            "event": "intentional_release"
+          }
+        ],
+        "reason": "",
+        "frames": 272,
+        "confirmation": "unconfirmed",
+        "observations": [
+          {
+            "time": 8.139999999999388,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 8.339999999999455,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 8.539999999999521,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 8.739999999999588,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 8.939999999999655,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 9.139999999999722,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 9.339999999999788,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 9.539999999999855,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 9.739999999999922,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 9.939999999999989,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 10.140000000000056,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 10.340000000000122,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 10.54000000000019,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 10.740000000000256,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 10.940000000000323,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "pending"
+          },
+          {
+            "time": 11.14000000000039,
+            "xyz": null,
+            "error": "injected missing observation",
+            "status": "unconfirmed"
+          }
+        ],
+        "quality": {
+          "verified_pick_place": true,
+          "stable_goal": true,
+          "stable_grasp_observed": true,
+          "sustained_lift": true,
+          "intentional_release": true,
+          "max_height_m": 0.2663310079405613,
+          "classification": "verified_pick_place",
+          "events": [
+            {
+              "tick": 87,
+              "event": "stable_bilateral_grasp"
+            },
+            {
+              "tick": 100,
+              "event": "sustained_lift"
+            },
+            {
+              "tick": 191,
+              "event": "intentional_release_at_tray"
+            }
+          ]
+        },
+        "trace": "all_missing-True.npz",
+        "trace_sha256": "10b99c2b5c96ee0cd172e269fc7962dc98871e5681ebd239b368fddc6b442967"
+      }
+    }
+  ]
+}

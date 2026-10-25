@@ -16,9 +16,14 @@ from scripts.evaluate_contact_faults import ContactFaultSignal
 from scripts.evaluate_recovery_positives import ReplayLearner
 
 
-def run(initial, actions, lag, missing, enabled, path):
+def run(initial, actions, lag, missing, enabled, path, view="original"):
+    if view not in {"original", "offset"}:
+        raise ValueError("unknown observation view")
     world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
     try:
+        # Diagnostic virtual camera only; geometry and control inputs are unchanged.
+        if view == "offset":
+            world.model.camera("perception").pos[:] = [0.64, 0.35, 1.2]
         restore(world, initial)
         guard = GuardedExecutor(world, ReplayLearner(actions, 1), 4, True, True)
         observer = ReleaseObserver()
@@ -74,6 +79,7 @@ def run(initial, actions, lag, missing, enabled, path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
+    parser.add_argument("--view", choices=("original", "offset"), default="original")
     args = parser.parse_args()
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
@@ -106,6 +112,8 @@ def main():
     hashes = {str(p): digest(p) for p in paths}
     report = {
         "status": "running",
+        "view": args.view,
+        "camera_position": [0.64, 0.35, 1.2] if args.view == "offset" else [0.4, 0, 1.2],
         "source_sha256": hashes,
         "inputs_sha256": config["inputs_sha256"],
         "cases": [],
@@ -119,7 +127,15 @@ def main():
         pair = []
         for enabled in (False, True):
             pair.append(
-                run(initial, actions, lag, missing, enabled, output / f"{name}-{enabled}.npz")
+                run(
+                    initial,
+                    actions,
+                    lag,
+                    missing,
+                    enabled,
+                    output / f"{name}-{enabled}.npz",
+                    args.view,
+                )
             )
         with np.load(output / pair[0]["trace"]) as off, np.load(output / pair[1]["trace"]) as on:
             same = all(np.array_equal(off[k], on[k]) for k in ("qpos", "actions"))

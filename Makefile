@@ -726,3 +726,9 @@ release-observer-test:
 
 release-observer-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_observer.py --output "$(RELEASE_OBSERVER_OUTPUT)"
+
+RELEASE_OFFSET_OUTPUT ?= outputs/evaluations/release-offset-v2
+.PHONY: release-offset-view-evaluate
+release-offset-view-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_observer.py --view offset --output "$(RELEASE_OFFSET_OUTPUT)-playback"
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --output "$(RELEASE_OFFSET_OUTPUT)-landings"

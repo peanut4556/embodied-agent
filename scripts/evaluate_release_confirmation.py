@@ -25,6 +25,7 @@ CASES = [
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
+    parser.add_argument("--view", choices=("original", "offset"), default="original")
     args = parser.parse_args()
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
@@ -44,6 +45,8 @@ def main():
     hashes = {str(p): digest(p) for p in paths}
     report = {
         "status": "running",
+        "view": args.view,
+        "camera_position": [0.64, 0.35, 1.2] if args.view == "offset" else [0.4, 0, 1.2],
         "scope": "Six synthetic free-drop scenes, fixed arm; not end-to-end policy validation.",
         "source_sha256": hashes,
         "cases": [],
@@ -51,6 +54,8 @@ def main():
     for name, position, missing in CASES:
         world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
         try:
+            if args.view == "offset":
+                world.model.camera("perception").pos[:] = [0.64, 0.35, 1.2]
             world.data.qpos[5:8] = position
             world.data.qpos[8:12] = [1, 0, 0, 0]
             world.data.qvel[:] = 0
