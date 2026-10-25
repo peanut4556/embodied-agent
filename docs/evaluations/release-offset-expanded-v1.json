@@ -1,0 +1,6660 @@
+{
+  "status": "complete",
+  "view": "offset",
+  "camera_position": [
+    0.64,
+    0.35,
+    1.2
+  ],
+  "scope": "Synthetic free-drop scenes, fixed arm; not end-to-end policy validation.",
+  "suite": "expanded",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_release_confirmation.py": "a29eb149329c69307ee1de01a5e69e4e17e2f2a19aea76fa23910908834f7d4e",
+    "src/embodied_agent/release_confirmation.py": "44e4cbc8ebcec5782bcd071216af86ff65d506c4cb1bc8f5a26bd318025370bd",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+    "scripts/audit_contact_watchdog.py": "f9b385e2cb2f69fc996a5fb102f00fe375580b5208a2734a48ae1f05e465963c"
+  },
+  "cases": [
+    {
+      "name": "grid-0-0",
+      "initial_xyz": [
+        0.575,
+        -0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "unconfirmed",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.5753188036658231,
+            -0.054402815816978006,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.575,
+            -0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5909353203965204,
+            -0.05499339763384759,
+            0.049747544251673506
+          ],
+          "truth_quaternion": [
+            0.9481094099848548,
+            -3.484125903793701e-06,
+            0.31794425070536814,
+            1.1376832293591572e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828430183523717,
+            -0.054993819645395445,
+            0.04784030780416783
+          ],
+          "truth_quaternion": [
+            0.9793151039568453,
+            1.9336386843589783e-07,
+            0.20234111580907818,
+            3.885010115880772e-06
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828485837201732,
+            -0.054993852384890185,
+            0.04783565275555471
+          ],
+          "truth_quaternion": [
+            0.9793953357988079,
+            2.0555108226964075e-07,
+            0.2019524107676107,
+            8.059681684484323e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828378645016815,
+            -0.0549938506048506,
+            0.0478235961594729
+          ],
+          "truth_quaternion": [
+            0.9794885423058802,
+            1.2469940025612732e-07,
+            0.20149986474264817,
+            4.247641035431292e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828253023050519,
+            -0.05499384845597459,
+            0.04781073956630996
+          ],
+          "truth_quaternion": [
+            0.9795872851417797,
+            6.49213445835924e-08,
+            0.2010192796437788,
+            2.2005713998788473e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828122782545633,
+            -0.05499384728066788,
+            0.047797640877865415
+          ],
+          "truth_quaternion": [
+            0.9796873795535731,
+            3.3569993742125326e-08,
+            0.20053089124481496,
+            1.136349009054473e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827990803043449,
+            -0.05499384666295169,
+            0.04778441379963231
+          ],
+          "truth_quaternion": [
+            0.9797879533605169,
+            1.7338350438937286e-08,
+            0.2000389123385852,
+            5.861726358478655e-08
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827857676306656,
+            -0.054993846340416035,
+            0.04777108122246034
+          ],
+          "truth_quaternion": [
+            0.9798888259661847,
+            8.949279470391185e-09,
+            0.19954420248809462,
+            3.02177899344912e-08
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827718855422763,
+            -0.05499413857961484,
+            0.04775745850651726
+          ],
+          "truth_quaternion": [
+            0.9799913576509558,
+            5.544721242958431e-06,
+            0.19904004344585435,
+            -1.9404547027612375e-06
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.582758437081859,
+            -0.05499376355813085,
+            0.0477439492092187
+          ],
+          "truth_quaternion": [
+            0.9800925425135764,
+            -1.5160471354053613e-06,
+            0.19854120002303502,
+            6.241776174749472e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827447892290372,
+            -0.05499395218672967,
+            0.047730298321565695
+          ],
+          "truth_quaternion": [
+            0.9801942721520465,
+            2.022781545694248e-06,
+            0.1980383519261492,
+            -1.6138885476329149e-06
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827312022544194,
+            -0.05499382777333191,
+            0.04771661040910057
+          ],
+          "truth_quaternion": [
+            0.9802957697202338,
+            -2.791400779989991e-07,
+            0.19753532308908583,
+            7.912723242514271e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827171094954091,
+            -0.0549937286233622,
+            0.047702653346642525
+          ],
+          "truth_quaternion": [
+            0.9803987184507353,
+            -2.1559876642674523e-06,
+            0.19702373677982546,
+            9.057625778266074e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827029439919366,
+            -0.054993586081966465,
+            0.04768860313604775
+          ],
+          "truth_quaternion": [
+            0.9805018242578863,
+            -4.878648641216312e-06,
+            0.1965099809233836,
+            8.040143571544373e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826887939832176,
+            -0.05499353245415443,
+            0.04767449261507972
+          ],
+          "truth_quaternion": [
+            0.9806048717197019,
+            -6.1542502986086385e-06,
+            0.1959951160646674,
+            7.134577977582825e-07
+          ],
+          "truth_inside": false,
+          "status": "unconfirmed"
+        }
+      ]
+    },
+    {
+      "name": "grid-0-1",
+      "initial_xyz": [
+        0.575,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "unconfirmed",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.575360967783556,
+            0.0004029806885285925,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.575,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5891383299271203,
+            -4.8622291376699346e-17,
+            0.049446826095753814
+          ],
+          "truth_quaternion": [
+            0.9564767939498984,
+            -5.966437397757125e-18,
+            0.291808400556465,
+            -2.251761338905617e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828432845146528,
+            -4.327333429330237e-17,
+            0.047834042520568575
+          ],
+          "truth_quaternion": [
+            0.9793891278065081,
+            -1.4370503001554192e-18,
+            0.20198251492247085,
+            -3.1520352483763273e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828390584446894,
+            -4.3012282681182673e-17,
+            0.04782562970329546
+          ],
+          "truth_quaternion": [
+            0.9794728056678913,
+            -2.421663216305689e-18,
+            0.20157634523194334,
+            -1.012442168614148e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5828183663066898,
+            -1.5801694822259308e-17,
+            0.04781269330457313
+          ],
+          "truth_quaternion": [
+            0.9796147178825336,
+            -7.049175536055709e-18,
+            0.20088555076939976,
+            -1.2531495178538375e-16
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.582803806407451,
+            2.017113503134091e-14,
+            0.047792130392235746
+          ],
+          "truth_quaternion": [
+            0.9797296392859488,
+            2.7112397738175786e-14,
+            0.2003243217999901,
+            -1.3971621501702305e-13
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827944048579736,
+            2.3143292879120512e-14,
+            0.047780336675885444
+          ],
+          "truth_quaternion": [
+            0.979818806554083,
+            -2.1875430627747573e-14,
+            0.1998877342983579,
+            -7.735777204038263e-14
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.582781859645299,
+            2.2797179811331565e-14,
+            0.04776729575603962
+          ],
+          "truth_quaternion": [
+            0.9799173648835594,
+            -1.1881803555557912e-14,
+            0.19940400697995309,
+            -4.015596976389617e-14
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827685840128654,
+            2.257694338999668e-14,
+            0.0477539013761285
+          ],
+          "truth_quaternion": [
+            0.980018066387866,
+            -6.144554224529886e-15,
+            0.19890849542789463,
+            -2.071115917194746e-14
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827491938085381,
+            2.2462822569010088e-14,
+            0.04773652133086957
+          ],
+          "truth_quaternion": [
+            0.9801477018001965,
+            -1.6043420202315882e-15,
+            0.19826871325499848,
+            -5.9449641350408704e-15
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.582738268316637,
+            2.2444741895024975e-14,
+            0.04772396311896173
+          ],
+          "truth_quaternion": [
+            0.980241294125932,
+            -9.284379240865568e-16,
+            0.19780547335783438,
+            -3.128146561311199e-15
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827109508423713,
+            2.2423332719640068e-14,
+            0.04770401286026095
+          ],
+          "truth_quaternion": [
+            0.9803861758889965,
+            -3.8379955044655234e-16,
+            0.19708613884733037,
+            -1.5007225513975901e-15
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827068127882463,
+            2.242064780164254e-14,
+            0.04769329307156958
+          ],
+          "truth_quaternion": [
+            0.9804673935520672,
+            -1.381449104720951e-16,
+            0.1966816976264331,
+            -4.756454441341311e-16
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.582691803946262,
+            2.2417301535371356e-14,
+            0.047684124308256685
+          ],
+          "truth_quaternion": [
+            0.9805748408290929,
+            -3.942372224076735e-17,
+            0.1961453071908688,
+            -2.0962422468363963e-16
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826755660688232,
+            2.0013564643293987e-14,
+            0.04766244406235093
+          ],
+          "truth_quaternion": [
+            0.9806923206067105,
+            2.4889036253279808e-15,
+            0.19555708195569352,
+            1.1024858646758997e-14
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826636043633651,
+            2.0026953598395527e-14,
+            0.04764912002958883
+          ],
+          "truth_quaternion": [
+            0.9807887661979211,
+            1.7226814752532718e-15,
+            0.19507279692453444,
+            5.791375596541674e-15
+          ],
+          "truth_inside": true,
+          "status": "unconfirmed"
+        }
+      ]
+    },
+    {
+      "name": "grid-0-2",
+      "initial_xyz": [
+        0.575,
+        0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "unconfirmed",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.575360967783556,
+            0.055027514955946016,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.575,
+            0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.590823350319998,
+            0.0549934093446368,
+            0.04973160494323917
+          ],
+          "truth_quaternion": [
+            0.9486474923891147,
+            7.589752810551343e-06,
+            0.31633516204892076,
+            -1.943510335388057e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827412570583419,
+            0.054994384210013174,
+            0.04774680825147222
+          ],
+          "truth_quaternion": [
+            0.9799951663783117,
+            -3.4817274229097294e-07,
+            0.1990212899121964,
+            -6.058710762708394e-06
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827589398783178,
+            0.05499443090601395,
+            0.04774642763236748
+          ],
+          "truth_quaternion": [
+            0.9800736026333409,
+            -2.539967864474531e-07,
+            0.19863467325748682,
+            -1.0632859427890754e-06
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827483047529414,
+            0.05499442951004226,
+            0.0477340493239894
+          ],
+          "truth_quaternion": [
+            0.9801663515294271,
+            -1.661956262555484e-07,
+            0.19817649540030752,
+            -5.623549298580953e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827352467194937,
+            0.05499442649700638,
+            0.04772059461893058
+          ],
+          "truth_quaternion": [
+            0.9802662861134174,
+            -8.647141506753428e-08,
+            0.19768158313134687,
+            -2.9066092785563823e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827212067603766,
+            0.05499437525796772,
+            0.04770667718609902
+          ],
+          "truth_quaternion": [
+            0.9803690949593193,
+            8.587326326224655e-07,
+            0.19717108725048252,
+            -6.081427553542433e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5827070590194301,
+            0.05499426615610506,
+            0.04769265239686254
+          ],
+          "truth_quaternion": [
+            0.9804721654115381,
+            2.925958306770997e-06,
+            0.19665790816585704,
+            -6.924122198167299e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826928872271325,
+            0.054994182126270774,
+            0.04767855386650589
+          ],
+          "truth_quaternion": [
+            0.9805752480146818,
+            4.524638309779721e-06,
+            0.19614327151344566,
+            -6.886473703562849e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826787221470542,
+            0.054994184498523196,
+            0.04766439353511476
+          ],
+          "truth_quaternion": [
+            0.9806782514713882,
+            4.471810316177093e-06,
+            0.19562762348513332,
+            -7.635108642364829e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.582664551668913,
+            0.05499425829413554,
+            0.047650166074347765
+          ],
+          "truth_quaternion": [
+            0.9807812110514861,
+            3.054672015124737e-06,
+            0.19511077888787057,
+            -9.040782066051926e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826503335484166,
+            0.054994338450536466,
+            0.04763585379681619
+          ],
+          "truth_quaternion": [
+            0.9808842499794707,
+            1.522609238199995e-06,
+            0.19459210708274374,
+            -9.952494310254085e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826355770170822,
+            0.054994639173550186,
+            0.04762125180151768
+          ],
+          "truth_quaternion": [
+            0.9809888066059165,
+            -4.179933726975133e-06,
+            0.19406432257192377,
+            1.0621348627112167e-06
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5826209565804401,
+            0.054994237544057176,
+            0.047606632528157715
+          ],
+          "truth_quaternion": [
+            0.9810932589722717,
+            5.305561629381328e-06,
+            0.19353557081503991,
+            -5.596659670264772e-07
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.582606504260481,
+            0.0549943382690843,
+            0.047592029336049585
+          ],
+          "truth_quaternion": [
+            0.9811964271384374,
+            1.5224409126147767e-06,
+            0.19301184255722822,
+            -1.0540179944869667e-06
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.5825916683143062,
+            0.054994498303513294,
+            0.04757719102019223
+          ],
+          "truth_quaternion": [
+            0.9813010099798308,
+            -1.5016094538178315e-06,
+            0.19247942178076058,
+            1.119259153738788e-06
+          ],
+          "truth_inside": false,
+          "status": "unconfirmed"
+        }
+      ]
+    },
+    {
+      "name": "grid-1-0",
+      "initial_xyz": [
+        0.61,
+        -0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.6099308599369797,
+            -0.054402815816978006,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.6096331641799322,
+            -0.05456429970674809,
+            0.03984587192535396
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.05497309757624298,
+            0.03984795909573398
+          ],
+          "truth_quaternion": [
+            0.9999999997506955,
+            2.2329542030017098e-05,
+            -3.24221156539647e-17,
+            -8.492660648156363e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.609636999367021,
+            -0.05451352456194683,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878465900625,
+            0.039991065527717605
+          ],
+          "truth_quaternion": [
+            1.0,
+            2.0651521784623956e-09,
+            -2.898945074310467e-19,
+            -8.49266114836132e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.0549718783530106,
+            0.03999041234521666
+          ],
+          "truth_quaternion": [
+            1.0,
+            3.2227039875893497e-13,
+            1.891185431093777e-19,
+            -8.492661148257657e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.03999041224242485
+          ],
+          "truth_quaternion": [
+            1.0,
+            5.030856503138325e-17,
+            1.1601093392101726e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            9.194573470919219e-18,
+            -3.3942586988959726e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.348995021771401e-17,
+            -1.7201457735333658e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2793379042888546e-17,
+            5.288434773685826e-20,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3000114390048984e-17,
+            1.8817606509183298e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0961550386400613e-17,
+            9.363761307593486e-20,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.449256537563963e-17,
+            -7.184960828432234e-20,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2158654512738416e-17,
+            -4.482249419512205e-21,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0046481943977805e-17,
+            1.8899606386900631e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3607896304781728e-17,
+            6.201464465357188e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.292152372640431e-17,
+            1.802164713832448e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.6096368686179151,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.27520755329601e-17,
+            -2.651553738884954e-19,
+            -8.492661148257629e-16
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-1-1",
+      "initial_xyz": [
+        0.61,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "confirmed_in_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.6099565061529204,
+            0.0004029806885285925,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.609633223587964,
+            0.0002922845452635048,
+            0.039848256111144974
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6100000000000378,
+            3.6903549884780684e-14,
+            0.03985120660283785
+          ],
+          "truth_quaternion": [
+            1.0,
+            3.082060882820518e-14,
+            -3.158318109983097e-14,
+            8.014412636730852e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.6096368686179151,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6100000000000391,
+            3.858619185290305e-14,
+            0.03999039035881004
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0062877133662245e-17,
+            -7.278595852747861e-18,
+            8.013766587822702e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.6096368686179151,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6100000000000391,
+            3.859099690422557e-14,
+            0.039990412238964844
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2133081403644085e-17,
+            -1.69928143033614e-19,
+            8.013775038990834e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.6096368686179151,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6100000000000391,
+            3.859592029002251e-14,
+            0.039990412242408124
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1925752615865292e-17,
+            2.352906972904628e-19,
+            8.013776867599005e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.6096368686179151,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6100000000000391,
+            3.8600766094749536e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2367416315687937e-17,
+            -4.4089497988789655e-20,
+            8.013808516715318e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.6096368686179151,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6100000000000391,
+            3.86055601966063e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.173269908059864e-17,
+            2.1426820680777093e-19,
+            8.013803107846703e-27
+          ],
+          "truth_inside": true,
+          "status": "confirmed_in_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-1-2",
+      "initial_xyz": [
+        0.61,
+        0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.6099565061529204,
+            0.055027514955946016,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.6096331630997861,
+            0.052209320644553,
+            0.03984575271606441
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.05496129413198873,
+            0.03984744490014454
+          ],
+          "truth_quaternion": [
+            0.9999999997986782,
+            -2.0065974283208027e-05,
+            4.3880683566860885e-17,
+            -2.645110602027206e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.05496019867807995,
+            0.039990389768276395
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -3.1244096721054546e-09,
+            -1.632949494952767e-19,
+            -2.645115976711073e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.05496019850728756,
+            0.03999041223887187
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -4.875653175444627e-13,
+            1.5088038179296491e-19,
+            -2.645115977378506e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240806
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -7.599454602166714e-17,
+            -3.040033480108484e-19,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.251928885393838e-17,
+            2.5596769871661615e-19,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.2198048669844823e-17,
+            -1.2524498145874023e-19,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.2000497993593628e-17,
+            8.501590023122482e-20,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.2588672863556355e-17,
+            1.537350031467681e-20,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.0656745662355398e-17,
+            3.707604033766359e-21,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.3564659226027152e-17,
+            9.451065955178219e-20,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.071283104257395e-17,
+            1.9932643873657208e-19,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            9.946036201268887e-18,
+            1.7206970622016752e-19,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.2887228977774192e-17,
+            1.5509913743122812e-19,
+            -2.645115977378451e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            9.940831205835455e-18,
+            -8.613878302779417e-20,
+            -2.6451159773784505e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.6096368686179151,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.61,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.2492286069371265e-17,
+            2.330867936328524e-19,
+            -2.6451159773784505e-16
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-2-0",
+      "initial_xyz": [
+        0.64,
+        -0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.64,
+            -0.054402815816978006,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.64,
+            -0.05456429970674809,
+            0.03984587192535396
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.05497309757624298,
+            0.03984795909573398
+          ],
+          "truth_quaternion": [
+            0.9999999997506955,
+            2.232954203001788e-05,
+            -3.2757330664413803e-17,
+            -8.494934287198612e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.64,
+            -0.05451352456194683,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878465900625,
+            0.039991065527717605
+          ],
+          "truth_quaternion": [
+            1.0,
+            2.065152178398634e-09,
+            6.596395654218075e-20,
+            -8.494937631324343e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.0549718783530106,
+            0.03999041234521666
+          ],
+          "truth_quaternion": [
+            1.0,
+            3.222704344292029e-13,
+            1.6419312170644515e-19,
+            -8.494937630827615e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.03999041224242485
+          ],
+          "truth_quaternion": [
+            1.0,
+            5.023331256472872e-17,
+            -1.6839465141710425e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2489586173493217e-17,
+            2.2253880372245616e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3135154883910975e-17,
+            6.285371386650367e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.4792091015500747e-17,
+            2.5051746612935903e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1938410747709892e-17,
+            -8.445481145468641e-20,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.422598440251498e-17,
+            3.4439975931573494e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.289994566512267e-17,
+            7.887712281664419e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3365941951355524e-17,
+            -1.9479846585317696e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.6004718879268922e-17,
+            5.1554084088927635e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2045812844618387e-17,
+            -8.21195633651462e-20,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.297133144820801e-17,
+            3.7338059512973367e-19,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.64,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.194269875074205e-17,
+            -7.254526216502404e-20,
+            -8.494937630827619e-16
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-2-1",
+      "initial_xyz": [
+        0.64,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "confirmed_in_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.64,
+            0.0004029806885285925,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.64,
+            0.0002922845452635048,
+            0.039848256111144974
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000379,
+            3.690354988478065e-14,
+            0.03985120660283785
+          ],
+          "truth_quaternion": [
+            1.0,
+            3.082060882820622e-14,
+            -3.158318109982959e-14,
+            8.022592134133513e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.64,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.858619185290262e-14,
+            0.03999039035881004
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0062877141541183e-17,
+            -7.278595845241748e-18,
+            8.021700558184895e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.64,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.859099690422483e-14,
+            0.039990412238964844
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2133081411569952e-17,
+            -1.6992813259677281e-19,
+            8.021702565518629e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.64,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.859592448167785e-14,
+            0.039990412242408124
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1821800382653742e-17,
+            1.4020207301355913e-19,
+            8.021704204812544e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.64,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.860089047883972e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0625462908419092e-17,
+            4.190629327929225e-19,
+            8.021709172239783e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.64,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.860578361324645e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1749083708591055e-17,
+            -3.364371723312144e-20,
+            8.021707259969091e-27
+          ],
+          "truth_inside": true,
+          "status": "confirmed_in_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-2-2",
+      "initial_xyz": [
+        0.64,
+        0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.64,
+            0.055027514955946016,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.64,
+            0.052209320644553,
+            0.03984575271606441
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.05496129413198873,
+            0.03984744490014454
+          ],
+          "truth_quaternion": [
+            0.9999999997986782,
+            -2.0065974283207112e-05,
+            3.718267071728079e-17,
+            -2.405138199985765e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.05496019867807995,
+            0.039990389768276395
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -3.1244096720275665e-09,
+            4.04311619068264e-19,
+            -2.4051357722137717e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.05496019850728756,
+            0.03999041223887187
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -4.875655535738306e-13,
+            -3.2231692193613653e-19,
+            -2.405135771822558e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240806
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -7.577797349867363e-17,
+            -1.4988677577870203e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.2040068621855153e-17,
+            -8.727599979381773e-20,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.0632274566237195e-17,
+            -2.6529884614871868e-20,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.241341159445766e-17,
+            -2.6404649798041115e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.0840117692665032e-17,
+            -5.781217350756641e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.4961082050799597e-17,
+            5.190841981061857e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1005048452899856e-17,
+            2.6356968643052966e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1461344872928015e-17,
+            1.5422655912854598e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            9.283474123424963e-18,
+            4.319504017101713e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1801089392144054e-17,
+            -7.3224810185967e-20,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.3036588453694922e-17,
+            5.737391386765625e-20,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.64,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.2225237201718424e-17,
+            4.0282226089345743e-19,
+            -2.405135771822562e-16
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-3-0",
+      "initial_xyz": [
+        0.675,
+        -0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.6746237926750618,
+            -0.054402815816978006,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.6752647094641757,
+            -0.05456429970674809,
+            0.03984587192535396
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.05497309757624298,
+            0.03984795909573398
+          ],
+          "truth_quaternion": [
+            0.9999999997506955,
+            2.232954203001745e-05,
+            -3.234666204942703e-17,
+            -8.494881160936327e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.6752602587995886,
+            -0.05451352456194683,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878465900625,
+            0.039991065527717605
+          ],
+          "truth_quaternion": [
+            1.0,
+            2.0651521787213048e-09,
+            1.454859572138275e-19,
+            -8.494886558762028e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.0549718783530106,
+            0.03999041234521666
+          ],
+          "truth_quaternion": [
+            1.0,
+            3.222701102674043e-13,
+            1.3626950445750297e-19,
+            -8.494886558757188e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.03999041224242485
+          ],
+          "truth_quaternion": [
+            1.0,
+            5.038780696819158e-17,
+            -1.9666681236191278e-19,
+            -8.494886558757177e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0761979264163051e-17,
+            -1.117866783903346e-19,
+            -8.494886558757177e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2778385870499725e-17,
+            -7.182132517761867e-19,
+            -8.494886558757177e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3692663276533419e-17,
+            5.305733834860052e-20,
+            -8.494886558757177e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2649918939434297e-17,
+            3.4487430624528083e-19,
+            -8.494886558757177e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.4225124018335032e-17,
+            1.3982086019907292e-19,
+            -8.494886558757178e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3266444944418361e-17,
+            -1.1692767505846959e-19,
+            -8.494886558757178e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.4206086567625152e-17,
+            2.3656560098248305e-19,
+            -8.494886558757178e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3026302176289519e-17,
+            -2.5950367323212975e-19,
+            -8.494886558757178e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3132114511390638e-17,
+            2.7737390878040005e-19,
+            -8.494886558757178e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1149499907547217e-17,
+            -1.5287762526150095e-19,
+            -8.494886558757178e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.67526041063726,
+            -0.05451526647745386,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            -0.054971878352993025,
+            0.0399904122424087
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3460194353664275e-17,
+            5.19337251315457e-19,
+            -8.494886558757178e-16
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-3-1",
+      "initial_xyz": [
+        0.675,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "confirmed_in_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.6745955383693644,
+            0.0004029806885285925,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.6742850701426213,
+            0.0002922845452635048,
+            0.039848256111144974
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6750000000000379,
+            3.690353394772828e-14,
+            0.03985120660283785
+          ],
+          "truth_quaternion": [
+            1.0,
+            3.082007160122251e-14,
+            -3.1583310957014464e-14,
+            8.012544121793924e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.67526041063726,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6750000000000391,
+            3.8586141121484286e-14,
+            0.03999039035881004
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0104733199713207e-17,
+            -6.846560712981762e-18,
+            8.012303479824536e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.67526041063726,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6750000000000391,
+            3.8590883611148335e-14,
+            0.039990412238964844
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.152780298163757e-17,
+            -4.442052285226676e-19,
+            8.01229794053626e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.67526041063726,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6750000000000391,
+            3.859580551604446e-14,
+            0.039990412242408124
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.4293265947769626e-17,
+            1.1428923672372304e-19,
+            8.012293627024757e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.67526041063726,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6750000000000391,
+            3.8600719189997065e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2072391739225659e-17,
+            1.6471913799716212e-19,
+            8.0123084288116e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.67526041063726,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6750000000000391,
+            3.8605688742460245e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.4134601505269998e-17,
+            2.6140425494354363e-19,
+            8.012288539977303e-27
+          ],
+          "truth_inside": true,
+          "status": "confirmed_in_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-3-2",
+      "initial_xyz": [
+        0.675,
+        0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.6745955383693644,
+            0.055027514955946016,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.6742851355686097,
+            0.052209320644553,
+            0.03984575271606441
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.05496129413198873,
+            0.03984744490014454
+          ],
+          "truth_quaternion": [
+            0.9999999997986782,
+            -2.0065974283207288e-05,
+            3.6768114883010656e-17,
+            -2.408322439900053e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.05496019867807995,
+            0.039990389768276395
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -3.124409672385407e-09,
+            1.1844071249460926e-19,
+            -2.40832232800303e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.05496019850728756,
+            0.03999041223887187
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -4.875653382035235e-13,
+            -2.855446533372248e-20,
+            -2.4083223270335454e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240806
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            -7.550721886827409e-17,
+            2.3804860308804007e-20,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1506435013289603e-17,
+            1.2588202037324894e-19,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.0236710460757799e-17,
+            -3.4083386400768077e-20,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.0267848843128064e-17,
+            4.476475984612716e-20,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            9.963850897328475e-18,
+            -5.623954071189724e-20,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1463418723624782e-17,
+            3.250859621636204e-19,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1295709404106544e-17,
+            5.098826316167089e-20,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1496233607304884e-17,
+            1.6783563130674856e-19,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.1562925263273662e-17,
+            1.4564817553201067e-19,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.3037111118523621e-17,
+            3.061043613874613e-19,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.3263030766136969e-17,
+            5.908096642298332e-19,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.67526041063726,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.675,
+            0.054960198507260916,
+            0.03999041224240859
+          ],
+          "truth_quaternion": [
+            0.9999999999999991,
+            1.4500433127789086e-17,
+            3.238896890849347e-19,
+            -2.4083223270335814e-16
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-4-0",
+      "initial_xyz": [
+        0.705,
+        -0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.7046811963341769,
+            -0.054402815816978006,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.705,
+            -0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.7046521332562764,
+            -0.05456505899797573,
+            0.03984587192535396
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049876537927626,
+            -0.05498973417459456,
+            0.03984863469360449
+          ],
+          "truth_quaternion": [
+            0.9999999998974287,
+            5.821386906132538e-06,
+            2.207859721116251e-06,
+            -1.2898812372603472e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332628599,
+            -0.054989416365232115,
+            0.03999038995504741
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            9.064518197787465e-10,
+            3.4378722632104373e-10,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440676,
+            -0.0549894163156817,
+            0.03999041223890127
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.4145188065579452e-13,
+            5.364851446288576e-14,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408076
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            2.210945521655727e-17,
+            8.706833354301678e-18,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.2879377728759773e-17,
+            4.052309618387493e-20,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.3018943299313332e-17,
+            2.085822239212297e-20,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.4192893550986835e-17,
+            4.1988752720366274e-19,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.2136844420465319e-17,
+            3.1868793802645136e-19,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.3266736435764536e-17,
+            2.136255272990429e-19,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.2183966525867274e-17,
+            4.074333159826119e-20,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.2185801469198805e-17,
+            1.3105921470099007e-19,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.2441927559269284e-17,
+            4.280675470408035e-20,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.31880079280898e-17,
+            -2.219950769100858e-19,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.3728305571401368e-17,
+            -9.012618526941894e-21,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.7046440861683099,
+            -0.05549472232848887,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049875332440652,
+            -0.054989416315674,
+            0.039990412242408596
+          ],
+          "truth_quaternion": [
+            0.9999999999168097,
+            1.0721497389642048e-17,
+            1.3162183254232765e-19,
+            -1.2898812372853333e-05
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-4-1",
+      "initial_xyz": [
+        0.705,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.704639032216444,
+            0.0004029806885285925,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.705,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.7046520334199213,
+            0.0002911017853543252,
+            0.03984575271606441
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049623367247861,
+            5.07574686814791e-14,
+            0.03984737107677331
+          ],
+          "truth_quaternion": [
+            0.9999999997463489,
+            1.4061640593474494e-13,
+            2.2523391080228332e-05,
+            -1.251300624101371e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611071148242,
+            5.843563770031839e-14,
+            0.03999038975668938
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            2.189408481083894e-17,
+            3.5070410031718495e-09,
+            -1.2513006249733605e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.704961106923116,
+            5.843689254907606e-14,
+            0.039990412238870086
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            -9.094610705589724e-20,
+            5.47275186462546e-13,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.843688189295305e-14,
+            0.039990412242408103
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            -5.2817469144042175e-20,
+            8.503263399143335e-17,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.844010286041385e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.1948361897580972e-17,
+            8.395082612528172e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.844512979959333e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.333883827595257e-17,
+            4.515680570712569e-20,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.845010201583836e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.2616992412462313e-17,
+            -2.8742619070334646e-20,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.845510354363325e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.3030310242239588e-17,
+            -2.1876955500500695e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.845989605938539e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.201678868628608e-17,
+            3.3246197757266735e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.846487630113825e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.3499642205921365e-17,
+            -1.8431169039779948e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.846981256626488e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.2843331736873846e-17,
+            1.754763847952678e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.847477533774795e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.1075070665224427e-17,
+            -1.1020102411033847e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.847958989952354e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.1089020847323631e-17,
+            6.314094920919049e-20,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.848434713374997e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.3068981526439073e-17,
+            1.4930453703516588e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.7046440861683099,
+            0.00033426118050597364,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049611069230864,
+            5.848941170574526e-14,
+            0.039990412242408624
+          ],
+          "truth_quaternion": [
+            0.9999999999999999,
+            1.2513873841192331e-17,
+            1.4222648507001573e-19,
+            -1.251300624973404e-12
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "grid-4-2",
+      "initial_xyz": [
+        0.705,
+        0.055,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": [
+            0.704639032216444,
+            0.055027514955946016,
+            0.11999766826629635
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.705,
+            0.055,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.7046521363424079,
+            0.05220866391576323,
+            0.03984420299530025
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.704996846104206,
+            0.05495547876462839,
+            0.03984599106352257
+          ],
+          "truth_quaternion": [
+            0.9999999992292615,
+            -2.5434325551537155e-05,
+            2.1190146101520773e-07,
+            2.9908661783319014e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968345776186,
+            0.054954090254598256,
+            0.03999038954006023
+          ],
+          "truth_quaternion": [
+            0.9999999995527366,
+            -3.960180814305022e-09,
+            3.2993524933978314e-11,
+            2.9908661792992408e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.7046439435890332,
+            0.05224607801415057,
+            0.03998701572418208
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968275321568,
+            0.05495408298237982,
+            0.03999067643338197
+          ],
+          "truth_quaternion": [
+            0.9999999995527215,
+            1.238329260403775e-07,
+            -1.236289960437671e-07,
+            2.9908661793040184e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342900144,
+            0.05495408975178976,
+            0.039990412283984485
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.932422653850352e-11,
+            -1.9292403876373334e-11,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.05495408975284614,
+            0.03999041224241519
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            3.0161569608790055e-15,
+            -3.0103876622573093e-15,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.1849925442404172e-17,
+            -2.9259647109635135e-18,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.049601329616591e-17,
+            4.7808264273223826e-20,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.2824360881862303e-17,
+            3.173366870637122e-19,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.2530998038250628e-17,
+            4.912565153453388e-21,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.1811262304603054e-17,
+            -2.3235051771772677e-19,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.1281390721188258e-17,
+            1.1116221830769604e-19,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.2910607811672517e-17,
+            -5.023588974320571e-19,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.3704667525372135e-17,
+            -4.748091966328647e-19,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            1.2337886983664794e-17,
+            -1.0319894456692468e-19,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.7046440861683099,
+            0.05224542128536083,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.7049968342910684,
+            0.054954089752846276,
+            0.03999041224240867
+          ],
+          "truth_quaternion": [
+            0.9999999995527354,
+            9.971747318026443e-18,
+            4.242040520830681e-19,
+            2.9908661793040608e-05
+          ],
+          "truth_inside": false,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "roll-0.64-15",
+      "initial_xyz": [
+        0.64,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        0.9914448613738104,
+        0.13052619222005157,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "confirmed_in_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.64,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            0.9914448613738104,
+            0.13052619222005157,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.64,
+            0.009581087171806715,
+            0.04207635141946686
+          ],
+          "truth_quaternion": [
+            0.9990303449492347,
+            -0.04402692211150382,
+            4.311001797111269e-18,
+            -5.982159782037948e-17
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.64,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.00715759902386734,
+            0.03999019520004992
+          ],
+          "truth_quaternion": [
+            0.999999999999958,
+            2.890437956457604e-07,
+            -5.612288849197066e-20,
+            -5.82945356102638e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.64,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.007157614824092018,
+            0.0399904122082527
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            4.510528961412368e-11,
+            -1.9910810414692532e-19,
+            -5.829453161473085e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.64,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.00715761482655765,
+            0.03999041224240328
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            7.0388083168940495e-15,
+            2.994321788217656e-19,
+            -5.829453161485588e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.64,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.007157614826558029,
+            0.03999041224240862
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            1.2604741590606922e-17,
+            -1.2083661293249534e-19,
+            -5.829453161485586e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.64,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.007157614826558029,
+            0.03999041224240862
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            1.203611744079104e-17,
+            6.081390593231673e-20,
+            -5.829453161485586e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.64,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.007157614826558029,
+            0.03999041224240862
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            1.2279825832754212e-17,
+            -1.9536860331939145e-19,
+            -5.829453161485586e-17
+          ],
+          "truth_inside": true,
+          "status": "confirmed_in_tray"
+        }
+      ]
+    },
+    {
+      "name": "roll-0.64-30",
+      "initial_xyz": [
+        0.64,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        0.9659258262890683,
+        0.25881904510252074,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "confirmed_in_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.64,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            0.9659258262890683,
+            0.25881904510252074,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.64,
+            0.01815393229206025,
+            0.04056375026702876
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.01693963732849749,
+            0.0405952536830588
+          ],
+          "truth_quaternion": [
+            0.9997657483248127,
+            -0.021643670588148048,
+            -1.0543125323617356e-17,
+            -1.0170153304024236e-16
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.64,
+            0.016665041816875753,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.01583299587624207,
+            0.03999520564810133
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            3.0886706605840655e-09,
+            -1.245673997063566e-19,
+            -9.977100709298517e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.64,
+            0.016664912199351456,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.015832996065583284,
+            0.03999189763239424
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            3.5861470307980165e-17,
+            1.7927400641293516e-19,
+            -9.977100696931566e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.64,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.015832996065583284,
+            0.03999041247616669
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.1797719096291809e-17,
+            -1.15026326122755e-19,
+            -9.977100696931566e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.64,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.015832996065583284,
+            0.03999041224244543
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.3069323535963976e-17,
+            -1.8158040354328618e-19,
+            -9.977100696931566e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.64,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.0387559563816717e-17,
+            -2.1016973725877138e-19,
+            -9.977100696931554e-17
+          ],
+          "truth_inside": true,
+          "status": "confirmed_in_tray"
+        }
+      ]
+    },
+    {
+      "name": "roll-0.64-45",
+      "initial_xyz": [
+        0.64,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        0.9238795325112867,
+        0.3826834323650898,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "unconfirmed",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.64,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            0.9238795325112867,
+            0.3826834323650898,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995647,
+            -6.96853869849958e-18,
+            0.050225692766625744
+          ],
+          "truth_quaternion": [
+            0.923879532511315,
+            0.38268343236502134,
+            -1.5070871919639664e-11,
+            -3.721235640805399e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995408,
+            7.03569902678621e-14,
+            0.050336148875031954
+          ],
+          "truth_quaternion": [
+            0.9238795325117081,
+            0.3826834323640732,
+            -1.536358966865982e-11,
+            -3.7091107975329213e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995408,
+            1.3478410867073524e-12,
+            0.05033659260141192
+          ],
+          "truth_quaternion": [
+            0.9238795325188314,
+            0.3826834323468757,
+            -1.536358961328869e-11,
+            -3.709110434734191e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995408,
+            2.4251534159978162e-11,
+            0.0503457520618031
+          ],
+          "truth_quaternion": [
+            0.9238795326465655,
+            0.3826834320384994,
+            -1.5363630873185772e-11,
+            -3.709108636333849e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995408,
+            4.349067615230464e-10,
+            0.050345752470337325
+          ],
+          "truth_quaternion": [
+            0.923879534936921,
+            0.3826834265090919,
+            -1.5363630666267288e-11,
+            -3.7091085848409076e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995408,
+            7.798317685390321e-09,
+            0.0503457524703365
+          ],
+          "truth_quaternion": [
+            0.9238795760050121,
+            0.3826833273619331,
+            -1.5363626170885028e-11,
+            -3.709108639207119e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995408,
+            1.398258137901698e-07,
+            0.05033669323759436
+          ],
+          "truth_quaternion": [
+            0.9238803124166394,
+            0.38268154950158334,
+            -1.536355519628608e-11,
+            -3.7091115947281313e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995408,
+            2.507892977800088e-06,
+            0.05033616587458987
+          ],
+          "truth_quaternion": [
+            0.9238935210958132,
+            0.38264965918863664,
+            -1.5362274449241038e-11,
+            -3.709164703724565e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999995433,
+            4.4979817656746656e-05,
+            0.05034080358029392
+          ],
+          "truth_quaternion": [
+            0.9241302244310584,
+            0.382077646942349,
+            -1.533930992692523e-11,
+            -3.710115031668073e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6399999999996043,
+            0.0008065094645631346,
+            0.050336604619777355
+          ],
+          "truth_quaternion": [
+            0.9283141453933336,
+            0.3717967824802224,
+            -1.4926563288768523e-11,
+            -3.726912201681655e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6400000000006651,
+            0.014016781713124166,
+            0.04742948536656311
+          ],
+          "truth_quaternion": [
+            0.983288468730829,
+            0.18205435249117938,
+            -7.308951784171803e-12,
+            -3.9476183532366045e-11
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.64,
+            0.025801777812457044,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000015597,
+            0.025159305149870772,
+            0.03999369773188353
+          ],
+          "truth_quaternion": [
+            0.99999999998566,
+            5.355491998798311e-06,
+            -2.1497509037832176e-16,
+            -4.014710762151493e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.64,
+            0.02580011330741591,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000015597,
+            0.025159633414516092,
+            0.03999042232819211
+          ],
+          "truth_quaternion": [
+            0.9999999999999998,
+            3.395544920044245e-11,
+            9.830769770322655e-20,
+            -4.0147107621616875e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.64,
+            0.02580011330741591,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000015597,
+            0.025159633416372222,
+            0.039990412243995854
+          ],
+          "truth_quaternion": [
+            0.9999999999999998,
+            5.2989743798224284e-15,
+            -3.540350568024937e-20,
+            -4.0147107621616875e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.64,
+            0.02580011330741591,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6400000000015597,
+            0.025159633416372496,
+            0.03999041224240891
+          ],
+          "truth_quaternion": [
+            0.9999999999999998,
+            1.2979346894188694e-17,
+            -1.7879871244399775e-19,
+            -4.0147107621616875e-11
+          ],
+          "truth_inside": true,
+          "status": "unconfirmed"
+        }
+      ]
+    },
+    {
+      "name": "roll-0.69-15",
+      "initial_xyz": [
+        0.69,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        0.9914448613738104,
+        0.13052619222005157,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "confirmed_in_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.69,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            0.9914448613738104,
+            0.13052619222005157,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.69,
+            0.009581087171806715,
+            0.04207635141946686
+          ],
+          "truth_quaternion": [
+            0.9990303449492347,
+            -0.04402692211150382,
+            4.311001797111269e-18,
+            -5.982159782037948e-17
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.6899522484027849,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.00715759902386734,
+            0.03999019520004992
+          ],
+          "truth_quaternion": [
+            0.999999999999958,
+            2.8904379564594833e-07,
+            9.461254432906188e-20,
+            -5.826590464299357e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.6899522484027849,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.007157614824092018,
+            0.0399904122082527
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            4.510528927238132e-11,
+            -1.7415755159856422e-19,
+            -5.826590728557021e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.6899522484027849,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.00715761482655765,
+            0.03999041224240328
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            7.038240410095561e-15,
+            2.0229895112542888e-19,
+            -5.826590728587797e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.6899522484027849,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.007157614826558029,
+            0.03999041224240862
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            1.3691657139240125e-17,
+            1.6753757944696397e-19,
+            -5.826590728587794e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.6899522484027849,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.007157614826558029,
+            0.03999041224240862
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            1.1715355018106164e-17,
+            5.689318891484443e-20,
+            -5.826590728587794e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.6899522484027849,
+            0.007190452137750963,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.007157614826558029,
+            0.03999041224240862
+          ],
+          "truth_quaternion": [
+            0.9999999999999997,
+            1.4688647767913762e-17,
+            -3.2054541750894315e-19,
+            -5.826590728587794e-17
+          ],
+          "truth_inside": true,
+          "status": "confirmed_in_tray"
+        }
+      ]
+    },
+    {
+      "name": "roll-0.69-30",
+      "initial_xyz": [
+        0.69,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        0.9659258262890683,
+        0.25881904510252074,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "outside_tray",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.69,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            0.9659258262890683,
+            0.25881904510252074,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": [
+            0.6899477554581958,
+            0.01815393229206025,
+            0.04056375026702876
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.01693963732849749,
+            0.0405952536830588
+          ],
+          "truth_quaternion": [
+            0.9997657483248127,
+            -0.021643670588148048,
+            -1.0543125323617356e-17,
+            -1.0170153304024236e-16
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": [
+            0.6900285577883878,
+            0.016665041816875753,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.01583299587624207,
+            0.03999520564810133
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            3.0886706605840655e-09,
+            -1.245673997063566e-19,
+            -9.977100709298517e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": [
+            0.6900285886497031,
+            0.016664912199351456,
+            0.0399893999099731
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999189763239424
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            3.622120301391882e-17,
+            5.224968306037406e-20,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041247616669
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.0902777966627267e-17,
+            -3.9873225024649312e-19,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224244543
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            9.205073563980888e-18,
+            1.9674598942045246e-19,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.23381396004396e-17,
+            -2.2133001828440256e-20,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.4635570879683575e-17,
+            2.013182536536187e-20,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.3620517731331344e-17,
+            2.1537554617202798e-19,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.0194946281636246e-17,
+            -1.7136591093681185e-19,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.205671709454321e-17,
+            -4.830061398163026e-19,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.301009300791238e-17,
+            -3.092886943557907e-20,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.3030557523525951e-17,
+            1.8303767947940124e-19,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.3281497831625712e-17,
+            7.671687445243008e-20,
+            -9.977100696931568e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.2946669354066134e-17,
+            -8.288663330944385e-20,
+            -9.977100696931566e-17
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.6900287613187622,
+            0.01666365640099607,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.69,
+            0.015832996065583284,
+            0.03999041224240868
+          ],
+          "truth_quaternion": [
+            1.0000000000000004,
+            1.2269262879674382e-17,
+            -1.3270316850104296e-19,
+            -9.977100696931566e-17
+          ],
+          "truth_inside": true,
+          "status": "outside_tray"
+        }
+      ]
+    },
+    {
+      "name": "roll-0.69-45",
+      "initial_xyz": [
+        0.69,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        0.9238795325112867,
+        0.3826834323650898,
+        0,
+        0
+      ],
+      "missing_observation": false,
+      "status": "unconfirmed",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.69,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            0.9238795325112867,
+            0.3826834323650898,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995646,
+            -6.8573618009146605e-18,
+            0.050225692766625744
+          ],
+          "truth_quaternion": [
+            0.923879532511315,
+            0.38268343236502134,
+            -1.5070880989571958e-11,
+            -3.721236630082532e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995408,
+            7.035780989005598e-14,
+            0.050336148875031954
+          ],
+          "truth_quaternion": [
+            0.9238795325117081,
+            0.38268343236407315,
+            -1.5363596951391514e-11,
+            -3.709111908795032e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995408,
+            1.3477972205349736e-12,
+            0.05034575246945506
+          ],
+          "truth_quaternion": [
+            0.923879532518833,
+            0.38268343234687296,
+            -1.5363640872318628e-11,
+            -3.7091111129298533e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995408,
+            2.425609519459588e-11,
+            0.0503374233915153
+          ],
+          "truth_quaternion": [
+            0.9238795326465572,
+            0.3826834320385185,
+            -1.536368874550462e-11,
+            -3.7091086483314166e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995408,
+            4.3497984928303984e-10,
+            0.05034506232249738
+          ],
+          "truth_quaternion": [
+            0.9238795349373434,
+            0.38268342650807136,
+            -1.5363639867834087e-11,
+            -3.709110838653795e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995408,
+            7.799723460768082e-09,
+            0.05034575247027528
+          ],
+          "truth_quaternion": [
+            0.9238795760129058,
+            0.3826833273428767,
+            -1.5363636102280276e-11,
+            -3.709111051444858e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995408,
+            1.3986293531132528e-07,
+            0.05033627114778125
+          ],
+          "truth_quaternion": [
+            0.923880312648779,
+            0.3826815489411445,
+            -1.536356452805508e-11,
+            -3.709113921818379e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995408,
+            2.508562941299352e-06,
+            0.050336165809472734
+          ],
+          "truth_quaternion": [
+            0.9238935248607298,
+            0.38264965009838225,
+            -1.5362283683662222e-11,
+            -3.709166940029784e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999995432,
+            4.49952204414813e-05,
+            0.050345704862338296
+          ],
+          "truth_quaternion": [
+            0.924130301389339,
+            0.3820774608035005,
+            -1.5339312064988484e-11,
+            -3.710117608469798e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.6899999999996043,
+            0.0008067053245880958,
+            0.05033401355813591
+          ],
+          "truth_quaternion": [
+            0.9283151998493675,
+            0.3717941496697185,
+            -1.4926466312737453e-11,
+            -3.726918665503376e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": null,
+          "error": "vision target size inconsistent or substantially occluded",
+          "truth_xyz": [
+            0.690000000000666,
+            0.014028095994370434,
+            0.04744489173449362
+          ],
+          "truth_quaternion": [
+            0.9833336894113036,
+            0.1818099427114849,
+            -7.299146354324028e-12,
+            -3.947801775466973e-11
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": [
+            0.6899522192388419,
+            0.02580044985005936,
+            0.03998606204986568
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6900000000015586,
+            0.0251509853831804,
+            0.03998989939972171
+          ],
+          "truth_quaternion": [
+            0.99999999997694,
+            6.7911890441036175e-06,
+            -2.72981733482045e-16,
+            -4.014711690968349e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": [
+            0.6899522484027849,
+            0.02580011330741591,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6900000000015586,
+            0.025151358560333428,
+            0.03999048639820503
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.4057855538233784e-10,
+            3.8671183012925155e-19,
+            -4.0147116907776775e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": [
+            0.6899522484027849,
+            0.02580011330741591,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6900000000015586,
+            0.02515135856801801,
+            0.03999041225407858
+          ],
+          "truth_quaternion": [
+            1.0,
+            2.1937801511965433e-14,
+            1.4954241558543066e-19,
+            -4.0147116907776775e-11
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": [
+            0.6899522484027849,
+            0.02580011330741591,
+            0.03998451232910152
+          ],
+          "error": null,
+          "truth_xyz": [
+            0.6900000000015586,
+            0.025151358568019193,
+            0.039990412242410504
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2093625125089064e-17,
+            3.0931767805069137e-19,
+            -4.0147116907776775e-11
+          ],
+          "truth_inside": true,
+          "status": "unconfirmed"
+        }
+      ]
+    },
+    {
+      "name": "missing_observation",
+      "initial_xyz": [
+        0.64,
+        0,
+        0.12
+      ],
+      "initial_quaternion": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "missing_observation": true,
+      "status": "unconfirmed",
+      "observations": [
+        {
+          "time": 0.3000000000000002,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.64,
+            0.0,
+            0.12
+          ],
+          "truth_quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "truth_inside": false,
+          "status": "pending"
+        },
+        {
+          "time": 0.5000000000000003,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000379,
+            3.690354988478065e-14,
+            0.03985120660283785
+          ],
+          "truth_quaternion": [
+            1.0,
+            3.082060882820622e-14,
+            -3.158318109982959e-14,
+            8.022592134133513e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.7000000000000005,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.858619185290262e-14,
+            0.03999039035881004
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0062877141541183e-17,
+            -7.278595845241748e-18,
+            8.021700558184895e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 0.9000000000000007,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.859099690422483e-14,
+            0.039990412238964844
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2133081411569952e-17,
+            -1.6992813259677281e-19,
+            8.021702565518629e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.1000000000000008,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.859592448167785e-14,
+            0.039990412242408124
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1821800382653742e-17,
+            1.4020207301355913e-19,
+            8.021704204812544e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.300000000000001,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.860089047883972e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.0625462908419092e-17,
+            4.190629327929225e-19,
+            8.021709172239783e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.500000000000001,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.860578361324645e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1749083708591055e-17,
+            -3.364371723312144e-20,
+            8.021707259969091e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.7000000000000013,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.861070413108137e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2660445783758025e-17,
+            -8.216820687833813e-20,
+            8.021725147169162e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 1.9000000000000015,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.8615907119860405e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2881681357111337e-17,
+            -1.3757980976955194e-19,
+            8.021735726531581e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.0999999999999903,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.862078798039655e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.3307476410487207e-17,
+            1.0321123197295624e-19,
+            8.021766437362574e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.2999999999999683,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.8625684800059306e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2496762995446632e-17,
+            -1.0198290842950418e-19,
+            8.021768267572267e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.4999999999999463,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.8630408610352825e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2472745151322337e-17,
+            -1.346407564074374e-19,
+            8.021822045714686e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.6999999999999242,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.863539167174147e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1704049486776371e-17,
+            -9.96173703077072e-20,
+            8.021802882723201e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 2.899999999999902,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.864012499508969e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.2578391335514977e-17,
+            3.2917572194921496e-19,
+            8.021802923566909e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.09999999999988,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.8645245716733115e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.559407925253601e-17,
+            -2.136935086382228e-19,
+            8.021813468948284e-27
+          ],
+          "truth_inside": true,
+          "status": "pending"
+        },
+        {
+          "time": 3.299999999999858,
+          "xyz": null,
+          "error": null,
+          "truth_xyz": [
+            0.6400000000000391,
+            3.8650122079601734e-14,
+            0.03999041224240863
+          ],
+          "truth_quaternion": [
+            1.0,
+            1.1807771597681257e-17,
+            -2.1220311914690667e-19,
+            8.021804371219696e-27
+          ],
+          "truth_inside": true,
+          "status": "unconfirmed"
+        }
+      ]
+    }
+  ],
+  "false_confirmations": 0,
+  "outcomes": {
+    "confirmed_in_tray": 6,
+    "outside_tray": 10,
+    "unconfirmed": 6
+  },
+  "unconfirmed_true_goals": 4
+}

@@ -22,10 +22,36 @@ CASES = [
 ]
 
 
+def cases_for_suite(suite):
+    if suite == "baseline":
+        return [(name, xyz, missing, [1, 0, 0, 0]) for name, xyz, missing in CASES]
+    if suite != "expanded":
+        raise ValueError("unknown landing suite")
+    cases = [
+        (f"grid-{i}-{j}", [x, y, 0.12], False, [1, 0, 0, 0])
+        for i, x in enumerate((0.575, 0.61, 0.64, 0.675, 0.705))
+        for j, y in enumerate((-0.055, 0, 0.055))
+    ]
+    for x in (0.64, 0.69):
+        for angle in (15, 30, 45):
+            half = np.deg2rad(angle) / 2
+            cases.append(
+                (
+                    f"roll-{x}-{angle}",
+                    [x, 0, 0.12],
+                    False,
+                    [float(np.cos(half)), float(np.sin(half)), 0, 0],
+                )
+            )
+    cases.append(("missing_observation", [0.64, 0, 0.12], True, [1, 0, 0, 0]))
+    return cases
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
     parser.add_argument("--view", choices=("original", "offset"), default="original")
+    parser.add_argument("--suite", choices=("baseline", "expanded"), default="baseline")
     args = parser.parse_args()
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
@@ -47,17 +73,18 @@ def main():
         "status": "running",
         "view": args.view,
         "camera_position": [0.64, 0.35, 1.2] if args.view == "offset" else [0.4, 0, 1.2],
-        "scope": "Six synthetic free-drop scenes, fixed arm; not end-to-end policy validation.",
+        "scope": "Synthetic free-drop scenes, fixed arm; not end-to-end policy validation.",
+        "suite": args.suite,
         "source_sha256": hashes,
         "cases": [],
     }
-    for name, position, missing in CASES:
+    for name, position, missing, quaternion in cases_for_suite(args.suite):
         world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
         try:
             if args.view == "offset":
                 world.model.camera("perception").pos[:] = [0.64, 0.35, 1.2]
             world.data.qpos[5:8] = position
-            world.data.qpos[8:12] = [1, 0, 0, 0]
+            world.data.qpos[8:12] = quaternion
             world.data.qvel[:] = 0
             command = np.r_[world.data.qpos[:3], [0.04, 0.04]]
             world.data.ctrl[:] = command
@@ -78,6 +105,7 @@ def main():
                         "xyz": point,
                         "error": error,
                         "truth_xyz": world.data.body("red_block").xpos.tolist(),
+                        "truth_quaternion": world.data.qpos[8:12].tolist(),
                         "truth_inside": world.inside_box(),
                         "status": status,
                     }
@@ -89,6 +117,7 @@ def main():
             row = {
                 "name": name,
                 "initial_xyz": position,
+                "initial_quaternion": quaternion,
                 "missing_observation": missing,
                 "status": check.status,
                 "observations": rows,
@@ -103,9 +132,21 @@ def main():
         for c in report["cases"]
     )
     report["status"] = "complete"
+    report["outcomes"] = {
+        status: sum(c["status"] == status for c in report["cases"])
+        for status in ("confirmed_in_tray", "outside_tray", "unconfirmed")
+    }
+    report["unconfirmed_true_goals"] = sum(
+        c["status"] != "confirmed_in_tray"
+        and c["observations"][-1]["truth_inside"]
+        and not c["missing_observation"]
+        for c in report["cases"]
+    )
     (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     assert report["false_confirmations"] == 0, "false confirmation observed"
-    assert report["cases"][0]["status"] == "confirmed_in_tray", "center did not confirm"
+    center_name = "center" if args.suite == "baseline" else "grid-2-1"
+    center = next(c for c in report["cases"] if c["name"] == center_name)
+    assert center["status"] == "confirmed_in_tray", "center did not confirm"
     assert report["cases"][-1]["status"] == "unconfirmed", "missing evidence confirmed"
 
 

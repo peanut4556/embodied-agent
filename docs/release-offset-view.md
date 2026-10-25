@@ -36,3 +36,5 @@ make release-offset-view-evaluate RELEASE_OFFSET_OUTPUT=outputs/evaluations/rele
 报告：[完整回放对照](evaluations/release-offset-view-v1.json)、[落点反例](evaluations/release-offset-landings-v1.json)。原始回放 NPZ 位于 outputs/evaluations/release-offset-view-v1，未纳入 Git。
 
 偏置位置根据已知托盘与遮挡布局选择，尚未验证实际相机安装条件、校准误差、倾斜物体、多物体或未见位置。生产流程仍未启用视觉落点确认；下一步应冻结此视角，扩展未见落点和遮挡条件，验证可见范围及误确认边界。
+
+后续[22 组边缘与倾斜压力测试](release-offset-expanded.md)未观察到误确认，但发现 4 个真实目标未获确认，以及 outside_tray 状态的语义限制。

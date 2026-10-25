@@ -732,3 +732,8 @@ RELEASE_OFFSET_OUTPUT ?= outputs/evaluations/release-offset-v2
 release-offset-view-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_observer.py --view offset --output "$(RELEASE_OFFSET_OUTPUT)-playback"
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --output "$(RELEASE_OFFSET_OUTPUT)-landings"
+
+RELEASE_EXPANDED_OUTPUT ?= outputs/evaluations/release-offset-expanded-v2
+.PHONY: release-offset-expanded-evaluate
+release-offset-expanded-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite expanded --output "$(RELEASE_EXPANDED_OUTPUT)"
