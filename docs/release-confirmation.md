@@ -39,3 +39,5 @@ make release-confirmation-evaluate RELEASE_CONFIRMATION_OUTPUT=outputs/evaluatio
 ```
 
 需要 MuJoCo 图形连接，输出目录必须不存在。不依赖历史训练数据，也未训练新模型。下一步将其作为观测分支接到完整抓放回放，检查机械臂遮挡、倾斜物体和视觉误差是否导致误确认或超时，再决定是否用于运行时控制。
+
+后续[完整回放观测对照](release-observer.md)发现机械臂遮挡导致确认超时；独立落点结果不能直接代表完整抓放流程的可见性。

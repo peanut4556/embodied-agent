@@ -718,3 +718,11 @@ release-confirmation-test:
 
 release-confirmation-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --output "$(RELEASE_CONFIRMATION_OUTPUT)"
+
+RELEASE_OBSERVER_OUTPUT ?= outputs/evaluations/release-observer-v2
+.PHONY: release-observer-test release-observer-evaluate
+release-observer-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_release_observer.py' -v
+
+release-observer-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_observer.py --output "$(RELEASE_OBSERVER_OUTPUT)"
