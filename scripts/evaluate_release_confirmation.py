@@ -52,6 +52,7 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--view", choices=("original", "offset"), default="original")
     parser.add_argument("--suite", choices=("baseline", "expanded"), default="baseline")
+    parser.add_argument("--observe-seconds", type=int, choices=(3, 6), default=3)
     args = parser.parse_args()
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
@@ -76,6 +77,7 @@ def main():
         "camera_position": [0.64, 0.35, 1.2] if args.view == "offset" else [0.4, 0, 1.2],
         "scope": "Synthetic free-drop scenes, fixed arm; not end-to-end policy validation.",
         "suite": args.suite,
+        "observe_seconds": args.observe_seconds,
         "source_sha256": hashes,
         "cases": [],
     }
@@ -91,8 +93,9 @@ def main():
             world.data.ctrl[:] = command
             mujoco.mj_forward(world.model, world.data)
             check = ReleaseConfirmation(float(world.data.time))
+            late_check = None
             rows = []
-            for i in range(17):
+            for i in range(args.observe_seconds * 5 + 1):
                 point, error = None, None
                 if not missing:
                     try:
@@ -100,6 +103,10 @@ def main():
                     except ValueError as exc:
                         error = str(exc)
                 status = check.observe(float(world.data.time), point)
+                if args.observe_seconds == 6 and i >= 15:
+                    if late_check is None:
+                        late_check = ReleaseConfirmation(float(world.data.time))
+                    late_check.observe(float(world.data.time), point)
                 rows.append(
                     {
                         "time": float(world.data.time),
@@ -110,9 +117,10 @@ def main():
                         "truth_inside": world.inside_box(),
                         "status": status,
                         "reason": check.reason,
+                        "late_status": late_check.status if late_check else None,
                     }
                 )
-                if status != "pending":
+                if status != "pending" and args.observe_seconds == 3:
                     break
                 for _ in range(5):
                     advance(world, command, 25)
@@ -123,18 +131,28 @@ def main():
                 "missing_observation": missing,
                 "status": check.status,
                 "confirmation_result": check.result(),
+                "late_result": late_check.result() if late_check else None,
                 "observations": rows,
             }
             report["cases"].append(row)
-            print(name, check.status, rows[-1]["truth_inside"], flush=True)
+            print(name, check.status, late_check.status if late_check else None, flush=True)
         finally:
             world.close()
     assert hashes == {str(p): digest(p) for p in paths}, "sources changed during audit"
     report["false_confirmations"] = sum(
-        c["status"] == "confirmed_in_tray" and not c["observations"][-1]["truth_inside"]
+        c["status"] == "confirmed_in_tray"
+        and not next(o for o in c["observations"] if o["status"] != "pending")["truth_inside"]
         for c in report["cases"]
     )
     report["status"] = "complete"
+    if args.observe_seconds == 6:
+        report["late_false_confirmations"] = sum(
+            c["late_result"]["status"] == "confirmed_in_tray"
+            and not next(o for o in c["observations"] if o["late_status"] == "confirmed_in_tray")[
+                "truth_inside"
+            ]
+            for c in report["cases"]
+        )
     report["outcomes"] = {
         status: sum(c["status"] == status for c in report["cases"])
         for status in ("confirmed_in_tray", "outside_confirmation_region", "unconfirmed")

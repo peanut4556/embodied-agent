@@ -37,3 +37,5 @@ make release-semantics-evaluate RELEASE_SEMANTICS_OUTPUT=outputs/evaluations/rel
 ```
 
 需要 MuJoCo 图形连接，输出目录必须不存在。下一步应针对未确认样本验证观测质量和时间预算，用独立对照决定是否调整参数，而不是把未知结果显示为失败。
+
+后续[独立后续窗口诊断](release-late-window.md)保持原结果不变，发现两个倾斜案例可在释放后第 4 秒获得确认，另两个问题无法通过等待解决。

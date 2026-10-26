@@ -4,6 +4,19 @@ from embodied_agent.release_confirmation import ReleaseConfirmation
 
 
 class ReleaseConfirmationTests(unittest.TestCase):
+    def test_independent_late_window_does_not_rewrite_expired_result(self):
+        original = ReleaseConfirmation(0)
+        late = ReleaseConfirmation(3)
+        for i in range(31):
+            timestamp = i / 5
+            point = None if timestamp < 2.4 else [0.64, 0, 0.04]
+            original.observe(timestamp, point)
+            if timestamp >= 3:
+                late.observe(timestamp, point)
+        self.assertEqual(original.status, "unconfirmed")
+        self.assertEqual(original.reason, "insufficient_stable_evidence")
+        self.assertEqual(late.status, "confirmed_in_tray")
+
     def test_timeout_reasons_distinguish_region_from_missing_and_unstable(self):
         for point, status, reason in [
             (

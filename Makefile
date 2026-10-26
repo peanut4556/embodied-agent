@@ -742,3 +742,8 @@ RELEASE_SEMANTICS_OUTPUT ?= outputs/evaluations/release-semantics-v3
 .PHONY: release-semantics-evaluate
 release-semantics-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite expanded --output "$(RELEASE_SEMANTICS_OUTPUT)"
+
+RELEASE_LATE_WINDOW_OUTPUT ?= outputs/evaluations/release-late-window-v2
+.PHONY: release-late-window-evaluate
+release-late-window-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite expanded --observe-seconds 6 --output "$(RELEASE_LATE_WINDOW_OUTPUT)"
