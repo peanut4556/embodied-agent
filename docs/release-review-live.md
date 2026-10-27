@@ -38,3 +38,5 @@ make release-review-live-evaluate RELEASE_REVIEW_LIVE_OUTPUT=outputs/evaluations
 需要历史回放输入及 MuJoCo 图形连接，输出目录必须不存在。不加 --review 时保持此前单窗口实验；--review 显式启用六秒复查对照及两个停止案例。
 
 下一步应针对相机调用失败与超时建立观测适配层，再验证停止信号能在阻塞采集时及时生效。
+
+后续新增[可取消的采集适配层](observation-capture.md)，验证控制侧无需等待阻塞采集即可取消，并丢弃迟到结果；尚未接入真实相机或共享模拟渲染器。

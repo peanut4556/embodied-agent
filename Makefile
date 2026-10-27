@@ -765,3 +765,7 @@ RELEASE_REVIEW_LIVE_OUTPUT ?= outputs/evaluations/release-review-live-v2
 .PHONY: release-review-live-evaluate
 release-review-live-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_observer.py --view offset --review --output "$(RELEASE_REVIEW_LIVE_OUTPUT)"
+
+.PHONY: observation-capture-test
+observation-capture-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_observation_capture.py' -v
