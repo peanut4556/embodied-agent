@@ -1,0 +1,771 @@
+{
+  "status": "complete",
+  "scope": "Offline replay of 42 recorded observation streams; not new physical trials.",
+  "inputs_sha256": {
+    "docs/evaluations/release-late-window-v1.json": "f77bdeb7857759a1c30092bc3f1587f849129b12ec6d038c6550ae5d1dd724b3",
+    "docs/evaluations/release-window-validation-v1.json": "84b217243c162f0e48c27f5df896887d8b967063dbcd51896ffc94bca82db6ec"
+  },
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_release_review.py": "a8bf0927409c68f36ded84f44ab8a8b01244064fa8e0c5ba4d8a092ea744a669",
+    "src/embodied_agent/release_review.py": "f50a2407ce14cdc5fc4e36ceb1feca4700a87d722aed0bc8e437a7dd6b526a44",
+    "src/embodied_agent/release_confirmation.py": "3d3bd2c9347a580be2c7542c5762fd10e37afe22816e9a695c7d54cb05ab45f5"
+  },
+  "cases": [
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-0-0",
+      "schema_version": 1,
+      "status": "unconfirmed",
+      "reason": "missing_observation",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "observation_count": 31,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-0-1",
+      "schema_version": 1,
+      "status": "unconfirmed",
+      "reason": "missing_observation",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "observation_count": 31,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-0-2",
+      "schema_version": 1,
+      "status": "unconfirmed",
+      "reason": "missing_observation",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "observation_count": 31,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-1-0",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-1-1",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-1-2",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-2-0",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-2-1",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-2-2",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-3-0",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-3-1",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-3-2",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-4-0",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-4-1",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "grid-4-2",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "roll-0.64-15",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 8,
+      "confirmation_elapsed_s": 1.400000000000001,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "roll-0.64-30",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "roll-0.64-45",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "insufficient_stable_evidence"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "observation_count": 21,
+      "confirmation_elapsed_s": 3.999999999999748,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "roll-0.69-15",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 8,
+      "confirmation_elapsed_s": 1.400000000000001,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "roll-0.69-30",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "roll-0.69-45",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "insufficient_stable_evidence"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "observation_count": 21,
+      "confirmation_elapsed_s": 3.999999999999748,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-late-window-v1.json",
+      "name": "missing_observation",
+      "schema_version": 1,
+      "status": "unconfirmed",
+      "reason": "missing_observation",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "observation_count": 31,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "center",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.6-20",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.6-35",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.6-50",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 8,
+      "confirmation_elapsed_s": 1.400000000000001,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.6-65",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.655-20",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.655-35",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.655-50",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 8,
+      "confirmation_elapsed_s": 1.400000000000001,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.655-65",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.685-20",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.685-35",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.685-50",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 8,
+      "confirmation_elapsed_s": 1.400000000000001,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "new-roll-0.685-65",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 7,
+      "confirmation_elapsed_s": 1.2000000000000008,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "outside-0.57--0.065",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 8,
+      "confirmation_elapsed_s": 1.400000000000001,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "outside-0.57-0.065",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "outside-0.72--0.065",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "recheck_result": null,
+      "observation_count": 9,
+      "confirmation_elapsed_s": 1.6000000000000012,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "outside-0.72-0.065",
+      "schema_version": 1,
+      "status": "outside_confirmation_region",
+      "reason": "observed_outside_confirmation_region",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "outside_confirmation_region",
+        "reason": "observed_outside_confirmation_region"
+      },
+      "recheck_result": null,
+      "observation_count": 16,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "missing-early",
+      "schema_version": 1,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "confirmed_in_tray",
+        "reason": "stable_visual_evidence"
+      },
+      "observation_count": 24,
+      "confirmation_elapsed_s": 4.599999999999683,
+      "truth_at_confirmation": true,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "missing-intermittent",
+      "schema_version": 1,
+      "status": "unconfirmed",
+      "reason": "missing_observation",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "insufficient_stable_evidence"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "observation_count": 31,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    },
+    {
+      "source": "release-window-validation-v1.json",
+      "name": "missing-True",
+      "schema_version": 1,
+      "status": "unconfirmed",
+      "reason": "missing_observation",
+      "initial_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "recheck_result": {
+        "schema_version": 2,
+        "status": "unconfirmed",
+        "reason": "missing_observation"
+      },
+      "observation_count": 31,
+      "confirmation_elapsed_s": null,
+      "truth_at_confirmation": null,
+      "recorded_observations": 31
+    }
+  ],
+  "confirmed": 24,
+  "initial_confirmed": 21,
+  "rechecks": 9,
+  "observations_used": 599,
+  "observations_recorded": 1302,
+  "false_confirmations": 0
+}

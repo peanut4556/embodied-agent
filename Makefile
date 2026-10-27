@@ -752,3 +752,11 @@ RELEASE_WINDOW_VALIDATION_OUTPUT ?= outputs/evaluations/release-window-validatio
 .PHONY: release-window-validation-evaluate
 release-window-validation-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite validation --observe-seconds 6 --output "$(RELEASE_WINDOW_VALIDATION_OUTPUT)"
+
+RELEASE_REVIEW_OUTPUT ?= outputs/evaluations/release-review-v3
+.PHONY: release-review-test release-review-evaluate
+release-review-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_release_review.py' -v
+
+release-review-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_review.py --output "$(RELEASE_REVIEW_OUTPUT)"

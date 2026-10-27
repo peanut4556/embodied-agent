@@ -40,3 +40,5 @@ make release-window-validation-evaluate RELEASE_WINDOW_VALIDATION_OUTPUT=outputs
 ```
 
 需要 MuJoCo 图形连接，输出目录必须不存在。下一步可设计仅对暂时缺失或稳定证据不足触发的一次有限复查，保留初次判定，并单独验证总时限和用户停止优先级；本轮尚未实现该运行时策略。
+
+后续新增[有限复查模块及离线审计](release-review.md)，覆盖一次复查、六秒总预算和用户停止优先级，尚未接入生产执行器。
