@@ -142,3 +142,81 @@ class CaptureTests(unittest.TestCase):
                 self.wait_done(capture)
         self.assertEqual(observer.observer.status, "confirmed_in_tray")
         self.assertTrue(capture.closed)
+
+    def test_strict_observer_records_capture_time_separately_from_task_time(self):
+        from embodied_agent.observation_capture import StampedPosition
+
+        now = [10.0]
+        capture = ObservationCapture(
+            lambda cancel: StampedPosition((0.64, 0, 0.04), now[0]),
+            clock=lambda: now[0],
+            require_timestamp=True,
+        )
+        observer = CapturedReleaseObserver(capture)
+        for i in range(8):
+            now[0] = 10 + i / 5
+            observer.step(i / 5, [{"event": "intentional_release"}])
+            if not capture.closed:
+                self.wait_done(capture)
+        self.assertEqual(observer.observer.status, "confirmed_in_tray")
+        first = next(r for r in observer.capture_records if r["capture_status"] == "ready")
+        self.assertEqual(first["task_time"], 0.2)
+        self.assertEqual(first["captured_at"], 10.0)
+        self.assertAlmostEqual(first["age_seconds"], 0.2)
+        self.assertEqual(len(observer.capture_records), len(observer.observer.rows))
+
+
+class StampedCaptureTests(unittest.TestCase):
+    def consume(self, read, *, strict=True):
+        capture = ObservationCapture(read, clock=lambda: 10.0, require_timestamp=strict)
+        capture.sample()
+        deadline = time.monotonic() + 2
+        while time.monotonic() < deadline:
+            with capture.lock:
+                done = capture.job["done"]
+            if done:
+                break
+            time.sleep(0.001)
+        else:
+            capture.cancel()
+            self.fail("capture did not finish")
+        value = capture.sample()
+        return capture, value
+
+    def test_valid_stamp_keeps_exposure_metadata_and_copies_position(self):
+        from embodied_agent.observation_capture import StampedPosition
+
+        point = [0.64, 0, 0.04]
+        capture, value = self.consume(lambda cancel: StampedPosition(point, 10.0))
+        point[0] = 0.8
+        self.assertEqual(value, [0.64, 0, 0.04])
+        self.assertEqual(capture.last_captured_at, 10.0)
+        self.assertEqual(capture.last_age, 0.0)
+        capture.cancel()
+        self.assertIsNone(capture.last_captured_at)
+
+    def test_cached_future_and_invalid_stamps_are_rejected(self):
+        from embodied_agent.observation_capture import StampedPosition
+
+        for timestamp in (9.99, 10.01, float("nan"), float("inf")):
+            with self.subTest(timestamp=timestamp):
+                capture, value = self.consume(
+                    lambda cancel, t=timestamp: StampedPosition((0.64, 0, 0.04), t)
+                )
+                self.assertIsNone(value)
+                self.assertEqual(capture.status, "error")
+                self.assertIsNone(capture.last_captured_at)
+                capture.cancel()
+
+    def test_strict_mode_rejects_legacy_but_compatibility_mode_does_not(self):
+        for strict in (True, False):
+            capture, value = self.consume(lambda cancel: [0.64, 0, 0.04], strict=strict)
+            self.assertEqual(value, None if strict else [0.64, 0, 0.04])
+            self.assertIsNone(capture.last_captured_at)
+            capture.cancel()
+
+    def test_missing_observation_is_allowed_in_strict_mode(self):
+        capture, value = self.consume(lambda cancel: None)
+        self.assertIsNone(value)
+        self.assertEqual(capture.status, "missing")
+        capture.cancel()
