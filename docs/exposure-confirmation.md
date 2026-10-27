@@ -45,3 +45,5 @@ make exposure-timing-check EXPOSURE_TIMING_OUTPUT=outputs/exposure-timing-new.js
 ```
 
 无需图形连接，报告文件须不存在，父目录须已存在。
+
+后续[严格采集与曝光确认的贯通验证](exposure-pipeline.md)联通请求、曝光、返回和消费，完成独立相机桩对照；未连接硬件。

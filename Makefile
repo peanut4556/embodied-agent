@@ -777,3 +777,11 @@ exposure-confirmation-test:
 
 exposure-timing-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_exposure_timing.py --output "$(EXPOSURE_TIMING_OUTPUT)"
+
+EXPOSURE_PIPELINE_OUTPUT ?= outputs/exposure-pipeline-v2.json
+.PHONY: exposure-pipeline-test exposure-pipeline-check
+exposure-pipeline-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_exposure_observer.py' -v
+
+exposure-pipeline-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_exposure_pipeline.py --output "$(EXPOSURE_PIPELINE_OUTPUT)"
