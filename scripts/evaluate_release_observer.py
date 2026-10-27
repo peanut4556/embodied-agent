@@ -16,7 +16,9 @@ from scripts.evaluate_contact_faults import ContactFaultSignal
 from scripts.evaluate_recovery_positives import ReplayLearner
 
 
-def run(initial, actions, lag, missing, enabled, path, view="original"):
+def run(
+    initial, actions, lag, missing, enabled, path, view="original", review=False, stop_after=None
+):
     if view not in {"original", "offset"}:
         raise ValueError("unknown observation view")
     world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
@@ -26,7 +28,7 @@ def run(initial, actions, lag, missing, enabled, path, view="original"):
             world.model.camera("perception").pos[:] = [0.64, 0.35, 1.2]
         restore(world, initial)
         guard = GuardedExecutor(world, ReplayLearner(actions, 1), 4, True, True)
-        observer = ReleaseObserver()
+        observer = ReleaseObserver(allow_recheck=review)
         quality = GraspQuality(25)
         fault = {"start": 0, "end": 750, "value": None}
         if lag:
@@ -35,8 +37,15 @@ def run(initial, actions, lag, missing, enabled, path, view="original"):
         states, commands = [], []
         release_tick = None
         for tick in range(750):
+            stop = (
+                release_tick is not None
+                and stop_after is not None
+                and tick >= release_tick + stop_after
+            )
             command = guard.step(
-                None, monitor_holding=signal.observe(world.holding, tick, world.data.ctrl)
+                None,
+                stop=stop,
+                monitor_holding=signal.observe(world.holding, tick, world.data.ctrl),
             )
             if release_tick is None and any(
                 e["event"] == "intentional_release" for e in guard.events
@@ -45,18 +54,22 @@ def run(initial, actions, lag, missing, enabled, path, view="original"):
             if enabled:
 
                 def locate(current=tick, released=release_tick):
-                    if missing == "all" or (missing == "early" and current - released < 15):
+                    if missing == "all" or (
+                        missing == "early" and current - released < (90 if review else 15)
+                    ):
                         raise ValueError("injected missing observation")
                     return world.locate_block().tolist()
 
-                observer.step(float(world.data.time), guard.events, locate)
+                observer.step(float(world.data.time), guard.events, locate, stop=stop)
             quality.observe(
                 world.holding, world.data.body("red_block").xpos.copy(), command, world.inside_box()
             )
             states.append(world.data.qpos.copy())
             commands.append(command.copy())
             # Fixed post-release horizon for both branches, independent of observer outcome.
-            if guard.reason or (release_tick is not None and tick >= release_tick + 80):
+            if guard.reason or (
+                release_tick is not None and tick >= release_tick + (160 if review else 80)
+            ):
                 break
             advance(world, command, 25)
         np.savez_compressed(path, qpos=states, actions=commands)
@@ -67,6 +80,7 @@ def run(initial, actions, lag, missing, enabled, path, view="original"):
             "reason": guard.reason,
             "frames": len(states),
             "confirmation": observer.status,
+            "review_result": observer.review.result() if observer.review else None,
             "confirmation_result": (
                 observer.confirmation.result() if observer.confirmation else None
             ),
@@ -83,6 +97,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
     parser.add_argument("--view", choices=("original", "offset"), default="original")
+    parser.add_argument("--review", action="store_true")
     args = parser.parse_args()
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
@@ -104,6 +119,7 @@ def main():
         Path("src/embodied_agent") / name
         for name in (
             "release_observer.py",
+            "release_review.py",
             "release_confirmation.py",
             "contact_watchdog.py",
             "physics.py",
@@ -116,18 +132,22 @@ def main():
     report = {
         "status": "running",
         "confirmation_schema_version": 2,
+        "review_enabled": args.review,
         "view": args.view,
         "camera_position": [0.64, 0.35, 1.2] if args.view == "offset" else [0.4, 0, 1.2],
         "source_sha256": hashes,
         "inputs_sha256": config["inputs_sha256"],
         "cases": [],
     }
-    for name, lag, missing in [
-        ("nominal", 0, "none"),
-        ("lag9", 9, "none"),
-        ("early_missing", 0, "early"),
-        ("all_missing", 0, "all"),
-    ]:
+    cases = [
+        ("nominal", 0, "none", None),
+        ("lag9", 9, "none", None),
+        ("early_missing", 0, "early", None),
+        ("all_missing", 0, "all", None),
+    ]
+    if args.review:
+        cases += [("stop_at_first_deadline", 0, "all", 75), ("stop_during_recheck", 0, "all", 100)]
+    for name, lag, missing, stop_after in cases:
         pair = []
         for enabled in (False, True):
             pair.append(
@@ -139,6 +159,8 @@ def main():
                     enabled,
                     output / f"{name}-{enabled}.npz",
                     args.view,
+                    args.review,
+                    stop_after,
                 )
             )
         with np.load(output / pair[0]["trace"]) as off, np.load(output / pair[1]["trace"]) as on:
@@ -146,6 +168,9 @@ def main():
         assert same, "shadow observer changed physical execution"
         assert pair[0]["quality"] == pair[1]["quality"]
         expected = "unconfirmed" if missing == "all" else "confirmed_in_tray"
+        if stop_after is not None:
+            expected = "cancelled"
+            assert pair[0]["reason"] == pair[1]["reason"] == "user stop"
         report["cases"].append(
             {
                 "name": name,

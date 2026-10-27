@@ -26,3 +26,32 @@ class ReleaseObserverTests(unittest.TestCase):
         self.assertTrue(all(row["xyz"] is None for row in observer.rows))
         observer.step(4, [{"event": "intentional_release"}], locate)
         self.assertEqual(len(observer.rows), 16)
+
+
+class ReleaseReviewObserverTests(unittest.TestCase):
+    def test_opt_in_recheck_preserves_initial_and_default_does_not_retry(self):
+        for enabled in (False, True):
+            observer = ReleaseObserver(allow_recheck=enabled)
+            for i in range(161):
+                observer.step(
+                    i / 25,
+                    [{"event": "intentional_release"}],
+                    lambda i=i: None if i < 90 else [0.64, 0, 0.04],
+                )
+            self.assertEqual(observer.status, "confirmed_in_tray" if enabled else "unconfirmed")
+            self.assertEqual(observer.confirmation.status, "unconfirmed")
+            self.assertEqual(observer.review is not None, enabled)
+
+    def test_cancel_prevents_camera_and_future_restart(self):
+        for enabled in (False, True):
+            for stop_tick in (0, 75, 100):
+                observer = ReleaseObserver(allow_recheck=enabled)
+                locate = Mock(return_value=None)
+                for i in range(stop_tick):
+                    observer.step(i / 25, [{"event": "intentional_release"}], locate)
+                before = locate.call_count
+                observer.step(stop_tick / 25, [], locate, stop=True)
+                observer.step(7, [{"event": "intentional_release"}], locate)
+                self.assertEqual(locate.call_count, before)
+                if enabled or stop_tick <= 75:
+                    self.assertEqual(observer.status, "cancelled")

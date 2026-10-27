@@ -760,3 +760,8 @@ release-review-test:
 
 release-review-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_review.py --output "$(RELEASE_REVIEW_OUTPUT)"
+
+RELEASE_REVIEW_LIVE_OUTPUT ?= outputs/evaluations/release-review-live-v2
+.PHONY: release-review-live-evaluate
+release-review-live-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_observer.py --view offset --review --output "$(RELEASE_REVIEW_LIVE_OUTPUT)"

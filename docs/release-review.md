@@ -43,3 +43,5 @@ make release-review-evaluate RELEASE_REVIEW_OUTPUT=outputs/evaluations/release-r
 ```
 
 无需图形连接，读取仓库内两份既有完整观测报告，输出目录必须不存在。下一步可将模块接入显式启用的实时观测分支，再检验物理轨迹不变与取消传播。
+
+后续[完整回放观测分支验证](release-review-live.md)完成 12 次物理开关对照，覆盖有限复查与停止传播，生产默认仍未启用。
