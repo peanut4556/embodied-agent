@@ -769,3 +769,11 @@ release-review-live-evaluate:
 .PHONY: observation-capture-test
 observation-capture-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_observation_capture.py' -v
+
+EXPOSURE_TIMING_OUTPUT ?= outputs/exposure-timing-v2.json
+.PHONY: exposure-confirmation-test exposure-timing-check
+exposure-confirmation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_exposure_confirmation.py' -v
+
+exposure-timing-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_exposure_timing.py --output "$(EXPOSURE_TIMING_OUTPUT)"

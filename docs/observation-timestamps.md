@@ -40,3 +40,5 @@ observer = CapturedReleaseObserver(capture, allow_recheck=True)
 driver_read(cancel_event) 返回 StampedPosition 或 None。驱动需独立拥有相机资源，不能共享未经同步的模拟渲染器。已有不带时间戳的驱动可继续使用默认兼容模式，但不具备缓存帧拒绝保证。
 
 复现测试：`make observation-capture-test`。下一步可用独立相机桩注入时钟漂移和动态物体，检验曝光时刻与任务时间的映射，再决定如何让确认器使用曝光间隔。
+
+后续新增[双时钟确认原型](exposure-confirmation.md)，通过合成位置序列验证曝光间隔与送达间隔的差异；尚未接入完整采集流水线。
