@@ -747,3 +747,8 @@ RELEASE_LATE_WINDOW_OUTPUT ?= outputs/evaluations/release-late-window-v2
 .PHONY: release-late-window-evaluate
 release-late-window-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite expanded --observe-seconds 6 --output "$(RELEASE_LATE_WINDOW_OUTPUT)"
+
+RELEASE_WINDOW_VALIDATION_OUTPUT ?= outputs/evaluations/release-window-validation-v2
+.PHONY: release-window-validation-evaluate
+release-window-validation-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_release_confirmation.py --view offset --suite validation --observe-seconds 6 --output "$(RELEASE_WINDOW_VALIDATION_OUTPUT)"

@@ -25,6 +25,25 @@ CASES = [
 def cases_for_suite(suite):
     if suite == "baseline":
         return [(name, xyz, missing, [1, 0, 0, 0]) for name, xyz, missing in CASES]
+    if suite == "validation":
+        cases = [("center", [0.64, 0, 0.12], False, [1, 0, 0, 0])]
+        for x in (0.60, 0.655, 0.685):
+            for angle in (20, 35, 50, 65):
+                half = np.deg2rad(angle) / 2
+                cases.append(
+                    (
+                        f"new-roll-{x}-{angle}",
+                        [x, -0.01, 0.12],
+                        False,
+                        [float(np.cos(half)), float(np.sin(half)), 0, 0],
+                    )
+                )
+        for x in (0.57, 0.72):
+            for y in (-0.065, 0.065):
+                cases.append((f"outside-{x}-{y}", [x, y, 0.12], False, [1, 0, 0, 0]))
+        for mode in ("early", "intermittent", True):
+            cases.append((f"missing-{mode}", [0.64, 0, 0.12], mode, [1, 0, 0, 0]))
+        return cases
     if suite != "expanded":
         raise ValueError("unknown landing suite")
     cases = [
@@ -47,11 +66,23 @@ def cases_for_suite(suite):
     return cases
 
 
+def observation_missing(mode, sample):
+    if type(mode) is bool:
+        return mode
+    if mode == "early":
+        return sample < 18  # First 3.6 seconds at 5 Hz.
+    if mode == "intermittent":
+        return sample % 2 == 0
+    raise ValueError("unknown missing-observation schedule")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
     parser.add_argument("--view", choices=("original", "offset"), default="original")
-    parser.add_argument("--suite", choices=("baseline", "expanded"), default="baseline")
+    parser.add_argument(
+        "--suite", choices=("baseline", "expanded", "validation"), default="baseline"
+    )
     parser.add_argument("--observe-seconds", type=int, choices=(3, 6), default=3)
     args = parser.parse_args()
     output = Path(args.output)
@@ -97,7 +128,7 @@ def main():
             rows = []
             for i in range(args.observe_seconds * 5 + 1):
                 point, error = None, None
-                if not missing:
+                if not observation_missing(missing, i):
                     try:
                         point = world.locate_block().tolist()
                     except ValueError as exc:
@@ -133,6 +164,18 @@ def main():
                 "confirmation_result": check.result(),
                 "late_result": late_check.result() if late_check else None,
                 "observations": rows,
+                "first_confirmation_elapsed_s": next(
+                    (o["time"] - check.start for o in rows if o["status"] == "confirmed_in_tray"),
+                    None,
+                ),
+                "late_confirmation_elapsed_s": next(
+                    (
+                        o["time"] - check.start
+                        for o in rows
+                        if o["late_status"] == "confirmed_in_tray"
+                    ),
+                    None,
+                ),
             }
             report["cases"].append(row)
             print(name, check.status, late_check.status if late_check else None, flush=True)
@@ -165,7 +208,8 @@ def main():
     )
     (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     assert report["false_confirmations"] == 0, "false confirmation observed"
-    center_name = "center" if args.suite == "baseline" else "grid-2-1"
+    assert report.get("late_false_confirmations", 0) == 0, "late false confirmation observed"
+    center_name = "grid-2-1" if args.suite == "expanded" else "center"
     center = next(c for c in report["cases"] if c["name"] == center_name)
     assert center["status"] == "confirmed_in_tray", "center did not confirm"
     assert report["cases"][-1]["status"] == "unconfirmed", "missing evidence confirmed"

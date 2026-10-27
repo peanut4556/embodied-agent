@@ -39,3 +39,5 @@ make release-late-window-evaluate RELEASE_LATE_WINDOW_OUTPUT=outputs/evaluations
 ```
 
 需要 MuJoCo 图形连接，输出目录必须不存在。下一步可冻结后续窗口方案，使用新倾角和落点对照验证它是否稳定改善暂时性观测不足，并评估新增等待成本，再决定是否设计运行时复查。
+
+后续[新条件验证](release-window-validation.md)完成 20 组对照：新倾角组合均在原窗口确认，后续窗口只在早期观测缺失对照中增加一次确认，提示收益不能泛化为普遍延长等待。
