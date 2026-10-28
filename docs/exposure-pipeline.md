@@ -40,3 +40,5 @@ make exposure-pipeline-check EXPOSURE_PIPELINE_OUTPUT=outputs/exposure-pipeline-
 ```
 
 无需图形连接，报告文件必须不存在，父目录须已存在。下一步可增加抖动与掉帧的确定性时间表，验证失败时证据连续性和预算仍保持正确，再考虑真实驱动接入。
+
+后续[十四组压力时间表](exposure-stress.md)覆盖抖动、掉帧、时钟偏差恢复和迟到轮询；生产门槛保持不变。

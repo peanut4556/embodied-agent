@@ -785,3 +785,11 @@ exposure-pipeline-test:
 
 exposure-pipeline-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_exposure_pipeline.py --output "$(EXPOSURE_PIPELINE_OUTPUT)"
+
+EXPOSURE_STRESS_OUTPUT ?= outputs/exposure-stress-v3.json
+.PHONY: exposure-stress-test exposure-stress-check
+exposure-stress-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_exposure_stress.py' -v
+
+exposure-stress-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_exposure_pipeline.py --suite stress --output "$(EXPOSURE_STRESS_OUTPUT)"

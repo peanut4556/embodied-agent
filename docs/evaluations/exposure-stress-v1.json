@@ -1,0 +1,3615 @@
+{
+  "scope": "Threaded camera stub with controlled clocks; no hardware or physics.",
+  "suite": "stress",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/check_exposure_pipeline.py": "ae595cf78622ddeb2ae02f0024b73375cd62c3cd8b95fcf5acce292b533ebce0",
+    "src/embodied_agent/exposure_observer.py": "a724d74ed40cadddb4846c80c097cb8210fa0b87ba41f7bd47fb570871f006d5",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/release_confirmation.py": "3d3bd2c9347a580be2c7542c5762fd10e37afe22816e9a695c7d54cb05ab45f5"
+  },
+  "cases": [
+    {
+      "mode": "stationary",
+      "status": "confirmed_in_tray",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": false
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.66,
+          "returned": 100.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.82,
+          "returned": 100.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.06,
+          "returned": 101.1,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.26,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": 100.42,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.4200000000000017
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": 100.66,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.6599999999999966
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.82,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8199999999999932
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": 101.06,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0600000000000023
+        }
+      ]
+    },
+    {
+      "mode": "moving",
+      "status": "outside_confirmation_region",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": false
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.66,
+          "returned": 100.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.82,
+          "returned": 100.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.06,
+          "returned": 101.1,
+          "missing": false
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.22,
+          "returned": 101.3,
+          "missing": false
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.46000000000001,
+          "returned": 101.5,
+          "missing": false
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.61999999999999,
+          "returned": 101.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.86,
+          "returned": 101.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.0,
+          "exposure": 102.02,
+          "returned": 102.1,
+          "missing": false
+        },
+        {
+          "requested": 102.2,
+          "exposure": 102.26,
+          "returned": 102.3,
+          "missing": false
+        },
+        {
+          "requested": 102.4,
+          "exposure": 102.42,
+          "returned": 102.5,
+          "missing": false
+        },
+        {
+          "requested": 102.6,
+          "exposure": 102.66,
+          "returned": 102.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.8,
+          "exposure": 102.82,
+          "returned": 102.89999999999999,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.02,
+          "position": [
+            0.6204999999999999,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.26,
+          "position": [
+            0.6265000000000002,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": 100.42,
+          "position": [
+            0.6305000000000001,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.4200000000000017
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": 100.66,
+          "position": [
+            0.6365,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.6599999999999966
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.82,
+          "position": [
+            0.6404999999999998,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8199999999999932
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": 101.06,
+          "position": [
+            0.6465000000000001,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0600000000000023
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": 101.22,
+          "position": [
+            0.6505,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.2199999999999989
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": 101.46000000000001,
+          "position": [
+            0.6565000000000002,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.460000000000008
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": 101.61999999999999,
+          "position": [
+            0.6604999999999998,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.6199999999999903
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": 101.86,
+          "position": [
+            0.6665,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.8599999999999994
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.2,
+          "captured_at": 102.02,
+          "position": [
+            0.6704999999999999,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.019999999999996
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.4,
+          "captured_at": 102.26,
+          "position": [
+            0.6765000000000001,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.260000000000005
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.6,
+          "captured_at": 102.42,
+          "position": [
+            0.6805,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.4200000000000017
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.8,
+          "captured_at": 102.66,
+          "position": [
+            0.6864999999999999,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.6599999999999966
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.0,
+          "captured_at": 102.82,
+          "position": [
+            0.6904999999999998,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 2.819999999999993
+        }
+      ]
+    },
+    {
+      "mode": "cached",
+      "status": "unconfirmed",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 99.99,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.19,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.39,
+          "returned": 100.5,
+          "missing": false
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.58999999999999,
+          "returned": 100.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.78999999999999,
+          "returned": 100.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 100.99,
+          "returned": 101.1,
+          "missing": false
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.19,
+          "returned": 101.3,
+          "missing": false
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.39,
+          "returned": 101.5,
+          "missing": false
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.58999999999999,
+          "returned": 101.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.78999999999999,
+          "returned": 101.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.0,
+          "exposure": 101.99,
+          "returned": 102.1,
+          "missing": false
+        },
+        {
+          "requested": 102.2,
+          "exposure": 102.19,
+          "returned": 102.3,
+          "missing": false
+        },
+        {
+          "requested": 102.4,
+          "exposure": 102.39,
+          "returned": 102.5,
+          "missing": false
+        },
+        {
+          "requested": 102.6,
+          "exposure": 102.58999999999999,
+          "returned": 102.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.8,
+          "exposure": 102.78999999999999,
+          "returned": 102.89999999999999,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.0,
+          "captured_at": null,
+          "position": null,
+          "capture_error": "ValueError: capture timestamp outside request interval",
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        }
+      ]
+    },
+    {
+      "mode": "drift",
+      "status": "unconfirmed",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.208,
+          "exposure": 100.268,
+          "returned": 100.30799999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.416,
+          "exposure": 100.43599999999999,
+          "returned": 100.51599999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.624,
+          "exposure": 100.684,
+          "returned": 100.72399999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.832,
+          "exposure": 100.85199999999999,
+          "returned": 100.93199999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.04,
+          "exposure": 101.10000000000001,
+          "returned": 101.14,
+          "missing": false
+        },
+        {
+          "requested": 101.248,
+          "exposure": 101.268,
+          "returned": 101.348,
+          "missing": false
+        },
+        {
+          "requested": 101.456,
+          "exposure": 101.516,
+          "returned": 101.556,
+          "missing": false
+        },
+        {
+          "requested": 101.664,
+          "exposure": 101.684,
+          "returned": 101.764,
+          "missing": false
+        },
+        {
+          "requested": 101.872,
+          "exposure": 101.932,
+          "returned": 101.972,
+          "missing": false
+        },
+        {
+          "requested": 102.08,
+          "exposure": 102.1,
+          "returned": 102.17999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.288,
+          "exposure": 102.348,
+          "returned": 102.38799999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.496,
+          "exposure": 102.51599999999999,
+          "returned": 102.59599999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.704,
+          "exposure": 102.764,
+          "returned": 102.80399999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.912,
+          "exposure": 102.932,
+          "returned": 103.012,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.208,
+          "captured_at": 100.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.416,
+          "captured_at": 100.268,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2680000000000007
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.624,
+          "captured_at": 100.43599999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.832,
+          "captured_at": 100.684,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.04,
+          "captured_at": 100.85199999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.248,
+          "captured_at": 101.10000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.456,
+          "captured_at": 101.268,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.664,
+          "captured_at": 101.516,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.872,
+          "captured_at": 101.684,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.08,
+          "captured_at": 101.932,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.288,
+          "captured_at": 102.1,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.496,
+          "captured_at": 102.348,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.704,
+          "captured_at": 102.51599999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.912,
+          "captured_at": 102.764,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.12,
+          "captured_at": 102.932,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "observation_rejected",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        }
+      ]
+    },
+    {
+      "mode": "stop",
+      "status": "cancelled",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.26,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        }
+      ]
+    },
+    {
+      "mode": "jitter",
+      "status": "confirmed_in_tray",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.01,
+          "returned": 100.08,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.245,
+          "returned": 100.38000000000001,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.52000000000001,
+          "missing": false
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.655,
+          "returned": 100.75999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.81,
+          "returned": 100.88,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.045,
+          "returned": 101.18,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.08,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.01,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.010000000000005116
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.245,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.24500000000000455
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": 100.42,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.4200000000000017
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": 100.655,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.6550000000000011
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.81,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8100000000000023
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": 101.045,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0450000000000017
+        }
+      ]
+    },
+    {
+      "mode": "moving_jitter",
+      "status": "outside_confirmation_region",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.01,
+          "returned": 100.08,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.245,
+          "returned": 100.38000000000001,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.52000000000001,
+          "missing": false
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.655,
+          "returned": 100.75999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.81,
+          "returned": 100.88,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.045,
+          "returned": 101.18,
+          "missing": false
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.22,
+          "returned": 101.32000000000001,
+          "missing": false
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.45500000000001,
+          "returned": 101.56,
+          "missing": false
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.61,
+          "returned": 101.67999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.845,
+          "returned": 101.98,
+          "missing": false
+        },
+        {
+          "requested": 102.0,
+          "exposure": 102.02,
+          "returned": 102.12,
+          "missing": false
+        },
+        {
+          "requested": 102.2,
+          "exposure": 102.25500000000001,
+          "returned": 102.36,
+          "missing": false
+        },
+        {
+          "requested": 102.4,
+          "exposure": 102.41000000000001,
+          "returned": 102.48,
+          "missing": false
+        },
+        {
+          "requested": 102.6,
+          "exposure": 102.645,
+          "returned": 102.78,
+          "missing": false
+        },
+        {
+          "requested": 102.8,
+          "exposure": 102.82,
+          "returned": 102.92,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.08,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.01,
+          "position": [
+            0.6202500000000001,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.010000000000005116
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.245,
+          "position": [
+            0.6261250000000002,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.24500000000000455
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": 100.42,
+          "position": [
+            0.6305000000000001,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.4200000000000017
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": 100.655,
+          "position": [
+            0.636375,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.6550000000000011
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.81,
+          "position": [
+            0.6402500000000001,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8100000000000023
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": 101.045,
+          "position": [
+            0.6461250000000001,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0450000000000017
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": 101.22,
+          "position": [
+            0.6505,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.2199999999999989
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": 101.45500000000001,
+          "position": [
+            0.6563750000000003,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.4550000000000125
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": 101.61,
+          "position": [
+            0.66025,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.6099999999999994
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": 101.845,
+          "position": [
+            0.666125,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.8449999999999989
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.2,
+          "captured_at": 102.02,
+          "position": [
+            0.6704999999999999,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.019999999999996
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.4,
+          "captured_at": 102.25500000000001,
+          "position": [
+            0.6763750000000003,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.2550000000000097
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.6,
+          "captured_at": 102.41000000000001,
+          "position": [
+            0.6802500000000002,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.410000000000011
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.8,
+          "captured_at": 102.645,
+          "position": [
+            0.6861249999999999,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.644999999999996
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.0,
+          "captured_at": 102.82,
+          "position": [
+            0.6904999999999998,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 2.819999999999993
+        }
+      ]
+    },
+    {
+      "mode": "exposure_gaps",
+      "status": "unconfirmed",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.01,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.29,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.41000000000001,
+          "returned": 100.5,
+          "missing": false
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.69,
+          "returned": 100.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.81,
+          "returned": 100.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.09,
+          "returned": 101.1,
+          "missing": false
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.21000000000001,
+          "returned": 101.3,
+          "missing": false
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.49000000000001,
+          "returned": 101.5,
+          "missing": false
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.61,
+          "returned": 101.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.89,
+          "returned": 101.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.0,
+          "exposure": 102.01,
+          "returned": 102.1,
+          "missing": false
+        },
+        {
+          "requested": 102.2,
+          "exposure": 102.29,
+          "returned": 102.3,
+          "missing": false
+        },
+        {
+          "requested": 102.4,
+          "exposure": 102.41000000000001,
+          "returned": 102.5,
+          "missing": false
+        },
+        {
+          "requested": 102.6,
+          "exposure": 102.69,
+          "returned": 102.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.8,
+          "exposure": 102.81,
+          "returned": 102.89999999999999,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.01,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.010000000000005116
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.29,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.29000000000000625
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": 100.41000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.4100000000000108
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": 100.69,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.6899999999999977
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.81,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8100000000000023
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": 101.09,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0900000000000034
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": 101.21000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.210000000000008
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": 101.49000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.490000000000009
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": 101.61,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.6099999999999994
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": 101.89,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.8900000000000006
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.2,
+          "captured_at": 102.01,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.010000000000005
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.4,
+          "captured_at": 102.29,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.2900000000000063
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.6,
+          "captured_at": 102.41000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.410000000000011
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.8,
+          "captured_at": 102.69,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.6899999999999977
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.0,
+          "captured_at": 102.81,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.8100000000000023
+        }
+      ]
+    },
+    {
+      "mode": "early_drop",
+      "status": "confirmed_in_tray",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": true
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": true
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": true
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.66,
+          "returned": 100.69999999999999,
+          "missing": true
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.82,
+          "returned": 100.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.06,
+          "returned": 101.1,
+          "missing": false
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.22,
+          "returned": 101.3,
+          "missing": false
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.46000000000001,
+          "returned": 101.5,
+          "missing": false
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.61999999999999,
+          "returned": 101.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.86,
+          "returned": 101.89999999999999,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.82,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8199999999999932
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": 101.06,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0600000000000023
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": 101.22,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.2199999999999989
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": 101.46000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.460000000000008
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": 101.61999999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.6199999999999903
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": 101.86,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.8599999999999994
+        }
+      ]
+    },
+    {
+      "mode": "periodic_drop",
+      "status": "unconfirmed",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": true
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.66,
+          "returned": 100.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.82,
+          "returned": 100.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.06,
+          "returned": 101.1,
+          "missing": true
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.22,
+          "returned": 101.3,
+          "missing": false
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.46000000000001,
+          "returned": 101.5,
+          "missing": false
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.61999999999999,
+          "returned": 101.69999999999999,
+          "missing": true
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.86,
+          "returned": 101.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.0,
+          "exposure": 102.02,
+          "returned": 102.1,
+          "missing": false
+        },
+        {
+          "requested": 102.2,
+          "exposure": 102.26,
+          "returned": 102.3,
+          "missing": true
+        },
+        {
+          "requested": 102.4,
+          "exposure": 102.42,
+          "returned": 102.5,
+          "missing": false
+        },
+        {
+          "requested": 102.6,
+          "exposure": 102.66,
+          "returned": 102.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.8,
+          "exposure": 102.82,
+          "returned": 102.89999999999999,
+          "missing": true
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.26,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": 100.66,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.6599999999999966
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.82,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8199999999999932
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": 101.22,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.2199999999999989
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": 101.46000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.460000000000008
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": 101.86,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.8599999999999994
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.2,
+          "captured_at": 102.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.019999999999996
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.6,
+          "captured_at": 102.42,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.4200000000000017
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.8,
+          "captured_at": 102.66,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.6599999999999966
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.0,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        }
+      ]
+    },
+    {
+      "mode": "all_drop",
+      "status": "unconfirmed",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": true
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": true
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": true
+        },
+        {
+          "requested": 100.6,
+          "exposure": 100.66,
+          "returned": 100.69999999999999,
+          "missing": true
+        },
+        {
+          "requested": 100.8,
+          "exposure": 100.82,
+          "returned": 100.89999999999999,
+          "missing": true
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.06,
+          "returned": 101.1,
+          "missing": true
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.22,
+          "returned": 101.3,
+          "missing": true
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.46000000000001,
+          "returned": 101.5,
+          "missing": true
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.61999999999999,
+          "returned": 101.69999999999999,
+          "missing": true
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.86,
+          "returned": 101.89999999999999,
+          "missing": true
+        },
+        {
+          "requested": 102.0,
+          "exposure": 102.02,
+          "returned": 102.1,
+          "missing": true
+        },
+        {
+          "requested": 102.2,
+          "exposure": 102.26,
+          "returned": 102.3,
+          "missing": true
+        },
+        {
+          "requested": 102.4,
+          "exposure": 102.42,
+          "returned": 102.5,
+          "missing": true
+        },
+        {
+          "requested": 102.6,
+          "exposure": 102.66,
+          "returned": 102.69999999999999,
+          "missing": true
+        },
+        {
+          "requested": 102.8,
+          "exposure": 102.82,
+          "returned": 102.89999999999999,
+          "missing": true
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.2,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.4,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.6,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.8,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.0,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        }
+      ]
+    },
+    {
+      "mode": "clock_jump",
+      "status": "unconfirmed",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": false
+        },
+        {
+          "requested": 100.64999999999999,
+          "exposure": 100.71,
+          "returned": 100.74999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.85,
+          "exposure": 100.86999999999999,
+          "returned": 100.94999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.05,
+          "exposure": 101.11,
+          "returned": 101.14999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.25,
+          "exposure": 101.27,
+          "returned": 101.35,
+          "missing": false
+        },
+        {
+          "requested": 101.45,
+          "exposure": 101.51,
+          "returned": 101.55,
+          "missing": false
+        },
+        {
+          "requested": 101.64999999999999,
+          "exposure": 101.66999999999999,
+          "returned": 101.74999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.85,
+          "exposure": 101.91,
+          "returned": 101.94999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.05,
+          "exposure": 102.07,
+          "returned": 102.14999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.25,
+          "exposure": 102.31,
+          "returned": 102.35,
+          "missing": false
+        },
+        {
+          "requested": 102.45,
+          "exposure": 102.47,
+          "returned": 102.55,
+          "missing": false
+        },
+        {
+          "requested": 102.64999999999999,
+          "exposure": 102.71,
+          "returned": 102.74999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.85,
+          "exposure": 102.86999999999999,
+          "returned": 102.94999999999999,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.26,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.64999999999999,
+          "captured_at": 100.42,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.85,
+          "captured_at": 100.71,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.05,
+          "captured_at": 100.86999999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.25,
+          "captured_at": 101.11,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.45,
+          "captured_at": 101.27,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.64999999999999,
+          "captured_at": 101.51,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.85,
+          "captured_at": 101.66999999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.05,
+          "captured_at": 101.91,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.25,
+          "captured_at": 102.07,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.4,
+          "host_time": 102.45,
+          "captured_at": 102.31,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.6,
+          "host_time": 102.64999999999999,
+          "captured_at": 102.47,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 2.8,
+          "host_time": 102.85,
+          "captured_at": 102.71,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 3.0,
+          "host_time": 103.05,
+          "captured_at": 102.86999999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "observation_rejected",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        }
+      ]
+    },
+    {
+      "mode": "clock_recovery",
+      "status": "confirmed_in_tray",
+      "calls": [
+        {
+          "requested": 100.0,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": false
+        },
+        {
+          "requested": 100.64999999999999,
+          "exposure": 100.71,
+          "returned": 100.74999999999999,
+          "missing": false
+        },
+        {
+          "requested": 100.85,
+          "exposure": 100.86999999999999,
+          "returned": 100.94999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.0,
+          "exposure": 101.06,
+          "returned": 101.1,
+          "missing": false
+        },
+        {
+          "requested": 101.2,
+          "exposure": 101.22,
+          "returned": 101.3,
+          "missing": false
+        },
+        {
+          "requested": 101.4,
+          "exposure": 101.46000000000001,
+          "returned": 101.5,
+          "missing": false
+        },
+        {
+          "requested": 101.6,
+          "exposure": 101.61999999999999,
+          "returned": 101.69999999999999,
+          "missing": false
+        },
+        {
+          "requested": 101.8,
+          "exposure": 101.86,
+          "returned": 101.89999999999999,
+          "missing": false
+        },
+        {
+          "requested": 102.0,
+          "exposure": 102.02,
+          "returned": 102.1,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0.0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.26,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        },
+        {
+          "task_time": 0.6,
+          "host_time": 100.64999999999999,
+          "captured_at": 100.42,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.8,
+          "host_time": 100.85,
+          "captured_at": 100.71,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": "clock mapping drift exceeds tolerance",
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 1.0,
+          "host_time": 101.0,
+          "captured_at": 100.86999999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.8699999999999903
+        },
+        {
+          "task_time": 1.2,
+          "host_time": 101.2,
+          "captured_at": 101.06,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0600000000000023
+        },
+        {
+          "task_time": 1.4,
+          "host_time": 101.4,
+          "captured_at": 101.22,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.2199999999999989
+        },
+        {
+          "task_time": 1.6,
+          "host_time": 101.6,
+          "captured_at": 101.46000000000001,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.460000000000008
+        },
+        {
+          "task_time": 1.8,
+          "host_time": 101.8,
+          "captured_at": 101.61999999999999,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.6199999999999903
+        },
+        {
+          "task_time": 2.0,
+          "host_time": 102.0,
+          "captured_at": 101.86,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.8599999999999994
+        },
+        {
+          "task_time": 2.2,
+          "host_time": 102.2,
+          "captured_at": 102.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.019999999999996
+        }
+      ]
+    },
+    {
+      "mode": "late_poll",
+      "status": "unconfirmed",
+      "calls": [
+        {
+          "requested": 100,
+          "exposure": 100.02,
+          "returned": 100.1,
+          "missing": false
+        },
+        {
+          "requested": 100.2,
+          "exposure": 100.26,
+          "returned": 100.3,
+          "missing": false
+        },
+        {
+          "requested": 100.4,
+          "exposure": 100.42,
+          "returned": 100.5,
+          "missing": false
+        }
+      ],
+      "observations": [
+        {
+          "task_time": 0,
+          "host_time": 100.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        {
+          "task_time": 0.2,
+          "host_time": 100.2,
+          "captured_at": 100.02,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.01999999999999602
+        },
+        {
+          "task_time": 0.4,
+          "host_time": 100.4,
+          "captured_at": 100.26,
+          "position": [
+            0.64,
+            0.0,
+            0.04
+          ],
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        },
+        {
+          "task_time": 3.1,
+          "host_time": 103.1,
+          "captured_at": null,
+          "position": null,
+          "capture_error": null,
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "delivery_deadline_exceeded",
+          "last_error": null,
+          "last_exposure_time": 0.2600000000000051
+        }
+      ]
+    }
+  ]
+}
