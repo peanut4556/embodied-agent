@@ -797,3 +797,7 @@ exposure-stress-check:
 .PHONY: camera-process-test
 camera-process-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_camera_process.py' -v
+
+.PHONY: process-exposure-test
+process-exposure-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_process_exposure_observer.py' -v
