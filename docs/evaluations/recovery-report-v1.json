@@ -1,0 +1,1159 @@
+{
+  "schema_version": 1,
+  "test_kind": "deterministic_session_stub",
+  "cases": {
+    "restored_pending": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": true,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "observation_restored",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": true,
+          "restored_attempts": [
+            1
+          ],
+          "visual_confirmation_succeeded": false,
+          "terminal": false,
+          "reason_code": "collecting_evidence",
+          "explanation": "正在累计新的稳定观测证据",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "pending",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "clock_mapping_bound",
+            "session": "replacement"
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.5990000000000004
+          }
+        ]
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "cancelled",
+          "reason": "observer_closed",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "observation_restored",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": true,
+          "restored_attempts": [
+            1
+          ],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "observer_closed",
+          "explanation": "观测控制器已关闭",
+          "cleanup_required": false
+        },
+        "cleanup": {
+          "status": "succeeded",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "closed",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "clock_mapping_bound",
+            "session": "replacement"
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.5990000000000004
+          },
+          {
+            "event": "observer_closed",
+            "session": "replacement"
+          }
+        ]
+      },
+      "cleanup_exception": null
+    },
+    "confirmed": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": true,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "observation_restored",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": true,
+          "restored_attempts": [
+            1
+          ],
+          "visual_confirmation_succeeded": true,
+          "terminal": true,
+          "reason_code": "stable_visual_evidence",
+          "explanation": "新的视觉稳定证据满足确认条件",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "ready",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "clock_mapping_bound",
+            "session": "replacement"
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.5990000000000004
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.8,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.7990000000000015
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.9990000000000008
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.2,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.199
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.4,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.3990000000000011
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "confirmed_in_tray",
+            "reason": "stable_visual_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.5990000000000004
+          }
+        ]
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": true,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "observation_restored",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": true,
+          "restored_attempts": [
+            1
+          ],
+          "visual_confirmation_succeeded": true,
+          "terminal": true,
+          "reason_code": "stable_visual_evidence",
+          "explanation": "新的视觉稳定证据满足确认条件",
+          "cleanup_required": false
+        },
+        "cleanup": {
+          "status": "succeeded",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "closed",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "clock_mapping_bound",
+            "session": "replacement"
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.5990000000000004
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.8,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.7990000000000015
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.9990000000000008
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.2,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.199
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.4,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.3990000000000011
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "confirmed_in_tray",
+            "reason": "stable_visual_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.5990000000000004
+          }
+        ]
+      },
+      "cleanup_exception": null
+    },
+    "limit_reached": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "unconfirmed",
+          "reason": "restart_limit_reached",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "camera_failed_again",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "restart_limit_reached",
+          "explanation": "重启次数已用尽",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "failed",
+          "error": "synthetic second failure"
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "camera_unavailable",
+            "session": "replacement"
+          },
+          {
+            "event": "restart_limit_reached",
+            "session": "replacement"
+          }
+        ]
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "unconfirmed",
+          "reason": "restart_limit_reached",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "camera_failed_again",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "restart_limit_reached",
+          "explanation": "重启次数已用尽",
+          "cleanup_required": false
+        },
+        "cleanup": {
+          "status": "succeeded",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "closed",
+          "error": "synthetic second failure"
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "camera_unavailable",
+            "session": "replacement"
+          },
+          {
+            "event": "restart_limit_reached",
+            "session": "replacement"
+          }
+        ]
+      },
+      "cleanup_exception": null
+    },
+    "budget_rejected": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "unconfirmed",
+          "reason": "insufficient_recovery_budget",
+          "session": "original",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 0,
+          "recovery_attempts": []
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "insufficient_recovery_budget",
+          "explanation": "剩余任务时间不足以尝试恢复",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "original",
+          "status": "timed_out",
+          "error": "synthetic timeout"
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "insufficient_recovery_budget",
+            "session": "original"
+          }
+        ]
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "unconfirmed",
+          "reason": "insufficient_recovery_budget",
+          "session": "original",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 0,
+          "recovery_attempts": []
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "insufficient_recovery_budget",
+          "explanation": "剩余任务时间不足以尝试恢复",
+          "cleanup_required": false
+        },
+        "cleanup": {
+          "status": "succeeded",
+          "error": null
+        },
+        "camera": {
+          "session": "original",
+          "status": "closed",
+          "error": "synthetic timeout"
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "insufficient_recovery_budget",
+            "session": "original"
+          }
+        ]
+      },
+      "cleanup_exception": null
+    },
+    "restart_failed": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "unconfirmed",
+          "reason": "camera_restart_failed",
+          "session": "original",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "restart_failed",
+              "restart_error": "synthetic restart failure"
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "camera_restart_failed",
+          "explanation": "采集进程重启失败",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "original",
+          "status": "timed_out",
+          "error": "synthetic timeout"
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "camera_restart_failed",
+            "session": "original"
+          }
+        ]
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "unconfirmed",
+          "reason": "camera_restart_failed",
+          "session": "original",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "restart_failed",
+              "restart_error": "synthetic restart failure"
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "camera_restart_failed",
+          "explanation": "采集进程重启失败",
+          "cleanup_required": false
+        },
+        "cleanup": {
+          "status": "succeeded",
+          "error": null
+        },
+        "camera": {
+          "session": "original",
+          "status": "closed",
+          "error": "synthetic timeout"
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "camera_restart_failed",
+            "session": "original"
+          }
+        ]
+      },
+      "cleanup_exception": null
+    },
+    "stopped": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "cancelled",
+          "reason": "user_stop",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "cancelled",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "user_stop",
+          "explanation": "用户已停止确认",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "idle",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "user_stop",
+            "session": "replacement"
+          }
+        ]
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "cancelled",
+          "reason": "user_stop",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "cancelled",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "user_stop",
+          "explanation": "用户已停止确认",
+          "cleanup_required": false
+        },
+        "cleanup": {
+          "status": "succeeded",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "closed",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "user_stop",
+            "session": "replacement"
+          }
+        ]
+      },
+      "cleanup_exception": null
+    },
+    "cleanup_failed": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "pending",
+          "reason": "awaiting_clock_mapping",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "awaiting_clock_mapping",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": false,
+          "reason_code": "awaiting_clock_mapping",
+          "explanation": "等待当前会话的新时钟映射",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "idle",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": []
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "cancelled",
+          "reason": "observer_closed",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": false,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "cleanup_failed",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": false,
+          "restored_attempts": [],
+          "visual_confirmation_succeeded": false,
+          "terminal": true,
+          "reason_code": "observer_closed",
+          "explanation": "观测控制器已关闭",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "failed",
+          "error": "synthetic cleanup failure"
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "cleanup_failed",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "observer_closed",
+            "session": "replacement"
+          }
+        ]
+      },
+      "cleanup_exception": "synthetic cleanup failure"
+    },
+    "confirmed_cleanup_failed": {
+      "before_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": true,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "observation_restored",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": true,
+          "restored_attempts": [
+            1
+          ],
+          "visual_confirmation_succeeded": true,
+          "terminal": true,
+          "reason_code": "stable_visual_evidence",
+          "explanation": "新的视觉稳定证据满足确认条件",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "not_requested",
+          "error": null
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "ready",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "clock_mapping_bound",
+            "session": "replacement"
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.5990000000000004
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.8,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.7990000000000015
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.9990000000000008
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.2,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.199
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.4,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.3990000000000011
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "confirmed_in_tray",
+            "reason": "stable_visual_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.5990000000000004
+          }
+        ]
+      },
+      "after_close": {
+        "schema_version": 1,
+        "scope": "experimental_visual_release_confirmation",
+        "result": {
+          "schema_version": 2,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "session": "replacement",
+          "deadline": 3,
+          "mapping_bound": true,
+          "max_restarts": 1,
+          "restart_count": 1,
+          "recovery_attempts": [
+            {
+              "attempt": 1,
+              "task_time": 0.5,
+              "old_session": "original",
+              "fault": "timed_out",
+              "error": "synthetic timeout",
+              "outcome": "observation_restored",
+              "new_session": "replacement",
+              "completed_at": 0.5
+            }
+          ]
+        },
+        "diagnosis": {
+          "observation_restored": true,
+          "restored_attempts": [
+            1
+          ],
+          "visual_confirmation_succeeded": true,
+          "terminal": true,
+          "reason_code": "stable_visual_evidence",
+          "explanation": "新的视觉稳定证据满足确认条件",
+          "cleanup_required": true
+        },
+        "cleanup": {
+          "status": "failed",
+          "error": "synthetic cleanup failure"
+        },
+        "camera": {
+          "session": "replacement",
+          "status": "cleanup_failed",
+          "error": null
+        },
+        "policy": {
+          "min_remaining": 1.25
+        },
+        "events": [
+          {
+            "event": "clock_mapping_bound",
+            "session": "replacement"
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.5990000000000004
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 0.8,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.7990000000000015
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 0.9990000000000008
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.2,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.199
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.4,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "pending",
+            "reason": "collecting_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.3990000000000011
+          },
+          {
+            "event": "observation",
+            "session": "replacement",
+            "task_time": 1.6,
+            "capture_error": null,
+            "schema_version": 1,
+            "status": "confirmed_in_tray",
+            "reason": "stable_visual_evidence",
+            "last_error": null,
+            "last_exposure_time": 1.5990000000000004
+          }
+        ]
+      },
+      "cleanup_exception": "synthetic cleanup failure"
+    }
+  }
+}

@@ -24,6 +24,7 @@ class RecoveryExposureObserver(ProcessExposureObserver):
         self.max_restarts = max_restarts
         self.min_remaining = min_remaining
         self.attempts = []
+        self.cleanup = {"status": "not_requested", "error": None}
 
     def _end_recovery(self, reason):
         self._invalidate(reason)
@@ -110,6 +111,13 @@ class RecoveryExposureObserver(ProcessExposureObserver):
     def close(self):
         try:
             super().close()
+        except Exception as exc:
+            self.cleanup = {"status": "failed", "error": str(exc)[:512]}
+            if self.attempts and self.attempts[-1]["outcome"] == "awaiting_clock_mapping":
+                self.attempts[-1]["outcome"] = "cleanup_failed"
+            raise
+        else:
+            self.cleanup = {"status": "succeeded", "error": None}
         finally:
             if self.attempts and self.attempts[-1]["outcome"] == "awaiting_clock_mapping":
                 self.attempts[-1]["outcome"] = "observer_closed"

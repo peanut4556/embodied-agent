@@ -805,3 +805,11 @@ process-exposure-test:
 .PHONY: camera-recovery-test
 camera-recovery-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_recovery_exposure_observer.py' -v
+
+RECOVERY_REPORT_OUTPUT ?= outputs/recovery-report-v2.json
+.PHONY: recovery-report-test recovery-report-check
+recovery-report-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_recovery_report.py' -v
+
+recovery-report-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_reports.py --output "$(RECOVERY_REPORT_OUTPUT)"
