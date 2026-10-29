@@ -42,3 +42,5 @@ make exposure-stress-check EXPOSURE_STRESS_OUTPUT=outputs/exposure-stress-new.js
 报告文件必须不存在，父目录须已存在。默认 --suite baseline 仍只运行原五组案例，--suite stress 运行全部十四组。未知模式会在启动工作线程前被拒绝。
 
 下一步可把独立采集进程的退出与重启纳入对照，确认设备重连后不会接受上一会话的旧帧或沿用过期时钟映射。
+
+后续新增[独立采集进程与会话隔离](camera-process.md)，验证阻塞回收、异常退出和旧管道结果隔离；上层时钟映射与证据重置仍需后续接入。

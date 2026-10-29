@@ -793,3 +793,7 @@ exposure-stress-test:
 
 exposure-stress-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_exposure_pipeline.py --suite stress --output "$(EXPOSURE_STRESS_OUTPUT)"
+
+.PHONY: camera-process-test
+camera-process-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_camera_process.py' -v
