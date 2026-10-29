@@ -801,3 +801,7 @@ camera-process-test:
 .PHONY: process-exposure-test
 process-exposure-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_process_exposure_observer.py' -v
+
+.PHONY: camera-recovery-test
+camera-recovery-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_recovery_exposure_observer.py' -v
