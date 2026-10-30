@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "audit_scope": "reported_state_consistency_only",
+  "accepted_count": 8,
+  "rejected_count": 0,
+  "counts": {
+    "observation_restored": 3,
+    "visual_confirmation_succeeded": 2,
+    "terminal": 8,
+    "cleanup_required": 2,
+    "restart_count": 7
+  },
+  "status_counts": {
+    "cancelled": 3,
+    "confirmed_in_tray": 2,
+    "unconfirmed": 3
+  },
+  "cleanup_counts": {
+    "succeeded": 6,
+    "failed": 2
+  },
+  "accepted": [
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "restored_pending",
+      "observation_restored": true,
+      "visual_confirmation_succeeded": false,
+      "terminal": true,
+      "cleanup_required": false,
+      "status": "cancelled",
+      "reason": "observer_closed",
+      "cleanup_status": "succeeded",
+      "restart_count": 1
+    },
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "confirmed",
+      "observation_restored": true,
+      "visual_confirmation_succeeded": true,
+      "terminal": true,
+      "cleanup_required": false,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "cleanup_status": "succeeded",
+      "restart_count": 1
+    },
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "limit_reached",
+      "observation_restored": false,
+      "visual_confirmation_succeeded": false,
+      "terminal": true,
+      "cleanup_required": false,
+      "status": "unconfirmed",
+      "reason": "restart_limit_reached",
+      "cleanup_status": "succeeded",
+      "restart_count": 1
+    },
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "budget_rejected",
+      "observation_restored": false,
+      "visual_confirmation_succeeded": false,
+      "terminal": true,
+      "cleanup_required": false,
+      "status": "unconfirmed",
+      "reason": "insufficient_recovery_budget",
+      "cleanup_status": "succeeded",
+      "restart_count": 0
+    },
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "restart_failed",
+      "observation_restored": false,
+      "visual_confirmation_succeeded": false,
+      "terminal": true,
+      "cleanup_required": false,
+      "status": "unconfirmed",
+      "reason": "camera_restart_failed",
+      "cleanup_status": "succeeded",
+      "restart_count": 1
+    },
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "stopped",
+      "observation_restored": false,
+      "visual_confirmation_succeeded": false,
+      "terminal": true,
+      "cleanup_required": false,
+      "status": "cancelled",
+      "reason": "user_stop",
+      "cleanup_status": "succeeded",
+      "restart_count": 1
+    },
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "cleanup_failed",
+      "observation_restored": false,
+      "visual_confirmation_succeeded": false,
+      "terminal": true,
+      "cleanup_required": true,
+      "status": "cancelled",
+      "reason": "observer_closed",
+      "cleanup_status": "failed",
+      "restart_count": 1
+    },
+    {
+      "source": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/docs/evaluations/recovery-report-v1.json",
+      "case": "confirmed_cleanup_failed",
+      "observation_restored": true,
+      "visual_confirmation_succeeded": true,
+      "terminal": true,
+      "cleanup_required": true,
+      "status": "confirmed_in_tray",
+      "reason": "stable_visual_evidence",
+      "cleanup_status": "failed",
+      "restart_count": 1
+    }
+  ],
+  "rejected": []
+}

@@ -50,3 +50,5 @@ write_recovery_report("outputs/my-recovery-report.json", report)
 运行 `make recovery-report-check` 会生成新的 outputs/recovery-report-v2.json；再次运行需用 `RECOVERY_REPORT_OUTPUT` 指定未占用路径。运行 `make recovery-report-test` 可复现新增的 8 项测试：结果区分、错误原因/计数、清理失败、快照隔离、JSON 往返及拒绝覆盖、无效数字拒绝、清理重试、视觉成功与清理失败并存。
 
 本轮共 176 项相关测试通过：58 核心、31 接触、22 释放、13 线程采集、14 曝光、7 采集进程、8 进程恢复控制、23 恢复相关（含新增报告 8 项及既有 schema/validation 5 项）。Ruff 与差异检查通过。新报告场景均使用确定性会话桩，回归包含此前的真实子进程测试；没有接入真实相机或进行新的物理抓放实验。
+
+后续已增加[离线审计与批量汇总](recovery-audit.md)：拒绝核心字段矛盾的报告，分别统计恢复、确认和清理，并避免把同一场景的关闭前后快照重复计数。

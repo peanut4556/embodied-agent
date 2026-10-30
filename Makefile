@@ -813,3 +813,12 @@ recovery-report-test:
 
 recovery-report-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_reports.py --output "$(RECOVERY_REPORT_OUTPUT)"
+
+RECOVERY_AUDIT_INPUT ?= docs/evaluations/recovery-report-v1.json
+RECOVERY_AUDIT_OUTPUT ?= outputs/recovery-audit-v2.json
+.PHONY: recovery-audit-test recovery-audit-check
+recovery-audit-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_recovery_audit.py' -v
+
+recovery-audit-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_recovery_reports.py "$(RECOVERY_AUDIT_INPUT)" --output "$(RECOVERY_AUDIT_OUTPUT)"
