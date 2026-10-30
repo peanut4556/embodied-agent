@@ -5,6 +5,8 @@ import math
 from collections import Counter
 from pathlib import Path
 
+from .recovery_replay import replay_report
+
 
 def _require(condition, message):
     if not condition:
@@ -152,6 +154,7 @@ def validate_report(report):
         "status": status,
         "reason": result["reason"],
         "cleanup_status": cleanup_status,
+        "evidence_replay": replay_report(report),
         "restart_count": len(attempts),
     }
 
@@ -242,7 +245,7 @@ def audit_files(paths):
             rejected.append({"source": source, "error": str(exc)})
     return {
         "schema_version": 1,
-        "audit_scope": "reported_state_consistency_only",
+        "audit_scope": "state_consistency_and_available_evidence_replay",
         "accepted_count": len(accepted),
         "rejected_count": len(rejected),
         "counts": {
@@ -257,6 +260,7 @@ def audit_files(paths):
         },
         "status_counts": dict(Counter(row["status"] for row in accepted)),
         "cleanup_counts": dict(Counter(row["cleanup_status"] for row in accepted)),
+        "replay_counts": dict(Counter(row["evidence_replay"]["status"] for row in accepted)),
         "accepted": accepted,
         "rejected": rejected,
     }

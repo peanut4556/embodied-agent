@@ -29,6 +29,11 @@ def recovery_report(observer):
     report = {
         "schema_version": 1,
         "scope": "experimental_visual_release_confirmation",
+        "evidence": {
+            "schema_version": 1,
+            "algorithm": "exposure_confirmation_v1",
+            "start_time": observer.start,
+        },
         "result": result,
         "diagnosis": {
             "observation_restored": bool(restored),

@@ -2,6 +2,7 @@
 
 import math
 import time
+from dataclasses import asdict
 
 from .exposure_confirmation import ExposureClockMap, ExposureConfirmation
 
@@ -51,6 +52,16 @@ class ProcessExposureObserver:
         self.confirmation = ExposureConfirmation(self.start, mapping)
         self.reason = "collecting_evidence"
         self.last_task = task_now
+        self.rows.append(
+            {
+                "event": "mapping",
+                "session": session_id,
+                "task_time": task_now,
+                "host_time": now,
+                "session_started": self.session.started,
+                "mapping": asdict(mapping),
+            }
+        )
 
     def _validate_time(self, task_now):
         if (
@@ -79,6 +90,9 @@ class ProcessExposureObserver:
         self.last_task = task_now
         if task_now >= self.start + 3:
             self.status, self.reason = "unconfirmed", "delivery_deadline_reached"
+            self.rows.append(
+                {"event": "deadline", "task_time": task_now, "session": self.session_id}
+            )
             return self.status
         if self.session.session != self.session_id:
             self._invalidate("camera_session_changed")
@@ -90,13 +104,17 @@ class ProcessExposureObserver:
         if self.confirmation is None:
             return self.status
         if self.session.status in {"ready", "error"}:
-            self.confirmation.step(task_now, self.clock(), observation)
+            host_now = self.clock()
+            self.confirmation.step(task_now, host_now, observation)
             self.status, self.reason = self.confirmation.status, self.confirmation.reason
             self.rows.append(
                 {
                     "event": "observation",
                     "session": self.session_id,
                     "task_time": task_now,
+                    "host_time": host_now,
+                    "position": list(observation.position) if observation is not None else None,
+                    "captured_at": observation.captured_at if observation is not None else None,
                     "capture_error": self.session.error,
                     **self.confirmation.result(),
                 }
