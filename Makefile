@@ -838,3 +838,11 @@ release-stability-test:
 
 release-stability-audit:
 	PYTHONPATH=src:. .venv/bin/python scripts/audit_release_stability.py --output "$(RELEASE_STABILITY_OUTPUT)"
+
+STABILITY_INTERRUPTION_OUTPUT ?= outputs/stability-interruptions-v2.json
+.PHONY: stability-interruption-test stability-interruption-audit
+stability-interruption-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_release_interruptions.py' -v
+
+stability-interruption-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_stability_interruptions.py --output "$(STABILITY_INTERRUPTION_OUTPUT)"
