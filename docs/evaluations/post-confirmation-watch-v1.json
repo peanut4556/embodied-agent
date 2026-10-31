@@ -1,0 +1,1353 @@
+{
+  "schema_version": 1,
+  "test_kind": "synthetic_stamped_positions",
+  "original_confirmation": {
+    "schema_version": 1,
+    "status": "confirmed_in_tray",
+    "reason": "stable_visual_evidence",
+    "last_error": null,
+    "last_exposure_time": 1.0
+  },
+  "cases": {
+    "inside": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.5,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.5,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.765625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.75,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.75,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.015625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 18.0,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 2.0,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 18.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 2.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "monitoring",
+        "reason": "fresh_inside_observation",
+        "evidence_state": "inside_region",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "completed",
+        "reason": "followup_window_ended",
+        "evidence_state": "unknown",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    },
+    "transient": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 17.5,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "single_outside_observation",
+            "evidence_state": "outside_candidate",
+            "last_exposure_time": 1.5,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.765625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.75,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.75,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.015625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 18.0,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 2.0,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 18.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 2.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "monitoring",
+        "reason": "fresh_inside_observation",
+        "evidence_state": "inside_region",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "completed",
+        "reason": "followup_window_ended",
+        "evidence_state": "unknown",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    },
+    "outside": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 17.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "single_outside_observation",
+            "evidence_state": "outside_candidate",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 17.5,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "sustained_outside_observations",
+            "evidence_state": "outside_region",
+            "last_exposure_time": 1.5,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.765625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 17.75,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "sustained_outside_observations",
+            "evidence_state": "outside_region",
+            "last_exposure_time": 1.75,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.015625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 18.0,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "sustained_outside_observations",
+            "evidence_state": "outside_region",
+            "last_exposure_time": 2.0,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.265625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 18.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "sustained_outside_observations",
+            "evidence_state": "outside_region",
+            "last_exposure_time": 2.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "monitoring",
+        "reason": "sustained_outside_observations",
+        "evidence_state": "outside_region",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": true,
+        "alerts": [
+          {
+            "event": "outside_confirmation_region_detected",
+            "task_time": 1.515625,
+            "exposure_time": 1.5
+          }
+        ],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "completed",
+        "reason": "followup_window_ended",
+        "evidence_state": "unknown",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": true,
+        "alerts": [
+          {
+            "event": "outside_confirmation_region_detected",
+            "task_time": 1.515625,
+            "exposure_time": 1.5
+          }
+        ],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    },
+    "missing": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": null,
+          "captured_at": null,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "missing_observation",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": null,
+          "captured_at": null,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "missing_observation",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.765625,
+          "point": null,
+          "captured_at": null,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "missing_observation",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.015625,
+          "point": null,
+          "captured_at": null,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "missing_observation",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.265625,
+          "point": null,
+          "captured_at": null,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "missing_observation",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "monitoring",
+        "reason": "missing_observation",
+        "evidence_state": "unknown",
+        "last_exposure_time": null,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "completed",
+        "reason": "followup_window_ended",
+        "evidence_state": "unknown",
+        "last_exposure_time": null,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    },
+    "stale": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "observation_rejected",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": "capture too old",
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "observation_rejected",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": "capture too old",
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.765625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "observation_rejected",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": "capture too old",
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.015625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "observation_rejected",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": "capture too old",
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "observation_rejected",
+            "evidence_state": "unknown",
+            "last_exposure_time": null,
+            "last_error": "capture too old",
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "monitoring",
+        "reason": "observation_rejected",
+        "evidence_state": "unknown",
+        "last_exposure_time": null,
+        "last_error": "capture too old",
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "completed",
+        "reason": "followup_window_ended",
+        "evidence_state": "unknown",
+        "last_exposure_time": null,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    },
+    "session_change": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.5,
+          "result": {
+            "schema_version": 1,
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "evidence_state": "unknown",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "evidence_state": "unknown",
+        "last_exposure_time": 1.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "evidence_state": "unknown",
+        "last_exposure_time": 1.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    },
+    "stop": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.5,
+          "result": {
+            "schema_version": 1,
+            "status": "cancelled",
+            "reason": "user_stop",
+            "evidence_state": "unknown",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "evidence_state": "unknown",
+        "last_exposure_time": 1.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "evidence_state": "unknown",
+        "last_exposure_time": 1.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": false,
+        "alerts": [],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    },
+    "return_inside": {
+      "frames": [
+        {
+          "task_time": 1.265625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 17.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "single_outside_observation",
+            "evidence_state": "outside_candidate",
+            "last_exposure_time": 1.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": false,
+            "alerts": [],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.515625,
+          "point": [
+            0.7,
+            0,
+            0.04
+          ],
+          "captured_at": 17.5,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "sustained_outside_observations",
+            "evidence_state": "outside_region",
+            "last_exposure_time": 1.5,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 1.765625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 17.75,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 1.75,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.015625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 18.0,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 2.0,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        },
+        {
+          "task_time": 2.265625,
+          "point": [
+            0.64,
+            0,
+            0.04
+          ],
+          "captured_at": 18.25,
+          "result": {
+            "schema_version": 1,
+            "status": "monitoring",
+            "reason": "fresh_inside_observation",
+            "evidence_state": "inside_region",
+            "last_exposure_time": 2.25,
+            "last_error": null,
+            "deadline": 3.015625,
+            "session": "camera",
+            "outside_detected": true,
+            "alerts": [
+              {
+                "event": "outside_confirmation_region_detected",
+                "task_time": 1.515625,
+                "exposure_time": 1.5
+              }
+            ],
+            "original_confirmation": {
+              "schema_version": 1,
+              "status": "confirmed_in_tray",
+              "reason": "stable_visual_evidence",
+              "last_error": null,
+              "last_exposure_time": 1.0
+            }
+          }
+        }
+      ],
+      "before_end": {
+        "schema_version": 1,
+        "status": "monitoring",
+        "reason": "fresh_inside_observation",
+        "evidence_state": "inside_region",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": true,
+        "alerts": [
+          {
+            "event": "outside_confirmation_region_detected",
+            "task_time": 1.515625,
+            "exposure_time": 1.5
+          }
+        ],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      },
+      "final": {
+        "schema_version": 1,
+        "status": "completed",
+        "reason": "followup_window_ended",
+        "evidence_state": "unknown",
+        "last_exposure_time": 2.25,
+        "last_error": null,
+        "deadline": 3.015625,
+        "session": "camera",
+        "outside_detected": true,
+        "alerts": [
+          {
+            "event": "outside_confirmation_region_detected",
+            "task_time": 1.515625,
+            "exposure_time": 1.5
+          }
+        ],
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        }
+      }
+    }
+  }
+}

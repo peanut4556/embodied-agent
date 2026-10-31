@@ -846,3 +846,11 @@ stability-interruption-test:
 
 stability-interruption-audit:
 	PYTHONPATH=src:. .venv/bin/python scripts/audit_stability_interruptions.py --output "$(STABILITY_INTERRUPTION_OUTPUT)"
+
+POST_CONFIRMATION_OUTPUT ?= outputs/post-confirmation-watch-v2.json
+.PHONY: post-confirmation-test post-confirmation-check
+post-confirmation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_post_confirmation_watch.py' -v
+
+post-confirmation-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_post_confirmation_watch.py --output "$(POST_CONFIRMATION_OUTPUT)"
