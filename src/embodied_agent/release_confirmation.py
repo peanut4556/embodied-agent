@@ -40,7 +40,9 @@ class ReleaseConfirmation:
         if not stable:
             self.since = timestamp if inside else None
         elif self.since is None:
-            self.since = self.last_time
+            # The previous point can be outside even when displacement is small.
+            # Only the current in-region exposure can start a new stable window.
+            self.since = timestamp
         # No success from observations beyond the bounded confirmation window.
         if (
             timestamp - self.start <= 3 + 1e-9

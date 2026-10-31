@@ -35,6 +35,12 @@ def replay_report(report):
     """
     if "evidence" not in report:
         return {"status": "unavailable", "reason": "legacy_report_without_raw_evidence"}
+    if (
+        isinstance(report["evidence"], dict)
+        and report["evidence"].get("schema_version") == 1
+        and report["evidence"].get("algorithm") == "exposure_confirmation_v1"
+    ):
+        return {"status": "unavailable", "reason": "superseded_confirmation_algorithm"}
     try:
         return _replay(report)
     except (KeyError, TypeError, AttributeError, OverflowError) as exc:
@@ -45,7 +51,7 @@ def _replay(report):
     metadata = report["evidence"]
     if type(metadata["schema_version"]) is not int or metadata["schema_version"] != 1:
         raise ValueError("unsupported evidence schema")
-    if metadata["algorithm"] != "exposure_confirmation_v1":
+    if metadata["algorithm"] != "exposure_confirmation_v2":
         raise ValueError("unsupported confirmation algorithm")
     start = _number(metadata["start_time"])
     if report["result"]["deadline"] != start + 3:

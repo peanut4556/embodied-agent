@@ -36,3 +36,5 @@ PYTHONPATH=src:. .venv/bin/python scripts/audit_recovery_reports.py outputs/new-
 ```
 
 新增 8 项测试覆盖完整 JSON 往返、坐标改动、关键帧删除、时间/映射/会话篡改、汇总自洽但证据不足的虚假成功、重置与终态边界、旧报告降级、未知版本及截断记录。相关回归共 192 项通过（58 核心、31 接触、22 释放、13 线程采集、14 曝光、7 采集进程、8 进程恢复、39 恢复相关），Ruff 和差异检查通过。未连接真实设备，未新增物理抓放或训练。
+
+2026-10-31 更新：独立窗口判据发现并修复了区域外时间被计入稳定窗口的问题。当前算法标识改为 exposure_confirmation_v2；旧 v1 证据明确返回 unavailable，详见[独立判据与版本迁移](release-stability-oracle.md)。

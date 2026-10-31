@@ -1,0 +1,3281 @@
+{
+  "schema_version": 1,
+  "seed": 20261031,
+  "algorithm": "exposure_confirmation_v2",
+  "cases": 413,
+  "mismatches": 0,
+  "results": [
+    {
+      "case": "boundary_entry_2_0.032",
+      "expected_first_confirmation": 1.25,
+      "actual_first_confirmation": 1.25,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.032
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.64,
+            0,
+            0.033
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.64,
+            0,
+            0.033
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.64,
+            0,
+            0.033
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.64,
+            0,
+            0.033
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.64,
+            0,
+            0.033
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "boundary_entry_2_0.058",
+      "expected_first_confirmation": 1.25,
+      "actual_first_confirmation": 1.25,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.058
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.64,
+            0,
+            0.057
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.64,
+            0,
+            0.057
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.64,
+            0,
+            0.057
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.64,
+            0,
+            0.057
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.64,
+            0,
+            0.057
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "boundary_entry_1_-0.04",
+      "expected_first_confirmation": 1.25,
+      "actual_first_confirmation": 1.25,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            -0.04,
+            0.04
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.64,
+            -0.039,
+            0.04
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.64,
+            -0.039,
+            0.04
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.64,
+            -0.039,
+            0.04
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.64,
+            -0.039,
+            0.04
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.64,
+            -0.039,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "boundary_entry_1_0.04",
+      "expected_first_confirmation": 1.25,
+      "actual_first_confirmation": 1.25,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0.04,
+            0.04
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.64,
+            0.039,
+            0.04
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.64,
+            0.039,
+            0.04
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.64,
+            0.039,
+            0.04
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.64,
+            0.039,
+            0.04
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.64,
+            0.039,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "gap_0.249",
+      "expected_first_confirmation": 1.245,
+      "actual_first_confirmation": 1.245,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.249,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.498,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.747,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.996,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.245,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.494,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.7429999999999999,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.992,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "gap_0.25",
+      "expected_first_confirmation": 1.0,
+      "actual_first_confirmation": 1.0,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.5,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.75,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          2.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "gap_0.251",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.251,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.502,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.753,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.004,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.255,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.506,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.7570000000000001,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          2.008,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "speed_0.0199",
+      "expected_first_confirmation": 1.0,
+      "actual_first_confirmation": 1.0,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.62,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.624975,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.62995,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.634925,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.6399,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.644875,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.5,
+          [
+            0.64985,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.75,
+          [
+            0.654825,
+            0,
+            0.04
+          ]
+        ],
+        [
+          2.0,
+          [
+            0.6597999999999999,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "speed_0.02",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.62,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.625,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.63,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.635,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.645,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.5,
+          [
+            0.65,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.75,
+          [
+            0.655,
+            0,
+            0.04
+          ]
+        ],
+        [
+          2.0,
+          [
+            0.66,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "speed_0.0201",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.62,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.25,
+          [
+            0.6250249999999999,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.5,
+          [
+            0.63005,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.75,
+          [
+            0.635075,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.6401,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.25,
+          [
+            0.645125,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.5,
+          [
+            0.65015,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.75,
+          [
+            0.655175,
+            0,
+            0.04
+          ]
+        ],
+        [
+          2.0,
+          [
+            0.6602,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "duration_0.999",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.1998,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.3996,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.5993999999999999,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.7992,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.999,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "duration_1",
+      "expected_first_confirmation": 1.0,
+      "actual_first_confirmation": 1.0,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.2,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.4,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.6,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.8,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "duration_1.001",
+      "expected_first_confirmation": 1.001,
+      "actual_first_confirmation": 1.001,
+      "match": true,
+      "samples": [
+        [
+          0.0,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.2002,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.4004,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.6005999999999999,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          0.8008,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ],
+        [
+          1.001,
+          [
+            0.64,
+            0,
+            0.04
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "random_0",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_1",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_2",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_3",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_4",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_5",
+      "expected_first_confirmation": 1.726,
+      "actual_first_confirmation": 1.726,
+      "match": true
+    },
+    {
+      "case": "random_6",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_7",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_8",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_9",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_10",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_11",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_12",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_13",
+      "expected_first_confirmation": 1.05,
+      "actual_first_confirmation": 1.05,
+      "match": true
+    },
+    {
+      "case": "random_14",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_15",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_16",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_17",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_18",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_19",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_20",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_21",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_22",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_23",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_24",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_25",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_26",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_27",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_28",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_29",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_30",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_31",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_32",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_33",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_34",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_35",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_36",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_37",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_38",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_39",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_40",
+      "expected_first_confirmation": 2.377,
+      "actual_first_confirmation": 2.377,
+      "match": true
+    },
+    {
+      "case": "random_41",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_42",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_43",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_44",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_45",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_46",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_47",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_48",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_49",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_50",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_51",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_52",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_53",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_54",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_55",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_56",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_57",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_58",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_59",
+      "expected_first_confirmation": 1.075,
+      "actual_first_confirmation": 1.075,
+      "match": true
+    },
+    {
+      "case": "random_60",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_61",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_62",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_63",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_64",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_65",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_66",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_67",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_68",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_69",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_70",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_71",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_72",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_73",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_74",
+      "expected_first_confirmation": 1.075,
+      "actual_first_confirmation": 1.075,
+      "match": true
+    },
+    {
+      "case": "random_75",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_76",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_77",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_78",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_79",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_80",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_81",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_82",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_83",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_84",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_85",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_86",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_87",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_88",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_89",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_90",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_91",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_92",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_93",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_94",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_95",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_96",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_97",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_98",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_99",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_100",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_101",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_102",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_103",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_104",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_105",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_106",
+      "expected_first_confirmation": 2.528,
+      "actual_first_confirmation": 2.528,
+      "match": true
+    },
+    {
+      "case": "random_107",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_108",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_109",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_110",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_111",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_112",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_113",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_114",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_115",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_116",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_117",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_118",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_119",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_120",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_121",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_122",
+      "expected_first_confirmation": 1.276,
+      "actual_first_confirmation": 1.276,
+      "match": true
+    },
+    {
+      "case": "random_123",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_124",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_125",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_126",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_127",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_128",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_129",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_130",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_131",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_132",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_133",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_134",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_135",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_136",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_137",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_138",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_139",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_140",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_141",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_142",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_143",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_144",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_145",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_146",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_147",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_148",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_149",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_150",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_151",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_152",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_153",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_154",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_155",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_156",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_157",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_158",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_159",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_160",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_161",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_162",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_163",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_164",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_165",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_166",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_167",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_168",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_169",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_170",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_171",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_172",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_173",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_174",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_175",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_176",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_177",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_178",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_179",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_180",
+      "expected_first_confirmation": 2.728,
+      "actual_first_confirmation": 2.728,
+      "match": true
+    },
+    {
+      "case": "random_181",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_182",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_183",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_184",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_185",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_186",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_187",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_188",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_189",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_190",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_191",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_192",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_193",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_194",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_195",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_196",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_197",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_198",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_199",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_200",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_201",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_202",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_203",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_204",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_205",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_206",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_207",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_208",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_209",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_210",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_211",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_212",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_213",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_214",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_215",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_216",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_217",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_218",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_219",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_220",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_221",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_222",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_223",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_224",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_225",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_226",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_227",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_228",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_229",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_230",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_231",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_232",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_233",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_234",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_235",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_236",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_237",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_238",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_239",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_240",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_241",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_242",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_243",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_244",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_245",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_246",
+      "expected_first_confirmation": 1.251,
+      "actual_first_confirmation": 1.251,
+      "match": true
+    },
+    {
+      "case": "random_247",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_248",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_249",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_250",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_251",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_252",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_253",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_254",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_255",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_256",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_257",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_258",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_259",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_260",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_261",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_262",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_263",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_264",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_265",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_266",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_267",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_268",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_269",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_270",
+      "expected_first_confirmation": 1.225,
+      "actual_first_confirmation": 1.225,
+      "match": true
+    },
+    {
+      "case": "random_271",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_272",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_273",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_274",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_275",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_276",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_277",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_278",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_279",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_280",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_281",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_282",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_283",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_284",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_285",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_286",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_287",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_288",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_289",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_290",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_291",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_292",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_293",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_294",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_295",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_296",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_297",
+      "expected_first_confirmation": 1.325,
+      "actual_first_confirmation": 1.325,
+      "match": true
+    },
+    {
+      "case": "random_298",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_299",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_300",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_301",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_302",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_303",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_304",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_305",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_306",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_307",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_308",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_309",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_310",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_311",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_312",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_313",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_314",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_315",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_316",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_317",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_318",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_319",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_320",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_321",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_322",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_323",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_324",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_325",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_326",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_327",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_328",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_329",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_330",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_331",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_332",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_333",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_334",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_335",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_336",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_337",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_338",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_339",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_340",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_341",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_342",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_343",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_344",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_345",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_346",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_347",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_348",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_349",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_350",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_351",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_352",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_353",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_354",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_355",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_356",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_357",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_358",
+      "expected_first_confirmation": 1.0,
+      "actual_first_confirmation": 1.0,
+      "match": true
+    },
+    {
+      "case": "random_359",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_360",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_361",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_362",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_363",
+      "expected_first_confirmation": 1.775,
+      "actual_first_confirmation": 1.775,
+      "match": true
+    },
+    {
+      "case": "random_364",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_365",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_366",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_367",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_368",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_369",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_370",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_371",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_372",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_373",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_374",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_375",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_376",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_377",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_378",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_379",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_380",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_381",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_382",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_383",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_384",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_385",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_386",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_387",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_388",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_389",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_390",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_391",
+      "expected_first_confirmation": 1.15,
+      "actual_first_confirmation": 1.15,
+      "match": true
+    },
+    {
+      "case": "random_392",
+      "expected_first_confirmation": 2.352,
+      "actual_first_confirmation": 2.352,
+      "match": true
+    },
+    {
+      "case": "random_393",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_394",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_395",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_396",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_397",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_398",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    },
+    {
+      "case": "random_399",
+      "expected_first_confirmation": null,
+      "actual_first_confirmation": null,
+      "match": true
+    }
+  ]
+}

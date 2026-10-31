@@ -31,7 +31,7 @@ def recovery_report(observer):
         "scope": "experimental_visual_release_confirmation",
         "evidence": {
             "schema_version": 1,
-            "algorithm": "exposure_confirmation_v1",
+            "algorithm": "exposure_confirmation_v2",
             "start_time": observer.start,
         },
         "result": result,

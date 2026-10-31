@@ -823,10 +823,18 @@ recovery-audit-test:
 recovery-audit-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/audit_recovery_reports.py "$(RECOVERY_AUDIT_INPUT)" --output "$(RECOVERY_AUDIT_OUTPUT)"
 
-RECOVERY_REPLAY_OUTPUT ?= outputs/recovery-replay-v2.json
+RECOVERY_REPLAY_OUTPUT ?= outputs/recovery-replay-v3.json
 .PHONY: recovery-replay-test recovery-replay-check
 recovery-replay-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_recovery_replay.py' -v
 
 recovery-replay-check:
-	PYTHONPATH=src:. .venv/bin/python scripts/audit_recovery_reports.py docs/evaluations/recovery-evidence-v1.json docs/evaluations/recovery-report-v1.json --output "$(RECOVERY_REPLAY_OUTPUT)"
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_recovery_reports.py docs/evaluations/recovery-evidence-v2.json docs/evaluations/recovery-evidence-v1.json --output "$(RECOVERY_REPLAY_OUTPUT)"
+
+RELEASE_STABILITY_OUTPUT ?= outputs/release-stability-v3.json
+.PHONY: release-stability-test release-stability-audit
+release-stability-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_release_stability_oracle.py' -v
+
+release-stability-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_release_stability.py --output "$(RELEASE_STABILITY_OUTPUT)"
