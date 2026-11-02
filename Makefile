@@ -854,3 +854,7 @@ post-confirmation-test:
 
 post-confirmation-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_post_confirmation_watch.py --output "$(POST_CONFIRMATION_OUTPUT)"
+
+.PHONY: process-post-confirmation-test
+process-post-confirmation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_process_post_confirmation.py' -v

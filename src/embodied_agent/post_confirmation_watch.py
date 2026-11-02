@@ -139,3 +139,9 @@ class PostConfirmationWatch:
                 "original_confirmation": self.original_confirmation,
             }
         )
+
+    def invalidate(self, reason):
+        """End this window when its capture source is no longer usable."""
+        if self.status == "monitoring":
+            self.status = "invalidated"
+            self._unknown(reason)
