@@ -34,6 +34,7 @@ class ProcessPostConfirmation:
         )
         self.session, self.clock = session, clock
         self.last_task = None
+        self.last_host = None
         self.last_valid_capture = None
         self.cleanup = {"status": "not_requested", "error": None}
         self.rows = []
@@ -66,6 +67,31 @@ class ProcessPostConfirmation:
     def status(self):
         return self.watch.status
 
+    def _checked_host_time(self, task_now):
+        """Validate the clock pair even when no camera frame has arrived."""
+        try:
+            host_now = self.clock()
+            mapping = self.watch.clock_map
+            if (
+                not math.isfinite(host_now)
+                or host_now < mapping.host_origin
+                or (self.last_host is not None and host_now < self.last_host)
+            ):
+                raise ValueError("invalid or regressed host clock")
+            predicted = mapping.task_origin + (host_now - mapping.host_origin) * mapping.rate
+            if not math.isfinite(predicted) or abs(predicted - task_now) > mapping.max_error:
+                raise ValueError("follow-up clock mapping drift exceeds tolerance")
+        except Exception as exc:  # noqa: BLE001 - injected clock boundary
+            self.watch.last_error = f"{type(exc).__name__}: {exc}"[:512]
+            self.watch.invalidate("invalid_followup_clock")
+            self.last_valid_capture = None
+            self.rows.append(
+                {"task_time": task_now, "reason": self.watch.reason, "error": self.watch.last_error}
+            )
+            return None
+        self.last_host = host_now
+        return host_now
+
     def step(self, task_now, *, stop=False):
         if self.status != "monitoring":
             return self.status
@@ -76,6 +102,9 @@ class ProcessPostConfirmation:
             or task_now < self.watch.start
             or (self.last_task is not None and task_now <= self.last_task)
         ):
+            self.watch.last_error = "fresh process follow-up task time required"
+            self.watch.invalidate("invalid_task_clock")
+            self.last_valid_capture = None
             raise ValueError("fresh process follow-up task time required")
         self.last_task = task_now
         # Stop/expiry/session changes must be handled before any IPC or new request.
@@ -84,9 +113,13 @@ class ProcessPostConfirmation:
             return self.status
         if self.session.session != self.watch.session or task_now >= self.watch.deadline:
             return self.watch.step(task_now, None, None, session_id=self.session.session)
+        if self._checked_host_time(task_now) is None:
+            return self.status
         pending = self.session.status == "pending"
         observation = self.session.poll()
-        host_now = self.clock()
+        host_now = self._checked_host_time(task_now)
+        if host_now is None:
+            return self.status
         if self.session.status in {"failed", "timed_out", "closed", "cleanup_failed"}:
             self.watch.invalidate("camera_unavailable")
             self.rows.append(

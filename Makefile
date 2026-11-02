@@ -862,3 +862,7 @@ process-post-confirmation-test:
 .PHONY: followup-ownership-test
 followup-ownership-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_ownership.py' -v
+
+.PHONY: followup-clock-test
+followup-clock-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_clocks.py' -v
