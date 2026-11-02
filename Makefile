@@ -878,3 +878,12 @@ followup-stress-audit:
 .PHONY: followup-coverage-test
 followup-coverage-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_coverage.py' -v
+
+FOLLOWUP_COVERAGE_INPUT ?= docs/evaluations/followup-coverage-evidence-v1.json
+FOLLOWUP_COVERAGE_AUDIT_OUTPUT ?= outputs/followup-coverage-audit-v2.json
+.PHONY: followup-coverage-audit-test followup-coverage-audit
+followup-coverage-audit-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_coverage_audit.py' -v
+
+followup-coverage-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_followup_coverage.py "$(FOLLOWUP_COVERAGE_INPUT)" --output "$(FOLLOWUP_COVERAGE_AUDIT_OUTPUT)"

@@ -1,5 +1,7 @@
 """Descriptive exposure coverage; no inference of physical safety."""
 
+import math
+
 
 class FollowupCoverage:
     """Count intervals bracketed by consecutive valid exposures at most 250 ms apart.
@@ -9,10 +11,13 @@ class FollowupCoverage:
     """
 
     def __init__(self, start, deadline):
+        if not math.isfinite(start) or not math.isfinite(deadline) or deadline <= start:
+            raise ValueError("finite ordered coverage window required")
         self.start, self.deadline = start, deadline
         self.counts = dict.fromkeys(("valid", "missing", "rejected", "expired"), 0)
         self.previous = self.first = self.last = None
         self.intervals = []
+        self.records = []
 
     def record(self, outcome, exposure=None):
         if outcome not in self.counts:
@@ -33,6 +38,9 @@ class FollowupCoverage:
         else:
             self.previous = None
         self.counts[outcome] += 1
+        self.records.append(
+            {"outcome": outcome, "exposure": exposure if outcome == "valid" else None}
+        )
 
     def result(self, status):
         duration = self.deadline - self.start
@@ -63,4 +71,10 @@ class FollowupCoverage:
                 if covered < duration
                 else "window_bracketed"
             ),
+            "evidence": {
+                "schema_version": 1,
+                "start": self.start,
+                "deadline": self.deadline,
+                "records": [dict(row) for row in self.records],
+            },
         }
