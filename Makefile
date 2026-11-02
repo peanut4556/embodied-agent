@@ -866,3 +866,11 @@ followup-ownership-test:
 .PHONY: followup-clock-test
 followup-clock-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_clocks.py' -v
+
+FOLLOWUP_STRESS_OUTPUT ?= outputs/followup-stress-v2.json
+.PHONY: followup-stress-test followup-stress-audit
+followup-stress-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_stress.py' -v
+
+followup-stress-audit:
+	PYTHONPATH=src:. .venv/bin/python scripts/audit_followup_stress.py --output "$(FOLLOWUP_STRESS_OUTPUT)"
