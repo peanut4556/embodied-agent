@@ -124,6 +124,7 @@ def run_case(delay, pattern, drops, fault):
         "terminal_quiet": terminal_quiet,
         "cleaned": cleaned,
         "match": match,
+        "coverage": result["coverage"],
         **({"deliveries": session.delivered, "result": result} if not match else {}),
     }
 

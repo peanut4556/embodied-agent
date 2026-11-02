@@ -874,3 +874,7 @@ followup-stress-test:
 
 followup-stress-audit:
 	PYTHONPATH=src:. .venv/bin/python scripts/audit_followup_stress.py --output "$(FOLLOWUP_STRESS_OUTPUT)"
+
+.PHONY: followup-coverage-test
+followup-coverage-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_coverage.py' -v

@@ -4,6 +4,7 @@ import copy
 import math
 import time
 
+from .followup_coverage import FollowupCoverage
 from .post_confirmation_watch import PostConfirmationWatch
 
 
@@ -38,6 +39,7 @@ class ProcessPostConfirmation:
         self.last_valid_capture = None
         self.cleanup = {"status": "not_requested", "error": None}
         self.rows = []
+        self.coverage = FollowupCoverage(self.watch.start, self.watch.deadline)
         self._claim = (session.session, object())
         session._followup_claim = self._claim
 
@@ -135,8 +137,14 @@ class ProcessPostConfirmation:
             self.watch.step(task_now, host_now, observation, session_id=self.session.session)
             if self.watch.last_exposure != previous_exposure:
                 self.last_valid_capture = observation.captured_at
+                self.coverage.record("valid", self.watch.last_exposure)
             else:
                 self.last_valid_capture = None
+                self.coverage.record(
+                    "missing"
+                    if observation is None and self.session.status != "error"
+                    else "rejected"
+                )
             self.rows.append(
                 {
                     "task_time": task_now,
@@ -153,6 +161,7 @@ class ProcessPostConfirmation:
             # must not continue to display an inside/outside classification.
             self.watch.step(task_now, host_now, None, session_id=self.session.session)
             self.last_valid_capture = None
+            self.coverage.record("expired")
         if (
             self.status == "monitoring"
             and self.session.status in {"idle", "ready", "error"}
@@ -184,6 +193,7 @@ class ProcessPostConfirmation:
             **self.watch.result(),
             "cleanup": copy.deepcopy(self.cleanup),
             "cleanup_required": self.cleanup["status"] != "succeeded",
+            "coverage": self.coverage.result(self.status),
         }
 
     def __enter__(self):
