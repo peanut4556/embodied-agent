@@ -109,6 +109,8 @@ class RecoveryExposureObserver(ProcessExposureObserver):
         }
 
     def close(self):
+        if self.session_transferred:
+            return
         try:
             super().close()
         except Exception as exc:

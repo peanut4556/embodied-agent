@@ -858,3 +858,7 @@ post-confirmation-check:
 .PHONY: process-post-confirmation-test
 process-post-confirmation-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_process_post_confirmation.py' -v
+
+.PHONY: followup-ownership-test
+followup-ownership-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_followup_ownership.py' -v

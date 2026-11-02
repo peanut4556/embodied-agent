@@ -23,6 +23,7 @@ class ProcessExposureObserver:
         self.last_task = None
         self.status, self.reason = "pending", "awaiting_clock_mapping"
         self.rows = []
+        self.session_transferred = False
 
     def _invalidate(self, reason):
         if self.confirmation is None and self.reason == reason:
@@ -124,6 +125,8 @@ class ProcessExposureObserver:
         return self.status
 
     def close(self):
+        if self.session_transferred:
+            return
         if self.status == "pending":
             self._invalidate("observer_closed")
             self.status = "cancelled"

@@ -96,6 +96,11 @@ class ProcessFollowupTests(unittest.TestCase):
                 self.assertEqual(self.session.polls, 0)
                 self.assertEqual(self.session.requests, 0)
                 self.assertTrue(self.adapter.result()["cleanup_required"])
+                if cause == "session":
+                    with self.assertRaisesRegex(RuntimeError, "ownership changed"):
+                        self.adapter.close()
+                    self.assertNotEqual(self.session.status, "closed")
+                    continue
                 self.adapter.close()
                 self.assertEqual(self.session.status, "closed")
                 self.assertFalse(self.adapter.result()["cleanup_required"])
@@ -147,6 +152,10 @@ class ProcessFollowupTests(unittest.TestCase):
             self.assertEqual(observer.status, "confirmed_in_tray")
             original = observer.result()
             adapter = ProcessPostConfirmation.from_confirmed(observer)
+            with self.assertRaises(RuntimeError):
+                ProcessPostConfirmation.from_confirmed(observer)
+            observer.close()
+            self.assertTrue(session.process.is_alive())
             with adapter:
                 deadline = time.monotonic() + 0.5
                 while not adapter.rows and time.monotonic() < deadline:
