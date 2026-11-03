@@ -131,6 +131,103 @@ class CoverageAuditTests(unittest.TestCase):
     def test_all_stress_scenarios_recompute(self):
         report = audit_matrix(evaluate())
         self.assertEqual(report["counts"], {"verified": 108})
+        self.assertEqual(report["status"], "verified")
+        self.assertEqual(report["matrix"]["unique_expected_cases"], 108)
+        self.assertEqual(report["matrix"]["status"], "verified")
+
+    def test_matrix_order_is_irrelevant_and_input_is_not_mutated(self):
+        report = evaluate()
+        report["results"].reverse()
+        original = copy.deepcopy(report)
+        audit = audit_matrix(report)
+        self.assertEqual(audit["status"], "verified")
+        self.assertEqual(audit["schema_version"], 2)
+        self.assertEqual(report, original)
+
+    def test_deleted_case_with_updated_count_is_rejected(self):
+        report = evaluate()
+        deleted = report["results"].pop()
+        report["cases"] -= 1
+        audit = audit_matrix(report)
+        self.assertEqual(audit["counts"], {"verified": 107})
+        self.assertEqual(audit["status"], "rejected")
+        self.assertEqual(
+            audit["matrix"]["missing"],
+            [{key: deleted[key] for key in ("delay", "pattern", "drops", "fault")}],
+        )
+
+    def test_replaced_case_reports_duplicate_and_missing(self):
+        report = evaluate()
+        report["results"][1] = copy.deepcopy(report["results"][0])
+        audit = audit_matrix(report)
+        self.assertEqual(audit["counts"], {"verified": 108})
+        self.assertEqual(audit["status"], "rejected")
+        matrix = audit["matrix"]
+        self.assertEqual(matrix["unique_expected_cases"], 107)
+        self.assertEqual(matrix["duplicates"][0]["indices"], [0, 1])
+        self.assertEqual(len(matrix["missing"]), 1)
+        self.assertEqual(matrix["missing"][0]["fault"], "clock_jump")
+
+    def test_appended_duplicate_is_rejected_even_when_nothing_missing(self):
+        report = evaluate()
+        report["results"].append(copy.deepcopy(report["results"][0]))
+        report["cases"] += 1
+        audit = audit_matrix(report)
+        self.assertEqual(audit["status"], "rejected")
+        self.assertEqual(audit["matrix"]["missing"], [])
+        self.assertEqual(audit["matrix"]["duplicates"][0]["indices"], [0, 108])
+
+    def test_invalid_matrix_parameters_do_not_hide_coverage_results(self):
+        original = evaluate()
+        for field, value in (
+            ("delay", True),
+            ("delay", "0.03125"),
+            ("delay", 0.03),
+            ("delay", float("nan")),
+            ("delay", float("inf")),
+            ("pattern", []),
+            ("drops", {}),
+            ("fault", None),
+            ("fault", "new_fault"),
+        ):
+            with self.subTest(field=field, value=value):
+                report = copy.deepcopy(original)
+                report["results"][0][field] = value
+                audit = audit_matrix(report)
+                self.assertEqual(audit["status"], "rejected")
+                self.assertEqual(audit["counts"], {"verified": 108})
+                self.assertEqual(
+                    audit["matrix"]["invalid"],
+                    [{"index": 0, "error": "invalid scenario parameters", "fields": [field]}],
+                )
+                self.assertEqual(len(audit["matrix"]["missing"]), 1)
+        del original["results"][0]["fault"]
+        self.assertEqual(audit_matrix(original)["status"], "rejected")
+
+    def test_malformed_row_is_reported_by_both_audits(self):
+        report = evaluate()
+        report["results"][0] = None
+        audit = audit_matrix(report)
+        self.assertEqual(audit["counts"], {"rejected": 1, "verified": 107})
+        self.assertEqual(audit["matrix"]["invalid"][0]["index"], 0)
+        self.assertEqual(len(audit["matrix"]["missing"]), 1)
+
+    def test_cli_matrix_rejection_takes_precedence_over_legacy_unavailability(self):
+        root = Path(__file__).resolve().parents[2]
+        report = json.loads((root / "docs/evaluations/followup-coverage-v1.json").read_text())
+        self.assertEqual(audit_matrix(report)["status"], "unavailable")
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "input.json"
+            output = Path(directory) / "audit.json"
+            report["results"].pop()
+            report["cases"] -= 1
+            source.write_text(json.dumps(report))
+            result = self.run_cli(source, output)
+            self.assertEqual(result.returncode, 1, result.stderr)
+            self.assertIn("matrix=rejected", result.stdout)
+            saved = json.loads(output.read_text())
+            self.assertEqual(saved["counts"], {"unavailable": 107})
+            self.assertEqual(saved["status"], "rejected")
 
     def test_changed_summary_is_rejected(self):
         for key, value in (

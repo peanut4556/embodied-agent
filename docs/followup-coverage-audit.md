@@ -21,17 +21,34 @@ PYTHONPATH=src:. .venv/bin/python scripts/audit_followup_coverage.py \
   docs/evaluations/followup-coverage-evidence-v1.json --output outputs/my-coverage-audit.json
 ```
 
-CLI 针对后续监测压力报告的 results 逐项检查，并与每项 actual_status 核对窗口完成标志。全部 verified 返回 0；存在 rejected 返回 1；只有 verified/unavailable 且含 unavailable 时返回 2。输入无法读取、JSON 损坏或报告头无效返回 3，不创建输出；输出写入失败返回 4。错误在 stderr 中给出简短诊断。输出路径必须未占用，父目录须存在，已有文件不会被覆盖。
+CLI 针对后续监测压力报告的 results 逐项检查，并与每项 actual_status 核对窗口完成标志。矩阵完整且覆盖复核全部 verified 返回 0；矩阵或任意场景 rejected 返回 1；矩阵完整且只有 verified/unavailable、包含 unavailable 时返回 2。输入无法读取、JSON 损坏或报告头无效返回 3，不创建输出；输出写入失败返回 4。错误在 stderr 中给出简短诊断。输出路径必须未占用，父目录须存在，已有文件不会被覆盖。
 
 2026-11-03 入口校验扩展：JSON 任意层级的重复字段、NaN/Infinity 和溢出为无穷的指数数字均被拒绝。报告头要求整数版本 1、test_kind 为 deterministic_session_fault_matrix、正整数 cases 与 results 长度一致。逐项状态必须为 completed / cancelled / invalidated；未知状态或未结束场景记为 rejected，其他场景继续复核。首末曝光必须为有限数字，布尔值不能冒充数字；窗口长度溢出也被拒绝。
 
-案例数核对可发现未同步改动 cases 的截断，但不证明矩阵完整：同时删减 results 并修改 cases 仍可能形成一致输入。工具不验证预定参数组合是否全部出现，也不验证报告来源或真实性。
+### 参数矩阵完整性
+
+2026-11-03 新增独立、固定的 `deterministic_session_fault_matrix_v1` 验证契约，要求以下笛卡尔积中的 108 个组合各出现一次，顺序不限：
+
+| 参数 | 允许值 |
+| --- | --- |
+| delay | 0.03125、0.125、0.28125 秒 |
+| pattern | inside、outside、transient |
+| drops | none、every_third、all |
+| fault | none、clock_jump、crash、stop |
+
+契约保存在 `src/embodied_agent/followup_matrix_audit.py`，不导入生成器的参数循环，也不接受输入报告自报的参数范围。未来扩展压力矩阵需要显式修订版本与验证契约，不能只修改生成器后自动放宽审核。delay 使用精确枚举比较；字符串数字、布尔值、未知值以及缺失参数都拒绝。
+
+复核输出升级为 schema_version 2，scope 为 `coverage_arithmetic_and_matrix_membership`。新增 matrix，包含 expected_cases / observed_cases / unique_expected_cases、缺失组合 missing、重复组合及其零起始行号 duplicates、非法行及字段 invalid。counts 仍仅统计逐项覆盖算术复核，整体结论应读取顶层 status。矩阵失败时仍输出逐项结果，便于定位；即使 counts 是 108 verified，整体也可能 rejected。
+
+删除场景后同步修改 cases、用重复场景替换缺失场景、追加重复项均被拒绝。缺少旧版覆盖依据时仍可独立核对矩阵；矩阵失败优先于 unavailable，CLI 返回 1。既有 schema_version 1 的离线复核结果文件保留历史含义，不改写。
+
+矩阵校验证明的是参数标签齐全且唯一，不能证明实际执行过这些场景、标签与执行轨迹对应或报告来源真实。工具仍不重算压力报告中的 match / mismatches / status_counts / alert_cases，也不把矩阵完整等同于行为测试成功。
 
 - [带记录的 108 场景报告](evaluations/followup-coverage-evidence-v1.json)：原有状态与告警判定仍为 0 项不一致。
 - [独立覆盖复核结果](evaluations/followup-coverage-audit-v1.json)：108 verified。
 - 既有不带记录的 108 场景报告在兼容性测试中全部为 unavailable，原文件不改写。
 
-复核仅证明这些记录与覆盖摘要的算术一致性。它不验证 valid 标记本身是否正确、原始图像是否真实，也不能检测一份同时改写了记录和全部摘要的伪造报告。覆盖比例仍不是物理安全指标。
+覆盖复核仅证明这些记录与覆盖摘要的算术一致性，矩阵复核另行验证参数组合完整性。它不验证 valid 标记本身是否正确、原始图像是否真实，也不能检测一份同时改写了记录和全部摘要的伪造报告。覆盖比例仍不是物理安全指标。
 
 ## 验证
 
@@ -40,3 +57,5 @@ CLI 针对后续监测压力报告的 results 逐项检查，并与每项 actual
 相关回归共 258 项通过（58 核心、31 接触、34 释放、13 线程采集、14 曝光、7 采集进程、8 进程恢复、39 恢复相关、9 独立后续监测、10 进程后续监测、35 后续边界/压力/覆盖与复核），Ruff 与差异检查通过。未连接真实相机，未新增物理抓放或训练。
 
 2026-11-03 新增 6 项输入与 CLI 回归，覆盖报告头/截断、未知状态、缺证据的版本校验、布尔曝光及窗口溢出、损坏 JSON/编码/文件缺失、退出码与已有输出保护。本轮后续监测相关测试共 41 项通过，其中复核测试 14 项；108 场景仍全部 verified，历史报告仍为 108 unavailable。
+
+同日矩阵完整性扩展新增 7 项测试：顺序无关且不修改输入、删减后同步计数、等量重复替换、追加重复、非法/缺失参数、非对象行隔离、CLI 矩阵失败优先于旧报告缺证据。后续监测相关测试累计 48 项通过（其中复核 21 项），Ruff 与差异检查通过。使用已保存的带记录报告实际运行 CLI：矩阵 108/108 唯一组合、覆盖 108 verified、整体 verified。未连接真实相机或新增物理实验。

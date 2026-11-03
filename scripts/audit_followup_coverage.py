@@ -8,6 +8,7 @@ from collections import Counter
 from pathlib import Path
 
 from embodied_agent.coverage_audit import audit_coverage
+from embodied_agent.followup_matrix_audit import audit_membership
 from embodied_agent.recovery_report import write_recovery_report
 
 
@@ -63,10 +64,21 @@ def audit_matrix(report):
         except ValueError as exc:
             audit = {"status": "rejected", "error": str(exc)}
         rows.append({"index": index, **audit})
+    membership = audit_membership(report["results"])
+    counts = dict(Counter(row["status"] for row in rows))
+    status = (
+        "rejected"
+        if membership["status"] == "rejected" or counts.get("rejected")
+        else "unavailable"
+        if counts.get("unavailable")
+        else "verified"
+    )
     return {
-        "schema_version": 1,
-        "scope": "coverage_arithmetic_only",
-        "counts": dict(Counter(row["status"] for row in rows)),
+        "schema_version": 2,
+        "scope": "coverage_arithmetic_and_matrix_membership",
+        "status": status,
+        "matrix": membership,
+        "counts": counts,
         "results": rows,
     }
 
@@ -86,10 +98,8 @@ def main():
     except (OSError, ValueError) as exc:
         print(f"coverage audit output failed: {exc}", file=sys.stderr)
         return 4
-    print(report["counts"])
-    return (
-        1 if report["counts"].get("rejected") else 2 if report["counts"].get("unavailable") else 0
-    )
+    print(f"{report['status']}; matrix={report['matrix']['status']}; coverage={report['counts']}")
+    return {"verified": 0, "rejected": 1, "unavailable": 2}[report["status"]]
 
 
 if __name__ == "__main__":
