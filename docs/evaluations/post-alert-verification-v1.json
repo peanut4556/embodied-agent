@@ -1,0 +1,3543 @@
+{
+  "schema_version": 1,
+  "test_kind": "synthetic_post_alert_verification",
+  "cases": 72,
+  "mismatches": 0,
+  "status_counts": {
+    "reconfirmed": 9,
+    "needs_review": 36,
+    "invalidated": 18,
+    "cancelled": 9
+  },
+  "single_frame_premature_clears": 18,
+  "results": [
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 1.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.625
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 2.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.625,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 4.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.625,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 4.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 1.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 1.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 1.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5,
+        "deadline": 4.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 1.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 1.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.625
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 2.6875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.6875,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 4.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.6875,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 4.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 1.6875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 1.6875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.0625,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 1.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.5625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.5625,
+        "deadline": 4.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.5625
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 1.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 1.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 2.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.75,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 4.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.75,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 4.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 4.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 1.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 1.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.25,
+      "delivery_delay": 0.125,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 1.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.625,
+          "exposure_time": 1.5
+        },
+        "recheck_start": 1.625,
+        "deadline": 4.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.625
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 1.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 1.875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.875
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 2.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.875,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 4.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.875,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 4.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 1.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 1.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 1.875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.75,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.75,
+        "deadline": 4.75,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.75
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 1.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 1.9375,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 2.875
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 2.9375
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.9375,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.8125
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.8125
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 4.8125
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 1.9375,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 4.8125
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.9375,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 1.9375
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 1.9375,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 1.9375
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.0625,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 1.9375,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.8125,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.8125,
+        "deadline": 4.8125,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.8125
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 1.8125
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 2.0,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 3.0
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 3.125
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.0,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 4.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 4.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.0,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 4.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 4.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.0,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.0,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "onset": 1.5,
+      "delivery_delay": 0.125,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 2.0,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 1.875,
+          "exposure_time": 1.75
+        },
+        "recheck_start": 1.875,
+        "deadline": 4.875,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 1.875
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 1.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 2.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 3.625
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 3.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.625,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 5.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 5.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 5.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.625,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 5.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 2.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 2.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 2.625,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5,
+        "deadline": 5.5,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 2.5
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 2.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 3.625
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 3.6875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.6875,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 5.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 5.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 5.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.6875,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 5.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 2.6875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 2.6875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.0625,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 2.6875,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.5625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.5625,
+        "deadline": 5.5625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.5625
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 2.5625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "stable_return",
+      "expected_status": "reconfirmed",
+      "actual_status": "reconfirmed",
+      "match": true,
+      "single_frame_clear_time": 2.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "reconfirmed",
+        "reason": "fresh_stable_visual_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 3.75
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "reconfirmed",
+            "reason": "fresh_stable_visual_evidence",
+            "task_time": 3.875
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "transient_return",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.75,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 5.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "outside",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "observed_outside_confirmation_region",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "outside_confirmation_region",
+          "reason": "observed_outside_confirmation_region",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "observed_outside_confirmation_region",
+            "task_time": 5.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "missing",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": null,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "missing_observation",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "missing_observation",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "missing_observation",
+            "task_time": 5.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "jitter",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "match": true,
+      "single_frame_clear_time": 2.75,
+      "single_frame_premature_clear": true,
+      "result": {
+        "schema_version": 1,
+        "status": "needs_review",
+        "reason": "insufficient_stable_evidence",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "unconfirmed",
+          "reason": "insufficient_stable_evidence",
+          "last_error": null,
+          "last_exposure_time": 5.5
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "needs_review",
+            "reason": "insufficient_stable_evidence",
+            "task_time": 5.625
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "session_change",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "camera_session_changed",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "invalidated",
+            "reason": "camera_session_changed",
+            "task_time": 2.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "clock_drift",
+      "expected_status": "invalidated",
+      "actual_status": "invalidated",
+      "match": true,
+      "single_frame_clear_time": 2.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "invalidated",
+        "reason": "clock_mapping_drift",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "invalidated",
+            "reason": "clock_mapping_drift",
+            "task_time": 2.75
+          }
+        ]
+      }
+    },
+    {
+      "onset": 2.25,
+      "delivery_delay": 0.125,
+      "response": "stop",
+      "expected_status": "cancelled",
+      "actual_status": "cancelled",
+      "match": true,
+      "single_frame_clear_time": 2.75,
+      "single_frame_premature_clear": false,
+      "result": {
+        "schema_version": 1,
+        "status": "cancelled",
+        "reason": "user_stop",
+        "last_error": null,
+        "original_confirmation": {
+          "schema_version": 1,
+          "status": "confirmed_in_tray",
+          "reason": "stable_visual_evidence",
+          "last_error": null,
+          "last_exposure_time": 1.0
+        },
+        "alert": {
+          "event": "outside_confirmation_region_detected",
+          "task_time": 2.625,
+          "exposure_time": 2.5
+        },
+        "recheck_start": 2.625,
+        "deadline": 5.625,
+        "recheck": {
+          "schema_version": 1,
+          "status": "pending",
+          "reason": "collecting_evidence",
+          "last_error": null,
+          "last_exposure_time": null
+        },
+        "events": [
+          {
+            "status": "rechecking",
+            "reason": "sustained_outside_alert",
+            "task_time": 2.625
+          },
+          {
+            "status": "cancelled",
+            "reason": "user_stop",
+            "task_time": 2.625
+          }
+        ]
+      }
+    }
+  ]
+}

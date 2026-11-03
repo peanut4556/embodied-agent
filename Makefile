@@ -887,3 +887,11 @@ followup-coverage-audit-test:
 
 followup-coverage-audit:
 	PYTHONPATH=src:. .venv/bin/python scripts/audit_followup_coverage.py "$(FOLLOWUP_COVERAGE_INPUT)" --output "$(FOLLOWUP_COVERAGE_AUDIT_OUTPUT)"
+
+POST_ALERT_OUTPUT ?= outputs/post-alert-verification-v2.json
+.PHONY: post-alert-test post-alert-evaluate
+post-alert-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_post_alert*.py' -v
+
+post-alert-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_post_alert_verification.py --output "$(POST_ALERT_OUTPUT)"
