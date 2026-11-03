@@ -911,3 +911,11 @@ active-view-test:
 
 active-view-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_active_view.py --output "$(ACTIVE_VIEW_OUTPUT)"
+
+CROSS_VIEW_OUTPUT ?= outputs/evaluations/cross-view-new
+.PHONY: cross-view-test cross-view-evaluate
+cross-view-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_cross_view.py' -v
+
+cross-view-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_cross_view.py --output "$(CROSS_VIEW_OUTPUT)"

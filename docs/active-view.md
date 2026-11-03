@@ -67,3 +67,5 @@ make active-view-evaluate ACTIVE_VIEW_OUTPUT=outputs/evaluations/active-view-new
 输出目录必须不存在；需要已有历史输入和 MuJoCo 图形连接。中途异常会保存 failed 报告。正式[机器报告](evaluations/active-view-v1.json)已入库；原始动作/qpos NPZ 在正式输出目录，未纳入 Git。
 
 目前只在独立评估入口显式启用，生产网页/ROS、进程告警复查适配器没有自动启用此选择器。下一步可冻结规则，在原视角正常、备用视角不可用以及不同遮挡布局中验证是否存在不必要切换和漏确认，再接入真实双视角采集生命周期。
+
+同日新增独立的[双视角一致性门槛](cross-view.md)，验证可见但标定偏差的风险：20 mm 单侧偏差下拦截一次错误确认，同时保留共同偏差无法识别和缺少一侧时丧失确认能力的反例。该门槛尚未与本页选择器合并。
