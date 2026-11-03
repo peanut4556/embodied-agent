@@ -18,8 +18,6 @@ def _number(value):
 def audit_coverage(metrics, *, status=None):
     """Recompute coverage, not frame validity or authenticity. Never trust stored sums."""
     _require(type(metrics) is dict, "coverage must be an object")
-    if "evidence" not in metrics:
-        return {"status": "unavailable", "reason": "legacy_coverage_without_records"}
     try:
         return _audit(metrics, status)
     except (KeyError, TypeError, AttributeError, OverflowError) as exc:
@@ -32,6 +30,12 @@ def _audit(metrics, status):
         "unsupported coverage schema",
     )
     _require(metrics["definition"] == "consecutive_valid_exposure_intervals", "unknown definition")
+    if status is not None:
+        _require(
+            status in ("monitoring", "completed", "cancelled", "invalidated"), "unknown status"
+        )
+    if "evidence" not in metrics:
+        return {"status": "unavailable", "reason": "legacy_coverage_without_records"}
     evidence = metrics["evidence"]
     _require(
         type(evidence["schema_version"]) is int and evidence["schema_version"] == 1,
@@ -39,6 +43,7 @@ def _audit(metrics, status):
     )
     start, end = _number(evidence["start"]), _number(evidence["deadline"])
     _require(start < end, "invalid window")
+    _number(end - start)
     records = evidence["records"]
     _require(type(records) is list, "records must be a list")
     counts = Counter(dict.fromkeys(("valid", "missing", "rejected", "expired"), 0))
@@ -94,11 +99,12 @@ def _audit(metrics, status):
         ),
         "coverage counts mismatch",
     )
-    _require(
-        metrics["first_valid_exposure"] == (valid[0] if valid else None)
-        and metrics["last_valid_exposure"] == (valid[-1] if valid else None),
-        "first/last exposure mismatch",
-    )
+    for key, expected_exposure in (
+        ("first_valid_exposure", valid[0] if valid else None),
+        ("last_valid_exposure", valid[-1] if valid else None),
+    ):
+        actual = _number(metrics[key]) if valid else metrics[key]
+        _require(actual == expected_exposure, "first/last exposure mismatch")
     completed = metrics["window_completed"]
     _require(type(completed) is bool, "invalid completion flag")
     if status is not None:

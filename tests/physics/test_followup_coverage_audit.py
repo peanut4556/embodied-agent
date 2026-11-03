@@ -1,5 +1,8 @@
 import copy
 import json
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -10,6 +13,102 @@ from scripts.audit_followup_stress import evaluate
 
 
 class CoverageAuditTests(unittest.TestCase):
+    def run_cli(self, source, output):
+        return subprocess.run(
+            [
+                sys.executable,
+                "scripts/audit_followup_coverage.py",
+                str(source),
+                "--output",
+                str(output),
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+    def test_envelope_rejects_truncation_and_wrong_types(self):
+        for key, value in (
+            ("cases", 107),
+            ("cases", True),
+            ("schema_version", True),
+            ("schema_version", 2),
+            ("test_kind", "other"),
+        ):
+            report = evaluate()
+            report[key] = value
+            with self.subTest(key=key, value=value), self.assertRaises(ValueError):
+                audit_matrix(report)
+        report = evaluate()
+        report["results"].pop()
+        with self.assertRaises(ValueError):
+            audit_matrix(report)
+
+    def test_unknown_or_nonterminal_status_is_rejected_per_row(self):
+        for status in (None, "unknown", "monitoring", [], True):
+            report = evaluate()
+            report["results"][0]["actual_status"] = status
+            self.assertEqual(audit_matrix(report)["counts"], {"rejected": 1, "verified": 107})
+
+    def test_missing_evidence_does_not_bypass_schema(self):
+        for metrics in ({}, {"schema_version": 2}, {"schema_version": True}):
+            with self.assertRaises(ValueError):
+                audit_coverage(metrics)
+
+    def test_boolean_exposure_and_overflowing_duration_rejected(self):
+        coverage = FollowupCoverage(0, 2)
+        coverage.record("valid", 1)
+        for key in ("first_valid_exposure", "last_valid_exposure"):
+            metrics = coverage.result("completed")
+            metrics[key] = True
+            with self.assertRaises(ValueError):
+                audit_coverage(metrics)
+        metrics = self.sample()
+        metrics["evidence"].update(start=-1e308, deadline=1e308)
+        with self.assertRaises(ValueError):
+            audit_coverage(metrics)
+
+    def test_cli_rejects_ambiguous_and_invalid_input_without_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "input.json", Path(directory) / "audit.json"
+            for raw in (
+                '{"results": [], "results": []}',
+                '{"nested":{"x":1,"x":2}}',
+                '{"x":NaN}',
+                '{"x":Infinity}',
+                '{"x":1e999}',
+                "{",
+                "{}",
+            ):
+                source.write_text(raw)
+                result = self.run_cli(source, output)
+                self.assertEqual(result.returncode, 3, result.stderr)
+                self.assertIn("input rejected", result.stderr)
+                self.assertNotIn("Traceback", result.stderr)
+                self.assertFalse(output.exists())
+            source.write_bytes(b"\xff")
+            self.assertEqual(self.run_cli(source, output).returncode, 3)
+            self.assertEqual(self.run_cli(Path(directory) / "missing", output).returncode, 3)
+
+    def test_cli_exit_codes_and_preserves_existing_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "input.json"
+            report = evaluate()
+            for code in (0, 1, 2):
+                candidate = copy.deepcopy(report)
+                if code == 1:
+                    candidate["results"][0]["coverage"]["covered_seconds"] = -1
+                if code == 2:
+                    del candidate["results"][0]["coverage"]["evidence"]
+                source.write_text(json.dumps(candidate))
+                output = Path(directory) / f"audit-{code}.json"
+                result = self.run_cli(source, output)
+                self.assertEqual(result.returncode, code, result.stderr)
+                self.assertEqual(len(json.loads(output.read_text())["results"]), 108)
+                original = output.read_bytes()
+                self.assertEqual(self.run_cli(source, output).returncode, 4)
+                self.assertEqual(output.read_bytes(), original)
+
     def sample(self):
         coverage = FollowupCoverage(1, 3)
         for outcome, exposure in (
