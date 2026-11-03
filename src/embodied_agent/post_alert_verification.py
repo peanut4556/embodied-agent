@@ -28,11 +28,15 @@ class PostAlertVerification:
         self.last_error = None
         self.events = []
 
+    @property
+    def clock_map(self):
+        return self.watch.clock_map
+
     def _transition(self, status, reason, task_now):
         self.status, self.reason = status, reason
         self.events.append({"status": status, "reason": reason, "task_time": task_now})
 
-    def step(self, task_now, host_now, observation, *, session_id, stop=False):
+    def step(self, task_now, host_now, observation, *, session_id, stop=False, waiting=False):
         if self.status not in {"monitoring", "rechecking"}:
             return self.status
         if stop:
@@ -66,6 +70,9 @@ class PostAlertVerification:
             return self.status
         self.last_host = host_now
         self.last_error = None
+        deadline = self.recheck.start + 3 if self.recheck else self.watch.deadline
+        if waiting and task_now < deadline:
+            return self.status
         if self.status == "monitoring":
             self.watch.step(task_now, host_now, observation, session_id=session_id)
             if self.watch.alerts:
@@ -96,6 +103,11 @@ class PostAlertVerification:
         elif self.recheck.status != "pending":
             self._transition("needs_review", self.recheck.reason, task_now)
         return self.status
+
+    def invalidate(self, reason):
+        """End a live observation flow when its owning capture adapter fails."""
+        if self.status in {"monitoring", "rechecking"}:
+            self._transition("invalidated", reason, self.last_task)
 
     def result(self):
         return copy.deepcopy(

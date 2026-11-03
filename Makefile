@@ -895,3 +895,11 @@ post-alert-test:
 
 post-alert-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_post_alert_verification.py --output "$(POST_ALERT_OUTPUT)"
+
+PROCESS_POST_ALERT_OUTPUT ?= outputs/process-post-alert-v2.json
+.PHONY: process-post-alert-test process-post-alert-check
+process-post-alert-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_process_post_alert*.py' -v
+
+process-post-alert-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_process_post_alert.py --output "$(PROCESS_POST_ALERT_OUTPUT)"
