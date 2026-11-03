@@ -919,3 +919,11 @@ cross-view-test:
 
 cross-view-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_cross_view.py --output "$(CROSS_VIEW_OUTPUT)"
+
+REFERENCE_CONFIRMATION_OUTPUT ?= outputs/evaluations/reference-confirmation-new
+.PHONY: reference-confirmation-test reference-confirmation-evaluate
+reference-confirmation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_reference*.py' -v
+
+reference-confirmation-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_reference_confirmation.py --output "$(REFERENCE_CONFIRMATION_OUTPUT)"

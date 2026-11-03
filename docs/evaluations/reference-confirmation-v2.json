@@ -1,0 +1,619 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_reference_confirmation.py": "6ddcdbe79b6e5eb31c057124987a159e5c716c84c919700f966689321bfc3a33",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/reference_perception.py": "728fec4b7802c617b334b5f50af0cadb9d34ba21a43aca9a1f103a0b36326981",
+    "src/embodied_agent/cross_view.py": "d541b5d4968d3a1f16333d75f63457ed7a8c8695558a35cb4012b512a1585ef7",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "scope": "Synchronous simulated RGB-D captures, three identified fixed visual references. Reference catalog is a supplied design prior, not a live target truth measurement.",
+  "summary": {
+    "nominal": {
+      "raw": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      },
+      "anchored": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      }
+    },
+    "shared_bias": {
+      "raw": {
+        "confirmations": 2,
+        "false_confirmations": 1
+      },
+      "anchored": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      }
+    },
+    "primary_bias": {
+      "raw": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      },
+      "anchored": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      }
+    },
+    "missing_reference": {
+      "raw": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      },
+      "anchored": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      }
+    },
+    "inconsistent_reference": {
+      "raw": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      },
+      "anchored": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      }
+    },
+    "excessive_bias": {
+      "raw": {
+        "confirmations": 1,
+        "false_confirmations": 1
+      },
+      "anchored": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      }
+    },
+    "wrong_catalog": {
+      "raw": {
+        "confirmations": 2,
+        "false_confirmations": 1
+      },
+      "anchored": {
+        "confirmations": 2,
+        "false_confirmations": 1
+      }
+    }
+  },
+  "matches_expected": true,
+  "full_report": {
+    "path": "outputs/evaluations/reference-confirmation-v2/report.json",
+    "sha256": "26cd04e7ba9f6bbc6bc253a7c234f2f14dd8ca4e8858835087b19f2e0ef2d232"
+  },
+  "artifact_kind": "compact_evaluation_summary",
+  "cases": [
+    {
+      "initial_x": 0.64,
+      "fault": "nominal",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          0.000344027095331841,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.000958114190918198
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "nominal",
+      "raw_status": "outside_confirmation_region",
+      "anchored_status": "outside_confirmation_region",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 32,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          0.000344027095331841,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.000958114190918198
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "shared_bias",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          -0.019655972904668174,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.0009581141909181962
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "shared_bias",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "outside_confirmation_region",
+      "false_confirmations": {
+        "raw": true,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 32,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          -0.019655972904668174,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.0009581141909181962
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "primary_bias",
+      "raw_status": "unconfirmed",
+      "anchored_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          -0.019655972904668174,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.0009581141909181962
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "primary_bias",
+      "raw_status": "unconfirmed",
+      "anchored_status": "outside_confirmation_region",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 32,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          -0.019655972904668174,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.0009581141909181962
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "missing_reference",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "unconfirmed",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "complete identified references required": 32
+      },
+      "first_accepted_correction": null,
+      "max_accepted_residual_m": null,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "missing_reference",
+      "raw_status": "outside_confirmation_region",
+      "anchored_status": "unconfirmed",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "complete identified references required": 32
+      },
+      "first_accepted_correction": null,
+      "max_accepted_residual_m": null,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "inconsistent_reference",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "unconfirmed",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "reference residuals inconsistent": 32
+      },
+      "first_accepted_correction": null,
+      "max_accepted_residual_m": null,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "inconsistent_reference",
+      "raw_status": "outside_confirmation_region",
+      "anchored_status": "unconfirmed",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "reference residuals inconsistent": 32
+      },
+      "first_accepted_correction": null,
+      "max_accepted_residual_m": null,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "excessive_bias",
+      "raw_status": "outside_confirmation_region",
+      "anchored_status": "unconfirmed",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "reference translation exceeds budget": 32
+      },
+      "first_accepted_correction": null,
+      "max_accepted_residual_m": null,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "excessive_bias",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "unconfirmed",
+      "false_confirmations": {
+        "raw": true,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "reference translation exceeds budget": 32
+      },
+      "first_accepted_correction": null,
+      "max_accepted_residual_m": null,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "wrong_catalog",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "raw": false,
+        "anchored": false
+      },
+      "reference_points": {
+        "blue": [
+          0.45999999999999996,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.62,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.78,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          0.000344027095331841,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.000958114190918198
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "wrong_catalog",
+      "raw_status": "confirmed_in_tray",
+      "anchored_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "raw": true,
+        "anchored": true
+      },
+      "reference_points": {
+        "blue": [
+          0.45999999999999996,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.62,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.78,
+          0.12,
+          0.004
+        ]
+      },
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "translation": [
+          0.000344027095331841,
+          -0.0009943911975243969,
+          9.73701477006289e-07
+        ],
+        "max_residual": 0.000958114190918198
+      },
+      "max_accepted_residual_m": 0.0010259783035273622,
+      "samples": 16
+    }
+  ]
+}
