@@ -903,3 +903,11 @@ process-post-alert-test:
 
 process-post-alert-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_process_post_alert.py --output "$(PROCESS_POST_ALERT_OUTPUT)"
+
+ACTIVE_VIEW_OUTPUT ?= outputs/evaluations/active-view-new
+.PHONY: active-view-test active-view-evaluate
+active-view-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_active_view.py' -v
+
+active-view-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_active_view.py --output "$(ACTIVE_VIEW_OUTPUT)"

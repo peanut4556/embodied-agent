@@ -4,8 +4,10 @@ import argparse
 import json
 from pathlib import Path
 
+import mujoco
 import numpy as np
 
+from embodied_agent.active_view import ActiveView
 from embodied_agent.contact_watchdog import GuardedExecutor
 from embodied_agent.grasp_quality import GraspQuality
 from embodied_agent.memory_policy import digest
@@ -19,7 +21,7 @@ from scripts.evaluate_recovery_positives import ReplayLearner
 def run(
     initial, actions, lag, missing, enabled, path, view="original", review=False, stop_after=None
 ):
-    if view not in {"original", "offset"}:
+    if view not in {"original", "offset", "active"}:
         raise ValueError("unknown observation view")
     world = PhysicsWorld(perception="rgbd", perception_size_mode="oriented")
     try:
@@ -29,6 +31,7 @@ def run(
         restore(world, initial)
         guard = GuardedExecutor(world, ReplayLearner(actions, 1), 4, True, True)
         observer = ReleaseObserver(allow_recheck=review)
+        selector = ActiveView() if view == "active" else None
         quality = GraspQuality(25)
         fault = {"start": 0, "end": 750, "value": None}
         if lag:
@@ -53,14 +56,28 @@ def run(
                 release_tick = tick
             if enabled:
 
-                def locate(current=tick, released=release_tick):
+                def locate_view(selected=None, current=tick, released=release_tick):
+                    if selected is not None:
+                        world.model.camera("perception").pos[:] = (
+                            [0.4, 0, 1.2] if selected == "primary" else [0.64, 0.35, 1.2]
+                        )
+                        # Update camera extrinsics without recomputing physics dynamics.
+                        mujoco.mj_camlight(world.model, world.data)
                     if missing == "all" or (
                         missing == "early" and current - released < (90 if review else 15)
                     ):
                         raise ValueError("injected missing observation")
                     return world.locate_block().tolist()
 
-                observer.step(float(world.data.time), guard.events, locate, stop=stop)
+                timestamp = float(world.data.time)
+                observer.step(
+                    timestamp,
+                    guard.events,
+                    (lambda now=timestamp, locate=locate_view: selector.observe(now, locate))
+                    if selector
+                    else locate_view,
+                    stop=stop,
+                )
             quality.observe(
                 world.holding, world.data.body("red_block").xpos.copy(), command, world.inside_box()
             )
@@ -88,6 +105,7 @@ def run(
             "quality": quality.result(),
             "trace": path.name,
             "trace_sha256": digest(path),
+            **({"active_view": selector.result()} if selector else {}),
         }
     finally:
         world.close()
