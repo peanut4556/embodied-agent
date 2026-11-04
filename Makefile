@@ -927,3 +927,11 @@ reference-confirmation-test:
 
 reference-confirmation-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_reference_confirmation.py --output "$(REFERENCE_CONFIRMATION_OUTPUT)"
+
+RIGID_REFERENCE_OUTPUT ?= outputs/evaluations/rigid-reference-new
+.PHONY: rigid-reference-test rigid-reference-evaluate
+rigid-reference-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_rigid_reference.py' -v
+
+rigid-reference-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_rigid_reference.py --output "$(RIGID_REFERENCE_OUTPUT)"

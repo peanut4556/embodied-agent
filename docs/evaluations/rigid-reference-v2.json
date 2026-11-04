@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_rigid_reference.py": "852e90c98f7d2d50a32eb752b6e6ac520ce70e58c6aa770305a2f8f42eaf7018",
+    "scripts/evaluate_reference_confirmation.py": "6ddcdbe79b6e5eb31c057124987a159e5c716c84c919700f966689321bfc3a33",
+    "src/embodied_agent/rigid_reference.py": "680aed0b6f89bb502801bd74e5014a9e07c3c038a1f3b66dcf71fb2f8a7b8f24",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/reference_perception.py": "728fec4b7802c617b334b5f50af0cadb9d34ba21a43aca9a1f103a0b36326981",
+    "src/embodied_agent/cross_view.py": "d541b5d4968d3a1f16333d75f63457ed7a8c8695558a35cb4012b512a1585ef7",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "scope": "Rendered synchronized free-drop experiment. Three fitting markers and one withheld raised marker. 2 degree rotations with -20 mm x shift; scale_z is a deliberately nonrigid coordinate transform, not a camera rotation.",
+  "summary": {
+    "nominal": {
+      "translation": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      },
+      "rigid": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      }
+    },
+    "shared_rotation": {
+      "translation": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      },
+      "rigid": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      }
+    },
+    "primary_rotation": {
+      "translation": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      },
+      "rigid": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      }
+    },
+    "scale_z": {
+      "translation": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      },
+      "rigid": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      }
+    },
+    "checkpoint_missing": {
+      "translation": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      },
+      "rigid": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      }
+    },
+    "checkpoint_moved": {
+      "translation": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      },
+      "rigid": {
+        "confirmations": 0,
+        "false_confirmations": 0
+      }
+    },
+    "wrong_catalog": {
+      "translation": {
+        "confirmations": 2,
+        "false_confirmations": 1
+      },
+      "rigid": {
+        "confirmations": 2,
+        "false_confirmations": 1
+      }
+    }
+  },
+  "matches_expected": true,
+  "artifact_kind": "compact_evaluation_summary",
+  "full_report": {
+    "path": "outputs/evaluations/rigid-reference-v2/report.json",
+    "sha256": "79176068636c593500f88d78085e09892685447993c90866b0a386439fa645d2"
+  },
+  "cases": [
+    {
+      "initial_x": 0.64,
+      "fault": "nominal",
+      "translation_status": "confirmed_in_tray",
+      "rigid_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 0.160676117798575,
+        "rotation": [
+          [
+            0.9999960678768165,
+            0.0028043236092493927,
+            0.0
+          ],
+          [
+            -0.002804323609249379,
+            0.9999960678768165,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6403440270953319,
+          -0.0403063370068607,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.64,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0008472067604016394,
+        "checkpoint_residual": 0.0013029529025199034,
+        "target_radius": 0.1229333154674942
+      },
+      "max_checkpoint_residual_m": 0.0013029529025199034
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "nominal",
+      "translation_status": "outside_confirmation_region",
+      "rigid_status": "outside_confirmation_region",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 32,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 0.160676117798575,
+        "rotation": [
+          [
+            0.9999960678768165,
+            0.0028043236092493927,
+            0.0
+          ],
+          [
+            -0.002804323609249379,
+            0.9999960678768165,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6403440270953319,
+          -0.0403063370068607,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.64,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0008472067604016394,
+        "checkpoint_residual": 0.0013029529025199034,
+        "target_radius": 0.13873114063076092
+      },
+      "max_checkpoint_residual_m": 0.0013029529025199034
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "shared_rotation",
+      "translation_status": "unconfirmed",
+      "rigid_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 2.1933390423117443,
+        "rotation": [
+          [
+            0.9992673724573335,
+            0.038271638875493036,
+            0.0
+          ],
+          [
+            -0.03827163887549303,
+            0.9992673724573335,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6201441318685054,
+          -0.04045846005903975,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.64,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0005160876769407598,
+        "checkpoint_residual": 0.0017052600657582958,
+        "target_radius": 0.122974392328275
+      },
+      "max_checkpoint_residual_m": 0.0017052600657582958
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "shared_rotation",
+      "translation_status": "unconfirmed",
+      "rigid_status": "outside_confirmation_region",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 32,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 2.1933390423117443,
+        "rotation": [
+          [
+            0.9992673724573335,
+            0.038271638875493036,
+            0.0
+          ],
+          [
+            -0.03827163887549303,
+            0.9992673724573335,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6201441318685054,
+          -0.04045846005903975,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.64,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0005160876769407598,
+        "checkpoint_residual": 0.0017052600657582958,
+        "target_radius": 0.13887745087218167
+      },
+      "max_checkpoint_residual_m": 0.0017052600657582958
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "primary_rotation",
+      "translation_status": "unconfirmed",
+      "rigid_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 2.1933390423117443,
+        "rotation": [
+          [
+            0.9992673724573335,
+            0.038271638875493036,
+            0.0
+          ],
+          [
+            -0.03827163887549303,
+            0.9992673724573335,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6201441318685054,
+          -0.04045846005903975,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.64,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0005160876769407598,
+        "checkpoint_residual": 0.0017052600657582958,
+        "target_radius": 0.122974392328275
+      },
+      "max_checkpoint_residual_m": 0.0017052600657582958
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "primary_rotation",
+      "translation_status": "unconfirmed",
+      "rigid_status": "outside_confirmation_region",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 32,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 2.1933390423117443,
+        "rotation": [
+          [
+            0.9992673724573335,
+            0.038271638875493036,
+            0.0
+          ],
+          [
+            -0.03827163887549303,
+            0.9992673724573335,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6201441318685054,
+          -0.04045846005903975,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.64,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0005160876769407598,
+        "checkpoint_residual": 0.0017052600657582958,
+        "target_radius": 0.13887745087218167
+      },
+      "max_checkpoint_residual_m": 0.0017052600657582958
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "scale_z",
+      "translation_status": "outside_confirmation_region",
+      "rigid_status": "unconfirmed",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "independent checkpoint mismatch": 32
+      },
+      "first_accepted_correction": null,
+      "max_checkpoint_residual_m": null
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "scale_z",
+      "translation_status": "outside_confirmation_region",
+      "rigid_status": "unconfirmed",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "independent checkpoint mismatch": 32
+      },
+      "first_accepted_correction": null,
+      "max_checkpoint_residual_m": null
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "checkpoint_missing",
+      "translation_status": "confirmed_in_tray",
+      "rigid_status": "unconfirmed",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "all fitting references and checkpoint required": 32
+      },
+      "first_accepted_correction": null,
+      "max_checkpoint_residual_m": null
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "checkpoint_missing",
+      "translation_status": "outside_confirmation_region",
+      "rigid_status": "unconfirmed",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "all fitting references and checkpoint required": 32
+      },
+      "first_accepted_correction": null,
+      "max_checkpoint_residual_m": null
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "checkpoint_moved",
+      "translation_status": "confirmed_in_tray",
+      "rigid_status": "unconfirmed",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "independent checkpoint mismatch": 32
+      },
+      "first_accepted_correction": null,
+      "max_checkpoint_residual_m": null
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "checkpoint_moved",
+      "translation_status": "outside_confirmation_region",
+      "rigid_status": "unconfirmed",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.48,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.64,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.8,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.48,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 0,
+      "rejection_reasons": {
+        "independent checkpoint mismatch": 32
+      },
+      "first_accepted_correction": null,
+      "max_checkpoint_residual_m": null
+    },
+    {
+      "initial_x": 0.64,
+      "fault": "wrong_catalog",
+      "translation_status": "confirmed_in_tray",
+      "rigid_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "translation": false,
+        "rigid": false
+      },
+      "reference_points": {
+        "blue": [
+          0.45999999999999996,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.62,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.78,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.45999999999999996,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 0.160676117798575,
+        "rotation": [
+          [
+            0.9999960678768165,
+            0.0028043236092493927,
+            0.0
+          ],
+          [
+            -0.002804323609249379,
+            0.9999960678768165,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6203440270953319,
+          -0.0403063370068607,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.62,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0008472067604016394,
+        "checkpoint_residual": 0.0013029529025199034,
+        "target_radius": 0.1229333154674942
+      },
+      "max_checkpoint_residual_m": 0.0013029529025199034
+    },
+    {
+      "initial_x": 0.705,
+      "fault": "wrong_catalog",
+      "translation_status": "confirmed_in_tray",
+      "rigid_status": "confirmed_in_tray",
+      "false_confirmations": {
+        "translation": true,
+        "rigid": true
+      },
+      "reference_points": {
+        "blue": [
+          0.45999999999999996,
+          -0.12,
+          0.004
+        ],
+        "yellow": [
+          0.62,
+          -0.12,
+          0.004
+        ],
+        "magenta": [
+          0.78,
+          0.12,
+          0.004
+        ]
+      },
+      "checkpoint": [
+        0.45999999999999996,
+        0.06,
+        0.034
+      ],
+      "accepted_view_corrections": 14,
+      "rejection_reasons": {},
+      "first_accepted_correction": {
+        "accepted": true,
+        "rotation_degrees": 0.160676117798575,
+        "rotation": [
+          [
+            0.9999960678768165,
+            0.0028043236092493927,
+            0.0
+          ],
+          [
+            -0.002804323609249379,
+            0.9999960678768165,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "observed_center": [
+          0.6203440270953319,
+          -0.0403063370068607,
+          0.004000973701477006
+        ],
+        "reference_center": [
+          0.62,
+          -0.04,
+          0.004
+        ],
+        "max_residual": 0.0008472067604016394,
+        "checkpoint_residual": 0.0013029529025199034,
+        "target_radius": 0.13873114063076092
+      },
+      "max_checkpoint_residual_m": 0.0013029529025199034
+    }
+  ]
+}

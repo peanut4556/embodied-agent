@@ -66,3 +66,5 @@ make reference-confirmation-evaluate \
 [精简机器报告](evaluations/reference-confirmation-v2.json)保存每例结果、参考表、首个有效校正、最大接受残差、拒绝原因统计、源码及完整报告哈希。完整逐帧检测与校正在 `outputs/evaluations/reference-confirmation-v2/report.json`，未纳入 Git；没有保存原始 RGB-D 图像，复现需重新渲染。
 
 目前是独立显式启用的仿真实验，未修改生产相机参数、默认确认行为或进程采集适配器。下一步应以真实独立测量的参考表评估安装误差与旋转/尺度失配，而不能把仿真设计坐标当成真实标定完成。
+
+2026-11-04 新增[有独立检查点的刚体校正](rigid-reference.md)：三个参考点拟合旋转与平移，第四个离面点单独验收，并限定目标外推距离。渲染对照恢复小角度旋转下的正确确认，仍保留整个参考表共同错误的失败边界。
