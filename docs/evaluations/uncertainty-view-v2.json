@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "experiment": "synthetic_uncertainty_view_v1",
+  "summary": {
+    "nominal": {
+      "coarse": {
+        "cases": 54,
+        "confirmed": 18,
+        "false_confirmations": 0,
+        "switched": 0
+      },
+      "fixed_x": {
+        "cases": 54,
+        "confirmed": 24,
+        "false_confirmations": 0,
+        "switched": 0
+      },
+      "active": {
+        "cases": 54,
+        "confirmed": 30,
+        "false_confirmations": 0,
+        "switched": 18
+      }
+    },
+    "focus_missing": {
+      "coarse": {
+        "cases": 54,
+        "confirmed": 18,
+        "false_confirmations": 0,
+        "switched": 0
+      },
+      "fixed_x": {
+        "cases": 54,
+        "confirmed": 0,
+        "false_confirmations": 0,
+        "switched": 0
+      },
+      "active": {
+        "cases": 54,
+        "confirmed": 18,
+        "false_confirmations": 0,
+        "switched": 18
+      }
+    },
+    "false_precision": {
+      "coarse": {
+        "cases": 54,
+        "confirmed": 18,
+        "false_confirmations": 0,
+        "switched": 0
+      },
+      "fixed_x": {
+        "cases": 54,
+        "confirmed": 24,
+        "false_confirmations": 2,
+        "switched": 0
+      },
+      "active": {
+        "cases": 54,
+        "confirmed": 36,
+        "false_confirmations": 6,
+        "switched": 18
+      }
+    }
+  },
+  "matches_expected": true,
+  "source_sha256": {
+    "scripts/evaluate_uncertainty_view.py": "386c02303d7581aba5e5bfa6b4c5404eeea2c43abddaac8689c9daa43d604d5a",
+    "src/embodied_agent/uncertainty_view.py": "e124400032e272c0966baf63ecd9315e3bb10310a7a0e60b0c53fe0d8cf9996d",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded"
+  },
+  "artifact_kind": "compact_evaluation_summary",
+  "full_report": {
+    "path": "outputs/evaluations/uncertainty-view-v2.json",
+    "sha256": "04a0e46094d228facfc94cb22635eeef19de54b539a66905aad9cc281501b8af"
+  }
+}

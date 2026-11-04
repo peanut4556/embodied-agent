@@ -943,3 +943,11 @@ uncertainty-confirmation-test:
 
 uncertainty-confirmation-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_uncertainty_confirmation.py --output "$(UNCERTAINTY_CONFIRMATION_OUTPUT)"
+
+UNCERTAINTY_VIEW_OUTPUT ?= outputs/uncertainty-view-new.json
+.PHONY: uncertainty-view-test uncertainty-view-evaluate
+uncertainty-view-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_uncertainty_view.py' -v
+
+uncertainty-view-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_uncertainty_view.py --output "$(UNCERTAINTY_VIEW_OUTPUT)"
