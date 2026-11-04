@@ -1,0 +1,845 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "source_sha256": {
+    "scripts/evaluate_rendered_precision.py": "0044acff8f734a6d47a79bb74ff7318d668bfffacaf388052cbe5783120240ab",
+    "scripts/evaluate_rigid_reference.py": "852e90c98f7d2d50a32eb752b6e6ac520ce70e58c6aa770305a2f8f42eaf7018",
+    "scripts/evaluate_reference_confirmation.py": "6ddcdbe79b6e5eb31c057124987a159e5c716c84c919700f966689321bfc3a33",
+    "src/embodied_agent/empirical_bounds.py": "ac7ac8669f839c3a5a8e601137e9594a1b4818221d2ad9b2e625c2e364299371",
+    "src/embodied_agent/uncertainty_view.py": "a81d0a9c2dd3d704f9991a6a050324ece5fcd54377ca3ded3fa1657330044321",
+    "src/embodied_agent/rigid_reference.py": "87d55f5dfa7c6fb288400af624b782f02123410a660dd0cdc5a8ced4c282d4d8",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/reference_perception.py": "728fec4b7802c617b334b5f50af0cadb9d34ba21a43aca9a1f103a0b36326981",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba"
+  },
+  "resolutions_hw": {
+    "coarse": [
+      240,
+      320
+    ],
+    "detail": [
+      480,
+      640
+    ]
+  },
+  "calibration_positions": [
+    [
+      0.615,
+      -0.02
+    ],
+    [
+      0.615,
+      0.02
+    ],
+    [
+      0.64,
+      -0.02
+    ],
+    [
+      0.64,
+      0.02
+    ],
+    [
+      0.665,
+      -0.02
+    ],
+    [
+      0.665,
+      0.02
+    ]
+  ],
+  "validation_positions": [
+    [
+      0.589,
+      0.001
+    ],
+    [
+      0.5915,
+      0.001
+    ],
+    [
+      0.5925,
+      0.001
+    ],
+    [
+      0.595,
+      0.001
+    ],
+    [
+      0.685,
+      0.001
+    ],
+    [
+      0.6875,
+      0.001
+    ],
+    [
+      0.6885,
+      0.001
+    ],
+    [
+      0.691,
+      0.001
+    ],
+    [
+      0.641,
+      -0.041
+    ],
+    [
+      0.641,
+      -0.0385
+    ],
+    [
+      0.641,
+      0.0385
+    ],
+    [
+      0.641,
+      0.041
+    ]
+  ],
+  "padding_m": 0.0005,
+  "fitted_profiles": {
+    "coarse": {
+      "method": "paired_axis_max_plus_fixed_padding_v1",
+      "calibration_pairs": 6,
+      "complete_pairs": 5,
+      "missing_pair_indices": [
+        3
+      ],
+      "pair_coverage": 0.8333333333333334,
+      "min_pair_fraction": 0.6666666666666666,
+      "max_observed_error_m": [
+        0.0008900521082166879,
+        0.0016536716081482598,
+        6.873614784123905e-06
+      ],
+      "padding_m": 0.0005,
+      "position_error_m": [
+        0.001390052108216688,
+        0.00215367160814826,
+        0.0005068736147841239
+      ],
+      "certified": false
+    },
+    "detail": {
+      "method": "paired_axis_max_plus_fixed_padding_v1",
+      "calibration_pairs": 6,
+      "complete_pairs": 4,
+      "missing_pair_indices": [
+        0,
+        5
+      ],
+      "pair_coverage": 0.6666666666666666,
+      "min_pair_fraction": 0.6666666666666666,
+      "max_observed_error_m": [
+        0.0008014372957458882,
+        0.001083509233325848,
+        6.873614784123905e-06
+      ],
+      "padding_m": 0.0005,
+      "position_error_m": [
+        0.0013014372957458882,
+        0.001583509233325848,
+        0.0005068736147841239
+      ],
+      "certified": false
+    }
+  },
+  "frozen_profiles_sha256": "88b85e6e320b4364f55f076289574aa19cfde458b26d068a954def48ad743dd2",
+  "summary": {
+    "coarse": {
+      "confirmations": 3,
+      "false_confirmations": 0,
+      "switches": 0
+    },
+    "detail": {
+      "confirmations": 5,
+      "false_confirmations": 0,
+      "switches": 0
+    },
+    "active": {
+      "confirmations": 4,
+      "false_confirmations": 0,
+      "switches": 1
+    },
+    "combined": {
+      "confirmations": 5,
+      "false_confirmations": 0,
+      "switches": 5
+    }
+  },
+  "validation_errors": {
+    "coarse": {
+      "max_abs_error_m": [
+        0.001508780044263358,
+        0.002623714157073599,
+        6.873614784123905e-06
+      ],
+      "missing_views": 64,
+      "budget_exceeded_views": 112,
+      "total_views": 384
+    },
+    "detail": {
+      "max_abs_error_m": [
+        0.0007136136571468388,
+        0.0011483682907091272,
+        6.873614784123905e-06
+      ],
+      "missing_views": 48,
+      "budget_exceeded_views": 0,
+      "total_views": 384
+    }
+  },
+  "active_improved": true,
+  "artifact_kind": "compact_evaluation_summary",
+  "full_report": {
+    "path": "outputs/evaluations/rendered-precision-v3/report.json",
+    "sha256": "cc991dfc55f7e6344c16cf839d2ed580116d0e8bcee32e07d0ceabce6646acf4"
+  },
+  "calibration": [
+    {
+      "initial_xy": [
+        0.615,
+        -0.02
+      ],
+      "complete_profiles": [
+        "coarse"
+      ]
+    },
+    {
+      "initial_xy": [
+        0.615,
+        0.02
+      ],
+      "complete_profiles": [
+        "coarse",
+        "detail"
+      ]
+    },
+    {
+      "initial_xy": [
+        0.64,
+        -0.02
+      ],
+      "complete_profiles": [
+        "coarse",
+        "detail"
+      ]
+    },
+    {
+      "initial_xy": [
+        0.64,
+        0.02
+      ],
+      "complete_profiles": [
+        "detail"
+      ]
+    },
+    {
+      "initial_xy": [
+        0.665,
+        -0.02
+      ],
+      "complete_profiles": [
+        "coarse",
+        "detail"
+      ]
+    },
+    {
+      "initial_xy": [
+        0.665,
+        0.02
+      ],
+      "complete_profiles": [
+        "coarse"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "initial_xy": [
+        0.589,
+        0.001
+      ],
+      "truth_inside": false,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "detail": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "combined": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.5915,
+        0.001
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "detail": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "active": {
+          "status": "confirmed_in_tray",
+          "switches": [
+            {
+              "time": 1.5000000000000009,
+              "from": "coarse",
+              "to": "detail",
+              "reason": "boundary_uncertainty"
+            }
+          ],
+          "gates": {
+            "uncertainty_overlaps_boundary": 2,
+            "paired_agreement": 6
+          }
+        },
+        "combined": {
+          "status": "confirmed_in_tray",
+          "switches": [
+            {
+              "time": 1.5000000000000009,
+              "from": "coarse",
+              "to": "detail",
+              "reason": "boundary_uncertainty"
+            }
+          ],
+          "gates": {
+            "uncertainty_overlaps_boundary": 2,
+            "paired_agreement": 6
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.5925,
+        0.001
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "detail": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "active": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "combined": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.595,
+        0.001
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "detail": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "active": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "combined": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.685,
+        0.001
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "detail": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "active": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "combined": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.6875,
+        0.001
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "detail": {
+          "status": "confirmed_in_tray",
+          "switches": [],
+          "gates": {
+            "paired_agreement": 6
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "combined": {
+          "status": "confirmed_in_tray",
+          "switches": [
+            {
+              "time": 1.5000000000000009,
+              "from": "coarse",
+              "to": "detail",
+              "reason": "two_missing_pairs"
+            }
+          ],
+          "gates": {
+            "missing_or_invalid_view": 2,
+            "paired_agreement": 6
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.6885,
+        0.001
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "detail": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "combined": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.691,
+        0.001
+      ],
+      "truth_inside": false,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "detail": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "combined": {
+          "status": "unconfirmed",
+          "switches": [
+            {
+              "time": 1.5000000000000009,
+              "from": "coarse",
+              "to": "detail",
+              "reason": "two_missing_pairs"
+            }
+          ],
+          "gates": {
+            "missing_or_invalid_view": 3,
+            "uncertainty_overlaps_boundary": 13
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.641,
+        -0.041
+      ],
+      "truth_inside": false,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "detail": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "combined": {
+          "status": "unconfirmed",
+          "switches": [
+            {
+              "time": 1.5000000000000009,
+              "from": "coarse",
+              "to": "detail",
+              "reason": "two_missing_pairs"
+            }
+          ],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.641,
+        -0.0385
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "detail": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "combined": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.641,
+        0.0385
+      ],
+      "truth_inside": true,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "detail": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "combined": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    },
+    {
+      "initial_xy": [
+        0.641,
+        0.041
+      ],
+      "truth_inside": false,
+      "policies": {
+        "coarse": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "detail": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "uncertainty_overlaps_boundary": 15,
+            "missing_or_invalid_view": 1
+          }
+        },
+        "active": {
+          "status": "unconfirmed",
+          "switches": [],
+          "gates": {
+            "missing_or_invalid_view": 16
+          }
+        },
+        "combined": {
+          "status": "unconfirmed",
+          "switches": [
+            {
+              "time": 1.5000000000000009,
+              "from": "coarse",
+              "to": "detail",
+              "reason": "two_missing_pairs"
+            }
+          ],
+          "gates": {
+            "missing_or_invalid_view": 3,
+            "uncertainty_overlaps_boundary": 13
+          }
+        }
+      },
+      "false_confirmations": {
+        "coarse": false,
+        "detail": false,
+        "active": false,
+        "combined": false
+      }
+    }
+  ]
+}

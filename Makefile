@@ -951,3 +951,12 @@ uncertainty-view-test:
 
 uncertainty-view-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_uncertainty_view.py --output "$(UNCERTAINTY_VIEW_OUTPUT)"
+
+RENDERED_PRECISION_OUTPUT ?= outputs/evaluations/rendered-precision-new
+.PHONY: rendered-precision-test rendered-precision-evaluate
+rendered-precision-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_empirical_bounds.py' -v
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_uncertainty*.py' -v
+
+rendered-precision-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_rendered_precision.py --output "$(RENDERED_PRECISION_OUTPUT)"

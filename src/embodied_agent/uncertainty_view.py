@@ -15,7 +15,7 @@ class UncertaintyViewConfirmation:
     No robot/camera motion or calibration is performed here.
     """
 
-    def __init__(self, start_time, profiles, *, initial="coarse"):
+    def __init__(self, start_time, profiles, *, initial="coarse", switch_on_missing=False):
         if not isinstance(profiles, dict) or initial not in profiles:
             raise ValueError("named initial acquisition profile required")
         self.profiles = {}
@@ -29,6 +29,10 @@ class UncertaintyViewConfirmation:
         self.confirmation = self._new_confirmation()
         self.last_time = None
         self.rejections = 0
+        if type(switch_on_missing) is not bool:
+            raise ValueError("switch_on_missing must be boolean")
+        self.switch_on_missing = switch_on_missing
+        self.misses = 0
         self.switches = []
         self.rows = []
 
@@ -78,29 +82,39 @@ class UncertaintyViewConfirmation:
         observation = self.confirmation.rows[-1]
         gate = observation["gate"]
         self.rejections = self.rejections + 1 if gate == "uncertainty_overlaps_boundary" else 0
+        self.misses = self.misses + 1 if gate == "missing_or_invalid_view" else 0
         candidates = {}
-        if (
-            self.status == "pending"
-            and self.rejections >= 2
-            and not self.switches
-            and timestamp - self.start <= 1.8
-        ):
-            points = (observation["primary"], observation["secondary"])
-            candidates = {
-                name: self._margin(points, bounds)
-                for name, bounds in self.profiles.items()
-                if name != profile
-            }
-            # Positive predicted containment is only a reason to acquire;
-            # the old positions never count as evidence for the new profile.
-            eligible = [name for name, margin in candidates.items() if margin > 1e-12]
-            if eligible:
-                chosen = min(eligible, key=lambda name: (-candidates[name], name))
+        chosen, switch_reason = None, None
+        if self.status == "pending" and not self.switches and timestamp - self.start <= 1.8:
+            if self.rejections >= 2:
+                points = (observation["primary"], observation["secondary"])
+                candidates = {
+                    name: self._margin(points, bounds)
+                    for name, bounds in self.profiles.items()
+                    if name != profile
+                }
+                # Positive predicted containment only justifies acquiring new evidence.
+                eligible = [name for name, margin in candidates.items() if margin > 1e-12]
+                if eligible:
+                    chosen = min(eligible, key=lambda name: (-candidates[name], name))
+                    switch_reason = "boundary_uncertainty"
+            elif self.switch_on_missing and self.misses >= 2:
+                eligible = [name for name in self.profiles if name != profile]
+                if eligible:
+                    # No position is available to predict containment. Prefer the
+                    # smallest supplied error-box diagonal as a bounded fallback.
+                    chosen = min(
+                        eligible, key=lambda name: (math.hypot(*self.profiles[name]), name)
+                    )
+                    switch_reason = "two_missing_pairs"
+            if chosen is not None:
                 self.profile = chosen
-                self.switches.append({"time": timestamp, "from": profile, "to": chosen})
+                self.switches.append(
+                    {"time": timestamp, "from": profile, "to": chosen, "reason": switch_reason}
+                )
                 self.confirmation = self._new_confirmation()
                 self.confirmation.step(timestamp, None, None)
-                self.rejections = 0
+                self.rejections = self.misses = 0
         self.rows.append(
             {
                 "time": timestamp,
@@ -121,6 +135,7 @@ class UncertaintyViewConfirmation:
                 "status": self.status,
                 "profile": self.profile,
                 "profiles": self.profiles,
+                "switch_on_missing": self.switch_on_missing,
                 "switches": self.switches,
                 "observations": self.rows,
                 "paired": self.confirmation.result(),
