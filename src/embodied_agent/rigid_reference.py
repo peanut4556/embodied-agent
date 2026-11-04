@@ -4,6 +4,7 @@ import math
 
 import numpy as np
 
+from .cross_view import CrossViewConfirmation
 from .reference_confirmation import ReferenceConfirmation, point3
 
 
@@ -14,8 +15,9 @@ class RigidReferenceConfirmation(ReferenceConfirmation):
     unmodelled local distortions remain outside this geometric check.
     """
 
-    def __init__(self, start_time, reference_points, checkpoint):
+    def __init__(self, start_time, reference_points, checkpoint, *, position_error_m=None):
         super().__init__(start_time, reference_points)
+        self.confirmation = CrossViewConfirmation(start_time, position_error_m=position_error_m)
         if "checkpoint" in self.reference_points:
             raise ValueError("checkpoint must be separate from fitting references")
         self.checkpoint = point3(checkpoint)

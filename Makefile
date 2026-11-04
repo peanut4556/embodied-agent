@@ -935,3 +935,11 @@ rigid-reference-test:
 
 rigid-reference-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_rigid_reference.py --output "$(RIGID_REFERENCE_OUTPUT)"
+
+UNCERTAINTY_CONFIRMATION_OUTPUT ?= outputs/uncertainty-confirmation-new.json
+.PHONY: uncertainty-confirmation-test uncertainty-confirmation-evaluate
+uncertainty-confirmation-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_uncertainty_confirmation.py' -v
+
+uncertainty-confirmation-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_uncertainty_confirmation.py --output "$(UNCERTAINTY_CONFIRMATION_OUTPUT)"
