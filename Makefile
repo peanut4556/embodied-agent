@@ -984,3 +984,11 @@ reference-depth-coverage-test:
 
 reference-depth-coverage-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_reference_depth_coverage.py --output "$(REFERENCE_DEPTH_COVERAGE_OUTPUT)"
+
+TEMPORAL_REFERENCE_OUTPUT ?= outputs/evaluations/temporal-reference-new
+.PHONY: temporal-reference-test temporal-reference-evaluate
+temporal-reference-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_temporal_reference.py' -v
+
+temporal-reference-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_temporal_reference.py --output "$(TEMPORAL_REFERENCE_OUTPUT)"
