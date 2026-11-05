@@ -32,7 +32,14 @@ def locate_references(
     *,
     isolate_components=False,
     diagnostics=None,
+    min_depth_fraction=None,
 ):
+    if min_depth_fraction is not None and (
+        not isolate_components
+        or not np.isfinite(min_depth_fraction)
+        or not 0 < min_depth_fraction <= 1
+    ):
+        raise ValueError("depth coverage requires isolated components and a fraction in (0, 1]")
     rgb, depth = np.asarray(rgb, dtype=float), np.asarray(depth, dtype=float)
     if depth.ndim != 2 or rgb.shape != (*depth.shape, 3):
         raise ValueError("matching RGB and depth arrays required")
@@ -49,7 +56,7 @@ def locate_references(
         valid = mask & np.isfinite(depth) & (depth > 0)
         y, x = np.nonzero(valid)
         if isolate_components:
-            components = reference_components(valid)
+            components = reference_components(mask if min_depth_fraction is not None else valid)
             supported = [pixels for pixels in components if len(pixels) >= 20]
             if diagnostics is not None:
                 diagnostics[key] = {
@@ -73,6 +80,14 @@ def locate_references(
             or np.ptp(y) > 48
         ):
             continue
+        if min_depth_fraction is not None:
+            supported_depth = valid[y, x]
+            fraction = float(supported_depth.mean())
+            if diagnostics is not None:
+                diagnostics[key]["depth_fraction"] = fraction
+            if fraction < min_depth_fraction or int(supported_depth.sum()) < 20:
+                continue
+            y, x = y[supported_depth], x[supported_depth]
         rays = np.column_stack(
             ((x + 0.5 - width / 2) / focal, -(y + 0.5 - height / 2) / focal, -np.ones(len(x)))
         )

@@ -976,3 +976,11 @@ reference-components-test:
 
 reference-components-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_reference_components.py --output "$(REFERENCE_COMPONENTS_OUTPUT)"
+
+REFERENCE_DEPTH_COVERAGE_OUTPUT ?= outputs/evaluations/reference-depth-coverage-new
+.PHONY: reference-depth-coverage-test reference-depth-coverage-evaluate
+reference-depth-coverage-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_reference*.py' -v
+
+reference-depth-coverage-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_reference_depth_coverage.py --output "$(REFERENCE_DEPTH_COVERAGE_OUTPUT)"
