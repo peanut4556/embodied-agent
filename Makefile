@@ -968,3 +968,11 @@ profile-admission-test:
 
 profile-admission-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_profile_admission.py --output "$(PROFILE_ADMISSION_OUTPUT)"
+
+REFERENCE_COMPONENTS_OUTPUT ?= outputs/evaluations/reference-components-new
+.PHONY: reference-components-test reference-components-evaluate
+reference-components-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_reference*.py' -v
+
+reference-components-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_reference_components.py --output "$(REFERENCE_COMPONENTS_OUTPUT)"

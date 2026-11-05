@@ -1,9 +1,38 @@
 """Experimental color-reference RGB-D localization, without expected positions."""
 
+from collections import deque
+
 import numpy as np
 
 
-def locate_references(rgb, depth, camera_position, camera_rotation, fovy):
+def reference_components(mask):
+    """Four-connected pixel sets; never choose by expected world position."""
+    remaining = set(zip(*np.nonzero(mask)))
+    components = []
+    while remaining:
+        seed = remaining.pop()
+        pending, pixels = deque([seed]), [seed]
+        while pending:
+            y, x = pending.popleft()
+            for neighbor in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
+                if neighbor in remaining:
+                    remaining.remove(neighbor)
+                    pending.append(neighbor)
+                    pixels.append(neighbor)
+        components.append(np.array(pixels))
+    return components
+
+
+def locate_references(
+    rgb,
+    depth,
+    camera_position,
+    camera_rotation,
+    fovy,
+    *,
+    isolate_components=False,
+    diagnostics=None,
+):
     rgb, depth = np.asarray(rgb, dtype=float), np.asarray(depth, dtype=float)
     if depth.ndim != 2 or rgb.shape != (*depth.shape, 3):
         raise ValueError("matching RGB and depth arrays required")
@@ -17,7 +46,21 @@ def locate_references(rgb, depth, camera_position, camera_rotation, fovy):
     focal = height / (2 * np.tan(np.deg2rad(fovy) / 2))
     result = {}
     for key, mask in masks.items():
-        y, x = np.nonzero(mask & np.isfinite(depth) & (depth > 0))
+        valid = mask & np.isfinite(depth) & (depth > 0)
+        y, x = np.nonzero(valid)
+        if isolate_components:
+            components = reference_components(valid)
+            supported = [pixels for pixels in components if len(pixels) >= 20]
+            if diagnostics is not None:
+                diagnostics[key] = {
+                    "component_sizes": sorted((len(pixels) for pixels in components), reverse=True),
+                    "supported_candidates": len(supported),
+                }
+            # Even a clipped second candidate makes identity ambiguous. Do not
+            # silently prefer the largest or nearest-to-catalog component.
+            if len(supported) != 1:
+                continue
+            y, x = supported[0].T
         if len(x) < 20:
             continue
         # Reject clipped or spread-out color regions rather than merging them.

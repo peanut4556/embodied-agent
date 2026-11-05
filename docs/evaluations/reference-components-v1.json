@@ -1,0 +1,804 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "source_sha256": {
+    "scripts/evaluate_rendered_precision.py": "0044acff8f734a6d47a79bb74ff7318d668bfffacaf388052cbe5783120240ab",
+    "scripts/evaluate_rigid_reference.py": "852e90c98f7d2d50a32eb752b6e6ac520ce70e58c6aa770305a2f8f42eaf7018",
+    "scripts/evaluate_reference_confirmation.py": "6ddcdbe79b6e5eb31c057124987a159e5c716c84c919700f966689321bfc3a33",
+    "src/embodied_agent/empirical_bounds.py": "ac7ac8669f839c3a5a8e601137e9594a1b4818221d2ad9b2e625c2e364299371",
+    "src/embodied_agent/uncertainty_view.py": "a81d0a9c2dd3d704f9991a6a050324ece5fcd54377ca3ded3fa1657330044321",
+    "src/embodied_agent/rigid_reference.py": "87d55f5dfa7c6fb288400af624b782f02123410a660dd0cdc5a8ced4c282d4d8",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/reference_perception.py": "75e9c0a2b0cc15fb0bbcebd00b3bdd9dab71cabb4da654042c5d4540edf20b05",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+    "docs/evaluations/rendered-precision-v3.json": "dee65c9d8c6b651bdbc6215ea6f5e58eed75454c04775cc769844104121072a2",
+    "scripts/evaluate_reference_components.py": "570c411c014741a28b95524bc4df584c53149ed4867345b4e3bd9b614c61c6d5",
+    "scripts/evaluate_profile_admission.py": "54942b49d75f42183b369a7f3b4cfb73fff7992ea8bb47426b547eee7f05fbaa",
+    "src/embodied_agent/profile_admission.py": "d9f98906edd6827f69b5ad8601b15edbc98b69391e63fd37b5cb204268c85cbc"
+  },
+  "frozen_budget_m": [
+    0.0013014372957458882,
+    0.001583509233325848,
+    0.0005068736147841239
+  ],
+  "development_scenes": [
+    [
+      0.594,
+      -0.007,
+      0
+    ],
+    [
+      0.598,
+      0.009,
+      0.15
+    ],
+    [
+      0.612,
+      -0.028,
+      -0.15
+    ],
+    [
+      0.65,
+      0.027,
+      0.15
+    ],
+    [
+      0.684,
+      -0.009,
+      0
+    ],
+    [
+      0.688,
+      0.008,
+      -0.15
+    ],
+    [
+      0.64,
+      -0.037,
+      0.15
+    ],
+    [
+      0.643,
+      0.037,
+      -0.15
+    ],
+    [
+      0.588,
+      -0.006,
+      0
+    ],
+    [
+      0.692,
+      0.006,
+      0
+    ],
+    [
+      0.637,
+      -0.043,
+      0
+    ],
+    [
+      0.646,
+      0.043,
+      0
+    ]
+  ],
+  "holdout_scenes": [
+    [
+      0.596,
+      -0.004,
+      0.1
+    ],
+    [
+      0.604,
+      0.012,
+      -0.2
+    ],
+    [
+      0.618,
+      -0.025,
+      0.2
+    ],
+    [
+      0.654,
+      0.024,
+      -0.1
+    ],
+    [
+      0.681,
+      -0.012,
+      0.2
+    ],
+    [
+      0.686,
+      0.005,
+      0.1
+    ],
+    [
+      0.638,
+      -0.036,
+      -0.2
+    ],
+    [
+      0.645,
+      0.036,
+      0.1
+    ],
+    [
+      0.587,
+      -0.003,
+      0
+    ],
+    [
+      0.693,
+      0.003,
+      0
+    ],
+    [
+      0.635,
+      -0.044,
+      0
+    ],
+    [
+      0.648,
+      0.044,
+      0
+    ]
+  ],
+  "frozen_admission": {
+    "schema_version": 1,
+    "certified": false,
+    "case_count": 12,
+    "min_cases": 8,
+    "min_coverage": 0.6666666666666666,
+    "evidence_sha256": "0ecc57c6b837c5c28b50f4bfcb3a9f73c121066d7d3745db109942bf6460e87f",
+    "audits": {
+      "legacy": {
+        "complete_cases": 3,
+        "missing_views": 192,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.00034823142377560234,
+          0.0013884271109850226,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.25,
+        "eligible": false,
+        "reasons": [
+          "insufficient_complete_case_coverage"
+        ]
+      },
+      "components": {
+        "complete_cases": 11,
+        "missing_views": 16,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.000711109848404945,
+          0.0013884271109850226,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.9166666666666666,
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    "eligible_profiles": {
+      "components": [
+        0.0013014372957458882,
+        0.001583509233325848,
+        0.0005068736147841239
+      ]
+    }
+  },
+  "summary": {
+    "development": {
+      "legacy": {
+        "confirmations": 2,
+        "false_confirmations": 0
+      },
+      "components": {
+        "confirmations": 8,
+        "false_confirmations": 0
+      }
+    },
+    "holdout": {
+      "legacy": {
+        "confirmations": 1,
+        "false_confirmations": 0
+      },
+      "components": {
+        "confirmations": 8,
+        "false_confirmations": 0
+      },
+      "qualified": {
+        "confirmations": 8,
+        "false_confirmations": 0
+      }
+    }
+  },
+  "development_audit": {
+    "schema_version": 1,
+    "certified": false,
+    "case_count": 12,
+    "min_cases": 8,
+    "min_coverage": 0.6666666666666666,
+    "evidence_sha256": "0ecc57c6b837c5c28b50f4bfcb3a9f73c121066d7d3745db109942bf6460e87f",
+    "audits": {
+      "legacy": {
+        "complete_cases": 3,
+        "missing_views": 192,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.00034823142377560234,
+          0.0013884271109850226,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.25,
+        "eligible": false,
+        "reasons": [
+          "insufficient_complete_case_coverage"
+        ]
+      },
+      "components": {
+        "complete_cases": 11,
+        "missing_views": 16,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.000711109848404945,
+          0.0013884271109850226,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.9166666666666666,
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    "eligible_profiles": {
+      "components": [
+        0.0013014372957458882,
+        0.001583509233325848,
+        0.0005068736147841239
+      ]
+    }
+  },
+  "holdout_audit": {
+    "schema_version": 1,
+    "certified": false,
+    "case_count": 12,
+    "min_cases": 8,
+    "min_coverage": 0.6666666666666666,
+    "evidence_sha256": "6e6c85c58d47119a3c933469a1bd752af16777a99d782ff1e006eaf6185c3560",
+    "audits": {
+      "legacy": {
+        "complete_cases": 4,
+        "missing_views": 144,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.00033140823664867813,
+          0.0015423420982731617,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.3333333333333333,
+        "eligible": false,
+        "reasons": [
+          "insufficient_complete_case_coverage"
+        ]
+      },
+      "components": {
+        "complete_cases": 11,
+        "missing_views": 16,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.0004965035860220457,
+          0.0015423420982731617,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.9166666666666666,
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    "eligible_profiles": {
+      "components": [
+        0.0013014372957458882,
+        0.001583509233325848,
+        0.0005068736147841239
+      ]
+    }
+  },
+  "artifact_kind": "compact_evaluation_summary",
+  "full_report": {
+    "path": "outputs/evaluations/reference-components-v1/report.json",
+    "sha256": "09d646e160f7773a537c9df4d7dd53bfda2c9c3405f5fe75b5824b8ff34ef0a6"
+  },
+  "cases": [
+    {
+      "id": "development_0",
+      "phase": "development",
+      "scene": [
+        0.594,
+        -0.007,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_1",
+      "phase": "development",
+      "scene": [
+        0.598,
+        0.009,
+        0.15
+      ],
+      "policies": {
+        "legacy": "confirmed_in_tray",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_2",
+      "phase": "development",
+      "scene": [
+        0.612,
+        -0.028,
+        -0.15
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 32,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_3",
+      "phase": "development",
+      "scene": [
+        0.65,
+        0.027,
+        0.15
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_4",
+      "phase": "development",
+      "scene": [
+        0.684,
+        -0.009,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 32,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_5",
+      "phase": "development",
+      "scene": [
+        0.688,
+        0.008,
+        -0.15
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_6",
+      "phase": "development",
+      "scene": [
+        0.64,
+        -0.037,
+        0.15
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_7",
+      "phase": "development",
+      "scene": [
+        0.643,
+        0.037,
+        -0.15
+      ],
+      "policies": {
+        "legacy": "confirmed_in_tray",
+        "components": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_8",
+      "phase": "development",
+      "scene": [
+        0.588,
+        -0.006,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_9",
+      "phase": "development",
+      "scene": [
+        0.692,
+        0.006,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 32,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "development_10",
+      "phase": "development",
+      "scene": [
+        0.637,
+        -0.043,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {
+        "all fitting references and checkpoint required": 16
+      }
+    },
+    {
+      "id": "development_11",
+      "phase": "development",
+      "scene": [
+        0.646,
+        0.043,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_0",
+      "phase": "holdout",
+      "scene": [
+        0.596,
+        -0.004,
+        0.1
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_1",
+      "phase": "holdout",
+      "scene": [
+        0.604,
+        0.012,
+        -0.2
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 32,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_2",
+      "phase": "holdout",
+      "scene": [
+        0.618,
+        -0.025,
+        0.2
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_3",
+      "phase": "holdout",
+      "scene": [
+        0.654,
+        0.024,
+        -0.1
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_4",
+      "phase": "holdout",
+      "scene": [
+        0.681,
+        -0.012,
+        0.2
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_5",
+      "phase": "holdout",
+      "scene": [
+        0.686,
+        0.005,
+        0.1
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_6",
+      "phase": "holdout",
+      "scene": [
+        0.638,
+        -0.036,
+        -0.2
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 16,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_7",
+      "phase": "holdout",
+      "scene": [
+        0.645,
+        0.036,
+        0.1
+      ],
+      "policies": {
+        "legacy": "confirmed_in_tray",
+        "components": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_8",
+      "phase": "holdout",
+      "scene": [
+        0.587,
+        -0.003,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_9",
+      "phase": "holdout",
+      "scene": [
+        0.693,
+        0.003,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {}
+    },
+    {
+      "id": "holdout_10",
+      "phase": "holdout",
+      "scene": [
+        0.635,
+        -0.044,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {
+        "all fitting references and checkpoint required": 16
+      }
+    },
+    {
+      "id": "holdout_11",
+      "phase": "holdout",
+      "scene": [
+        0.648,
+        0.044,
+        0
+      ],
+      "policies": {
+        "legacy": "unconfirmed",
+        "components": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "legacy": false,
+        "components": false,
+        "qualified": false
+      },
+      "restored_views": 0,
+      "remaining_rejections": {}
+    }
+  ]
+}
