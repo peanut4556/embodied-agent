@@ -1,0 +1,514 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "prior_evidence_sha256": "cc991dfc55f7e6344c16cf839d2ed580116d0e8bcee32e07d0ceabce6646acf4",
+  "source_sha256": {
+    "scripts/evaluate_rendered_precision.py": "0044acff8f734a6d47a79bb74ff7318d668bfffacaf388052cbe5783120240ab",
+    "scripts/evaluate_rigid_reference.py": "852e90c98f7d2d50a32eb752b6e6ac520ce70e58c6aa770305a2f8f42eaf7018",
+    "scripts/evaluate_reference_confirmation.py": "6ddcdbe79b6e5eb31c057124987a159e5c716c84c919700f966689321bfc3a33",
+    "src/embodied_agent/empirical_bounds.py": "ac7ac8669f839c3a5a8e601137e9594a1b4818221d2ad9b2e625c2e364299371",
+    "src/embodied_agent/uncertainty_view.py": "a81d0a9c2dd3d704f9991a6a050324ece5fcd54377ca3ded3fa1657330044321",
+    "src/embodied_agent/rigid_reference.py": "87d55f5dfa7c6fb288400af624b782f02123410a660dd0cdc5a8ced4c282d4d8",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/reference_perception.py": "728fec4b7802c617b334b5f50af0cadb9d34ba21a43aca9a1f103a0b36326981",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+    "scripts/evaluate_profile_admission.py": "54942b49d75f42183b369a7f3b4cfb73fff7992ea8bb47426b547eee7f05fbaa",
+    "src/embodied_agent/profile_admission.py": "d9f98906edd6827f69b5ad8601b15edbc98b69391e63fd37b5cb204268c85cbc"
+  },
+  "scenes": [
+    [
+      0.594,
+      -0.007,
+      0
+    ],
+    [
+      0.598,
+      0.009,
+      0.15
+    ],
+    [
+      0.612,
+      -0.028,
+      -0.15
+    ],
+    [
+      0.65,
+      0.027,
+      0.15
+    ],
+    [
+      0.684,
+      -0.009,
+      0
+    ],
+    [
+      0.688,
+      0.008,
+      -0.15
+    ],
+    [
+      0.64,
+      -0.037,
+      0.15
+    ],
+    [
+      0.643,
+      0.037,
+      -0.15
+    ],
+    [
+      0.588,
+      -0.006,
+      0
+    ],
+    [
+      0.692,
+      0.006,
+      0
+    ],
+    [
+      0.637,
+      -0.043,
+      0
+    ],
+    [
+      0.646,
+      0.043,
+      0
+    ]
+  ],
+  "admission": {
+    "schema_version": 1,
+    "certified": false,
+    "case_count": 12,
+    "min_cases": 8,
+    "min_coverage": 0.6666666666666666,
+    "evidence_sha256": "edceb2cf56fb67d17b6efac535bf91ca397853afe81fe5c5c61b5041efd93926",
+    "audits": {
+      "coarse": {
+        "complete_cases": 8,
+        "missing_views": 64,
+        "exceeded_views": 112,
+        "max_error_m": [
+          0.001508780044263358,
+          0.002623714157073599,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.6666666666666666,
+        "eligible": false,
+        "reasons": [
+          "observed_error_exceeds_frozen_budget"
+        ]
+      },
+      "detail": {
+        "complete_cases": 9,
+        "missing_views": 48,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.0007136136571468388,
+          0.0011483682907091272,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.75,
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    "eligible_profiles": {
+      "detail": [
+        0.0013014372957458882,
+        0.001583509233325848,
+        0.0005068736147841239
+      ]
+    }
+  },
+  "summary": {
+    "unqualified": {
+      "confirmations": 6,
+      "false_confirmations": 0,
+      "rejected_profile_requests": 87
+    },
+    "qualified": {
+      "confirmations": 2,
+      "false_confirmations": 0,
+      "rejected_profile_requests": 0
+    }
+  },
+  "new_scene_audit": {
+    "schema_version": 1,
+    "certified": false,
+    "case_count": 12,
+    "min_cases": 8,
+    "min_coverage": 0.6666666666666666,
+    "evidence_sha256": "43ebf6daacbcbee0388ba545509aea971f5b2fffe0458161df0dc73e261d5d24",
+    "audits": {
+      "coarse": {
+        "complete_cases": 9,
+        "missing_views": 48,
+        "exceeded_views": 96,
+        "max_error_m": [
+          0.0014511600188467089,
+          0.0026762727422345815,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.75,
+        "eligible": false,
+        "reasons": [
+          "observed_error_exceeds_frozen_budget"
+        ]
+      },
+      "detail": {
+        "complete_cases": 3,
+        "missing_views": 192,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.00034823142377560234,
+          0.0013884271109850226,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.25,
+        "eligible": false,
+        "reasons": [
+          "insufficient_complete_case_coverage"
+        ]
+      }
+    },
+    "eligible_profiles": {}
+  },
+  "future_admission": {
+    "schema_version": 1,
+    "certified": false,
+    "case_count": 24,
+    "min_cases": 8,
+    "min_coverage": 0.6666666666666666,
+    "evidence_sha256": "f7295ed1ff246d3dcc0e4262d84d83ceede153926abb7646751dc114fd6dc6fd",
+    "audits": {
+      "coarse": {
+        "complete_cases": 17,
+        "missing_views": 112,
+        "exceeded_views": 208,
+        "max_error_m": [
+          0.001508780044263358,
+          0.0026762727422345815,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.7083333333333334,
+        "eligible": false,
+        "reasons": [
+          "observed_error_exceeds_frozen_budget"
+        ]
+      },
+      "detail": {
+        "complete_cases": 12,
+        "missing_views": 240,
+        "exceeded_views": 0,
+        "max_error_m": [
+          0.0007136136571468388,
+          0.0013884271109850226,
+          6.873614784123905e-06
+        ],
+        "coverage": 0.5,
+        "eligible": false,
+        "reasons": [
+          "insufficient_complete_case_coverage"
+        ]
+      }
+    },
+    "eligible_profiles": {}
+  },
+  "artifact_kind": "compact_evaluation_summary",
+  "full_report": {
+    "path": "outputs/evaluations/profile-admission-v1/report.json",
+    "sha256": "0ef0066ef00eb3517c7a5695318fe85ec95b8637267e2d3f9525625e23630aa1"
+  },
+  "future_execution_probe": {
+    "status": "unconfirmed",
+    "reason": "no_qualified_profiles",
+    "acquisition_calls": 0
+  },
+  "cases": [
+    {
+      "scene": [
+        0.594,
+        -0.007,
+        0
+      ],
+      "policies": {
+        "unqualified": "confirmed_in_tray",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 6
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.598,
+        0.009,
+        0.15
+      ],
+      "policies": {
+        "unqualified": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 6
+        },
+        "qualified": {
+          "detail": 6
+        }
+      }
+    },
+    {
+      "scene": [
+        0.612,
+        -0.028,
+        -0.15
+      ],
+      "policies": {
+        "unqualified": "confirmed_in_tray",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 6
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.65,
+        0.027,
+        0.15
+      ],
+      "policies": {
+        "unqualified": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 2,
+          "detail": 13
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.684,
+        -0.009,
+        0
+      ],
+      "policies": {
+        "unqualified": "confirmed_in_tray",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 6
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.688,
+        0.008,
+        -0.15
+      ],
+      "policies": {
+        "unqualified": "confirmed_in_tray",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 6
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.64,
+        -0.037,
+        0.15
+      ],
+      "policies": {
+        "unqualified": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 2,
+          "detail": 13
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.643,
+        0.037,
+        -0.15
+      ],
+      "policies": {
+        "unqualified": "confirmed_in_tray",
+        "qualified": "confirmed_in_tray"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 6
+        },
+        "qualified": {
+          "detail": 6
+        }
+      }
+    },
+    {
+      "scene": [
+        0.588,
+        -0.006,
+        0
+      ],
+      "policies": {
+        "unqualified": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 15
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.692,
+        0.006,
+        0
+      ],
+      "policies": {
+        "unqualified": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 2,
+          "detail": 13
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.637,
+        -0.043,
+        0
+      ],
+      "policies": {
+        "unqualified": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 15
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    },
+    {
+      "scene": [
+        0.646,
+        0.043,
+        0
+      ],
+      "policies": {
+        "unqualified": "unconfirmed",
+        "qualified": "unconfirmed"
+      },
+      "false_confirmations": {
+        "unqualified": false,
+        "qualified": false
+      },
+      "requested_profile_counts": {
+        "unqualified": {
+          "coarse": 15
+        },
+        "qualified": {
+          "detail": 15
+        }
+      }
+    }
+  ]
+}

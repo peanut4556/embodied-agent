@@ -960,3 +960,11 @@ rendered-precision-test:
 
 rendered-precision-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_rendered_precision.py --output "$(RENDERED_PRECISION_OUTPUT)"
+
+PROFILE_ADMISSION_OUTPUT ?= outputs/evaluations/profile-admission-new
+.PHONY: profile-admission-test profile-admission-evaluate
+profile-admission-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_profile_admission.py' -v
+
+profile-admission-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_profile_admission.py --output "$(PROFILE_ADMISSION_OUTPUT)"
