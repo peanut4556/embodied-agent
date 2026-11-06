@@ -1000,3 +1000,12 @@ settled-reference-test:
 
 settled-reference-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_settled_reference.py --output "$(SETTLED_REFERENCE_OUTPUT)"
+
+FORCE_DISTURBANCE_OUTPUT ?= outputs/evaluations/force-disturbance-new
+FORCE_DISTURBANCE_INTERVAL ?= 0.2
+.PHONY: force-disturbance-test force-disturbance-evaluate
+force-disturbance-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_force_disturbance.py' -v
+
+force-disturbance-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_force_disturbance.py --frame-interval "$(FORCE_DISTURBANCE_INTERVAL)" --output "$(FORCE_DISTURBANCE_OUTPUT)"
