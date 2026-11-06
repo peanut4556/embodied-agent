@@ -1009,3 +1009,11 @@ force-disturbance-test:
 
 force-disturbance-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_force_disturbance.py --frame-interval "$(FORCE_DISTURBANCE_INTERVAL)" --output "$(FORCE_DISTURBANCE_OUTPUT)"
+
+SAMPLING_PHASE_OUTPUT ?= outputs/evaluations/sampling-phase-new
+.PHONY: sampling-phase-test sampling-phase-evaluate
+sampling-phase-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_observation_schedule.py' -v
+
+sampling-phase-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_sampling_phase.py --output "$(SAMPLING_PHASE_OUTPUT)"

@@ -1,0 +1,568 @@
+{
+  "schema_version": 1,
+  "scope": "MuJoCo force-driven dynamics, paired RGB-D, 1 mm pixel depth noise; truth audit only",
+  "source_sha256": {
+    "scripts/evaluate_rendered_precision.py": "0044acff8f734a6d47a79bb74ff7318d668bfffacaf388052cbe5783120240ab",
+    "scripts/evaluate_rigid_reference.py": "852e90c98f7d2d50a32eb752b6e6ac520ce70e58c6aa770305a2f8f42eaf7018",
+    "scripts/evaluate_reference_confirmation.py": "6ddcdbe79b6e5eb31c057124987a159e5c716c84c919700f966689321bfc3a33",
+    "src/embodied_agent/empirical_bounds.py": "ac7ac8669f839c3a5a8e601137e9594a1b4818221d2ad9b2e625c2e364299371",
+    "src/embodied_agent/uncertainty_view.py": "a81d0a9c2dd3d704f9991a6a050324ece5fcd54377ca3ded3fa1657330044321",
+    "src/embodied_agent/rigid_reference.py": "87d55f5dfa7c6fb288400af624b782f02123410a660dd0cdc5a8ced4c282d4d8",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/reference_perception.py": "e5bb270aa9908057b05ec74a11ba3f56def7beeeb8429545c4a88e9138f51874",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/physics.py": "beb8f009ea826c8a061f28f0c9b8cd3e0dbf88d4a1cafc400803697f17380b4c",
+    "src/embodied_agent/perception.py": "cb17f0a108d63d9d4d0de3495b8e6c8d26f2f73e4a702272ff7fd05933d36ccf",
+    "src/embodied_agent/assets/tabletop.xml": "cd5855b757b71a2299dc4c39b2b529640e89f3210c8f10f0603375328da226ba",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_sampling_phase.py": "dd189911fabfca0e45aa6f13963c957e16336181753d14b217e67df2c41b483a",
+    "docs/evaluations/rendered-precision-v3.json": "dee65c9d8c6b651bdbc6215ea6f5e58eed75454c04775cc769844104121072a2",
+    "scripts/evaluate_reference_depth_coverage.py": "f456cf9ae566463f9b5f1925b25306616eba83450391d1058001816df9027925",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/observation_schedule.py": "e75fac9d6d519fe737bd3997e74077b53022006c9e1c399ffcd2d306e54f2a93",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1"
+  },
+  "seeds": [
+    202611091,
+    202611092
+  ],
+  "schedules_ms": {
+    "uniform_5hz": [
+      0,
+      200,
+      400,
+      600,
+      800,
+      1000,
+      1200,
+      1400,
+      1600,
+      1800,
+      2000,
+      2200,
+      2400,
+      2600,
+      2800,
+      3000
+    ],
+    "phase_sweep": [
+      0,
+      152,
+      322,
+      512,
+      722,
+      952,
+      1200,
+      1352,
+      1522,
+      1712,
+      1922,
+      2152,
+      2400,
+      2560,
+      2760,
+      3000
+    ],
+    "uniform_20hz": [
+      0,
+      50,
+      100,
+      150,
+      200,
+      250,
+      300,
+      350,
+      400,
+      450,
+      500,
+      550,
+      600,
+      650,
+      700,
+      750,
+      800,
+      850,
+      900,
+      950,
+      1000,
+      1050,
+      1100,
+      1150,
+      1200,
+      1250,
+      1300,
+      1350,
+      1400,
+      1450,
+      1500,
+      1550,
+      1600,
+      1650,
+      1700,
+      1750,
+      1800,
+      1850,
+      1900,
+      1950,
+      2000,
+      2050,
+      2100,
+      2150,
+      2200,
+      2250,
+      2300,
+      2350,
+      2400,
+      2450,
+      2500,
+      2550,
+      2600,
+      2650,
+      2700,
+      2750,
+      2800,
+      2850,
+      2900,
+      2950,
+      3000
+    ]
+  },
+  "budget_m": [
+    0.0013014372957458882,
+    0.001583509233325848,
+    0.0005068736147841239
+  ],
+  "raw_report": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/outputs/evaluations/sampling-phase-v1/report.json",
+  "raw_report_sha256": "1dd6d0a969ef0d52918ef31851d1d978bda706c95aa6ad7c41b47c9f1683a34a",
+  "summary": {
+    "uniform_5hz": {
+      "planned_captures": 16,
+      "disturbed_confirmations": 10,
+      "control_confirmations": 4
+    },
+    "phase_sweep": {
+      "planned_captures": 16,
+      "disturbed_confirmations": 2,
+      "control_confirmations": 4
+    },
+    "uniform_20hz": {
+      "planned_captures": 61,
+      "disturbed_confirmations": 0,
+      "control_confirmations": 4
+    }
+  },
+  "cases": [
+    {
+      "mode": "stationary",
+      "seed": 202611091,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.422678467526212e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4337520083793228e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": {
+          "elapsed_s": 2.4,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4226259462017676e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4337520083793228e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        },
+        "uniform_20hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.422678467526212e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4337520083793228e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        }
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "confirmed_in_tray",
+        "uniform_20hz": "confirmed_in_tray"
+      }
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611091,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4834890089538467e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 2.584595325255474e-10,
+            "max_axis_excursion_m": 5.611754116952028e-12,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": {
+          "elapsed_s": 3.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4871672510393926e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4908858034919837e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        },
+        "uniform_20hz": {
+          "elapsed_s": 2.6,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4761653876754905e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4908858034919837e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        }
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "confirmed_in_tray",
+        "uniform_20hz": "confirmed_in_tray"
+      }
+    },
+    {
+      "mode": "phase_10",
+      "seed": 202611091,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.00012598255934752263,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15577817830332819,
+            "max_axis_excursion_m": 0.0020669723217086045,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": {
+          "elapsed_s": 2.4,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.0001264797912070497,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15576179458674258,
+            "max_axis_excursion_m": 0.002067625835282416,
+            "physics_samples": 501
+          }
+        },
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "confirmed_in_tray",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_50",
+      "seed": 202611091,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.0007293843368061326,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15578036152679928,
+            "max_axis_excursion_m": 0.0020668916791783953,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_90",
+      "seed": 202611091,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 3.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.00414731609028892,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15575280657766305,
+            "max_axis_excursion_m": 0.0020701252486963195,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_130",
+      "seed": 202611091,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.13499977249069495,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15577601842808123,
+            "max_axis_excursion_m": 0.0020800123357633815,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_170",
+      "seed": 202611091,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.2,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.06167790291927702,
+          "preceding_second": {
+            "peak_speed_m_s": 0.155819643911224,
+            "max_axis_excursion_m": 0.0020669971873109594,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611092,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.422678467526212e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4337520083793228e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": {
+          "elapsed_s": 2.4,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4226259462017676e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4337520083793228e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        },
+        "uniform_20hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.422678467526212e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4337520083793228e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        }
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "confirmed_in_tray",
+        "uniform_20hz": "confirmed_in_tray"
+      }
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611092,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4834890089538467e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 2.584595325255474e-10,
+            "max_axis_excursion_m": 5.611754116952028e-12,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": {
+          "elapsed_s": 3.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4871672510393926e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4908858034919837e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        },
+        "uniform_20hz": {
+          "elapsed_s": 2.6,
+          "inside": true,
+          "instantaneous_speed_m_s": 1.4761653876754905e-15,
+          "preceding_second": {
+            "peak_speed_m_s": 1.4908858034919837e-15,
+            "max_axis_excursion_m": 0.0,
+            "physics_samples": 501
+          }
+        }
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "confirmed_in_tray",
+        "uniform_20hz": "confirmed_in_tray"
+      }
+    },
+    {
+      "mode": "phase_10",
+      "seed": 202611092,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.00012598255934752263,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15577817830332819,
+            "max_axis_excursion_m": 0.0020669723217086045,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": {
+          "elapsed_s": 2.4,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.0001264797912070497,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15576179458674258,
+            "max_axis_excursion_m": 0.002067625835282416,
+            "physics_samples": 501
+          }
+        },
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "confirmed_in_tray",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_50",
+      "seed": 202611092,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.0007293843368061326,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15578036152679928,
+            "max_axis_excursion_m": 0.0020668916791783953,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_90",
+      "seed": 202611092,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.004156476322944296,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15580129231717726,
+            "max_axis_excursion_m": 0.002071103697394605,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_130",
+      "seed": 202611092,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.0,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.13499977249069495,
+          "preceding_second": {
+            "peak_speed_m_s": 0.15577601842808123,
+            "max_axis_excursion_m": 0.0020800123357633815,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    },
+    {
+      "mode": "phase_170",
+      "seed": 202611092,
+      "first_confirmation": {
+        "uniform_5hz": {
+          "elapsed_s": 2.2,
+          "inside": true,
+          "instantaneous_speed_m_s": 0.06167790291927702,
+          "preceding_second": {
+            "peak_speed_m_s": 0.155819643911224,
+            "max_axis_excursion_m": 0.0020669971873109594,
+            "physics_samples": 501
+          }
+        },
+        "phase_sweep": null,
+        "uniform_20hz": null
+      },
+      "terminal_status": {
+        "uniform_5hz": "confirmed_in_tray",
+        "phase_sweep": "unconfirmed",
+        "uniform_20hz": "unconfirmed"
+      }
+    }
+  ]
+}
