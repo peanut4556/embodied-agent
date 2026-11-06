@@ -992,3 +992,11 @@ temporal-reference-test:
 
 temporal-reference-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_temporal_reference.py --output "$(TEMPORAL_REFERENCE_OUTPUT)"
+
+SETTLED_REFERENCE_OUTPUT ?= outputs/evaluations/settled-reference-new
+.PHONY: settled-reference-test settled-reference-evaluate
+settled-reference-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_settled_reference.py' -v
+
+settled-reference-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_settled_reference.py --output "$(SETTLED_REFERENCE_OUTPUT)"
