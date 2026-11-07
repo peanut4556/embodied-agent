@@ -1033,3 +1033,11 @@ confirmation-challenge-test:
 
 confirmation-challenge-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_confirmation_challenge.py --output "$(CONFIRMATION_CHALLENGE_OUTPUT)"
+
+DELIVERED_CHALLENGE_OUTPUT ?= outputs/evaluations/delivered-challenge-new
+.PHONY: delivered-challenge-test delivered-challenge-evaluate
+delivered-challenge-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_delivered_challenge.py' -v
+
+delivered-challenge-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_delivered_challenge.py --output "$(DELIVERED_CHALLENGE_OUTPUT)"

@@ -1,0 +1,1069 @@
+{
+  "schema_version": 1,
+  "scope": "Delivery fault replay of previously rendered pairs; not new dynamics or real camera timing",
+  "input_report": "outputs/evaluations/confirmation-challenge-v1/report.json",
+  "input_sha256": "49be8a3b86bc1d6171ec1e6ed6bfa54701415709e24aaae533f6cbdba61972d1",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_delivered_challenge.py": "c297752bfaa694969302289d883b000738244090581c7d5e397aeb8dd58672e1",
+    "docs/evaluations/confirmation-challenge-v1.json": "2f052e77a3be719cbb24922cc910552055561cf0ca3ccc9bf2689d56d772b251",
+    "src/embodied_agent/delivered_challenge.py": "75f3cfe1b20f3c19c79ef0ab0fe8dc0a9fc62a8391c758082544ebf080f22d95",
+    "src/embodied_agent/confirmation_challenge.py": "e34c3ccd3a37a1c04a2df80c4fe4c1735c025b4dbed53848dc3738c97a5b0cd2",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb"
+  },
+  "summary": {
+    "on_time": {
+      "exposure_only_confirmations": 6,
+      "guarded_confirmations": 6
+    },
+    "latency_20ms": {
+      "exposure_only_confirmations": 6,
+      "guarded_confirmations": 0
+    },
+    "final_late_20ms": {
+      "exposure_only_confirmations": 6,
+      "guarded_confirmations": 0
+    },
+    "drop_final": {
+      "exposure_only_confirmations": 0,
+      "guarded_confirmations": 0
+    },
+    "drop_burst_frame": {
+      "exposure_only_confirmations": 0,
+      "guarded_confirmations": 0
+    },
+    "reorder_burst": {
+      "exposure_only_confirmations": 0,
+      "guarded_confirmations": 0
+    },
+    "skew_2ms": {
+      "exposure_only_confirmations": 6,
+      "guarded_confirmations": 0
+    },
+    "session_change": {
+      "exposure_only_confirmations": 6,
+      "guarded_confirmations": 0
+    },
+    "clock_drift_60ms": {
+      "exposure_only_confirmations": 6,
+      "guarded_confirmations": 0
+    }
+  },
+  "raw_report": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/outputs/evaluations/delivered-challenge-v1/report.json",
+  "raw_report_sha256": "d98d97b5b69a7ee563de3dbefce3fba8adfd64d11fcbf8ac538729ed99f77141",
+  "cases": [
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "on_time",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "confirmed_in_tray",
+      "guarded_reason": "challenge_passed"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "latency_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "skew_2ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "session_change",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "on_time",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "confirmed_in_tray",
+      "guarded_reason": "challenge_passed"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "latency_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "skew_2ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "session_change",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "on_time",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "confirmed_in_tray",
+      "guarded_reason": "challenge_passed"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "latency_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "skew_2ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "session_change",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "drop_final",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "on_time",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "confirmed_in_tray",
+      "guarded_reason": "challenge_passed"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "latency_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "skew_2ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "session_change",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "on_time",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "confirmed_in_tray",
+      "guarded_reason": "challenge_passed"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "latency_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "skew_2ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "session_change",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "on_time",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "confirmed_in_tray",
+      "guarded_reason": "challenge_passed"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "latency_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_capture_gap"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "skew_2ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "session_change",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "confirmed_in_tray",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "drop_final",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "challenge_motion"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "on_time",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "latency_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "final_late_20ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "drop_final",
+      "exposure_only_status": "pending",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "delivery_deadline_without_complete_evidence"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "drop_burst_frame",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "reorder_burst",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "no_candidate"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "skew_2ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "session_change",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "camera_session_changed"
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "fault": "clock_drift_60ms",
+      "exposure_only_status": "unconfirmed",
+      "guarded_status": "unconfirmed",
+      "guarded_reason": "exposure_rejected"
+    }
+  ]
+}
