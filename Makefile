@@ -1025,3 +1025,11 @@ random-sampling-test:
 
 random-sampling-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_random_sampling.py --output "$(RANDOM_SAMPLING_OUTPUT)"
+
+CONFIRMATION_CHALLENGE_OUTPUT ?= outputs/evaluations/confirmation-challenge-new
+.PHONY: confirmation-challenge-test confirmation-challenge-evaluate
+confirmation-challenge-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_confirmation_challenge.py' -v
+
+confirmation-challenge-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_confirmation_challenge.py --output "$(CONFIRMATION_CHALLENGE_OUTPUT)"
