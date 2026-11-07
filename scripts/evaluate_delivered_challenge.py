@@ -23,11 +23,17 @@ FAULTS = (
 )
 
 
-def replay(case, budget, fault):
+def replay(case, budget, fault, *, delivery_budget_s=0.0, latency_s=0.02):
     if fault not in FAULTS:
         raise ValueError("unknown delivery fault")
     raw = ConfirmationChallenge(0, position_error_m=budget)
-    guarded = DeliveredChallenge(0, ExposureClockMap(0, 0), "camera", position_error_m=budget)
+    guarded = DeliveredChallenge(
+        0,
+        ExposureClockMap(0, 0),
+        "camera",
+        position_error_m=budget,
+        delivery_budget_s=delivery_budget_s,
+    )
     events = []
     for sample in case["samples"]:
         if "challenge" not in sample["recipients"]:
@@ -38,7 +44,7 @@ def replay(case, budget, fault):
         if fault == "drop_burst_frame" and abs(t - 2.05) < 1e-9:
             continue
         arrival = t + (
-            0.02
+            latency_s
             if fault == "latency_20ms" or (fault == "final_late_20ms" and abs(t - 3) < 1e-9)
             else 0
         )
@@ -48,9 +54,9 @@ def replay(case, budget, fault):
     events.sort(key=lambda event: event[0])
     log = []
     for arrival, exposure, packet in events:
-        # A watchdog at the original deadline wins over any later delivery.
-        if arrival > 3 + 1e-9:
-            guarded.tick(3)
+        # A watchdog at the configured delivery deadline wins over later delivery.
+        if arrival > guarded.deadline + 1e-9:
+            guarded.tick(guarded.deadline)
         session = (
             "replacement" if fault == "session_change" and exposure >= 2.05 - 1e-9 else "camera"
         )
@@ -86,7 +92,7 @@ def replay(case, budget, fault):
                 "raw_status": raw.status,
             }
         )
-    guarded.tick(3)
+    guarded.tick(guarded.deadline)
     return {
         "fault": fault,
         "raw_exposure_only": raw.result(),

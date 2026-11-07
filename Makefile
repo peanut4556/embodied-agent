@@ -1041,3 +1041,8 @@ delivered-challenge-test:
 
 delivered-challenge-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_delivered_challenge.py --output "$(DELIVERED_CHALLENGE_OUTPUT)"
+
+DELIVERY_BUDGET_OUTPUT ?= outputs/evaluations/delivery-budget-new
+.PHONY: delivery-budget-evaluate
+delivery-budget-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_delivery_budget.py --output "$(DELIVERY_BUDGET_OUTPUT)"

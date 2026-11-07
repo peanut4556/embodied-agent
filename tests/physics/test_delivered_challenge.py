@@ -105,6 +105,66 @@ class DeliveredChallengeTests(unittest.TestCase):
             send(check, 0)
         self.assertEqual(check.result(), before)
 
+    def test_explicit_delivery_budget_restores_timely_return(self):
+        check = DeliveredChallenge(
+            0,
+            ExposureClockMap(100, 0),
+            "camera",
+            position_error_m=(0.001,) * 3,
+            delivery_budget_s=0.1,
+        )
+        while check.next_capture_time is not None:
+            send(check, check.next_capture_time, 0.02)
+        self.assertEqual(check.status, "confirmed_in_tray")
+        self.assertEqual(check.result()["capture_deadline"], 3)
+        self.assertEqual(check.result()["deadline"], 3.1)
+        self.assertEqual(check.evidence.result()["captures"], 31)
+
+    def test_reserve_does_not_allow_new_exposures(self):
+        check = DeliveredChallenge(
+            0,
+            ExposureClockMap(100, 0),
+            "camera",
+            position_error_m=(0.001,) * 3,
+            delivery_budget_s=0.1,
+        )
+        send(check, 3.05)
+        self.assertEqual(check.status, "unconfirmed")
+        self.assertEqual(check.reason, "deadline_exceeded")
+
+    def test_budget_validation_and_silence(self):
+        for value in (-0.1, 0.251, float("nan"), float("inf"), True, "0.1"):
+            with self.assertRaises(ValueError):
+                DeliveredChallenge(
+                    0,
+                    ExposureClockMap(0, 0),
+                    "camera",
+                    position_error_m=(0.001,) * 3,
+                    delivery_budget_s=value,
+                )
+        check = DeliveredChallenge(
+            0,
+            ExposureClockMap(0, 0),
+            "camera",
+            position_error_m=(0.001,) * 3,
+            delivery_budget_s=0.1,
+        )
+        self.assertEqual(check.tick(3), "pending")
+        self.assertEqual(check.tick(3.1), "unconfirmed")
+
+    def test_return_beyond_budget_rejected(self):
+        check = DeliveredChallenge(
+            0,
+            ExposureClockMap(100, 0),
+            "camera",
+            position_error_m=(0.001,) * 3,
+            delivery_budget_s=0.1,
+        )
+        while check.next_capture_time is not None:
+            send(check, check.next_capture_time, 0.12)
+        self.assertEqual(check.status, "unconfirmed")
+        self.assertEqual(check.reason, "delivery_deadline_exceeded")
+
     def test_stop_and_snapshot(self):
         check = create()
         send(check, 0)

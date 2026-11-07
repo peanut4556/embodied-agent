@@ -12,18 +12,34 @@ class DeliveredChallenge:
     """Fail closed on invalid evidence; enforce the deadline even without frames.
 
     Call deliver for one synchronized pair, and tick while no pair is available.
+    The default deadline is three seconds; an explicit delivery budget may add
+    up to 250 ms for returning evidence captured within the original window.
     Both are single-controller operations. Capture scheduling/driver ownership
-    remain external; this boundary never fabricates a capture or extends time.
+    remain external; this boundary never fabricates a capture or extends the configured deadline.
     """
 
-    def __init__(self, start_time, clock_map, session_id, *, position_error_m):
+    def __init__(
+        self, start_time, clock_map, session_id, *, position_error_m, delivery_budget_s=0.0
+    ):
         if not isinstance(clock_map, ExposureClockMap):
             raise TypeError("explicit exposure clock map required")
         if not isinstance(session_id, str) or not session_id:
             raise ValueError("nonempty camera session required")
+        if (
+            isinstance(delivery_budget_s, bool)
+            or not isinstance(delivery_budget_s, (int, float))
+            or not math.isfinite(delivery_budget_s)
+            or not 0 <= delivery_budget_s <= 0.25
+        ):
+            raise ValueError("delivery budget must be finite and between 0 and 0.25 seconds")
+        self.delivery_budget_s = float(delivery_budget_s)
+        self.capture_deadline = float(start_time) + 3
         self.evidence = ConfirmationChallenge(start_time, position_error_m=position_error_m)
         self.clock_map, self.session = clock_map, session_id
-        self.start, self.deadline = float(start_time), float(start_time) + 3
+        self.start, self.deadline = (
+            float(start_time),
+            self.capture_deadline + self.delivery_budget_s,
+        )
         self.status, self.reason = "pending", "awaiting_delivery"
         self.last_task = self.last_delivery = None
         self.rows = []
@@ -107,6 +123,8 @@ class DeliveredChallenge:
                 "status": self.status,
                 "reason": self.reason,
                 "deadline": self.deadline,
+                "capture_deadline": self.capture_deadline,
+                "delivery_budget_s": self.delivery_budget_s,
                 "session_id": self.session,
                 "next_capture_time": self.next_capture_time,
                 "deliveries": self.rows,

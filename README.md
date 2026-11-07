@@ -16,6 +16,8 @@ A safety-oriented starter for building embodied AI agents with **RAI**, **LeRobo
 > 本项目当前是开发原型，不是经过认证的机器人安全控制器。接入真实机器人前，必须在
 > 独立于大模型进程的控制层实现急停、碰撞检测、关节/速度/力矩限制和通信超时保护。
 
+项目全景、两分钟面试讲述与完整实验索引见 [面试讲述材料](docs/interview-guide.md)。
+
 ## 当前能力
 
 - 结构化 `Plan`、`PlanStep`、`Observation`、`Action` 数据模型
@@ -345,6 +347,7 @@ embodied-agent/
 - [x] [随机观测与跨周期验证](docs/random-sampling.md)：三个冻结随机计划保持 16 次预算，两个在本组阻止全部周期扰动确认，一个仍漏检；记录种子差异与固定计划的新反例
 - [x] [候选确认后的高频复核](docs/confirmation-challenge.md)：低频候选触发一秒 20 Hz 复核，保留原期限和 31 次上限；本组拒绝两次周期运动确认，实际采集成本与延迟均记录
 - [x] [双时钟复核与交付期限](docs/delivered-challenge.md)：126 组故障回放验证延迟、丢帧和元数据拒绝，揭示当前 3 秒协议没有处理延迟余量
+- [x] [显式结果交付预算](docs/delivery-budget.md)：采集保持三秒，显式选择 100 ms 结果交付预算；308 组回放检验延迟恢复及超界拒绝，默认仍为零额外预算
 - [ ] 支持具体机械臂和相机
 - [ ] 增加任务级重规划、超时和失败恢复
 - [x] 增加 MuJoCo 仿真环境与 Qwen → 学习反馈执行的端到端评测

@@ -1,0 +1,3149 @@
+{
+  "schema_version": 1,
+  "scope": "Recorded RGB-D replay with explicit delivery reserve; no new physical experiments",
+  "input_sha256": "49be8a3b86bc1d6171ec1e6ed6bfa54701415709e24aaae533f6cbdba61972d1",
+  "source_sha256": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_delivery_budget.py": "9c560eb5f1afd0a9b72fda57450b4eec92bae9f7b5b83f9592aca2f375173280",
+    "scripts/evaluate_delivered_challenge.py": "54d3540810cdd8667747f4ea50cf7b4962307ea465bb123111b5bd3511851852",
+    "docs/evaluations/confirmation-challenge-v1.json": "2f052e77a3be719cbb24922cc910552055561cf0ca3ccc9bf2689d56d772b251",
+    "src/embodied_agent/delivered_challenge.py": "cd69f832acaf359a5941087bace895f38b2b9767b7f88dd277c6c63c55f9a92d",
+    "src/embodied_agent/confirmation_challenge.py": "e34c3ccd3a37a1c04a2df80c4fe4c1735c025b4dbed53848dc3738c97a5b0cd2",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb"
+  },
+  "summary": {
+    "latency_0ms": {
+      "0": 6,
+      "0.1": 6
+    },
+    "latency_20ms": {
+      "0": 0,
+      "0.1": 6
+    },
+    "latency_80ms": {
+      "0": 0,
+      "0.1": 6
+    },
+    "latency_100ms": {
+      "0": 0,
+      "0.1": 6
+    },
+    "latency_120ms": {
+      "0": 0,
+      "0.1": 0
+    },
+    "drop_final": {
+      "0": 0,
+      "0.1": 0
+    },
+    "drop_burst_frame": {
+      "0": 0,
+      "0.1": 0
+    },
+    "reorder_burst": {
+      "0": 0,
+      "0.1": 0
+    },
+    "skew_2ms": {
+      "0": 0,
+      "0.1": 0
+    },
+    "session_change": {
+      "0": 0,
+      "0.1": 0
+    },
+    "clock_drift_60ms": {
+      "0": 0,
+      "0.1": 0
+    }
+  },
+  "raw_report": "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/outputs/evaluations/delivery-budget-v2/report.json",
+  "raw_report_sha256": "5bb9e720669c3eab8db1e615db1cafb4370002df8416c5b9cc24ef32ff24c90c",
+  "cases": [
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611111,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "stationary",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "early_impulse",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_capture_gap",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "late_impulse",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_200_phase_10",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_178_phase_34",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_226_phase_82",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_0ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_20ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_80ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_100ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "latency_120ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "drop_final",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "drop_burst_frame",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "reorder_burst",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "no_candidate",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "skew_2ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "session_change",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "camera_session_changed",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.0
+    },
+    {
+      "mode": "period_274_phase_126",
+      "seed": 202611112,
+      "condition": "clock_drift_60ms",
+      "reserve_s": 0.1,
+      "status": "unconfirmed",
+      "reason": "exposure_rejected",
+      "capture_deadline": 3.0,
+      "delivery_deadline": 3.1
+    }
+  ]
+}
