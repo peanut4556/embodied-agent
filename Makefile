@@ -1017,3 +1017,11 @@ sampling-phase-test:
 
 sampling-phase-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_sampling_phase.py --output "$(SAMPLING_PHASE_OUTPUT)"
+
+RANDOM_SAMPLING_OUTPUT ?= outputs/evaluations/random-sampling-new
+.PHONY: random-sampling-test random-sampling-evaluate
+random-sampling-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_random_observation_schedule.py' -v
+
+random-sampling-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_random_sampling.py --output "$(RANDOM_SAMPLING_OUTPUT)"
