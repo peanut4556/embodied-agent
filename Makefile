@@ -1046,3 +1046,11 @@ DELIVERY_BUDGET_OUTPUT ?= outputs/evaluations/delivery-budget-new
 .PHONY: delivery-budget-evaluate
 delivery-budget-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_delivery_budget.py --output "$(DELIVERY_BUDGET_OUTPUT)"
+
+SERIAL_CHALLENGE_OUTPUT ?= outputs/evaluations/serial-challenge-new
+.PHONY: serial-challenge-test serial-challenge-evaluate
+serial-challenge-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_serial_challenge.py' -v
+
+serial-challenge-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_serial_challenge.py --output "$(SERIAL_CHALLENGE_OUTPUT)"
