@@ -1,0 +1,301 @@
+{
+  "kind": "synthetic_virtual_time",
+  "case_count": 192,
+  "seeds": [
+    202611101,
+    202611102,
+    202611103,
+    202611104
+  ],
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "fd45eba6440209a4a6fc6f4e134c636ac59ca90cc7e0cdd023b15609e6757cef",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "cd69f832acaf359a5941087bace895f38b2b9767b7f88dd277c6c63c55f9a92d",
+    "src/embodied_agent/confirmation_challenge.py": "e34c3ccd3a37a1c04a2df80c4fe4c1735c025b4dbed53848dc3738c97a5b0cd2",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipeline_jitter.py": "9b9e2e72b97f5cb9cc191b9d3cf4b4f9749b9e32ced317263966ea2662104f8a"
+  },
+  "report_path": "outputs/evaluations/pipeline-jitter-v1/report.json",
+  "report_sha256": "b025362731aaf44ea1564b2c57fbe2c57da7444ed4046948b6a1a52c50e0a442",
+  "groups": [
+    {
+      "mode": "on_time",
+      "profile": "fixed80",
+      "capacity": 2,
+      "static_reasons": {
+        "challenge_passed": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "on_time",
+      "profile": "fixed80",
+      "capacity": 3,
+      "static_reasons": {
+        "challenge_passed": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "on_time",
+      "profile": "jitter80",
+      "capacity": 2,
+      "static_reasons": {
+        "challenge_passed": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "on_time",
+      "profile": "jitter80",
+      "capacity": 3,
+      "static_reasons": {
+        "challenge_passed": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "on_time",
+      "profile": "jitter100",
+      "capacity": 2,
+      "static_reasons": {
+        "pipeline_capacity_exhausted": 4
+      },
+      "motion_reasons": {
+        "pipeline_capacity_exhausted": 1,
+        "challenge_motion": 3
+      }
+    },
+    {
+      "mode": "on_time",
+      "profile": "jitter100",
+      "capacity": 3,
+      "static_reasons": {
+        "delivery_deadline_without_complete_evidence": 2,
+        "challenge_passed": 2
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "request_5ms",
+      "profile": "fixed80",
+      "capacity": 2,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "request_5ms",
+      "profile": "fixed80",
+      "capacity": 3,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "request_5ms",
+      "profile": "jitter80",
+      "capacity": 2,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "request_5ms",
+      "profile": "jitter80",
+      "capacity": 3,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "request_5ms",
+      "profile": "jitter100",
+      "capacity": 2,
+      "static_reasons": {
+        "pipeline_capacity_exhausted": 3,
+        "exposure_rejected": 1
+      },
+      "motion_reasons": {
+        "pipeline_capacity_exhausted": 2,
+        "challenge_motion": 2
+      }
+    },
+    {
+      "mode": "request_5ms",
+      "profile": "jitter100",
+      "capacity": 3,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "exposure_5ms",
+      "profile": "fixed80",
+      "capacity": 2,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "exposure_5ms",
+      "profile": "fixed80",
+      "capacity": 3,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "exposure_5ms",
+      "profile": "jitter80",
+      "capacity": 2,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "exposure_5ms",
+      "profile": "jitter80",
+      "capacity": 3,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "exposure_5ms",
+      "profile": "jitter100",
+      "capacity": 2,
+      "static_reasons": {
+        "pipeline_capacity_exhausted": 3,
+        "exposure_rejected": 1
+      },
+      "motion_reasons": {
+        "pipeline_capacity_exhausted": 2,
+        "challenge_motion": 2
+      }
+    },
+    {
+      "mode": "exposure_5ms",
+      "profile": "jitter100",
+      "capacity": 3,
+      "static_reasons": {
+        "exposure_rejected": 4
+      },
+      "motion_reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "mode": "candidate_5ms",
+      "profile": "fixed80",
+      "capacity": 2,
+      "static_reasons": {
+        "insufficient_challenge_time": 4
+      },
+      "motion_reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "mode": "candidate_5ms",
+      "profile": "fixed80",
+      "capacity": 3,
+      "static_reasons": {
+        "insufficient_challenge_time": 4
+      },
+      "motion_reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "mode": "candidate_5ms",
+      "profile": "jitter80",
+      "capacity": 2,
+      "static_reasons": {
+        "insufficient_challenge_time": 4
+      },
+      "motion_reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "mode": "candidate_5ms",
+      "profile": "jitter80",
+      "capacity": 3,
+      "static_reasons": {
+        "insufficient_challenge_time": 4
+      },
+      "motion_reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "mode": "candidate_5ms",
+      "profile": "jitter100",
+      "capacity": 2,
+      "static_reasons": {
+        "pipeline_capacity_exhausted": 2,
+        "insufficient_challenge_time": 2
+      },
+      "motion_reasons": {
+        "pipeline_capacity_exhausted": 2,
+        "insufficient_challenge_time": 2
+      }
+    },
+    {
+      "mode": "candidate_5ms",
+      "profile": "jitter100",
+      "capacity": 3,
+      "static_reasons": {
+        "insufficient_challenge_time": 4
+      },
+      "motion_reasons": {
+        "insufficient_challenge_time": 4
+      }
+    }
+  ]
+}

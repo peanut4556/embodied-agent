@@ -1062,3 +1062,11 @@ pipelined-challenge-test:
 
 pipelined-challenge-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_pipelined_challenge.py --output "$(PIPELINED_CHALLENGE_OUTPUT)"
+
+PIPELINE_JITTER_OUTPUT ?= outputs/evaluations/pipeline-jitter-new
+.PHONY: pipeline-jitter-test pipeline-jitter-evaluate
+pipeline-jitter-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_pipeline_jitter.py' -v
+
+pipeline-jitter-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_pipeline_jitter.py --output "$(PIPELINE_JITTER_OUTPUT)"

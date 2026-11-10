@@ -15,12 +15,22 @@ class PipelinedChallengeController(SerialChallengeController):
     waiting for candidate delivery. No result buffering or driver threads here.
     Complete in request order before polling at the same instant. Missing a slot
     fails closed; no catch-up burst, dropped frame, or shifted exposure window.
+    Optional lateness only widens admission within the original capture deadline;
+    evidence still uses actual exposure times and its unchanged cadence rules.
     """
 
-    def __init__(self, *args, capacity=2, **kwargs):
+    def __init__(self, *args, capacity=2, exposure_lateness_s=0.0, **kwargs):
         if isinstance(capacity, bool) or not isinstance(capacity, int) or not 1 <= capacity <= 31:
             raise ValueError("capacity must be an integer between 1 and 31")
+        if (
+            isinstance(exposure_lateness_s, bool)
+            or not isinstance(exposure_lateness_s, (int, float))
+            or not math.isfinite(exposure_lateness_s)
+            or not 0 <= exposure_lateness_s <= 0.01
+        ):
+            raise ValueError("exposure lateness must be finite and between 0 and 0.01 seconds")
         super().__init__(*args, **kwargs)
+        self.exposure_lateness_s = float(exposure_lateness_s)
         self.capacity = capacity
         self.pending = {}
         self.peak_inflight = 0
@@ -50,7 +60,7 @@ class PipelinedChallengeController(SerialChallengeController):
             self._sync()
         if self.status != "pending" or due is None or task_now < due - 1e-9:
             return None
-        if task_now > due + 1e-9:
+        if task_now > min(due + self.exposure_lateness_s, self.check.capture_deadline) + 1e-9:
             self._fail("capture_schedule_missed")
             return None
         if len(self.pending) >= self.capacity:
@@ -72,13 +82,19 @@ class PipelinedChallengeController(SerialChallengeController):
             self._fail("out_of_order_completion")
             return False
         request = self.pending.pop(request_id)
+        due = self.schedule[request_id - 1]
+        latest = min(due + self.exposure_lateness_s, self.check.capture_deadline)
+        mapping = self.check.clock_map
         if any(not isinstance(p, StampedPosition) for p in (primary, secondary)):
             self._fail("missing_timestamped_pair")
         elif any(
             isinstance(p.captured_at, bool)
             or not isinstance(p.captured_at, (int, float))
             or not math.isfinite(p.captured_at)
-            or abs(p.captured_at - request.host_time) > 1e-9
+            or (self.exposure_lateness_s == 0 and abs(p.captured_at - request.host_time) > 1e-9)
+            or p.captured_at < request.host_time - 1e-9
+            or mapping.task_origin + (p.captured_at - mapping.host_origin) * mapping.rate
+            > latest + 1e-9
             or p.captured_at > host_now
             for p in (primary, secondary)
         ):
@@ -104,6 +120,7 @@ class PipelinedChallengeController(SerialChallengeController):
                 "status": self.status,
                 "reason": self.reason,
                 "capacity": self.capacity,
+                "exposure_lateness_s": self.exposure_lateness_s,
                 "peak_inflight": self.peak_inflight,
                 "pending": [asdict(r) for r in self.pending.values()],
                 "driver_cancel_required": self.status != "pending" and bool(self.pending),

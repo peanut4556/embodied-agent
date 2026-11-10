@@ -366,6 +366,8 @@ embodied-agent/
 
 最新实验：[有界流水线曝光调度](docs/pipelined-challenge.md)，验证固定处理延迟下的容量约束、按序回调和取消边界（合成时序实验）。
 
+最新扩展：[流水线抖动验证](docs/pipeline-jitter.md)，用 192 个合成案例分离处理延迟波动与曝光抖动，并定位原复核协议的时间余量限制。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
