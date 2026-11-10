@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_virtual_time",
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "9333b764017a6c27d6043846408860e245bc5c3ffdcf91be84d3948101544b65",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "cd69f832acaf359a5941087bace895f38b2b9767b7f88dd277c6c63c55f9a92d",
+    "src/embodied_agent/confirmation_challenge.py": "e34c3ccd3a37a1c04a2df80c4fe4c1735c025b4dbed53848dc3738c97a5b0cd2",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded"
+  },
+  "report_path": "outputs/evaluations/pipelined-challenge-v3/report.json",
+  "report_sha256": "93095dcc80aa835bdf93c0b5755f71bc0cc31d1958248b47f61aa823bbb4cf36",
+  "cases": [
+    {
+      "delay_ms": 20,
+      "capacity": 1,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 20,
+      "capacity": 2,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 20,
+      "capacity": 3,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 50,
+      "capacity": 1,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 50,
+      "capacity": 2,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 50,
+      "capacity": 3,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 80,
+      "capacity": 1,
+      "motion": false,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 11,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 80,
+      "capacity": 2,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 80,
+      "capacity": 3,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 100,
+      "capacity": 1,
+      "motion": false,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 11,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 100,
+      "capacity": 2,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 100,
+      "capacity": 3,
+      "motion": false,
+      "status": "confirmed_in_tray",
+      "reason": "challenge_passed",
+      "request_count": 31,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 120,
+      "capacity": 1,
+      "motion": false,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 11,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 120,
+      "capacity": 2,
+      "motion": false,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 12,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 120,
+      "capacity": 3,
+      "motion": false,
+      "status": "unconfirmed",
+      "reason": "delivery_deadline_without_complete_evidence",
+      "request_count": 31,
+      "peak_inflight": 3
+    },
+    {
+      "delay_ms": 20,
+      "capacity": 1,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 12,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 20,
+      "capacity": 2,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 12,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 20,
+      "capacity": 3,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 12,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 50,
+      "capacity": 1,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 12,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 50,
+      "capacity": 2,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 12,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 50,
+      "capacity": 3,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 12,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 80,
+      "capacity": 1,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 11,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 80,
+      "capacity": 2,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 13,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 80,
+      "capacity": 3,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 13,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 100,
+      "capacity": 1,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 11,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 100,
+      "capacity": 2,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 13,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 100,
+      "capacity": 3,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 13,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 120,
+      "capacity": 1,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 11,
+      "peak_inflight": 1
+    },
+    {
+      "delay_ms": 120,
+      "capacity": 2,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "pipeline_capacity_exhausted",
+      "request_count": 12,
+      "peak_inflight": 2
+    },
+    {
+      "delay_ms": 120,
+      "capacity": 3,
+      "motion": true,
+      "status": "unconfirmed",
+      "reason": "challenge_motion",
+      "request_count": 14,
+      "peak_inflight": 3
+    }
+  ]
+}

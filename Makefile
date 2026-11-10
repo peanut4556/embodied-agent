@@ -1054,3 +1054,11 @@ serial-challenge-test:
 
 serial-challenge-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_serial_challenge.py --output "$(SERIAL_CHALLENGE_OUTPUT)"
+
+PIPELINED_CHALLENGE_OUTPUT ?= outputs/evaluations/pipelined-challenge-new
+.PHONY: pipelined-challenge-test pipelined-challenge-evaluate
+pipelined-challenge-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_pipelined_challenge.py' -v
+
+pipelined-challenge-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_pipelined_challenge.py --output "$(PIPELINED_CHALLENGE_OUTPUT)"

@@ -364,6 +364,8 @@ embodied-agent/
 - 通信断开后的安全停止
 - 每一步的成功/失败检测与审计日志
 
+最新实验：[有界流水线曝光调度](docs/pipelined-challenge.md)，验证固定处理延迟下的容量约束、按序回调和取消边界（合成时序实验）。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
