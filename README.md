@@ -376,6 +376,8 @@ embodied-agent/
 
 最新实验：[累积相位曝光计划](docs/phase-sweep.md)，同预算下拒绝上一轮 12 个残余混叠反例，并完成独立周期/相位网格与原网格回归；仍限于合成验证。
 
+最新审计：[运动波形与返回前观测空窗](docs/motion-shapes.md)，1,158 个合成案例明确窄脉冲、晚启动运动和曝光后新运动的限制。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -1102,3 +1102,11 @@ phase-sweep-test:
 
 phase-sweep-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_phase_sweep.py --output "$(PHASE_SWEEP_OUTPUT)"
+
+MOTION_SHAPES_OUTPUT ?= outputs/evaluations/motion-shapes-new
+.PHONY: motion-shapes-test motion-shapes-evaluate
+motion-shapes-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_motion_shapes.py' -v
+
+motion-shapes-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_motion_shapes.py --output "$(MOTION_SHAPES_OUTPUT)"

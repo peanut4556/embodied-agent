@@ -26,7 +26,8 @@ def displacement(t, period_ms, phase):
     return 0.002 * math.sin(2 * math.pi * ((t - 2.05) * 1000 / period_ms + phase))
 
 
-def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5):
+def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5, motion=None):
+    sample = motion if motion is not None else lambda t: displacement(t, period_ms, phase)
     kwargs = {"position_error_m": (0.001,) * 3, "capacity": 2, "delivery_budget_s": 0.1}
     if profile == "strict":
         c = PipelinedChallengeController(
@@ -46,9 +47,7 @@ def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5):
     for ms in range(3261):
         now = ms / 1000
         for req, exposure in jobs.pop(ms, []):
-            p = StampedPosition(
-                (0.64 + displacement(exposure / 1000, period_ms, phase), 0, 0.045), exposure / 1000
-            )
+            p = StampedPosition((0.64 + sample(exposure / 1000), 0, 0.045), exposure / 1000)
             c.complete(req.request_id, now, now, p, p, session_id="audit")
         req = c.poll(now, now)
         if req:
@@ -71,7 +70,7 @@ def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5):
     # dense trace is never supplied to the controller. It is not physics truth.
     exposures = [d["exposure_time"] for d in c.check.rows if d["exposure_time"] is not None]
     end = max(exposures, default=0)
-    truth = [displacement(i / 1000, period_ms, phase) for i in range(2060, round(end * 1000) + 1)]
+    truth = [sample(i / 1000) for i in range(2060, round(end * 1000) + 1)]
     truth_span = max(truth) - min(truth) if truth else 0
     confirmed = c.status == "confirmed_in_tray"
     if confirmed:
