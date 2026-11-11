@@ -26,7 +26,9 @@ def displacement(t, period_ms, phase):
     return 0.002 * math.sin(2 * math.pi * ((t - 2.05) * 1000 / period_ms + phase))
 
 
-def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5, motion=None):
+def run(
+    profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5, motion=None, on_controller=None
+):
     sample = motion if motion is not None else lambda t: displacement(t, period_ms, phase)
     kwargs = {"position_error_m": (0.001,) * 3, "capacity": 2, "delivery_budget_s": 0.1}
     if profile == "strict":
@@ -87,6 +89,8 @@ def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5, motion=None)
     spans = [
         x["raw_axis_span_m"] for x in evidence["observations"] if x["raw_axis_span_m"] is not None
     ]
+    if on_controller is not None:
+        on_controller(c)
     return {
         "profile": profile,
         "period_ms": period_ms,

@@ -1110,3 +1110,11 @@ motion-shapes-test:
 
 motion-shapes-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_motion_shapes.py --output "$(MOTION_SHAPES_OUTPUT)"
+
+FRESH_WITNESS_OUTPUT ?= outputs/evaluations/fresh-witness-new
+.PHONY: fresh-witness-test fresh-witness-evaluate
+fresh-witness-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_fresh_witness.py' -v
+
+fresh-witness-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_fresh_witness.py --output "$(FRESH_WITNESS_OUTPUT)"

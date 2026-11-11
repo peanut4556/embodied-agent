@@ -378,6 +378,8 @@ embodied-agent/
 
 最新审计：[运动波形与返回前观测空窗](docs/motion-shapes.md)，1,158 个合成案例明确窄脉冲、晚启动运动和曝光后新运动的限制。
 
+最新扩展：[两阶段新鲜证据门槛](docs/fresh-witness.md)，候选后补充五对双视角观测并显式报告证据时效；低延迟能力仍是合成实验假设，窄脉冲盲区仍保留。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
