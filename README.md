@@ -372,6 +372,8 @@ embodied-agent/
 
 最新审计：[采样周期与相位盲区](docs/sampling-aliases.md)，390 个合成案例保存固定采样节奏的运动漏检反例；采集余量不等于消除混叠。
 
+最新实验：[有界非等间隔曝光](docs/unequal-sampling.md)，4,428 例配对扫描中减少了部分混叠误确认；代价是仅容忍 2 ms 迟到，残余反例仍保留。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

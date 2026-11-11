@@ -8,6 +8,7 @@ import random
 from collections import Counter
 from pathlib import Path
 
+from embodied_agent.aperiodic_challenge import AperiodicChallengeController
 from embodied_agent.exposure_confirmation import ExposureClockMap
 from embodied_agent.observation_capture import StampedPosition
 from embodied_agent.pipelined_challenge import PipelinedChallengeController
@@ -24,7 +25,7 @@ def displacement(t, period_ms, phase):
     return 0.002 * math.sin(2 * math.pi * ((t - 2.05) * 1000 / period_ms + phase))
 
 
-def run(profile, period_ms, phase, jitter_seed):
+def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5):
     kwargs = {"position_error_m": (0.001,) * 3, "capacity": 2, "delivery_budget_s": 0.1}
     if profile == "strict":
         c = PipelinedChallengeController(
@@ -32,10 +33,12 @@ def run(profile, period_ms, phase, jitter_seed):
         )
     elif profile == "spaced":
         c = SpacedChallengeController(0, ExposureClockMap(0, 0), "audit", **kwargs)
+    elif profile == "unequal":
+        c = AperiodicChallengeController(0, ExposureClockMap(0, 0), "audit", **kwargs)
     else:
         raise ValueError("unknown profile")
     rng = random.Random(jitter_seed)
-    jitter = [0 if jitter_seed is None else rng.randint(0, 5) for _ in range(31)]
+    jitter = [0 if jitter_seed is None else rng.randint(0, jitter_max_ms) for _ in range(31)]
     jobs, frames = {}, []
     for ms in range(3261):
         now = ms / 1000
@@ -87,6 +90,7 @@ def run(profile, period_ms, phase, jitter_seed):
         "period_ms": period_ms,
         "phase_cycles": phase,
         "jitter_seed": jitter_seed,
+        "jitter_max_ms": jitter_max_ms,
         "outcome": outcome,
         "reason": c.reason,
         "dense_truth_span_m": truth_span,
@@ -98,7 +102,11 @@ def run(profile, period_ms, phase, jitter_seed):
 
 
 def sources():
-    return {**parent_sources(), __file__: hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+    paths = (__file__, "src/embodied_agent/aperiodic_challenge.py")
+    return {
+        **parent_sources(),
+        **{p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},
+    }
 
 
 def main():

@@ -1086,3 +1086,11 @@ sampling-aliases-test:
 
 sampling-aliases-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_sampling_aliases.py --output "$(SAMPLING_ALIASES_OUTPUT)"
+
+UNEQUAL_SAMPLING_OUTPUT ?= outputs/evaluations/unequal-sampling-new
+.PHONY: unequal-sampling-test unequal-sampling-evaluate
+unequal-sampling-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_aperiodic_challenge.py' -v
+
+unequal-sampling-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_unequal_sampling.py --output "$(UNEQUAL_SAMPLING_OUTPUT)"

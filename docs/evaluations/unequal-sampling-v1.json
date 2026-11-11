@@ -1,0 +1,579 @@
+{
+  "kind": "synthetic_paired_unequal_sampling",
+  "case_count": 4428,
+  "periods_ms": [
+    20,
+    25,
+    27.5,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    80,
+    85,
+    90,
+    95,
+    100,
+    105,
+    110,
+    115,
+    120,
+    125,
+    130,
+    135,
+    140,
+    145,
+    150,
+    155,
+    160,
+    165,
+    170,
+    175,
+    180,
+    185,
+    190,
+    195,
+    200,
+    205,
+    210,
+    215,
+    220,
+    225,
+    230,
+    235,
+    240
+  ],
+  "phase_cycles": [
+    0.0,
+    0.0625,
+    0.125,
+    0.1875,
+    0.25,
+    0.3125,
+    0.375,
+    0.4375,
+    0.5,
+    0.5625,
+    0.625,
+    0.6875,
+    0.75,
+    0.8125,
+    0.875,
+    0.9375
+  ],
+  "jitter_seeds": [
+    null,
+    202611117,
+    202611118
+  ],
+  "motion_lateness_bound_ms": 2,
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "fd45eba6440209a4a6fc6f4e134c636ac59ca90cc7e0cdd023b15609e6757cef",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "76c0f740be40a7e35a95e1da6e9fd79d146f25720ecdc2b9d661abe229e71e5a",
+    "src/embodied_agent/confirmation_challenge.py": "c5fb82faa24d7fcee9a71c5473645ed474d75339d19ac213d53f3c3584b0d1ea",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_spaced_challenge.py": "d3571ae97e6d8458a7879a9e08b21a17170a7ffee261030196f1e5bd3f973782",
+    "src/embodied_agent/spaced_challenge.py": "f41ffc17ec80e19d3b64484caf075a7aa8db09ab7d5a307112d783310a3bcf8b",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_sampling_aliases.py": "09c447e8b6da7c44595f5e0a2473b35a6ef3589937abe0d28e3c94e9ce67297f",
+    "src/embodied_agent/aperiodic_challenge.py": "50b8ae4fd1aaee9d0d7b06a37833df4f53d446db1ae3bb626c454f463e27e353",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_unequal_sampling.py": "d3a3d84b64650c22bf3bf862de503ed81c53c87f11042cbeff68313eeb5a7aa5"
+  },
+  "counts": {
+    "spaced:None": {
+      "motion_rejection": 722,
+      "false_stationarity_confirmation": 14
+    },
+    "spaced:202611117": {
+      "motion_rejection": 726,
+      "false_stationarity_confirmation": 10
+    },
+    "spaced:202611118": {
+      "motion_rejection": 726,
+      "false_stationarity_confirmation": 10
+    },
+    "unequal:None": {
+      "motion_rejection": 730,
+      "false_stationarity_confirmation": 6
+    },
+    "unequal:202611117": {
+      "motion_rejection": 734,
+      "false_stationarity_confirmation": 2
+    },
+    "unequal:202611118": {
+      "motion_rejection": 732,
+      "false_stationarity_confirmation": 4
+    }
+  },
+  "misses": [
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312762,
+      "observed_challenge_span_m": 2.220446049250313e-16
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.0625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602084,
+      "observed_challenge_span_m": 0.000765366864730388
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.4375,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602082,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312764,
+      "observed_challenge_span_m": 2.220446049250313e-16
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.5625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602083,
+      "observed_challenge_span_m": 0.000765366864730388
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.9375,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602083,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 1.1102230246251565e-16
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.0625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.4375,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 1.1102230246251565e-16
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.5625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.9375,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312762,
+      "observed_challenge_span_m": 0.0008824422024865664
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.4375,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998266854602082,
+      "observed_challenge_span_m": 0.0008937981324503852
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312764,
+      "observed_challenge_span_m": 0.0008824422024865664
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.9375,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998266854602083,
+      "observed_challenge_span_m": 0.0008937981324503852
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0004529935348516201
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.4375,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0004529935348516201
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.9375,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312762,
+      "observed_challenge_span_m": 0.0008824422024865664
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.4375,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998266854602082,
+      "observed_challenge_span_m": 0.0008937981324503852
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312764,
+      "observed_challenge_span_m": 0.0008824422024865664
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 27.5,
+      "phase_cycles": 0.9375,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998266854602083,
+      "observed_challenge_span_m": 0.0008937981324503852
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0004529935348516201
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.4375,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0004529935348516201
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 55,
+      "phase_cycles": 0.9375,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647301659
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "profile": "spaced",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0006720987864309302
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0006720987864309302
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0003410443852652767
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0003410443852652767
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004552220069908852
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004552220069908852
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0009059870697030181
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0009059870697030181
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    }
+  ],
+  "controls": [
+    {
+      "profile": "spaced",
+      "seed": null,
+      "lateness_bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "spaced",
+      "seed": null,
+      "lateness_bound_ms": 5,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "spaced",
+      "seed": 202611117,
+      "lateness_bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "spaced",
+      "seed": 202611117,
+      "lateness_bound_ms": 5,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "spaced",
+      "seed": 202611118,
+      "lateness_bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "spaced",
+      "seed": 202611118,
+      "lateness_bound_ms": 5,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": null,
+      "lateness_bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": null,
+      "lateness_bound_ms": 5,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611117,
+      "lateness_bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611117,
+      "lateness_bound_ms": 5,
+      "outcome": "timing_or_other_rejection",
+      "reason": "capture_not_at_scheduled_request"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611118,
+      "lateness_bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611118,
+      "lateness_bound_ms": 5,
+      "outcome": "timing_or_other_rejection",
+      "reason": "capture_not_at_scheduled_request"
+    }
+  ],
+  "report_path": "outputs/evaluations/unequal-sampling-v1/cases.jsonl",
+  "report_sha256": "6ea693eddf75c2120c3c08b67709165cc3e5b1949613ecfc6f54e7b16640ecfe"
+}
