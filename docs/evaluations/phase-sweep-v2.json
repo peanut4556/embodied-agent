@@ -1,0 +1,534 @@
+{
+  "kind": "synthetic_phase_sweep_holdout",
+  "case_count": 8580,
+  "holdout_periods_ms": [
+    22.5,
+    32.5,
+    37.5,
+    42.5,
+    47.5,
+    52.5,
+    57.5,
+    62.5,
+    67.5,
+    72.5,
+    77.5,
+    82.5,
+    87.5,
+    92.5,
+    97.5,
+    102.5,
+    107.5,
+    112.5,
+    117.5,
+    122.5,
+    127.5,
+    132.5,
+    137.5,
+    142.5,
+    147.5,
+    152.5,
+    157.5,
+    162.5,
+    167.5,
+    172.5,
+    177.5,
+    182.5,
+    187.5,
+    192.5,
+    197.5,
+    202.5,
+    207.5,
+    212.5,
+    217.5,
+    222.5,
+    227.5,
+    232.5,
+    237.5
+  ],
+  "holdout_phase_cycles": [
+    0.03125,
+    0.09375,
+    0.15625,
+    0.21875,
+    0.28125,
+    0.34375,
+    0.40625,
+    0.46875,
+    0.53125,
+    0.59375,
+    0.65625,
+    0.71875,
+    0.78125,
+    0.84375,
+    0.90625,
+    0.96875
+  ],
+  "seeds": [
+    null,
+    202611119,
+    202611120
+  ],
+  "reference_periods_ms": [
+    20,
+    25,
+    27.5,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    80,
+    85,
+    90,
+    95,
+    100,
+    105,
+    110,
+    115,
+    120,
+    125,
+    130,
+    135,
+    140,
+    145,
+    150,
+    155,
+    160,
+    165,
+    170,
+    175,
+    180,
+    185,
+    190,
+    195,
+    200,
+    205,
+    210,
+    215,
+    220,
+    225,
+    230,
+    235,
+    240
+  ],
+  "reference_seeds": [
+    null,
+    202611117,
+    202611118
+  ],
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "fd45eba6440209a4a6fc6f4e134c636ac59ca90cc7e0cdd023b15609e6757cef",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "76c0f740be40a7e35a95e1da6e9fd79d146f25720ecdc2b9d661abe229e71e5a",
+    "src/embodied_agent/confirmation_challenge.py": "c5fb82faa24d7fcee9a71c5473645ed474d75339d19ac213d53f3c3584b0d1ea",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_spaced_challenge.py": "d3571ae97e6d8458a7879a9e08b21a17170a7ffee261030196f1e5bd3f973782",
+    "src/embodied_agent/spaced_challenge.py": "f41ffc17ec80e19d3b64484caf075a7aa8db09ab7d5a307112d783310a3bcf8b",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_sampling_aliases.py": "97748d69f02c61edd107850598aff72f4b2b63d75a0200f9c9be4e4e9a0e2a2e",
+    "src/embodied_agent/aperiodic_challenge.py": "50b8ae4fd1aaee9d0d7b06a37833df4f53d446db1ae3bb626c454f463e27e353",
+    "src/embodied_agent/phase_sweep_challenge.py": "477eee781eedbf352e1c7c1fa6067e71f5d0960a1580284cff8075a81ff1b21b",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_phase_sweep.py": "0f25924b1b693107c1309c45a1850870907e67340b4552e959893943adeec37f",
+    "docs/evaluations/unequal-sampling-v1.json": "789dfb4d4b23ae6f3922bdf3332602b62049c4e91d9f29ff6c28138f73792755",
+    "scripts/evaluate_unequal_sampling.py": "d3a3d84b64650c22bf3bf862de503ed81c53c87f11042cbeff68313eeb5a7aa5"
+  },
+  "counts": {
+    "known:unequal:None": {
+      "false_stationarity_confirmation": 6
+    },
+    "known:unequal:202611117": {
+      "false_stationarity_confirmation": 2
+    },
+    "known:unequal:202611118": {
+      "false_stationarity_confirmation": 4
+    },
+    "reference:unequal:None": {
+      "motion_rejection": 730,
+      "false_stationarity_confirmation": 6
+    },
+    "reference:unequal:202611117": {
+      "motion_rejection": 734,
+      "false_stationarity_confirmation": 2
+    },
+    "reference:unequal:202611118": {
+      "motion_rejection": 732,
+      "false_stationarity_confirmation": 4
+    },
+    "holdout:unequal:None": {
+      "motion_rejection": 688
+    },
+    "control:unequal:None": {
+      "static_confirmation": 2
+    },
+    "holdout:unequal:202611119": {
+      "motion_rejection": 688
+    },
+    "control:unequal:202611119": {
+      "static_confirmation": 1,
+      "timing_or_other_rejection": 1
+    },
+    "holdout:unequal:202611120": {
+      "motion_rejection": 688
+    },
+    "control:unequal:202611120": {
+      "static_confirmation": 1,
+      "timing_or_other_rejection": 1
+    },
+    "known:sweep:None": {
+      "motion_rejection": 6
+    },
+    "known:sweep:202611117": {
+      "motion_rejection": 2
+    },
+    "known:sweep:202611118": {
+      "motion_rejection": 4
+    },
+    "reference:sweep:None": {
+      "motion_rejection": 736
+    },
+    "reference:sweep:202611117": {
+      "motion_rejection": 736
+    },
+    "reference:sweep:202611118": {
+      "motion_rejection": 736
+    },
+    "holdout:sweep:None": {
+      "motion_rejection": 688
+    },
+    "control:sweep:None": {
+      "static_confirmation": 2
+    },
+    "holdout:sweep:202611119": {
+      "motion_rejection": 688
+    },
+    "control:sweep:202611119": {
+      "static_confirmation": 1,
+      "timing_or_other_rejection": 1
+    },
+    "holdout:sweep:202611120": {
+      "motion_rejection": 688
+    },
+    "control:sweep:202611120": {
+      "static_confirmation": 1,
+      "timing_or_other_rejection": 1
+    }
+  },
+  "misses": [
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0006720987864309302
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0006720987864309302
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0003410443852652767
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0003410443852652767
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004552220069908852
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004552220069908852
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0009059870697030181
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0009059870697030181
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "split": "known",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0006720987864309302
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0006720987864309302
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5625,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998266854602079,
+      "observed_challenge_span_m": 0.0007653668647302769
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0003410443852652767
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": null,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0003410443852652767
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004552220069908852
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611117,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004552220069908852
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0009059870697030181
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 55,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.00399836877131276,
+      "observed_challenge_span_m": 0.0009059870697030181
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.0,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    },
+    {
+      "split": "reference",
+      "profile": "unequal",
+      "period_ms": 110,
+      "phase_cycles": 0.5,
+      "jitter_seed": 202611118,
+      "dense_truth_span_m": 0.003998368771312759,
+      "observed_challenge_span_m": 0.0004559656395621836
+    }
+  ],
+  "controls": [
+    {
+      "profile": "unequal",
+      "seed": null,
+      "bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": null,
+      "bound_ms": 5,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611119,
+      "bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611119,
+      "bound_ms": 5,
+      "outcome": "timing_or_other_rejection",
+      "reason": "capture_not_at_scheduled_request"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611120,
+      "bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "unequal",
+      "seed": 202611120,
+      "bound_ms": 5,
+      "outcome": "timing_or_other_rejection",
+      "reason": "capture_not_at_scheduled_request"
+    },
+    {
+      "profile": "sweep",
+      "seed": null,
+      "bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "sweep",
+      "seed": null,
+      "bound_ms": 5,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "sweep",
+      "seed": 202611119,
+      "bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "sweep",
+      "seed": 202611119,
+      "bound_ms": 5,
+      "outcome": "timing_or_other_rejection",
+      "reason": "capture_not_at_scheduled_request"
+    },
+    {
+      "profile": "sweep",
+      "seed": 202611120,
+      "bound_ms": 2,
+      "outcome": "static_confirmation",
+      "reason": "challenge_passed"
+    },
+    {
+      "profile": "sweep",
+      "seed": 202611120,
+      "bound_ms": 5,
+      "outcome": "timing_or_other_rejection",
+      "reason": "capture_not_at_scheduled_request"
+    }
+  ],
+  "report_path": "outputs/evaluations/phase-sweep-v2/cases.jsonl",
+  "report_sha256": "cccc0c72c9032c6b8b66be4c2dc940791c6c5d37570d78492e143dcfb75d3afa"
+}

@@ -1094,3 +1094,11 @@ unequal-sampling-test:
 
 unequal-sampling-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_unequal_sampling.py --output "$(UNEQUAL_SAMPLING_OUTPUT)"
+
+PHASE_SWEEP_OUTPUT ?= outputs/evaluations/phase-sweep-new
+.PHONY: phase-sweep-test phase-sweep-evaluate
+phase-sweep-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_phase_sweep_challenge.py' -v
+
+phase-sweep-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_phase_sweep.py --output "$(PHASE_SWEEP_OUTPUT)"

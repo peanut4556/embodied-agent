@@ -11,6 +11,7 @@ from pathlib import Path
 from embodied_agent.aperiodic_challenge import AperiodicChallengeController
 from embodied_agent.exposure_confirmation import ExposureClockMap
 from embodied_agent.observation_capture import StampedPosition
+from embodied_agent.phase_sweep_challenge import PhaseSweepChallengeController
 from embodied_agent.pipelined_challenge import PipelinedChallengeController
 from embodied_agent.spaced_challenge import SpacedChallengeController
 from scripts.evaluate_spaced_challenge import sources as parent_sources
@@ -35,6 +36,8 @@ def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5):
         c = SpacedChallengeController(0, ExposureClockMap(0, 0), "audit", **kwargs)
     elif profile == "unequal":
         c = AperiodicChallengeController(0, ExposureClockMap(0, 0), "audit", **kwargs)
+    elif profile == "sweep":
+        c = PhaseSweepChallengeController(0, ExposureClockMap(0, 0), "audit", **kwargs)
     else:
         raise ValueError("unknown profile")
     rng = random.Random(jitter_seed)
@@ -102,7 +105,11 @@ def run(profile, period_ms, phase, jitter_seed, *, jitter_max_ms=5):
 
 
 def sources():
-    paths = (__file__, "src/embodied_agent/aperiodic_challenge.py")
+    paths = (
+        __file__,
+        "src/embodied_agent/aperiodic_challenge.py",
+        "src/embodied_agent/phase_sweep_challenge.py",
+    )
     return {
         **parent_sources(),
         **{p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},
