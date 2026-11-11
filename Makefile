@@ -1118,3 +1118,11 @@ fresh-witness-test:
 
 fresh-witness-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_fresh_witness.py --output "$(FRESH_WITNESS_OUTPUT)"
+
+TWO_STAGE_CAPTURE_OUTPUT ?= outputs/evaluations/two-stage-capture-new
+.PHONY: two-stage-capture-test two-stage-capture-evaluate
+two-stage-capture-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_two_stage_capture.py' -v
+
+two-stage-capture-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_two_stage_capture.py --output "$(TWO_STAGE_CAPTURE_OUTPUT)"

@@ -380,6 +380,8 @@ embodied-agent/
 
 最新扩展：[两阶段新鲜证据门槛](docs/fresh-witness.md)，候选后补充五对双视角观测并显式报告证据时效；低延迟能力仍是合成实验假设，窄脉冲盲区仍保留。
 
+最新扩展：[两阶段统一因果采集接口](docs/two-stage-capture.md)，把候选、请求、最终确认与取消纳入同一个可审计状态机；56 条虚拟服务运行已验证，真实相机适配仍待完成。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
