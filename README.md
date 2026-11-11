@@ -370,6 +370,8 @@ embodied-agent/
 
 最新实验：[显式采集余量协议](docs/spaced-challenge.md)，通过独立的 3.16 秒曝光期限容纳 0–5 ms 迟到，保留原运动判据；128 例合成对照已完成。
 
+最新审计：[采样周期与相位盲区](docs/sampling-aliases.md)，390 个合成案例保存固定采样节奏的运动漏检反例；采集余量不等于消除混叠。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

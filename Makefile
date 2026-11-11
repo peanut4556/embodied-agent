@@ -1078,3 +1078,11 @@ spaced-challenge-test:
 
 spaced-challenge-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_spaced_challenge.py --output "$(SPACED_CHALLENGE_OUTPUT)"
+
+SAMPLING_ALIASES_OUTPUT ?= outputs/evaluations/sampling-aliases-new
+.PHONY: sampling-aliases-test sampling-aliases-evaluate
+sampling-aliases-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_sampling_aliases.py' -v
+
+sampling-aliases-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_sampling_aliases.py --output "$(SAMPLING_ALIASES_OUTPUT)"
