@@ -1070,3 +1070,11 @@ pipeline-jitter-test:
 
 pipeline-jitter-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_pipeline_jitter.py --output "$(PIPELINE_JITTER_OUTPUT)"
+
+SPACED_CHALLENGE_OUTPUT ?= outputs/evaluations/spaced-challenge-new
+.PHONY: spaced-challenge-test spaced-challenge-evaluate
+spaced-challenge-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_spaced_challenge.py' -v
+
+spaced-challenge-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_spaced_challenge.py --output "$(SPACED_CHALLENGE_OUTPUT)"

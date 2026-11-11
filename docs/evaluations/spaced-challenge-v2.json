@@ -1,0 +1,280 @@
+{
+  "kind": "synthetic_virtual_time",
+  "case_count": 128,
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "fd45eba6440209a4a6fc6f4e134c636ac59ca90cc7e0cdd023b15609e6757cef",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "76c0f740be40a7e35a95e1da6e9fd79d146f25720ecdc2b9d661abe229e71e5a",
+    "src/embodied_agent/confirmation_challenge.py": "c5fb82faa24d7fcee9a71c5473645ed474d75339d19ac213d53f3c3584b0d1ea",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_spaced_challenge.py": "d3571ae97e6d8458a7879a9e08b21a17170a7ffee261030196f1e5bd3f973782",
+    "src/embodied_agent/spaced_challenge.py": "f41ffc17ec80e19d3b64484caf075a7aa8db09ab7d5a307112d783310a3bcf8b"
+  },
+  "report_path": "outputs/evaluations/spaced-challenge-v2/report.json",
+  "report_sha256": "b97aebd91e3d020ad2aec93b1eb1303b59b93129cb251a56225e998afb70d25f",
+  "groups": [
+    {
+      "profile": "strict",
+      "jitter": "zero",
+      "scene": "static",
+      "reasons": {
+        "challenge_passed": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "zero",
+      "scene": "step",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "zero",
+      "scene": "periodic",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "zero",
+      "scene": "periodic_after",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "alternating",
+      "scene": "static",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "alternating",
+      "scene": "step",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "alternating",
+      "scene": "periodic",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "alternating",
+      "scene": "periodic_after",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "random",
+      "scene": "static",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "random",
+      "scene": "step",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "random",
+      "scene": "periodic",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "random",
+      "scene": "periodic_after",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "constant5",
+      "scene": "static",
+      "reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "constant5",
+      "scene": "step",
+      "reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "constant5",
+      "scene": "periodic",
+      "reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "profile": "strict",
+      "jitter": "constant5",
+      "scene": "periodic_after",
+      "reasons": {
+        "insufficient_challenge_time": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "zero",
+      "scene": "static",
+      "reasons": {
+        "challenge_passed": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "zero",
+      "scene": "step",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "zero",
+      "scene": "periodic",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "zero",
+      "scene": "periodic_after",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "alternating",
+      "scene": "static",
+      "reasons": {
+        "challenge_passed": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "alternating",
+      "scene": "step",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "alternating",
+      "scene": "periodic",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "alternating",
+      "scene": "periodic_after",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "random",
+      "scene": "static",
+      "reasons": {
+        "challenge_passed": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "random",
+      "scene": "step",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "random",
+      "scene": "periodic",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "random",
+      "scene": "periodic_after",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "constant5",
+      "scene": "static",
+      "reasons": {
+        "challenge_passed": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "constant5",
+      "scene": "step",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "constant5",
+      "scene": "periodic",
+      "reasons": {
+        "exposure_rejected": 4
+      }
+    },
+    {
+      "profile": "spaced",
+      "jitter": "constant5",
+      "scene": "periodic_after",
+      "reasons": {
+        "challenge_motion": 4
+      }
+    }
+  ]
+}

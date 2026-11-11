@@ -368,6 +368,8 @@ embodied-agent/
 
 最新扩展：[流水线抖动验证](docs/pipeline-jitter.md)，用 192 个合成案例分离处理延迟波动与曝光抖动，并定位原复核协议的时间余量限制。
 
+最新实验：[显式采集余量协议](docs/spaced-challenge.md)，通过独立的 3.16 秒曝光期限容纳 0–5 ms 迟到，保留原运动判据；128 例合成对照已完成。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

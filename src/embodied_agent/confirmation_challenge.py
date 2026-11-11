@@ -12,13 +12,22 @@ class ConfirmationChallenge:
 
     Caller must schedule fresh synchronized paired captures at next_capture_time.
     No hidden motion truth or device control is used. Rejected challenges are
-    terminal; the original three-second deadline and 31-capture cap never grow.
+    terminal; the configured deadline and 31-capture cap never grow during a run.
+    The default capture budget is zero; experiments may explicitly reserve time.
     """
 
-    def __init__(self, start_time, *, position_error_m):
+    def __init__(self, start_time, *, position_error_m, capture_budget_s=0.0):
+        if (
+            isinstance(capture_budget_s, bool)
+            or not isinstance(capture_budget_s, (int, float))
+            or not math.isfinite(capture_budget_s)
+            or not 0 <= capture_budget_s <= 0.25
+        ):
+            raise ValueError("capture budget must be finite and between 0 and 0.25 seconds")
+        self.capture_budget_s = float(capture_budget_s)
         self.baseline = SettledReferenceConfirmation(start_time, position_error_m=position_error_m)
         self.budget = self.baseline.confirmation.position_error_m
-        self.start, self.deadline = float(start_time), float(start_time) + 3
+        self.start, self.deadline = float(start_time), float(start_time) + 3 + self.capture_budget_s
         self.status, self.phase, self.reason = "pending", "search", "collecting_candidate"
         self.next_capture_time = float(start_time)
         self.last_time = self.candidate_time = None
@@ -102,6 +111,7 @@ class ConfirmationChallenge:
                 "next_capture_time": self.next_capture_time,
                 "captures": len(self.rows),
                 "capture_limit": 31,
+                "capture_budget_s": self.capture_budget_s,
                 "deadline": self.deadline,
                 "observations": self.rows,
                 "baseline": self.baseline.result(),

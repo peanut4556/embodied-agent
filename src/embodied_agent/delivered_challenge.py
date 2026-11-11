@@ -13,13 +13,21 @@ class DeliveredChallenge:
 
     Call deliver for one synchronized pair, and tick while no pair is available.
     The default deadline is three seconds; an explicit delivery budget may add
-    up to 250 ms for returning evidence captured within the original window.
+    up to 250 ms for returning evidence captured within the configured window.
+    A separate explicit capture budget is reserved for experimental protocols.
     Both are single-controller operations. Capture scheduling/driver ownership
     remain external; this boundary never fabricates a capture or extends the configured deadline.
     """
 
     def __init__(
-        self, start_time, clock_map, session_id, *, position_error_m, delivery_budget_s=0.0
+        self,
+        start_time,
+        clock_map,
+        session_id,
+        *,
+        position_error_m,
+        delivery_budget_s=0.0,
+        capture_budget_s=0.0,
     ):
         if not isinstance(clock_map, ExposureClockMap):
             raise TypeError("explicit exposure clock map required")
@@ -33,8 +41,10 @@ class DeliveredChallenge:
         ):
             raise ValueError("delivery budget must be finite and between 0 and 0.25 seconds")
         self.delivery_budget_s = float(delivery_budget_s)
-        self.capture_deadline = float(start_time) + 3
-        self.evidence = ConfirmationChallenge(start_time, position_error_m=position_error_m)
+        self.evidence = ConfirmationChallenge(
+            start_time, position_error_m=position_error_m, capture_budget_s=capture_budget_s
+        )
+        self.capture_deadline = self.evidence.deadline
         self.clock_map, self.session = clock_map, session_id
         self.start, self.deadline = (
             float(start_time),
@@ -124,6 +134,7 @@ class DeliveredChallenge:
                 "reason": self.reason,
                 "deadline": self.deadline,
                 "capture_deadline": self.capture_deadline,
+                "capture_budget_s": self.evidence.capture_budget_s,
                 "delivery_budget_s": self.delivery_budget_s,
                 "session_id": self.session,
                 "next_capture_time": self.next_capture_time,
