@@ -1126,3 +1126,11 @@ two-stage-capture-test:
 
 two-stage-capture-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_two_stage_capture.py --output "$(TWO_STAGE_CAPTURE_OUTPUT)"
+
+TWO_STAGE_RUNTIME_OUTPUT ?= outputs/evaluations/two-stage-runtime-new
+.PHONY: two-stage-runtime-test two-stage-runtime-check
+two-stage-runtime-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_threaded_pair_capture.py' -v
+
+two-stage-runtime-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_two_stage_runtime.py --output "$(TWO_STAGE_RUNTIME_OUTPUT)"

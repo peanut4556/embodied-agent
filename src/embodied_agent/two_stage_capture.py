@@ -149,6 +149,11 @@ class TwoStageCaptureController:
             self._sync()
         return True
 
+    def driver_failed(self, reason="capture_driver_failure"):
+        """Terminate on adapter failure without promoting a historical candidate."""
+        if self.status == "pending":
+            self._end(reason)
+
     def result(self):
         return copy.deepcopy(
             {

@@ -1,0 +1,118 @@
+{
+  "kind": "real_threads_synthetic_reader",
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "fd45eba6440209a4a6fc6f4e134c636ac59ca90cc7e0cdd023b15609e6757cef",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "76c0f740be40a7e35a95e1da6e9fd79d146f25720ecdc2b9d661abe229e71e5a",
+    "src/embodied_agent/confirmation_challenge.py": "c5fb82faa24d7fcee9a71c5473645ed474d75339d19ac213d53f3c3584b0d1ea",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_spaced_challenge.py": "d3571ae97e6d8458a7879a9e08b21a17170a7ffee261030196f1e5bd3f973782",
+    "src/embodied_agent/spaced_challenge.py": "f41ffc17ec80e19d3b64484caf075a7aa8db09ab7d5a307112d783310a3bcf8b",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_sampling_aliases.py": "f874c8aee10a68a66814b83896eab2c67bc7207c6444f983baad67ce128e7896",
+    "src/embodied_agent/aperiodic_challenge.py": "50b8ae4fd1aaee9d0d7b06a37833df4f53d446db1ae3bb626c454f463e27e353",
+    "src/embodied_agent/phase_sweep_challenge.py": "477eee781eedbf352e1c7c1fa6067e71f5d0960a1580284cff8075a81ff1b21b",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/check_two_stage_runtime.py": "27a5a4454cdd5866cb713a5cc294225fb6f49cc2f70b95fb38c4db692c4b371e",
+    "src/embodied_agent/threaded_pair_capture.py": "36e7028df8b3def6a3d57bce787fd8d9195bb5a781cf6fbe0b724482541fb872",
+    "src/embodied_agent/two_stage_runtime.py": "af48d3ea978722f4af71ce70c79e90e23af49513ee78d022ca7126b83c66da06",
+    "src/embodied_agent/two_stage_capture.py": "ede3469258a0148944291df480ada4f0e22435b860c6cd6619fa620d01bc5ce7",
+    "src/embodied_agent/fresh_witness.py": "96322a2d2c01f6bc0e8c5a5406835f2e3d438fcb5cc31f7239d85fc6d30af3b1"
+  },
+  "report_path": "outputs/evaluations/two-stage-runtime-v2/report.json",
+  "report_sha256": "d489cccd0622ce43feed985738fc89fcbdac682a5c114ee7142d0e5221435fe9",
+  "cases": [
+    {
+      "mode": "fast",
+      "wall_duration_s": 3.2020436250022613,
+      "max_observed_step_s": 0.003214875003322959,
+      "status": "confirmed_recent_evidence",
+      "reason": "fresh_witness_passed",
+      "requests": 36,
+      "before_release": {
+        "closed": true,
+        "submitted": 36,
+        "outstanding_slots": 0,
+        "ready_results": 0,
+        "live_request_ids": [],
+        "workers_stopped": true,
+        "discarded_results": 0,
+        "hardware_cleanup_confirmed": false
+      },
+      "after_release": {
+        "closed": true,
+        "submitted": 36,
+        "outstanding_slots": 0,
+        "ready_results": 0,
+        "live_request_ids": [],
+        "workers_stopped": true,
+        "discarded_results": 0,
+        "hardware_cleanup_confirmed": false
+      }
+    },
+    {
+      "mode": "cooperative_stall",
+      "wall_duration_s": 0.252293459023349,
+      "max_observed_step_s": 0.0003823329752776772,
+      "status": "unconfirmed",
+      "reason": "capture_request_timeout",
+      "requests": 2,
+      "before_release": {
+        "closed": true,
+        "submitted": 2,
+        "outstanding_slots": 0,
+        "ready_results": 0,
+        "live_request_ids": [],
+        "workers_stopped": true,
+        "discarded_results": 2,
+        "hardware_cleanup_confirmed": false
+      },
+      "after_release": {
+        "closed": true,
+        "submitted": 2,
+        "outstanding_slots": 0,
+        "ready_results": 0,
+        "live_request_ids": [],
+        "workers_stopped": true,
+        "discarded_results": 2,
+        "hardware_cleanup_confirmed": false
+      }
+    },
+    {
+      "mode": "uncooperative_stall",
+      "wall_duration_s": 0.2720867920143064,
+      "max_observed_step_s": 0.0005207499780226499,
+      "status": "unconfirmed",
+      "reason": "capture_request_timeout",
+      "requests": 2,
+      "before_release": {
+        "closed": true,
+        "submitted": 2,
+        "outstanding_slots": 2,
+        "ready_results": 0,
+        "live_request_ids": [
+          1,
+          2
+        ],
+        "workers_stopped": false,
+        "discarded_results": 0,
+        "hardware_cleanup_confirmed": false
+      },
+      "after_release": {
+        "closed": true,
+        "submitted": 2,
+        "outstanding_slots": 0,
+        "ready_results": 0,
+        "live_request_ids": [],
+        "workers_stopped": true,
+        "discarded_results": 2,
+        "hardware_cleanup_confirmed": false
+      }
+    }
+  ]
+}

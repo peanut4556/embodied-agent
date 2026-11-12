@@ -382,6 +382,8 @@ embodied-agent/
 
 最新扩展：[两阶段统一因果采集接口](docs/two-stage-capture.md)，把候选、请求、最终确认与取消纳入同一个可审计状态机；56 条虚拟服务运行已验证，真实相机适配仍待完成。
 
+最新扩展：[两阶段真实线程运行适配器](docs/two-stage-runtime.md)，有界采集、取消及线程回收状态已接通；真实时钟与合成读取完成一轮完整流程，真实相机尚未接入。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
