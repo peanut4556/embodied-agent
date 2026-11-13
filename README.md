@@ -384,6 +384,8 @@ embodied-agent/
 
 最新扩展：[两阶段真实线程运行适配器](docs/two-stage-runtime.md)，有界采集、取消及线程回收状态已接通；真实时钟与合成读取完成一轮完整流程，真实相机尚未接入。
 
+最新扩展：[可终止双视角采集进程后端](docs/process-pair-capture.md)，预热隔离进程接入两阶段运行器，验证阻塞读取消升级与退出回收；真实设备清理仍需单独确认。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

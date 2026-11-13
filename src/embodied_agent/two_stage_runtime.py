@@ -14,13 +14,18 @@ class TwoStageCaptureRuntime:
     step returns only status; expensive audit snapshots are explicit via result().
     """
 
-    def __init__(self, controller, read, *, clock=time.monotonic):
+    def __init__(self, controller, read=None, *, clock=time.monotonic, capture_backend=None):
         if not isinstance(controller, TwoStageCaptureController):
             raise TypeError("TwoStageCaptureController required")
         if controller.requests or controller.status != "pending":
             raise ValueError("unused pending controller required")
         self.controller = controller
-        self.capture = ThreadedPairCapture(read)
+        if capture_backend is not None:
+            if read is not None or not capture_backend.result().get("ready", False):
+                raise ValueError("provide a prewarmed ready backend without a thread reader")
+            self.capture = capture_backend
+        else:
+            self.capture = ThreadedPairCapture(read)
         self.clock = clock
         self.errors = []
 

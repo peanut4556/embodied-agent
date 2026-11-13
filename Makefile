@@ -1134,3 +1134,11 @@ two-stage-runtime-test:
 
 two-stage-runtime-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_two_stage_runtime.py --output "$(TWO_STAGE_RUNTIME_OUTPUT)"
+
+PROCESS_PAIR_OUTPUT ?= outputs/evaluations/process-pair-new
+.PHONY: process-pair-test process-pair-check
+process-pair-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_process_pair_capture.py' -v
+
+process-pair-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_process_pair_capture.py --output "$(PROCESS_PAIR_OUTPUT)"
