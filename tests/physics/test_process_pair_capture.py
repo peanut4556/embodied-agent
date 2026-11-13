@@ -3,6 +3,7 @@ import signal
 import time
 import unittest
 
+from embodied_agent.capture_timing import analyze_capture_timing
 from embodied_agent.exposure_confirmation import ExposureClockMap
 from embodied_agent.observation_capture import StampedPosition
 from embodied_agent.process_pair_capture import ProcessPairCapture
@@ -67,6 +68,33 @@ def req(i):
 
 
 class ProcessPairTests(unittest.TestCase):
+    def test_opt_in_trace_preserves_packet_and_snapshot_isolation(self):
+        b = ProcessPairCapture(factory, trace_timing=True)
+        try:
+            self.assertTrue(b.wait_ready())
+            r = req(1)
+            self.assertTrue(b.submit(r))
+            packets = []
+            deadline = time.monotonic() + 2
+            while not packets and time.monotonic() < deadline:
+                packets = b.drain()
+                time.sleep(0.001)
+            self.assertEqual(len(packets), 1)
+            self.assertEqual(len(packets[0]), 3)
+            snapshot = b.result()
+            row = snapshot["timing_trace"][0]
+            self.assertEqual(
+                analyze_capture_timing(row, scheduled_host_at=r.host_time)["status"], "measured"
+            )
+            row["submitted_at"] = -1
+            self.assertGreater(b.result()["timing_trace"][0]["submitted_at"], 0)
+            b.cancel()
+            self.assertTrue(b.reap(0.25)["workers_stopped"])
+            self.assertEqual(len(b.result()["timing_trace"]), 1)
+        finally:
+            b.cancel()
+            b.reap(0.25)
+
     def test_prewarm_pair_and_duplicate(self):
         b = ProcessPairCapture(factory)
         try:
@@ -83,12 +111,13 @@ class ProcessPairTests(unittest.TestCase):
             self.assertEqual(packets[0][0], 1)
             self.assertGreaterEqual(packets[0][1].primary.captured_at, r.host_time)
             self.assertEqual(b.drain(), [])
+            self.assertEqual(b.result()["timing_trace"], [])
         finally:
             b.cancel()
             self.assertTrue(b.reap(0.25)["workers_stopped"])
 
     def test_native_style_hang_requires_kill_and_is_reaped(self):
-        b = ProcessPairCapture(stuck_factory)
+        b = ProcessPairCapture(stuck_factory, trace_timing=True)
         try:
             self.assertTrue(b.wait_ready())
             self.assertTrue(b.submit(req(1)))
@@ -102,6 +131,12 @@ class ProcessPairTests(unittest.TestCase):
             self.assertFalse(r["hardware_cleanup_confirmed"])
             self.assertFalse(b.submit(req(3)))
             self.assertEqual(b.drain(), [])
+            self.assertEqual(len(r["timing_trace"]), 2)
+            for row in r["timing_trace"]:
+                self.assertEqual(
+                    analyze_capture_timing(row, scheduled_host_at=row["request_host_at"])["status"],
+                    "incomplete",
+                )
         finally:
             b.cancel()
             b.reap(0.25)
@@ -134,6 +169,8 @@ class ProcessPairTests(unittest.TestCase):
         for n in (0, 3, True):
             with self.assertRaises(ValueError):
                 ProcessPairCapture(factory, capacity=n)
+        with self.assertRaises(ValueError):
+            ProcessPairCapture(factory, trace_timing=1)
 
     def test_child_crash_is_reported_once(self):
         b = ProcessPairCapture(exit_factory, capacity=1)

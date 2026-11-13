@@ -1150,3 +1150,12 @@ capture-recovery-test:
 
 capture-recovery-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_recovery.py --output "$(CAPTURE_RECOVERY_OUTPUT)"
+
+CAPTURE_TIMING_OUTPUT ?= outputs/evaluations/capture-timing-new
+.PHONY: capture-timing-test capture-timing-check
+capture-timing-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_timing.py' -v
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_process_pair_capture.py' -v
+
+capture-timing-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_timing.py --output "$(CAPTURE_TIMING_OUTPUT)"

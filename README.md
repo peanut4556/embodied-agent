@@ -388,6 +388,8 @@ embodied-agent/
 
 最新扩展：[显式采集恢复与会话隔离](docs/capture-recovery.md)，核实旧进程退出后才启动新会话；保留恢复后完整通过及真实调度超时拒绝的两轮记录。
 
+最新扩展：[跨进程采集时间链诊断](docs/capture-timing.md)，通过不同位置的延迟注入区分“曝光不及时”和“曝光后返回较慢”；提供分段实测证据，未改变确认门槛或宣称实时保证。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

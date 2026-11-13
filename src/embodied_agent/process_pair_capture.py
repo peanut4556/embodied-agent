@@ -1,5 +1,6 @@
 """Prewarmed spawned workers with isolated paired-reader ownership and bounded teardown."""
 
+import copy
 import math
 import multiprocessing
 import time
@@ -8,14 +9,17 @@ from .observation_capture import StampedPosition
 from .threaded_pair_capture import CapturedPair
 
 
-def _serve(connection, factory):
+def _serve(connection, factory, trace_timing=False):
     try:
         reader = factory()
         connection.send(("ready", None))
         while True:
             req = connection.recv()
+            timing = {"reader_started_at": time.monotonic()} if trace_timing else None
             try:
                 pair = reader(req)
+                if timing is not None:
+                    timing["reader_returned_at"] = time.monotonic()
                 if not isinstance(pair, CapturedPair):
                     raise TypeError("CapturedPair required")
                 if not isinstance(pair.session_id, str) or len(pair.session_id) > 256:
@@ -30,7 +34,14 @@ def _serve(connection, factory):
                         raise ValueError("finite paired coordinates required")
                     points.append(StampedPosition(xyz, stamp))
                 pair = CapturedPair(pair.session_id, *points)
-                connection.send(("result", (time.monotonic(), req.request_id, pair, None)))
+                ready = time.monotonic()
+                if timing is not None:
+                    timing.update(
+                        result_ready_at=ready,
+                        primary_exposure_at=pair.primary.captured_at,
+                        secondary_exposure_at=pair.secondary.captured_at,
+                    )
+                connection.send(("result", (ready, req.request_id, pair, None, timing)))
             except Exception as exc:  # noqa: BLE001 - isolate reader failures
                 connection.send(
                     (
@@ -40,6 +51,7 @@ def _serve(connection, factory):
                             req.request_id,
                             None,
                             f"{type(exc).__name__}: {exc}"[:512],
+                            timing,
                         ),
                     )
                 )
@@ -62,15 +74,20 @@ class ProcessPairCapture:
     reap may escalate to kill and never equates process exit with hardware cleanup.
     """
 
-    def __init__(self, factory, *, capacity=2):
+    def __init__(self, factory, *, capacity=2, trace_timing=False):
         if not callable(factory) or type(capacity) is not int or not 1 <= capacity <= 2:
             raise ValueError("callable factory and capacity of one or two required")
         self.closed, self.seen, self.slots = False, set(), []
+        if type(trace_timing) is not bool:
+            raise ValueError("trace_timing must be boolean")
+        self.trace_timing, self.timings = trace_timing, {}
         ctx = multiprocessing.get_context("spawn")
         try:
             for _ in range(capacity):
                 parent, child = ctx.Pipe()
-                process = ctx.Process(target=_serve, args=(child, factory), daemon=True)
+                process = ctx.Process(
+                    target=_serve, args=(child, factory, trace_timing), daemon=True
+                )
                 slot = {
                     "process": process,
                     "connection": parent,
@@ -123,7 +140,14 @@ class ProcessPairCapture:
             return False
         for slot in self.slots:
             if slot["ready"] and slot["request"] is None and slot["process"].is_alive():
+                submitted = time.monotonic() if self.trace_timing else None
                 slot["connection"].send(request)
+                if self.trace_timing:
+                    self.timings[request.request_id] = {
+                        "request_id": request.request_id,
+                        "request_host_at": request.host_time,
+                        "submitted_at": submitted,
+                    }
                 slot["request"] = request.request_id
                 self.seen.add(request.request_id)
                 return True
@@ -144,13 +168,18 @@ class ProcessPairCapture:
                     if kind != "result" or packet[1] != request_id:
                         raise ValueError("worker request mismatch")
                     results.append(packet)
+                    if self.trace_timing:
+                        row = self.timings[request_id]
+                        row.update(packet[4] or {})
+                        row["drained_at"] = time.monotonic()
+                        row["error"] = packet[3]
                 except (EOFError, OSError, ValueError) as exc:
                     results.append((time.monotonic(), request_id, None, str(exc)[:512]))
                 slot["request"] = None
             elif not slot["process"].is_alive():
                 results.append((time.monotonic(), request_id, None, "capture process exited"))
                 slot["request"] = None
-        return [packet[1:] for packet in sorted(results, key=lambda p: p[0])]
+        return [packet[1:4] for packet in sorted(results, key=lambda p: p[0])]
 
     def cancel(self):
         if self.closed:
@@ -204,6 +233,8 @@ class ProcessPairCapture:
             "live_pids": live,
             "workers_stopped": not live,
             "hardware_cleanup_confirmed": False,
+            "timing_trace_enabled": self.trace_timing,
+            "timing_trace": copy.deepcopy(list(self.timings.values())),
             "workers": [
                 {k: s[k] for k in ("pid", "exitcode", "request", "killed")} for s in self.slots
             ],
