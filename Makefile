@@ -1142,3 +1142,11 @@ process-pair-test:
 
 process-pair-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_process_pair_capture.py --output "$(PROCESS_PAIR_OUTPUT)"
+
+CAPTURE_RECOVERY_OUTPUT ?= outputs/evaluations/capture-recovery-new
+.PHONY: capture-recovery-test capture-recovery-check
+capture-recovery-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_recovery.py' -v
+
+capture-recovery-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_recovery.py --output "$(CAPTURE_RECOVERY_OUTPUT)"

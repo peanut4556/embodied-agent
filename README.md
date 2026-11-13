@@ -386,6 +386,8 @@ embodied-agent/
 
 最新扩展：[可终止双视角采集进程后端](docs/process-pair-capture.md)，预热隔离进程接入两阶段运行器，验证阻塞读取消升级与退出回收；真实设备清理仍需单独确认。
 
+最新扩展：[显式采集恢复与会话隔离](docs/capture-recovery.md)，核实旧进程退出后才启动新会话；保留恢复后完整通过及真实调度超时拒绝的两轮记录。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
