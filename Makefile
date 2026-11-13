@@ -1167,3 +1167,11 @@ scheduled-capture-test:
 
 scheduled-capture-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_scheduled_capture.py --output "$(SCHEDULED_CAPTURE_OUTPUT)"
+
+RESERVED_TWO_STAGE_OUTPUT ?= outputs/evaluations/reserved-two-stage-new
+.PHONY: reserved-two-stage-test reserved-two-stage-check
+reserved-two-stage-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_reserved_two_stage.py' -v
+
+reserved-two-stage-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_reserved_two_stage.py --output "$(RESERVED_TWO_STAGE_OUTPUT)"

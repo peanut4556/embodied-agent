@@ -392,6 +392,8 @@ embodied-agent/
 
 最新扩展：[提前预约曝光原型](docs/scheduled-capture.md)，在合成读取器的 5 ms 派发延迟条件下，满足 2 ms 曝光窗口的数量由到点派发的 0/36 提升为提前预约的 36/36；正常条件仍有漏窗，尚未接入任务确认流程。
 
+最新扩展：[预约式两阶段完整确认](docs/reserved-two-stage.md)，提前预约已接入 31 次候选采集与 5 次新鲜见证；5 ms 派发延迟下两次真实进程合成运行一次完整通过、一次按时序拒绝，仍无实时稳定性保证。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

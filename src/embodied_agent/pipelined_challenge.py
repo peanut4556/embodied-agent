@@ -94,6 +94,8 @@ class PipelinedChallengeController(SerialChallengeController):
             or (self.exposure_lateness_s == 0 and abs(p.captured_at - request.host_time) > 1e-9)
             or p.captured_at < request.host_time - 1e-9
             or mapping.task_origin + (p.captured_at - mapping.host_origin) * mapping.rate
+            < due - 1e-9
+            or mapping.task_origin + (p.captured_at - mapping.host_origin) * mapping.rate
             > latest + 1e-9
             or p.captured_at > host_now
             for p in (primary, secondary)
