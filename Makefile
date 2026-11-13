@@ -1159,3 +1159,11 @@ capture-timing-test:
 
 capture-timing-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_timing.py --output "$(CAPTURE_TIMING_OUTPUT)"
+
+SCHEDULED_CAPTURE_OUTPUT ?= outputs/evaluations/scheduled-capture-new
+.PHONY: scheduled-capture-test scheduled-capture-evaluate
+scheduled-capture-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_scheduled_pair_capture.py' -v
+
+scheduled-capture-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_scheduled_capture.py --output "$(SCHEDULED_CAPTURE_OUTPUT)"

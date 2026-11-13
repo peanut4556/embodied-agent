@@ -390,6 +390,8 @@ embodied-agent/
 
 最新扩展：[跨进程采集时间链诊断](docs/capture-timing.md)，通过不同位置的延迟注入区分“曝光不及时”和“曝光后返回较慢”；提供分段实测证据，未改变确认门槛或宣称实时保证。
 
+最新扩展：[提前预约曝光原型](docs/scheduled-capture.md)，在合成读取器的 5 ms 派发延迟条件下，满足 2 ms 曝光窗口的数量由到点派发的 0/36 提升为提前预约的 36/36；正常条件仍有漏窗，尚未接入任务确认流程。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -1,0 +1,122 @@
+{
+  "kind": "advance_reservation_synthetic_exposure_probe",
+  "task_confirmation_performed": false,
+  "sources": {
+    "scripts/evaluate_scheduled_capture.py": "16aa9869cec1105428a9d2edc7099b31b39a89c9e98d09d7f76a469eb74ca5de",
+    "scripts/check_capture_timing.py": "96e0e5161b53a023a9a0fbe3655f06602d0efa3180964708c36674806740e6b4",
+    "src/embodied_agent/scheduled_pair_capture.py": "0cbff0d48fb8f0fed7f2ef98e82e697bd9a307542d1a27c71068c5edb85d29d1",
+    "src/embodied_agent/process_pair_capture.py": "56809452d07e2322ef4db83cc9e0464e167b81fa8687f37c8b98a5c6c000b671",
+    "src/embodied_agent/phase_sweep_challenge.py": "477eee781eedbf352e1c7c1fa6067e71f5d0960a1580284cff8075a81ff1b21b",
+    "src/embodied_agent/threaded_pair_capture.py": "36e7028df8b3def6a3d57bce787fd8d9195bb5a781cf6fbe0b724482541fb872",
+    "src/embodied_agent/two_stage_capture.py": "ede3469258a0148944291df480ada4f0e22435b860c6cd6619fa620d01bc5ce7",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3"
+  },
+  "report_path": "outputs/evaluations/scheduled-capture-v1/report.json",
+  "report_sha256": "d8f02c5667abb0943f1eb660ae2f90cfa2a40a0732388a22746d21c4ea760960",
+  "groups": [
+    {
+      "mode": "baseline",
+      "profile": "immediate",
+      "slots": 36,
+      "windows_met": 35,
+      "errors": 0,
+      "per_run_windows_met": [
+        11,
+        12,
+        12
+      ],
+      "all_workers_stopped": true
+    },
+    {
+      "mode": "baseline",
+      "profile": "reserved",
+      "slots": 36,
+      "windows_met": 35,
+      "errors": 1,
+      "per_run_windows_met": [
+        11,
+        12,
+        12
+      ],
+      "all_workers_stopped": true
+    },
+    {
+      "mode": "dispatch_delay",
+      "profile": "immediate",
+      "slots": 36,
+      "windows_met": 0,
+      "errors": 0,
+      "per_run_windows_met": [
+        0,
+        0,
+        0
+      ],
+      "all_workers_stopped": true
+    },
+    {
+      "mode": "dispatch_delay",
+      "profile": "reserved",
+      "slots": 36,
+      "windows_met": 36,
+      "errors": 0,
+      "per_run_windows_met": [
+        12,
+        12,
+        12
+      ],
+      "all_workers_stopped": true
+    },
+    {
+      "mode": "reader_delay",
+      "profile": "immediate",
+      "slots": 36,
+      "windows_met": 0,
+      "errors": 0,
+      "per_run_windows_met": [
+        0,
+        0,
+        0
+      ],
+      "all_workers_stopped": true
+    },
+    {
+      "mode": "reader_delay",
+      "profile": "reserved",
+      "slots": 36,
+      "windows_met": 0,
+      "errors": 36,
+      "per_run_windows_met": [
+        0,
+        0,
+        0
+      ],
+      "all_workers_stopped": true
+    },
+    {
+      "mode": "return_delay",
+      "profile": "immediate",
+      "slots": 36,
+      "windows_met": 36,
+      "errors": 0,
+      "per_run_windows_met": [
+        12,
+        12,
+        12
+      ],
+      "all_workers_stopped": true
+    },
+    {
+      "mode": "return_delay",
+      "profile": "reserved",
+      "slots": 36,
+      "windows_met": 36,
+      "errors": 0,
+      "per_run_windows_met": [
+        12,
+        12,
+        12
+      ],
+      "all_workers_stopped": true
+    }
+  ]
+}
