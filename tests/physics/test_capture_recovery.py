@@ -22,6 +22,39 @@ def bad_factory():
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_reserved_recovery_replaces_controller_and_revokes_old_handoff(self):
+        m = CaptureRecovery(position_error_m=(0.001,) * 3, capture_profile="reserved")
+        try:
+            old = m.start(factory)
+            old_handoff = m._handoff
+            m.step(old, stop=True)
+            new = m.start(factory)
+            self.assertNotEqual(old, new)
+            self.assertEqual(old_handoff.state, "revoked")
+            self.assertEqual(m.consume_confirmation(old)["reason"], "session_mismatch")
+            self.assertEqual(m.consume_confirmation(new)["reason"], "confirmation_not_complete")
+            self.assertEqual(
+                m.runtime.controller.result()["reservation_profile"], "candidate_20ms_witness_8ms"
+            )
+            self.assertEqual(m.runtime.controller.requests, [])
+            self.assertEqual(m.history[0]["evidence_handoff"]["state"], "revoked")
+        finally:
+            self.assertTrue(m.close())
+        self.assertEqual(m.consume_confirmation(new)["reason"], "revoked")
+
+    def test_cleanup_failure_also_revokes_delivery(self):
+        m = CaptureRecovery(position_error_m=(0.001,) * 3, capture_profile="reserved")
+        try:
+            token = m.start(factory)
+            m.step(token, stop=True)
+            with patch.object(
+                m.runtime, "close", return_value={"closed": True, "workers_stopped": False}
+            ):
+                self.assertFalse(m.close())
+                self.assertEqual(m.consume_confirmation(token)["reason"], "revoked")
+        finally:
+            self.assertTrue(m.close())
+
     def test_active_task_cannot_be_replayed(self):
         m = CaptureRecovery(position_error_m=(0.001,) * 3)
         try:
@@ -106,6 +139,8 @@ class RecoveryTests(unittest.TestCase):
         for n in (0, 4, True):
             with self.assertRaises(ValueError):
                 CaptureRecovery(position_error_m=(0.001,) * 3, max_generations=n)
+        with self.assertRaises(ValueError):
+            CaptureRecovery(position_error_m=(0.001,) * 3, capture_profile="automatic")
 
     def test_runtime_exception_preserves_terminal_lifecycle(self):
         m = CaptureRecovery(position_error_m=(0.001,) * 3)

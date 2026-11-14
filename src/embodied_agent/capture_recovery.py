@@ -6,6 +6,9 @@ import uuid
 
 from .exposure_confirmation import ExposureClockMap
 from .process_pair_capture import ProcessPairCapture
+from .recent_evidence_handoff import RecentEvidenceHandoff
+from .reserved_two_stage import ReservedTwoStageController
+from .scheduled_pair_capture import ScheduledReaderFactory
 from .two_stage_capture import TwoStageCaptureController
 from .two_stage_runtime import TwoStageCaptureRuntime
 
@@ -17,9 +20,13 @@ class CaptureRecovery:
     is invoked. This only proves process isolation, not device recovery readiness.
     """
 
-    def __init__(self, *, position_error_m, max_generations=3):
+    def __init__(self, *, position_error_m, max_generations=3, capture_profile="immediate"):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
+        if capture_profile not in ("immediate", "reserved"):
+            raise ValueError("capture profile must be immediate or reserved")
+        self.capture_profile = capture_profile
+        self._handoff = None
         self.budget = tuple(position_error_m)
         self.limit = max_generations
         self.attempts = 0
@@ -31,6 +38,8 @@ class CaptureRecovery:
         self._recorded = False
 
     def _retire(self):
+        if self._handoff is not None:
+            self._handoff.revoke()
         if self.backend is None:
             return True
         if self.runtime is not None:
@@ -53,6 +62,7 @@ class CaptureRecovery:
                     "generation": self.attempts,
                     "result": self.runtime.result() if self.runtime else None,
                     "cleanup": cleanup,
+                    "evidence_handoff": self._handoff.result() if self._handoff else None,
                 }
             )
             self._recorded = True
@@ -71,10 +81,13 @@ class CaptureRecovery:
         self.attempts += 1
         self.session = uuid.uuid4().hex
         self.runtime = self.backend = None
+        self._handoff = None
         self._recorded = False
         self.state = "starting"
         try:
-            self.backend = ProcessPairCapture(factory)
+            self.backend = ProcessPairCapture(
+                ScheduledReaderFactory(factory) if self.capture_profile == "reserved" else factory
+            )
         except Exception:
             # Constructor failure may hide partially-created OS resources. Never
             # guess that a subsequent start is safe merely because spawn raised.
@@ -86,13 +99,19 @@ class CaptureRecovery:
                 self._retire()
                 return None
             origin = time.monotonic()
-            controller = TwoStageCaptureController(
-                0,
+            cls = (
+                ReservedTwoStageController
+                if self.capture_profile == "reserved"
+                else TwoStageCaptureController
+            )
+            controller = cls(
+                0.02 if self.capture_profile == "reserved" else 0,
                 ExposureClockMap(origin, 0),
                 self.session,
                 position_error_m=self.budget,
             )
             self.runtime = TwoStageCaptureRuntime(controller, capture_backend=self.backend)
+            self._handoff = RecentEvidenceHandoff(controller, clock=self.runtime.clock)
             self.state = "running"
             return self.session
         except Exception:
@@ -119,10 +138,22 @@ class CaptureRecovery:
             return True
         return False
 
+    def consume_confirmation(self, session_id):
+        """Deliver recent evidence once, before retirement; never authorize motion."""
+        if self._handoff is None:
+            return {
+                "status": "refused",
+                "reason": "no_active_handoff",
+                "robot_action_authorized": False,
+            }
+        return self._handoff.consume(session_id)
+
     def result(self):
         return copy.deepcopy(
             {
                 "state": self.state,
+                "capture_profile": self.capture_profile,
+                "evidence_handoff": self._handoff.result() if self._handoff else None,
                 "session_id": self.session,
                 "attempts": self.attempts,
                 "generation_limit": self.limit,

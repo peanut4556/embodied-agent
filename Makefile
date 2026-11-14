@@ -1175,3 +1175,12 @@ reserved-two-stage-test:
 
 reserved-two-stage-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_reserved_two_stage.py --output "$(RESERVED_TWO_STAGE_OUTPUT)"
+
+RECOVERY_HANDOFF_OUTPUT ?= outputs/evaluations/recovery-handoff-new
+.PHONY: recovery-handoff-test recovery-handoff-check
+recovery-handoff-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_recent_evidence_handoff.py' -v
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_recovery.py' -v
+
+recovery-handoff-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_handoff.py --output "$(RECOVERY_HANDOFF_OUTPUT)"

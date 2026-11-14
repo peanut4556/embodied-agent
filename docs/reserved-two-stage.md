@@ -70,3 +70,5 @@ make reserved-two-stage-check RESERVED_TWO_STAGE_OUTPUT=outputs/evaluations/rese
 [紧凑实验记录](evaluations/reserved-two-stage-v1.json)保留每次结果、错误、源码哈希、完整报告路径和 SHA256；输出目录必须是新目录。
 
 新增 11 项测试覆盖完整候选/见证交接、80 ms 候选交付的双在途路径、运动/旧会话/旧曝光拒绝、阶段停止与超时、曝光窗口双重核验、迟到预约、乱序返回、映射边界及快照隔离。连同此前采集、恢复、时间诊断和挑战控制器回归共 **125 项相关测试通过**，4 个涉及的 Python 文件 Ruff 和格式检查通过。
+
+2026-11-14 后续扩展：[预约恢复与近期证据交付](recovery-handoff.md)已通过显式配置接入 `CaptureRecovery`；上文描述的是本轮最初的独立控制器实验范围，默认执行路径仍未切换。

@@ -394,6 +394,8 @@ embodied-agent/
 
 最新扩展：[预约式两阶段完整确认](docs/reserved-two-stage.md)，提前预约已接入 31 次候选采集与 5 次新鲜见证；5 ms 派发延迟下两次真实进程合成运行一次完整通过、一次按时序拒绝，仍无实时稳定性保证。
 
+最新扩展：[预约恢复与一次性近期证据交付](docs/recovery-handoff.md)，故障回收后重建预约会话，领取时按实际曝光时间复核时效；真实进程实验验证立即领取、重复拒绝与延迟过期，交付不等于机械动作授权。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
