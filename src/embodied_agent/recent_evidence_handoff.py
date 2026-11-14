@@ -3,6 +3,7 @@
 import copy
 import math
 import time
+import uuid
 
 from .two_stage_capture import TwoStageCaptureController
 
@@ -49,6 +50,7 @@ class RecentEvidenceHandoff:
         if c.status != "confirmed_recent_evidence":
             return refused("confirmation_not_complete")
         # Snapshot copying is deliberately inside the age budget.
+        receipt_id = uuid.uuid4().hex
         evidence = c.result()
         last_exposure = (
             self.mapping.host_origin
@@ -73,6 +75,7 @@ class RecentEvidenceHandoff:
             return refused(self.state)
         self.state = "consumed"
         self.receipt = {
+            "receipt_id": receipt_id,
             "status": "consumed",
             "reason": "fresh_evidence_consumed",
             "session_id": self.session,

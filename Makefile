@@ -1192,3 +1192,11 @@ evidence-inbox-test:
 
 evidence-inbox-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_evidence_inbox.py --output "$(EVIDENCE_INBOX_OUTPUT)"
+
+EVIDENCE_LEDGER_OUTPUT ?= outputs/evaluations/evidence-ledger-new
+.PHONY: evidence-ledger-test evidence-ledger-check
+evidence-ledger-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_evidence_ledger.py' -v
+
+evidence-ledger-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_evidence_ledger.py --output "$(EVIDENCE_LEDGER_OUTPUT)"

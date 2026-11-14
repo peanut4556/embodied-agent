@@ -65,3 +65,5 @@ make evidence-inbox-check EVIDENCE_INBOX_OUTPUT=outputs/evaluations/evidence-inb
 [紧凑实验记录](evaluations/evidence-inbox-v1.json)保留每次确认、入队、派发、重复调用与进程退出结果，以及源码哈希、原始报告路径和 SHA256。
 
 新增 10 项队列测试覆盖派发一次、到期边界、撤销已领取证据、满队列反压、回调异常、重入、时钟回退锁定、关闭、拒绝字典导入和有界审计。连同采集/恢复/交付/挑战控制器回归，共 **145 项相关测试通过**；5 个涉及的 Python 文件 Ruff 及格式检查通过。
+
+后续扩展：[持久化证据账本](evidence-ledger.md)为入队及审计增加 `receipt_id`，可在消费结果未知时独立查询本地记录；不会抹去原异常，也不自动重放回调。

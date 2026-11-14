@@ -47,7 +47,9 @@ class EvidenceInbox:
             return receipt
         ticket = uuid.uuid4().hex
         self._pending = (ticket, handoff, receipt)
-        return self._event("queued", "awaiting_consumer", ticket=ticket)
+        return self._event(
+            "queued", "awaiting_consumer", ticket=ticket, receipt_id=receipt["receipt_id"]
+        )
 
     def _finish(self, event):
         self._history.append(dict(event))
@@ -63,7 +65,11 @@ class EvidenceInbox:
         if not callable(consumer):
             raise TypeError("callable evidence consumer required")
         ticket, issuer, receipt = self._pending
-        meta = {"ticket": ticket, "session_id": receipt["session_id"]}
+        meta = {
+            "ticket": ticket,
+            "session_id": receipt["session_id"],
+            "receipt_id": receipt["receipt_id"],
+        }
         if issuer.revoked:
             return self._finish(self._event("discarded", "session_revoked", **meta))
         try:
@@ -108,7 +114,11 @@ class EvidenceInbox:
             ticket, _, receipt = self._pending
             self._finish(
                 self._event(
-                    "discarded", "inbox_closed", ticket=ticket, session_id=receipt["session_id"]
+                    "discarded",
+                    "inbox_closed",
+                    ticket=ticket,
+                    session_id=receipt["session_id"],
+                    receipt_id=receipt["receipt_id"],
                 )
             )
 
@@ -119,6 +129,7 @@ class EvidenceInbox:
             pending = {
                 "ticket": ticket,
                 "session_id": receipt["session_id"],
+                "receipt_id": receipt["receipt_id"],
                 "expires_host_time": receipt["expires_host_time"],
             }
         return copy.deepcopy(
