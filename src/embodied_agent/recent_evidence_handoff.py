@@ -26,10 +26,12 @@ class RecentEvidenceHandoff:
         self.session = controller.candidate.check.session
         self.mapping = controller.mapping
         self.state = "available"
+        self.revoked = False
         self.attempts = 0
         self.receipt = None
 
     def revoke(self):
+        self.revoked = True
         if self.state == "available":
             self.state = "revoked"
 
@@ -84,5 +86,10 @@ class RecentEvidenceHandoff:
 
     def result(self):
         return copy.deepcopy(
-            {"state": self.state, "attempts": self.attempts, "receipt": self.receipt}
+            {
+                "state": self.state,
+                "revoked": self.revoked,
+                "attempts": self.attempts,
+                "receipt": self.receipt,
+            }
         )

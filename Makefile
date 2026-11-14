@@ -1184,3 +1184,11 @@ recovery-handoff-test:
 
 recovery-handoff-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_handoff.py --output "$(RECOVERY_HANDOFF_OUTPUT)"
+
+EVIDENCE_INBOX_OUTPUT ?= outputs/evaluations/evidence-inbox-new
+.PHONY: evidence-inbox-test evidence-inbox-check
+evidence-inbox-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_evidence_inbox.py' -v
+
+evidence-inbox-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_evidence_inbox.py --output "$(EVIDENCE_INBOX_OUTPUT)"

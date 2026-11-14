@@ -68,3 +68,5 @@ make recovery-handoff-check RECOVERY_HANDOFF_OUTPUT=outputs/evaluations/recovery
 [紧凑实验记录](evaluations/recovery-handoff-v1.json)包含每组确认和领取结果、源码哈希、完整报告路径与 SHA256。输出目录独占创建。
 
 新增 8 项交付测试和 2 项恢复集成测试，覆盖重复领取、错误会话、曝光起算的过期、复制快照耗时、时钟异常锁定、撤销、预约恢复和清理失败。连同采集及挑战控制器回归，共 **135 项相关测试通过**；5 个涉及的 Python 文件 Ruff 及格式检查通过。
+
+后续扩展：[证据队列消费边界](evidence-inbox.md)将检查延伸到回调入口，并允许队列观察已领取来源的后续撤销；直接交给外部的字典仍无法被撤回。

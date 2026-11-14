@@ -4,6 +4,7 @@ import copy
 import time
 import uuid
 
+from .evidence_inbox import EvidenceInbox
 from .exposure_confirmation import ExposureClockMap
 from .process_pair_capture import ProcessPairCapture
 from .recent_evidence_handoff import RecentEvidenceHandoff
@@ -147,6 +148,18 @@ class CaptureRecovery:
                 "robot_action_authorized": False,
             }
         return self._handoff.consume(session_id)
+
+    def queue_confirmation(self, session_id, inbox):
+        """Consume directly into an inbox; a previously returned receipt cannot be requeued."""
+        if not isinstance(inbox, EvidenceInbox):
+            raise TypeError("EvidenceInbox required")
+        if self._handoff is None:
+            return {
+                "status": "refused",
+                "reason": "no_active_handoff",
+                "robot_action_authorized": False,
+            }
+        return inbox.offer(self._handoff, session_id)
 
     def result(self):
         return copy.deepcopy(
