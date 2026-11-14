@@ -1,0 +1,407 @@
+{
+  "kind": "checkpoint_store_process_crashes",
+  "sources": {
+    "scripts/check_checkpoint_store.py": "91185b09ef07b1eb514b6c78ae9317109a8ee01e4bdb62da26aa6b15d366dbf4",
+    "scripts/check_evidence_checkpoint.py": "889368ba58f9c0616785fef1dcd8d574dac80f4616c489b4c3d3f3678f00f117",
+    "src/embodied_agent/checkpoint_store.py": "732d4d7bdcc0620d731d1a4ba30e4181c30ebb8d15bba7fe535554025368d469",
+    "src/embodied_agent/evidence_checkpoint.py": "ca0fd3b8c4bb561e4efbfa0d74ccaa660054537277c41b3129025f82a46b4e98",
+    "src/embodied_agent/indexed_evidence_ledger.py": "37ebe18a182be72bee97db64e6dc0af3433109224f32f1673e61bbc91fef9913",
+    "src/embodied_agent/evidence_ledger.py": "7084a4cf9227bf76a3243887851b013cd51b3e797f3076c3a717d0c870004714"
+  },
+  "report_path": "outputs/evaluations/checkpoint-store-v2/report.json",
+  "report_sha256": "6858c64d7547e90bf19dfd36854debf495f0ca998e951b54705e4e696034b81f",
+  "cases": [
+    {
+      "mode": "normal",
+      "repetition": 0,
+      "passed": true,
+      "exitcode": 0,
+      "acknowledged": true,
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "7b03378b536a4468800caff7b5407f67",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "de036317a43d0275ba6a050f3b58c66a7fdce138cb02fdbbe351200f8021a85c"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "3e9e10e5f745fe46a1720d865569d039558552a6d158f7a436047c8077b25a9c"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "recovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "ad00461de68b491aad960921f9f8bf5d",
+            "session_id": "50b0acabfb23471085e5143affa91ab2",
+            "reconciliation": {
+              "receipt_id": "ad00461de68b491aad960921f9f8bf5d",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "50b0acabfb23471085e5143affa91ab2",
+              "payload_sha256": "0448027fb8671dbc3f39cdacd565d2ea277c5cf1979d0e143731bb10f270a027",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "b9a99edc748d4f66947d8657ce491de5",
+            "session_id": "1c24c8757dca48c1a2d5a36d2f541352",
+            "reconciliation": {
+              "receipt_id": "b9a99edc748d4f66947d8657ce491de5",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "1c24c8757dca48c1a2d5a36d2f541352",
+              "payload_sha256": "cb49dddc3bf25fc97499e281b1fe440fd5e6289d59a160b0515e7947e6c8e864",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 2
+      },
+      "database_path": "outputs/evaluations/checkpoint-store-v2/normal-0/evidence.sqlite",
+      "database_sha256": "fa1f197102b04e4078439179b054fe5727f9eb39920b36d6d2f5b2252231f57f",
+      "store_path": "outputs/evaluations/checkpoint-store-v2/normal-0/checkpoint.sqlite",
+      "store_sha256": "1cfea1f3409b9a1f5d6930380ddb99562f6cd148f563ad1b4bb0f40a60af628e"
+    },
+    {
+      "mode": "before_commit",
+      "repetition": 0,
+      "passed": true,
+      "exitcode": 81,
+      "acknowledged": false,
+      "head": {
+        "status": "loaded",
+        "generation": 1,
+        "checkpoint": {
+          "database_id": "9bf695c194a940e598ad9dcc09d8a1d5",
+          "intents": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "32df88c44021b2c175a4c2c909092ba668bf172a4cea28d7f15ce0ea7e284d32"
+          },
+          "records": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "4887cb08bb9ea7c916a4add70095f5dcb525cd065793a44e46c775da16b28e7f"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "recovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "f8009bf4403c4c0dbd01ea9217ee3ab0",
+            "session_id": "0db862a8c6ef4193b4b78f70fe4812b5",
+            "reconciliation": {
+              "receipt_id": "f8009bf4403c4c0dbd01ea9217ee3ab0",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "0db862a8c6ef4193b4b78f70fe4812b5",
+              "payload_sha256": "4380b301a170ad3840f945eb7172683525110c56973ef17ad14f1c4943f49f42",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "27dbd9e243c34af4b1f831a0d681792e",
+            "session_id": "9b90149dd7a54feeb575b81cd32039db",
+            "reconciliation": {
+              "receipt_id": "27dbd9e243c34af4b1f831a0d681792e",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "9b90149dd7a54feeb575b81cd32039db",
+              "payload_sha256": "a5bb141be5be6061feb366605ba3d91a3a4f75875fc780d4a3bc6c83f34d8559",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 1
+      },
+      "database_path": "outputs/evaluations/checkpoint-store-v2/before_commit-0/evidence.sqlite",
+      "database_sha256": "e088dae7a20d95c01ea044d68f9f43338a6176889f6fe04b3615b1cb435330bf",
+      "store_path": "outputs/evaluations/checkpoint-store-v2/before_commit-0/checkpoint.sqlite",
+      "store_sha256": "2321cdec91953464ab4289613345ca4acdbed9f63dad75f223a7b58149d86a53"
+    },
+    {
+      "mode": "after_commit",
+      "repetition": 0,
+      "passed": true,
+      "exitcode": 82,
+      "acknowledged": false,
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "b929f46a146b42179930fb300a19a4b7",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "dc8f5b784406918861d0096e807dd1d77ccdacd29bce16f3919f5d7dc1700ad7"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "08bc2483df2541d608d1df46eb6ac4361d8981ca627ab7181fec7e763b584fc4"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "recovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "6cc84127f38e4571ab6b5e21547e402b",
+            "session_id": "c38b6d9e9b5745048e37de58030da49c",
+            "reconciliation": {
+              "receipt_id": "6cc84127f38e4571ab6b5e21547e402b",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "c38b6d9e9b5745048e37de58030da49c",
+              "payload_sha256": "82f16ca9bbdb477f721d57c6e69572c35704a682de0c2bc34302728ddeee8782",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "1c5a4181b7904cb0bfbde8e902d58921",
+            "session_id": "fafce0a347f044b5905e2e75f26379b1",
+            "reconciliation": {
+              "receipt_id": "1c5a4181b7904cb0bfbde8e902d58921",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "fafce0a347f044b5905e2e75f26379b1",
+              "payload_sha256": "5043c9e422e6a6c2d263c3e745abae8ac8b97dff499322ce5c0d984bc4a26af2",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 2
+      },
+      "database_path": "outputs/evaluations/checkpoint-store-v2/after_commit-0/evidence.sqlite",
+      "database_sha256": "cbe7655acbcbd7dfbc31e2f666844fa4430aa564634393859d4c1df438800865",
+      "store_path": "outputs/evaluations/checkpoint-store-v2/after_commit-0/checkpoint.sqlite",
+      "store_sha256": "de5ae4538bd95ccff91fdf8d047da9bb0f0a89759295ecf655c6c6a8a648a825"
+    },
+    {
+      "mode": "normal",
+      "repetition": 1,
+      "passed": true,
+      "exitcode": 0,
+      "acknowledged": true,
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "f27d32a46456477c85fc3acf6c34c9db",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "ec39d6ad21b6affa83f4d9c2b799a91a325cdd8a6207de9e9e5c04bf74fcb689"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "57b82920ab37041625ce4412e67ed6357fc7965f091c3f43978a3908e87cbf11"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "recovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "46fd7580173045258f0aff8e5b57ccbb",
+            "session_id": "0eb60ff65b094a8c87b8d34c58a0a798",
+            "reconciliation": {
+              "receipt_id": "46fd7580173045258f0aff8e5b57ccbb",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "0eb60ff65b094a8c87b8d34c58a0a798",
+              "payload_sha256": "e9847d0c55beb416ce1be4418f15ea68e248c70677acfc48c1a9c73a57cef126",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "add0db5ad64a42a9bf800edcda75cd2b",
+            "session_id": "80984ef91fca462a912af1436b3d2247",
+            "reconciliation": {
+              "receipt_id": "add0db5ad64a42a9bf800edcda75cd2b",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "80984ef91fca462a912af1436b3d2247",
+              "payload_sha256": "211ed9e313d9faa512a2fe9a95e600502f6ec2bf56c10c543028e8e6b2d18957",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 2
+      },
+      "database_path": "outputs/evaluations/checkpoint-store-v2/normal-1/evidence.sqlite",
+      "database_sha256": "394f2f7c021108d76393b935a0c373d75703000be0388f7f8841a0d0deb317de",
+      "store_path": "outputs/evaluations/checkpoint-store-v2/normal-1/checkpoint.sqlite",
+      "store_sha256": "d9e762f419c91850bcafcf86c6812ab6298bc6127d7fcf840964e3f07436338b"
+    },
+    {
+      "mode": "before_commit",
+      "repetition": 1,
+      "passed": true,
+      "exitcode": 81,
+      "acknowledged": false,
+      "head": {
+        "status": "loaded",
+        "generation": 1,
+        "checkpoint": {
+          "database_id": "c1770974293543e9a1531045483ab043",
+          "intents": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "4b8ae4484ed7028ab7573e3138881a7b6207b066f0e1176d4231f1b04500f655"
+          },
+          "records": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "7b62636927f4416129923dac013c45ae2e0f3d6d7b438512b9e48189a78ce840"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "recovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "e6a029a3299d409e9b42b81c5d9c6248",
+            "session_id": "aab9ca7c57134b2e867144e80efe1594",
+            "reconciliation": {
+              "receipt_id": "e6a029a3299d409e9b42b81c5d9c6248",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "aab9ca7c57134b2e867144e80efe1594",
+              "payload_sha256": "5e019fe884feeb88173aa5d25a51d1febf81ba95e023d5856620633d164a0480",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "6c89147d157e4bf889176d4eecbe7740",
+            "session_id": "e649f1c105514fd0b8cc10d8ada430f5",
+            "reconciliation": {
+              "receipt_id": "6c89147d157e4bf889176d4eecbe7740",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "e649f1c105514fd0b8cc10d8ada430f5",
+              "payload_sha256": "d0604ef3b004d24d1068ca04205358ff58a9a7e049a90ed7c6044d52e538e62d",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 1
+      },
+      "database_path": "outputs/evaluations/checkpoint-store-v2/before_commit-1/evidence.sqlite",
+      "database_sha256": "2526a5f0af9db008c38d0811e3335666f2275315e202002015442bb27544abc8",
+      "store_path": "outputs/evaluations/checkpoint-store-v2/before_commit-1/checkpoint.sqlite",
+      "store_sha256": "99163c3e8f5051e97b49b513a3a111ada630b68c8d17909ccbfa66a355e233ea"
+    },
+    {
+      "mode": "after_commit",
+      "repetition": 1,
+      "passed": true,
+      "exitcode": 82,
+      "acknowledged": false,
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "7614a6af2f2b4f639bc8b47bf258b217",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "fa5b2c58827bc1ce0dceb12f7ef96f8d1d4751b0ce2af2fde90313eb26a53bd1"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "56a5e7b2fb0bdda54639cda59f2c8b30a2eff65cb00ed129a462e08b20f5c225"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "recovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "1c83f8e656634a5fbe07da83755fbb2e",
+            "session_id": "dd391efbeb7a4a3093b22a0cc0547fb6",
+            "reconciliation": {
+              "receipt_id": "1c83f8e656634a5fbe07da83755fbb2e",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "dd391efbeb7a4a3093b22a0cc0547fb6",
+              "payload_sha256": "895b4c4bfefe9f09ca362f64b873c7f8c70501ef5b6c3e4d6f9e19cb25c3cbe3",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "3b5925bef9c24868aa4c2d6a62ab2857",
+            "session_id": "67bd61353cff4563a39a321388c267d7",
+            "reconciliation": {
+              "receipt_id": "3b5925bef9c24868aa4c2d6a62ab2857",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "67bd61353cff4563a39a321388c267d7",
+              "payload_sha256": "95552926d6ff7835a6cd9453d6b00647ee65f8e3194e6bb0670e735a1e0b0f83",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 2
+      },
+      "database_path": "outputs/evaluations/checkpoint-store-v2/after_commit-1/evidence.sqlite",
+      "database_sha256": "18c3d124c4f00aaed3fe666f40afcf64249dbb271ce5b56ba45d07307ba813c3",
+      "store_path": "outputs/evaluations/checkpoint-store-v2/after_commit-1/checkpoint.sqlite",
+      "store_sha256": "08ed05b7cc36c256d2e57361b223153e44b2cde1222fde16949c85ff5442a74b"
+    }
+  ],
+  "passed": 6,
+  "total": 6
+}

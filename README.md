@@ -404,6 +404,8 @@ embodied-agent/
 
 最新扩展：[数据库身份与历史检查点](docs/evidence-checkpoint.md)，恢复前核对独立保存的历史基线，拒绝错误数据库和已知历史丢失；18 个恢复案例包含两个明确验证的未覆盖尾部丢失限制，检查点不构成动作授权。
 
+最新扩展：[可事务更新的独立检查点仓库](docs/checkpoint-store.md)，以版本比较更新和 SQLite 事务保存恢复基线，拒绝过期更新覆盖新版；6 次真实进程退出实验验证提交前后恢复，仍需独立保管仓库。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

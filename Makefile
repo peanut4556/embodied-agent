@@ -1216,3 +1216,12 @@ evidence-checkpoint-test:
 
 evidence-checkpoint-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_evidence_checkpoint.py --output "$(EVIDENCE_CHECKPOINT_OUTPUT)"
+
+CHECKPOINT_STORE_OUTPUT ?= outputs/evaluations/checkpoint-store-new
+.PHONY: checkpoint-store-test checkpoint-store-check
+checkpoint-store-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_checkpoint_store.py' -v
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_*evidence*.py' -v
+
+checkpoint-store-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_checkpoint_store.py --output "$(CHECKPOINT_STORE_OUTPUT)"
