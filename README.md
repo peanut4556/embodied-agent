@@ -400,6 +400,8 @@ embodied-agent/
 
 最新扩展：[崩溃后的证据账本对账](docs/evidence-ledger.md)，持久化唯一证据编号，真实进程故障注入区分提交前退出与提交后回执丢失；保留结果未知的原始审计，不自动重放消费。
 
+最新扩展：[调用方崩溃后的证据发现](docs/indexed-evidence-ledger.md)，先持久化提交索引，重启后无需原进程保留编号即可分页对账；10 次进程退出实验覆盖索引与证据事务边界，恢复只读且不自动重放。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

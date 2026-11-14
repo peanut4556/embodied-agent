@@ -59,6 +59,35 @@ def reconcile_evidence(path, receipt_id):
         }
 
 
+def _receipt_payload(receipt):
+    identity = _identity(receipt.get("receipt_id"))
+    session = receipt.get("session_id")
+    if (
+        receipt.get("status") != "consumed"
+        or receipt.get("robot_action_authorized") is not False
+        or not isinstance(session, str)
+        or not 1 <= len(session) <= 256
+        or receipt.get("evidence", {}).get("status") != "confirmed_recent_evidence"
+    ):
+        raise ValueError("completed evidence receipt required")
+    times = [
+        receipt.get(k)
+        for k in ("last_exposure_host_time", "consumed_host_time", "expires_host_time")
+    ]
+    if any(
+        isinstance(t, bool) or not isinstance(t, (int, float)) or not math.isfinite(t)
+        for t in times
+    ):
+        raise ValueError("finite receipt timestamps required")
+    if not times[0] <= times[1] < times[2]:
+        raise ValueError("ordered receipt timestamps required")
+    payload = json.dumps(receipt, sort_keys=True, separators=(",", ":"), allow_nan=False)
+    if len(payload.encode()) > 1024 * 1024:
+        raise ValueError("receipt exceeds 1 MiB audit limit")
+    digest = hashlib.sha256(payload.encode()).hexdigest()
+    return identity, session, times, payload, digest
+
+
 class EvidenceLedger:
     """Single-owner local audit writer. Serialization and lock acquisition count
     against the receipt's age budget. Duplicate identical receipts are read-only
@@ -94,31 +123,7 @@ class EvidenceLedger:
         return value
 
     def record(self, receipt):
-        identity = _identity(receipt.get("receipt_id"))
-        session = receipt.get("session_id")
-        if (
-            receipt.get("status") != "consumed"
-            or receipt.get("robot_action_authorized") is not False
-            or not isinstance(session, str)
-            or not 1 <= len(session) <= 256
-            or receipt.get("evidence", {}).get("status") != "confirmed_recent_evidence"
-        ):
-            raise ValueError("completed evidence receipt required")
-        times = [
-            receipt.get(k)
-            for k in ("last_exposure_host_time", "consumed_host_time", "expires_host_time")
-        ]
-        if any(
-            isinstance(t, bool) or not isinstance(t, (int, float)) or not math.isfinite(t)
-            for t in times
-        ):
-            raise ValueError("finite receipt timestamps required")
-        if not times[0] <= times[1] < times[2]:
-            raise ValueError("ordered receipt timestamps required")
-        payload = json.dumps(receipt, sort_keys=True, separators=(",", ":"), allow_nan=False)
-        if len(payload.encode()) > 1024 * 1024:
-            raise ValueError("receipt exceeds 1 MiB audit limit")
-        digest = hashlib.sha256(payload.encode()).hexdigest()
+        identity, session, times, payload, digest = _receipt_payload(receipt)
         with self._connection:
             self._connection.execute("BEGIN IMMEDIATE")
             existing = _lookup(self._connection, identity)

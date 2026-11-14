@@ -1,0 +1,254 @@
+{
+  "kind": "caller_memory_loss_audit_fixture",
+  "sources": {
+    "src/embodied_agent/evidence_ledger.py": "7084a4cf9227bf76a3243887851b013cd51b3e797f3076c3a717d0c870004714",
+    "src/embodied_agent/indexed_evidence_ledger.py": "2a836527fc03e00af1d0c49dc5ca7b012f3f1674234760b9a5dc921f8ff3c339",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/check_indexed_evidence_ledger.py": "959c7cbec898e4a44f5028a148261cac759bfb86b543a1c392bf62b6de7c3532"
+  },
+  "report_path": "outputs/evaluations/indexed-evidence-ledger-v1/report.json",
+  "report_sha256": "c0902cc073b99421b84662a0daa4f80048fefe4d9ddfc3b1dbbc22130f360a44",
+  "cases": [
+    {
+      "mode": "normal",
+      "repetition": 0,
+      "exitcode": 0,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "80a0374155854d48aae9c881bfbe7917",
+            "session_id": "95821ee57d4345e5add6ee3e72d98327",
+            "reconciliation": {
+              "receipt_id": "80a0374155854d48aae9c881bfbe7917",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "95821ee57d4345e5add6ee3e72d98327",
+              "payload_sha256": "4660d4db847882b3b3d85b6e10eb63ca10397a4aaf9cd7502753572a977b779b",
+              "accepted_host_time": 185346.779518791
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/normal-0.sqlite",
+      "database_sha256": "d39648a4e15d24dcf6efd31cfe8a22b954d8651ef54f4c97441490c657c9e50e"
+    },
+    {
+      "mode": "before_intent",
+      "repetition": 0,
+      "exitcode": 71,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 0,
+        "entries": [],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/before_intent-0.sqlite",
+      "database_sha256": "c8a4b680b2c6616236546fc044410d2a399ac017cbeb9a11a9f186231a32f96c"
+    },
+    {
+      "mode": "after_intent",
+      "repetition": 0,
+      "exitcode": 73,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "dcac35edfb0d46ce939649000df8e65c",
+            "session_id": "2eecfde5228f4f108a95adeb337bfdfe",
+            "reconciliation": {
+              "receipt_id": "dcac35edfb0d46ce939649000df8e65c",
+              "robot_action_authorized": false,
+              "status": "not_found"
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/after_intent-0.sqlite",
+      "database_sha256": "d829c1e6f990c3d174c28c94110b370be0ceb084ea281018b7b87c19029efe58"
+    },
+    {
+      "mode": "before_evidence",
+      "repetition": 0,
+      "exitcode": 72,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "74c48a55b08d40d68e0ed92a7027b553",
+            "session_id": "bf4b100dc7624eaba4eba1fbb700182b",
+            "reconciliation": {
+              "receipt_id": "74c48a55b08d40d68e0ed92a7027b553",
+              "robot_action_authorized": false,
+              "status": "not_found"
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/before_evidence-0.sqlite",
+      "database_sha256": "b7929771de69ec383d0946d1d11b80a2dada3247ceb326545ffce93ad3009d62"
+    },
+    {
+      "mode": "after_evidence",
+      "repetition": 0,
+      "exitcode": 74,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "891ece0201334a999dcf9c17a60af48f",
+            "session_id": "a76429a42be846209e47691487970baa",
+            "reconciliation": {
+              "receipt_id": "891ece0201334a999dcf9c17a60af48f",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "a76429a42be846209e47691487970baa",
+              "payload_sha256": "f243e3f70408a1d6135459a3cd8f2a7cb63ee6f1c34ddb8bb05591cbeab4b137",
+              "accepted_host_time": 185346.915951125
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/after_evidence-0.sqlite",
+      "database_sha256": "ca10588b72717500b7770915b62834d5e08f5fc355be08e247c1ff6f72fcef33"
+    },
+    {
+      "mode": "normal",
+      "repetition": 1,
+      "exitcode": 0,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "b4a7b54c4f28479b93371ba2ca146042",
+            "session_id": "e7a177f4ad2646bd826e7b2400e20047",
+            "reconciliation": {
+              "receipt_id": "b4a7b54c4f28479b93371ba2ca146042",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "e7a177f4ad2646bd826e7b2400e20047",
+              "payload_sha256": "01ab2e387e9fbfbcb75de0b7747c09ee778d1e034d8044d7f6ce7da2d619832c",
+              "accepted_host_time": 185346.949518625
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/normal-1.sqlite",
+      "database_sha256": "85bd0a7f50f6e477ee6ac7f7dcfbad04438b155a29828b67302e73b79bb79a1f"
+    },
+    {
+      "mode": "before_intent",
+      "repetition": 1,
+      "exitcode": 71,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 0,
+        "entries": [],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/before_intent-1.sqlite",
+      "database_sha256": "c8a4b680b2c6616236546fc044410d2a399ac017cbeb9a11a9f186231a32f96c"
+    },
+    {
+      "mode": "after_intent",
+      "repetition": 1,
+      "exitcode": 73,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "1a56b6a0f4b444309c7591fb49ff091e",
+            "session_id": "56ed262bcca84f399f5c8aa6051fa849",
+            "reconciliation": {
+              "receipt_id": "1a56b6a0f4b444309c7591fb49ff091e",
+              "robot_action_authorized": false,
+              "status": "not_found"
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/after_intent-1.sqlite",
+      "database_sha256": "58e9f4df3f2d09d810998f3c3d88f568539607d2b02a32c694532667ea80e925"
+    },
+    {
+      "mode": "before_evidence",
+      "repetition": 1,
+      "exitcode": 72,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "172439fad7404457804d81f10c712e26",
+            "session_id": "0176effda1124ca8aa95f86c9612f3fe",
+            "reconciliation": {
+              "receipt_id": "172439fad7404457804d81f10c712e26",
+              "robot_action_authorized": false,
+              "status": "not_found"
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/before_evidence-1.sqlite",
+      "database_sha256": "5206d1688987f51cd9a34ca5bfc23f0410966be057c7d5b231a04e7d4144fdea"
+    },
+    {
+      "mode": "after_evidence",
+      "repetition": 1,
+      "exitcode": 74,
+      "passed": true,
+      "discovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "ad8cb4d6e5eb46398a2bb16735639761",
+            "session_id": "375259ee13044bd68725d2657e5caa85",
+            "reconciliation": {
+              "receipt_id": "ad8cb4d6e5eb46398a2bb16735639761",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "375259ee13044bd68725d2657e5caa85",
+              "payload_sha256": "3207b508e03d275692bf23c3c0027a6a620a5dbe7f024afd1469663279ddffdc",
+              "accepted_host_time": 185347.083583125
+            }
+          }
+        ],
+        "status": "scanned"
+      },
+      "database": "outputs/evaluations/indexed-evidence-ledger-v1/after_evidence-1.sqlite",
+      "database_sha256": "316b49e0d3e711aeb77392d86a2230d9f561e3f865c981305a9daf63f35d1173"
+    }
+  ],
+  "passed": 10,
+  "total": 10
+}
