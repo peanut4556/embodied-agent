@@ -48,6 +48,35 @@ class IndexedEvidenceLedger(EvidenceLedger):
         return super().record(receipt)
 
 
+def _discover_connection(connection, after, limit):
+    base = {"robot_action_authorized": False, "next_after": after, "entries": []}
+    rows = connection.execute(
+        "SELECT sequence, receipt_id, session_id, payload_sha256 "
+        "FROM evidence_intents_v1 WHERE sequence>? ORDER BY sequence LIMIT ?",
+        (after, limit),
+    ).fetchall()
+    entries = []
+    for sequence, identity, session, digest in rows:
+        result = _lookup(connection, identity)
+        if result["status"] == "recorded" and (
+            result["session_id"] != session or result["payload_sha256"] != digest
+        ):
+            result = {"status": "intent_conflict", "robot_action_authorized": False}
+        entries.append(
+            {
+                "sequence": sequence,
+                "receipt_id": identity,
+                "session_id": session,
+                "reconciliation": result,
+            }
+        )
+    return base | {
+        "status": "scanned",
+        "entries": entries,
+        "next_after": rows[-1][0] if rows else after,
+    }
+
+
 def discover_evidence(path, *, after=0, limit=100):
     """Page durable identities without caller memory or evidence payloads.
 
@@ -65,31 +94,7 @@ def discover_evidence(path, *, after=0, limit=100):
         )
         try:
             connection.execute("BEGIN")
-            rows = connection.execute(
-                "SELECT sequence, receipt_id, session_id, payload_sha256 "
-                "FROM evidence_intents_v1 WHERE sequence>? ORDER BY sequence LIMIT ?",
-                (after, limit),
-            ).fetchall()
-            entries = []
-            for sequence, identity, session, digest in rows:
-                result = _lookup(connection, identity)
-                if result["status"] == "recorded" and (
-                    result["session_id"] != session or result["payload_sha256"] != digest
-                ):
-                    result = {"status": "intent_conflict", "robot_action_authorized": False}
-                entries.append(
-                    {
-                        "sequence": sequence,
-                        "receipt_id": identity,
-                        "session_id": session,
-                        "reconciliation": result,
-                    }
-                )
-            return base | {
-                "status": "scanned",
-                "entries": entries,
-                "next_after": rows[-1][0] if rows else after,
-            }
+            return _discover_connection(connection, after, limit)
         finally:
             connection.close()
     except sqlite3.Error as exc:

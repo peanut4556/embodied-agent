@@ -402,6 +402,8 @@ embodied-agent/
 
 最新扩展：[调用方崩溃后的证据发现](docs/indexed-evidence-ledger.md)，先持久化提交索引，重启后无需原进程保留编号即可分页对账；10 次进程退出实验覆盖索引与证据事务边界，恢复只读且不自动重放。
 
+最新扩展：[数据库身份与历史检查点](docs/evidence-checkpoint.md)，恢复前核对独立保存的历史基线，拒绝错误数据库和已知历史丢失；18 个恢复案例包含两个明确验证的未覆盖尾部丢失限制，检查点不构成动作授权。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

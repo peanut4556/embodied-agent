@@ -1208,3 +1208,11 @@ indexed-evidence-test:
 
 indexed-evidence-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_indexed_evidence_ledger.py --output "$(INDEXED_EVIDENCE_OUTPUT)"
+
+EVIDENCE_CHECKPOINT_OUTPUT ?= outputs/evaluations/evidence-checkpoint-new
+.PHONY: evidence-checkpoint-test evidence-checkpoint-check
+evidence-checkpoint-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_*evidence*.py' -v
+
+evidence-checkpoint-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_evidence_checkpoint.py --output "$(EVIDENCE_CHECKPOINT_OUTPUT)"

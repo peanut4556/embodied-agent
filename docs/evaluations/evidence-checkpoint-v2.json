@@ -1,0 +1,475 @@
+{
+  "kind": "checkpoint_recovery_virtual_receipts_real_processes",
+  "sources": {
+    "scripts/check_evidence_checkpoint.py": "889368ba58f9c0616785fef1dcd8d574dac80f4616c489b4c3d3f3678f00f117",
+    "src/embodied_agent/evidence_checkpoint.py": "ca0fd3b8c4bb561e4efbfa0d74ccaa660054537277c41b3129025f82a46b4e98",
+    "src/embodied_agent/indexed_evidence_ledger.py": "37ebe18a182be72bee97db64e6dc0af3433109224f32f1673e61bbc91fef9913",
+    "src/embodied_agent/evidence_ledger.py": "7084a4cf9227bf76a3243887851b013cd51b3e797f3076c3a717d0c870004714"
+  },
+  "report_path": "outputs/evaluations/evidence-checkpoint-v2/report.json",
+  "report_sha256": "5d885588dbf2a139da1e9969f4c3196b8109ed20f25fbc58656a0a3a7ea6ce38",
+  "passed": 18,
+  "total": 18,
+  "cases": [
+    {
+      "mode": "unchanged",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "dab734c9f9034bef9fb65ef65f0b09b8",
+            "session_id": "6510f19e88124469a834b94aeeec5de8",
+            "reconciliation": {
+              "receipt_id": "dab734c9f9034bef9fb65ef65f0b09b8",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "6510f19e88124469a834b94aeeec5de8",
+              "payload_sha256": "d9a6facc26c537df8841b356a79442d7012c758fe24a98d8725a8963b7822825",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/unchanged-0/audit.sqlite",
+      "database_sha256": "b1853963a00d562eedc7c2854926a8c71f5419636c091557931af40597eaf2fd",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/unchanged-0/external-checkpoint.json",
+      "anchor_sha256": "883ca18fce4273aa289370b83d2c49e1384f4e715a46005adb1118b314cee577",
+      "read_only_verified": true
+    },
+    {
+      "mode": "append",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "c74f9baa9ece4902b2d8da8352bb6f11",
+            "session_id": "76f70331bcb1414e85dc7452e8c236e4",
+            "reconciliation": {
+              "receipt_id": "c74f9baa9ece4902b2d8da8352bb6f11",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "76f70331bcb1414e85dc7452e8c236e4",
+              "payload_sha256": "971d1d5240c0e1a4b5d9baca1f21b188290de196b632fbe28a28a9f09ca130c6",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "66de5610e4734d198780498998b9cd09",
+            "session_id": "f4d3c5047e4448519ac725937c242a15",
+            "reconciliation": {
+              "receipt_id": "66de5610e4734d198780498998b9cd09",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "f4d3c5047e4448519ac725937c242a15",
+              "payload_sha256": "2731271e4e9dc6ed6a6346d9961cce74beab6f5c73203247d02b5f7f43e084bf",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/append-0/audit.sqlite",
+      "database_sha256": "fd8c758fd6e0c0cb21f8bd4a826ae4886a257a4357e429e98f2480cc91825dcc",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/append-0/external-checkpoint.json",
+      "anchor_sha256": "aca0d8c353dd5bf06b6afe7dab6d161b5de72ec4ce9ee3cacf8414fdf6c4bebe",
+      "read_only_verified": true
+    },
+    {
+      "mode": "pending_completion",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "b23c9ca3d30444e9b9018342c5ed147e",
+            "session_id": "84369663c5f3415bb73263a843587804",
+            "reconciliation": {
+              "receipt_id": "b23c9ca3d30444e9b9018342c5ed147e",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "84369663c5f3415bb73263a843587804",
+              "payload_sha256": "ed4951aab16e18c1a6b3de75130d33884522599918ba9a505790c6d56e39ce8d",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/pending_completion-0/audit.sqlite",
+      "database_sha256": "6e637b7ac598a6b39f1c71687fed357fa851ab6c894b902c08cd1cbb7e04faf6",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/pending_completion-0/external-checkpoint.json",
+      "anchor_sha256": "e65e0a5f44cfc41b07659387931024137f33aa9cc9310220560894ea8e2c609c",
+      "read_only_verified": true
+    },
+    {
+      "mode": "wrong_database",
+      "expected": "database_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "database_mismatch",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/wrong_database-0/audit.sqlite",
+      "database_sha256": "eadc49929c1b60e0e26bb17fc9ed202033385494b7a388946e852baa3145c363",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/wrong_database-0/external-checkpoint.json",
+      "anchor_sha256": "0719d94b2fb629f40ceb3550cc3cebc6e6335a6b184fe033e807ee03ab0d677c",
+      "read_only_verified": true
+    },
+    {
+      "mode": "restore_older",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "intents",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/restore_older-0/audit.sqlite",
+      "database_sha256": "ff8ce7221bcf62559b73bc55eadce58f240423cc5b74c7b6536c2b0b4c46a9bc",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/restore_older-0/external-checkpoint.json",
+      "anchor_sha256": "d433a12ab8bc8d8c38d91b145fe56fe2986524d48817050b31d5afba87b48dff",
+      "read_only_verified": true
+    },
+    {
+      "mode": "erase_record",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "records",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/erase_record-0/audit.sqlite",
+      "database_sha256": "3351b6001e5915406dfc42ce21eeed27193290e02143fee99fbd050ad7babbf0",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/erase_record-0/external-checkpoint.json",
+      "anchor_sha256": "6b9e8bf9cdbc716ee138cd3c90ba68f2b7f7755a9193e73c4f5e07fe75d5cbd8",
+      "read_only_verified": true
+    },
+    {
+      "mode": "erase_intent",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "intents",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/erase_intent-0/audit.sqlite",
+      "database_sha256": "029a02f5739a8c201f7490c8e7b11f167c323710449329ca04bec3bd7f719e42",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/erase_intent-0/external-checkpoint.json",
+      "anchor_sha256": "6ab074803fe3ace9ebcf6e6bf7c7da41a7811f1c6c40912ed3770b47ae621124",
+      "read_only_verified": true
+    },
+    {
+      "mode": "consistent_rewrite",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "intents",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/consistent_rewrite-0/audit.sqlite",
+      "database_sha256": "236b024bfe3697e74e190e13e95fe203225fbca58b07c0004fe1047dc4392b17",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/consistent_rewrite-0/external-checkpoint.json",
+      "anchor_sha256": "3bccbabd785c1288100745b827052ac3eaf310afc3ad487df2f6b33e765fd979",
+      "read_only_verified": true
+    },
+    {
+      "mode": "unanchored_tail_loss",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "5cd10ae6649741bda160bd079a2f1cdd",
+            "session_id": "23208b5918db42f29521200a13481b59",
+            "reconciliation": {
+              "receipt_id": "5cd10ae6649741bda160bd079a2f1cdd",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "23208b5918db42f29521200a13481b59",
+              "payload_sha256": "a3b738389b7f2930e2a0e6b12184177fe94008f437817e071aebcb62e218d6f2",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/unanchored_tail_loss-0/audit.sqlite",
+      "database_sha256": "64e1e5269ed8537d7b3837d00ba36b193cf12e812a62ce4983be58be7d71f17e",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/unanchored_tail_loss-0/external-checkpoint.json",
+      "anchor_sha256": "60ca96852614ab8c9cf11cf76ca7fd65c313f3ab24bdf0ee315be97d6692731d",
+      "read_only_verified": true
+    },
+    {
+      "mode": "unchanged",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "eee9211c454d44feb8b2051e81a9a39a",
+            "session_id": "4a934d3b35b94e5b9754938389d23aa5",
+            "reconciliation": {
+              "receipt_id": "eee9211c454d44feb8b2051e81a9a39a",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "4a934d3b35b94e5b9754938389d23aa5",
+              "payload_sha256": "360a3035e359b9d67c630c46bc2dd9f3df20ec0c8e2d0ee56a317dfc9b96e0d8",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/unchanged-1/audit.sqlite",
+      "database_sha256": "236191ebffb34f90077214937ad75961b51589bc2857c0ee75b5518ffb00aa4b",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/unchanged-1/external-checkpoint.json",
+      "anchor_sha256": "dd5622a3e328b0563a096a21cec902e0fd62ed3351633b943325ae49fff464a7",
+      "read_only_verified": true
+    },
+    {
+      "mode": "append",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 2,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "74c1548bf1194667a02e1839809eae6a",
+            "session_id": "9d71c4e8e2e845ffb2c70a9e33e5c2aa",
+            "reconciliation": {
+              "receipt_id": "74c1548bf1194667a02e1839809eae6a",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "9d71c4e8e2e845ffb2c70a9e33e5c2aa",
+              "payload_sha256": "69e2cf2727941c485a58e187b17eb3a9c026296cdac70da2c98c5289078f7388",
+              "accepted_host_time": 1.002
+            }
+          },
+          {
+            "sequence": 2,
+            "receipt_id": "79842c6c670b4177ae74235fa5e8b21c",
+            "session_id": "88b0620b4e3a4682ae643b5759c53df6",
+            "reconciliation": {
+              "receipt_id": "79842c6c670b4177ae74235fa5e8b21c",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "88b0620b4e3a4682ae643b5759c53df6",
+              "payload_sha256": "0d66dc2c2c4e0135ec0bf76ae7593fe475e5e711cb80aabc9a1f2db2115cd123",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/append-1/audit.sqlite",
+      "database_sha256": "c7cc68d062f114a3f61397f375c5b3ea10ffce858bbc22631a050ff90a2ec19f",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/append-1/external-checkpoint.json",
+      "anchor_sha256": "97dddd632fe68f9d86d1a9790f23de701b8593d0de80f7a3a88dbce44453afd8",
+      "read_only_verified": true
+    },
+    {
+      "mode": "pending_completion",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "e6f72fe02780432991fa321b03a938f6",
+            "session_id": "d41d031fabb2410baf5ea48a72897a95",
+            "reconciliation": {
+              "receipt_id": "e6f72fe02780432991fa321b03a938f6",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "d41d031fabb2410baf5ea48a72897a95",
+              "payload_sha256": "706180dc0142ba4e239b6ef0beab2c59935cceba440a61a088f61667da84e77e",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/pending_completion-1/audit.sqlite",
+      "database_sha256": "5cce6b06d321765f4f6977def53e3a01eb5296d11cb225625e62a6d071f2c417",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/pending_completion-1/external-checkpoint.json",
+      "anchor_sha256": "dc3562a1ee52b99b4de7db6843b4023bfb097500cd34d8ddc58b1608f4b53679",
+      "read_only_verified": true
+    },
+    {
+      "mode": "wrong_database",
+      "expected": "database_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "database_mismatch",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/wrong_database-1/audit.sqlite",
+      "database_sha256": "682021fc3e174cc34819dd3f5aac0c097b49cb60402f2f86beb0181fdb8f0028",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/wrong_database-1/external-checkpoint.json",
+      "anchor_sha256": "b8f2bd551b6b9e1734bb8903d45c072800fefd684abaa33bf2341350619f3bab",
+      "read_only_verified": true
+    },
+    {
+      "mode": "restore_older",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "intents",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/restore_older-1/audit.sqlite",
+      "database_sha256": "cb98160b113af3cb966b73a53495de735a419d7b68a5bf93e086200bbe431fd2",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/restore_older-1/external-checkpoint.json",
+      "anchor_sha256": "1c1dfc03936192a759d1994e5af13276e1c2781f3af32b48550698caba4bcb13",
+      "read_only_verified": true
+    },
+    {
+      "mode": "erase_record",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "records",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/erase_record-1/audit.sqlite",
+      "database_sha256": "2cc52e9529acdd73fba993ce4c371dbe1f3a3e8f4a276e222bd22a504ae31a67",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/erase_record-1/external-checkpoint.json",
+      "anchor_sha256": "cb60f33c5e00c180d48080e999fe4952dc6004eae64d7a6822eb3dd842ccdcb6",
+      "read_only_verified": true
+    },
+    {
+      "mode": "erase_intent",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "intents",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/erase_intent-1/audit.sqlite",
+      "database_sha256": "50c2a336aebc0f76957f90ddc367121ff79155d263467171d565fb40f8887e2b",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/erase_intent-1/external-checkpoint.json",
+      "anchor_sha256": "0ad02f8f2f7b43acfd752fe031a2105c99c3905cc4477196207567b803152656",
+      "read_only_verified": true
+    },
+    {
+      "mode": "consistent_rewrite",
+      "expected": "history_mismatch",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "entries": [],
+        "robot_action_authorized": false,
+        "status": "history_mismatch",
+        "component": "intents",
+        "next_after": 0
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/consistent_rewrite-1/audit.sqlite",
+      "database_sha256": "652ab29f847202a8380bd36f09557d579af090c4105c2a6f31db202446d00894",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/consistent_rewrite-1/external-checkpoint.json",
+      "anchor_sha256": "546e64152efb7af8e08881861ee70e96fe28c6050be2040ec0293580efd69a7f",
+      "read_only_verified": true
+    },
+    {
+      "mode": "unanchored_tail_loss",
+      "expected": "scanned",
+      "passed": true,
+      "exitcode": 0,
+      "recovery": {
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "dab2b2d393034b549b73d1fbc0aaa34c",
+            "session_id": "971f66d9aac045ab9b4663d26f286c9f",
+            "reconciliation": {
+              "receipt_id": "dab2b2d393034b549b73d1fbc0aaa34c",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "971f66d9aac045ab9b4663d26f286c9f",
+              "payload_sha256": "6446e5f82f764f5927d1703dff577aaed0414136473e5c965051b9c87edd0c68",
+              "accepted_host_time": 1.002
+            }
+          }
+        ],
+        "status": "scanned",
+        "checkpoint_verified": true
+      },
+      "database_path": "outputs/evaluations/evidence-checkpoint-v2/unanchored_tail_loss-1/audit.sqlite",
+      "database_sha256": "1632db20b0dc88f33eb3766a1cba95fc969db37b020151d838a0d5217f0683a1",
+      "anchor_path": "outputs/evaluations/evidence-checkpoint-v2/unanchored_tail_loss-1/external-checkpoint.json",
+      "anchor_sha256": "9843df71ef6aae280865ef28f3c3cf6c61daa097bcc905e3d0f27346f097b1dc",
+      "read_only_verified": true
+    }
+  ]
+}
