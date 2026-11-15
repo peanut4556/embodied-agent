@@ -1279,3 +1279,8 @@ CAPTURE_PUBLICATION_OUTPUT ?= outputs/evaluations/capture-publication-new
 .PHONY: capture-publication-check
 capture-publication-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_publication.py --output "$(CAPTURE_PUBLICATION_OUTPUT)"
+
+CAPTURE_OWNER_EXIT_OUTPUT ?= outputs/evaluations/capture-owner-exit-new
+.PHONY: capture-owner-exit-check
+capture-owner-exit-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_owner_exit.py --output "$(CAPTURE_OWNER_EXIT_OUTPUT)"

@@ -1,0 +1,192 @@
+{
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "db5fe898ca3450cc18293a4f6d4986b86b1db377fe708d9fb4f4dfd9fd2c1950",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "76c0f740be40a7e35a95e1da6e9fd79d146f25720ecdc2b9d661abe229e71e5a",
+    "src/embodied_agent/confirmation_challenge.py": "c5fb82faa24d7fcee9a71c5473645ed474d75339d19ac213d53f3c3584b0d1ea",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_spaced_challenge.py": "d3571ae97e6d8458a7879a9e08b21a17170a7ffee261030196f1e5bd3f973782",
+    "src/embodied_agent/spaced_challenge.py": "f41ffc17ec80e19d3b64484caf075a7aa8db09ab7d5a307112d783310a3bcf8b",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_sampling_aliases.py": "f874c8aee10a68a66814b83896eab2c67bc7207c6444f983baad67ce128e7896",
+    "src/embodied_agent/aperiodic_challenge.py": "50b8ae4fd1aaee9d0d7b06a37833df4f53d446db1ae3bb626c454f463e27e353",
+    "src/embodied_agent/phase_sweep_challenge.py": "477eee781eedbf352e1c7c1fa6067e71f5d0960a1580284cff8075a81ff1b21b",
+    "scripts/check_capture_timing.py": "96e0e5161b53a023a9a0fbe3655f06602d0efa3180964708c36674806740e6b4",
+    "src/embodied_agent/capture_timing.py": "242b97d6673e00c0fa0b52011ee27e3adc86bbf47970d34e5496ca6131ea55e7",
+    "src/embodied_agent/process_pair_capture.py": "56809452d07e2322ef4db83cc9e0464e167b81fa8687f37c8b98a5c6c000b671",
+    "src/embodied_agent/two_stage_runtime.py": "2a596da052252dc91d920a4788b4c416606171ac81521bc92fe77b6302149008",
+    "src/embodied_agent/threaded_pair_capture.py": "36e7028df8b3def6a3d57bce787fd8d9195bb5a781cf6fbe0b724482541fb872",
+    "src/embodied_agent/two_stage_capture.py": "ede3469258a0148944291df480ada4f0e22435b860c6cd6619fa620d01bc5ce7",
+    "src/embodied_agent/fresh_witness.py": "96322a2d2c01f6bc0e8c5a5406835f2e3d438fcb5cc31f7239d85fc6d30af3b1",
+    "scripts/check_reserved_two_stage.py": "2f426ea6179ed833826fda3461498319116a9f814692c5ce1751c64c55a101af",
+    "scripts/check_process_pair_capture.py": "354ad1f3594c4a39bff77df71cbb4870de12278f6ee433d0dc0c111029ed8980",
+    "src/embodied_agent/reserved_two_stage.py": "daa6a35d328e3230098fac4de30440dfeb30992c1ab85893b381163eabdf6afe",
+    "src/embodied_agent/scheduled_pair_capture.py": "0cbff0d48fb8f0fed7f2ef98e82e697bd9a307542d1a27c71068c5edb85d29d1",
+    "scripts/check_recovery_handoff.py": "a34320bacfaab1f7b616faf1486923ada3cb2c30be42819ed93d71f6e4ebda51",
+    "src/embodied_agent/capture_recovery.py": "ca5c5f4b2e1dc56c17e28dd49f6acf0ce390602499edb6d078e159f585746b9c",
+    "src/embodied_agent/recent_evidence_handoff.py": "70b1480ec64cb1b16f98faabe86d24301c0ccb945273ee5e8d85a08d78f5fe5e",
+    "scripts/check_capture_owner_exit.py": "f5b15a0dea2df405db05e8209c4d1c15d668eb2ffecb7d3fbb2f87397b5d474f",
+    "scripts/check_evidence_checkpoint.py": "889368ba58f9c0616785fef1dcd8d574dac80f4616c489b4c3d3f3678f00f117",
+    "src/embodied_agent/checkpoint_store.py": "6376e238199b3da68a2927b43102e3abf765322a98422f8e2a1f52e375a27ddf",
+    "src/embodied_agent/evidence_checkpoint.py": "645c4dc5c31b1d9dae72065517847e2a4f0e7958e52318d67e63f84e36da7055",
+    "src/embodied_agent/indexed_evidence_ledger.py": "37ebe18a182be72bee97db64e6dc0af3433109224f32f1673e61bbc91fef9913",
+    "src/embodied_agent/evidence_ledger.py": "2a593855d42357c3b2fd2b1ca749e0d4a4296fe867877d9cec9d289a602ba1cd",
+    "src/embodied_agent/evidence_inbox.py": "eb847fc063d81f5ce99a8c5a86f950449cf3f12a2617bf8b48589d4ecbc3613e"
+  },
+  "cases": [
+    {
+      "mode": "before_commit",
+      "exitcode": 91,
+      "passed": true,
+      "owner_status": {
+        "capture_workers_reaped": true,
+        "confirmation": "confirmed_recent_evidence"
+      },
+      "discovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "2ac555c98178416eb44dee0b2bf0fffc",
+            "session_id": "e3c29c44e05643fc8e78fa7b9616f688",
+            "reconciliation": {
+              "receipt_id": "2ac555c98178416eb44dee0b2bf0fffc",
+              "robot_action_authorized": false,
+              "status": "not_found"
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 1
+      },
+      "preview_status": "source_rejected",
+      "stdout": "",
+      "stderr": "",
+      "files": {
+        "outputs/evaluations/capture-owner-exit-v1/before_commit-0/evidence.sqlite": "05a63f5d81d2d94ad2a608303f806d1c28992e9808e38ad674b0961e862df4d0",
+        "outputs/evaluations/capture-owner-exit-v1/before_commit-0/store.sqlite": "aa61b7ca31527f663aeba7bef34221f5f360f11d34c2be0f4aee16bbcf4c1541"
+      }
+    },
+    {
+      "mode": "after_commit",
+      "exitcode": 92,
+      "passed": true,
+      "owner_status": {
+        "capture_workers_reaped": true,
+        "confirmation": "confirmed_recent_evidence"
+      },
+      "discovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "daea0c27d1fc411eb2c0f6b6fc29de3f",
+            "session_id": "d75355193e9047b199b2e92ad43afb62",
+            "reconciliation": {
+              "receipt_id": "daea0c27d1fc411eb2c0f6b6fc29de3f",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "d75355193e9047b199b2e92ad43afb62",
+              "payload_sha256": "c08980fcb6f9dfbc2315e97fa59d688bfbf9107476e5ee671c7627f882e2abde",
+              "accepted_host_time": 202162.571998458
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 1
+      },
+      "preview_status": "proposed",
+      "stdout": "",
+      "stderr": "",
+      "files": {
+        "outputs/evaluations/capture-owner-exit-v1/after_commit-0/evidence.sqlite": "5c76375ca3cf1c1d112eed5615e49b7299b9818ae6c9ca44acecfee471fd2210",
+        "outputs/evaluations/capture-owner-exit-v1/after_commit-0/store.sqlite": "a429e4bdd7e1cfe8fd65e8251852e85b346362d365e7691eaebee0ca8f5ca6ea"
+      }
+    },
+    {
+      "mode": "before_commit",
+      "exitcode": 91,
+      "passed": true,
+      "owner_status": {
+        "capture_workers_reaped": true,
+        "confirmation": "confirmed_recent_evidence"
+      },
+      "discovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "eddbfa420ad04439b6a7ebd2ab1c3512",
+            "session_id": "58340aeb866349c293a56723e792aab0",
+            "reconciliation": {
+              "receipt_id": "eddbfa420ad04439b6a7ebd2ab1c3512",
+              "robot_action_authorized": false,
+              "status": "not_found"
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 1
+      },
+      "preview_status": "source_rejected",
+      "stdout": "",
+      "stderr": "",
+      "files": {
+        "outputs/evaluations/capture-owner-exit-v1/before_commit-1/evidence.sqlite": "cd36e91df4bb4e9a84f550e472408af73493029f27ffea13b92715781d1aaf27",
+        "outputs/evaluations/capture-owner-exit-v1/before_commit-1/store.sqlite": "9224940a37f49aa90f12275473ec25c266cb92afc4832f5c524547209da0821b"
+      }
+    },
+    {
+      "mode": "after_commit",
+      "exitcode": 92,
+      "passed": true,
+      "owner_status": {
+        "capture_workers_reaped": true,
+        "confirmation": "confirmed_recent_evidence"
+      },
+      "discovery": {
+        "entries": [
+          {
+            "sequence": 1,
+            "receipt_id": "226918523700499d901fbb4f117efc4a",
+            "session_id": "4cf578e52fb94f6797eb70d6496502e9",
+            "reconciliation": {
+              "receipt_id": "226918523700499d901fbb4f117efc4a",
+              "robot_action_authorized": false,
+              "status": "recorded",
+              "session_id": "4cf578e52fb94f6797eb70d6496502e9",
+              "payload_sha256": "d164b163b4f21bc7c292419dcdecb16fcc66c23a68621d92f9574843c9180b98",
+              "accepted_host_time": 202169.351301833
+            }
+          }
+        ],
+        "robot_action_authorized": false,
+        "next_after": 1,
+        "status": "scanned",
+        "checkpoint_verified": true,
+        "checkpoint_generation": 1
+      },
+      "preview_status": "proposed",
+      "stdout": "",
+      "stderr": "",
+      "files": {
+        "outputs/evaluations/capture-owner-exit-v1/after_commit-1/evidence.sqlite": "b166cfa7f2b98998a60888337847d08fe0de7b8c01b6b92bb20ac2328c3f019a",
+        "outputs/evaluations/capture-owner-exit-v1/after_commit-1/store.sqlite": "e912a7221f993907bc4dccc9ff2bb01412bfc8b80f5a0ae30037dcaa1402d33b"
+      }
+    }
+  ],
+  "passed": 4,
+  "total": 4
+}

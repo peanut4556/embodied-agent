@@ -428,6 +428,8 @@ embodied-agent/
 
 最新联调：[消费者结果未知的完整链路对账](docs/capture-consumer-faults.md)，落账后回调报错与消费前过期各两次均按持久化结果分流且不重放；整轮 7/8，保留一次采集时序拒绝。
 
+最新联调：[采集调用方退出后的无编号恢复](docs/capture-owner-exit.md)，真实采集确认后强制退出调用方，恢复程序仅凭路径发现索引；提交前后各两次验证未落账拒绝和已落账提案生成。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
