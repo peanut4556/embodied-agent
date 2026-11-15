@@ -1,0 +1,225 @@
+{
+  "sources": {
+    "scripts/check_verified_publication.py": "454fdfbabbf9aeb0caa6017dc6dfef15da61624ed1254733f383d13003f91f9a",
+    "scripts/check_evidence_checkpoint.py": "889368ba58f9c0616785fef1dcd8d574dac80f4616c489b4c3d3f3678f00f117",
+    "src/embodied_agent/checkpoint_store.py": "60a6ce2723164bdf31c62e9e787ea425002a6ee0e4af2ec81f78855ee748c7b6",
+    "src/embodied_agent/evidence_checkpoint.py": "1e6765ad59e611d6986e78097dfc0d14704403fc884ba9303e8f75881b338b14",
+    "src/embodied_agent/evidence_ledger.py": "2a593855d42357c3b2fd2b1ca749e0d4a4296fe867877d9cec9d289a602ba1cd",
+    "src/embodied_agent/indexed_evidence_ledger.py": "37ebe18a182be72bee97db64e6dc0af3433109224f32f1673e61bbc91fef9913"
+  },
+  "cases": [
+    {
+      "mode": "valid",
+      "result": {
+        "robot_action_authorized": false,
+        "status": "published",
+        "generation": 2
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "c26d78c8b4a245b697aaa68d8b37dfaf",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "ac91253e7c4f4c25b3ee3bdda2d5d30983cdb2a20b2976d1974bca533f7391eb"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "9b6dae309871534abb74973ea390638adffd60f1797917b7e26626cddd570e35"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "files": {
+        "outputs/evaluations/verified-publication-v1/valid/evidence.sqlite": "a47f55ea0aa3ea2a091859a1ec11b547c88de46370995c76f0be0497a244f321",
+        "outputs/evaluations/verified-publication-v1/valid/store.sqlite": "59baeebb7f06847a4281d2c2939b715d1d2a8c4602f9f40e1966467a3b7f3852"
+      }
+    },
+    {
+      "mode": "unindexed",
+      "result": {
+        "robot_action_authorized": false,
+        "status": "source_rejected",
+        "source": {
+          "robot_action_authorized": false,
+          "status": "evidence_rejected",
+          "receipt_id": "759f3f84d3d84ef0bb65777ad9cd6c3f",
+          "reason": "unindexed"
+        }
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 1,
+        "checkpoint": {
+          "database_id": "c9f3cded9f534b319ff00822d8b752fb",
+          "intents": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "05ae9f30a83a14ae43dfda4728f9b918bb32a4f2ee9e3f071bf2b5885e9beeb8"
+          },
+          "records": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "b2ff024ea21d7bbf41cf191568cbc2c686936d378218dc8c1a6d263ddef61522"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "files": {
+        "outputs/evaluations/verified-publication-v1/unindexed/evidence.sqlite": "a47663e0f4790371e2c4a824e38ebfaf2332f2856b8adb72fb12834f64188ac0",
+        "outputs/evaluations/verified-publication-v1/unindexed/store.sqlite": "2cb73c3bc55707f1441f497247ae74ac14e37d3677320892ef9a062add3da0b6"
+      }
+    },
+    {
+      "mode": "pending",
+      "result": {
+        "robot_action_authorized": false,
+        "status": "source_rejected",
+        "source": {
+          "robot_action_authorized": false,
+          "status": "evidence_rejected",
+          "receipt_id": "3985eb67507e47aa99d9b9cac76a2010",
+          "reason": "not_found"
+        }
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 1,
+        "checkpoint": {
+          "database_id": "110bfddaabfd437890767480f0ad21dd",
+          "intents": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "58c71a3d795d2eab35674881cc6e8b87f71456e1fc28db5ca92495befedd7587"
+          },
+          "records": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "6c7f6dfdef68eb7744a899565b01c2c07e572b5de42ea6a00cf602823c2efdee"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "files": {
+        "outputs/evaluations/verified-publication-v1/pending/evidence.sqlite": "12a2eec95383c8f22b0849e38dcc294671ea2a20a08631abd296a09a68ce64bd",
+        "outputs/evaluations/verified-publication-v1/pending/store.sqlite": "0802bee95ba388b865b9445ff24a4759afdc91d6a8913b306b06f57879a09a41"
+      }
+    },
+    {
+      "mode": "invalid_time",
+      "result": {
+        "robot_action_authorized": false,
+        "status": "source_rejected",
+        "source": {
+          "robot_action_authorized": false,
+          "status": "evidence_rejected",
+          "receipt_id": "788ac586ca6848838e0636164db94017",
+          "reason": "invalid_record"
+        }
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 1,
+        "checkpoint": {
+          "database_id": "4801b3c2d3424a3c90af2bcbbf6d06fc",
+          "intents": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "513e16dc2d90f94268a461d56ed2b3c14db2737715c7778defb6735f8ad3419c"
+          },
+          "records": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "c3fab37703023169ece5249ec0a9f89c0a82c370ee5fae709788536d1ae74917"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "files": {
+        "outputs/evaluations/verified-publication-v1/invalid_time/evidence.sqlite": "63c8ab1287dad3c17a7bd669286f58fb31f4cadf4cf25a30ec72c58f47f47a3a",
+        "outputs/evaluations/verified-publication-v1/invalid_time/store.sqlite": "7dc81dcaf34aa5aeb688c5ae7a4e780799dc983f108f7017441084dd05b85db2"
+      }
+    },
+    {
+      "mode": "corrupt",
+      "result": {
+        "robot_action_authorized": false,
+        "status": "source_rejected",
+        "source": {
+          "robot_action_authorized": false,
+          "status": "evidence_rejected",
+          "receipt_id": "84f40163cf904366b982904b39895415",
+          "reason": "integrity_error"
+        }
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 1,
+        "checkpoint": {
+          "database_id": "cf62fc320ad843cd9cb37bc6bbcf086c",
+          "intents": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "a4b5e299c773547cb067a776117912b0f253fcd2ceddc20381f732b2dc2efeb9"
+          },
+          "records": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "42c8c56f1880c22463f2b3ebb801749cd94262837bf02172f74899655f95ef85"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "files": {
+        "outputs/evaluations/verified-publication-v1/corrupt/evidence.sqlite": "07ff360c725267a61c8a919764706304a5fcd0fef59c1726a1161d67f3dc675e",
+        "outputs/evaluations/verified-publication-v1/corrupt/store.sqlite": "3055f771b49d08ff12ad30170cd3fe6cea824b0c172358284ed661cb0b4d7b91"
+      }
+    },
+    {
+      "mode": "limited",
+      "result": {
+        "robot_action_authorized": false,
+        "status": "source_rejected",
+        "source": {
+          "robot_action_authorized": false,
+          "status": "validation_incomplete",
+          "row_counts": [
+            2,
+            2
+          ]
+        }
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 1,
+        "checkpoint": {
+          "database_id": "f9bbe0b2e7f44c9cac73343e80c465b1",
+          "intents": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "626b5a296197bd47b610ef75d23fe5dbba4381e73a36d304024ddc1913748021"
+          },
+          "records": {
+            "count": 1,
+            "high_water": 1,
+            "sha256": "aa5dc4b8ec0a65221626b1761f5fefc3f93c352a5f933925baf797361b3c9372"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "files": {
+        "outputs/evaluations/verified-publication-v1/limited/evidence.sqlite": "cbde538613430250c3840e2a694fe470109ad07e7045cc3aef71dfb3e3f39991",
+        "outputs/evaluations/verified-publication-v1/limited/store.sqlite": "1e4a1a8e65885230e5f989d3d68d93d6820d0cf1a4cf78f8fac926509f00179d"
+      }
+    }
+  ]
+}

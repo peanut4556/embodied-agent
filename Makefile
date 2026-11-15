@@ -1249,3 +1249,10 @@ CHECKPOINT_COVERAGE_OUTPUT ?= outputs/evaluations/checkpoint-coverage-new
 .PHONY: checkpoint-coverage-check
 checkpoint-coverage-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_checkpoint_coverage.py --output "$(CHECKPOINT_COVERAGE_OUTPUT)"
+
+VERIFIED_PUBLICATION_OUTPUT ?= outputs/evaluations/verified-publication-new
+.PHONY: verified-publication-check verified-publication-test
+verified-publication-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_verified_publication.py --output "$(VERIFIED_PUBLICATION_OUTPUT)"
+verified-publication-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_verified_publication.py' -v

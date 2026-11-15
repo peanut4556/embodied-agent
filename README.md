@@ -416,6 +416,8 @@ embodied-agent/
 
 最新扩展：[持久化检查点覆盖诊断](docs/checkpoint-coverage.md)，有效但未覆盖的数据返回独立退出码 6；完整验证发现覆盖缺口、显式发布和旧副本回退阻断流程。
 
+最新扩展：[严格检查点发布准入](docs/verified-publication.md)，同一源库快照内先核对完整证据再生成检查点，异常或超过检查上限时保留旧基线；新增显式严格发布接口。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

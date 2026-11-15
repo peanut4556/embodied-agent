@@ -89,19 +89,62 @@ def _read(path, operation):
         }
 
 
-def checkpoint_evidence(path, *, previous=None):
+def _publication_gate(connection, max_records):
+    # Count first to bound the number of payloads parsed, not SQL execution time.
+    sizes = [
+        connection.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
+        for table in ("evidence_intents_v1", "recent_evidence_v1")
+    ]
+    base = {"robot_action_authorized": False}
+    if max(sizes) > max_records:
+        return base | {"status": "validation_incomplete", "row_counts": sizes}
+    cursor = 0
+    while True:
+        page = _discover_connection(connection, cursor, 100)
+        for entry in page["entries"]:
+            if entry["reconciliation"]["status"] != "recorded":
+                return base | {
+                    "status": "evidence_rejected",
+                    "receipt_id": entry["receipt_id"],
+                    "reason": entry["reconciliation"]["status"],
+                }
+        if not page["entries"]:
+            break
+        cursor = page["next_after"]
+    orphan = connection.execute(
+        "SELECT r.receipt_id FROM recent_evidence_v1 r WHERE NOT EXISTS "
+        "(SELECT 1 FROM evidence_intents_v1 i WHERE i.receipt_id=r.receipt_id) LIMIT 1"
+    ).fetchone()
+    if orphan:
+        return base | {
+            "status": "evidence_rejected",
+            "receipt_id": orphan[0],
+            "reason": "unindexed",
+        }
+    return None
+
+
+def checkpoint_evidence(path, *, previous=None, require_complete=False, max_records=10000):
     """Return a snapshot anchor to retain outside the database's restore domain.
 
     This records what exists now, not proof that the baseline is complete or
     trustworthy. Pass the retained previous anchor when advancing it; validation
     and capture then use the same snapshot. Omitting previous is initial trust.
     """
+    if type(require_complete) is not bool:
+        raise ValueError("require_complete must be boolean")
+    if type(max_records) is not int or not 1 <= max_records <= 100000:
+        raise ValueError("max_records must be 1..100000")
     if previous is not None:
         _validate(previous)
 
     def capture(connection):
         if previous is not None:
             failure = _verify(connection, previous)
+            if failure is not None:
+                return failure
+        if require_complete:
+            failure = _publication_gate(connection, max_records)
             if failure is not None:
                 return failure
         return {

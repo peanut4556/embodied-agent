@@ -88,7 +88,17 @@ class CheckpointStore:
             raise ValueError("positive generation below SQLite maximum required")
         return self._publish(database, expected=expected_generation)
 
-    def _publish(self, database, expected):
+    def advance_verified(self, database, *, expected_generation, max_records=10000):
+        """Publish only fully indexed, valid, committed evidence in the source snapshot."""
+        if type(expected_generation) is not int or not 1 <= expected_generation < 2**63 - 1:
+            raise ValueError("positive generation below SQLite maximum required")
+        if type(max_records) is not int or not 1 <= max_records <= 100000:
+            raise ValueError("max_records must be 1..100000")
+        return self._publish(
+            database, expected_generation, require_complete=True, max_records=max_records
+        )
+
+    def _publish(self, database, expected, *, require_complete=False, max_records=10000):
         _separate(self.path, database)
         base = {"robot_action_authorized": False}
         try:
@@ -113,7 +123,12 @@ class CheckpointStore:
                             "status": "generation_conflict",
                             "generation": current["generation"],
                         }
-                    captured = checkpoint_evidence(database, previous=current["checkpoint"])
+                    captured = checkpoint_evidence(
+                        database,
+                        previous=current["checkpoint"],
+                        require_complete=require_complete,
+                        max_records=max_records,
+                    )
                     generation = expected + 1
                 if captured["status"] != "checkpointed":
                     return base | {"status": "source_rejected", "source": captured}
