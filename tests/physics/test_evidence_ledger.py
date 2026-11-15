@@ -1,4 +1,6 @@
 import copy
+import hashlib
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -92,6 +94,52 @@ class LedgerTests(unittest.TestCase):
         self.assertEqual(
             reconcile_evidence(self.path, self.receipt["receipt_id"])["status"], "not_found"
         )
+
+    def test_digest_consistent_invalid_payload_is_rejected(self):
+        self.ledger.record(self.receipt)
+        for changed in (
+            [],
+            self.receipt | {"evidence": []},
+            self.receipt | {"robot_action_authorized": True},
+            self.receipt | {"receipt_id": "f" * 32},
+            self.receipt | {"session_id": "other"},
+            self.receipt | {"expires_host_time": self.now},
+        ):
+            with self.subTest(changed=changed):
+                payload = json.dumps(changed, sort_keys=True, separators=(",", ":"))
+                self.ledger._connection.execute(
+                    "UPDATE recent_evidence_v1 SET payload_json=?, payload_sha256=?",
+                    (payload, hashlib.sha256(payload.encode()).hexdigest()),
+                )
+                self.ledger._connection.commit()
+                self.assertEqual(
+                    reconcile_evidence(self.path, self.receipt["receipt_id"])["status"],
+                    "invalid_record",
+                )
+
+    def test_acceptance_time_must_be_inside_original_lifetime(self):
+        self.ledger.record(self.receipt)
+        for accepted in (self.now - 100, self.receipt["expires_host_time"], float("inf"), "bad"):
+            self.ledger._connection.execute(
+                "UPDATE recent_evidence_v1 SET accepted_host_time=?", (accepted,)
+            )
+            self.ledger._connection.commit()
+            self.assertEqual(
+                reconcile_evidence(self.path, self.receipt["receipt_id"])["status"],
+                "invalid_record",
+            )
+
+    def test_invalid_stored_record_cannot_receive_duplicate_ack(self):
+        self.ledger.record(self.receipt)
+        self.ledger._connection.execute("UPDATE recent_evidence_v1 SET session_id='wrong'")
+        self.ledger._connection.commit()
+        with self.assertRaises(ValueError):
+            self.ledger.record(self.receipt)
+
+    def test_wrong_input_shapes_raise_value_error(self):
+        for receipt in ([], None, self.receipt | {"evidence": None}):
+            with self.assertRaises(ValueError):
+                self.ledger.record(receipt)
 
 
 if __name__ == "__main__":

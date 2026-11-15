@@ -25,8 +25,24 @@ def _lookup(connection, receipt_id):
     if row is None:
         return base | {"status": "not_found"}
     session, digest, accepted, payload = row
-    if hashlib.sha256(payload.encode()).hexdigest() != digest:
+    if not isinstance(payload, str) or hashlib.sha256(payload.encode()).hexdigest() != digest:
         return base | {"status": "integrity_error"}
+    try:
+        receipt = json.loads(payload)
+        identity, body_session, times, canonical, _ = _receipt_payload(receipt)
+        if canonical != payload:
+            raise ValueError("noncanonical receipt")
+        if identity != receipt_id or body_session != session:
+            raise ValueError("receipt metadata mismatch")
+        if (
+            isinstance(accepted, bool)
+            or not isinstance(accepted, (int, float))
+            or not math.isfinite(accepted)
+            or not times[1] <= accepted < times[2]
+        ):
+            raise ValueError("acceptance outside original receipt lifetime")
+    except (ValueError, TypeError, AttributeError, OverflowError, RecursionError):
+        return base | {"status": "invalid_record"}
     return base | {
         "status": "recorded",
         "session_id": session,
@@ -60,6 +76,8 @@ def reconcile_evidence(path, receipt_id):
 
 
 def _receipt_payload(receipt):
+    if not isinstance(receipt, dict) or not isinstance(receipt.get("evidence"), dict):
+        raise ValueError("receipt and evidence objects required")  # noqa: TRY004 - receipt validation contract
     identity = _identity(receipt.get("receipt_id"))
     session = receipt.get("session_id")
     if (

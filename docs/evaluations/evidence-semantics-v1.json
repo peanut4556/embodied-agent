@@ -1,0 +1,100 @@
+{
+  "sources": {
+    "scripts/check_evidence_semantics.py": "bb064c29c02dc250af1d0fed86ac3e75d836a1539c4e4b932e8ca54f899e832b",
+    "scripts/check_evidence_checkpoint.py": "889368ba58f9c0616785fef1dcd8d574dac80f4616c489b4c3d3f3678f00f117",
+    "src/embodied_agent/evidence_ledger.py": "2a593855d42357c3b2fd2b1ca749e0d4a4296fe867877d9cec9d289a602ba1cd",
+    "src/embodied_agent/evidence_audit.py": "adc4833df5c637d5f159d5e049d9242612b6fc9978e6b49376dc307a52f9d7cf",
+    "src/embodied_agent/checkpoint_store.py": "732d4d7bdcc0620d731d1a4ba30e4181c30ebb8d15bba7fe535554025368d469",
+    "src/embodied_agent/evidence_checkpoint.py": "ca0fd3b8c4bb561e4efbfa0d74ccaa660054537277c41b3129025f82a46b4e98",
+    "src/embodied_agent/indexed_evidence_ledger.py": "37ebe18a182be72bee97db64e6dc0af3433109224f32f1673e61bbc91fef9913"
+  },
+  "cases": [
+    {
+      "mode": "expired_acceptance",
+      "digest_and_index_binding_match": true,
+      "exitcode": 5,
+      "result": {
+        "status": "blocked",
+        "examined": 2,
+        "counts": {
+          "recorded": 1,
+          "invalid_record": 1
+        },
+        "scan_complete": true,
+        "index_scan_complete": true,
+        "record_scan_complete": true,
+        "records_examined": 2,
+        "record_counts": {
+          "indexed": 2
+        },
+        "checkpoint_generation": 1,
+        "checkpoint_history_verified": true,
+        "checkpoint_record_count": 1,
+        "robot_action_authorized": false,
+        "guidance": "\u6062\u590d\u6838\u9a8c\u5931\u8d25\uff1b\u4fdd\u7559\u6570\u636e\u5e93\u548c\u68c0\u67e5\u70b9\uff0c\u4e0d\u81ea\u52a8\u91cd\u65b0\u767b\u8bb0\u3002"
+      },
+      "input_hashes": {
+        "outputs/evaluations/evidence-semantics-v1/expired_acceptance/evidence.sqlite": "f84174533c84b3d64a57fe10577cd20767aa144211ad99fbe710957c6a179a9c",
+        "outputs/evaluations/evidence-semantics-v1/expired_acceptance/store.sqlite": "5c272d25e186aead879851f14c12edc9f42209cf72e07f66a1b24612384f94db"
+      }
+    },
+    {
+      "mode": "body_session",
+      "digest_and_index_binding_match": true,
+      "exitcode": 5,
+      "result": {
+        "status": "blocked",
+        "examined": 2,
+        "counts": {
+          "recorded": 1,
+          "invalid_record": 1
+        },
+        "scan_complete": true,
+        "index_scan_complete": true,
+        "record_scan_complete": true,
+        "records_examined": 2,
+        "record_counts": {
+          "indexed": 2
+        },
+        "checkpoint_generation": 1,
+        "checkpoint_history_verified": true,
+        "checkpoint_record_count": 1,
+        "robot_action_authorized": false,
+        "guidance": "\u6062\u590d\u6838\u9a8c\u5931\u8d25\uff1b\u4fdd\u7559\u6570\u636e\u5e93\u548c\u68c0\u67e5\u70b9\uff0c\u4e0d\u81ea\u52a8\u91cd\u65b0\u767b\u8bb0\u3002"
+      },
+      "input_hashes": {
+        "outputs/evaluations/evidence-semantics-v1/body_session/evidence.sqlite": "c8615c1485940f93baf3ab669071de35941dde5416881502a0fd45b0b44a7e1a",
+        "outputs/evaluations/evidence-semantics-v1/body_session/store.sqlite": "ce85d996cadee274ddf72a1ad41c1fa8d7f7c20567a1160267f7358e21bbc77f"
+      }
+    },
+    {
+      "mode": "body_authorization",
+      "digest_and_index_binding_match": true,
+      "exitcode": 5,
+      "result": {
+        "status": "blocked",
+        "examined": 2,
+        "counts": {
+          "recorded": 1,
+          "invalid_record": 1
+        },
+        "scan_complete": true,
+        "index_scan_complete": true,
+        "record_scan_complete": true,
+        "records_examined": 2,
+        "record_counts": {
+          "indexed": 2
+        },
+        "checkpoint_generation": 1,
+        "checkpoint_history_verified": true,
+        "checkpoint_record_count": 1,
+        "robot_action_authorized": false,
+        "guidance": "\u6062\u590d\u6838\u9a8c\u5931\u8d25\uff1b\u4fdd\u7559\u6570\u636e\u5e93\u548c\u68c0\u67e5\u70b9\uff0c\u4e0d\u81ea\u52a8\u91cd\u65b0\u767b\u8bb0\u3002"
+      },
+      "input_hashes": {
+        "outputs/evaluations/evidence-semantics-v1/body_authorization/evidence.sqlite": "d721fdece12e3487b148d9be571fb68e59c934b4222fb1384385f2b820cc3b06",
+        "outputs/evaluations/evidence-semantics-v1/body_authorization/store.sqlite": "b71cb14113d5786375267a6a98f5eca7501d4e3daefc5747d15e48f825464710"
+      }
+    }
+  ]
+}

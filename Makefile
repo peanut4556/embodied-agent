@@ -1239,3 +1239,8 @@ BIDIRECTIONAL_AUDIT_OUTPUT ?= outputs/evaluations/bidirectional-audit-new
 .PHONY: bidirectional-audit-check
 bidirectional-audit-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_bidirectional_audit.py --output "$(BIDIRECTIONAL_AUDIT_OUTPUT)"
+
+EVIDENCE_SEMANTICS_OUTPUT ?= outputs/evaluations/evidence-semantics-new
+.PHONY: evidence-semantics-check
+evidence-semantics-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_evidence_semantics.py --output "$(EVIDENCE_SEMANTICS_OUTPUT)"

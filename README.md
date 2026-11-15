@@ -412,6 +412,8 @@ embodied-agent/
 
 最新修复：[双向证据一致性审计](docs/bidirectional-audit.md)，新增反向检查，拒绝旧单向扫描会漏掉的无索引证据；反向未扫描完也不能返回通过。
 
+最新修复：[证据记录合同校验](docs/evidence-semantics.md)，在摘要与双向索引一致之外复核正文身份、状态和原始接收期限；三类摘要一致的异常均被诊断阻断。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
