@@ -21,11 +21,21 @@ class CaptureRecovery:
     is invoked. This only proves process isolation, not device recovery readiness.
     """
 
-    def __init__(self, *, position_error_m, max_generations=3, capture_profile="immediate"):
+    def __init__(
+        self,
+        *,
+        position_error_m,
+        max_generations=3,
+        capture_profile="immediate",
+        owner_watchdog=False,
+    ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
         if capture_profile not in ("immediate", "reserved"):
             raise ValueError("capture profile must be immediate or reserved")
+        if type(owner_watchdog) is not bool:
+            raise ValueError("owner_watchdog must be boolean")
+        self.owner_watchdog = owner_watchdog
         self.capture_profile = capture_profile
         self._handoff = None
         self.budget = tuple(position_error_m)
@@ -87,7 +97,8 @@ class CaptureRecovery:
         self.state = "starting"
         try:
             self.backend = ProcessPairCapture(
-                ScheduledReaderFactory(factory) if self.capture_profile == "reserved" else factory
+                ScheduledReaderFactory(factory) if self.capture_profile == "reserved" else factory,
+                **({"owner_watchdog": True} if self.owner_watchdog else {}),
             )
         except Exception:
             # Constructor failure may hide partially-created OS resources. Never

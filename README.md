@@ -430,6 +430,8 @@ embodied-agent/
 
 最新联调：[采集调用方退出后的无编号恢复](docs/capture-owner-exit.md)，真实采集确认后强制退出调用方，恢复程序仅凭路径发现索引；提交前后各两次验证未落账拒绝和已落账提案生成。
 
+最新扩展：[调用方死亡监测](docs/owner-watchdog.md)，可选独立存活连接让阻塞采集工作进程在调用方突然退出后自行终止；4 次真实进程实验通过，仍不保证原生 GIL 死锁或硬件清理。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

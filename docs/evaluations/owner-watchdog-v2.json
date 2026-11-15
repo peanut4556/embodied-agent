@@ -1,0 +1,57 @@
+{
+  "sources": {
+    "scripts/check_owner_watchdog.py": "75b510d44e3db139f7a7b1391f8f05b2b8c805e7f079d9fbde90155713aead66",
+    "src/embodied_agent/process_pair_capture.py": "6d06d47430c8cbb364c11edbd009e2d8d1790b67264c6cc7a022815f1f36d32f"
+  },
+  "cases": [
+    {
+      "stage": "reader",
+      "owner_exitcode": 93,
+      "pids": [
+        90030,
+        90031
+      ],
+      "observed_states": {},
+      "workers_exited": true,
+      "observation_elapsed_s": 0.0035490829905029386,
+      "passed": true
+    },
+    {
+      "stage": "factory",
+      "owner_exitcode": 93,
+      "pids": [
+        90035,
+        90036
+      ],
+      "observed_states": {},
+      "workers_exited": true,
+      "observation_elapsed_s": 0.004735124995931983,
+      "passed": true
+    },
+    {
+      "stage": "reader",
+      "owner_exitcode": 93,
+      "pids": [
+        90040,
+        90041
+      ],
+      "observed_states": {},
+      "workers_exited": true,
+      "observation_elapsed_s": 0.002975791983772069,
+      "passed": true
+    },
+    {
+      "stage": "factory",
+      "owner_exitcode": 93,
+      "pids": [
+        90045,
+        90046
+      ],
+      "observed_states": {},
+      "workers_exited": true,
+      "observation_elapsed_s": 0.00285779099795036,
+      "passed": true
+    }
+  ],
+  "passed": 4
+}

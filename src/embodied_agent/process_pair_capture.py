@@ -3,13 +3,26 @@
 import copy
 import math
 import multiprocessing
+import os
+import threading
 import time
 
 from .observation_capture import StampedPosition
 from .threaded_pair_capture import CapturedPair
 
 
-def _serve(connection, factory, trace_timing=False):
+def _watch_owner(lifeline):
+    try:
+        # No heartbeat traffic: EOF comes from closure of the sole writer.
+        lifeline.recv_bytes()
+    except (EOFError, OSError):
+        pass
+    os._exit(86)
+
+
+def _serve(connection, factory, trace_timing=False, lifeline=None):
+    if lifeline is not None:
+        threading.Thread(target=_watch_owner, args=(lifeline,), daemon=True).start()
     try:
         reader = factory()
         connection.send(("ready", None))
@@ -74,22 +87,29 @@ class ProcessPairCapture:
     reap may escalate to kill and never equates process exit with hardware cleanup.
     """
 
-    def __init__(self, factory, *, capacity=2, trace_timing=False):
+    def __init__(self, factory, *, capacity=2, trace_timing=False, owner_watchdog=False):
         if not callable(factory) or type(capacity) is not int or not 1 <= capacity <= 2:
             raise ValueError("callable factory and capacity of one or two required")
         self.closed, self.seen, self.slots = False, set(), []
         if type(trace_timing) is not bool:
             raise ValueError("trace_timing must be boolean")
+        if type(owner_watchdog) is not bool:
+            raise ValueError("owner_watchdog must be boolean")
+        self.owner_watchdog = owner_watchdog
         self.trace_timing, self.timings = trace_timing, {}
         ctx = multiprocessing.get_context("spawn")
         try:
             for _ in range(capacity):
                 parent, child = ctx.Pipe()
+                life_reader, life_writer = (
+                    ctx.Pipe(duplex=False) if owner_watchdog else (None, None)
+                )
                 process = ctx.Process(
-                    target=_serve, args=(child, factory, trace_timing), daemon=True
+                    target=_serve, args=(child, factory, trace_timing, life_reader), daemon=True
                 )
                 slot = {
                     "process": process,
+                    "lifeline": life_writer,
                     "connection": parent,
                     "ready": False,
                     "request": None,
@@ -103,6 +123,8 @@ class ProcessPairCapture:
                     slot["pid"] = process.pid
                 finally:
                     child.close()
+                    if life_reader is not None:
+                        life_reader.close()
         except Exception:
             self.cancel()
             self.reap(0.25)
@@ -187,6 +209,8 @@ class ProcessPairCapture:
         self.closed = True
         for slot in self.slots:
             slot["connection"].close()
+            if slot["lifeline"] is not None:
+                slot["lifeline"].close()
             if slot["pid"] is not None and slot["process"].is_alive():
                 slot["process"].terminate()
 
@@ -227,6 +251,7 @@ class ProcessPairCapture:
         ]
         return {
             "backend": "spawned_process",
+            "owner_watchdog_enabled": self.owner_watchdog,
             "closed": self.closed,
             "ready": not self.closed and all(s["ready"] for s in self.slots),
             "submitted": len(self.seen),

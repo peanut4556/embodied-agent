@@ -1284,3 +1284,10 @@ CAPTURE_OWNER_EXIT_OUTPUT ?= outputs/evaluations/capture-owner-exit-new
 .PHONY: capture-owner-exit-check
 capture-owner-exit-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_owner_exit.py --output "$(CAPTURE_OWNER_EXIT_OUTPUT)"
+
+OWNER_WATCHDOG_OUTPUT ?= outputs/evaluations/owner-watchdog-new
+.PHONY: owner-watchdog-check owner-watchdog-test
+owner-watchdog-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_owner_watchdog.py --output "$(OWNER_WATCHDOG_OUTPUT)"
+owner-watchdog-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_owner_watchdog.py' -v
