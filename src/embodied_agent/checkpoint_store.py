@@ -167,6 +167,23 @@ class CheckpointStore:
                     "checkpoint_json=excluded.checkpoint_json, sha256=excluded.sha256",
                     (generation, payload, digest),
                 )
+                if expected_candidate is not None:
+                    proposal = {"generation": expected, "checkpoint": expected_candidate}
+                    proposal_json, proposal_id = _proposal_identity(proposal)
+                    self._connection.execute(
+                        "CREATE TABLE IF NOT EXISTS checkpoint_publications_v1 ("
+                        "proposal_id TEXT PRIMARY KEY, proposal_json TEXT NOT NULL, "
+                        "generation INTEGER NOT NULL, checksum TEXT NOT NULL)"
+                    )
+                    self._connection.execute(
+                        "INSERT INTO checkpoint_publications_v1 VALUES (?, ?, ?, ?)",
+                        (
+                            proposal_id,
+                            proposal_json,
+                            generation,
+                            _checksum(generation, proposal_json),
+                        ),
+                    )
             return base | {"status": "published", "generation": generation}
         except sqlite3.Error as exc:
             # Commit errors can have uncertain outcomes. Reopen/read to reconcile;
@@ -257,3 +274,58 @@ def preview_publication(database, store, *, max_records=10000):
         }
 
     return _read_store(store, preview)
+
+
+def _proposal_identity(proposal):
+    payload = json.dumps(proposal, sort_keys=True, separators=(",", ":"), allow_nan=False)
+    return payload, hashlib.sha256(payload.encode()).hexdigest()
+
+
+def reconcile_publication(store, proposal):
+    """Read a historical publication receipt; never replays or authorizes actions.
+
+    Identity is the canonical proposal content, not an operator or network request.
+    Missing history is not proof that this proposal never committed elsewhere or
+    before publication receipts were supported.
+    """
+    _validate_proposal(proposal)
+    payload, identity = _proposal_identity(proposal)
+
+    def reconcile(connection):
+        base = {"proposal_id": identity, "robot_action_authorized": False}
+        head = _load(connection)
+        if head["status"] != "loaded":
+            return head | base
+        table = connection.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name='checkpoint_publications_v1'"
+        ).fetchone()
+        row = (
+            None
+            if table is None
+            else connection.execute(
+                "SELECT proposal_json, generation, checksum FROM checkpoint_publications_v1 "
+                "WHERE proposal_id=?",
+                (identity,),
+            ).fetchone()
+        )
+        if row is None:
+            return base | {"status": "no_publication_record"}
+        stored, generation, checksum = row
+        if (
+            stored != payload
+            or generation != proposal["generation"] + 1
+            or checksum != _checksum(generation, stored)
+        ):
+            return base | {"status": "integrity_error"}
+        if head["generation"] < generation or (
+            head["generation"] == generation and head["checkpoint"] != proposal["checkpoint"]
+        ):
+            return base | {"status": "history_mismatch"}
+        return base | {
+            "status": "publication_recorded",
+            "generation": generation,
+            "current_generation": head["generation"],
+            "historical_only": True,
+        }
+
+    return _read_store(store, reconcile)

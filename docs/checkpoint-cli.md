@@ -39,3 +39,5 @@ PYTHONPATH=src:. .venv/bin/python -m embodied_agent.checkpoint_cli publish \
 另保存了一组实际三进程运行：预览返回 0，使用落盘提案发布返回 0，再次提交返回 6。[运行记录](evaluations/checkpoint-cli-v1.json)包含 JSON 输出、源文件及最终源库、仓库、提案文件哈希。69 项证据链、12 项仓库、11 项发布 API 与 6 项命令测试通过，共 98 项相关测试；Ruff 检查通过。
 
 这一步推进的是可操作的跨进程工作流，不是新的分布式协议。实验输入仍为合成审计证据，使用虚拟证据时钟；没有真实相机、机器人、远端审批服务或断电可靠性结论。
+
+后续新增 [reconcile 子命令](publication-receipt.md)：按原提案查询历史发布，记录存在返回 0，无记录返回 8；不重放且不检查当前源库。

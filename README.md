@@ -422,6 +422,8 @@ embodied-agent/
 
 最新扩展：[跨进程检查点提案命令](docs/checkpoint-cli.md)，预览输出可保存的 JSON，发布显式读取原提案；不同退出码区分成功、过期提案、请求失败与发布结果未确认。
 
+最新扩展：[提案发布事务对账](docs/publication-receipt.md)，发布记录与检查点同事务提交，成功回执丢失后可按原提案只读查询历史结果，无需重放。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

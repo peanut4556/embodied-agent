@@ -10,6 +10,7 @@ from embodied_agent.checkpoint_store import (
     _separate,
     _validate_proposal,
     preview_publication,
+    reconcile_publication,
 )
 
 
@@ -39,14 +40,14 @@ def _read_proposal(path):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("operation", choices=("preview", "publish"))
+    parser.add_argument("operation", choices=("preview", "publish", "reconcile"))
     parser.add_argument("--database", required=True)
     parser.add_argument("--store", required=True)
     parser.add_argument("--proposal", help="saved preview JSON; required for publish")
     parser.add_argument("--max-records", type=int, default=10000)
     args = parser.parse_args(argv)
-    if (args.operation == "publish") != (args.proposal is not None):
-        parser.error("--proposal is required only for publish")
+    if (args.operation != "preview") != (args.proposal is not None):
+        parser.error("--proposal is required for publish and reconcile")
     try:
         # Validate all caller inputs before opening a writable store connection.
         _separate(args.store, args.database)
@@ -56,10 +57,13 @@ def main(argv=None):
             result = preview_publication(args.database, args.store, max_records=args.max_records)
         else:
             proposal = _read_proposal(args.proposal)
-            with CheckpointStore(args.store) as store:
-                result = store.publish_reviewed(
-                    args.database, proposal, max_records=args.max_records
-                )
+            if args.operation == "reconcile":
+                result = reconcile_publication(args.store, proposal)
+            else:
+                with CheckpointStore(args.store) as store:
+                    result = store.publish_reviewed(
+                        args.database, proposal, max_records=args.max_records
+                    )
     except (ValueError, OSError, sqlite3.Error, RecursionError) as exc:
         result = {
             "status": "request_failed",
@@ -68,8 +72,10 @@ def main(argv=None):
         }
     print(json.dumps(result, ensure_ascii=False, indent=2))
     status = result["status"]
-    if status in ("proposed", "published"):
+    if status in ("proposed", "published", "publication_recorded"):
         return 0
+    if status == "no_publication_record":
+        return 8
     if status == "publication_unconfirmed":
         return 7
     if (

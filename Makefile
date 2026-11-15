@@ -1267,3 +1267,10 @@ reviewed-publication-test:
 .PHONY: checkpoint-cli-test
 checkpoint-cli-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_checkpoint_cli.py' -v
+
+PUBLICATION_RECEIPT_OUTPUT ?= outputs/evaluations/publication-receipt-new
+.PHONY: publication-receipt-check publication-receipt-test
+publication-receipt-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_publication_receipt.py --output "$(PUBLICATION_RECEIPT_OUTPUT)"
+publication-receipt-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_publication_receipt.py' -v

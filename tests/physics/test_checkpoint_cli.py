@@ -49,6 +49,9 @@ class CheckpointCLITests(unittest.TestCase):
         code, output = self.invoke("publish", "--proposal", str(proposal))
         self.assertEqual(code, 0)
         self.assertEqual(json.loads(output)["generation"], 2)
+        reconciled_code, reconciled = self.invoke("reconcile", "--proposal", str(proposal))
+        self.assertEqual(reconciled_code, 0)
+        self.assertEqual(json.loads(reconciled)["status"], "publication_recorded")
         self.assertEqual(self.invoke("publish", "--proposal", str(proposal))[0], 6)
 
     def test_source_growth_rejects_saved_proposal(self):
