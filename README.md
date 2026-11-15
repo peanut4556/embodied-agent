@@ -426,6 +426,8 @@ embodied-agent/
 
 最新联调：[真实进程采集到检查点发布](docs/capture-publication.md)，两次立即路径完成采集、落账、跨进程发布与对账，两次延迟路径按过期拒绝；读取器仍为合成数据。
 
+最新联调：[消费者结果未知的完整链路对账](docs/capture-consumer-faults.md)，落账后回调报错与消费前过期各两次均按持久化结果分流且不重放；整轮 7/8，保留一次采集时序拒绝。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

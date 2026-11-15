@@ -12,6 +12,7 @@ from embodied_agent.capture_recovery import CaptureRecovery
 from embodied_agent.checkpoint_store import CheckpointStore
 from embodied_agent.evidence_checkpoint import CheckpointedEvidenceLedger
 from embodied_agent.evidence_inbox import EvidenceInbox
+from embodied_agent.evidence_ledger import reconcile_evidence
 from scripts.check_evidence_checkpoint import digest
 from scripts.check_process_pair_capture import fast_factory
 from scripts.check_recovery_handoff import drive
@@ -36,13 +37,20 @@ def run(directory, mode):
     manager = CaptureRecovery(position_error_m=(0.001,) * 3, capture_profile="reserved")
     inbox = EvidenceInbox()
     accepted = []
+    consumer_calls = 0
     commands = {}
     with CheckpointedEvidenceLedger(database) as ledger:
         with CheckpointStore(store_path, create=True) as store:
             assert store.enroll(database)["status"] == "published"
 
         def consume(receipt):
+            nonlocal consumer_calls
+            consumer_calls += 1
+            if mode == "slow_consumer":
+                time.sleep(0.03)
             result = ledger.record(receipt)
+            if mode == "lost_ack":
+                raise RuntimeError("injected callback failure after committed evidence")
             accepted.append(
                 result
                 | {
@@ -68,7 +76,14 @@ def run(directory, mode):
             inbox.close()
             closed = manager.close()
         snapshot = manager.result()
-    if accepted:
+    reconciled = (
+        reconcile_evidence(database, offered["receipt_id"])
+        if "receipt_id" in offered
+        else {"status": "not_attempted"}
+    )
+    # Decide from persisted evidence, never from callback success alone. This
+    # resumes historical audit publication, not the failed consumer or an action.
+    if reconciled["status"] == "recorded":
         args = ["--database", str(database), "--store", str(store_path)]
         commands["before"] = command("embodied_agent.evidence_audit", args)
         commands["preview"] = command("embodied_agent.checkpoint_cli", ["preview", *args])
@@ -83,17 +98,41 @@ def run(directory, mode):
         )
     history = snapshot["history"]
     confirmation = history[-1]["result"]["confirmation"] if history else {}
+    published = {k: v["exitcode"] for k, v in commands.items()} == {
+        "before": 6,
+        "preview": 0,
+        "publish": 0,
+        "after": 0,
+        "reconcile": 0,
+    }
     if mode == "immediate":
         passed = (
             dispatched["status"] == "delivered"
             and len(accepted) == 1
-            and {k: v["exitcode"] for k, v in commands.items()}
-            == {"before": 6, "preview": 0, "publish": 0, "after": 0, "reconcile": 0}
+            and consumer_calls == 1
+            and published
+        )
+    elif mode == "lost_ack":
+        passed = (
+            dispatched["status"] == "outcome_unknown"
+            and not accepted
+            and consumer_calls == 1
+            and reconciled["status"] == "recorded"
+            and published
+        )
+    elif mode == "slow_consumer":
+        passed = (
+            dispatched["status"] == "outcome_unknown"
+            and not accepted
+            and consumer_calls == 1
+            and reconciled["status"] == "not_found"
+            and not commands
         )
     else:
         passed = (
             offered["status"] == "queued"
             and dispatched.get("reason") == "expired_in_queue"
+            and consumer_calls == 0
             and not accepted
             and not commands
         )
@@ -112,6 +151,8 @@ def run(directory, mode):
         "dispatched": dispatched,
         "repeat": repeated,
         "accepted": accepted,
+        "consumer_calls": consumer_calls,
+        "evidence_reconciliation": reconciled,
         "commands": commands,
         "workers_stopped": closed,
         "files": {str(p): digest(p) for p in (database, store_path)},
@@ -140,7 +181,7 @@ def main():
     cases = [
         run(out / f"{mode}-{repeat}", mode)
         for repeat in range(2)
-        for mode in ("immediate", "delayed")
+        for mode in ("immediate", "delayed", "lost_ack", "slow_consumer")
     ]
     assert sources == capture_sources() | {p: digest(p) for p in paths}
     report = out / "report.json"
