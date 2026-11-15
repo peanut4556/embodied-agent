@@ -1,0 +1,60 @@
+{
+  "sources": {
+    "src/embodied_agent/checkpoint_cli.py": "0e462c1bdde9b3fb80441d4344fc37032c6e638fdd8af6e49902a0249eed4662",
+    "src/embodied_agent/checkpoint_store.py": "f022785bf71aaeb917844f920f81906328fb9e59209bfaafd35f6e6ccfcb3ec5",
+    "src/embodied_agent/evidence_checkpoint.py": "645c4dc5c31b1d9dae72065517847e2a4f0e7958e52318d67e63f84e36da7055",
+    "src/embodied_agent/evidence_ledger.py": "2a593855d42357c3b2fd2b1ca749e0d4a4296fe867877d9cec9d289a602ba1cd",
+    "src/embodied_agent/indexed_evidence_ledger.py": "37ebe18a182be72bee97db64e6dc0af3433109224f32f1673e61bbc91fef9913",
+    "tests/physics/test_checkpoint_cli.py": "c80b945bdb5fada6bb2c532c6b6ff619b2de38abcd6c8d5a79e8c2aaeadb8ec5"
+  },
+  "cases": [
+    {
+      "operation": "preview",
+      "exitcode": 0,
+      "result": {
+        "status": "proposed",
+        "proposal": {
+          "generation": 1,
+          "checkpoint": {
+            "version": 1,
+            "database_id": "1200e3aa7a504ee48497cc5a3d86ecff",
+            "intents": {
+              "high_water": 2,
+              "count": 2,
+              "sha256": "e322846ad9220dcd724d60ce9c41da925c1e5513558113193e6dbe3ec5dfde3d"
+            },
+            "records": {
+              "high_water": 2,
+              "count": 2,
+              "sha256": "db9bdeb3964e138841e055dfe4038ca7ab121936a6406b5e85ef978716ccaf72"
+            }
+          }
+        },
+        "robot_action_authorized": false
+      }
+    },
+    {
+      "operation": "publish",
+      "exitcode": 0,
+      "result": {
+        "robot_action_authorized": false,
+        "status": "published",
+        "generation": 2
+      }
+    },
+    {
+      "operation": "publish",
+      "exitcode": 6,
+      "result": {
+        "robot_action_authorized": false,
+        "status": "generation_conflict",
+        "generation": 2
+      }
+    }
+  ],
+  "files": {
+    "outputs/evaluations/checkpoint-cli-v1/evidence.sqlite": "3098222e7c8696ef40587aee6d77977d8f152a3902175580e84bbf00cef784c9",
+    "outputs/evaluations/checkpoint-cli-v1/store.sqlite": "0f0a18748a76f9abfaef9ca99e453145fbc0dce974b6ce392738149d00426698",
+    "outputs/evaluations/checkpoint-cli-v1/proposal.json": "d53fecc0c1a0d8bfa92d6a4db5528854e984c5788a3c11f74d785976bdda5592"
+  }
+}

@@ -1263,3 +1263,7 @@ reviewed-publication-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_reviewed_publication.py --output "$(REVIEWED_PUBLICATION_OUTPUT)"
 reviewed-publication-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_reviewed_publication.py' -v
+
+.PHONY: checkpoint-cli-test
+checkpoint-cli-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_checkpoint_cli.py' -v

@@ -23,6 +23,7 @@ lerobot = ["lerobot>=0.6,<0.7"]
 [project.scripts]
 embodied-agent = "embodied_agent.cli:main"
 embodied-evidence-audit = "embodied_agent.evidence_audit:main"
+embodied-checkpoint = "embodied_agent.checkpoint_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

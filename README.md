@@ -420,6 +420,8 @@ embodied-agent/
 
 最新扩展：[绑定预览内容的检查点发布](docs/reviewed-publication.md)，审核后即使只是合法追加也会使旧提案失效；只有匹配原提案内容与仓库版本才能发布。
 
+最新扩展：[跨进程检查点提案命令](docs/checkpoint-cli.md)，预览输出可保存的 JSON，发布显式读取原提案；不同退出码区分成功、过期提案、请求失败与发布结果未确认。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
