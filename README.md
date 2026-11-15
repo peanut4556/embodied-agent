@@ -410,6 +410,8 @@ embodied-agent/
 
 最新扩展：[只读恢复诊断命令](docs/evidence-audit.md)，将历史核验与索引对账整合为 JSON 报告和分级退出码，明确区分核验通过、未落账、未扫描完和故障阻断。
 
+最新修复：[双向证据一致性审计](docs/bidirectional-audit.md)，新增反向检查，拒绝旧单向扫描会漏掉的无索引证据；反向未扫描完也不能返回通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

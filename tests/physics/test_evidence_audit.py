@@ -103,6 +103,43 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(code, 5)
         self.assertEqual(result["counts"]["integrity_error"], 1)
 
+    def test_unanchored_index_deletion_is_detected(self):
+        self.append()
+        with sqlite3.connect(self.database) as connection:
+            connection.execute("DELETE FROM evidence_intents_v1 WHERE sequence=2")
+        before = self.database.read_bytes()
+        code, result = self.run_cli()
+        self.assertEqual(code, 5)
+        self.assertTrue(result["checkpoint_history_verified"])
+        self.assertEqual(result["record_counts"]["unindexed"], 1)
+        self.assertEqual(self.database.read_bytes(), before)
+
+    def test_legacy_writer_without_index_is_detected(self):
+        from embodied_agent.evidence_ledger import EvidenceLedger
+
+        with EvidenceLedger(self.database, clock=lambda: 1.002) as ledger:
+            ledger.record(receipt())
+        code, result = self.run_cli()
+        self.assertEqual(code, 5)
+        self.assertEqual(result["record_counts"]["unindexed"], 1)
+
+    def test_reverse_limit_prevents_false_success(self):
+        self.append()
+        with sqlite3.connect(self.database) as connection:
+            connection.execute("DELETE FROM evidence_intents_v1 WHERE sequence=2")
+        code, result = self.run_cli("--max-records", "1")
+        self.assertEqual(code, 4)
+        self.assertTrue(result["index_scan_complete"])
+        self.assertFalse(result["record_scan_complete"])
+
+    def test_reverse_binding_mismatch(self):
+        self.append()
+        with sqlite3.connect(self.database) as connection:
+            connection.execute("UPDATE evidence_intents_v1 SET session_id='wrong' WHERE sequence=2")
+        code, result = self.run_cli()
+        self.assertEqual(code, 5)
+        self.assertEqual(result["record_counts"]["binding_conflict"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -38,9 +38,42 @@ def audit_evidence(database, store, *, max_records=10000):
                     "SELECT 1 FROM evidence_intents_v1 WHERE sequence>? LIMIT 1", (cursor,)
                 ).fetchone()
             )
-            if any(status not in ("recorded", "not_found") for status in counts):
+            # Reverse traversal finds records absent from the index, including
+            # additions beyond the checkpoint. Keep both scans in this snapshot.
+            reverse_counts = Counter()
+            records_examined, record_cursor = 0, None
+            while records_examined < max_records:
+                rows = source.execute(
+                    "SELECT r.rowid, r.session_id, r.payload_sha256, i.receipt_id, "
+                    "i.session_id, i.payload_sha256 FROM recent_evidence_v1 r "
+                    "LEFT JOIN evidence_intents_v1 i ON i.receipt_id=r.receipt_id "
+                    "WHERE (? IS NULL OR r.rowid>?) ORDER BY r.rowid LIMIT ?",
+                    (record_cursor, record_cursor, min(100, max_records - records_examined)),
+                ).fetchall()
+                if not rows:
+                    break
+                for rowid, session, digest, identity, indexed_session, indexed_digest in rows:
+                    if identity is None:
+                        reverse_counts["unindexed"] += 1
+                    elif (session, digest) != (indexed_session, indexed_digest):
+                        reverse_counts["binding_conflict"] += 1
+                    else:
+                        reverse_counts["indexed"] += 1
+                    record_cursor = rowid
+                records_examined += len(rows)
+            records_more = bool(
+                source.execute(
+                    "SELECT 1 FROM recent_evidence_v1 WHERE (? IS NULL OR rowid>?) LIMIT 1",
+                    (record_cursor, record_cursor),
+                ).fetchone()
+            )
+            if (
+                reverse_counts["unindexed"]
+                or reverse_counts["binding_conflict"]
+                or any(status not in ("recorded", "not_found") for status in counts)
+            ):
                 status = "blocked"
-            elif more:
+            elif more or records_more:
                 status = "incomplete"
             elif counts["not_found"]:
                 status = "pending"
@@ -50,7 +83,11 @@ def audit_evidence(database, store, *, max_records=10000):
                 "status": status,
                 "examined": examined,
                 "counts": dict(counts),
-                "scan_complete": not more,
+                "scan_complete": not more and not records_more,
+                "index_scan_complete": not more,
+                "record_scan_complete": not records_more,
+                "records_examined": records_examined,
+                "record_counts": dict(reverse_counts),
                 "checkpoint_generation": head["generation"],
                 "checkpoint_history_verified": True,
                 "checkpoint_record_count": head["checkpoint"]["records"]["count"],
@@ -76,7 +113,7 @@ def main(argv=None):
     except (ValueError, OSError) as exc:
         result = {"status": "blocked", "error": str(exc)[:512], "robot_action_authorized": False}
     result["guidance"] = {
-        "verified": "历史基线匹配，已扫描索引均已落账；不表示机器人动作成功或新增记录已受检查点保护。",
+        "verified": "历史基线匹配，双向扫描完成且索引与证据对应；不表示机器人动作成功或新增记录已受检查点保护。",
         "pending": "存在未落账索引；保留原始状态核查，不自动重放。",
         "incomplete": "扫描达到数量上限，不能判断全库；可提高上限重新执行。",
         "blocked": "恢复核验失败；保留数据库和检查点，不自动重新登记。",

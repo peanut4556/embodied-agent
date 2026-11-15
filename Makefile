@@ -1234,3 +1234,8 @@ checkpoint-contention-check:
 .PHONY: evidence-audit-test
 evidence-audit-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_evidence_audit.py' -v
+
+BIDIRECTIONAL_AUDIT_OUTPUT ?= outputs/evaluations/bidirectional-audit-new
+.PHONY: bidirectional-audit-check
+bidirectional-audit-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_bidirectional_audit.py --output "$(BIDIRECTIONAL_AUDIT_OUTPUT)"
