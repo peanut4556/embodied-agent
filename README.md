@@ -406,6 +406,8 @@ embodied-agent/
 
 最新扩展：[可事务更新的独立检查点仓库](docs/checkpoint-store.md)，以版本比较更新和 SQLite 事务保存恢复基线，拒绝过期更新覆盖新版；6 次真实进程退出实验验证提交前后恢复，仍需独立保管仓库。
 
+最新验证：[多进程检查点竞争与锁持有者退出](docs/checkpoint-contention.md)，6 组真实进程实验验证同一版本只有一个发布者成功，以及锁持有者退出后的显式恢复；18 个工作进程全部回收。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

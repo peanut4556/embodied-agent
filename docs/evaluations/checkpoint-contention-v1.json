@@ -1,0 +1,289 @@
+{
+  "sources": {
+    "scripts/check_checkpoint_contention.py": "a4a62109d264590e6fe5c49563a792ef3b75ea6c85014152b8eed81864cd93db",
+    "scripts/check_evidence_checkpoint.py": "889368ba58f9c0616785fef1dcd8d574dac80f4616c489b4c3d3f3678f00f117",
+    "src/embodied_agent/checkpoint_store.py": "732d4d7bdcc0620d731d1a4ba30e4181c30ebb8d15bba7fe535554025368d469",
+    "src/embodied_agent/evidence_checkpoint.py": "ca0fd3b8c4bb561e4efbfa0d74ccaa660054537277c41b3129025f82a46b4e98",
+    "src/embodied_agent/indexed_evidence_ledger.py": "37ebe18a182be72bee97db64e6dc0af3433109224f32f1673e61bbc91fef9913",
+    "src/embodied_agent/evidence_ledger.py": "7084a4cf9227bf76a3243887851b013cd51b3e797f3076c3a717d0c870004714"
+  },
+  "report_path": "outputs/evaluations/checkpoint-contention-v1/report.json",
+  "report_sha256": "e5c6262d9eb3cb28d2925eafb0e0d9e3a3d109a35eebcd6727d198ce54c9dfee",
+  "cases": [
+    {
+      "mode": "race",
+      "events": [
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "published",
+          "generation": 2
+        }
+      ],
+      "stale": {
+        "robot_action_authorized": false,
+        "status": "generation_conflict",
+        "generation": 2
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "4fe3dd831ee342b2854fdd6bd6f78ce8",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "bb46174245d2ca881778d7c686aea330ebd0d78132229a84d9850322db968f2d"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "65d67965870249d881bd8115c6c89714e6d96186c106cb3dc014f459d6131065"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "database_path": "outputs/evaluations/checkpoint-contention-v1/race-0/evidence.sqlite",
+      "database_sha256": "e2723c0de3bc68f132d9d65c49ea7352e67362cecc4f193176eed1a8942eb814",
+      "store_path": "outputs/evaluations/checkpoint-contention-v1/race-0/store.sqlite",
+      "store_sha256": "080cd4127bc06c768f127670e331e1290fdfbad49d44e2945cce56b61469be04"
+    },
+    {
+      "mode": "owner_death",
+      "events": [
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "published",
+          "generation": 2
+        }
+      ],
+      "stale": {
+        "robot_action_authorized": false,
+        "status": "generation_conflict",
+        "generation": 2
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "01c15340c3f34942ab6a896a211069a6",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "76d644e6b1eac1f76b08468b05b7e297cd97032d083f9f7edb955227c055a596"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "79caedf799da2016a455c0e24b8a6f62897aff7ab31eb5ab126233677ba30e5a"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "database_path": "outputs/evaluations/checkpoint-contention-v1/owner_death-0/evidence.sqlite",
+      "database_sha256": "1a8a943b2a265fad3971e1e86d98fda9f34937a77094a9426ce5b2aa03254ea7",
+      "store_path": "outputs/evaluations/checkpoint-contention-v1/owner_death-0/store.sqlite",
+      "store_sha256": "dd79a89f60aa5a405926496e1b1b5efbcfc1a616c6929f64004dc5cc2df5c1c3"
+    },
+    {
+      "mode": "race",
+      "events": [
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "published",
+          "generation": 2
+        }
+      ],
+      "stale": {
+        "robot_action_authorized": false,
+        "status": "generation_conflict",
+        "generation": 2
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "6899d473e9264125a2ddff3359a79e77",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "a1e282126ae3dec9e4c88f1fa3053500b4b3f04977a7155187a1e8ed9770f31f"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "31cd30c309e44e1ab808e1ae2e6fb75d3b776c7d0ab12637a051cb66d1d4bb03"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "database_path": "outputs/evaluations/checkpoint-contention-v1/race-1/evidence.sqlite",
+      "database_sha256": "cb921a24ab228a7663c9c735373a7dca883f44ef782283d416e562318a1f892a",
+      "store_path": "outputs/evaluations/checkpoint-contention-v1/race-1/store.sqlite",
+      "store_sha256": "d3f3309d1ae9997c8cad7bb67d71b76ffebfdd8e138e7108a3a9ade70f06407a"
+    },
+    {
+      "mode": "owner_death",
+      "events": [
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "published",
+          "generation": 2
+        }
+      ],
+      "stale": {
+        "robot_action_authorized": false,
+        "status": "generation_conflict",
+        "generation": 2
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "6bb21e6bd9044390982023d93b036529",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "645df5ae1502914bc6c6881684802ac54ed58232fb2e27056588e290c6c90464"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "be28c571e75d289015e2aab994df4dc09d3b78783c4a8c4a5ab151873e9b95c1"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "database_path": "outputs/evaluations/checkpoint-contention-v1/owner_death-1/evidence.sqlite",
+      "database_sha256": "84418e5d9adb670527186806e7f623e837ee15e163b0ff9329564d850b92f123",
+      "store_path": "outputs/evaluations/checkpoint-contention-v1/owner_death-1/store.sqlite",
+      "store_sha256": "b48ac607f6f4f19d36236e928cb249efae0763692905835870d0cc0d63c20582"
+    },
+    {
+      "mode": "race",
+      "events": [
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "published",
+          "generation": 2
+        }
+      ],
+      "stale": {
+        "robot_action_authorized": false,
+        "status": "generation_conflict",
+        "generation": 2
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "38f35a1669ff4ecba5cae94d9865f54e",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "364ebd9adc5303bc98e03affc0f5c3be9170b99334a65def620f1e6c55bff854"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "e950aa65121982f0dc564fc0b24ebbc6a4b94755c3ae0e37d5f304f3575b4f42"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "database_path": "outputs/evaluations/checkpoint-contention-v1/race-2/evidence.sqlite",
+      "database_sha256": "a71ff0b7225babb9e6959e73a6d711b8e387f2ae24c850ee21bb6c08e75e4388",
+      "store_path": "outputs/evaluations/checkpoint-contention-v1/race-2/store.sqlite",
+      "store_sha256": "4f679173b469162e541187d7804b4f4bf87a4d239816b77c8f52dce071535796"
+    },
+    {
+      "mode": "owner_death",
+      "events": [
+        {
+          "robot_action_authorized": false,
+          "status": "publication_unconfirmed",
+          "error": "database is locked"
+        },
+        {
+          "robot_action_authorized": false,
+          "status": "published",
+          "generation": 2
+        }
+      ],
+      "stale": {
+        "robot_action_authorized": false,
+        "status": "generation_conflict",
+        "generation": 2
+      },
+      "head": {
+        "status": "loaded",
+        "generation": 2,
+        "checkpoint": {
+          "database_id": "a406d4037e2141288a8b8ee31481b94b",
+          "intents": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "6701921c5bcec1919f7d102d34adbd144d84b8e5294d5d0c31aa56f4298d4f09"
+          },
+          "records": {
+            "count": 2,
+            "high_water": 2,
+            "sha256": "166d0cb7a3db3838ae852f34f37025f84f2d635579dcfbcdb35d02e5b14e2f55"
+          },
+          "version": 1
+        },
+        "robot_action_authorized": false
+      },
+      "database_path": "outputs/evaluations/checkpoint-contention-v1/owner_death-2/evidence.sqlite",
+      "database_sha256": "38ae55cc640eec79eb3826247cdeb0ef1ee0e47eddd8f06ceae5dc9db7fa8ade",
+      "store_path": "outputs/evaluations/checkpoint-contention-v1/owner_death-2/store.sqlite",
+      "store_sha256": "1f311777d2971096e2085b5dd943314d95337681ec953787f2937bdd40cd474c"
+    }
+  ],
+  "passed": 6,
+  "workers_reaped": 18
+}

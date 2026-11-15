@@ -1225,3 +1225,8 @@ checkpoint-store-test:
 
 checkpoint-store-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_checkpoint_store.py --output "$(CHECKPOINT_STORE_OUTPUT)"
+
+CHECKPOINT_CONTENTION_OUTPUT ?= outputs/evaluations/checkpoint-contention-new
+.PHONY: checkpoint-contention-check
+checkpoint-contention-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_checkpoint_contention.py --output "$(CHECKPOINT_CONTENTION_OUTPUT)"
