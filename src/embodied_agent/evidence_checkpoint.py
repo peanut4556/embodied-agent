@@ -124,7 +124,9 @@ def _publication_gate(connection, max_records):
     return None
 
 
-def checkpoint_evidence(path, *, previous=None, require_complete=False, max_records=10000):
+def checkpoint_evidence(
+    path, *, previous=None, require_complete=False, max_records=10000, expected_candidate=None
+):
     """Return a snapshot anchor to retain outside the database's restore domain.
 
     This records what exists now, not proof that the baseline is complete or
@@ -135,6 +137,8 @@ def checkpoint_evidence(path, *, previous=None, require_complete=False, max_reco
         raise ValueError("require_complete must be boolean")
     if type(max_records) is not int or not 1 <= max_records <= 100000:
         raise ValueError("max_records must be 1..100000")
+    if expected_candidate is not None:
+        _validate(expected_candidate)
     if previous is not None:
         _validate(previous)
 
@@ -147,7 +151,7 @@ def checkpoint_evidence(path, *, previous=None, require_complete=False, max_reco
             failure = _publication_gate(connection, max_records)
             if failure is not None:
                 return failure
-        return {
+        result = {
             "status": "checkpointed",
             "robot_action_authorized": False,
             "checkpoint": {
@@ -157,6 +161,10 @@ def checkpoint_evidence(path, *, previous=None, require_complete=False, max_reco
                 "records": _prefix(connection, "records"),
             },
         }
+
+        if expected_candidate is not None and result["checkpoint"] != expected_candidate:
+            return {"status": "proposal_changed", "robot_action_authorized": False}
+        return result
 
     return _read(path, capture)
 

@@ -98,7 +98,31 @@ class CheckpointStore:
             database, expected_generation, require_complete=True, max_records=max_records
         )
 
-    def _publish(self, database, expected, *, require_complete=False, max_records=10000):
+    def publish_reviewed(self, database, proposal, *, max_records=10000):
+        """Compare a trusted caller's reviewed candidate in the capture snapshot.
+
+        The proposal is a consistency token, not an authenticated approval.
+        """
+        _validate_proposal(proposal)
+        if type(max_records) is not int or not 1 <= max_records <= 100000:
+            raise ValueError("max_records must be 1..100000")
+        return self._publish(
+            database,
+            proposal["generation"],
+            require_complete=True,
+            max_records=max_records,
+            expected_candidate=proposal["checkpoint"],
+        )
+
+    def _publish(
+        self,
+        database,
+        expected,
+        *,
+        require_complete=False,
+        max_records=10000,
+        expected_candidate=None,
+    ):
         _separate(self.path, database)
         base = {"robot_action_authorized": False}
         try:
@@ -126,6 +150,7 @@ class CheckpointStore:
                     captured = checkpoint_evidence(
                         database,
                         previous=current["checkpoint"],
+                        expected_candidate=expected_candidate,
                         require_complete=require_complete,
                         max_records=max_records,
                     )
@@ -195,3 +220,40 @@ def discover_from_store(database, store, *, after=0, limit=100):
 
     result = _read_store(store, discover)
     return {"entries": []} | result
+
+
+def _validate_proposal(proposal):
+    if not isinstance(proposal, dict) or set(proposal) != {"generation", "checkpoint"}:
+        raise ValueError("proposal generation and checkpoint required")
+    generation = proposal["generation"]
+    if type(generation) is not int or not 1 <= generation < 2**63 - 1:
+        raise ValueError("invalid proposal generation")
+    _validate(proposal["checkpoint"])
+
+
+def preview_publication(database, store, *, max_records=10000):
+    """Read-only strict proposal; source content and store generation are pinned."""
+    _separate(store, database)
+    if type(max_records) is not int or not 1 <= max_records <= 100000:
+        raise ValueError("max_records must be 1..100000")
+
+    def preview(connection):
+        head = _load(connection)
+        if head["status"] != "loaded":
+            return head
+        candidate = checkpoint_evidence(
+            database, previous=head["checkpoint"], require_complete=True, max_records=max_records
+        )
+        if candidate["status"] != "checkpointed":
+            return {
+                "status": "source_rejected",
+                "source": candidate,
+                "robot_action_authorized": False,
+            }
+        return {
+            "status": "proposed",
+            "proposal": {"generation": head["generation"], "checkpoint": candidate["checkpoint"]},
+            "robot_action_authorized": False,
+        }
+
+    return _read_store(store, preview)

@@ -418,6 +418,8 @@ embodied-agent/
 
 最新扩展：[严格检查点发布准入](docs/verified-publication.md)，同一源库快照内先核对完整证据再生成检查点，异常或超过检查上限时保留旧基线；新增显式严格发布接口。
 
+最新扩展：[绑定预览内容的检查点发布](docs/reviewed-publication.md)，审核后即使只是合法追加也会使旧提案失效；只有匹配原提案内容与仓库版本才能发布。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

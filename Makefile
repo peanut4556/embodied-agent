@@ -1256,3 +1256,10 @@ verified-publication-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_verified_publication.py --output "$(VERIFIED_PUBLICATION_OUTPUT)"
 verified-publication-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_verified_publication.py' -v
+
+REVIEWED_PUBLICATION_OUTPUT ?= outputs/evaluations/reviewed-publication-new
+.PHONY: reviewed-publication-check reviewed-publication-test
+reviewed-publication-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_reviewed_publication.py --output "$(REVIEWED_PUBLICATION_OUTPUT)"
+reviewed-publication-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_reviewed_publication.py' -v
