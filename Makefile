@@ -1274,3 +1274,8 @@ publication-receipt-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_publication_receipt.py --output "$(PUBLICATION_RECEIPT_OUTPUT)"
 publication-receipt-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_publication_receipt.py' -v
+
+CAPTURE_PUBLICATION_OUTPUT ?= outputs/evaluations/capture-publication-new
+.PHONY: capture-publication-check
+capture-publication-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_publication.py --output "$(CAPTURE_PUBLICATION_OUTPUT)"

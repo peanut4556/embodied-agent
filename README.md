@@ -424,6 +424,8 @@ embodied-agent/
 
 最新扩展：[提案发布事务对账](docs/publication-receipt.md)，发布记录与检查点同事务提交，成功回执丢失后可按原提案只读查询历史结果，无需重放。
 
+最新联调：[真实进程采集到检查点发布](docs/capture-publication.md)，两次立即路径完成采集、落账、跨进程发布与对账，两次延迟路径按过期拒绝；读取器仍为合成数据。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
