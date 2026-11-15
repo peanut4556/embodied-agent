@@ -1244,3 +1244,8 @@ EVIDENCE_SEMANTICS_OUTPUT ?= outputs/evaluations/evidence-semantics-new
 .PHONY: evidence-semantics-check
 evidence-semantics-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_evidence_semantics.py --output "$(EVIDENCE_SEMANTICS_OUTPUT)"
+
+CHECKPOINT_COVERAGE_OUTPUT ?= outputs/evaluations/checkpoint-coverage-new
+.PHONY: checkpoint-coverage-check
+checkpoint-coverage-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_checkpoint_coverage.py --output "$(CHECKPOINT_COVERAGE_OUTPUT)"

@@ -28,3 +28,5 @@ PYTHONPATH=src:. .venv/bin/python -m embodied_agent.evidence_audit \
 本轮进展是将组件级恢复能力变成可调用的操作入口，并避免不完整扫描被误报为成功；没有新增实机能力或分布式一致性保证。
 
 后续扩展：[双向一致性审计](bidirectional-audit.md)增加证据到索引的反向检查；数量上限分别应用于两个方向，任一方向未完成都不再报告 verified。
+
+最新行为变更：[检查点覆盖诊断](checkpoint-coverage.md)新增 uncheckpointed（退出码 6）。有效但未被持久化检查点覆盖的追加记录不再返回 verified；更新调用方对退出码的处理。

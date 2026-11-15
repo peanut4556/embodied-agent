@@ -414,6 +414,8 @@ embodied-agent/
 
 最新修复：[证据记录合同校验](docs/evidence-semantics.md)，在摘要与双向索引一致之外复核正文身份、状态和原始接收期限；三类摘要一致的异常均被诊断阻断。
 
+最新扩展：[持久化检查点覆盖诊断](docs/checkpoint-coverage.md)，有效但未覆盖的数据返回独立退出码 6；完整验证发现覆盖缺口、显式发布和旧副本回退阻断流程。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

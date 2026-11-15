@@ -57,8 +57,9 @@ class AuditTests(unittest.TestCase):
     def test_tail_is_not_claimed_checkpoint_protected(self):
         self.append()
         code, result = self.run_cli()
-        self.assertEqual(code, 0)
+        self.assertEqual(code, 6)
         self.assertEqual(result["examined"], 2)
+        self.assertEqual(result["uncheckpointed_counts"], {"intents": 1, "records": 1})
         self.assertEqual(result["checkpoint_record_count"], 1)
 
     def test_limit_does_not_report_success(self):
@@ -139,6 +140,35 @@ class AuditTests(unittest.TestCase):
         code, result = self.run_cli()
         self.assertEqual(code, 5)
         self.assertEqual(result["record_counts"]["binding_conflict"], 1)
+
+    def test_explicit_publication_closes_coverage_gap(self):
+        self.append()
+        self.assertEqual(self.run_cli()[0], 6)
+        with CheckpointStore(self.store) as store:
+            self.assertEqual(
+                store.advance(self.database, expected_generation=1)["status"], "published"
+            )
+        code, result = self.run_cli()
+        self.assertEqual(code, 0)
+        self.assertEqual(result["uncheckpointed_counts"], {"intents": 0, "records": 0})
+        self.assertEqual(result["checkpoint_generation"], 2)
+
+    def test_partial_scan_does_not_estimate_coverage(self):
+        self.append()
+        code, result = self.run_cli("--max-records", "1")
+        self.assertEqual(code, 4)
+        self.assertIsNone(result["uncheckpointed_counts"])
+
+    def test_pending_has_priority_over_uncheckpointed(self):
+        ticks = iter([1.002, 1.02])
+        with (
+            CheckpointedEvidenceLedger(self.database, clock=lambda: next(ticks)) as ledger,
+            self.assertRaises(ValueError),
+        ):
+            ledger.record(receipt())
+        code, result = self.run_cli()
+        self.assertEqual(code, 3)
+        self.assertEqual(result["uncheckpointed_counts"], {"intents": 1, "records": 0})
 
 
 if __name__ == "__main__":

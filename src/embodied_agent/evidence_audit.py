@@ -67,6 +67,14 @@ def audit_evidence(database, store, *, max_records=10000):
                     (record_cursor, record_cursor),
                 ).fetchone()
             )
+            # Counts are exact only after both traversals finish. Verified
+            # prefixes cannot lose rows, so any surplus is not anchored yet.
+            uncovered = None
+            if not more and not records_more:
+                uncovered = {
+                    "intents": examined - head["checkpoint"]["intents"]["count"],
+                    "records": records_examined - head["checkpoint"]["records"]["count"],
+                }
             if (
                 reverse_counts["unindexed"]
                 or reverse_counts["binding_conflict"]
@@ -77,10 +85,13 @@ def audit_evidence(database, store, *, max_records=10000):
                 status = "incomplete"
             elif counts["not_found"]:
                 status = "pending"
+            elif any(uncovered.values()):
+                status = "uncheckpointed"
             else:
                 status = "verified"
             return {
                 "status": status,
+                "uncheckpointed_counts": uncovered,
                 "examined": examined,
                 "counts": dict(counts),
                 "scan_complete": not more and not records_more,
@@ -97,7 +108,7 @@ def audit_evidence(database, store, *, max_records=10000):
         return _read(database, audit_source)
 
     result = _read_store(store, audit_store)
-    if result["status"] not in ("verified", "pending", "incomplete", "blocked"):
+    if result["status"] not in ("verified", "pending", "incomplete", "blocked", "uncheckpointed"):
         result = {"status": "blocked", "cause": result, "robot_action_authorized": False}
     return result
 
@@ -113,13 +124,16 @@ def main(argv=None):
     except (ValueError, OSError) as exc:
         result = {"status": "blocked", "error": str(exc)[:512], "robot_action_authorized": False}
     result["guidance"] = {
-        "verified": "历史基线匹配，双向扫描完成且索引与证据对应；不表示机器人动作成功或新增记录已受检查点保护。",
+        "verified": "历史基线匹配，双向扫描完成且当前索引与证据均被检查点覆盖；不表示机器人动作成功。",
+        "uncheckpointed": "记录有效但存在检查点未覆盖的数据；显式核查并推进检查点后重新诊断，不自动发布。",
         "pending": "存在未落账索引；保留原始状态核查，不自动重放。",
         "incomplete": "扫描达到数量上限，不能判断全库；可提高上限重新执行。",
         "blocked": "恢复核验失败；保留数据库和检查点，不自动重新登记。",
     }[result["status"]]
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    return {"verified": 0, "pending": 3, "incomplete": 4, "blocked": 5}[result["status"]]
+    return {"verified": 0, "pending": 3, "incomplete": 4, "blocked": 5, "uncheckpointed": 6}[
+        result["status"]
+    ]
 
 
 if __name__ == "__main__":
