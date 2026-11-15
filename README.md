@@ -408,6 +408,8 @@ embodied-agent/
 
 最新验证：[多进程检查点竞争与锁持有者退出](docs/checkpoint-contention.md)，6 组真实进程实验验证同一版本只有一个发布者成功，以及锁持有者退出后的显式恢复；18 个工作进程全部回收。
 
+最新扩展：[只读恢复诊断命令](docs/evidence-audit.md)，将历史核验与索引对账整合为 JSON 报告和分级退出码，明确区分核验通过、未落账、未扫描完和故障阻断。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

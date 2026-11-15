@@ -1230,3 +1230,7 @@ CHECKPOINT_CONTENTION_OUTPUT ?= outputs/evaluations/checkpoint-contention-new
 .PHONY: checkpoint-contention-check
 checkpoint-contention-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_checkpoint_contention.py --output "$(CHECKPOINT_CONTENTION_OUTPUT)"
+
+.PHONY: evidence-audit-test
+evidence-audit-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_evidence_audit.py' -v

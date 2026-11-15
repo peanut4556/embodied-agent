@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "limit": 10000,
+      "exitcode": 0,
+      "result": {
+        "status": "verified",
+        "examined": 2,
+        "counts": {
+          "recorded": 2
+        },
+        "scan_complete": true,
+        "checkpoint_generation": 2,
+        "checkpoint_history_verified": true,
+        "checkpoint_record_count": 2,
+        "robot_action_authorized": false,
+        "guidance": "\u5386\u53f2\u57fa\u7ebf\u5339\u914d\uff0c\u5df2\u626b\u63cf\u7d22\u5f15\u5747\u5df2\u843d\u8d26\uff1b\u4e0d\u8868\u793a\u673a\u5668\u4eba\u52a8\u4f5c\u6210\u529f\u6216\u65b0\u589e\u8bb0\u5f55\u5df2\u53d7\u68c0\u67e5\u70b9\u4fdd\u62a4\u3002"
+      }
+    },
+    {
+      "limit": 1,
+      "exitcode": 4,
+      "result": {
+        "status": "incomplete",
+        "examined": 1,
+        "counts": {
+          "recorded": 1
+        },
+        "scan_complete": false,
+        "checkpoint_generation": 2,
+        "checkpoint_history_verified": true,
+        "checkpoint_record_count": 2,
+        "robot_action_authorized": false,
+        "guidance": "\u626b\u63cf\u8fbe\u5230\u6570\u91cf\u4e0a\u9650\uff0c\u4e0d\u80fd\u5224\u65ad\u5168\u5e93\uff1b\u53ef\u63d0\u9ad8\u4e0a\u9650\u91cd\u65b0\u6267\u884c\u3002"
+      }
+    }
+  ],
+  "read_only_hashes": {
+    "outputs/evaluations/checkpoint-contention-v1/race-0/evidence.sqlite": "e2723c0de3bc68f132d9d65c49ea7352e67362cecc4f193176eed1a8942eb814",
+    "outputs/evaluations/checkpoint-contention-v1/race-0/store.sqlite": "080cd4127bc06c768f127670e331e1290fdfbad49d44e2945cce56b61469be04"
+  },
+  "sources": {
+    "src/embodied_agent/evidence_audit.py": "e4332717d896458c03164a8725b9adcb3c907258e43d2f3da3687decf2d04cf7",
+    "tests/physics/test_evidence_audit.py": "b292dd82d95b7927ca6527c253aee86442f802cb9695f3cafea0c56828f8621a"
+  }
+}
