@@ -444,6 +444,8 @@ embodied-agent/
 
 最新实验：[恢复后曝光末段自旋](docs/recovery-spin.md)，新增可选等待策略并做 A/B/B/A 对照；默认休眠与 1.5 ms 自旋各 2/2 通过，尚未证明改善，默认关闭。
 
+最新测量：[预约等待 CPU 成本与迟到](docs/wait-cost.md)，新增成功/失败路径逐请求遥测；本轮两种策略均 0/2 完整通过，自旋观测请求的平均等待 CPU 约为休眠 6.7 倍，未证明收益。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

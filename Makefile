@@ -1333,3 +1333,10 @@ recovery-spin-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_spin.py --output "$(RECOVERY_SPIN_OUTPUT)"
 capture-spin-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_spin.py' -v
+
+WAIT_COST_OUTPUT ?= outputs/evaluations/wait-cost-new
+.PHONY: wait-cost-check wait-metrics-test
+wait-cost-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_wait_cost.py --output "$(WAIT_COST_OUTPUT)"
+wait-metrics-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_wait_metrics.py' -v

@@ -32,6 +32,7 @@ class CaptureRecovery:
         supervised=False,
         runtime_limit_s=None,
         spin_window_s=0,
+        trace_timing=False,
     ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
@@ -47,6 +48,9 @@ class CaptureRecovery:
         validate_spin_window(spin_window_s)
         if spin_window_s and capture_profile != "reserved":
             raise ValueError("spin window requires reserved capture")
+        if type(trace_timing) is not bool:
+            raise ValueError("trace_timing must be boolean")
+        self.trace_timing = trace_timing
         self.spin_window_s = spin_window_s
         self.runtime_limit_s = runtime_limit_s
         self.supervised = supervised
@@ -112,9 +116,10 @@ class CaptureRecovery:
         self.state = "starting"
         try:
             self.backend = ProcessPairCapture(
-                ScheduledReaderFactory(factory, self.spin_window_s)
+                ScheduledReaderFactory(factory, self.spin_window_s, self.trace_timing)
                 if self.capture_profile == "reserved"
                 else factory,
+                **({"trace_timing": True} if self.trace_timing else {}),
                 **({"owner_watchdog": True} if self.owner_watchdog else {}),
                 **(
                     {"supervised": True, "runtime_limit_s": self.runtime_limit_s}

@@ -50,10 +50,16 @@ class ScheduledPairReader:
     No retries, timestamp substitution, or task-success promotion are performed.
     """
 
-    def __init__(self, reader, *, clock=time.monotonic, sleep=time.sleep, spin_window_s=0):
+    def __init__(
+        self, reader, *, clock=time.monotonic, sleep=time.sleep, spin_window_s=0, measure_wait=False
+    ):
         if not all(callable(v) for v in (reader, clock, sleep)):
             raise ValueError("reader, clock and sleep must be callable")
         validate_spin_window(spin_window_s)
+        if type(measure_wait) is not bool:
+            raise ValueError("measure_wait must be boolean")
+        self.measure_wait = measure_wait
+        self.last_wait_metrics = None
         self.spin_window_s = spin_window_s
         self.reader, self.clock, self.sleep = reader, clock, sleep
 
@@ -75,12 +81,30 @@ class ScheduledPairReader:
             previous = value
             return value
 
+        self.last_wait_metrics = None
+        cpu_start = time.thread_time() if self.measure_wait else None
         current = now()
+        wait_start = current
+        sleep_calls = spin_iterations = 0
         while current < request.target_host_time:
             remaining = request.target_host_time - current
             if remaining > self.spin_window_s:
                 self.sleep(min(remaining - self.spin_window_s, 0.001))
+                if self.measure_wait:
+                    sleep_calls += 1
+            elif self.measure_wait:
+                spin_iterations += 1
             current = now()
+        if self.measure_wait:
+            self.last_wait_metrics = {
+                "request_id": request.request_id,
+                "wait_elapsed_s": current - wait_start,
+                "wait_cpu_s": time.thread_time() - cpu_start,
+                "sleep_calls": sleep_calls,
+                "spin_iterations": spin_iterations,
+                "target_lateness_s": current - request.target_host_time,
+                "window_missed": current > request.latest_host_time,
+            }
         if current > request.latest_host_time:
             raise ValueError("scheduled_capture_window_missed")
         pair = self.reader(request)
@@ -106,6 +130,9 @@ class ScheduledReaderFactory:
 
     factory: object
     spin_window_s: float = 0
+    measure_wait: bool = False
 
     def __call__(self):
-        return ScheduledPairReader(self.factory(), spin_window_s=self.spin_window_s)
+        return ScheduledPairReader(
+            self.factory(), spin_window_s=self.spin_window_s, measure_wait=self.measure_wait
+        )

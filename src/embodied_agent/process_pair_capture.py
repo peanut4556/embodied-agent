@@ -56,8 +56,12 @@ def _serve(connection, factory, trace_timing=False, lifeline=None):
                         primary_exposure_at=pair.primary.captured_at,
                         secondary_exposure_at=pair.secondary.captured_at,
                     )
+                if timing is not None:
+                    timing["reservation_wait"] = getattr(reader, "last_wait_metrics", None)
                 connection.send(("result", (ready, req.request_id, pair, None, timing)))
             except Exception as exc:  # noqa: BLE001 - isolate reader failures
+                if timing is not None:
+                    timing["reservation_wait"] = getattr(reader, "last_wait_metrics", None)
                 connection.send(
                     (
                         "result",

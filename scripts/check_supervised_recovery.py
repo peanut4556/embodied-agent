@@ -19,7 +19,7 @@ def blocked_factory():
         time.sleep(0.01)
 
 
-def run(spin_window_s=0):
+def run(spin_window_s=0, trace_timing=False):
     manager = CaptureRecovery(
         position_error_m=(0.001,) * 3,
         max_generations=2,
@@ -27,6 +27,7 @@ def run(spin_window_s=0):
         supervised=True,
         runtime_limit_s=4,
         spin_window_s=spin_window_s,
+        trace_timing=trace_timing,
     )
     result = {}
     try:
