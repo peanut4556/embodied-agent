@@ -440,6 +440,8 @@ embodied-agent/
 
 最新扩展：[独立采集运行时限](docs/capture-runtime-limit.md)，调用方仍活着但被暂停时，监督进程也能按显式时限终止作业；两次实际暂停实验通过，默认不启用。
 
+最新验证：[独立时限后的会话重建](docs/supervised-recovery.md)，两次均完成旧进程回收及新会话隔离，但恢复后的完整确认 0/2，分别在第 5/15 请求错过曝光窗口；失败记录完整保留。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

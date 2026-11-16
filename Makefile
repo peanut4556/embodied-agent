@@ -1319,3 +1319,10 @@ capture-runtime-limit-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_runtime_limit.py --output "$(CAPTURE_RUNTIME_LIMIT_OUTPUT)"
 capture-runtime-limit-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_runtime_limit.py' -v
+
+SUPERVISED_RECOVERY_OUTPUT ?= outputs/evaluations/supervised-recovery-new
+.PHONY: supervised-recovery-check supervised-recovery-test
+supervised-recovery-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_supervised_recovery.py --output "$(SUPERVISED_RECOVERY_OUTPUT)"
+supervised-recovery-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_supervised_recovery.py' -v
