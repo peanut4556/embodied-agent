@@ -1298,3 +1298,10 @@ capture-supervisor-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_supervisor.py --output "$(CAPTURE_SUPERVISOR_OUTPUT)"
 capture-supervisor-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_supervisor.py' -v
+
+SUPERVISED_CAPTURE_OUTPUT ?= outputs/evaluations/supervised-capture-new
+.PHONY: supervised-capture-check supervised-capture-test
+supervised-capture-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_supervised_capture.py --output "$(SUPERVISED_CAPTURE_OUTPUT)"
+supervised-capture-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_supervised_capture.py' -v

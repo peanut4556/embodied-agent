@@ -28,6 +28,7 @@ class CaptureRecovery:
         max_generations=3,
         capture_profile="immediate",
         owner_watchdog=False,
+        supervised=False,
     ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
@@ -35,6 +36,9 @@ class CaptureRecovery:
             raise ValueError("capture profile must be immediate or reserved")
         if type(owner_watchdog) is not bool:
             raise ValueError("owner_watchdog must be boolean")
+        if type(supervised) is not bool:
+            raise ValueError("supervised must be boolean")
+        self.supervised = supervised
         self.owner_watchdog = owner_watchdog
         self.capture_profile = capture_profile
         self._handoff = None
@@ -99,6 +103,7 @@ class CaptureRecovery:
             self.backend = ProcessPairCapture(
                 ScheduledReaderFactory(factory) if self.capture_profile == "reserved" else factory,
                 **({"owner_watchdog": True} if self.owner_watchdog else {}),
+                **({"supervised": True} if self.supervised else {}),
             )
         except Exception:
             # Constructor failure may hide partially-created OS resources. Never

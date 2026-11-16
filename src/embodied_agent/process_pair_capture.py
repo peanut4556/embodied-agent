@@ -1,12 +1,14 @@
 """Prewarmed spawned workers with isolated paired-reader ownership and bounded teardown."""
 
 import copy
+import functools
 import math
 import multiprocessing
 import os
 import threading
 import time
 
+from .capture_supervisor import SupervisedCaptureJob
 from .observation_capture import StampedPosition
 from .threaded_pair_capture import CapturedPair
 
@@ -79,6 +81,42 @@ def _serve(connection, factory, trace_timing=False, lifeline=None):
         connection.close()
 
 
+class _SupervisedProcess:
+    """Process-shaped adapter; never kill the owner of an unreaped reader."""
+
+    def __init__(self, target):
+        self.target, self.job = target, None
+
+    def start(self):
+        self.job = SupervisedCaptureJob(self.target)
+
+    @property
+    def pid(self):
+        return self.job._process.pid
+
+    @property
+    def exitcode(self):
+        return self.job._process.exitcode
+
+    def is_alive(self):
+        return self.job._process.is_alive()
+
+    def terminate(self):
+        self.job.close(timeout=0)
+
+    def join(self, timeout):
+        self.job._process.join(timeout)
+
+    def details(self):
+        return self.job.snapshot()
+
+    def close(self):
+        if self.job is not None:
+            self.job.close(timeout=0)
+            self.job._reports.close()
+            self.job._process.close()
+
+
 class ProcessPairCapture:
     """Two persistent processes, one outstanding request each, no shared device.
 
@@ -87,7 +125,9 @@ class ProcessPairCapture:
     reap may escalate to kill and never equates process exit with hardware cleanup.
     """
 
-    def __init__(self, factory, *, capacity=2, trace_timing=False, owner_watchdog=False):
+    def __init__(
+        self, factory, *, capacity=2, trace_timing=False, owner_watchdog=False, supervised=False
+    ):
         if not callable(factory) or type(capacity) is not int or not 1 <= capacity <= 2:
             raise ValueError("callable factory and capacity of one or two required")
         self.closed, self.seen, self.slots = False, set(), []
@@ -95,6 +135,9 @@ class ProcessPairCapture:
             raise ValueError("trace_timing must be boolean")
         if type(owner_watchdog) is not bool:
             raise ValueError("owner_watchdog must be boolean")
+        if type(supervised) is not bool:
+            raise ValueError("supervised must be boolean")
+        self.supervised = supervised
         self.owner_watchdog = owner_watchdog
         self.trace_timing, self.timings = trace_timing, {}
         ctx = multiprocessing.get_context("spawn")
@@ -104,8 +147,14 @@ class ProcessPairCapture:
                 life_reader, life_writer = (
                     ctx.Pipe(duplex=False) if owner_watchdog else (None, None)
                 )
-                process = ctx.Process(
-                    target=_serve, args=(child, factory, trace_timing, life_reader), daemon=True
+                process = (
+                    _SupervisedProcess(
+                        functools.partial(_serve, child, factory, trace_timing, life_reader)
+                    )
+                    if supervised
+                    else ctx.Process(
+                        target=_serve, args=(child, factory, trace_timing, life_reader), daemon=True
+                    )
                 )
                 slot = {
                     "process": process,
@@ -116,6 +165,7 @@ class ProcessPairCapture:
                     "pid": None,
                     "exitcode": None,
                     "killed": False,
+                    "supervision": None,
                 }
                 self.slots.append(slot)
                 try:
@@ -225,7 +275,12 @@ class ProcessPairCapture:
         if self.closed:
             for slot in self.slots:
                 p = slot["process"]
-                if p is not None and slot["pid"] is not None and p.is_alive():
+                if (
+                    p is not None
+                    and slot["pid"] is not None
+                    and p.is_alive()
+                    and not isinstance(p, _SupervisedProcess)
+                ):
                     p.kill()
                     slot["killed"] = True
         for slot in self.slots:
@@ -237,6 +292,8 @@ class ProcessPairCapture:
                 if p.is_alive():
                     continue
                 slot["exitcode"] = p.exitcode
+                if isinstance(p, _SupervisedProcess):
+                    slot["supervision"] = p.details()
             if self.closed:
                 p.close()
                 slot["process"] = None
@@ -249,14 +306,31 @@ class ProcessPairCapture:
             for s in self.slots
             if s["process"] is not None and s["pid"] is not None and s["process"].is_alive()
         ]
+        supervision = (
+            [
+                (s["process"].details() if s["process"] is not None else s["supervision"])
+                for s in self.slots
+            ]
+            if self.supervised
+            else []
+        )
+        verified = all(
+            detail
+            and detail["events"]
+            and detail["events"][-1]["status"] == "stopped"
+            and detail["events"][-1]["worker_exitcode"] is not None
+            for detail in supervision
+        )
         return {
             "backend": "spawned_process",
+            "supervised": self.supervised,
+            "supervision": supervision,
             "owner_watchdog_enabled": self.owner_watchdog,
             "closed": self.closed,
             "ready": not self.closed and all(s["ready"] for s in self.slots),
             "submitted": len(self.seen),
             "live_pids": live,
-            "workers_stopped": not live,
+            "workers_stopped": not live and verified,
             "hardware_cleanup_confirmed": False,
             "timing_trace_enabled": self.trace_timing,
             "timing_trace": copy.deepcopy(list(self.timings.values())),

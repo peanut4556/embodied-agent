@@ -34,3 +34,5 @@ make capture-supervisor-check CAPTURE_SUPERVISOR_OUTPUT=outputs/evaluations/capt
 进展是退出保护可以在工作进程完全不执行 Python 线程时继续运行。SIGSTOP 是明确的失去执行能力模拟，不是实际相机驱动的原生 GIL 死锁实验；不能据此宣称解决所有驱动故障。
 
 监督进程自身仍可能故障、被暂停或被同时杀死，OS 不可中断等待也可能阻碍回收。未提供监督进程的更上层高可用机制，也没有硬件安全复位、自动重启或实机验证。原型每个作业增加一个监督进程及启动成本，尚未做吞吐/延迟基准。它不涉及任何机器人动作授权。
+
+后续：[独立监督采集后端](supervised-capture.md)已通过显式 supervised=True 接入 ProcessPairCapture 与 CaptureRecovery；本页记录的是此前独立原型实验。

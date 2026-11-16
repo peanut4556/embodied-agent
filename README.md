@@ -434,6 +434,8 @@ embodied-agent/
 
 最新原型：[独立采集作业监督进程](docs/capture-supervisor.md)，工作进程被 SIGSTOP 暂停且调用方突然退出时仍可终止回收；两次真实实验通过，尚未接入完整采集后端。
 
+最新扩展：[独立监督采集后端](docs/supervised-capture.md)，独立监督已接入实际请求/帧传输与预约确认；两次完整运行均完成 36 请求，双层进程退出可核验，默认模式未变。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
