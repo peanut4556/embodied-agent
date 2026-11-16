@@ -1,0 +1,75 @@
+{
+  "sources": {
+    "scripts/check_capture_runtime_limit.py": "31caac2502551298886d744370e4925b29222b2011d7a0540d6c2c786ac1cf35",
+    "scripts/check_owner_watchdog.py": "75b510d44e3db139f7a7b1391f8f05b2b8c805e7f079d9fbde90155713aead66",
+    "src/embodied_agent/capture_supervisor.py": "cbfd0077368bb33c247f7b817a186dce84db6cf0127f89643d6ae0fde6700484"
+  },
+  "cases": [
+    {
+      "passed": true,
+      "owner_state_before_resume": "Ts",
+      "children_before_resume": {
+        "93696": "Z"
+      },
+      "children_after_resume": {},
+      "owner_exitcode": 0,
+      "result": {
+        "cleanup_status": "reported_stopped",
+        "supervisor_pid": 93696,
+        "supervisor_alive": false,
+        "supervisor_exitcode": 0,
+        "events": [
+          {
+            "status": "started",
+            "worker_pid": 93701
+          },
+          {
+            "status": "stopped",
+            "worker_pid": 93701,
+            "worker_exitcode": -9,
+            "owner_connection_closed": false,
+            "runtime_limit_exceeded": true,
+            "runtime_limit_s": 1,
+            "elapsed_s": 1.055350582988467,
+            "kill_sent": true,
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "hardware_cleanup_confirmed": false
+      }
+    },
+    {
+      "passed": true,
+      "owner_state_before_resume": "Ts",
+      "children_before_resume": {
+        "93755": "Z"
+      },
+      "children_after_resume": {},
+      "owner_exitcode": 0,
+      "result": {
+        "cleanup_status": "reported_stopped",
+        "supervisor_pid": 93755,
+        "supervisor_alive": false,
+        "supervisor_exitcode": 0,
+        "events": [
+          {
+            "status": "started",
+            "worker_pid": 93760
+          },
+          {
+            "status": "stopped",
+            "worker_pid": 93760,
+            "worker_exitcode": -9,
+            "owner_connection_closed": false,
+            "runtime_limit_exceeded": true,
+            "runtime_limit_s": 1,
+            "elapsed_s": 1.05547629200737,
+            "kill_sent": true,
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "hardware_cleanup_confirmed": false
+      }
+    }
+  ]
+}

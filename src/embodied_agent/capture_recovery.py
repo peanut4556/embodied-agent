@@ -4,6 +4,7 @@ import copy
 import time
 import uuid
 
+from .capture_supervisor import validate_runtime_limit
 from .evidence_inbox import EvidenceInbox
 from .exposure_confirmation import ExposureClockMap
 from .process_pair_capture import ProcessPairCapture
@@ -29,6 +30,7 @@ class CaptureRecovery:
         capture_profile="immediate",
         owner_watchdog=False,
         supervised=False,
+        runtime_limit_s=None,
     ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
@@ -38,6 +40,10 @@ class CaptureRecovery:
             raise ValueError("owner_watchdog must be boolean")
         if type(supervised) is not bool:
             raise ValueError("supervised must be boolean")
+        validate_runtime_limit(runtime_limit_s)
+        if runtime_limit_s is not None and not supervised:
+            raise ValueError("runtime limit requires supervised=True")
+        self.runtime_limit_s = runtime_limit_s
         self.supervised = supervised
         self.owner_watchdog = owner_watchdog
         self.capture_profile = capture_profile
@@ -103,7 +109,11 @@ class CaptureRecovery:
             self.backend = ProcessPairCapture(
                 ScheduledReaderFactory(factory) if self.capture_profile == "reserved" else factory,
                 **({"owner_watchdog": True} if self.owner_watchdog else {}),
-                **({"supervised": True} if self.supervised else {}),
+                **(
+                    {"supervised": True, "runtime_limit_s": self.runtime_limit_s}
+                    if self.supervised
+                    else {}
+                ),
             )
         except Exception:
             # Constructor failure may hide partially-created OS resources. Never

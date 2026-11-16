@@ -1,5 +1,6 @@
 """Opt-in process supervisor prototype for isolated blocking capture jobs."""
 
+import math
 import multiprocessing
 import os
 import threading
@@ -23,16 +24,32 @@ def _run_supervised(job, connection):
     job()
 
 
-def _supervise(lifeline, reports, job):
+def validate_runtime_limit(value):
+    if value is not None and (
+        isinstance(value, bool)
+        or not isinstance(value, (int, float))
+        or not math.isfinite(value)
+        or not 0 < value <= 60
+    ):
+        raise ValueError("runtime_limit_s must be None or finite seconds in (0, 60]")
+
+
+def _supervise(lifeline, reports, job, runtime_limit_s):
     ctx = multiprocessing.get_context("spawn")
     reader, writer = ctx.Pipe(duplex=False)
     child = ctx.Process(target=_run_supervised, args=(job, reader), daemon=True)
+    started = time.monotonic()
+    deadline = None if runtime_limit_s is None else started + runtime_limit_s
     try:
         child.start()
         reader.close()
         reports.send({"status": "started", "worker_pid": child.pid})
         owner_lost = False
+        runtime_exceeded = False
         while child.is_alive():
+            if deadline is not None and time.monotonic() >= deadline:
+                runtime_exceeded = True
+                break
             if lifeline.poll(0.01):
                 try:
                     lifeline.recv_bytes()
@@ -52,6 +69,9 @@ def _supervise(lifeline, reports, job):
             "worker_pid": child.pid,
             "worker_exitcode": child.exitcode,
             "owner_connection_closed": owner_lost,
+            "runtime_limit_exceeded": runtime_exceeded,
+            "runtime_limit_s": runtime_limit_s,
+            "elapsed_s": time.monotonic() - started,
             "kill_sent": forced,
             "hardware_cleanup_confirmed": False,
         }
@@ -79,13 +99,14 @@ class SupervisedCaptureJob:
     ownership for blocking initialization/driver jobs; it does not transport frames.
     """
 
-    def __init__(self, job):
+    def __init__(self, job, *, runtime_limit_s=None):
         if not callable(job):
             raise TypeError("spawn-picklable job required")
+        validate_runtime_limit(runtime_limit_s)
         ctx = multiprocessing.get_context("spawn")
         reader, self._lifeline = ctx.Pipe(duplex=False)
         self._reports, writer = ctx.Pipe(duplex=False)
-        self._process = ctx.Process(target=_supervise, args=(reader, writer, job))
+        self._process = ctx.Process(target=_supervise, args=(reader, writer, job, runtime_limit_s))
         self._events = []
         self._closed = False
         try:

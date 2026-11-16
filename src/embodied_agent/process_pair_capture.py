@@ -8,7 +8,7 @@ import os
 import threading
 import time
 
-from .capture_supervisor import SupervisedCaptureJob
+from .capture_supervisor import SupervisedCaptureJob, validate_runtime_limit
 from .observation_capture import StampedPosition
 from .threaded_pair_capture import CapturedPair
 
@@ -84,11 +84,12 @@ def _serve(connection, factory, trace_timing=False, lifeline=None):
 class _SupervisedProcess:
     """Process-shaped adapter; never kill the owner of an unreaped reader."""
 
-    def __init__(self, target):
+    def __init__(self, target, runtime_limit_s=None):
         self.target, self.job = target, None
+        self.runtime_limit_s = runtime_limit_s
 
     def start(self):
-        self.job = SupervisedCaptureJob(self.target)
+        self.job = SupervisedCaptureJob(self.target, runtime_limit_s=self.runtime_limit_s)
 
     @property
     def pid(self):
@@ -126,7 +127,14 @@ class ProcessPairCapture:
     """
 
     def __init__(
-        self, factory, *, capacity=2, trace_timing=False, owner_watchdog=False, supervised=False
+        self,
+        factory,
+        *,
+        capacity=2,
+        trace_timing=False,
+        owner_watchdog=False,
+        supervised=False,
+        runtime_limit_s=None,
     ):
         if not callable(factory) or type(capacity) is not int or not 1 <= capacity <= 2:
             raise ValueError("callable factory and capacity of one or two required")
@@ -137,6 +145,10 @@ class ProcessPairCapture:
             raise ValueError("owner_watchdog must be boolean")
         if type(supervised) is not bool:
             raise ValueError("supervised must be boolean")
+        validate_runtime_limit(runtime_limit_s)
+        if runtime_limit_s is not None and not supervised:
+            raise ValueError("runtime limit requires supervised=True")
+        self.runtime_limit_s = runtime_limit_s
         self.supervised = supervised
         self.owner_watchdog = owner_watchdog
         self.trace_timing, self.timings = trace_timing, {}
@@ -149,7 +161,8 @@ class ProcessPairCapture:
                 )
                 process = (
                     _SupervisedProcess(
-                        functools.partial(_serve, child, factory, trace_timing, life_reader)
+                        functools.partial(_serve, child, factory, trace_timing, life_reader),
+                        runtime_limit_s,
                     )
                     if supervised
                     else ctx.Process(
@@ -324,6 +337,7 @@ class ProcessPairCapture:
         return {
             "backend": "spawned_process",
             "supervised": self.supervised,
+            "runtime_limit_s": self.runtime_limit_s,
             "supervision": supervision,
             "owner_watchdog_enabled": self.owner_watchdog,
             "closed": self.closed,

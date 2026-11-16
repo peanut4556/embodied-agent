@@ -438,6 +438,8 @@ embodied-agent/
 
 最新扩展：[监督进程失联保护](docs/supervisor-loss.md)，监督进程被 SIGKILL 后阻塞读取进程可自行退出；四次真实实验通过，内部仍保留清理未确认，避免误启动新会话。
 
+最新扩展：[独立采集运行时限](docs/capture-runtime-limit.md)，调用方仍活着但被暂停时，监督进程也能按显式时限终止作业；两次实际暂停实验通过，默认不启用。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

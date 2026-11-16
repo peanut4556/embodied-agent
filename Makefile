@@ -1312,3 +1312,10 @@ supervisor-loss-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_supervisor_loss.py --output "$(SUPERVISOR_LOSS_OUTPUT)"
 supervisor-lifeline-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_supervisor_lifeline.py' -v
+
+CAPTURE_RUNTIME_LIMIT_OUTPUT ?= outputs/evaluations/capture-runtime-limit-new
+.PHONY: capture-runtime-limit-check capture-runtime-limit-test
+capture-runtime-limit-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_runtime_limit.py --output "$(CAPTURE_RUNTIME_LIMIT_OUTPUT)"
+capture-runtime-limit-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_runtime_limit.py' -v
