@@ -436,6 +436,8 @@ embodied-agent/
 
 最新扩展：[独立监督采集后端](docs/supervised-capture.md)，独立监督已接入实际请求/帧传输与预约确认；两次完整运行均完成 36 请求，双层进程退出可核验，默认模式未变。
 
+最新扩展：[监督进程失联保护](docs/supervisor-loss.md)，监督进程被 SIGKILL 后阻塞读取进程可自行退出；四次真实实验通过，内部仍保留清理未确认，避免误启动新会话。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

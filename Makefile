@@ -1305,3 +1305,10 @@ supervised-capture-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_supervised_capture.py --output "$(SUPERVISED_CAPTURE_OUTPUT)"
 supervised-capture-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_supervised_capture.py' -v
+
+SUPERVISOR_LOSS_OUTPUT ?= outputs/evaluations/supervisor-loss-new
+.PHONY: supervisor-loss-check supervisor-lifeline-test
+supervisor-loss-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_supervisor_loss.py --output "$(SUPERVISOR_LOSS_OUTPUT)"
+supervisor-lifeline-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_supervisor_lifeline.py' -v

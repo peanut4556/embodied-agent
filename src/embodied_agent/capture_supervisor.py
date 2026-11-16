@@ -1,13 +1,35 @@
 """Opt-in process supervisor prototype for isolated blocking capture jobs."""
 
 import multiprocessing
+import os
+import threading
 import time
 
 
+def _watch_supervisor(connection):
+    try:
+        connection.recv_bytes()
+    except (EOFError, OSError):
+        pass
+    os._exit(87)
+
+
+def _run_supervised(job, connection):
+    # This fallback does not replace the independent supervisor: SIGSTOP or
+    # a native GIL hold can prevent this thread from running.
+    threading.Thread(target=_watch_supervisor, args=(connection,), daemon=True).start()
+    # Keep the read end open until process exit: closing it locally would
+    # masquerade as supervisor loss to the monitor during normal completion.
+    job()
+
+
 def _supervise(lifeline, reports, job):
-    child = multiprocessing.get_context("spawn").Process(target=job, daemon=True)
+    ctx = multiprocessing.get_context("spawn")
+    reader, writer = ctx.Pipe(duplex=False)
+    child = ctx.Process(target=_run_supervised, args=(job, reader), daemon=True)
     try:
         child.start()
+        reader.close()
         reports.send({"status": "started", "worker_pid": child.pid})
         owner_lost = False
         while child.is_alive():
@@ -44,6 +66,8 @@ def _supervise(lifeline, reports, job):
                 child.join(1)
             if not child.is_alive():
                 child.close()
+        reader.close()
+        writer.close()
         lifeline.close()
         reports.close()
 
@@ -81,7 +105,12 @@ class SupervisedCaptureJob:
                 self._events.append(self._reports.recv())
             except (EOFError, OSError):
                 break
+        final_report = bool(self._events and self._events[-1]["status"] == "stopped")
+        alive = self._process.is_alive()
         return {
+            "cleanup_status": "active"
+            if alive
+            else ("reported_stopped" if final_report else "supervisor_lost"),
             "supervisor_pid": self._process.pid,
             "supervisor_alive": self._process.is_alive(),
             "supervisor_exitcode": self._process.exitcode,

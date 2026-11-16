@@ -1,0 +1,186 @@
+{
+  "sources": {
+    "scripts/check_supervisor_loss.py": "d07bc0cad04c2786309a2b79be81fbfa1ac247c84170fcbb3c7f481a44348884",
+    "scripts/check_owner_watchdog.py": "75b510d44e3db139f7a7b1391f8f05b2b8c805e7f079d9fbde90155713aead66",
+    "src/embodied_agent/capture_supervisor.py": "abfda9e905e0cccf2ffc061232a9c3f6ab0cd68f34b606b746b6ddf393e256ac",
+    "src/embodied_agent/process_pair_capture.py": "8cd7541b3a7eaa353a797c2cc217bbd611357765f58b4a8a818957283363c4cb"
+  },
+  "cases": [
+    {
+      "stage": "reader",
+      "worker_pid": 92136,
+      "supervisor_pid": 92135,
+      "final_worker_states": {},
+      "cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "supervision": [
+          {
+            "cleanup_status": "supervisor_lost",
+            "supervisor_pid": 92135,
+            "supervisor_alive": false,
+            "supervisor_exitcode": -9,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 92136
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 1,
+        "live_pids": [],
+        "workers_stopped": false,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 92135,
+            "exitcode": -9,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "passed": true,
+      "driver_exitcode": 0
+    },
+    {
+      "stage": "factory",
+      "worker_pid": 92141,
+      "supervisor_pid": 92140,
+      "final_worker_states": {},
+      "cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "supervision": [
+          {
+            "cleanup_status": "supervisor_lost",
+            "supervisor_pid": 92140,
+            "supervisor_alive": false,
+            "supervisor_exitcode": -9,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 92141
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 0,
+        "live_pids": [],
+        "workers_stopped": false,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 92140,
+            "exitcode": -9,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "passed": true,
+      "driver_exitcode": 0
+    },
+    {
+      "stage": "reader",
+      "worker_pid": 92146,
+      "supervisor_pid": 92145,
+      "final_worker_states": {},
+      "cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "supervision": [
+          {
+            "cleanup_status": "supervisor_lost",
+            "supervisor_pid": 92145,
+            "supervisor_alive": false,
+            "supervisor_exitcode": -9,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 92146
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 1,
+        "live_pids": [],
+        "workers_stopped": false,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 92145,
+            "exitcode": -9,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "passed": true,
+      "driver_exitcode": 0
+    },
+    {
+      "stage": "factory",
+      "worker_pid": 92151,
+      "supervisor_pid": 92150,
+      "final_worker_states": {},
+      "cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "supervision": [
+          {
+            "cleanup_status": "supervisor_lost",
+            "supervisor_pid": 92150,
+            "supervisor_alive": false,
+            "supervisor_exitcode": -9,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 92151
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 0,
+        "live_pids": [],
+        "workers_stopped": false,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 92150,
+            "exitcode": -9,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "passed": true,
+      "driver_exitcode": 0
+    }
+  ]
+}
