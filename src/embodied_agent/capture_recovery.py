@@ -10,7 +10,7 @@ from .exposure_confirmation import ExposureClockMap
 from .process_pair_capture import ProcessPairCapture
 from .recent_evidence_handoff import RecentEvidenceHandoff
 from .reserved_two_stage import ReservedTwoStageController
-from .scheduled_pair_capture import ScheduledReaderFactory
+from .scheduled_pair_capture import ScheduledReaderFactory, validate_spin_window
 from .two_stage_capture import TwoStageCaptureController
 from .two_stage_runtime import TwoStageCaptureRuntime
 
@@ -31,6 +31,7 @@ class CaptureRecovery:
         owner_watchdog=False,
         supervised=False,
         runtime_limit_s=None,
+        spin_window_s=0,
     ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
@@ -43,6 +44,10 @@ class CaptureRecovery:
         validate_runtime_limit(runtime_limit_s)
         if runtime_limit_s is not None and not supervised:
             raise ValueError("runtime limit requires supervised=True")
+        validate_spin_window(spin_window_s)
+        if spin_window_s and capture_profile != "reserved":
+            raise ValueError("spin window requires reserved capture")
+        self.spin_window_s = spin_window_s
         self.runtime_limit_s = runtime_limit_s
         self.supervised = supervised
         self.owner_watchdog = owner_watchdog
@@ -107,7 +112,9 @@ class CaptureRecovery:
         self.state = "starting"
         try:
             self.backend = ProcessPairCapture(
-                ScheduledReaderFactory(factory) if self.capture_profile == "reserved" else factory,
+                ScheduledReaderFactory(factory, self.spin_window_s)
+                if self.capture_profile == "reserved"
+                else factory,
                 **({"owner_watchdog": True} if self.owner_watchdog else {}),
                 **(
                     {"supervised": True, "runtime_limit_s": self.runtime_limit_s}

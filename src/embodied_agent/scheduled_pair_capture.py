@@ -32,17 +32,29 @@ class ScheduledPairRequest:
             raise ValueError("exposure window must be within 10 ms")
 
 
+def validate_spin_window(value):
+    if (
+        isinstance(value, bool)
+        or not isinstance(value, (int, float))
+        or not math.isfinite(value)
+        or not 0 <= value <= 0.002
+    ):
+        raise ValueError("spin_window_s must be finite seconds in [0, .002]")
+
+
 class ScheduledPairReader:
-    """Wait without busy-spinning, then validate actual paired exposure times.
+    """Wait for exposure, optionally spin near target, then validate real timestamps.
 
     Own this adapter in a cancellable worker process. Waiting does not offer
     real-time guarantees; reader blocking is handled by the process owner.
     No retries, timestamp substitution, or task-success promotion are performed.
     """
 
-    def __init__(self, reader, *, clock=time.monotonic, sleep=time.sleep):
+    def __init__(self, reader, *, clock=time.monotonic, sleep=time.sleep, spin_window_s=0):
         if not all(callable(v) for v in (reader, clock, sleep)):
             raise ValueError("reader, clock and sleep must be callable")
+        validate_spin_window(spin_window_s)
+        self.spin_window_s = spin_window_s
         self.reader, self.clock, self.sleep = reader, clock, sleep
 
     def __call__(self, request):
@@ -65,7 +77,9 @@ class ScheduledPairReader:
 
         current = now()
         while current < request.target_host_time:
-            self.sleep(min(request.target_host_time - current, 0.001))
+            remaining = request.target_host_time - current
+            if remaining > self.spin_window_s:
+                self.sleep(min(remaining - self.spin_window_s, 0.001))
             current = now()
         if current > request.latest_host_time:
             raise ValueError("scheduled_capture_window_missed")
@@ -91,6 +105,7 @@ class ScheduledReaderFactory:
     """Spawn-picklable adapter; the underlying reader is created in its worker."""
 
     factory: object
+    spin_window_s: float = 0
 
     def __call__(self):
-        return ScheduledPairReader(self.factory())
+        return ScheduledPairReader(self.factory(), spin_window_s=self.spin_window_s)

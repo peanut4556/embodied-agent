@@ -442,6 +442,8 @@ embodied-agent/
 
 最新验证：[独立时限后的会话重建](docs/supervised-recovery.md)，两次均完成旧进程回收及新会话隔离，但恢复后的完整确认 0/2，分别在第 5/15 请求错过曝光窗口；失败记录完整保留。
 
+最新实验：[恢复后曝光末段自旋](docs/recovery-spin.md)，新增可选等待策略并做 A/B/B/A 对照；默认休眠与 1.5 ms 自旋各 2/2 通过，尚未证明改善，默认关闭。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

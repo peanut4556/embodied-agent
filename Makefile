@@ -1326,3 +1326,10 @@ supervised-recovery-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_supervised_recovery.py --output "$(SUPERVISED_RECOVERY_OUTPUT)"
 supervised-recovery-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_supervised_recovery.py' -v
+
+RECOVERY_SPIN_OUTPUT ?= outputs/evaluations/recovery-spin-new
+.PHONY: recovery-spin-check capture-spin-test
+recovery-spin-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_spin.py --output "$(RECOVERY_SPIN_OUTPUT)"
+capture-spin-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_spin.py' -v

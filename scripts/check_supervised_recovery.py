@@ -19,13 +19,14 @@ def blocked_factory():
         time.sleep(0.01)
 
 
-def run():
+def run(spin_window_s=0):
     manager = CaptureRecovery(
         position_error_m=(0.001,) * 3,
         max_generations=2,
         capture_profile="reserved",
         supervised=True,
         runtime_limit_s=4,
+        spin_window_s=spin_window_s,
     )
     result = {}
     try:
@@ -68,6 +69,7 @@ def run():
         )
         result = {
             "passed": passed,
+            "spin_window_s": spin_window_s,
             "old_timeout_observed": timeout_seen,
             "old_cleanup": old_backend,
             "old_session_attempt": stale,

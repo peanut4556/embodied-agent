@@ -1,0 +1,470 @@
+{
+  "sources": {
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_pipelined_challenge.py": "c9bcd7192c9cac9f735321fb7e7615de1d6ec7022949ee40b0b927096cce2b9e",
+    "src/embodied_agent/pipelined_challenge.py": "db5fe898ca3450cc18293a4f6d4986b86b1db377fe708d9fb4f4dfd9fd2c1950",
+    "src/embodied_agent/serial_challenge.py": "a5ad146ef2e15d910fb0ceb3e10a9aa96c2bd2acd14f898626784ded46c22ad6",
+    "src/embodied_agent/delivered_challenge.py": "76c0f740be40a7e35a95e1da6e9fd79d146f25720ecdc2b9d661abe229e71e5a",
+    "src/embodied_agent/confirmation_challenge.py": "c5fb82faa24d7fcee9a71c5473645ed474d75339d19ac213d53f3c3584b0d1ea",
+    "src/embodied_agent/exposure_confirmation.py": "aca0942a809dbd864e62e2dc62f0c499654575f3b142fad3175e652120563511",
+    "src/embodied_agent/observation_capture.py": "028c77897053a1bf6cad21b522f920c22c874a7951f70f26556d7b4ba97af1a3",
+    "src/embodied_agent/settled_reference.py": "78289113198295b5cb4bd4596ef1479fbfcab82f03c21556b02536725da8a0a1",
+    "src/embodied_agent/reference_confirmation.py": "c80d64ab3af3cc0bb54b3b7e1d24b8cda40edf844afb5c863fbd59bed8b80bbb",
+    "src/embodied_agent/temporal_reference.py": "0938b75cb7e0ac2209e30435adf86428b57f739b6f660178fcf06485eed31c6a",
+    "src/embodied_agent/cross_view.py": "37835b0ec5ef65dda9efa0b3732121866042859d8c7e5fd4a6a73865d2cd1e5c",
+    "src/embodied_agent/release_confirmation.py": "a343c79e56dad87f1a62ad2683f1abe74fd7fcdbae60593b8009a3f4e78baded",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_spaced_challenge.py": "d3571ae97e6d8458a7879a9e08b21a17170a7ffee261030196f1e5bd3f973782",
+    "src/embodied_agent/spaced_challenge.py": "f41ffc17ec80e19d3b64484caf075a7aa8db09ab7d5a307112d783310a3bcf8b",
+    "/Users/ljxxy/Documents/ChatGPT/AI Agent/embodied-agent/scripts/evaluate_sampling_aliases.py": "f874c8aee10a68a66814b83896eab2c67bc7207c6444f983baad67ce128e7896",
+    "src/embodied_agent/aperiodic_challenge.py": "50b8ae4fd1aaee9d0d7b06a37833df4f53d446db1ae3bb626c454f463e27e353",
+    "src/embodied_agent/phase_sweep_challenge.py": "477eee781eedbf352e1c7c1fa6067e71f5d0960a1580284cff8075a81ff1b21b",
+    "scripts/check_capture_timing.py": "96e0e5161b53a023a9a0fbe3655f06602d0efa3180964708c36674806740e6b4",
+    "src/embodied_agent/capture_timing.py": "242b97d6673e00c0fa0b52011ee27e3adc86bbf47970d34e5496ca6131ea55e7",
+    "src/embodied_agent/process_pair_capture.py": "ab5dc1e3ab6994130555e96e79c5203fc5db10902846dbed79c6c3212313893e",
+    "src/embodied_agent/two_stage_runtime.py": "2a596da052252dc91d920a4788b4c416606171ac81521bc92fe77b6302149008",
+    "src/embodied_agent/threaded_pair_capture.py": "36e7028df8b3def6a3d57bce787fd8d9195bb5a781cf6fbe0b724482541fb872",
+    "src/embodied_agent/two_stage_capture.py": "ede3469258a0148944291df480ada4f0e22435b860c6cd6619fa620d01bc5ce7",
+    "src/embodied_agent/fresh_witness.py": "96322a2d2c01f6bc0e8c5a5406835f2e3d438fcb5cc31f7239d85fc6d30af3b1",
+    "scripts/check_reserved_two_stage.py": "2f426ea6179ed833826fda3461498319116a9f814692c5ce1751c64c55a101af",
+    "scripts/check_process_pair_capture.py": "354ad1f3594c4a39bff77df71cbb4870de12278f6ee433d0dc0c111029ed8980",
+    "src/embodied_agent/reserved_two_stage.py": "daa6a35d328e3230098fac4de30440dfeb30992c1ab85893b381163eabdf6afe",
+    "src/embodied_agent/scheduled_pair_capture.py": "dad29adb3242155d9e10584e705b5f284118f1fc3bd83a28fb808d4842ca9a33",
+    "scripts/check_recovery_handoff.py": "a34320bacfaab1f7b616faf1486923ada3cb2c30be42819ed93d71f6e4ebda51",
+    "src/embodied_agent/capture_recovery.py": "a1f88587bf740bbe7249ef3b8ffdb3c7b9ca0f5074a363edeeb53cc535da4d17",
+    "src/embodied_agent/recent_evidence_handoff.py": "70b1480ec64cb1b16f98faabe86d24301c0ccb945273ee5e8d85a08d78f5fe5e",
+    "scripts/check_recovery_spin.py": "14d7bb3590c749dd4762a2f37ac6dcbb653829ce9994da09b9ce281ce012fa3e",
+    "scripts/check_supervised_recovery.py": "3293774d6091580b8d21f847d86c7740e490685c953e522db9373aa322548191",
+    "src/embodied_agent/capture_supervisor.py": "cbfd0077368bb33c247f7b817a186dce84db6cf0127f89643d6ae0fde6700484"
+  },
+  "report_path": "outputs/evaluations/recovery-spin-v1/report.json",
+  "report_sha256": "a5bf8026f62e22697556867a1a46a1d5b91aa8b0e75819f845fa2531fa69b23e",
+  "cases": [
+    {
+      "passed": true,
+      "spin_window_s": 0,
+      "old_timeout_observed": true,
+      "old_cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "runtime_limit_s": 4,
+        "supervision": [
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95892,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95895
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95895,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.06352437500027,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          },
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95893,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95894
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95894,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.063161707977997,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 0,
+        "live_pids": [],
+        "workers_stopped": true,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 95892,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          },
+          {
+            "pid": 95893,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "old_session_attempt": {
+        "status": "refused",
+        "reason": "session_mismatch",
+        "robot_action_authorized": false
+      },
+      "confirmation_status": "confirmed_recent_evidence",
+      "requests": 36,
+      "receipt": {
+        "receipt_id": "e5a2b5ea109349418b6b2afb79dc43ef",
+        "status": "consumed",
+        "reason": "fresh_evidence_consumed",
+        "session_id": "102774571a54474fa2d0b798fea0a249",
+        "consumed_host_time": 221874.285340458,
+        "last_exposure_host_time": 221874.277176625,
+        "expires_host_time": 221874.297176625,
+        "remaining_s": 0.011836166988359764,
+        "robot_action_authorized": false
+      },
+      "repeat": {
+        "status": "refused",
+        "reason": "already_consumed",
+        "robot_action_authorized": false
+      },
+      "generation_budget_enforced": true
+    },
+    {
+      "passed": true,
+      "spin_window_s": 0.0015,
+      "old_timeout_observed": true,
+      "old_cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "runtime_limit_s": 4,
+        "supervision": [
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95912,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95914
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95914,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.052164583001286,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          },
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95913,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95915
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95915,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.058569332992192,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 0,
+        "live_pids": [],
+        "workers_stopped": true,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 95912,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          },
+          {
+            "pid": 95913,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "old_session_attempt": {
+        "status": "refused",
+        "reason": "session_mismatch",
+        "robot_action_authorized": false
+      },
+      "confirmation_status": "confirmed_recent_evidence",
+      "requests": 36,
+      "receipt": {
+        "receipt_id": "25393eaecc1440a9b268a83468c4150c",
+        "status": "consumed",
+        "reason": "fresh_evidence_consumed",
+        "session_id": "df941e41c20b474f8bf2a0e035bb2ac0",
+        "consumed_host_time": 221881.802186083,
+        "last_exposure_host_time": 221881.798092583,
+        "expires_host_time": 221881.81809258298,
+        "remaining_s": 0.01590649998979643,
+        "robot_action_authorized": false
+      },
+      "repeat": {
+        "status": "refused",
+        "reason": "already_consumed",
+        "robot_action_authorized": false
+      },
+      "generation_budget_enforced": true
+    },
+    {
+      "passed": true,
+      "spin_window_s": 0.0015,
+      "old_timeout_observed": true,
+      "old_cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "runtime_limit_s": 4,
+        "supervision": [
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95961,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95963
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95963,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.0524890839878935,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          },
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95962,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95964
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95964,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.061178166011814,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 0,
+        "live_pids": [],
+        "workers_stopped": true,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 95961,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          },
+          {
+            "pid": 95962,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "old_session_attempt": {
+        "status": "refused",
+        "reason": "session_mismatch",
+        "robot_action_authorized": false
+      },
+      "confirmation_status": "confirmed_recent_evidence",
+      "requests": 36,
+      "receipt": {
+        "receipt_id": "3822f757c81e4500ab60a4d5ea55cee7",
+        "status": "consumed",
+        "reason": "fresh_evidence_consumed",
+        "session_id": "5146ba7012bf4d2996d318e67689b1fc",
+        "consumed_host_time": 221889.346702125,
+        "last_exposure_host_time": 221889.334033291,
+        "expires_host_time": 221889.354033291,
+        "remaining_s": 0.007331165979849175,
+        "robot_action_authorized": false
+      },
+      "repeat": {
+        "status": "refused",
+        "reason": "already_consumed",
+        "robot_action_authorized": false
+      },
+      "generation_budget_enforced": true
+    },
+    {
+      "passed": true,
+      "spin_window_s": 0,
+      "old_timeout_observed": true,
+      "old_cleanup": {
+        "backend": "spawned_process",
+        "supervised": true,
+        "runtime_limit_s": 4,
+        "supervision": [
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95969,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95972
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95972,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.055657457996858,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          },
+          {
+            "cleanup_status": "reported_stopped",
+            "supervisor_pid": 95970,
+            "supervisor_alive": false,
+            "supervisor_exitcode": 0,
+            "events": [
+              {
+                "status": "started",
+                "worker_pid": 95971
+              },
+              {
+                "status": "stopped",
+                "worker_pid": 95971,
+                "worker_exitcode": -9,
+                "owner_connection_closed": false,
+                "runtime_limit_exceeded": true,
+                "runtime_limit_s": 4,
+                "elapsed_s": 4.05581141699804,
+                "kill_sent": true,
+                "hardware_cleanup_confirmed": false
+              }
+            ],
+            "hardware_cleanup_confirmed": false
+          }
+        ],
+        "owner_watchdog_enabled": false,
+        "closed": true,
+        "ready": false,
+        "submitted": 0,
+        "live_pids": [],
+        "workers_stopped": true,
+        "hardware_cleanup_confirmed": false,
+        "timing_trace_enabled": false,
+        "timing_trace": [],
+        "workers": [
+          {
+            "pid": 95969,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          },
+          {
+            "pid": 95970,
+            "exitcode": 0,
+            "request": null,
+            "killed": false
+          }
+        ]
+      },
+      "old_session_attempt": {
+        "status": "refused",
+        "reason": "session_mismatch",
+        "robot_action_authorized": false
+      },
+      "confirmation_status": "confirmed_recent_evidence",
+      "requests": 36,
+      "receipt": {
+        "receipt_id": "a3a1affd24f645febd11df4f1143037c",
+        "status": "consumed",
+        "reason": "fresh_evidence_consumed",
+        "session_id": "d06c81af9e6844fc91ec8a95ae54fa2c",
+        "consumed_host_time": 221896.912039916,
+        "last_exposure_host_time": 221896.897796583,
+        "expires_host_time": 221896.917796583,
+        "remaining_s": 0.005756667000241578,
+        "robot_action_authorized": false
+      },
+      "repeat": {
+        "status": "refused",
+        "reason": "already_consumed",
+        "robot_action_authorized": false
+      },
+      "generation_budget_enforced": true
+    }
+  ]
+}
