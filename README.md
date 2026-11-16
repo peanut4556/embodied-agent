@@ -432,6 +432,8 @@ embodied-agent/
 
 最新扩展：[调用方死亡监测](docs/owner-watchdog.md)，可选独立存活连接让阻塞采集工作进程在调用方突然退出后自行终止；4 次真实进程实验通过，仍不保证原生 GIL 死锁或硬件清理。
 
+最新原型：[独立采集作业监督进程](docs/capture-supervisor.md)，工作进程被 SIGSTOP 暂停且调用方突然退出时仍可终止回收；两次真实实验通过，尚未接入完整采集后端。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

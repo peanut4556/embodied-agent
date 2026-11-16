@@ -1291,3 +1291,10 @@ owner-watchdog-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_owner_watchdog.py --output "$(OWNER_WATCHDOG_OUTPUT)"
 owner-watchdog-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_owner_watchdog.py' -v
+
+CAPTURE_SUPERVISOR_OUTPUT ?= outputs/evaluations/capture-supervisor-new
+.PHONY: capture-supervisor-check capture-supervisor-test
+capture-supervisor-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_capture_supervisor.py --output "$(CAPTURE_SUPERVISOR_OUTPUT)"
+capture-supervisor-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_capture_supervisor.py' -v

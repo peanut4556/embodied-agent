@@ -1,0 +1,27 @@
+{
+  "sources": {
+    "scripts/check_capture_supervisor.py": "8106631c0b9d8d62de86e6702797965dd77069edf8462620c62d3b7d9077e029",
+    "scripts/check_owner_watchdog.py": "75b510d44e3db139f7a7b1391f8f05b2b8c805e7f079d9fbde90155713aead66",
+    "src/embodied_agent/capture_supervisor.py": "64d4ea30c5db45888aed11213656e4159a9678d3e3a3586b12edc3388b321448"
+  },
+  "cases": [
+    {
+      "owner_exitcode": 93,
+      "pids": [
+        91234,
+        91235
+      ],
+      "final_states": {},
+      "passed": true
+    },
+    {
+      "owner_exitcode": 93,
+      "pids": [
+        91242,
+        91243
+      ],
+      "final_states": {},
+      "passed": true
+    }
+  ]
+}
