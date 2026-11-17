@@ -1340,3 +1340,10 @@ wait-cost-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_wait_cost.py --output "$(WAIT_COST_OUTPUT)"
 wait-metrics-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_wait_metrics.py' -v
+
+FIXED_WAIT_PROBE_OUTPUT ?= outputs/evaluations/fixed-wait-probe-new
+.PHONY: fixed-wait-probe-check fixed-wait-probe-test
+fixed-wait-probe-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_fixed_wait_probe.py --output "$(FIXED_WAIT_PROBE_OUTPUT)"
+fixed-wait-probe-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_fixed_wait_probe.py' -v

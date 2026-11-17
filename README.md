@@ -446,6 +446,8 @@ embodied-agent/
 
 最新测量：[预约等待 CPU 成本与迟到](docs/wait-cost.md)，新增成功/失败路径逐请求遥测；本轮两种策略均 0/2 完整通过，自旋观测请求的平均等待 CPU 约为休眠 6.7 倍，未证明收益。
 
+最新测量：[固定分母曝光窗口对照](docs/fixed-wait-probe.md)，两种策略各测满 72 个独立窗口均通过；自旋最大目标迟到较小，但平均等待线程 CPU 约 9.8 倍，默认继续关闭。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

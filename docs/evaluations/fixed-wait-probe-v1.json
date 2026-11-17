@@ -1,0 +1,65 @@
+{
+  "sources": {
+    "scripts/check_fixed_wait_probe.py": "a9ce66e1cb2a313714c932130acbd53a5e558f96b13881ae3a0a7467ba6b8720",
+    "scripts/check_process_pair_capture.py": "354ad1f3594c4a39bff77df71cbb4870de12278f6ee433d0dc0c111029ed8980",
+    "src/embodied_agent/process_pair_capture.py": "fecd9991e38ce46375c5d642f1b67ac3effae2d36a8cd3865a2baac8ab0c0969",
+    "src/embodied_agent/capture_supervisor.py": "cbfd0077368bb33c247f7b817a186dce84db6cf0127f89643d6ae0fde6700484",
+    "src/embodied_agent/scheduled_pair_capture.py": "259e39d9d976519cc4305c3babe7328dfd1881dd7ddc9b96d5242bd27e0f1525"
+  },
+  "report_path": "outputs/evaluations/fixed-wait-probe-v1/report.json",
+  "report_sha256": "357c8635d5db93f0602b2400308425fec09e27ec056e738a7107450a04414e12",
+  "cases": [
+    {
+      "spin_window_s": 0,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.004511292000000014,
+      "mean_wait_cpu_s": 0.00012531366666666705,
+      "max_target_lateness_s": 0.0004617090162355453,
+      "workers_stopped": true
+    },
+    {
+      "spin_window_s": 0.0015,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.04993087699999994,
+      "mean_wait_cpu_s": 0.001386968805555554,
+      "max_target_lateness_s": 0.00018950001685880125,
+      "workers_stopped": true
+    },
+    {
+      "spin_window_s": 0.0015,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.05046082900000006,
+      "mean_wait_cpu_s": 0.0014016896944444462,
+      "max_target_lateness_s": 3.633301821537316e-05,
+      "workers_stopped": true
+    },
+    {
+      "spin_window_s": 0,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.005749673000000004,
+      "mean_wait_cpu_s": 0.000159713138888889,
+      "max_target_lateness_s": 0.0004911250143777579,
+      "workers_stopped": true
+    }
+  ]
+}
