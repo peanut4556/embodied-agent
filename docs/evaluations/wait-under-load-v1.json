@@ -1,0 +1,159 @@
+{
+  "sources": {
+    "scripts/check_wait_under_load.py": "f1bd27cb49d044d919123ac74c5477b3e97aa2f942fe455c63ff10f30798ec33",
+    "scripts/check_fixed_wait_probe.py": "a9ce66e1cb2a313714c932130acbd53a5e558f96b13881ae3a0a7467ba6b8720",
+    "scripts/check_process_pair_capture.py": "354ad1f3594c4a39bff77df71cbb4870de12278f6ee433d0dc0c111029ed8980",
+    "src/embodied_agent/process_pair_capture.py": "fecd9991e38ce46375c5d642f1b67ac3effae2d36a8cd3865a2baac8ab0c0969",
+    "src/embodied_agent/capture_supervisor.py": "cbfd0077368bb33c247f7b817a186dce84db6cf0127f89643d6ae0fde6700484",
+    "src/embodied_agent/scheduled_pair_capture.py": "259e39d9d976519cc4305c3babe7328dfd1881dd7ddc9b96d5242bd27e0f1525"
+  },
+  "report_path": "outputs/evaluations/wait-under-load-v1/report.json",
+  "report_sha256": "d32967f3a7670e08c9d164ed4edeb3da5e49a207c42531846a2957a0f287475f",
+  "load_events": [
+    {
+      "event": "ready",
+      "pid": 1097
+    },
+    {
+      "event": "ready",
+      "pid": 1096
+    },
+    {
+      "event": "stopped",
+      "pid": 1096,
+      "cpu_s": 2.637622,
+      "wall_s": 3.577558249991853,
+      "rounds": 38849,
+      "reason": "requested"
+    },
+    {
+      "event": "stopped",
+      "pid": 1097,
+      "cpu_s": 2.640075,
+      "wall_s": 3.5775320829998236,
+      "rounds": 38295,
+      "reason": "requested"
+    }
+  ],
+  "load_exitcodes": [
+    0,
+    0
+  ],
+  "load_completed": true,
+  "cases": [
+    {
+      "condition": "baseline",
+      "spin_window_s": 0,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 34,
+        "reader_error": 2
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.005937082000000003,
+      "mean_wait_cpu_s": 0.00016491894444444453,
+      "max_target_lateness_s": 0.009694125008536503,
+      "workers_stopped": true
+    },
+    {
+      "condition": "baseline",
+      "spin_window_s": 0.0015,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.048086458999999984,
+      "mean_wait_cpu_s": 0.0013357349722222219,
+      "max_target_lateness_s": 0.00047066702973097563,
+      "workers_stopped": true
+    },
+    {
+      "condition": "baseline",
+      "spin_window_s": 0.0015,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.04878933400000002,
+      "mean_wait_cpu_s": 0.0013552592777777784,
+      "max_target_lateness_s": 0.0010492080182302743,
+      "workers_stopped": true
+    },
+    {
+      "condition": "baseline",
+      "spin_window_s": 0,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 35,
+        "reader_error": 1
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.006036292000000026,
+      "mean_wait_cpu_s": 0.00016767477777777852,
+      "max_target_lateness_s": 0.0035369160177651793,
+      "workers_stopped": true
+    },
+    {
+      "condition": "two_cpu_workers",
+      "spin_window_s": 0.0015,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.049206543000000026,
+      "mean_wait_cpu_s": 0.0013668484166666675,
+      "max_target_lateness_s": 1.25030055642128e-07,
+      "workers_stopped": true
+    },
+    {
+      "condition": "two_cpu_workers",
+      "spin_window_s": 0,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.0019245030000000288,
+      "mean_wait_cpu_s": 5.3458416666667466e-05,
+      "max_target_lateness_s": 0.00024095902335830033,
+      "workers_stopped": true
+    },
+    {
+      "condition": "two_cpu_workers",
+      "spin_window_s": 0,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.0017309969999999494,
+      "mean_wait_cpu_s": 4.8083249999998595e-05,
+      "max_target_lateness_s": 0.00017191702499985695,
+      "workers_stopped": true
+    },
+    {
+      "condition": "two_cpu_workers",
+      "spin_window_s": 0.0015,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.049921289999999986,
+      "mean_wait_cpu_s": 0.0013867024999999996,
+      "max_target_lateness_s": 2.0800507627427578e-07,
+      "workers_stopped": true
+    }
+  ]
+}

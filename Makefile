@@ -1347,3 +1347,10 @@ fixed-wait-probe-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_fixed_wait_probe.py --output "$(FIXED_WAIT_PROBE_OUTPUT)"
 fixed-wait-probe-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_fixed_wait_probe.py' -v
+
+WAIT_UNDER_LOAD_OUTPUT ?= outputs/evaluations/wait-under-load-new
+.PHONY: wait-under-load-check bounded-cpu-load-test
+wait-under-load-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_wait_under_load.py --output "$(WAIT_UNDER_LOAD_OUTPUT)"
+bounded-cpu-load-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_bounded_cpu_load.py' -v

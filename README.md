@@ -448,6 +448,8 @@ embodied-agent/
 
 最新测量：[固定分母曝光窗口对照](docs/fixed-wait-probe.md)，两种策略各测满 72 个独立窗口均通过；自旋最大目标迟到较小，但平均等待线程 CPU 约 9.8 倍，默认继续关闭。
 
+最新测量：[后台 CPU 负载下的固定窗口对照](docs/wait-under-load.md)，288 个窗口完整记录，基线休眠 69/72、自旋 72/72；两个后台负载进程下两者均 72/72，自旋等待 CPU 成本仍明显较高，尚不支持默认启用。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
