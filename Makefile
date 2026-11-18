@@ -1375,3 +1375,10 @@ recovery-wait-budget-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_wait_budget.py --output "$(RECOVERY_WAIT_BUDGET_OUTPUT)"
 recovery-wait-budget-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_recovery_wait_budget -v
+
+PERSISTENT_WAIT_BUDGET_OUTPUT ?= outputs/evaluations/persistent-wait-budget-new
+.PHONY: persistent-wait-budget-check wait-budget-store-test
+persistent-wait-budget-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_persistent_wait_budget.py --output "$(PERSISTENT_WAIT_BUDGET_OUTPUT)"
+wait-budget-store-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_wait_budget_store -v

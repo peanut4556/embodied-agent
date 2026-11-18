@@ -1,0 +1,83 @@
+{
+  "sources": {
+    "scripts/check_persistent_wait_budget.py": "2eb79024d859b26ffacf63885ef3cea1cd53919662f97a092e2ebfb415a345d7",
+    "src/embodied_agent/wait_budget_store.py": "ff55d858d9911baa5a53417b54beaaa7eb9aee60f63d8b61f6f5343bf9884215",
+    "src/embodied_agent/capture_recovery.py": "69f815181f4d24dcd1f65d791c4f2454cb123e6add93dc38cbec36db9f0996a3"
+  },
+  "passed": true,
+  "race_results": [
+    {
+      "identity": "2",
+      "status": "reserved",
+      "receipt": {
+        "pool_id": "8e7ccf18e6b0421f9c75cc090249fb58",
+        "slot": 1,
+        "request_id": "2",
+        "allowance_ns": 5000000,
+        "remaining_ns": 5000000
+      }
+    },
+    {
+      "identity": "1",
+      "status": "reserved",
+      "receipt": {
+        "pool_id": "8e7ccf18e6b0421f9c75cc090249fb58",
+        "slot": 2,
+        "request_id": "1",
+        "allowance_ns": 5000000,
+        "remaining_ns": 0
+      }
+    },
+    {
+      "identity": "0",
+      "status": "refused",
+      "reason": "persistent wait budget exhausted"
+    },
+    {
+      "identity": "3",
+      "status": "refused",
+      "reason": "persistent wait budget exhausted"
+    }
+  ],
+  "race_exitcodes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "race_snapshot": {
+    "pool_id": "8e7ccf18e6b0421f9c75cc090249fb58",
+    "total_threshold_ns": 10000000,
+    "slots": 2,
+    "reserved_slots": 2,
+    "remaining_ns": 0,
+    "reservations": [
+      {
+        "slot": 1,
+        "request_id": "2",
+        "allowance_ns": 5000000
+      },
+      {
+        "slot": 2,
+        "request_id": "1",
+        "allowance_ns": 5000000
+      }
+    ]
+  },
+  "post_commit_exitcode": 73,
+  "loss_snapshot": {
+    "pool_id": "7c65da27247e431b844aa781f7874602",
+    "total_threshold_ns": 5000000,
+    "slots": 1,
+    "reserved_slots": 1,
+    "remaining_ns": 0,
+    "reservations": [
+      {
+        "slot": 1,
+        "request_id": "lost-receipt",
+        "allowance_ns": 5000000
+      }
+    ]
+  },
+  "new_reservation_refusal": "persistent wait budget exhausted"
+}

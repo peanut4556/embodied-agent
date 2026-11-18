@@ -17,6 +17,7 @@ from .scheduled_pair_capture import (
 )
 from .two_stage_capture import TwoStageCaptureController
 from .two_stage_runtime import TwoStageCaptureRuntime
+from .wait_budget_store import WaitBudgetStore
 
 
 class CaptureRecovery:
@@ -38,6 +39,7 @@ class CaptureRecovery:
         spin_window_s=0,
         trace_timing=False,
         wait_cpu_budget_s=None,
+        persistent_wait_budget=None,
     ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
@@ -58,9 +60,18 @@ class CaptureRecovery:
         validate_wait_cpu_budget(wait_cpu_budget_s)
         if wait_cpu_budget_s is not None and capture_profile != "reserved":
             raise ValueError("wait CPU budget requires reserved capture")
+        if persistent_wait_budget is not None:
+            if not isinstance(persistent_wait_budget, WaitBudgetStore):
+                raise TypeError("WaitBudgetStore required")
+            if wait_cpu_budget_s is not None or capture_profile != "reserved":
+                raise ValueError("persistent budget requires reserved profile and no local budget")
+        self.persistent_wait_budget = persistent_wait_budget
+        self._last_budget_reservation = None
         self.wait_cpu_budget_s = wait_cpu_budget_s
         self.wait_budget_allocations = []
-        self.trace_timing = trace_timing or wait_cpu_budget_s is not None
+        self.trace_timing = (
+            trace_timing or wait_cpu_budget_s is not None or persistent_wait_budget is not None
+        )
         self.spin_window_s = spin_window_s
         self.runtime_limit_s = runtime_limit_s
         self.supervised = supervised
@@ -110,6 +121,8 @@ class CaptureRecovery:
 
     def start(self, factory, *, startup_timeout=5.0):
         """Return a new opaque session token, or None on startup/cleanup failure."""
+        if self.state == "budget_reservation_failed":
+            raise RuntimeError("budget reservation unresolved or refused; new manager required")
         if self.state == "ownership_uncertain":
             raise RuntimeError("spawn ownership unresolved; recovery prohibited")
         if self.runtime is not None and self.runtime.controller.status == "pending":
@@ -125,7 +138,25 @@ class CaptureRecovery:
         self._recorded = False
         self.state = "starting"
         allowance = None
-        if self.wait_cpu_budget_s is not None:
+        if self.persistent_wait_budget is not None:
+            try:
+                reservation = self.persistent_wait_budget.reserve(self.session)
+            except Exception:
+                # No worker has been spawned. A commit error may have consumed a
+                # slot: never replay this identity or assume a refund.
+                self.state = "budget_reservation_failed"
+                raise
+            self._last_budget_reservation = reservation
+            allowance = reservation["allowance_ns"] / 1_000_000_000
+            self.wait_budget_allocations.append(
+                {
+                    "generation": self.attempts,
+                    "session_id": self.session,
+                    "allowance_s": allowance,
+                    "persistent_reservation": reservation,
+                }
+            )
+        elif self.wait_cpu_budget_s is not None:
             allocated = sum(a["allowance_s"] for a in self.wait_budget_allocations)
             allowance = min(
                 self.wait_cpu_budget_s / self.limit, max(0.0, self.wait_cpu_budget_s - allocated)
@@ -194,6 +225,8 @@ class CaptureRecovery:
 
     def close(self):
         """Explicitly close an active task; retry if cleanup remains pending."""
+        if self.state == "budget_reservation_failed":
+            return True  # No worker spawned; preserve the refusal latch.
         if self.state == "ownership_uncertain":
             return False
         if self._retire():
@@ -234,7 +267,13 @@ class CaptureRecovery:
                 "generation_limit": self.limit,
                 "wait_cpu_budget": {
                     "total_threshold_s": self.wait_cpu_budget_s,
-                    "allocation_policy": "equal_generation_shares_no_refunds",
+                    "allocation_policy": "persistent_slots_no_refunds"
+                    if self.persistent_wait_budget is not None
+                    else "equal_generation_shares_no_refunds",
+                    "persistent_pool_id": self.persistent_wait_budget.pool_id
+                    if self.persistent_wait_budget is not None
+                    else None,
+                    "last_persistent_reservation": self._last_budget_reservation,
                     "allocations": self.wait_budget_allocations,
                     "unallocated_s": None
                     if self.wait_cpu_budget_s is None

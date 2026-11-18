@@ -456,6 +456,8 @@ embodied-agent/
 
 最新联调：[跨恢复代的等待预算分配](docs/recovery-wait-budget.md)，总回退阈值预先均分、失败不退还，避免每次恢复重新领取完整额度；两次初始化阻塞后的新会话均完成 36 请求并从第 5 请求回退休眠，仍为合成读取器验证。
 
+最新扩展：[持久化等待预算池](docs/persistent-wait-budget.md)，启动前事务分配，管理器重建不重置同一池额度；4 进程争用 2 份额度恰好 2 次获配，提交后调用方退出也不退款。预算池不代表设备所有权或硬 CPU 限额。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
