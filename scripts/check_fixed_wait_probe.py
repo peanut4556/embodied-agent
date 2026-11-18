@@ -41,9 +41,9 @@ def summarize(rows, trace, planned):
     }
 
 
-def run(margin):
+def run(margin, *, wait_cpu_budget_s=None):
     backend = ProcessPairCapture(
-        ScheduledReaderFactory(fast_factory, margin, True),
+        ScheduledReaderFactory(fast_factory, margin, True, wait_cpu_budget_s),
         capacity=1,
         supervised=True,
         trace_timing=True,

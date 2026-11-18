@@ -51,14 +51,30 @@ class ScheduledPairReader:
     """
 
     def __init__(
-        self, reader, *, clock=time.monotonic, sleep=time.sleep, spin_window_s=0, measure_wait=False
+        self,
+        reader,
+        *,
+        clock=time.monotonic,
+        sleep=time.sleep,
+        spin_window_s=0,
+        measure_wait=False,
+        wait_cpu_budget_s=None,
     ):
         if not all(callable(v) for v in (reader, clock, sleep)):
             raise ValueError("reader, clock and sleep must be callable")
         validate_spin_window(spin_window_s)
         if type(measure_wait) is not bool:
             raise ValueError("measure_wait must be boolean")
-        self.measure_wait = measure_wait
+        if wait_cpu_budget_s is not None and (
+            isinstance(wait_cpu_budget_s, bool)
+            or not isinstance(wait_cpu_budget_s, (int, float))
+            or not math.isfinite(wait_cpu_budget_s)
+            or not 0 <= wait_cpu_budget_s <= 1
+        ):
+            raise ValueError("wait_cpu_budget_s must be None or finite seconds in [0, 1]")
+        self.wait_cpu_budget_s = wait_cpu_budget_s
+        self.wait_cpu_spent_s = 0.0
+        self.measure_wait = measure_wait or wait_cpu_budget_s is not None
         self.last_wait_metrics = None
         self.spin_window_s = spin_window_s
         self.reader, self.clock, self.sleep = reader, clock, sleep
@@ -83,23 +99,41 @@ class ScheduledPairReader:
 
         self.last_wait_metrics = None
         cpu_start = time.thread_time() if self.measure_wait else None
-        current = now()
-        wait_start = current
-        sleep_calls = spin_iterations = 0
-        while current < request.target_host_time:
-            remaining = request.target_host_time - current
-            if remaining > self.spin_window_s:
-                self.sleep(min(remaining - self.spin_window_s, 0.001))
-                if self.measure_wait:
-                    sleep_calls += 1
-            elif self.measure_wait:
-                spin_iterations += 1
+        effective_spin = self.spin_window_s
+        if self.wait_cpu_budget_s is not None and self.wait_cpu_spent_s >= self.wait_cpu_budget_s:
+            effective_spin = 0
+        try:
             current = now()
+            wait_start = current
+            sleep_calls = spin_iterations = 0
+            while current < request.target_host_time:
+                remaining = request.target_host_time - current
+                if remaining > effective_spin:
+                    self.sleep(min(remaining - effective_spin, 0.001))
+                    if self.measure_wait:
+                        sleep_calls += 1
+                elif self.measure_wait:
+                    spin_iterations += 1
+                current = now()
+        finally:
+            # Charge failed waits too. Budget belongs to this reader lifetime;
+            # session changes cannot replenish it. Only later requests fall back.
+            if self.measure_wait:
+                wait_cpu = time.thread_time() - cpu_start
+                if self.wait_cpu_budget_s is not None:
+                    self.wait_cpu_spent_s += wait_cpu
         if self.measure_wait:
             self.last_wait_metrics = {
                 "request_id": request.request_id,
                 "wait_elapsed_s": current - wait_start,
-                "wait_cpu_s": time.thread_time() - cpu_start,
+                "wait_cpu_s": wait_cpu,
+                "effective_spin_window_s": effective_spin,
+                "wait_cpu_budget_s": self.wait_cpu_budget_s,
+                "wait_cpu_spent_s": self.wait_cpu_spent_s
+                if self.wait_cpu_budget_s is not None
+                else None,
+                "budget_exhausted": self.wait_cpu_budget_s is not None
+                and self.wait_cpu_spent_s >= self.wait_cpu_budget_s,
                 "sleep_calls": sleep_calls,
                 "spin_iterations": spin_iterations,
                 "target_lateness_s": current - request.target_host_time,
@@ -131,8 +165,12 @@ class ScheduledReaderFactory:
     factory: object
     spin_window_s: float = 0
     measure_wait: bool = False
+    wait_cpu_budget_s: float | None = None
 
     def __call__(self):
         return ScheduledPairReader(
-            self.factory(), spin_window_s=self.spin_window_s, measure_wait=self.measure_wait
+            self.factory(),
+            spin_window_s=self.spin_window_s,
+            measure_wait=self.measure_wait,
+            wait_cpu_budget_s=self.wait_cpu_budget_s,
         )

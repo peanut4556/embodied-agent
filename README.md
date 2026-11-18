@@ -452,6 +452,8 @@ embodied-agent/
 
 最新测量：[平衡顺序的等待策略重复实验](docs/balanced-wait-campaign.md)，预先固定 4 个区组、576 个窗口，平衡条件位置与区组内前后顺序；两种负载条件下休眠均 143/144、自旋均 144/144，成本增加且收益证据仍有限，不自动启用。
 
+最新扩展：[等待 CPU 预算自动回退](docs/wait-cpu-budget.md)，读取器累计等待 CPU 达到显式预算后，后续请求停用自旋；216 个窗口全部交付，预算策略等待 CPU 比持续自旋少约 76%，仍高于纯休眠，默认不启用。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -1,0 +1,177 @@
+{
+  "sources": {
+    "scripts/check_wait_cpu_budget.py": "4ac8aa2d6f1bec7fda2cd876f4ff07f015b9e74aaf052dd7a1276b2a2674262e",
+    "scripts/check_fixed_wait_probe.py": "7957c513ab70e76ab294aebd1202d1d921c80b28ba79331c0de9f8edf24b9363",
+    "scripts/check_process_pair_capture.py": "354ad1f3594c4a39bff77df71cbb4870de12278f6ee433d0dc0c111029ed8980",
+    "src/embodied_agent/scheduled_pair_capture.py": "4a324ea2cfb7a74f4591e4494bb931076ac98bdc69e94364b67736da5d2537cf",
+    "src/embodied_agent/process_pair_capture.py": "fecd9991e38ce46375c5d642f1b67ac3effae2d36a8cd3865a2baac8ab0c0969",
+    "src/embodied_agent/capture_supervisor.py": "cbfd0077368bb33c247f7b817a186dce84db6cf0127f89643d6ae0fde6700484"
+  },
+  "report_path": "outputs/evaluations/wait-cpu-budget-v1/report.json",
+  "report_sha256": "d5f0600738e92a5fd04bcb57d73be37672ec89954482d39e6e59b996b7f8869a",
+  "cases": [
+    {
+      "label": "sleep",
+      "budget_s": null,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.007124039999999998,
+      "mean_wait_cpu_s": 0.00019788999999999994,
+      "max_target_lateness_s": 0.00027716701151803136,
+      "fallback_requests": [],
+      "policy_trace_valid": true,
+      "workers_stopped": true
+    },
+    {
+      "label": "spin",
+      "budget_s": null,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.050152459000000024,
+      "mean_wait_cpu_s": 0.0013931238611111117,
+      "max_target_lateness_s": 1.5458004781976342e-05,
+      "fallback_requests": [],
+      "policy_trace_valid": true,
+      "workers_stopped": true
+    },
+    {
+      "label": "budget",
+      "budget_s": 0.005,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.012082956999999978,
+      "mean_wait_cpu_s": 0.0003356376944444438,
+      "max_target_lateness_s": 0.0002779580245260149,
+      "fallback_requests": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "policy_trace_valid": true,
+      "workers_stopped": true
+    },
+    {
+      "label": "budget",
+      "budget_s": 0.005,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.012174161999999981,
+      "mean_wait_cpu_s": 0.00033817116666666616,
+      "max_target_lateness_s": 0.0002910830080509186,
+      "fallback_requests": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "policy_trace_valid": true,
+      "workers_stopped": true
+    },
+    {
+      "label": "spin",
+      "budget_s": null,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.05160395400000003,
+      "mean_wait_cpu_s": 0.0014334431666666674,
+      "max_target_lateness_s": 8.750066626816988e-07,
+      "fallback_requests": [],
+      "policy_trace_valid": true,
+      "workers_stopped": true
+    },
+    {
+      "label": "sleep",
+      "budget_s": null,
+      "planned": 36,
+      "outcomes": {
+        "delivered": 36
+      },
+      "measured": 36,
+      "measurement_complete": true,
+      "wait_cpu_s": 0.007159959999999986,
+      "mean_wait_cpu_s": 0.0001988877777777774,
+      "max_target_lateness_s": 0.0002615000121295452,
+      "fallback_requests": [],
+      "policy_trace_valid": true,
+      "workers_stopped": true
+    }
+  ],
+  "passed": true
+}

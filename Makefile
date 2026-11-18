@@ -1361,3 +1361,10 @@ balanced-wait-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_balanced_wait_campaign.py --output "$(BALANCED_WAIT_OUTPUT)"
 balanced-wait-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_balanced_wait_campaign.py' -v
+
+WAIT_CPU_BUDGET_OUTPUT ?= outputs/evaluations/wait-cpu-budget-new
+.PHONY: wait-cpu-budget-check wait-cpu-budget-test
+wait-cpu-budget-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_wait_cpu_budget.py --output "$(WAIT_CPU_BUDGET_OUTPUT)"
+wait-cpu-budget-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_wait_cpu_budget.py' -v
