@@ -10,7 +10,11 @@ from .exposure_confirmation import ExposureClockMap
 from .process_pair_capture import ProcessPairCapture
 from .recent_evidence_handoff import RecentEvidenceHandoff
 from .reserved_two_stage import ReservedTwoStageController
-from .scheduled_pair_capture import ScheduledReaderFactory, validate_spin_window
+from .scheduled_pair_capture import (
+    ScheduledReaderFactory,
+    validate_spin_window,
+    validate_wait_cpu_budget,
+)
 from .two_stage_capture import TwoStageCaptureController
 from .two_stage_runtime import TwoStageCaptureRuntime
 
@@ -33,6 +37,7 @@ class CaptureRecovery:
         runtime_limit_s=None,
         spin_window_s=0,
         trace_timing=False,
+        wait_cpu_budget_s=None,
     ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
@@ -50,7 +55,12 @@ class CaptureRecovery:
             raise ValueError("spin window requires reserved capture")
         if type(trace_timing) is not bool:
             raise ValueError("trace_timing must be boolean")
-        self.trace_timing = trace_timing
+        validate_wait_cpu_budget(wait_cpu_budget_s)
+        if wait_cpu_budget_s is not None and capture_profile != "reserved":
+            raise ValueError("wait CPU budget requires reserved capture")
+        self.wait_cpu_budget_s = wait_cpu_budget_s
+        self.wait_budget_allocations = []
+        self.trace_timing = trace_timing or wait_cpu_budget_s is not None
         self.spin_window_s = spin_window_s
         self.runtime_limit_s = runtime_limit_s
         self.supervised = supervised
@@ -114,9 +124,23 @@ class CaptureRecovery:
         self._handoff = None
         self._recorded = False
         self.state = "starting"
+        allowance = None
+        if self.wait_cpu_budget_s is not None:
+            allocated = sum(a["allowance_s"] for a in self.wait_budget_allocations)
+            allowance = min(
+                self.wait_cpu_budget_s / self.limit, max(0.0, self.wait_cpu_budget_s - allocated)
+            )
+            # Reserve before spawn. No refunds on failure or unknown telemetry.
+            self.wait_budget_allocations.append(
+                {
+                    "generation": self.attempts,
+                    "session_id": self.session,
+                    "allowance_s": allowance,
+                }
+            )
         try:
             self.backend = ProcessPairCapture(
-                ScheduledReaderFactory(factory, self.spin_window_s, self.trace_timing)
+                ScheduledReaderFactory(factory, self.spin_window_s, self.trace_timing, allowance)
                 if self.capture_profile == "reserved"
                 else factory,
                 **({"trace_timing": True} if self.trace_timing else {}),
@@ -208,6 +232,19 @@ class CaptureRecovery:
                 "session_id": self.session,
                 "attempts": self.attempts,
                 "generation_limit": self.limit,
+                "wait_cpu_budget": {
+                    "total_threshold_s": self.wait_cpu_budget_s,
+                    "allocation_policy": "equal_generation_shares_no_refunds",
+                    "allocations": self.wait_budget_allocations,
+                    "unallocated_s": None
+                    if self.wait_cpu_budget_s is None
+                    else max(
+                        0.0,
+                        self.wait_cpu_budget_s
+                        - sum(a["allowance_s"] for a in self.wait_budget_allocations),
+                    ),
+                    "hard_cpu_limit": False,
+                },
                 "ignored_sessions": self.ignored_sessions,
                 "history": self.history,
                 "runtime": self.runtime.result() if self.runtime else None,

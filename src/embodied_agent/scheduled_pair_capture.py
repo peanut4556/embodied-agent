@@ -42,6 +42,16 @@ def validate_spin_window(value):
         raise ValueError("spin_window_s must be finite seconds in [0, .002]")
 
 
+def validate_wait_cpu_budget(wait_cpu_budget_s):
+    if wait_cpu_budget_s is not None and (
+        isinstance(wait_cpu_budget_s, bool)
+        or not isinstance(wait_cpu_budget_s, (int, float))
+        or not math.isfinite(wait_cpu_budget_s)
+        or not 0 <= wait_cpu_budget_s <= 1
+    ):
+        raise ValueError("wait_cpu_budget_s must be None or finite seconds in [0, 1]")
+
+
 class ScheduledPairReader:
     """Wait for exposure, optionally spin near target, then validate real timestamps.
 
@@ -65,13 +75,7 @@ class ScheduledPairReader:
         validate_spin_window(spin_window_s)
         if type(measure_wait) is not bool:
             raise ValueError("measure_wait must be boolean")
-        if wait_cpu_budget_s is not None and (
-            isinstance(wait_cpu_budget_s, bool)
-            or not isinstance(wait_cpu_budget_s, (int, float))
-            or not math.isfinite(wait_cpu_budget_s)
-            or not 0 <= wait_cpu_budget_s <= 1
-        ):
-            raise ValueError("wait_cpu_budget_s must be None or finite seconds in [0, 1]")
+        validate_wait_cpu_budget(wait_cpu_budget_s)
         self.wait_cpu_budget_s = wait_cpu_budget_s
         self.wait_cpu_spent_s = 0.0
         self.measure_wait = measure_wait or wait_cpu_budget_s is not None

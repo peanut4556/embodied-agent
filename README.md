@@ -454,6 +454,8 @@ embodied-agent/
 
 最新扩展：[等待 CPU 预算自动回退](docs/wait-cpu-budget.md)，读取器累计等待 CPU 达到显式预算后，后续请求停用自旋；216 个窗口全部交付，预算策略等待 CPU 比持续自旋少约 76%，仍高于纯休眠，默认不启用。
 
+最新联调：[跨恢复代的等待预算分配](docs/recovery-wait-budget.md)，总回退阈值预先均分、失败不退还，避免每次恢复重新领取完整额度；两次初始化阻塞后的新会话均完成 36 请求并从第 5 请求回退休眠，仍为合成读取器验证。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -1368,3 +1368,10 @@ wait-cpu-budget-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_wait_cpu_budget.py --output "$(WAIT_CPU_BUDGET_OUTPUT)"
 wait-cpu-budget-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_wait_cpu_budget.py' -v
+
+RECOVERY_WAIT_BUDGET_OUTPUT ?= outputs/evaluations/recovery-wait-budget-new
+.PHONY: recovery-wait-budget-check recovery-wait-budget-test
+recovery-wait-budget-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_recovery_wait_budget.py --output "$(RECOVERY_WAIT_BUDGET_OUTPUT)"
+recovery-wait-budget-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_recovery_wait_budget -v
