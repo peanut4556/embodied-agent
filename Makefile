@@ -1354,3 +1354,10 @@ wait-under-load-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_wait_under_load.py --output "$(WAIT_UNDER_LOAD_OUTPUT)"
 bounded-cpu-load-test:
 	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_bounded_cpu_load.py' -v
+
+BALANCED_WAIT_OUTPUT ?= outputs/evaluations/balanced-wait-new
+.PHONY: balanced-wait-check balanced-wait-test
+balanced-wait-check:
+	PYTHONPATH=src:. .venv/bin/python scripts/check_balanced_wait_campaign.py --output "$(BALANCED_WAIT_OUTPUT)"
+balanced-wait-test:
+	PYTHONPATH=src:. .venv/bin/python -m unittest discover -s tests/physics -p 'test_balanced_wait_campaign.py' -v
