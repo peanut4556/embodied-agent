@@ -4,6 +4,7 @@ import copy
 import time
 import uuid
 
+from .budget_start_intent import save_intent
 from .capture_supervisor import validate_runtime_limit
 from .evidence_inbox import EvidenceInbox
 from .exposure_confirmation import ExposureClockMap
@@ -125,8 +126,17 @@ class CaptureRecovery:
             self._recorded = True
         return True
 
-    def start(self, factory, *, startup_timeout=5.0, reviewed_budget_checkpoint=None):
+    def start(
+        self,
+        factory,
+        *,
+        startup_timeout=5.0,
+        reviewed_budget_checkpoint=None,
+        budget_intent_path=None,
+    ):
         """Return a new opaque session token, or None on startup/cleanup failure."""
+        if budget_intent_path is not None and self.persistent_wait_budget is None:
+            raise ValueError("startup intent requires a persistent pool")
         validate_checkpoint(reviewed_budget_checkpoint)
         if self.require_reviewed_budget and reviewed_budget_checkpoint is None:
             raise ValueError("reviewed budget checkpoint required for every start")
@@ -152,6 +162,8 @@ class CaptureRecovery:
         allowance = None
         if self.persistent_wait_budget is not None:
             try:
+                if budget_intent_path is not None:
+                    save_intent(budget_intent_path, self.persistent_wait_budget, self.session)
                 reservation = self.persistent_wait_budget.reserve(
                     self.session, reviewed_checkpoint=reviewed_budget_checkpoint
                 )

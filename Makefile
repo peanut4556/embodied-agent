@@ -1409,3 +1409,7 @@ reviewed-recovery-test:
 .PHONY: wait-budget-lookup-test
 wait-budget-lookup-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_wait_budget_lookup -v
+
+.PHONY: budget-start-intent-test
+budget-start-intent-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_budget_start_intent -v

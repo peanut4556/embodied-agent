@@ -470,6 +470,8 @@ embodied-agent/
 
 最新扩展：[预算分配结果只读对账](docs/wait-budget-lookup.md)，回执丢失后按原请求编号查询历史分配，命令退出码区分已分配、未找到及无法确认，不重放采集。
 
+最新扩展：[启动意图持久化与无编号对账](docs/budget-start-intent.md)，申请额度前保存会话编号和池身份；应用退出后仅凭意图文件查询原分配，不自动重放采集。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
