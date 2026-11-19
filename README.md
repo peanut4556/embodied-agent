@@ -464,6 +464,8 @@ embodied-agent/
 
 最新扩展：[预算历史检查点](docs/wait-budget-checkpoint.md)，独立保存历史摘要，重开及分配事务核对已有前缀；正常追加可继续，同池旧副本和已有历史改写被拒绝。
 
+最新扩展：[绑定已查看状态的预算分配](docs/reviewed-wait-budget.md)，在同一写事务中核对完整检查点再分配；两个实际进程争用同一快照时仅一个获配，另一个因状态过期拒绝。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

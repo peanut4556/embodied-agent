@@ -9,6 +9,25 @@ from contextlib import closing
 from pathlib import Path
 
 
+def validate_checkpoint(expected_checkpoint):
+    if expected_checkpoint is not None:
+        c = expected_checkpoint
+        if (
+            not isinstance(c, dict)
+            or set(c) != {"version", "pool_id", "reserved_slots", "sha256"}
+            or type(c["version"]) is not int
+            or c["version"] != 1
+            or not isinstance(c["pool_id"], str)
+            or not 1 <= len(c["pool_id"]) <= 256
+            or type(c["reserved_slots"]) is not int
+            or not 0 <= c["reserved_slots"] <= 3
+            or not isinstance(c["sha256"], str)
+            or len(c["sha256"]) != 64
+            or any(ch not in "0123456789abcdef" for ch in c["sha256"])
+        ):
+            raise ValueError("invalid budget checkpoint")
+
+
 class WaitBudgetStore:
     """Local durable allocation, not process ownership or a hard CPU quota.
 
@@ -46,22 +65,7 @@ class WaitBudgetStore:
             not isinstance(expected_pool_id, str) or not 1 <= len(expected_pool_id) <= 256
         ):
             raise ValueError("bounded expected pool identity required")
-        if expected_checkpoint is not None:
-            c = expected_checkpoint
-            if (
-                not isinstance(c, dict)
-                or set(c) != {"version", "pool_id", "reserved_slots", "sha256"}
-                or type(c["version"]) is not int
-                or c["version"] != 1
-                or not isinstance(c["pool_id"], str)
-                or not 1 <= len(c["pool_id"]) <= 256
-                or type(c["reserved_slots"]) is not int
-                or not 0 <= c["reserved_slots"] <= 3
-                or not isinstance(c["sha256"], str)
-                or len(c["sha256"]) != 64
-                or any(ch not in "0123456789abcdef" for ch in c["sha256"])
-            ):
-                raise ValueError("invalid budget checkpoint")
+        validate_checkpoint(expected_checkpoint)
         self._expected_checkpoint = copy.deepcopy(expected_checkpoint)
         self.path = Path(path).resolve()
         with closing(self._connect()) as db, db:
@@ -137,12 +141,17 @@ class WaitBudgetStore:
     def _share(self, slot):
         return self.total_ns // self.slots + (1 if slot <= self.total_ns % self.slots else 0)
 
-    def reserve(self, request_id):
+    def reserve(self, request_id, *, reviewed_checkpoint=None):
+        """Optionally require the entire reviewed state, checked inside the write transaction."""
+        validate_checkpoint(reviewed_checkpoint)
+        reviewed_checkpoint = copy.deepcopy(reviewed_checkpoint)
         if not isinstance(request_id, str) or not 1 <= len(request_id) <= 256:
             raise ValueError("bounded request identity required")
         with closing(self._connect()) as db, db:
             db.execute("BEGIN IMMEDIATE")
             rows = self._rows(db)
+            if reviewed_checkpoint is not None and self._checkpoint(rows) != reviewed_checkpoint:
+                raise RuntimeError("reviewed budget checkpoint is stale")
             if any(row[1] == request_id for row in rows):
                 raise RuntimeError("reservation already spent; replay prohibited")
             if len(rows) >= self.slots:
