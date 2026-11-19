@@ -42,7 +42,7 @@ class AuditTests(unittest.TestCase):
         ):
             self.write(entries)
             with (
-                patch("embodied_agent.budget_recovery_audit.reconcile_intent") as lookup,
+                patch("embodied_agent.budget_recovery_audit.read_intent") as lookup,
                 self.assertRaises(ValueError),
             ):
                 audit_manifest(self.manifest)

@@ -1425,3 +1425,7 @@ budget-recovery-audit-test:
 .PHONY: budget-snapshot-lookup-test
 budget-snapshot-lookup-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_budget_snapshot_lookup -v
+
+.PHONY: grouped-budget-audit-test
+grouped-budget-audit-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_grouped_budget_audit -v

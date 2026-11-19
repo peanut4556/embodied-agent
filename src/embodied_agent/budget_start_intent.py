@@ -27,7 +27,7 @@ def save_intent(path, store, request_id):
         os.close(descriptor)
 
 
-def reconcile_intent(path, *, expected_checkpoint=None):
+def read_intent(path):
     with Path(path).open("r", encoding="utf-8") as stream:
         raw = stream.read(8193)
     if len(raw) > 8192:
@@ -42,9 +42,16 @@ def reconcile_intent(path, *, expected_checkpoint=None):
             not isinstance(value[k], str) or not value[k]
             for k in ("database", "pool_id", "request_id")
         )
+        or len(value["pool_id"]) > 256
+        or len(value["request_id"]) > 256
         or not Path(value["database"]).is_absolute()
     ):
         raise ValueError("invalid startup intent")
+    return value
+
+
+def reconcile_intent(path, *, expected_checkpoint=None):
+    value = read_intent(path)
     return WaitBudgetStore(
         value["database"],
         expected_pool_id=value["pool_id"],

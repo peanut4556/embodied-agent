@@ -478,6 +478,8 @@ embodied-agent/
 
 最新扩展：[同池一致快照对账](docs/budget-snapshot-lookup.md)，一组请求和报告检查点在同一读事务中生成，读取期间发生的新分配不会混入当前批次。
 
+最新扩展：[意图清单自动分组快照](docs/grouped-budget-audit.md)，同数据库、池身份和基线内容的条目合并为一次快照查询，逐文件保留结果并显式报告组边界。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
