@@ -474,6 +474,8 @@ embodied-agent/
 
 最新扩展：[意图文件驱动的恢复对账命令](docs/intent-lookup-cli.md)，仅传文件路径即可对账，可附独立历史检查点；覆盖范围内的数据库回滚返回无法确认，避免被误报为未分配。
 
+最新扩展：[批量恢复审计](docs/budget-recovery-audit.md)，显式清单最多 64 个意图，逐条保留已分配、未找到、无法确认；单条损坏不丢失其他结果，检查点缺失不降级查询。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

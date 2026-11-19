@@ -1417,3 +1417,7 @@ budget-start-intent-test:
 .PHONY: intent-lookup-cli-test
 intent-lookup-cli-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_intent_lookup_cli -v
+
+.PHONY: budget-recovery-audit-test
+budget-recovery-audit-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_budget_recovery_audit -v
