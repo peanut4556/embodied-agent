@@ -1401,3 +1401,7 @@ wait-budget-checkpoint-test:
 .PHONY: reviewed-wait-budget-test
 reviewed-wait-budget-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_reviewed_wait_budget -v
+
+.PHONY: reviewed-recovery-test
+reviewed-recovery-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_reviewed_recovery -v

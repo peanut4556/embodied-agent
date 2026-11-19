@@ -17,7 +17,7 @@ from .scheduled_pair_capture import (
 )
 from .two_stage_capture import TwoStageCaptureController
 from .two_stage_runtime import TwoStageCaptureRuntime
-from .wait_budget_store import WaitBudgetStore
+from .wait_budget_store import WaitBudgetStore, validate_checkpoint
 
 
 class CaptureRecovery:
@@ -40,6 +40,7 @@ class CaptureRecovery:
         trace_timing=False,
         wait_cpu_budget_s=None,
         persistent_wait_budget=None,
+        require_reviewed_budget=False,
     ):
         if type(max_generations) is not int or not 1 <= max_generations <= 3:
             raise ValueError("one to three generations required")
@@ -65,6 +66,11 @@ class CaptureRecovery:
                 raise TypeError("WaitBudgetStore required")
             if wait_cpu_budget_s is not None or capture_profile != "reserved":
                 raise ValueError("persistent budget requires reserved profile and no local budget")
+        if type(require_reviewed_budget) is not bool:
+            raise ValueError("require_reviewed_budget must be boolean")
+        if require_reviewed_budget and persistent_wait_budget is None:
+            raise ValueError("reviewed budget requires a persistent pool")
+        self.require_reviewed_budget = require_reviewed_budget
         self.persistent_wait_budget = persistent_wait_budget
         self._last_budget_reservation = None
         self.wait_cpu_budget_s = wait_cpu_budget_s
@@ -119,8 +125,14 @@ class CaptureRecovery:
             self._recorded = True
         return True
 
-    def start(self, factory, *, startup_timeout=5.0):
+    def start(self, factory, *, startup_timeout=5.0, reviewed_budget_checkpoint=None):
         """Return a new opaque session token, or None on startup/cleanup failure."""
+        validate_checkpoint(reviewed_budget_checkpoint)
+        if self.require_reviewed_budget and reviewed_budget_checkpoint is None:
+            raise ValueError("reviewed budget checkpoint required for every start")
+        if reviewed_budget_checkpoint is not None and self.persistent_wait_budget is None:
+            raise ValueError("reviewed checkpoint requires a persistent pool")
+        reviewed_budget_checkpoint = copy.deepcopy(reviewed_budget_checkpoint)
         if self.state == "budget_reservation_failed":
             raise RuntimeError("budget reservation unresolved or refused; new manager required")
         if self.state == "ownership_uncertain":
@@ -140,7 +152,9 @@ class CaptureRecovery:
         allowance = None
         if self.persistent_wait_budget is not None:
             try:
-                reservation = self.persistent_wait_budget.reserve(self.session)
+                reservation = self.persistent_wait_budget.reserve(
+                    self.session, reviewed_checkpoint=reviewed_budget_checkpoint
+                )
             except Exception:
                 # No worker has been spawned. A commit error may have consumed a
                 # slot: never replay this identity or assume a refund.
@@ -265,6 +279,7 @@ class CaptureRecovery:
                 "session_id": self.session,
                 "attempts": self.attempts,
                 "generation_limit": self.limit,
+                "require_reviewed_budget": self.require_reviewed_budget,
                 "wait_cpu_budget": {
                     "total_threshold_s": self.wait_cpu_budget_s,
                     "allocation_policy": "persistent_slots_no_refunds"

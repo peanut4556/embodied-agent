@@ -466,6 +466,8 @@ embodied-agent/
 
 最新扩展：[绑定已查看状态的预算分配](docs/reviewed-wait-budget.md)，在同一写事务中核对完整检查点再分配；两个实际进程争用同一快照时仅一个获配，另一个因状态过期拒绝。
 
+最新扩展：[按已查看预算启动恢复任务](docs/reviewed-recovery.md)，严格模式要求每代显式检查点；遗漏不消耗次数，过期在采集后端创建前拒绝，管理器不自动刷新快照。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
