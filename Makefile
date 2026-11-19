@@ -1413,3 +1413,7 @@ wait-budget-lookup-test:
 .PHONY: budget-start-intent-test
 budget-start-intent-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_budget_start_intent -v
+
+.PHONY: intent-lookup-cli-test
+intent-lookup-cli-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_intent_lookup_cli -v

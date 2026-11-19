@@ -472,6 +472,8 @@ embodied-agent/
 
 最新扩展：[启动意图持久化与无编号对账](docs/budget-start-intent.md)，申请额度前保存会话编号和池身份；应用退出后仅凭意图文件查询原分配，不自动重放采集。
 
+最新扩展：[意图文件驱动的恢复对账命令](docs/intent-lookup-cli.md)，仅传文件路径即可对账，可附独立历史检查点；覆盖范围内的数据库回滚返回无法确认，避免被误报为未分配。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
