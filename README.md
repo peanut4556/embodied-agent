@@ -476,6 +476,8 @@ embodied-agent/
 
 最新扩展：[批量恢复审计](docs/budget-recovery-audit.md)，显式清单最多 64 个意图，逐条保留已分配、未找到、无法确认；单条损坏不丢失其他结果，检查点缺失不降级查询。
 
+最新扩展：[同池一致快照对账](docs/budget-snapshot-lookup.md)，一组请求和报告检查点在同一读事务中生成，读取期间发生的新分配不会混入当前批次。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
