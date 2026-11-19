@@ -468,6 +468,8 @@ embodied-agent/
 
 最新扩展：[按已查看预算启动恢复任务](docs/reviewed-recovery.md)，严格模式要求每代显式检查点；遗漏不消耗次数，过期在采集后端创建前拒绝，管理器不自动刷新快照。
 
+最新扩展：[预算分配结果只读对账](docs/wait-budget-lookup.md)，回执丢失后按原请求编号查询历史分配，命令退出码区分已分配、未找到及无法确认，不重放采集。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

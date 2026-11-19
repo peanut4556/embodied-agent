@@ -169,6 +169,30 @@ class WaitBudgetStore:
             }
         return result
 
+    def lookup(self, request_id):
+        """Reconcile a historical allocation without replaying or granting execution."""
+        if not isinstance(request_id, str) or not 1 <= len(request_id) <= 256:
+            raise ValueError("bounded request identity required")
+        with closing(self._connect()) as db, db:
+            db.execute("BEGIN")
+            rows = self._rows(db)
+            remaining = self.total_ns
+            for slot, identity, allowance in rows:
+                remaining -= allowance
+                if identity == request_id:
+                    return {
+                        "status": "reserved",
+                        "execution_verified": False,
+                        "receipt": {
+                            "pool_id": self.pool_id,
+                            "slot": slot,
+                            "request_id": identity,
+                            "allowance_ns": allowance,
+                            "remaining_ns": remaining,
+                        },
+                    }
+            return {"status": "not_found", "execution_verified": False, "receipt": None}
+
     def snapshot(self):
         with closing(self._connect()) as db, db:
             db.execute("BEGIN")
