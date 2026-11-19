@@ -38,10 +38,18 @@ class WaitBudgetStore:
                 )
         return cls(path)
 
-    def __init__(self, path):
+    def __init__(self, path, *, expected_pool_id=None):
+        if expected_pool_id is not None and (
+            not isinstance(expected_pool_id, str) or not 1 <= len(expected_pool_id) <= 256
+        ):
+            raise ValueError("bounded expected pool identity required")
         self.path = Path(path).resolve()
-        with closing(self._connect()) as db:
+        with closing(self._connect()) as db, db:
+            db.execute("BEGIN")
             self.pool_id, self.total_ns, self.slots = self._config(db)
+            if expected_pool_id is not None and self.pool_id != expected_pool_id:
+                raise ValueError("unexpected budget pool identity")
+            self._rows(db)
 
     def _connect(self):
         db = sqlite3.connect(self.path.as_uri() + "?mode=rw", uri=True, timeout=0.25)
@@ -74,7 +82,14 @@ class WaitBudgetStore:
         if len(rows) > self.slots:
             raise ValueError("invalid reservations")
         for i, (slot, request, allowance) in enumerate(rows, 1):
-            if slot != i or not request or allowance != self._share(i):
+            if (
+                type(slot) is not int
+                or slot != i
+                or not isinstance(request, str)
+                or not 1 <= len(request) <= 256
+                or type(allowance) is not int
+                or allowance != self._share(i)
+            ):
                 raise ValueError("invalid reservations")
         return rows
 

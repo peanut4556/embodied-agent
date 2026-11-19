@@ -1389,3 +1389,7 @@ persistent-recovery-check:
 	PYTHONPATH=src:. .venv/bin/python scripts/check_persistent_recovery.py --output "$(PERSISTENT_RECOVERY_OUTPUT)"
 persistent-recovery-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_persistent_recovery -v
+
+.PHONY: wait-budget-identity-test
+wait-budget-identity-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_wait_budget_identity -v
