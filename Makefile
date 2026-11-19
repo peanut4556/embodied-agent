@@ -1393,3 +1393,7 @@ persistent-recovery-test:
 .PHONY: wait-budget-identity-test
 wait-budget-identity-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_wait_budget_identity -v
+
+.PHONY: wait-budget-checkpoint-test
+wait-budget-checkpoint-test:
+	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_wait_budget_checkpoint -v

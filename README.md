@@ -462,6 +462,8 @@ embodied-agent/
 
 最新扩展：[预算池身份绑定](docs/wait-budget-identity.md)，重启时可按独立保存的预期池编号打开数据库，拒绝同路径替换的新池；已有异常分配记录也在打开和分配时拒绝。
 
+最新扩展：[预算历史检查点](docs/wait-budget-checkpoint.md)，独立保存历史摘要，重开及分配事务核对已有前缀；正常追加可继续，同池旧副本和已有历史改写被拒绝。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

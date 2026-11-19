@@ -1,5 +1,8 @@
 """Explicit SQLite threshold pool; committed reservations are never refunded/reused."""
 
+import copy
+import hashlib
+import json
 import sqlite3
 import uuid
 from contextlib import closing
@@ -38,11 +41,28 @@ class WaitBudgetStore:
                 )
         return cls(path)
 
-    def __init__(self, path, *, expected_pool_id=None):
+    def __init__(self, path, *, expected_pool_id=None, expected_checkpoint=None):
         if expected_pool_id is not None and (
             not isinstance(expected_pool_id, str) or not 1 <= len(expected_pool_id) <= 256
         ):
             raise ValueError("bounded expected pool identity required")
+        if expected_checkpoint is not None:
+            c = expected_checkpoint
+            if (
+                not isinstance(c, dict)
+                or set(c) != {"version", "pool_id", "reserved_slots", "sha256"}
+                or type(c["version"]) is not int
+                or c["version"] != 1
+                or not isinstance(c["pool_id"], str)
+                or not 1 <= len(c["pool_id"]) <= 256
+                or type(c["reserved_slots"]) is not int
+                or not 0 <= c["reserved_slots"] <= 3
+                or not isinstance(c["sha256"], str)
+                or len(c["sha256"]) != 64
+                or any(ch not in "0123456789abcdef" for ch in c["sha256"])
+            ):
+                raise ValueError("invalid budget checkpoint")
+        self._expected_checkpoint = copy.deepcopy(expected_checkpoint)
         self.path = Path(path).resolve()
         with closing(self._connect()) as db, db:
             db.execute("BEGIN")
@@ -91,7 +111,28 @@ class WaitBudgetStore:
                 or allowance != self._share(i)
             ):
                 raise ValueError("invalid reservations")
+        if self._expected_checkpoint is not None:
+            checkpoint = self._expected_checkpoint
+            count = checkpoint["reserved_slots"]
+            if len(rows) < count or self._checkpoint(rows[:count]) != checkpoint:
+                raise ValueError("budget history differs from checkpoint")
         return rows
+
+    def _checkpoint(self, rows):
+        payload = [self.pool_id, self.total_ns, self.slots, rows]
+        encoded = json.dumps(payload, ensure_ascii=True, separators=(",", ":")).encode()
+        return {
+            "version": 1,
+            "pool_id": self.pool_id,
+            "reserved_slots": len(rows),
+            "sha256": hashlib.sha256(encoded).hexdigest(),
+        }
+
+    def checkpoint(self):
+        """Export a history baseline for independent storage, never an allocation grant."""
+        with closing(self._connect()) as db, db:
+            db.execute("BEGIN")
+            return self._checkpoint(self._rows(db))
 
     def _share(self, slot):
         return self.total_ns // self.slots + (1 if slot <= self.total_ns % self.slots else 0)
