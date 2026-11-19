@@ -458,6 +458,8 @@ embodied-agent/
 
 最新扩展：[持久化等待预算池](docs/persistent-wait-budget.md)，启动前事务分配，管理器重建不重置同一池额度；4 进程争用 2 份额度恰好 2 次获配，提交后调用方退出也不退款。预算池不代表设备所有权或硬 CPU 限额。
 
+最新联调：[跨应用进程的持久化预算恢复](docs/persistent-recovery.md)，两轮均在初始化失败、确认清理、应用退出后，由新应用领取剩余份额并完成 36 请求及一次性证据消费；第三个应用在采集启动前因耗尽拒绝。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
