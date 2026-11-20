@@ -1433,3 +1433,7 @@ grouped-budget-audit-test:
 .PHONY: recovery-json-test
 recovery-json-test:
 	PYTHONPATH=src:.:tests/physics .venv/bin/python -m unittest test_recovery_json -v
+
+.PHONY: runtime-confirmation-test
+runtime-confirmation-test:
+	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_runtime*.py' -v

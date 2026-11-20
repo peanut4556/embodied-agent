@@ -482,6 +482,8 @@ embodied-agent/
 
 最新加固：[恢复文件无歧义解析](docs/recovery-json.md)，统一拒绝重复字段、非标准数值和过深嵌套，单条对账检查点也执行大小限制。
 
+最新主链路修复：[逐步观测确认](docs/runtime-confirmation.md)，基础 AgentRuntime 不再把无异常调用等同成功；抓放后核对符号观测，失败停止后续步骤，策略不得替换已校验的动作目标。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
