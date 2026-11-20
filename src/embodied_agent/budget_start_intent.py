@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 
+from .recovery_json import read_recovery_json
 from .wait_budget_store import WaitBudgetStore
 
 
@@ -28,11 +29,7 @@ def save_intent(path, store, request_id):
 
 
 def read_intent(path):
-    with Path(path).open("r", encoding="utf-8") as stream:
-        raw = stream.read(8193)
-    if len(raw) > 8192:
-        raise ValueError("intent too large")
-    value = json.loads(raw)
+    value = read_recovery_json(path, 8192)
     if (
         not isinstance(value, dict)
         or set(value) != {"version", "database", "pool_id", "request_id"}

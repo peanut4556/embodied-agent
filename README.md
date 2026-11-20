@@ -480,6 +480,8 @@ embodied-agent/
 
 最新扩展：[意图清单自动分组快照](docs/grouped-budget-audit.md)，同数据库、池身份和基线内容的条目合并为一次快照查询，逐文件保留结果并显式报告组边界。
 
+最新加固：[恢复文件无歧义解析](docs/recovery-json.md)，统一拒绝重复字段、非标准数值和过深嵌套，单条对账检查点也执行大小限制。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

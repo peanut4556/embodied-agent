@@ -6,15 +6,12 @@ from collections import Counter
 from pathlib import Path
 
 from .budget_start_intent import read_intent
+from .recovery_json import read_recovery_json
 from .wait_budget_store import WaitBudgetStore, validate_checkpoint
 
 
 def read_json(path, limit):
-    with Path(path).open(encoding="utf-8") as stream:
-        raw = stream.read(limit + 1)
-    if len(raw) > limit:
-        raise ValueError("audit input exceeds size limit")
-    return json.loads(raw)
+    return read_recovery_json(path, limit)
 
 
 def audit_manifest(path):

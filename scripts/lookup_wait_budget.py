@@ -6,6 +6,7 @@ import sqlite3
 from pathlib import Path
 
 from embodied_agent.budget_start_intent import reconcile_intent
+from embodied_agent.recovery_json import read_recovery_json
 from embodied_agent.wait_budget_store import WaitBudgetStore
 
 
@@ -24,7 +25,7 @@ def main():
     elif any(v is None for v in manual):
         parser.error("provide --intent or all three manual identity arguments")
     try:
-        checkpoint = json.loads(args.checkpoint.read_text()) if args.checkpoint else None
+        checkpoint = read_recovery_json(args.checkpoint, 8192) if args.checkpoint else None
         if args.intent is not None:
             result = reconcile_intent(args.intent, expected_checkpoint=checkpoint)
         else:
