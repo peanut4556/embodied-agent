@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import copy
 import logging
+import math
+import time
 
 from .interfaces import Planner, Policy, Robot
 from .models import Action, Observation, TaskResult
@@ -17,13 +19,40 @@ class AgentRuntime:
         policy: Policy,
         robot: Robot,
         safety: SafetyGate | None = None,
+        *,
+        confirmation_timeout_s=0,
+        confirmation_poll_s=0.01,
+        max_confirmation_reads=128,
+        clock=time.monotonic,
+        sleep=time.sleep,
     ) -> None:
+        for value, low, high in ((confirmation_timeout_s, 0, 5), (confirmation_poll_s, 0.001, 1)):
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not math.isfinite(value)
+                or not low <= value <= high
+            ):
+                raise ValueError("invalid confirmation timing")
+        if type(max_confirmation_reads) is not int or not 1 <= max_confirmation_reads <= 1000:
+            raise ValueError("confirmation read limit must be 1..1000")
+        if not callable(clock) or not callable(sleep):
+            raise TypeError("clock and sleep must be callable")
+        self.confirmation_timeout_s = confirmation_timeout_s
+        self.confirmation_poll_s = confirmation_poll_s
+        self.max_confirmation_reads = max_confirmation_reads
+        self.clock, self.sleep = clock, sleep
         self.planner = planner
         self.policy = policy
         self.robot = robot
         self.safety = safety or SafetyGate()
 
-    def run(self, instruction: str) -> TaskResult:
+    def run(self, instruction: str, *, stop_requested=None) -> TaskResult:
+        if stop_requested is not None and not callable(stop_requested):
+            raise ValueError("stop_requested must be callable")
+        stopped = stop_requested if stop_requested is not None else lambda: False
+        if stopped():
+            return TaskResult(False, "task cancelled", 0)
         observation = self.robot.observe()
         plan = self.planner.create_plan(instruction, observation)
         self.safety.validate_plan(plan)
@@ -41,17 +70,57 @@ class AgentRuntime:
                     False, f"step {index}: policy action differs from validated plan", completed
                 )
             LOGGER.info("step=%d action=%s parameters=%s", index, action.name, action.parameters)
+            if stopped():
+                return TaskResult(False, "task cancelled", completed)
             self.robot.execute(action)
             if action.name == "stop":
                 return TaskResult(False, "task stopped", completed)
-            after = self.robot.observe()
-            if not self._confirmed(action, after):
+            confirmation = self._await_confirmation(action, stopped)
+            if confirmation != "confirmed":
                 return TaskResult(
-                    False, f"step {index}: {action.name} postcondition not confirmed", completed
+                    False,
+                    f"step {index}: {action.name} postcondition not confirmed ({confirmation})",
+                    completed,
                 )
             completed += 1
 
         return TaskResult(True, "task completed", completed)
+
+    def _await_confirmation(self, action, stopped):
+        previous = None
+
+        def now():
+            nonlocal previous
+            value = self.clock()
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not math.isfinite(value)
+                or (previous is not None and value < previous)
+            ):
+                raise ValueError("confirmation clock invalid")
+            previous = value
+            return value
+
+        deadline = now() + self.confirmation_timeout_s
+        for attempt in range(self.max_confirmation_reads):
+            if stopped():
+                return "cancelled"
+            if attempt and now() >= deadline:
+                return "timeout"
+            after = self.robot.observe()
+            current = now()
+            if stopped():
+                return "cancelled"
+            if self.confirmation_timeout_s and current > deadline:
+                return "timeout"
+            if self._confirmed(action, after):
+                return "confirmed"
+            if not self.confirmation_timeout_s or current >= deadline:
+                return "timeout"
+            if attempt + 1 < self.max_confirmation_reads:
+                self.sleep(min(self.confirmation_poll_s, deadline - current))
+        return "read_limit"
 
     @staticmethod
     def _confirmed(action: Action, observation: Observation) -> bool:

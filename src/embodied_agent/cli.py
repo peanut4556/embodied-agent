@@ -18,6 +18,12 @@ def build_parser() -> argparse.ArgumentParser:
         default="rule",
         help="planning backend (default: rule)",
     )
+    parser.add_argument(
+        "--confirmation-timeout",
+        type=float,
+        default=0,
+        help="seconds to poll action outcomes (0..5; default immediate)",
+    )
     return parser
 
 
@@ -25,7 +31,9 @@ def main() -> None:
     args = build_parser().parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     planner = RAISubprocessPlanner() if args.planner == "rai" else RuleBasedPlanner()
-    runtime = AgentRuntime(planner, MockPolicy(), MockRobot())
+    runtime = AgentRuntime(
+        planner, MockPolicy(), MockRobot(), confirmation_timeout_s=args.confirmation_timeout
+    )
     result = runtime.run(args.instruction)
     print(
         f"success={result.success} completed_steps={result.completed_steps} "

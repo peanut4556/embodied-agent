@@ -484,6 +484,8 @@ embodied-agent/
 
 最新主链路修复：[逐步观测确认](docs/runtime-confirmation.md)，基础 AgentRuntime 不再把无异常调用等同成功；抓放后核对符号观测，失败停止后续步骤，策略不得替换已校验的动作目标。
 
+最新主链路扩展：[有时限的动作确认等待](docs/runtime-wait.md)，异步观测可在期限内确认，等待只轮询不重执行动作；支持取消和读取次数上限，默认立即核验。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
