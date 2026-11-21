@@ -35,3 +35,4 @@ class TaskResult:
     success: bool
     message: str
     completed_steps: int
+    confirmation_reports: list[dict[str, Any]] = field(default_factory=list)

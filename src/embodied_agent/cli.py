@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import argparse
+import json
 import logging
+from dataclasses import asdict
 
 from .adapters.rai_planner import RAISubprocessPlanner
 from .mock import MockPolicy, MockRobot, TimestampedMockRobot
@@ -33,6 +35,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--confirmation-samples", type=int, default=1)
     parser.add_argument("--confirmation-span", type=float, default=0)
     parser.add_argument("--max-confirmation-gap", type=float, default=None)
+    parser.add_argument(
+        "--json", action="store_true", help="print structured task and confirmation results"
+    )
     return parser
 
 
@@ -51,6 +56,9 @@ def main() -> None:
         max_confirmation_gap_s=args.max_confirmation_gap,
     )
     result = runtime.run(args.instruction)
+    if args.json:
+        print(json.dumps(asdict(result), ensure_ascii=False))
+        return
     print(
         f"success={result.success} completed_steps={result.completed_steps} "
         f"message={result.message}"

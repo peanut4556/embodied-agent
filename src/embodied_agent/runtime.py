@@ -101,6 +101,7 @@ class AgentRuntime:
         self.safety.validate_plan(plan)
         LOGGER.info("goal=%s steps=%d", plan.goal, len(plan.steps))
 
+        reports = []
         completed = 0
         for index, step in enumerate(plan.steps, start=1):
             observation = self.robot.observe()
@@ -110,26 +111,32 @@ class AgentRuntime:
                 action.parameters.get(key) != value for key, value in step.arguments.items()
             ):
                 return TaskResult(
-                    False, f"step {index}: policy action differs from validated plan", completed
+                    False,
+                    f"step {index}: policy action differs from validated plan",
+                    completed,
+                    reports,
                 )
             LOGGER.info("step=%d action=%s parameters=%s", index, action.name, action.parameters)
             if stopped():
-                return TaskResult(False, "task cancelled", completed)
+                return TaskResult(False, "task cancelled", completed, reports)
             self.robot.execute(action)
             if action.name == "stop":
-                return TaskResult(False, "task stopped", completed)
-            confirmation = self._await_confirmation(action, stopped)
+                return TaskResult(False, "task stopped", completed, reports)
+            report = {"step": index, "action": action.name}
+            reports.append(report)
+            confirmation = self._await_confirmation(action, stopped, report=report)
             if confirmation != "confirmed":
                 return TaskResult(
                     False,
                     f"step {index}: {action.name} postcondition not confirmed ({confirmation})",
                     completed,
+                    reports,
                 )
             completed += 1
 
-        return TaskResult(True, "task completed", completed)
+        return TaskResult(True, "task completed", completed, reports)
 
-    def _await_confirmation(self, action, stopped):
+    def _await_confirmation(self, action, stopped, *, report=None):
         previous = None
 
         def now():
@@ -145,20 +152,38 @@ class AgentRuntime:
             previous = value
             return value
 
+        report = {} if report is None else report
+        report.update(
+            reads=0,
+            stale_reads=0,
+            negative_reads=0,
+            duplicate_reads=0,
+            streak_resets=0,
+            gap_resets=0,
+            final_streak=0,
+            required_samples=self.confirmation_samples,
+            required_span_s=self.confirmation_span_s,
+        )
         started = now()
+
+        def finish(status):
+            report.update(status=status, elapsed_s=previous - started)
+            return status
+
         deadline = started + self.confirmation_timeout_s
         streak, last_stamp, first_stamp = 0, None, None
         for attempt in range(self.max_confirmation_reads):
             if stopped():
-                return "cancelled"
+                return finish("cancelled")
             if attempt and now() >= deadline:
-                return "timeout"
+                return finish("timeout")
             after = self.robot.observe()
+            report["reads"] += 1
             current = now()
             if stopped():
-                return "cancelled"
+                return finish("cancelled")
             if self.confirmation_timeout_s and current > deadline:
-                return "timeout"
+                return finish("timeout")
             fresh = True
             if self.max_observation_age_s is not None:
                 stamp = after.metadata.get("observed_at_monotonic")
@@ -168,15 +193,22 @@ class AgentRuntime:
                     or not math.isfinite(stamp)
                     or stamp > current
                 ):
-                    return "invalid_observation_timestamp"
+                    return finish("invalid_observation_timestamp")
                 fresh = stamp >= started and current - stamp <= self.max_observation_age_s
-            positive = fresh and self._confirmed(action, after)
+            report["stale_reads"] += not fresh
+            matches = self._confirmed(action, after)
+            report["negative_reads"] += not matches
+            positive = fresh and matches
             if self.confirmation_samples == 1 and positive:
-                return "confirmed"
+                report["final_streak"] = 1
+                return finish("confirmed")
             if self.confirmation_samples > 1:
                 if last_stamp is not None and stamp < last_stamp:
-                    return "observation_timestamp_regressed"
+                    return finish("observation_timestamp_regressed")
+                if positive and last_stamp is not None and stamp == last_stamp:
+                    report["duplicate_reads"] += 1
                 if not positive:
+                    report["streak_resets"] += streak > 0
                     streak, first_stamp = 0, None
                 elif last_stamp is None or stamp > last_stamp:
                     if (
@@ -184,22 +216,25 @@ class AgentRuntime:
                         and self.max_confirmation_gap_s is not None
                         and stamp - last_stamp > self.max_confirmation_gap_s
                     ):
+                        report["gap_resets"] += 1
                         streak, first_stamp = 0, None
                     if streak == 0:
                         first_stamp = stamp
                     streak += 1
                 last_stamp = stamp
+                report["final_streak"] = streak
+                report["observed_span_s"] = stamp - first_stamp if first_stamp is not None else 0
                 if (
                     streak >= self.confirmation_samples
                     and first_stamp is not None
                     and stamp - first_stamp >= self.confirmation_span_s
                 ):
-                    return "confirmed"
+                    return finish("confirmed")
             if not self.confirmation_timeout_s or current >= deadline:
-                return "timeout"
+                return finish("timeout")
             if attempt + 1 < self.max_confirmation_reads:
                 self.sleep(min(self.confirmation_poll_s, deadline - current))
-        return "read_limit"
+        return finish("read_limit")
 
     @staticmethod
     def _confirmed(action: Action, observation: Observation) -> bool:
