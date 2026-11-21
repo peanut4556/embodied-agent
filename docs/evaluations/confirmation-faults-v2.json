@@ -1,0 +1,31 @@
+{
+  "sources": {
+    "scripts/evaluate_confirmation_faults.py": "098479005c6ee321f0fe1c431690e476e705ef908a563c5d6396e56964cff372",
+    "src/embodied_agent/runtime.py": "9c434b486b96fb73bc17707f8ffcc1d3af593e2845a4fb764c44a65fa2c8bcab",
+    "src/embodied_agent/models.py": "60eaf0f50c0f1a259c32643cba2b9f19bc28e984ff7638232b964d43e74ed9f5",
+    "src/embodied_agent/mock.py": "aa949d41b75ffe5874391e2d285e89d8fe3fbe77be0113d948eea3a69bc27335",
+    "src/embodied_agent/safety.py": "4af17494723dd1e64e91410be2ab9f30f58c32f4f809cdccc94179bff2dfd9ba"
+  },
+  "summary": {
+    "immediate": {
+      "cases": 6,
+      "false_accepts": 4,
+      "missed_valid_cases": 1
+    },
+    "fresh": {
+      "cases": 6,
+      "false_accepts": 2,
+      "missed_valid_cases": 0
+    },
+    "temporal": {
+      "cases": 6,
+      "false_accepts": 0,
+      "missed_valid_cases": 0
+    }
+  },
+  "synthetic": true,
+  "clock": "deterministic fixture",
+  "hardware_validated": false,
+  "report_path": "outputs/evaluations/confirmation-faults-v2/report.json",
+  "report_sha256": "5fe800ebc58d5e5d3d8aa3d2f2bca66fe3e1ffba22c0787d3ad49267d56bacf6"
+}

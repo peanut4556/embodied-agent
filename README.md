@@ -494,6 +494,8 @@ embodied-agent/
 
 最新主链路扩展：[结构化确认诊断](docs/runtime-reports.md)，TaskResult 返回每步观测与重置计数、耗时和结束原因，CLI --json 可直接导出供分析。
 
+最新主链路验证：[确认策略故障矩阵](docs/confirmation-faults.md)，三种配置对照六个固定传感器反例；误接受数分别为 4、2、0，全部单次执行。仅为确定性合成合同验证。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

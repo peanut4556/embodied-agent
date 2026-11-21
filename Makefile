@@ -1437,3 +1437,10 @@ recovery-json-test:
 .PHONY: runtime-confirmation-test
 runtime-confirmation-test:
 	PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_runtime*.py' -v
+
+CONFIRMATION_FAULTS_OUTPUT ?= outputs/evaluations/confirmation-faults-new
+.PHONY: confirmation-faults-evaluate confirmation-faults-test
+confirmation-faults-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_confirmation_faults.py --output "$(CONFIRMATION_FAULTS_OUTPUT)"
+confirmation-faults-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_confirmation_fault_matrix -v
