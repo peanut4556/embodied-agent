@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import time
 from dataclasses import replace
 
 from .models import Action, Observation, PlanStep
@@ -40,4 +41,15 @@ class MockRobot:
             objects=objects,
             gripper_holding=holding,
             metadata={"last_action": action.name},
+        )
+
+
+class TimestampedMockRobot(MockRobot):
+    """Timestamp a synchronous read of mock state, not a camera exposure."""
+
+    def observe(self) -> Observation:
+        observation = super().observe()
+        return replace(
+            observation,
+            metadata={**observation.metadata, "observed_at_monotonic": time.monotonic()},
         )

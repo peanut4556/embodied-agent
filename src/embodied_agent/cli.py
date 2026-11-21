@@ -24,6 +24,12 @@ def build_parser() -> argparse.ArgumentParser:
         default=0,
         help="seconds to poll action outcomes (0..5; default immediate)",
     )
+    parser.add_argument(
+        "--max-observation-age",
+        type=float,
+        default=None,
+        help="require timestamped mock observations of at most this age (0..5 seconds)",
+    )
     return parser
 
 

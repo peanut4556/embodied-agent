@@ -23,6 +23,7 @@ class AgentRuntime:
         confirmation_timeout_s=0,
         confirmation_poll_s=0.01,
         max_confirmation_reads=128,
+        max_observation_age_s=None,
         clock=time.monotonic,
         sleep=time.sleep,
     ) -> None:
@@ -38,6 +39,14 @@ class AgentRuntime:
             raise ValueError("confirmation read limit must be 1..1000")
         if not callable(clock) or not callable(sleep):
             raise TypeError("clock and sleep must be callable")
+        if max_observation_age_s is not None and (
+            isinstance(max_observation_age_s, bool)
+            or not isinstance(max_observation_age_s, (int, float))
+            or not math.isfinite(max_observation_age_s)
+            or not 0 < max_observation_age_s <= 5
+        ):
+            raise ValueError("observation age must be None or finite seconds in (0, 5]")
+        self.max_observation_age_s = max_observation_age_s
         self.confirmation_timeout_s = confirmation_timeout_s
         self.confirmation_poll_s = confirmation_poll_s
         self.max_confirmation_reads = max_confirmation_reads
@@ -102,7 +111,8 @@ class AgentRuntime:
             previous = value
             return value
 
-        deadline = now() + self.confirmation_timeout_s
+        started = now()
+        deadline = started + self.confirmation_timeout_s
         for attempt in range(self.max_confirmation_reads):
             if stopped():
                 return "cancelled"
@@ -114,7 +124,18 @@ class AgentRuntime:
                 return "cancelled"
             if self.confirmation_timeout_s and current > deadline:
                 return "timeout"
-            if self._confirmed(action, after):
+            fresh = True
+            if self.max_observation_age_s is not None:
+                stamp = after.metadata.get("observed_at_monotonic")
+                if (
+                    isinstance(stamp, bool)
+                    or not isinstance(stamp, (int, float))
+                    or not math.isfinite(stamp)
+                    or stamp > current
+                ):
+                    return "invalid_observation_timestamp"
+                fresh = stamp >= started and current - stamp <= self.max_observation_age_s
+            if fresh and self._confirmed(action, after):
                 return "confirmed"
             if not self.confirmation_timeout_s or current >= deadline:
                 return "timeout"

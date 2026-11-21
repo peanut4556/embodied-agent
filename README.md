@@ -486,6 +486,8 @@ embodied-agent/
 
 最新主链路扩展：[有时限的动作确认等待](docs/runtime-wait.md)，异步观测可在期限内确认，等待只轮询不重执行动作；支持取消和读取次数上限，默认立即核验。
 
+最新主链路扩展：[观测新鲜度合同](docs/runtime-freshness.md)，可选要求确认观测采于动作返回之后且未过龄，旧成功状态重放不能直接确认；提供带时间戳 mock 模式。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
