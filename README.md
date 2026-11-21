@@ -488,6 +488,8 @@ embodied-agent/
 
 最新主链路扩展：[观测新鲜度合同](docs/runtime-freshness.md)，可选要求确认观测采于动作返回之后且未过龄，旧成功状态重放不能直接确认；提供带时间戳 mock 模式。
 
+最新主链路扩展：[连续新鲜样本确认](docs/runtime-multisample.md)，重复帧不累计成功，反例重置、时间戳倒退拒绝；同时修复新鲜度 CLI 参数未传入运行时的遗漏。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

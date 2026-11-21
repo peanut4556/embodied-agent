@@ -24,6 +24,7 @@ class AgentRuntime:
         confirmation_poll_s=0.01,
         max_confirmation_reads=128,
         max_observation_age_s=None,
+        confirmation_samples=1,
         clock=time.monotonic,
         sleep=time.sleep,
     ) -> None:
@@ -46,6 +47,17 @@ class AgentRuntime:
             or not 0 < max_observation_age_s <= 5
         ):
             raise ValueError("observation age must be None or finite seconds in (0, 5]")
+        if type(confirmation_samples) is not int or not 1 <= confirmation_samples <= 10:
+            raise ValueError("confirmation samples must be 1..10")
+        if confirmation_samples > 1 and (
+            max_observation_age_s is None
+            or confirmation_timeout_s <= 0
+            or max_confirmation_reads < confirmation_samples
+        ):
+            raise ValueError(
+                "multiple samples require freshness, positive timeout and enough reads"
+            )
+        self.confirmation_samples = confirmation_samples
         self.max_observation_age_s = max_observation_age_s
         self.confirmation_timeout_s = confirmation_timeout_s
         self.confirmation_poll_s = confirmation_poll_s
@@ -113,6 +125,7 @@ class AgentRuntime:
 
         started = now()
         deadline = started + self.confirmation_timeout_s
+        streak, last_stamp = 0, None
         for attempt in range(self.max_confirmation_reads):
             if stopped():
                 return "cancelled"
@@ -135,8 +148,19 @@ class AgentRuntime:
                 ):
                     return "invalid_observation_timestamp"
                 fresh = stamp >= started and current - stamp <= self.max_observation_age_s
-            if fresh and self._confirmed(action, after):
+            positive = fresh and self._confirmed(action, after)
+            if self.confirmation_samples == 1 and positive:
                 return "confirmed"
+            if self.confirmation_samples > 1:
+                if last_stamp is not None and stamp < last_stamp:
+                    return "observation_timestamp_regressed"
+                if not positive:
+                    streak = 0
+                elif last_stamp is None or stamp > last_stamp:
+                    streak += 1
+                last_stamp = stamp
+                if streak >= self.confirmation_samples:
+                    return "confirmed"
             if not self.confirmation_timeout_s or current >= deadline:
                 return "timeout"
             if attempt + 1 < self.max_confirmation_reads:

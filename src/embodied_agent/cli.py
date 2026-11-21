@@ -4,7 +4,7 @@ import argparse
 import logging
 
 from .adapters.rai_planner import RAISubprocessPlanner
-from .mock import MockPolicy, MockRobot
+from .mock import MockPolicy, MockRobot, TimestampedMockRobot
 from .planner import RuleBasedPlanner
 from .runtime import AgentRuntime
 
@@ -30,6 +30,7 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="require timestamped mock observations of at most this age (0..5 seconds)",
     )
+    parser.add_argument("--confirmation-samples", type=int, default=1)
     return parser
 
 
@@ -38,7 +39,12 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     planner = RAISubprocessPlanner() if args.planner == "rai" else RuleBasedPlanner()
     runtime = AgentRuntime(
-        planner, MockPolicy(), MockRobot(), confirmation_timeout_s=args.confirmation_timeout
+        planner,
+        MockPolicy(),
+        TimestampedMockRobot() if args.max_observation_age is not None else MockRobot(),
+        confirmation_timeout_s=args.confirmation_timeout,
+        max_observation_age_s=args.max_observation_age,
+        confirmation_samples=args.confirmation_samples,
     )
     result = runtime.run(args.instruction)
     print(
