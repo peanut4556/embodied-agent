@@ -490,6 +490,8 @@ embodied-agent/
 
 最新主链路扩展：[连续新鲜样本确认](docs/runtime-multisample.md)，重复帧不累计成功，反例重置、时间戳倒退拒绝；同时修复新鲜度 CLI 参数未传入运行时的遗漏。
 
+最新主链路扩展：[带时间跨度的动作确认](docs/runtime-span.md)，同时约束样本数量、取样跨度和最大间隔，密集短突发或长空档不能直接满足确认。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

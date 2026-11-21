@@ -25,6 +25,8 @@ class AgentRuntime:
         max_confirmation_reads=128,
         max_observation_age_s=None,
         confirmation_samples=1,
+        confirmation_span_s=0,
+        max_confirmation_gap_s=None,
         clock=time.monotonic,
         sleep=time.sleep,
     ) -> None:
@@ -57,6 +59,26 @@ class AgentRuntime:
             raise ValueError(
                 "multiple samples require freshness, positive timeout and enough reads"
             )
+        if (
+            isinstance(confirmation_span_s, bool)
+            or not isinstance(confirmation_span_s, (int, float))
+            or not math.isfinite(confirmation_span_s)
+            or not 0 <= confirmation_span_s <= confirmation_timeout_s
+        ):
+            raise ValueError("confirmation span must be finite and within timeout")
+        if max_confirmation_gap_s is not None and (
+            isinstance(max_confirmation_gap_s, bool)
+            or not isinstance(max_confirmation_gap_s, (int, float))
+            or not math.isfinite(max_confirmation_gap_s)
+            or not 0 < max_confirmation_gap_s <= 5
+        ):
+            raise ValueError("confirmation gap must be finite seconds in (0, 5]")
+        if (confirmation_span_s or max_confirmation_gap_s is not None) and confirmation_samples < 2:
+            raise ValueError("temporal confirmation requires multiple samples")
+        if confirmation_span_s and max_confirmation_gap_s is None:
+            raise ValueError("confirmation span requires an explicit maximum sample gap")
+        self.confirmation_span_s = confirmation_span_s
+        self.max_confirmation_gap_s = max_confirmation_gap_s
         self.confirmation_samples = confirmation_samples
         self.max_observation_age_s = max_observation_age_s
         self.confirmation_timeout_s = confirmation_timeout_s
@@ -125,7 +147,7 @@ class AgentRuntime:
 
         started = now()
         deadline = started + self.confirmation_timeout_s
-        streak, last_stamp = 0, None
+        streak, last_stamp, first_stamp = 0, None, None
         for attempt in range(self.max_confirmation_reads):
             if stopped():
                 return "cancelled"
@@ -155,11 +177,23 @@ class AgentRuntime:
                 if last_stamp is not None and stamp < last_stamp:
                     return "observation_timestamp_regressed"
                 if not positive:
-                    streak = 0
+                    streak, first_stamp = 0, None
                 elif last_stamp is None or stamp > last_stamp:
+                    if (
+                        last_stamp is not None
+                        and self.max_confirmation_gap_s is not None
+                        and stamp - last_stamp > self.max_confirmation_gap_s
+                    ):
+                        streak, first_stamp = 0, None
+                    if streak == 0:
+                        first_stamp = stamp
                     streak += 1
                 last_stamp = stamp
-                if streak >= self.confirmation_samples:
+                if (
+                    streak >= self.confirmation_samples
+                    and first_stamp is not None
+                    and stamp - first_stamp >= self.confirmation_span_s
+                ):
                     return "confirmed"
             if not self.confirmation_timeout_s or current >= deadline:
                 return "timeout"

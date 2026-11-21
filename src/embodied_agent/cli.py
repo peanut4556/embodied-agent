@@ -31,6 +31,8 @@ def build_parser() -> argparse.ArgumentParser:
         help="require timestamped mock observations of at most this age (0..5 seconds)",
     )
     parser.add_argument("--confirmation-samples", type=int, default=1)
+    parser.add_argument("--confirmation-span", type=float, default=0)
+    parser.add_argument("--max-confirmation-gap", type=float, default=None)
     return parser
 
 
@@ -45,6 +47,8 @@ def main() -> None:
         confirmation_timeout_s=args.confirmation_timeout,
         max_observation_age_s=args.max_observation_age,
         confirmation_samples=args.confirmation_samples,
+        confirmation_span_s=args.confirmation_span,
+        max_confirmation_gap_s=args.max_confirmation_gap,
     )
     result = runtime.run(args.instruction)
     print(
