@@ -1,0 +1,185 @@
+{
+  "sources": {
+    "scripts/evaluate_confirmation_stress.py": "dddc2d4d678253c696ba387212a78dda9bf24afd7dbb4fc1549ca97c67f12af8",
+    "scripts/evaluate_confirmation_faults.py": "098479005c6ee321f0fe1c431690e476e705ef908a563c5d6396e56964cff372",
+    "src/embodied_agent/runtime.py": "9c434b486b96fb73bc17707f8ffcc1d3af593e2845a4fb764c44a65fa2c8bcab",
+    "src/embodied_agent/models.py": "60eaf0f50c0f1a259c32643cba2b9f19bc28e984ff7638232b964d43e74ed9f5",
+    "src/embodied_agent/safety.py": "4af17494723dd1e64e91410be2ab9f30f58c32f4f809cdccc94179bff2dfd9ba",
+    "src/embodied_agent/mock.py": "aa949d41b75ffe5874391e2d285e89d8fe3fbe77be0113d948eea3a69bc27335"
+  },
+  "summary": [
+    {
+      "profile": "immediate",
+      "kind": "stable",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "immediate",
+      "kind": "delayed",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 20
+    },
+    {
+      "profile": "immediate",
+      "kind": "dropout",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 5
+    },
+    {
+      "profile": "immediate",
+      "kind": "pulse",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "immediate",
+      "kind": "burst",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "immediate",
+      "kind": "stale",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "immediate",
+      "kind": "replay",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "immediate",
+      "kind": "persistent_false",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "stable",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "delayed",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "dropout",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "pulse",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "burst",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "stale",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "replay",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "fresh",
+      "kind": "persistent_false",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    },
+    {
+      "profile": "temporal",
+      "kind": "stable",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "temporal",
+      "kind": "delayed",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 3
+    },
+    {
+      "profile": "temporal",
+      "kind": "dropout",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "temporal",
+      "kind": "pulse",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "temporal",
+      "kind": "burst",
+      "cases": 20,
+      "false_accepts": 10,
+      "missed_valid": 0
+    },
+    {
+      "profile": "temporal",
+      "kind": "stale",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "temporal",
+      "kind": "replay",
+      "cases": 20,
+      "false_accepts": 0,
+      "missed_valid": 0
+    },
+    {
+      "profile": "temporal",
+      "kind": "persistent_false",
+      "cases": 20,
+      "false_accepts": 20,
+      "missed_valid": 0
+    }
+  ],
+  "runs": 480,
+  "plan_path": "outputs/evaluations/confirmation-stress-v1/plan.json",
+  "plan_sha256": "d978be33d64e28be68dc0d5951a33bb17fbba02d8507ba9ef96409c401c4dd18",
+  "report_path": "outputs/evaluations/confirmation-stress-v1/report.json",
+  "report_sha256": "0f953c3afade720c4b95cbbbd3d95f0938919de60a5f1e174e72430fa278a9bf"
+}

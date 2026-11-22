@@ -1444,3 +1444,10 @@ confirmation-faults-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_confirmation_faults.py --output "$(CONFIRMATION_FAULTS_OUTPUT)"
 confirmation-faults-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_confirmation_fault_matrix -v
+
+CONFIRMATION_STRESS_OUTPUT ?= outputs/evaluations/confirmation-stress-new
+.PHONY: confirmation-stress-evaluate confirmation-stress-test
+confirmation-stress-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_confirmation_stress.py --output "$(CONFIRMATION_STRESS_OUTPUT)"
+confirmation-stress-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_confirmation_stress -v

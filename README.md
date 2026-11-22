@@ -496,6 +496,8 @@ embodied-agent/
 
 最新主链路验证：[确认策略故障矩阵](docs/confirmation-faults.md)，三种配置对照六个固定传感器反例；误接受数分别为 4、2、0，全部单次执行。仅为确定性合成合同验证。
 
+最新压力测试：[确认策略的随机化合成故障](docs/confirmation-stress.md)，480 个配对运行揭示时间确认仍接受较长突发与持续假观测，并漏掉部分延迟真结果；保留全部失败，不调整默认参数。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
