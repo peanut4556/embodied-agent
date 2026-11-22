@@ -2,6 +2,7 @@ import os
 import signal
 import time
 import unittest
+from unittest.mock import Mock
 
 from embodied_agent.mock import MockPolicy
 from embodied_agent.models import Action, Observation, Plan, PlanStep
@@ -104,6 +105,8 @@ class WitnessProcessTests(unittest.TestCase):
             self.assertEqual(report["status"], "witness_timeout")
             self.assertGreaterEqual(report["elapsed_s"], 0.03)
             self.assertEqual(report["witness_reads"], 0)
+            self.assertEqual(report["witness_process"]["state"], "reaped")
+            self.assertIsNotNone(report["witness_process"]["exitcode"])
 
     def test_worker_faults_stop_whole_task_without_reexecution(self):
         class Planner:
@@ -242,6 +245,56 @@ class WitnessProcessTests(unittest.TestCase):
             self.assertEqual(report["status"], "timeout")
             self.assertLess(report["elapsed_s"], 2)
             self.assertIsNotNone(witness.exitcode)
+
+    def test_unconfirmed_cleanup_can_be_retried_and_snapshots_do_not_change(self):
+        witness = ProcessWitness.__new__(ProcessWitness)
+        witness.closed, witness.calls, witness.exitcode = False, 1, None
+        witness.cleanup_state = "open"
+        witness.terminate_attempts = witness.kill_attempts = 0
+        witness.connection = Mock()
+        witness.process = Mock(pid=123, exitcode=-9)
+        witness.process.is_alive.return_value = True
+        self.assertFalse(witness.close())
+        snapshot = witness.lifecycle_report()
+        self.assertEqual(snapshot["state"], "unconfirmed")
+        self.assertEqual(snapshot["kill_attempts"], 1)
+        self.assertIsNone(snapshot["exitcode"])
+        witness.process.is_alive.return_value = False
+        self.assertTrue(witness.close())
+        self.assertEqual(witness.lifecycle_report()["state"], "reaped")
+        self.assertEqual(snapshot["state"], "unconfirmed")
+        self.assertTrue(witness.close())
+        witness.process.close.assert_called_once()
+
+    def test_runtime_preserves_unconfirmed_cleanup(self):
+        class Robot:
+            def observe(self):
+                return read(None)
+
+        # Model an OS that has not confirmed process exit; no real orphan is created.
+        class UnconfirmedWitness(ProcessWitness):
+            def __init__(self):
+                self.closed, self.calls, self.exitcode = True, 1, None
+                self.cleanup_state = "unconfirmed"
+                self.terminate_attempts = self.kill_attempts = 1
+
+            def __call__(self, action, **kwargs):
+                raise WitnessTimeout("blocked")
+
+        report = {}
+        runtime = AgentRuntime(
+            None, None, Robot(), max_observation_age_s=1, confirmation_witness=UnconfirmedWitness()
+        )
+        self.assertEqual(
+            runtime._await_confirmation(
+                Action("verify", {"object": "b", "destination": "box"}),
+                lambda: False,
+                report=report,
+            ),
+            "witness_timeout",
+        )
+        self.assertEqual(report["witness_process"]["state"], "unconfirmed")
+        self.assertIsNone(report["witness_process"]["exitcode"])
 
     def test_invalid_timeout_and_startup_failure(self):
         for timeout in (True, 0, float("nan"), 6):

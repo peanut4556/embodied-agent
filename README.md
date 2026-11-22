@@ -510,6 +510,8 @@ embodied-agent/
 
 最新期限控制：[确认剩余预算传递](docs/process-witness.md)，进程见证按自身超时与任务剩余期限的较小值等待，区分任务超时与见证超时；59 项相关测试通过。
 
+最新资源诊断：[见证进程回收报告](docs/process-witness.md)，逐步报告增加进程生命周期快照，区分接口关闭与回收确认；61 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

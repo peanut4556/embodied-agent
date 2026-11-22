@@ -192,6 +192,8 @@ class AgentRuntime:
         started = now()
 
         def finish(status):
+            if isinstance(self.confirmation_witness, ProcessWitness):
+                report["witness_process"] = self.confirmation_witness.lifecycle_report()
             report.update(status=status, elapsed_s=previous - started)
             return status
 

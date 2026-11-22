@@ -66,6 +66,9 @@ class ProcessWitness:
                 raise ValueError("witness timeout must be finite seconds in (0, 5]")
         self.timeout_s, self.calls, self.closed = timeout_s, 0, False
         self.exitcode = None
+        self.cleanup_state = "open"
+        self.terminate_attempts = 0
+        self.kill_attempts = 0
         ctx = multiprocessing.get_context("spawn")
         self.connection, child = ctx.Pipe()
         self.process = ctx.Process(target=_worker, args=(child, factory), daemon=True)
@@ -136,23 +139,40 @@ class ProcessWitness:
             self.close()
             raise
 
+    def lifecycle_report(self):
+        """Return a detached snapshot, not a promise of physical device release."""
+        return {
+            "state": self.cleanup_state,
+            "closed": self.closed,
+            "exitcode": self.exitcode,
+            "requests": self.calls,
+            "terminate_attempts": self.terminate_attempts,
+            "kill_attempts": self.kill_attempts,
+        }
+
     def close(self):
         self.closed = True
+        self.cleanup_state = "unconfirmed"
         self.connection.close()
         if self.exitcode is not None:
+            self.cleanup_state = "reaped"
             return True
         if self.process.pid is None:
+            self.cleanup_state = "not_started"
             return True
         if self.process.is_alive():
+            self.terminate_attempts += 1
             self.process.terminate()
         self.process.join(0.1)
         if self.process.is_alive():
+            self.kill_attempts += 1
             self.process.kill()
             self.process.join(0.1)
         if self.process.is_alive():
             return False
         self.exitcode = self.process.exitcode
         self.process.close()
+        self.cleanup_state = "reaped"
         return True
 
     def __enter__(self):
