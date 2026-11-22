@@ -512,6 +512,8 @@ embodied-agent/
 
 最新资源诊断：[见证进程回收报告](docs/process-witness.md)，逐步报告增加进程生命周期快照，区分接口关闭与回收确认；61 项相关测试通过。
 
+最新任务控制：[跨步骤任务时间预算](docs/runtime-task-budget.md)，规划、动作与确认共享任务期限，耗尽后停止派发新动作；66 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

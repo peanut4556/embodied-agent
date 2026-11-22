@@ -112,9 +112,36 @@ class AgentRuntime:
         self.robot = robot
         self.safety = safety or SafetyGate()
 
-    def run(self, instruction: str, *, stop_requested=None) -> TaskResult:
+    def run(self, instruction: str, *, stop_requested=None, task_timeout_s=None) -> TaskResult:
         if stop_requested is not None and not callable(stop_requested):
             raise ValueError("stop_requested must be callable")
+        if task_timeout_s is not None and (
+            isinstance(task_timeout_s, bool)
+            or not isinstance(task_timeout_s, (int, float))
+            or not math.isfinite(task_timeout_s)
+            or task_timeout_s <= 0
+        ):
+            raise ValueError("task timeout must be finite positive seconds")
+        last_task_time = None
+
+        def task_now():
+            nonlocal last_task_time
+            value = self.clock()
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not math.isfinite(value)
+                or (last_task_time is not None and value < last_task_time)
+            ):
+                raise ValueError("task clock invalid")
+            last_task_time = value
+            return value
+
+        task_deadline = task_now() + task_timeout_s if task_timeout_s is not None else None
+
+        def expired():
+            return task_deadline is not None and task_now() >= task_deadline
+
         stopped = stop_requested if stop_requested is not None else lambda: False
         if stopped():
             return TaskResult(False, "task cancelled", 0)
@@ -123,9 +150,13 @@ class AgentRuntime:
         self.safety.validate_plan(plan)
         LOGGER.info("goal=%s steps=%d", plan.goal, len(plan.steps))
 
+        if expired():
+            return TaskResult(False, "task deadline exceeded", 0)
         reports = []
         completed = 0
         for index, step in enumerate(plan.steps, start=1):
+            if expired():
+                return TaskResult(False, "task deadline exceeded", completed, reports)
             observation = self.robot.observe()
             action = self.policy.select_action(copy.deepcopy(step), observation)
             self.safety.validate_action(action)
@@ -141,12 +172,16 @@ class AgentRuntime:
             LOGGER.info("step=%d action=%s parameters=%s", index, action.name, action.parameters)
             if stopped():
                 return TaskResult(False, "task cancelled", completed, reports)
+            if expired():
+                return TaskResult(False, "task deadline exceeded", completed, reports)
             self.robot.execute(action)
             if action.name == "stop":
                 return TaskResult(False, "task stopped", completed, reports)
             report = {"step": index, "action": action.name}
             reports.append(report)
-            confirmation = self._await_confirmation(action, stopped, report=report)
+            confirmation = self._await_confirmation(
+                action, stopped, report=report, task_deadline=task_deadline
+            )
             if confirmation != "confirmed":
                 return TaskResult(
                     False,
@@ -158,7 +193,7 @@ class AgentRuntime:
 
         return TaskResult(True, "task completed", completed, reports)
 
-    def _await_confirmation(self, action, stopped, *, report=None):
+    def _await_confirmation(self, action, stopped, *, report=None, task_deadline=None):
         previous = None
 
         def now():
@@ -192,12 +227,27 @@ class AgentRuntime:
         started = now()
 
         def finish(status):
+            if task_deadline is not None:
+                report["task_remaining_s"] = max(0, task_deadline - previous)
+                if previous >= task_deadline and status in (
+                    "timeout",
+                    "confirmed",
+                    "witness_timeout",
+                ):
+                    status = "task_timeout"
             if isinstance(self.confirmation_witness, ProcessWitness):
                 report["witness_process"] = self.confirmation_witness.lifecycle_report()
             report.update(status=status, elapsed_s=previous - started)
             return status
 
         deadline = started + self.confirmation_timeout_s
+        bounded = bool(self.confirmation_timeout_s) or task_deadline is not None
+        if task_deadline is not None:
+            deadline = (
+                min(deadline, task_deadline) if self.confirmation_timeout_s else task_deadline
+            )
+            if started >= task_deadline:
+                return finish("timeout")
         streak, last_stamp, first_stamp = 0, None, None
         last_witness_stamp = None
         for attempt in range(self.max_confirmation_reads):
@@ -210,7 +260,7 @@ class AgentRuntime:
             current = now()
             if stopped():
                 return finish("cancelled")
-            if self.confirmation_timeout_s and current > deadline:
+            if bounded and current >= deadline:
                 return finish("timeout")
             fresh = True
             if self.max_observation_age_s is not None:
@@ -232,7 +282,7 @@ class AgentRuntime:
             if self.confirmation_witness is not None:
                 try:
                     if isinstance(self.confirmation_witness, ProcessWitness):
-                        budget = max(0, deadline - now()) if self.confirmation_timeout_s else None
+                        budget = max(0, deadline - now()) if bounded else None
                         witness = self.confirmation_witness(
                             copy.deepcopy(action), stopped=stopped, budget_s=budget
                         )
@@ -255,7 +305,7 @@ class AgentRuntime:
                 current = now()
                 if stopped():
                     return finish("cancelled")
-                if self.confirmation_timeout_s and current > deadline:
+                if bounded and current >= deadline:
                     return finish("timeout")
                 if not isinstance(witness, Observation):
                     return finish("invalid_witness_observation")
