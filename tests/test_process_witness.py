@@ -5,7 +5,7 @@ import unittest
 
 from embodied_agent.mock import MockPolicy
 from embodied_agent.models import Action, Observation, Plan, PlanStep
-from embodied_agent.process_witness import ProcessWitness, WitnessTimeout
+from embodied_agent.process_witness import ProcessWitness, WitnessCancelled, WitnessTimeout
 from embodied_agent.runtime import AgentRuntime
 
 
@@ -138,6 +138,56 @@ class WitnessProcessTests(unittest.TestCase):
                 self.assertEqual(result.confirmation_reports[0]["witness_failure"], code)
                 self.assertIsNotNone(witness.exitcode)
                 self.assertNotIn("private device", str(result))
+
+    def test_cancellation_before_send_closes_without_request(self):
+        with ProcessWitness(factory) as witness:
+            with self.assertRaises(WitnessCancelled):
+                witness(Action("verify"), stopped=lambda: True)
+            self.assertEqual(witness.calls, 0)
+            self.assertIsNotNone(witness.exitcode)
+
+    def test_task_cancels_during_blocked_witness(self):
+        class Planner:
+            def create_plan(self, instruction, observation):
+                return Plan(
+                    "verify", [PlanStep("verify", {"object": "b", "destination": "box"})] * 2
+                )
+
+        class Robot:
+            calls = 0
+
+            def observe(self):
+                return read(None)
+
+            def execute(self, action):
+                self.calls += 1
+
+        with ProcessWitness(blocked_factory, timeout_s=5) as witness:
+            robot = Robot()
+            # Arm cancellation only after the witness request was sent.
+            armed = None
+
+            def stopped():
+                nonlocal armed
+                if witness.calls and armed is None:
+                    armed = time.monotonic()
+                return armed is not None and time.monotonic() - armed >= 0.05
+
+            result = AgentRuntime(
+                Planner(),
+                MockPolicy(),
+                robot,
+                confirmation_timeout_s=5,
+                max_observation_age_s=1,
+                confirmation_witness=witness,
+            ).run("verify", stop_requested=stopped)
+            self.assertFalse(result.success)
+            self.assertEqual(robot.calls, 1)
+            self.assertEqual(result.completed_steps, 0)
+            report = result.confirmation_reports[0]
+            self.assertEqual(report["status"], "cancelled")
+            self.assertLess(report["elapsed_s"], 2)
+            self.assertIsNotNone(witness.exitcode)
 
     def test_invalid_timeout_and_startup_failure(self):
         for timeout in (True, 0, float("nan"), 6):

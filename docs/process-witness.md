@@ -52,3 +52,11 @@ make process-witness-test
 新增 `WitnessFailure`：通信断开对应 `witness_disconnected`，工作进程抛异常或返回非 Observation 对应 `witness_read_failed`，关闭实例与次数耗尽分别对应 `witness_closed`、`witness_request_limit`。运行时返回失败 TaskResult，报告 status 为 `witness_failed`，并在 witness_failure 中保留原因。超时仍独立返回 witness_timeout。普通自定义回调的任意异常不会被吞掉，初始化异常也仍交给调用方。
 
 真实 spawn 子进程测试分别注入 os._exit(23)、非法返回值和包含私有设备信息的异常。通过完整 run 路径验证：原本两步的计划只执行一次动作、完成步数为零、停止后续动作、报告原因且不包含私有异常文本、进程已回收。与既有回归合计 54 项测试通过。这里的“停止”指不再发出后续动作，不证明正在发生的物理运动已经停止。原有 IPC、硬实时及父进程死亡边界保持不变。
+
+## 扩展：等待期间的取消（2026-11-22）
+
+ProcessWitness 的调用新增可选 stopped 回调。响应就绪等待以最多 10 ms 的 poll 分段，每段之前及收到就绪信号后检查取消；发送前也检查。取消抛出 WitnessCancelled，关闭并回收实例，不自动重试。AgentRuntime 对 ProcessWitness 自动传入本次任务的停止回调，转换成 cancelled，耗时包含回收。普通见证 callable 仍按原单参数接口调用。
+
+新增两项测试：发送前取消时请求数为零且进程回收；完整两步任务中，在见证请求发出后 50 ms 请求取消，见证配置为 5 秒超时且无限阻塞，最终报告 cancelled、只执行一次动作、完成步数为零、进程回收，并在宽松的 2 秒测试界限内退出。56 项相关回归通过。
+
+10 ms 是轮询片段，不是端到端停止延迟保证。停止回调必须快速且不阻塞；启动过程尚不接收取消，IPC send/recv、主 observe/execute 和 OS 回收仍不具备硬实时上界。取消只停止本轮软件等待与后续动作派发，不证明机器人物理急停。关闭后的见证必须显式重建。

@@ -506,6 +506,8 @@ embodied-agent/
 
 最新故障闭环：[见证进程故障诊断](docs/process-witness.md)，进程退出、读取异常和非法返回转为结构化任务失败；整任务测试验证不执行后续动作，54 项相关测试通过。
 
+最新控制能力：[见证等待可取消](docs/process-witness.md)，进程响应等待分段检查停止请求，取消时回收见证并阻止后续动作；56 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

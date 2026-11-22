@@ -2,6 +2,7 @@
 
 import math
 import multiprocessing
+import time
 
 from .models import Action, Observation
 
@@ -12,6 +13,10 @@ class WitnessFailure(RuntimeError):
     def __init__(self, code):
         self.code = code
         super().__init__(code)
+
+
+class WitnessCancelled(Exception):
+    pass
 
 
 class WitnessTimeout(TimeoutError):
@@ -71,12 +76,22 @@ class ProcessWitness:
             self.close()
             raise
 
-    def _receive(self, timeout):
-        if not self.connection.poll(timeout):
-            raise WitnessTimeout("witness response timeout")
-        return self.connection.recv()
+    def _receive(self, timeout, stopped=None):
+        deadline = time.monotonic() + timeout
+        while True:
+            if stopped is not None and stopped():
+                raise WitnessCancelled("witness cancelled")
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise WitnessTimeout("witness response timeout")
+            if self.connection.poll(min(remaining, 0.01)):
+                if stopped is not None and stopped():
+                    raise WitnessCancelled("witness cancelled")
+                return self.connection.recv()
 
-    def __call__(self, action):
+    def __call__(self, action, *, stopped=None):
+        if stopped is not None and not callable(stopped):
+            raise TypeError("stopped must be callable")
         if self.closed:
             raise WitnessFailure("witness_closed")
         if not isinstance(action, Action):
@@ -84,10 +99,12 @@ class ProcessWitness:
         if self.calls >= 128:
             self.close()
             raise WitnessFailure("witness_request_limit")
-        self.calls += 1
         try:
+            if stopped is not None and stopped():
+                raise WitnessCancelled("witness cancelled")
+            self.calls += 1
             self.connection.send(action)
-            kind, value = self._receive(self.timeout_s)
+            kind, value = self._receive(self.timeout_s, stopped)
             if kind != "observation" or not isinstance(value, Observation):
                 raise WitnessFailure("witness_read_failed")
             return value
