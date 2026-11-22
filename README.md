@@ -498,6 +498,8 @@ embodied-agent/
 
 最新压力测试：[确认策略的随机化合成故障](docs/confirmation-stress.md)，480 个配对运行揭示时间确认仍接受较长突发与持续假观测，并漏掉部分延迟真结果；保留全部失败，不调整默认参数。
 
+最新主链路扩展：[第二路见证确认](docs/runtime-witness.md)，可选见证回调与主观测同时核验结果、新鲜度和时间偏差；持续主源误报可被冲突见证阻止，尚未接真实第二传感器。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

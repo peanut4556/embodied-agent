@@ -27,6 +27,8 @@ class AgentRuntime:
         confirmation_samples=1,
         confirmation_span_s=0,
         max_confirmation_gap_s=None,
+        confirmation_witness=None,
+        max_witness_skew_s=0.02,
         clock=time.monotonic,
         sleep=time.sleep,
     ) -> None:
@@ -77,6 +79,19 @@ class AgentRuntime:
             raise ValueError("temporal confirmation requires multiple samples")
         if confirmation_span_s and max_confirmation_gap_s is None:
             raise ValueError("confirmation span requires an explicit maximum sample gap")
+        if confirmation_witness is not None and (
+            not callable(confirmation_witness) or max_observation_age_s is None
+        ):
+            raise ValueError("confirmation witness requires a callable and freshness limit")
+        if (
+            isinstance(max_witness_skew_s, bool)
+            or not isinstance(max_witness_skew_s, (int, float))
+            or not math.isfinite(max_witness_skew_s)
+            or not 0 <= max_witness_skew_s <= 0.1
+        ):
+            raise ValueError("witness skew must be finite seconds in [0, .1]")
+        self.confirmation_witness = confirmation_witness
+        self.max_witness_skew_s = max_witness_skew_s
         self.confirmation_span_s = confirmation_span_s
         self.max_confirmation_gap_s = max_confirmation_gap_s
         self.confirmation_samples = confirmation_samples
@@ -161,6 +176,9 @@ class AgentRuntime:
             streak_resets=0,
             gap_resets=0,
             final_streak=0,
+            witness_reads=0,
+            witness_disagreements=0,
+            witness_unaligned=0,
             required_samples=self.confirmation_samples,
             required_span_s=self.confirmation_span_s,
         )
@@ -172,6 +190,7 @@ class AgentRuntime:
 
         deadline = started + self.confirmation_timeout_s
         streak, last_stamp, first_stamp = 0, None, None
+        last_witness_stamp = None
         for attempt in range(self.max_confirmation_reads):
             if stopped():
                 return finish("cancelled")
@@ -199,6 +218,46 @@ class AgentRuntime:
             matches = self._confirmed(action, after)
             report["negative_reads"] += not matches
             positive = fresh and matches
+            witness_advanced, witness_gap = True, False
+            span_start = span_end = stamp if self.max_observation_age_s is not None else current
+            if self.confirmation_witness is not None:
+                witness = self.confirmation_witness(copy.deepcopy(action))
+                report["witness_reads"] += 1
+                current = now()
+                if stopped():
+                    return finish("cancelled")
+                if self.confirmation_timeout_s and current > deadline:
+                    return finish("timeout")
+                if not isinstance(witness, Observation):
+                    return finish("invalid_witness_observation")
+                witness_stamp = witness.metadata.get("observed_at_monotonic")
+                if (
+                    isinstance(witness_stamp, bool)
+                    or not isinstance(witness_stamp, (int, float))
+                    or not math.isfinite(witness_stamp)
+                    or witness_stamp > current
+                ):
+                    return finish("invalid_witness_timestamp")
+                if last_witness_stamp is not None and witness_stamp < last_witness_stamp:
+                    return finish("witness_timestamp_regressed")
+                aligned = (
+                    witness_stamp >= started
+                    and current - witness_stamp <= self.max_observation_age_s
+                    and current - stamp <= self.max_observation_age_s
+                    and abs(witness_stamp - stamp) <= self.max_witness_skew_s
+                )
+                agrees = self._confirmed(action, witness)
+                report["witness_disagreements"] += matches != agrees
+                report["witness_unaligned"] += not aligned
+                positive = positive and aligned and agrees
+                witness_advanced = last_witness_stamp is None or witness_stamp > last_witness_stamp
+                witness_gap = (
+                    last_witness_stamp is not None
+                    and self.max_confirmation_gap_s is not None
+                    and witness_stamp - last_witness_stamp > self.max_confirmation_gap_s
+                )
+                last_witness_stamp = witness_stamp
+                span_start, span_end = max(stamp, witness_stamp), min(stamp, witness_stamp)
             if self.confirmation_samples == 1 and positive:
                 report["final_streak"] = 1
                 return finish("confirmed")
@@ -210,24 +269,26 @@ class AgentRuntime:
                 if not positive:
                     report["streak_resets"] += streak > 0
                     streak, first_stamp = 0, None
-                elif last_stamp is None or stamp > last_stamp:
+                elif (last_stamp is None or stamp > last_stamp) and witness_advanced:
                     if (
                         last_stamp is not None
                         and self.max_confirmation_gap_s is not None
-                        and stamp - last_stamp > self.max_confirmation_gap_s
+                        and (stamp - last_stamp > self.max_confirmation_gap_s or witness_gap)
                     ):
                         report["gap_resets"] += 1
                         streak, first_stamp = 0, None
                     if streak == 0:
-                        first_stamp = stamp
+                        first_stamp = span_start
                     streak += 1
                 last_stamp = stamp
                 report["final_streak"] = streak
-                report["observed_span_s"] = stamp - first_stamp if first_stamp is not None else 0
+                report["observed_span_s"] = (
+                    max(0, span_end - first_stamp) if first_stamp is not None else 0
+                )
                 if (
                     streak >= self.confirmation_samples
                     and first_stamp is not None
-                    and stamp - first_stamp >= self.confirmation_span_s
+                    and span_end - first_stamp >= self.confirmation_span_s
                 ):
                     return finish("confirmed")
             if not self.confirmation_timeout_s or current >= deadline:
