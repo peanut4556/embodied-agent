@@ -1451,3 +1451,10 @@ confirmation-stress-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_confirmation_stress.py --output "$(CONFIRMATION_STRESS_OUTPUT)"
 confirmation-stress-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_confirmation_stress -v
+
+WITNESS_STRESS_OUTPUT ?= outputs/evaluations/witness-stress-new
+.PHONY: witness-stress-evaluate witness-stress-test
+witness-stress-evaluate:
+	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_witness_stress.py --output "$(WITNESS_STRESS_OUTPUT)"
+witness-stress-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_witness_stress -v

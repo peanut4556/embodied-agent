@@ -500,6 +500,8 @@ embodied-agent/
 
 最新主链路扩展：[第二路见证确认](docs/runtime-witness.md)，可选见证回调与主观测同时核验结果、新鲜度和时间偏差；持续主源误报可被冲突见证阻止，尚未接真实第二传感器。
 
+最新双源评测：[见证质量与共同错误对照](docs/witness-stress.md)，640 个配对合成运行展示理想参考、随机错误参考及复制主源的不同结果；共同错误无改善，随机错误增加有效场景漏检。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

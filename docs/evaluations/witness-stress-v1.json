@@ -1,0 +1,46 @@
+{
+  "sources": {
+    "scripts/evaluate_witness_stress.py": "673fde3414fad39b797af9367855686b9ececf4a9924b96a96736a399fca4c6f",
+    "scripts/evaluate_confirmation_stress.py": "dddc2d4d678253c696ba387212a78dda9bf24afd7dbb4fc1549ca97c67f12af8",
+    "scripts/evaluate_confirmation_faults.py": "098479005c6ee321f0fe1c431690e476e705ef908a563c5d6396e56964cff372",
+    "src/embodied_agent/runtime.py": "3414c163ad0090bfdb0d4496f4ade9208ee8ee2ad983acf3d61659d4109302ba",
+    "src/embodied_agent/models.py": "60eaf0f50c0f1a259c32643cba2b9f19bc28e984ff7638232b964d43e74ed9f5",
+    "src/embodied_agent/mock.py": "aa949d41b75ffe5874391e2d285e89d8fe3fbe77be0113d948eea3a69bc27335",
+    "src/embodied_agent/safety.py": "4af17494723dd1e64e91410be2ab9f30f58c32f4f809cdccc94179bff2dfd9ba"
+  },
+  "summary": [
+    {
+      "mode": "single",
+      "valid_cases": 60,
+      "fault_cases": 100,
+      "false_accepts": 30,
+      "missed_valid": 3
+    },
+    {
+      "mode": "ideal_reference",
+      "valid_cases": 60,
+      "fault_cases": 100,
+      "false_accepts": 0,
+      "missed_valid": 3
+    },
+    {
+      "mode": "noisy_reference",
+      "valid_cases": 60,
+      "fault_cases": 100,
+      "false_accepts": 0,
+      "missed_valid": 6
+    },
+    {
+      "mode": "common_mode",
+      "valid_cases": 60,
+      "fault_cases": 100,
+      "false_accepts": 30,
+      "missed_valid": 3
+    }
+  ],
+  "runs": 640,
+  "plan_path": "outputs/evaluations/witness-stress-v1/plan.json",
+  "plan_sha256": "968ef4e97c26989eaf2139fd6b68d9a56e7219f5141048b9e32c2de971bbb0c9",
+  "report_path": "outputs/evaluations/witness-stress-v1/report.json",
+  "report_sha256": "16818389d63fbe2204d6ea1fe478ce98db0d2a3959638236223f888a49d1f409"
+}
