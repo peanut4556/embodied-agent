@@ -1458,3 +1458,7 @@ witness-stress-evaluate:
 	PYTHONPATH=src:. .venv/bin/python scripts/evaluate_witness_stress.py --output "$(WITNESS_STRESS_OUTPUT)"
 witness-stress-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_witness_stress -v
+
+.PHONY: process-witness-test
+process-witness-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_process_witness -v

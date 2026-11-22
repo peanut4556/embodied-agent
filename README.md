@@ -502,6 +502,8 @@ embodied-agent/
 
 最新双源评测：[见证质量与共同错误对照](docs/witness-stress.md)，640 个配对合成运行展示理想参考、随机错误参考及复制主源的不同结果；共同错误无改善，随机错误增加有效场景漏检。
 
+最新主链路扩展：[见证回调进程隔离](docs/process-witness.md)，阻塞见证可超时退出并回收工作进程，运行时明确报告 witness_timeout，不降级接受单源成功；53 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
