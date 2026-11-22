@@ -7,7 +7,13 @@ import time
 
 from .interfaces import Planner, Policy, Robot
 from .models import Action, Observation, TaskResult
-from .process_witness import ProcessWitness, WitnessCancelled, WitnessFailure, WitnessTimeout
+from .process_witness import (
+    ProcessWitness,
+    WitnessCancelled,
+    WitnessDeadline,
+    WitnessFailure,
+    WitnessTimeout,
+)
 from .safety import SafetyGate
 
 LOGGER = logging.getLogger(__name__)
@@ -224,12 +230,18 @@ class AgentRuntime:
             if self.confirmation_witness is not None:
                 try:
                     if isinstance(self.confirmation_witness, ProcessWitness):
-                        witness = self.confirmation_witness(copy.deepcopy(action), stopped=stopped)
+                        budget = max(0, deadline - now()) if self.confirmation_timeout_s else None
+                        witness = self.confirmation_witness(
+                            copy.deepcopy(action), stopped=stopped, budget_s=budget
+                        )
                     else:
                         witness = self.confirmation_witness(copy.deepcopy(action))
                 except WitnessCancelled:
                     now()
                     return finish("cancelled")
+                except WitnessDeadline:
+                    now()
+                    return finish("timeout")
                 except WitnessTimeout:
                     now()
                     return finish("witness_timeout")

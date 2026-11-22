@@ -23,6 +23,10 @@ class WitnessTimeout(TimeoutError):
     pass
 
 
+class WitnessDeadline(WitnessTimeout):
+    pass
+
+
 def _worker(connection, factory):
     try:
         reader = factory()
@@ -89,7 +93,17 @@ class ProcessWitness:
                     raise WitnessCancelled("witness cancelled")
                 return self.connection.recv()
 
-    def __call__(self, action, *, stopped=None):
+    def __call__(self, action, *, stopped=None, budget_s=None):
+        if budget_s is not None and (
+            isinstance(budget_s, bool)
+            or not isinstance(budget_s, (int, float))
+            or not math.isfinite(budget_s)
+            or budget_s < 0
+        ):
+            raise ValueError("budget_s must be finite nonnegative seconds")
+        limited = budget_s is not None and budget_s <= self.timeout_s
+        timeout = min(self.timeout_s, budget_s) if budget_s is not None else self.timeout_s
+        started = time.monotonic()
         if stopped is not None and not callable(stopped):
             raise TypeError("stopped must be callable")
         if self.closed:
@@ -102,14 +116,18 @@ class ProcessWitness:
         try:
             if stopped is not None and stopped():
                 raise WitnessCancelled("witness cancelled")
+            if limited and timeout == 0:
+                raise WitnessDeadline("confirmation budget exhausted")
             self.calls += 1
             self.connection.send(action)
-            kind, value = self._receive(self.timeout_s, stopped)
+            kind, value = self._receive(max(0, timeout - (time.monotonic() - started)), stopped)
             if kind != "observation" or not isinstance(value, Observation):
                 raise WitnessFailure("witness_read_failed")
             return value
-        except WitnessTimeout:
+        except WitnessTimeout as exc:
             self.close()
+            if limited:
+                raise WitnessDeadline("confirmation budget exhausted") from exc
             raise
         except (EOFError, OSError) as exc:
             self.close()

@@ -508,6 +508,8 @@ embodied-agent/
 
 最新控制能力：[见证等待可取消](docs/process-witness.md)，进程响应等待分段检查停止请求，取消时回收见证并阻止后续动作；56 项相关测试通过。
 
+最新期限控制：[确认剩余预算传递](docs/process-witness.md)，进程见证按自身超时与任务剩余期限的较小值等待，区分任务超时与见证超时；59 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

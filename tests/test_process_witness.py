@@ -5,7 +5,12 @@ import unittest
 
 from embodied_agent.mock import MockPolicy
 from embodied_agent.models import Action, Observation, Plan, PlanStep
-from embodied_agent.process_witness import ProcessWitness, WitnessCancelled, WitnessTimeout
+from embodied_agent.process_witness import (
+    ProcessWitness,
+    WitnessCancelled,
+    WitnessDeadline,
+    WitnessTimeout,
+)
 from embodied_agent.runtime import AgentRuntime
 
 
@@ -186,6 +191,55 @@ class WitnessProcessTests(unittest.TestCase):
             self.assertEqual(result.completed_steps, 0)
             report = result.confirmation_reports[0]
             self.assertEqual(report["status"], "cancelled")
+            self.assertLess(report["elapsed_s"], 2)
+            self.assertIsNotNone(witness.exitcode)
+
+    def test_exhausted_budget_sends_no_request(self):
+        with ProcessWitness(factory) as witness:
+            with self.assertRaises(WitnessDeadline):
+                witness(Action("verify"), budget_s=0)
+            self.assertEqual(witness.calls, 0)
+            self.assertIsNotNone(witness.exitcode)
+
+    def test_invalid_budget_does_not_consume_witness(self):
+        with ProcessWitness(factory) as witness:
+            for budget in (True, -1, float("nan"), float("inf")):
+                with self.assertRaises(ValueError):
+                    witness(Action("verify"), budget_s=budget)
+            self.assertEqual(witness.calls, 0)
+            self.assertEqual(witness(Action("verify")).objects["b"], "box")
+
+    def test_task_deadline_caps_blocked_witness(self):
+        class Planner:
+            def create_plan(self, instruction, observation):
+                return Plan(
+                    "verify", [PlanStep("verify", {"object": "b", "destination": "box"})] * 2
+                )
+
+        class Robot:
+            calls = 0
+
+            def observe(self):
+                return read(None)
+
+            def execute(self, action):
+                self.calls += 1
+
+        with ProcessWitness(blocked_factory, timeout_s=5) as witness:
+            robot = Robot()
+            result = AgentRuntime(
+                Planner(),
+                MockPolicy(),
+                robot,
+                confirmation_timeout_s=0.05,
+                max_observation_age_s=1,
+                confirmation_witness=witness,
+            ).run("verify")
+            self.assertFalse(result.success)
+            self.assertEqual(robot.calls, 1)
+            self.assertEqual(result.completed_steps, 0)
+            report = result.confirmation_reports[0]
+            self.assertEqual(report["status"], "timeout")
             self.assertLess(report["elapsed_s"], 2)
             self.assertIsNotNone(witness.exitcode)
 
