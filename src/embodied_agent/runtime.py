@@ -7,7 +7,7 @@ import time
 
 from .interfaces import Planner, Policy, Robot
 from .models import Action, Observation, TaskResult
-from .process_witness import WitnessTimeout
+from .process_witness import WitnessFailure, WitnessTimeout
 from .safety import SafetyGate
 
 LOGGER = logging.getLogger(__name__)
@@ -227,6 +227,10 @@ class AgentRuntime:
                 except WitnessTimeout:
                     now()
                     return finish("witness_timeout")
+                except WitnessFailure as exc:
+                    now()
+                    report["witness_failure"] = exc.code
+                    return finish("witness_failed")
                 report["witness_reads"] += 1
                 current = now()
                 if stopped():

@@ -6,6 +6,14 @@ import multiprocessing
 from .models import Action, Observation
 
 
+class WitnessFailure(RuntimeError):
+    """Expected transport or worker failure with a bounded diagnostic code."""
+
+    def __init__(self, code):
+        self.code = code
+        super().__init__(code)
+
+
 class WitnessTimeout(TimeoutError):
     pass
 
@@ -70,19 +78,25 @@ class ProcessWitness:
 
     def __call__(self, action):
         if self.closed:
-            raise RuntimeError("witness closed; explicit replacement required")
+            raise WitnessFailure("witness_closed")
         if not isinstance(action, Action):
             raise TypeError("Action required")
         if self.calls >= 128:
             self.close()
-            raise RuntimeError("witness request limit exhausted")
+            raise WitnessFailure("witness_request_limit")
         self.calls += 1
         try:
             self.connection.send(action)
             kind, value = self._receive(self.timeout_s)
             if kind != "observation" or not isinstance(value, Observation):
-                raise RuntimeError("witness read failed")
+                raise WitnessFailure("witness_read_failed")
             return value
+        except WitnessTimeout:
+            self.close()
+            raise
+        except (EOFError, OSError) as exc:
+            self.close()
+            raise WitnessFailure("witness_disconnected") from exc
         except BaseException:
             self.close()
             raise

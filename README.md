@@ -504,6 +504,8 @@ embodied-agent/
 
 最新主链路扩展：[见证回调进程隔离](docs/process-witness.md)，阻塞见证可超时退出并回收工作进程，运行时明确报告 witness_timeout，不降级接受单源成功；53 项相关测试通过。
 
+最新故障闭环：[见证进程故障诊断](docs/process-witness.md)，进程退出、读取异常和非法返回转为结构化任务失败；整任务测试验证不执行后续动作，54 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

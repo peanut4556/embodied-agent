@@ -1,8 +1,10 @@
+import os
 import signal
 import time
 import unittest
 
-from embodied_agent.models import Action, Observation
+from embodied_agent.mock import MockPolicy
+from embodied_agent.models import Action, Observation, Plan, PlanStep
 from embodied_agent.process_witness import ProcessWitness, WitnessTimeout
 from embodied_agent.runtime import AgentRuntime
 
@@ -27,6 +29,30 @@ def blocked_factory():
 
 def failed_factory():
     raise RuntimeError("failed")
+
+
+def crash(action):
+    os._exit(23)
+
+
+def crash_factory():
+    return crash
+
+
+def invalid(action):
+    return None
+
+
+def invalid_factory():
+    return invalid
+
+
+def fail(action):
+    raise ValueError("private device details")
+
+
+def fail_factory():
+    return fail
 
 
 class WitnessProcessTests(unittest.TestCase):
@@ -73,6 +99,45 @@ class WitnessProcessTests(unittest.TestCase):
             self.assertEqual(report["status"], "witness_timeout")
             self.assertGreaterEqual(report["elapsed_s"], 0.03)
             self.assertEqual(report["witness_reads"], 0)
+
+    def test_worker_faults_stop_whole_task_without_reexecution(self):
+        class Planner:
+            def create_plan(self, instruction, observation):
+                return Plan(
+                    "verify", [PlanStep("verify", {"object": "b", "destination": "box"})] * 2
+                )
+
+        class Robot:
+            calls = 0
+
+            def observe(self):
+                return read(None)
+
+            def execute(self, action):
+                self.calls += 1
+
+        for factory_fn, code in (
+            (crash_factory, "witness_disconnected"),
+            (invalid_factory, "witness_read_failed"),
+            (fail_factory, "witness_read_failed"),
+        ):
+            with self.subTest(code=code), ProcessWitness(factory_fn, timeout_s=1) as witness:
+                robot = Robot()
+                result = AgentRuntime(
+                    Planner(),
+                    MockPolicy(),
+                    robot,
+                    confirmation_timeout_s=2,
+                    max_observation_age_s=1,
+                    confirmation_witness=witness,
+                ).run("verify")
+                self.assertFalse(result.success)
+                self.assertEqual(result.completed_steps, 0)
+                self.assertEqual(robot.calls, 1)
+                self.assertEqual(result.confirmation_reports[0]["status"], "witness_failed")
+                self.assertEqual(result.confirmation_reports[0]["witness_failure"], code)
+                self.assertIsNotNone(witness.exitcode)
+                self.assertNotIn("private device", str(result))
 
     def test_invalid_timeout_and_startup_failure(self):
         for timeout in (True, 0, float("nan"), 6):
