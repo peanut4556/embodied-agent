@@ -3,12 +3,20 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import math
 from dataclasses import asdict
 
 from .adapters.rai_planner import RAISubprocessPlanner
 from .mock import MockPolicy, MockRobot, TimestampedMockRobot
 from .planner import RuleBasedPlanner
 from .runtime import AgentRuntime
+
+
+def positive_seconds(value):
+    number = float(value)
+    if not math.isfinite(number) or number <= 0:
+        raise argparse.ArgumentTypeError("must be finite positive seconds")
+    return number
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -32,6 +40,12 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="require timestamped mock observations of at most this age (0..5 seconds)",
     )
+    parser.add_argument(
+        "--task-timeout",
+        type=positive_seconds,
+        default=None,
+        help="total task budget in seconds, including planning (default: unlimited)",
+    )
     parser.add_argument("--confirmation-samples", type=int, default=1)
     parser.add_argument("--confirmation-span", type=float, default=0)
     parser.add_argument("--max-confirmation-gap", type=float, default=None)
@@ -41,7 +55,7 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main() -> None:
+def main() -> int:
     args = build_parser().parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     planner = RAISubprocessPlanner() if args.planner == "rai" else RuleBasedPlanner()
@@ -55,11 +69,12 @@ def main() -> None:
         confirmation_span_s=args.confirmation_span,
         max_confirmation_gap_s=args.max_confirmation_gap,
     )
-    result = runtime.run(args.instruction)
+    result = runtime.run(args.instruction, task_timeout_s=args.task_timeout)
     if args.json:
         print(json.dumps(asdict(result), ensure_ascii=False))
-        return
+        return 0 if result.success else 1
     print(
         f"success={result.success} completed_steps={result.completed_steps} "
         f"message={result.message}"
     )
+    return 0 if result.success else 1

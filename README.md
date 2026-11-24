@@ -514,6 +514,8 @@ embodied-agent/
 
 最新任务控制：[跨步骤任务时间预算](docs/runtime-task-budget.md)，规划、动作与确认共享任务期限，耗尽后停止派发新动作；66 项相关测试通过。
 
+最新自动化接入：[任务预算命令行与退出码](docs/runtime-task-budget.md)，--task-timeout 可直接约束任务预算，成功/任务失败/参数错误分别退出 0/1/2；69 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
