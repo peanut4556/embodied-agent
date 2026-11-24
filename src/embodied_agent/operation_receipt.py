@@ -7,7 +7,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .action_budget import seconds
-from .budget_checkpoint import LIMIT, canonical, fields, label
+from .budget_checkpoint import LIMIT, canonical, digest, fields, label
 from .checkpointed_runtime import CheckpointBusy, _execute, checkpoint_lock
 from .recovery_json import read_recovery_json
 
@@ -31,6 +31,55 @@ def _write(path, value):
     finally:
         if temporary is not None:
             temporary.unlink(missing_ok=True)
+
+
+def receipt_path(checkpoint, operation_id):
+    label(operation_id)
+    checkpoint = Path(checkpoint).resolve()
+    return checkpoint.with_name(checkpoint.name + ".operations") / (
+        hashlib.sha256(operation_id.encode()).hexdigest() + ".json"
+    )
+
+
+def read_receipt(path):
+    stored = read_recovery_json(path, LIMIT)
+    if not isinstance(stored, dict):
+        raise TypeError("receipt object required")
+    schema = stored.get("schema")
+    if type(schema) is not int or schema not in (1, 2):
+        raise ValueError("unsupported receipt schema")
+    fields(
+        stored, "schema request_sha256 state result sha256" + (" resolution" if schema == 2 else "")
+    )
+    checksum = stored.pop("sha256")
+    digest(checksum)
+    digest(stored["request_sha256"])
+    if hashlib.sha256(canonical(stored).encode()).hexdigest() != checksum:
+        raise ValueError("receipt checksum mismatch")
+    if schema == 2:
+        if stored["state"] != "abandoned" or stored["result"] is not None:
+            raise ValueError("invalid terminal receipt")
+        fields(stored["resolution"], "reason evidence_ref actor previous_receipt_sha256")
+        for key in ("reason", "evidence_ref", "actor"):
+            label(stored["resolution"][key])
+        digest(stored["resolution"]["previous_receipt_sha256"])
+    elif stored["state"] == "pending":
+        if stored["result"] is not None:
+            raise ValueError("pending receipt cannot have result")
+    elif stored["state"] == "complete":
+        result = stored["result"]
+        fields(result, "success message completed_steps confirmation_reports")
+        if (
+            type(result["success"]) is not bool
+            or type(result["completed_steps"]) is not int
+            or result["completed_steps"] < 0
+            or not isinstance(result["message"], str)
+            or not isinstance(result["confirmation_reports"], list)
+        ):
+            raise ValueError("invalid cached task result")
+    else:
+        raise ValueError("invalid receipt state")
+    return stored
 
 
 def run_operation(runtime, instruction, path, *, operation_id, task_timeout_s, request_context):
@@ -63,13 +112,7 @@ def run_operation(runtime, instruction, path, *, operation_id, task_timeout_s, r
             if receipt.exists():
                 prior_execution_possible = True
                 state["checkpoint_state"] = "not_confirmed"
-                stored = read_recovery_json(receipt, LIMIT)
-                fields(stored, "schema request_sha256 state result sha256")
-                checksum = stored.pop("sha256")
-                if hashlib.sha256(canonical(stored).encode()).hexdigest() != checksum:
-                    raise ValueError("receipt checksum mismatch")
-                if type(stored["schema"]) is not int or stored["schema"] != 1:
-                    raise ValueError("unsupported receipt schema")
+                stored = read_receipt(receipt)
                 if stored["request_sha256"] != fingerprint:
                     code = "operation_conflict"
                     raise ValueError("operation ID already bound to another request")
@@ -78,18 +121,10 @@ def run_operation(runtime, instruction, path, *, operation_id, task_timeout_s, r
                     state["checkpoint_state"] = "not_confirmed"
                     code = "operation_in_doubt"
                     raise ValueError("operation has no committed result")
-                if stored["state"] != "complete":
-                    raise ValueError("invalid receipt state")
+                if stored["state"] == "abandoned":
+                    code = "operation_abandoned"
+                    raise ValueError("operation was explicitly closed without replay permission")
                 result = stored["result"]
-                fields(result, "success message completed_steps confirmation_reports")
-                if (
-                    type(result["success"]) is not bool
-                    or type(result["completed_steps"]) is not int
-                    or result["completed_steps"] < 0
-                    or not isinstance(result["message"], str)
-                    or not isinstance(result["confirmation_reports"], list)
-                ):
-                    raise ValueError("invalid cached task result")
                 return {
                     "success": result["success"],
                     "task_result": result,

@@ -540,6 +540,8 @@ embodied-agent/
 
 最新请求保护：[操作 ID 与历史回执](docs/operation-receipts.md)，已完成请求跨进程返回历史结果，不确定请求拒绝重放，支持 --operation-id；133 项相关测试通过。
 
+最新操作管理：[回执检查与显式终止](docs/operation-admin.md)，联合查看预算与回执，按检查摘要终止 pending 并保留审计信息，不解封动作或允许重跑；143 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

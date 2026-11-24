@@ -1494,3 +1494,7 @@ checkpoint-outcome-test:
 .PHONY: operation-receipt-test
 operation-receipt-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_receipt test_checkpoint_outcome -v
+
+.PHONY: operation-admin-test
+operation-admin-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_admin test_operation_receipt -v
