@@ -72,3 +72,5 @@ with checkpoint_lock("budget-state.json") as path:
 ```sh
 make checkpointed-runtime-test
 ```
+
+新增可选 [操作 ID 回执](operation-receipts.md)，在相同协作锁下登记请求，完成后重复返回历史结果，pending 拒绝自动重放。未使用新入口的旧调用不获得重复抑制能力。

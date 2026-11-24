@@ -1490,3 +1490,7 @@ checkpointed-runtime-test:
 .PHONY: checkpoint-outcome-test
 checkpoint-outcome-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_checkpoint_outcome test_checkpointed_runtime -v
+
+.PHONY: operation-receipt-test
+operation-receipt-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_receipt test_checkpoint_outcome -v

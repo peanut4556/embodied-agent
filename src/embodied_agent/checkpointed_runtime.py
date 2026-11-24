@@ -1,7 +1,7 @@
 """Single-host, cooperative locked execution with a prewritten quarantine snapshot."""
 
 import copy
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from dataclasses import asdict
 from pathlib import Path
 
@@ -33,13 +33,15 @@ def checkpoint_lock(path):
     # Never unlink the sidecar: replacing its inode could split the lock domain.
 
 
-def _execute(runtime, instruction, path, *, task_timeout_s, stop_requested, state):
+def _execute(
+    runtime, instruction, path, *, task_timeout_s, stop_requested, state, already_locked=False
+):
     state.update(phase="validate", execution_started=False, checkpoint_state="unchanged")
     seconds(task_timeout_s)
     if stop_requested is not None and not callable(stop_requested):
         raise ValueError("stop_requested must be callable")
     state["phase"] = "lock"
-    with checkpoint_lock(path) as resolved:
+    with nullcontext(Path(path).resolve()) if already_locked else checkpoint_lock(path) as resolved:
         state["phase"] = "load"
         budget = load_budget(resolved)
         state["phase"] = "policy"

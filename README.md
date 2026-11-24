@@ -538,6 +538,8 @@ embodied-agent/
 
 最新接口完善：[检查点执行异常合同](docs/checkpoint-outcomes.md)，区分未进入运行时、结果不确定和最终保存状态，CLI 输出结构化错误并退出 3；123 项相关测试通过。
 
+最新请求保护：[操作 ID 与历史回执](docs/operation-receipts.md)，已完成请求跨进程返回历史结果，不确定请求拒绝重放，支持 --operation-id；133 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

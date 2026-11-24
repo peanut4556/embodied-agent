@@ -9,6 +9,7 @@ from dataclasses import asdict
 from .adapters.rai_planner import RAISubprocessPlanner
 from .checkpointed_runtime import run_checkpointed_report
 from .mock import MockPolicy, MockRobot, TimestampedMockRobot
+from .operation_receipt import run_operation
 from .planner import RuleBasedPlanner
 from .runtime import AgentRuntime
 
@@ -51,6 +52,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--budget-checkpoint",
         help="existing quarantine budget checkpoint (requires --task-timeout)",
     )
+    parser.add_argument("--operation-id", help="deduplicate a checkpointed request")
     parser.add_argument("--confirmation-samples", type=int, default=1)
     parser.add_argument("--confirmation-span", type=float, default=0)
     parser.add_argument("--max-confirmation-gap", type=float, default=None)
@@ -65,6 +67,8 @@ def main() -> int:
     args = parser.parse_args()
     if args.budget_checkpoint and args.task_timeout is None:
         parser.error("--budget-checkpoint requires --task-timeout")
+    if args.operation_id is not None and not args.budget_checkpoint:
+        parser.error("--operation-id requires --budget-checkpoint")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     planner = RAISubprocessPlanner() if args.planner == "rai" else RuleBasedPlanner()
     runtime = AgentRuntime(
@@ -78,9 +82,25 @@ def main() -> int:
         max_confirmation_gap_s=args.max_confirmation_gap,
     )
     if args.budget_checkpoint:
-        outcome = run_checkpointed_report(
-            runtime, args.instruction, args.budget_checkpoint, task_timeout_s=args.task_timeout
-        )
+        if args.operation_id is not None:
+            context = {
+                key: value
+                for key, value in vars(args).items()
+                if key
+                not in ("operation_id", "budget_checkpoint", "json", "instruction", "task_timeout")
+            }
+            outcome = run_operation(
+                runtime,
+                args.instruction,
+                args.budget_checkpoint,
+                operation_id=args.operation_id,
+                task_timeout_s=args.task_timeout,
+                request_context=context,
+            )
+        else:
+            outcome = run_checkpointed_report(
+                runtime, args.instruction, args.budget_checkpoint, task_timeout_s=args.task_timeout
+            )
         if outcome["error"] is not None:
             if args.json:
                 print(json.dumps(outcome, ensure_ascii=False))
@@ -93,12 +113,14 @@ def main() -> int:
             return 3
         payload = outcome["task_result"]
         payload["checkpoint"] = outcome["checkpoint"]
+        if "operation" in outcome:
+            payload["operation"] = outcome["operation"]
         if args.json:
             print(json.dumps(payload, ensure_ascii=False))
         else:
             print(
                 f"success={payload['success']} completed_steps={payload['completed_steps']} "
-                f"message={payload['message']} checkpoint_state=committed"
+                f"message={payload['message']} checkpoint_state={payload['checkpoint']['checkpoint_state']}"
             )
         return 0 if payload["success"] else 1
     else:
