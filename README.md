@@ -516,6 +516,8 @@ embodied-agent/
 
 最新自动化接入：[任务预算命令行与退出码](docs/runtime-task-budget.md)，--task-timeout 可直接约束任务预算，成功/任务失败/参数错误分别退出 0/1/2；69 项相关测试通过。
 
+最新端到端验证：[跨阶段预算压力实验](docs/task-budget-experiment.md)，240 次配对合成运行中参考期限后派发从 235 次降为 0，但同步调用仍造成最长约 144 ms 返回超期；71 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

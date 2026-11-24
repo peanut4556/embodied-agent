@@ -1462,3 +1462,7 @@ witness-stress-test:
 .PHONY: process-witness-test
 process-witness-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_process_witness -v
+
+.PHONY: task-budget-experiment-test
+task-budget-experiment-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_task_budget_experiment -v
