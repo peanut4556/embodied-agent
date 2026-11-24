@@ -244,6 +244,7 @@ class AgentRuntime:
                     required_step_budget_s=required_budget,
                     action_elapsed_s=elapsed,
                     budget_degraded=action.name in action_budget.degraded,
+                    budget_revision=action_budget.revision,
                 )
             if confirmation != "confirmed":
                 return TaskResult(

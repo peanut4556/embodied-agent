@@ -528,6 +528,8 @@ embodied-agent/
 
 最新可选策略：[耗时异常后暂停同类动作](docs/action-budget.md)，顺序评测中退化后未确认从 30 降至 0，但误拒绝显著增加，因此默认不启用；87 项相关测试通过。
 
+最新恢复闭环：[单动作重新校准](docs/action-budget.md)，校验新样本后显式生成预算新版本，仅恢复目标动作，保留其他隔离状态及校准记录；90 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
