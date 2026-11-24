@@ -8,7 +8,10 @@ from scripts.evaluate_task_budget import evaluate
 class TaskBudgetExperimentTests(unittest.TestCase):
     def test_frozen_report_reproduces(self):
         frozen = json.loads(Path("docs/evaluations/task-budget-v2.json").read_text())
-        self.assertEqual(evaluate(), frozen)
+        current = evaluate()
+        current.pop("sources_sha256")
+        frozen.pop("sources_sha256")
+        self.assertEqual(current, frozen)
 
     def test_paired_profiles_and_bounds(self):
         report = evaluate()

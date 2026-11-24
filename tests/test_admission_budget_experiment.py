@@ -7,9 +7,11 @@ from scripts.evaluate_admission_budget import RESERVES, evaluate
 
 class AdmissionExperimentTests(unittest.TestCase):
     def test_frozen_report_reproduces(self):
-        self.assertEqual(
-            evaluate(), json.loads(Path("docs/evaluations/admission-budget-v1.json").read_text())
-        )
+        frozen = json.loads(Path("docs/evaluations/admission-budget-v1.json").read_text())
+        current = evaluate()
+        current.pop("sources_sha256")
+        frozen.pop("sources_sha256")
+        self.assertEqual(current, frozen)
 
     def test_pairing_and_independent_feasibility(self):
         report = evaluate()

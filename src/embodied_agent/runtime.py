@@ -5,6 +5,7 @@ import logging
 import math
 import time
 
+from .action_budget import ActionBudget
 from .interfaces import Planner, Policy, Robot
 from .models import Action, Observation, TaskResult
 from .process_witness import (
@@ -113,7 +114,13 @@ class AgentRuntime:
         self.safety = safety or SafetyGate()
 
     def run(
-        self, instruction: str, *, stop_requested=None, task_timeout_s=None, minimum_step_budget_s=0
+        self,
+        instruction: str,
+        *,
+        stop_requested=None,
+        task_timeout_s=None,
+        minimum_step_budget_s=0,
+        action_budget=None,
     ) -> TaskResult:
         if stop_requested is not None and not callable(stop_requested):
             raise ValueError("stop_requested must be callable")
@@ -134,6 +141,10 @@ class AgentRuntime:
             raise ValueError(
                 "minimum step budget requires finite nonnegative seconds and task timeout"
             )
+        if action_budget is not None and (
+            not isinstance(action_budget, ActionBudget) or task_timeout_s is None
+        ):
+            raise ValueError("action budget requires ActionBudget and task timeout")
         last_task_time = None
 
         def task_now():
@@ -186,9 +197,12 @@ class AgentRuntime:
                 return TaskResult(False, "task cancelled", completed, reports)
             if expired():
                 return TaskResult(False, "task deadline exceeded", completed, reports)
-            if minimum_step_budget_s and action.name != "stop":
+            required_budget = max(
+                minimum_step_budget_s, action_budget.required(action.name) if action_budget else 0
+            )
+            if required_budget and action.name != "stop":
                 remaining = max(0, task_deadline - task_now())
-                if remaining < minimum_step_budget_s:
+                if remaining < required_budget:
                     reports.append(
                         {
                             "step": index,
@@ -196,12 +210,13 @@ class AgentRuntime:
                             "status": "insufficient_step_budget",
                             "dispatched": False,
                             "task_remaining_s": remaining,
-                            "required_step_budget_s": minimum_step_budget_s,
+                            "required_step_budget_s": required_budget,
                         }
                     )
                     return TaskResult(
                         False, "insufficient time to start next action", completed, reports
                     )
+            action_started = task_now() if action_budget else None
             self.robot.execute(action)
             if action.name == "stop":
                 return TaskResult(False, "task stopped", completed, reports)
@@ -210,6 +225,14 @@ class AgentRuntime:
             confirmation = self._await_confirmation(
                 action, stopped, report=report, task_deadline=task_deadline
             )
+            if action_budget:
+                elapsed = task_now() - action_started
+                action_budget.record(action.name, elapsed, confirmed=confirmation == "confirmed")
+                report.update(
+                    required_step_budget_s=required_budget,
+                    action_elapsed_s=elapsed,
+                    budget_degraded=action.name in action_budget.degraded,
+                )
             if confirmation != "confirmed":
                 return TaskResult(
                     False,
