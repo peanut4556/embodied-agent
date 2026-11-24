@@ -524,6 +524,8 @@ embodied-agent/
 
 最新预算优化：[按动作独立校准](docs/action-budget.md)，合成验证误拒绝由 50/95 降到 21/95，已派发未确认仍为零；提供样本不足和耗时异常回退，81 项相关测试通过。
 
+最新漂移验证：[顺序耗时漂移与回退边界](docs/budget-drift.md)，1080 次配对运行显示保留状态减少未确认动作但增加误拒绝，退化后仍有 30 次未确认；84 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

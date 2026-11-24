@@ -1470,3 +1470,7 @@ task-budget-experiment-test:
 .PHONY: admission-budget-experiment-test
 admission-budget-experiment-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_admission_budget_experiment -v
+
+.PHONY: budget-drift-test
+budget-drift-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_budget_drift -v
