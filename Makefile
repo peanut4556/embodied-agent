@@ -1466,3 +1466,7 @@ process-witness-test:
 .PHONY: task-budget-experiment-test
 task-budget-experiment-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_task_budget_experiment -v
+
+.PHONY: admission-budget-experiment-test
+admission-budget-experiment-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_admission_budget_experiment -v

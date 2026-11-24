@@ -520,6 +520,8 @@ embodied-agent/
 
 最新动作准入：[最低剩余步骤预算](docs/runtime-task-budget.md)，任务尚未超期但不足调用方指定预留时间时，拒绝派发下一动作并报告原因；74 项相关测试通过。
 
+最新准入评测：[预留时间的收益与误拒绝](docs/admission-budget-experiment.md)，400 次配对合成运行揭示 50 ms 预留消除未确认派发的同时误拒绝 11/40 可行任务，保留取舍且不改默认值；77 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
