@@ -50,9 +50,17 @@ class ActionBudget:
         """Return a new budget; restore only this degraded action after validation."""
         if action not in self.degraded:
             raise ValueError("only degraded actions may be recalibrated")
-        if not isinstance(batch_id, str) or not batch_id.strip() or len(batch_id) > 128:
+        if (
+            not isinstance(batch_id, str)
+            or not batch_id.strip()
+            or batch_id != batch_id.strip()
+            or len(batch_id) > 128
+        ):
             raise ValueError("batch_id must be nonempty and at most 128 characters")
-        if any(row["batch_id"] == batch_id for row in self._recalibrations):
+        if any(
+            batch_id in (row["batch_id"], row.get("validation_batch_id"))
+            for row in self._recalibrations
+        ):
             raise ValueError("calibration batch already used")
         values = tuple(seconds(value) for value in samples)
         if len(values) < self.minimum_samples:
@@ -79,6 +87,39 @@ class ActionBudget:
         )
         return replacement
 
+    def validated_recalibrated(
+        self, action, samples, *, batch_id, validation_samples, validation_batch_id
+    ):
+        """Gate a frozen candidate on a separate batch; failures leave self untouched."""
+        if (
+            not isinstance(validation_batch_id, str)
+            or not validation_batch_id.strip()
+            or validation_batch_id != validation_batch_id.strip()
+            or len(validation_batch_id) > 128
+            or validation_batch_id == batch_id
+        ):
+            raise ValueError("distinct nonempty validation batch required")
+        if any(
+            validation_batch_id in (row["batch_id"], row.get("validation_batch_id"))
+            for row in self._recalibrations
+        ):
+            raise ValueError("validation batch already used")
+        candidate = self.recalibrated(action, samples, batch_id=batch_id)
+        validation = tuple(seconds(value) for value in validation_samples)
+        if len(validation) < self.minimum_samples:
+            raise ValueError("insufficient validation samples")
+        if max(validation) > candidate.required(action):
+            raise ValueError("validation exceeds calibrated budget; action remains degraded")
+        candidate._recalibrations[-1].update(
+            validation_batch_id=validation_batch_id,
+            validation_sample_count=len(validation),
+            validation_max_s=max(validation),
+            validation_sha256=hashlib.sha256(
+                json.dumps(validation, separators=(",", ":")).encode()
+            ).hexdigest(),
+        )
+        return candidate
+
     def recalibration_history(self):
         return copy.deepcopy(self._recalibrations)
 
@@ -90,6 +131,14 @@ class ActionBudget:
         return max(self.fallback_s, estimate) if action in self.degraded else estimate
 
     def record(self, action, elapsed_s, *, confirmed):
+        if (
+            type(confirmed) is not bool
+            or isinstance(elapsed_s, bool)
+            or not isinstance(elapsed_s, (int, float))
+            or not math.isfinite(elapsed_s)
+            or elapsed_s < 0
+        ):
+            raise ValueError("valid elapsed seconds and boolean confirmation required")
         if not confirmed or elapsed_s > self.required(action):
             self.degraded.add(action)
         # Validation data never refits or lowers the frozen estimates.

@@ -1474,3 +1474,7 @@ admission-budget-experiment-test:
 .PHONY: budget-drift-test
 budget-drift-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_budget_drift -v
+
+.PHONY: validated-budget-recovery-test
+validated-budget-recovery-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_validated_recalibration test_budget_recalibration -v

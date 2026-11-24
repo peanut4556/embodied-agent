@@ -530,6 +530,8 @@ embodied-agent/
 
 最新恢复闭环：[单动作重新校准](docs/action-budget.md)，校验新样本后显式生成预算新版本，仅恢复目标动作，保留其他隔离状态及校准记录；90 项相关测试通过。
 
+最新恢复验证：[独立样本门槛与顺序恢复实验](docs/validated-budget-recovery.md)，360 次合成运行中保留 45 次恢复成功并阻止一次失配恢复；完善批次复用、失败原子性及测量校验，95 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
