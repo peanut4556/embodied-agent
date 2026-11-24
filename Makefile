@@ -1486,3 +1486,7 @@ budget-checkpoint-test:
 .PHONY: checkpointed-runtime-test
 checkpointed-runtime-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_checkpointed_runtime test_budget_checkpoint -v
+
+.PHONY: checkpoint-outcome-test
+checkpoint-outcome-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_checkpoint_outcome test_checkpointed_runtime -v

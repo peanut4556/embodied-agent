@@ -41,7 +41,7 @@ PYTHONPATH=src .venv/bin/python -m embodied_agent "red block box" \
   --budget-checkpoint budget-state.json --task-timeout 5 --json
 ```
 
-CLI 要求同时设置 --task-timeout。正常成功和任务失败保留既有 0/1 退出码及 JSON 结果。锁冲突、加载/保存错误仍作为异常退出，不输出伪造的成功 TaskResult，也尚未统一为 JSON 错误信封。未提供新参数时完全走原路径。
+CLI 要求同时设置 --task-timeout。正常成功和任务失败保留既有 0/1 退出码及 JSON 结果。锁冲突、加载/保存等普通执行错误现在输出结构化错误信封并退出 3，见 [异常合同](checkpoint-outcomes.md)。原始 run_checkpointed API 仍抛原异常。未提供新参数时完全走原路径。
 
 ## 并发和维护
 

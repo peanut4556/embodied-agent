@@ -536,6 +536,8 @@ embodied-agent/
 
 最新执行保护：[预写隔离状态与协作锁](docs/checkpointed-runtime.md)，支持 --budget-checkpoint，执行前写保守快照、结束保存后才返回结果，实际子进程退出后保留暂停；113 项相关测试通过。
 
+最新接口完善：[检查点执行异常合同](docs/checkpoint-outcomes.md)，区分未进入运行时、结果不确定和最终保存状态，CLI 输出结构化错误并退出 3；123 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -7,7 +7,7 @@ import math
 from dataclasses import asdict
 
 from .adapters.rai_planner import RAISubprocessPlanner
-from .checkpointed_runtime import run_checkpointed
+from .checkpointed_runtime import run_checkpointed_report
 from .mock import MockPolicy, MockRobot, TimestampedMockRobot
 from .planner import RuleBasedPlanner
 from .runtime import AgentRuntime
@@ -78,9 +78,29 @@ def main() -> int:
         max_confirmation_gap_s=args.max_confirmation_gap,
     )
     if args.budget_checkpoint:
-        result = run_checkpointed(
+        outcome = run_checkpointed_report(
             runtime, args.instruction, args.budget_checkpoint, task_timeout_s=args.task_timeout
         )
+        if outcome["error"] is not None:
+            if args.json:
+                print(json.dumps(outcome, ensure_ascii=False))
+            else:
+                print(
+                    f"success=False error={outcome['error']['code']} "
+                    f"execution_started={outcome['checkpoint']['execution_started']} "
+                    f"checkpoint_state={outcome['checkpoint']['checkpoint_state']}"
+                )
+            return 3
+        payload = outcome["task_result"]
+        payload["checkpoint"] = outcome["checkpoint"]
+        if args.json:
+            print(json.dumps(payload, ensure_ascii=False))
+        else:
+            print(
+                f"success={payload['success']} completed_steps={payload['completed_steps']} "
+                f"message={payload['message']} checkpoint_state=committed"
+            )
+        return 0 if payload["success"] else 1
     else:
         result = runtime.run(args.instruction, task_timeout_s=args.task_timeout)
     if args.json:
