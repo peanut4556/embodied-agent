@@ -7,6 +7,7 @@ import math
 from dataclasses import asdict
 
 from .adapters.rai_planner import RAISubprocessPlanner
+from .checkpointed_runtime import run_checkpointed
 from .mock import MockPolicy, MockRobot, TimestampedMockRobot
 from .planner import RuleBasedPlanner
 from .runtime import AgentRuntime
@@ -46,6 +47,10 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="total task budget in seconds, including planning (default: unlimited)",
     )
+    parser.add_argument(
+        "--budget-checkpoint",
+        help="existing quarantine budget checkpoint (requires --task-timeout)",
+    )
     parser.add_argument("--confirmation-samples", type=int, default=1)
     parser.add_argument("--confirmation-span", type=float, default=0)
     parser.add_argument("--max-confirmation-gap", type=float, default=None)
@@ -56,7 +61,10 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
-    args = build_parser().parse_args()
+    parser = build_parser()
+    args = parser.parse_args()
+    if args.budget_checkpoint and args.task_timeout is None:
+        parser.error("--budget-checkpoint requires --task-timeout")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     planner = RAISubprocessPlanner() if args.planner == "rai" else RuleBasedPlanner()
     runtime = AgentRuntime(
@@ -69,7 +77,12 @@ def main() -> int:
         confirmation_span_s=args.confirmation_span,
         max_confirmation_gap_s=args.max_confirmation_gap,
     )
-    result = runtime.run(args.instruction, task_timeout_s=args.task_timeout)
+    if args.budget_checkpoint:
+        result = run_checkpointed(
+            runtime, args.instruction, args.budget_checkpoint, task_timeout_s=args.task_timeout
+        )
+    else:
+        result = runtime.run(args.instruction, task_timeout_s=args.task_timeout)
     if args.json:
         print(json.dumps(asdict(result), ensure_ascii=False))
         return 0 if result.success else 1

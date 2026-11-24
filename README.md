@@ -534,6 +534,8 @@ embodied-agent/
 
 最新状态恢复：[预算检查点与只读检查](docs/budget-checkpoint.md)，跨进程保留动作隔离和批次历史，严格校验损坏输入并原子替换文件；103 项相关测试通过。
 
+最新执行保护：[预写隔离状态与协作锁](docs/checkpointed-runtime.md)，支持 --budget-checkpoint，执行前写保守快照、结束保存后才返回结果，实际子进程退出后保留暂停；113 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

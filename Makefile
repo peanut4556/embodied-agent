@@ -1482,3 +1482,7 @@ validated-budget-recovery-test:
 .PHONY: budget-checkpoint-test
 budget-checkpoint-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_budget_checkpoint -v
+
+.PHONY: checkpointed-runtime-test
+checkpointed-runtime-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_checkpointed_runtime test_budget_checkpoint -v

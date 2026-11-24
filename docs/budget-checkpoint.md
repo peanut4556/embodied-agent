@@ -56,3 +56,5 @@ PYTHONPATH=src .venv/bin/python -m embodied_agent.budget_checkpoint budget-state
 ```sh
 make budget-checkpoint-test
 ```
+
+新增 [带检查点的执行入口](checkpointed-runtime.md)：可选把预写保守状态、运行和最终保存接成流程，配合 POSIX 协作锁减少进程退出时丢失隔离状态的风险。原显式 save/load 接口仍保留上述限制。
