@@ -197,6 +197,18 @@ class AgentRuntime:
                 return TaskResult(False, "task cancelled", completed, reports)
             if expired():
                 return TaskResult(False, "task deadline exceeded", completed, reports)
+            if action_budget and action_budget.blocked(action.name):
+                reports.append(
+                    {
+                        "step": index,
+                        "action": action.name,
+                        "status": "action_budget_quarantined",
+                        "dispatched": False,
+                    }
+                )
+                return TaskResult(
+                    False, "action requires explicit budget recalibration", completed, reports
+                )
             required_budget = max(
                 minimum_step_budget_s, action_budget.required(action.name) if action_budget else 0
             )

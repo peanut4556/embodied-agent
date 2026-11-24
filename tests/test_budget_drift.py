@@ -8,15 +8,17 @@ from scripts.evaluate_budget_drift import evaluate
 class BudgetDriftTests(unittest.TestCase):
     def test_frozen_report_reproduces(self):
         self.assertEqual(
-            evaluate(), json.loads(Path("docs/evaluations/budget-drift-v1.json").read_text())
+            evaluate(), json.loads(Path("docs/evaluations/budget-drift-v2.json").read_text())
         )
 
     def test_sticky_state_and_pairing(self):
         rows = evaluate()["rows"]
-        self.assertEqual(len(rows), 1080)
+        self.assertEqual(len(rows), 1440)
         states = {}
-        for index in range(0, len(rows), 3):
-            fixed, reset, sticky = rows[index : index + 3]
+        for index in range(0, len(rows), 4):
+            fixed, reset, sticky, quarantine = rows[index : index + 4]
+            if quarantine["degraded_before"]:
+                self.assertEqual(quarantine["dispatched"], 0)
             for key in ("duration_s", "remaining_s", "feasible"):
                 self.assertEqual(fixed[key], reset[key])
                 self.assertEqual(reset[key], sticky[key])
@@ -35,3 +37,9 @@ class BudgetDriftTests(unittest.TestCase):
             summary["sticky"]["rejected_feasible"], summary["reset"]["rejected_feasible"]
         )
         self.assertGreater(summary["sticky"]["unconfirmed_after_degradation"], 0)
+
+    def test_original_profiles_unchanged(self):
+        old = json.loads(Path("docs/evaluations/budget-drift-v1.json").read_text())
+        new = evaluate()
+        self.assertEqual(old["rows"], [r for r in new["rows"] if r["mode"] != "quarantine"])
+        self.assertEqual(new["summary"]["quarantine"]["unconfirmed_after_degradation"], 0)

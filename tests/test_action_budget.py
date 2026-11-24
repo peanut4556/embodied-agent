@@ -35,3 +35,34 @@ class ActionBudgetTests(unittest.TestCase):
         self.assertEqual(learned["unconfirmed"], 0)
         self.assertLess(learned["rejected_feasible"], fixed["rejected_feasible"])
         self.assertGreater(learned["successes"], fixed["successes"])
+
+    def test_quarantine_persists_until_explicit_replacement(self):
+        from embodied_agent.runtime import AgentRuntime
+        from scripts.evaluate_budget_drift import Fixture
+
+        budget = ActionBudget({"verify": [0.01] * 20}, drift_policy="quarantine")
+        first = Fixture("verify", 0.03, 0.08)
+        result = AgentRuntime(first, first, first, clock=lambda: first.t).run(
+            "test", task_timeout_s=0.1, action_budget=budget
+        )
+        self.assertTrue(result.success)
+        self.assertTrue(budget.blocked("verify"))
+        self.assertFalse(budget.blocked("pick"))
+        self.assertFalse(budget.blocked("stop"))
+        second = Fixture("verify", 0.01, 0.08)
+        result = AgentRuntime(second, second, second, clock=lambda: second.t).run(
+            "test", task_timeout_s=0.1, action_budget=budget
+        )
+        self.assertEqual(second.calls, 0)
+        self.assertEqual(result.confirmation_reports[0]["status"], "action_budget_quarantined")
+        replacement = ActionBudget({"verify": [0.03] * 20}, drift_policy="quarantine")
+        third = Fixture("verify", 0.03, 0.08)
+        self.assertTrue(
+            AgentRuntime(third, third, third, clock=lambda: third.t)
+            .run("test", task_timeout_s=0.1, action_budget=replacement)
+            .success
+        )
+
+    def test_invalid_drift_policy(self):
+        with self.assertRaises(ValueError):
+            ActionBudget({}, drift_policy="auto_resume")

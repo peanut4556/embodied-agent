@@ -526,6 +526,8 @@ embodied-agent/
 
 最新漂移验证：[顺序耗时漂移与回退边界](docs/budget-drift.md)，1080 次配对运行显示保留状态减少未确认动作但增加误拒绝，退化后仍有 30 次未确认；84 项相关测试通过。
 
+最新可选策略：[耗时异常后暂停同类动作](docs/action-budget.md)，顺序评测中退化后未确认从 30 降至 0，但误拒绝显著增加，因此默认不启用；87 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

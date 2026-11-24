@@ -44,6 +44,7 @@ def evaluate():
     for scenario in ("tail", "shift", "recovery"):
         for name, bounds in RANGES.items():
             sticky = ActionBudget(calibration)
+            quarantine = ActionBudget(calibration, drift_policy="quarantine")
             for index in range(40):
                 rng = random.Random(71000 + index)
                 duration = rng.uniform(*bounds)
@@ -57,8 +58,14 @@ def evaluate():
                 if abnormal:
                     duration *= 4
                 remaining = rng.uniform(0.01, 0.08)
-                for mode in ("fixed", "reset", "sticky"):
-                    budget = sticky if mode == "sticky" else ActionBudget(calibration)
+                for mode in ("fixed", "reset", "sticky", "quarantine"):
+                    budget = (
+                        quarantine
+                        if mode == "quarantine"
+                        else sticky
+                        if mode == "sticky"
+                        else ActionBudget(calibration)
+                    )
                     before = name in budget.degraded
                     required = 0.05 if mode == "fixed" else budget.required(name)
                     fixture = Fixture(name, duration, remaining)
@@ -89,7 +96,7 @@ def evaluate():
                         }
                     )
     summary = {}
-    for mode in ("fixed", "reset", "sticky"):
+    for mode in ("fixed", "reset", "sticky", "quarantine"):
         group = [r for r in rows if r["mode"] == mode]
         summary[mode] = {
             "runs": len(group),

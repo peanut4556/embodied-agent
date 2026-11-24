@@ -32,3 +32,16 @@ PYTHONPATH=src:. .venv/bin/python scripts/evaluate_action_budget.py --output /tm
 ```
 
 相关测试 81 项通过，新增四项覆盖回退、持续退化、非法样本及独立验证/冻结结果。此前任务预算与固定准入实验结果仍逐项一致；历史 JSON 原样保留，回归比较排除来源哈希（它们记录历史版本，不应要求新源码等于旧源码），其余输入、结果、摘要均严格比较。这改变了此前“当前源哈希必须一致”的测试方式，未重写历史证据。
+
+## 可选异常隔离策略（2026-11-24）
+
+ActionBudget 新增 drift_policy="quarantine"；默认仍为 "fallback"。观察到耗时超过该动作预算或确认失败后，quarantine 将该动作标为暂停，后续运行时在派发前返回 action_budget_quarantined，报告 dispatched=false。其他动作不因这个标记而暂停，显式 stop 不受新增隔离规则阻止；已有总期限、取消和安全校验保持生效。
+
+```python
+budget = ActionBudget(calibration_samples, drift_policy="quarantine")
+result = runtime.run(instruction, task_timeout_s=2, action_budget=budget)
+```
+
+必须跨任务复用该实例才能保留状态。恢复要求调用方显式提供重新校准样本并创建新实例；没有定时自动恢复或在线降低预算。API 不验证新样本是否真来自新采集，也不持久化跨进程状态，因此不能把它当作不可绕过的安全边界。已经发生的首次超时无法撤回；当前成功动作若超过估计预算，也会使后续同类动作暂停。
+
+新增真实 run 路径测试验证：首次动作成功但耗时越界、第二次同类动作零派发、不同动作及 stop 不被该标记阻止、显式新校准后恢复。另验证非法策略拒绝。

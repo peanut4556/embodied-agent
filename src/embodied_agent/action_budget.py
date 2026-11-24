@@ -15,7 +15,18 @@ def seconds(value):
 
 
 class ActionBudget:
-    def __init__(self, samples, *, fallback_s=0.05, margin_s=0.005, minimum_samples=20):
+    def __init__(
+        self,
+        samples,
+        *,
+        fallback_s=0.05,
+        margin_s=0.005,
+        minimum_samples=20,
+        drift_policy="fallback",
+    ):
+        if drift_policy not in ("fallback", "quarantine"):
+            raise ValueError("drift_policy must be fallback or quarantine")
+        self.drift_policy = drift_policy
         self.fallback_s = seconds(fallback_s)
         self.margin_s = seconds(margin_s)
         if type(minimum_samples) is not int or minimum_samples < 2:
@@ -28,6 +39,9 @@ class ActionBudget:
             values = tuple(seconds(value) for value in values)
             if len(values) >= minimum_samples:
                 self.estimates[action] = max(values) + self.margin_s
+
+    def blocked(self, action):
+        return action != "stop" and self.drift_policy == "quarantine" and action in self.degraded
 
     def required(self, action):
         estimate = self.estimates.get(action, self.fallback_s)
