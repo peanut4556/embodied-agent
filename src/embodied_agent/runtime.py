@@ -112,7 +112,9 @@ class AgentRuntime:
         self.robot = robot
         self.safety = safety or SafetyGate()
 
-    def run(self, instruction: str, *, stop_requested=None, task_timeout_s=None) -> TaskResult:
+    def run(
+        self, instruction: str, *, stop_requested=None, task_timeout_s=None, minimum_step_budget_s=0
+    ) -> TaskResult:
         if stop_requested is not None and not callable(stop_requested):
             raise ValueError("stop_requested must be callable")
         if task_timeout_s is not None and (
@@ -122,6 +124,16 @@ class AgentRuntime:
             or task_timeout_s <= 0
         ):
             raise ValueError("task timeout must be finite positive seconds")
+        if (
+            isinstance(minimum_step_budget_s, bool)
+            or not isinstance(minimum_step_budget_s, (int, float))
+            or not math.isfinite(minimum_step_budget_s)
+            or minimum_step_budget_s < 0
+            or (minimum_step_budget_s > 0 and task_timeout_s is None)
+        ):
+            raise ValueError(
+                "minimum step budget requires finite nonnegative seconds and task timeout"
+            )
         last_task_time = None
 
         def task_now():
@@ -174,6 +186,22 @@ class AgentRuntime:
                 return TaskResult(False, "task cancelled", completed, reports)
             if expired():
                 return TaskResult(False, "task deadline exceeded", completed, reports)
+            if minimum_step_budget_s and action.name != "stop":
+                remaining = max(0, task_deadline - task_now())
+                if remaining < minimum_step_budget_s:
+                    reports.append(
+                        {
+                            "step": index,
+                            "action": action.name,
+                            "status": "insufficient_step_budget",
+                            "dispatched": False,
+                            "task_remaining_s": remaining,
+                            "required_step_budget_s": minimum_step_budget_s,
+                        }
+                    )
+                    return TaskResult(
+                        False, "insufficient time to start next action", completed, reports
+                    )
             self.robot.execute(action)
             if action.name == "stop":
                 return TaskResult(False, "task stopped", completed, reports)

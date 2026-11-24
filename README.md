@@ -518,6 +518,8 @@ embodied-agent/
 
 最新端到端验证：[跨阶段预算压力实验](docs/task-budget-experiment.md)，240 次配对合成运行中参考期限后派发从 235 次降为 0，但同步调用仍造成最长约 144 ms 返回超期；71 项相关测试通过。
 
+最新动作准入：[最低剩余步骤预算](docs/runtime-task-budget.md)，任务尚未超期但不足调用方指定预留时间时，拒绝派发下一动作并报告原因；74 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

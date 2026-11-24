@@ -29,3 +29,17 @@ PYTHONPATH=src .venv/bin/python -m embodied_agent "red block box" --task-timeout
 这改变了此前失败任务也以 0 退出的行为：旧脚本若依赖该行为需调整。不是只对任务超时生效，任何返回失败 TaskResult 的情况均为 1。新参数在构造运行时前验证，非法数值不会启动任务。
 
 新增 3 项测试覆盖两种输出模式的参数传递和失败返回、真实模块子进程的成功与规划阶段超期、零/负数/NaN/无穷/非数字参数拒绝。含原有回归共 69 项通过。超期子进程使用极小预算验证命令接线，不将其视为精确计时性能测量。
+
+## 动作启动前的最低预算（2026-11-24）
+
+run 新增 minimum_step_budget_s，默认 0 关闭。启用时必须同时设置 task_timeout_s，且预留值必须是有限非负数。策略选择和动作校验后、execute 之前，检查任务剩余时间是否至少达到预留值；不足则返回失败，不派发该动作。该条件每步重新检查，不会重置任务预算。显式 stop 动作不受这个新增预留检查阻止；原有取消与总期限逻辑保持不变。
+
+```python
+result = runtime.run(instruction, task_timeout_s=2, minimum_step_budget_s=0.2)
+```
+
+拒绝事件放在逐步报告列表 confirmation_reports 中，status 为 insufficient_step_budget、dispatched 为 false，并记录 task_remaining_s 与 required_step_budget_s。它是派发前事件，不是已执行动作的确认失败；completed_steps 不增加。旧读取方应按 status 区分报告类型，不能假设每项都有 reads 等确认字段。
+
+新增 3 项测试覆盖尚未到期但不足预留、跨步重新检查、配置校验和充足预算。相关测试共 74 项通过。原 240 次实验在默认关闭检查时逐项保持不变，因运行时源码改变另存 task-budget-v2.json，不覆盖 v1；该实验仅验证默认兼容性，不评估预留阈值效果。
+
+预留值由调用方提供，当前没有实机耗时分布支撑。该机制是动作准入条件，不是最坏执行时间证明；实际执行超出预留值仍可能发生。尚未加入按动作分别估计预算或 CLI 参数，也不承诺动作已启动后能够按期完成。
