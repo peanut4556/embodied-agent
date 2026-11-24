@@ -1478,3 +1478,7 @@ budget-drift-test:
 .PHONY: validated-budget-recovery-test
 validated-budget-recovery-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_validated_recalibration test_budget_recalibration -v
+
+.PHONY: budget-checkpoint-test
+budget-checkpoint-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_budget_checkpoint -v

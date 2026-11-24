@@ -532,6 +532,8 @@ embodied-agent/
 
 最新恢复验证：[独立样本门槛与顺序恢复实验](docs/validated-budget-recovery.md)，360 次合成运行中保留 45 次恢复成功并阻止一次失配恢复；完善批次复用、失败原子性及测量校验，95 项相关测试通过。
 
+最新状态恢复：[预算检查点与只读检查](docs/budget-checkpoint.md)，跨进程保留动作隔离和批次历史，严格校验损坏输入并原子替换文件；103 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
