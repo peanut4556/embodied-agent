@@ -542,6 +542,8 @@ embodied-agent/
 
 最新操作管理：[回执检查与显式终止](docs/operation-admin.md)，联合查看预算与回执，按检查摘要终止 pending 并保留审计信息，不解封动作或允许重跑；143 项相关测试通过。
 
+最新运维能力：[有界操作清单与键详情](docs/operation-inventory.md)，分页显示 pending/complete/abandoned/invalid，坏记录不阻断整页，限制目录扫描和内容读取；155 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -7,6 +7,7 @@ import sys
 
 from .budget_checkpoint import canonical, digest, label, load_budget
 from .checkpointed_runtime import checkpoint_lock
+from .operation_inventory import inspect_receipt_key, list_operations
 from .operation_receipt import _write, read_receipt, receipt_path
 
 
@@ -74,9 +75,20 @@ def main():
         if command == "abandon":
             for name in ("expected-receipt-sha256", "reason", "evidence-ref", "actor"):
                 child.add_argument("--" + name, required=True)
+    inventory = sub.add_parser("list")
+    inventory.add_argument("--checkpoint", required=True)
+    inventory.add_argument("--limit", type=int, default=20)
+    inventory.add_argument("--after")
+    detail = sub.add_parser("inspect-key")
+    detail.add_argument("--checkpoint", required=True)
+    detail.add_argument("--receipt-key", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "inspect":
+        if args.command == "list":
+            result = list_operations(args.checkpoint, after=args.after, limit=args.limit)
+        elif args.command == "inspect-key":
+            result = inspect_receipt_key(args.checkpoint, args.receipt_key)
+        elif args.command == "inspect":
             result = inspect_operation(args.checkpoint, args.operation_id)
         else:
             result = abandon_operation(
@@ -91,7 +103,7 @@ def main():
         print(json.dumps({"ok": False, "cause_type": type(exc).__name__}), file=sys.stderr)
         return 3
     print(json.dumps({"ok": True, "result": result}, ensure_ascii=False))
-    return 0
+    return 1 if args.command == "list" and result["has_errors"] else 0
 
 
 if __name__ == "__main__":

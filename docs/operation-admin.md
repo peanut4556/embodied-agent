@@ -66,3 +66,5 @@ reason、evidence_ref、actor 是调用方声明，不是身份认证或外部�
 ```sh
 make operation-admin-test
 ```
+
+新增 [批量巡检与键详情](operation-inventory.md)：支持 list 分页查看、按回执键只读检查，并明确报告页内错误与扫描上限。原 inspect/abandon 行为保持不变。

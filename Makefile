@@ -1498,3 +1498,7 @@ operation-receipt-test:
 .PHONY: operation-admin-test
 operation-admin-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_admin test_operation_receipt -v
+
+.PHONY: operation-inventory-test
+operation-inventory-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_inventory test_operation_admin -v
