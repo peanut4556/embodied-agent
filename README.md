@@ -544,6 +544,8 @@ embodied-agent/
 
 最新运维能力：[有界操作清单与键详情](docs/operation-inventory.md)，分页显示 pending/complete/abandoned/invalid，坏记录不阻断整页，限制目录扫描和内容读取；155 项相关测试通过。
 
+最新审计能力：[持锁操作快照与离线校验](docs/operation-snapshot.md)，一次导出预算与完整匹配回执，保留坏源标记，限制总读取量且不覆盖旧报告；171 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -9,6 +9,7 @@ from .budget_checkpoint import canonical, digest, label, load_budget
 from .checkpointed_runtime import checkpoint_lock
 from .operation_inventory import inspect_receipt_key, list_operations
 from .operation_receipt import _write, read_receipt, receipt_path
+from .operation_snapshot import export_snapshot, verify_snapshot
 
 
 def inspect_operation(path, operation_id):
@@ -82,9 +83,18 @@ def main():
     detail = sub.add_parser("inspect-key")
     detail.add_argument("--checkpoint", required=True)
     detail.add_argument("--receipt-key", required=True)
+    export = sub.add_parser("snapshot")
+    export.add_argument("--checkpoint", required=True)
+    export.add_argument("--output", required=True)
+    verify = sub.add_parser("verify-snapshot")
+    verify.add_argument("--snapshot", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "list":
+        if args.command == "snapshot":
+            result = export_snapshot(args.checkpoint, args.output)
+        elif args.command == "verify-snapshot":
+            result = verify_snapshot(args.snapshot)
+        elif args.command == "list":
             result = list_operations(args.checkpoint, after=args.after, limit=args.limit)
         elif args.command == "inspect-key":
             result = inspect_receipt_key(args.checkpoint, args.receipt_key)
@@ -103,7 +113,9 @@ def main():
         print(json.dumps({"ok": False, "cause_type": type(exc).__name__}), file=sys.stderr)
         return 3
     print(json.dumps({"ok": True, "result": result}, ensure_ascii=False))
-    return 1 if args.command == "list" and result["has_errors"] else 0
+    return (
+        1 if args.command in ("list", "snapshot", "verify-snapshot") and result["has_errors"] else 0
+    )
 
 
 if __name__ == "__main__":

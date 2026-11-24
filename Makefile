@@ -1502,3 +1502,7 @@ operation-admin-test:
 .PHONY: operation-inventory-test
 operation-inventory-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_inventory test_operation_admin -v
+
+.PHONY: operation-snapshot-test
+operation-snapshot-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_snapshot test_operation_inventory -v

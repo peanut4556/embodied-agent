@@ -50,26 +50,7 @@ def list_operations(path, *, after=None, limit=20):
         digest(after)
     with checkpoint_lock(path) as resolved:
         directory = resolved.with_name(resolved.name + ".operations")
-        keys, ignored, scanned = [], 0, 0
-        try:
-            entries = os.scandir(directory)
-        except FileNotFoundError:
-            entries = None
-        if entries is not None:
-            with entries:
-                for entry in entries:
-                    scanned += 1
-                    if scanned > MAX_ENTRIES:
-                        raise InventoryLimitExceeded(
-                            "receipt directory exceeds scan limit; no partial inventory returned"
-                        )
-                    if re.fullmatch("[0-9a-f]{64}\\.json", entry.name) and entry.is_file(
-                        follow_symlinks=False
-                    ):
-                        keys.append(entry.name[:-5])
-                    else:
-                        ignored += 1
-        keys.sort()
+        keys, ignored, scanned = scan_receipt_keys(directory)
         eligible = [key for key in keys if after is None or key > after]
         selected = eligible[:limit]
         rows = []
@@ -106,3 +87,27 @@ def list_operations(path, *, after=None, limit=20):
             "next_cursor": selected[-1] if len(eligible) > limit else None,
             "physical_outcome_verified": False,
         }
+
+
+def scan_receipt_keys(directory):
+    keys, ignored, scanned = [], 0, 0
+    try:
+        entries = os.scandir(directory)
+    except FileNotFoundError:
+        entries = None
+    if entries is not None:
+        with entries:
+            for entry in entries:
+                scanned += 1
+                if scanned > MAX_ENTRIES:
+                    raise InventoryLimitExceeded(
+                        "receipt directory exceeds scan limit; no partial inventory returned"
+                    )
+                if re.fullmatch("[0-9a-f]{64}\\.json", entry.name) and entry.is_file(
+                    follow_symlinks=False
+                ):
+                    keys.append(entry.name[:-5])
+                else:
+                    ignored += 1
+    keys.sort()
+    return keys, ignored, scanned

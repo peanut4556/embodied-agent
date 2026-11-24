@@ -62,3 +62,5 @@ PYTHONPATH=src .venv/bin/python -m embodied_agent.operation_admin inspect-key \
 ```sh
 make operation-inventory-test
 ```
+
+新增 [持锁审计快照](operation-snapshot.md)：在更严格的数量与总读取限制内，将预算与全部匹配回执一次导出，并提供离线校验。分页本身仍不提供跨页快照保证。

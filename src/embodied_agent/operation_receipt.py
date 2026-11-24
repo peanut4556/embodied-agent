@@ -42,9 +42,13 @@ def receipt_path(checkpoint, operation_id):
 
 
 def read_receipt(path):
-    stored = read_recovery_json(path, LIMIT)
+    return validate_receipt(read_recovery_json(path, LIMIT))
+
+
+def validate_receipt(stored):
     if not isinstance(stored, dict):
         raise TypeError("receipt object required")
+    stored = dict(stored)
     schema = stored.get("schema")
     if type(schema) is not int or schema not in (1, 2):
         raise ValueError("unsupported receipt schema")

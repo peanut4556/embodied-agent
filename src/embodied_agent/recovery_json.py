@@ -22,6 +22,10 @@ def read_recovery_json(path, limit):
         raw = stream.read(limit + 1)
     if len(raw) > limit:
         raise ValueError("recovery JSON exceeds size limit")
+    return parse_recovery_json(raw)
+
+
+def parse_recovery_json(raw):
     try:
         value = json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_constant)
         pending = [(value, 0)]
