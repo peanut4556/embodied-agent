@@ -1506,3 +1506,7 @@ operation-inventory-test:
 .PHONY: operation-snapshot-test
 operation-snapshot-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operation_snapshot test_operation_inventory -v
+
+.PHONY: snapshot-diff-test
+snapshot-diff-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_snapshot_diff test_operation_snapshot -v

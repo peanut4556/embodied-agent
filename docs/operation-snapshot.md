@@ -59,3 +59,5 @@ snapshot / verify-snapshot 正常且未包含源错误时退出 0；文件结构
 ```sh
 make operation-snapshot-test
 ```
+
+新增 [离线快照对比](snapshot-diff.md)：比较回执变化与预算版本/历史线索。必须由操作者确认来源与先后顺序，标记不会自动触发回滚或执行。

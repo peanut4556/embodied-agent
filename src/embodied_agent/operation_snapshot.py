@@ -113,6 +113,12 @@ def export_snapshot(checkpoint, output):
     }
 
 
+def read_snapshot(path):
+    envelope = read_recovery_json(path, MAX_SNAPSHOT)
+    _verify_envelope(envelope)
+    return envelope
+
+
 def verify_snapshot(path):
     return _verify_envelope(read_recovery_json(path, MAX_SNAPSHOT))
 

@@ -10,6 +10,7 @@ from .checkpointed_runtime import checkpoint_lock
 from .operation_inventory import inspect_receipt_key, list_operations
 from .operation_receipt import _write, read_receipt, receipt_path
 from .operation_snapshot import export_snapshot, verify_snapshot
+from .snapshot_diff import compare_snapshots
 
 
 def inspect_operation(path, operation_id):
@@ -88,9 +89,14 @@ def main():
     export.add_argument("--output", required=True)
     verify = sub.add_parser("verify-snapshot")
     verify.add_argument("--snapshot", required=True)
+    compare = sub.add_parser("compare-snapshots")
+    compare.add_argument("--before", required=True)
+    compare.add_argument("--after", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "snapshot":
+        if args.command == "compare-snapshots":
+            result = compare_snapshots(args.before, args.after)
+        elif args.command == "snapshot":
             result = export_snapshot(args.checkpoint, args.output)
         elif args.command == "verify-snapshot":
             result = verify_snapshot(args.snapshot)
@@ -113,6 +119,8 @@ def main():
         print(json.dumps({"ok": False, "cause_type": type(exc).__name__}), file=sys.stderr)
         return 3
     print(json.dumps({"ok": True, "result": result}, ensure_ascii=False))
+    if args.command == "compare-snapshots":
+        return 1 if result["needs_review"] else 0
     return (
         1 if args.command in ("list", "snapshot", "verify-snapshot") and result["has_errors"] else 0
     )
