@@ -70,7 +70,7 @@ PYTHONPATH=src .venv/bin/python -m embodied_agent.budget_recalibration_plan appl
 
 该实验没有覆盖文件系统内部全部故障时机，也不提供断电耐久性或跨主机事务保证。这里的一次发布仅针对预算检查点，不涉及回执文件与物理设备的事务。预览可能创建锁侧文件；没有维护权限认证，摘要不是签名。
 
-响应丢失后可使用原来的单动作 `status`，分别传入计划内原始请求文件，核对每个动作历史。计划本身尚无独立持久化回执或整体 status 命令，无法从逐项匹配证明它们当时一定由同一计划提交。遇到检查点回退或更换来源，not_found 不能证明从未应用。
+响应丢失后可使用原来的单动作 `status`，分别传入计划内原始请求文件，核对每个动作历史。现在也可使用下述整体 status 命令，在同一锁内核对所有请求。计划尚无独立持久化回执，无法从历史匹配证明它们当时一定由同一计划提交。遇到检查点回退或更换来源，not_found 不能证明从未应用。
 
 校准不会改变 pending/abandoned 操作回执，不会自动启动任务或重放不确定动作。是否运行新任务仍取决于当前隔离状态、运行预算及操作流程。
 
@@ -83,3 +83,33 @@ make budget-recalibration-plan-test
 新增 11 项测试覆盖：整体预览无写入、一次保存与保留无关隔离、第二项验证失败不发布第一项、重复动作/跨角色批次复用、输入数量与严格 JSON、检查点和计划变化、保存前异常、重复应用/历史批次复用、目标和策略限制、真实 CLI 成功/失败/锁冲突，以及真实子进程保存前后退出。
 
 相关回归合计 **233 项通过**，涵盖原单动作校准、结果核对、执行恢复、操作回执、快照审计与故障矩阵。使用临时模拟数据，没有导入真实批次或调整部署中的预算。
+
+
+## 整份计划的只读核对
+
+```sh
+PYTHONPATH=src .venv/bin/python -m embodied_agent.budget_recalibration_plan status \
+  --checkpoint /path/to/budget.json \
+  --plan /path/to/recalibration-plan.json
+```
+
+status 获取同一把执行协作锁，只加载一次检查点，然后核对计划的所有请求。所有动作的结论来自同一份已验证预算状态，避免逐项查询期间发生维护更新而混合不同版本。不会重新校准、解除隔离、保存检查点或重放任务；可能创建或保留锁侧文件。
+
+| 汇总 status | 判定 |
+| --- | --- |
+| all_matched | 所有请求都在当前历史中找到完整内容匹配 |
+| partially_matched | 部分匹配，其余未找到，且没有批次冲突 |
+| conflict | 至少一个请求的批次 ID 已用但内容不匹配；优先于部分匹配 |
+| not_found | 所有请求均未找到匹配或批次冲突 |
+
+输出包含 current_revision、原始计划字节摘要 plan_sha256、request_count、matched_count、各单动作状态的 counts，以及按计划顺序排列的 results。currently_blocked_actions 仅列出计划内当前被预算隔离阻止的动作，不是完整系统就绪检查。其他未列入计划的隔离动作仍可能阻止任务。
+
+results 使用已有单动作核对规则，区分 applied_current、applied_then_degraded、superseded、batch_conflict、not_found。因此 all_matched 可以同时包含已再次隔离和被后续校准替代的动作。后续其他动作的校准不影响本动作的匹配。内嵌请求不是独立文件，结果不虚构逐请求文件摘要；顶层只返回实际计划文件摘要。
+
+输出始终包含 `evidence_scope: current_checkpoint_history` 和 `atomic_application_verified: false`。即使历史记录连续、全部匹配，也可能来自分别执行的单动作命令；不能从该查询证明同一计划曾原子提交。partially_matched 也不能直接认定批量保存发生了部分提交，可能只是之前只维护过部分动作。not_found 不能排除状态回退、来源更换或其他部署曾经应用。
+
+调整计划请求顺序或 JSON 排版后，历史内容仍可匹配，但 plan_sha256 会变化。status 的历史核对与 apply 的原始字节摘要检查用途不同，不能据此绕过重新预览。
+
+查询成功退出 0，包括 conflict 和 not_found；自动化必须检查 result.status 和各动作当前状态，不能仅凭 ok:true 决定重跑或恢复。非法计划、损坏检查点、锁冲突退出 3，不伪装成历史未找到。查询沿用计划数量、文件大小和批次唯一性限制。
+
+本轮新增 8 项测试：全部/未找到、部分匹配、冲突优先、再次隔离与后续替代、顺序/格式变化、CLI 与锁冲突、损坏输入，以及真实子进程批量保存后退出 23，再由新 CLI 核对全部匹配且不改写文件。相关回归合计 **241 项通过**。该进程退出实验不代表断电耐久性验证。

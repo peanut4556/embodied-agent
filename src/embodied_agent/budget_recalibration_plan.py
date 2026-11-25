@@ -6,7 +6,13 @@ import json
 import sys
 
 from .budget_checkpoint import canonical, digest, fields, load_budget, save_budget
-from .budget_recalibration import StaleRecalibration, _parse_request, _read, _validated_candidate
+from .budget_recalibration import (
+    StaleRecalibration,
+    _inspect_request,
+    _parse_request,
+    _read,
+    _validated_candidate,
+)
 from .checkpointed_runtime import checkpoint_lock
 from .recovery_json import parse_recovery_json
 
@@ -66,6 +72,52 @@ def _candidate(checkpoint, plan_path):
     }
 
 
+def inspect_plan(checkpoint, plan_path):
+    """Read all request outcomes from one locked checkpoint, without publishing."""
+    with checkpoint_lock(checkpoint) as resolved:
+        budget = load_budget(resolved)
+        raw, requests = _plan(plan_path)
+        results = [
+            _inspect_request(budget, canonical(request).encode(), request) for request in requests
+        ]
+        # The standalone status hashes a file; nested entries have no such file.
+        for result in results:
+            result.pop("request_sha256")
+        matched = sum(result["matched_revision"] is not None for result in results)
+        conflicts = sum(result["status"] == "batch_conflict" for result in results)
+        counts = {
+            name: sum(result["status"] == name for result in results)
+            for name in (
+                "applied_current",
+                "applied_then_degraded",
+                "superseded",
+                "batch_conflict",
+                "not_found",
+            )
+        }
+        status = (
+            "conflict"
+            if conflicts
+            else "all_matched"
+            if matched == len(results)
+            else "partially_matched"
+            if matched
+            else "not_found"
+        )
+        return {
+            "status": status,
+            "evidence_scope": "current_checkpoint_history",
+            "atomic_application_verified": False,
+            "plan_sha256": hashlib.sha256(raw).hexdigest(),
+            "current_revision": budget.revision,
+            "matched_count": matched,
+            "request_count": len(results),
+            "counts": counts,
+            "currently_blocked_actions": [r["action"] for r in results if r["currently_blocked"]],
+            "results": results,
+        }
+
+
 def preview_plan(checkpoint, plan_path):
     with checkpoint_lock(checkpoint) as resolved:
         _, result = _candidate(resolved, plan_path)
@@ -92,7 +144,7 @@ def apply_plan(checkpoint, plan_path, *, expected_checkpoint_sha256, expected_pl
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("preview", "apply"):
+    for name in ("preview", "apply", "status"):
         command = sub.add_parser(name)
         command.add_argument("--checkpoint", required=True)
         command.add_argument("--plan", required=True)
@@ -101,7 +153,9 @@ def main():
             command.add_argument("--expected-plan-sha256", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "preview":
+        if args.command == "status":
+            result = inspect_plan(args.checkpoint, args.plan)
+        elif args.command == "preview":
             result = preview_plan(args.checkpoint, args.plan)
         else:
             result = apply_plan(

@@ -560,6 +560,8 @@ embodied-agent/
 
 最新批量维护：[多动作校准计划](docs/budget-recalibration-plan.md)，全部独立验证后一次发布预算，任一项失败不留下部分恢复；233 项相关测试通过。
 
+最新批量核对：[整份计划只读状态](docs/budget-recalibration-plan.md#整份计划的只读核对)，同一锁内读取一次预算，汇总历史匹配、批次冲突与当前隔离，覆盖批量保存后响应丢失；241 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
