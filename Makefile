@@ -1522,3 +1522,7 @@ operational-lifecycle-test:
 .PHONY: crash-boundaries-test
 crash-boundaries-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_crash_boundaries -v
+
+.PHONY: budget-recalibration-cli-test
+budget-recalibration-cli-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_budget_recalibration_cli test_validated_recalibration test_budget_checkpoint -v

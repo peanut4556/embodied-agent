@@ -554,6 +554,8 @@ embodied-agent/
 
 最新故障覆盖：[七个提交边界退出矩阵](docs/crash-boundaries.md)，14 个真实子进程验证登记到回执提交各边界，同 ID 重试未产生第二次 mock 动作；202 项相关测试通过。
 
+最新预算维护：[重新校准预览与显式应用](docs/budget-recalibration-cli.md)，独立验证后按检查点与请求双摘要应用，拒绝过期预览，只恢复目标动作；212 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
