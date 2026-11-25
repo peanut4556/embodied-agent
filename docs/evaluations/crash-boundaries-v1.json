@@ -1,0 +1,306 @@
+{
+  "passed": true,
+  "environment": "mock-process-death",
+  "cases": [
+    {
+      "phase": "before_registration",
+      "crash_exit": 23,
+      "crash_stderr": "",
+      "effects_before_retry": 0,
+      "receipt_before_retry": "absent",
+      "degraded_before_retry": [],
+      "retry_exit": 0,
+      "retry_stderr": "",
+      "result": {
+        "success": true,
+        "task_result": {
+          "success": true,
+          "message": "task completed",
+          "completed_steps": 1,
+          "confirmation_reports": [
+            {
+              "step": 1,
+              "action": "verify",
+              "reads": 1,
+              "stale_reads": 0,
+              "negative_reads": 0,
+              "duplicate_reads": 0,
+              "streak_resets": 0,
+              "gap_resets": 0,
+              "final_streak": 1,
+              "witness_reads": 0,
+              "witness_disagreements": 0,
+              "witness_unaligned": 0,
+              "required_samples": 1,
+              "required_span_s": 0,
+              "task_remaining_s": 4.9998635000083596,
+              "status": "confirmed",
+              "elapsed_s": 4.500034265220165e-06,
+              "required_step_budget_s": 0.05,
+              "action_elapsed_s": 0.00011129199992865324,
+              "budget_degraded": false,
+              "budget_revision": 0
+            }
+          ]
+        },
+        "checkpoint": {
+          "phase": "complete",
+          "execution_started": true,
+          "checkpoint_state": "committed"
+        },
+        "error": null,
+        "operation": {
+          "id": "op-1",
+          "replayed": false
+        }
+      },
+      "effects_after_retry": 1,
+      "receipt_after_retry": "complete"
+    },
+    {
+      "phase": "after_registration",
+      "crash_exit": 23,
+      "crash_stderr": "",
+      "effects_before_retry": 0,
+      "receipt_before_retry": "pending",
+      "degraded_before_retry": [],
+      "retry_exit": 0,
+      "retry_stderr": "",
+      "result": {
+        "success": false,
+        "task_result": null,
+        "checkpoint": {
+          "phase": "operation_lookup",
+          "execution_started": false,
+          "checkpoint_state": "not_confirmed"
+        },
+        "error": {
+          "code": "operation_in_doubt",
+          "cause_type": "ValueError",
+          "action_outcome_unknown": true
+        },
+        "operation": {
+          "id": "op-1",
+          "replayed": false
+        }
+      },
+      "effects_after_retry": 0,
+      "receipt_after_retry": "pending"
+    },
+    {
+      "phase": "after_prepare",
+      "crash_exit": 23,
+      "crash_stderr": "",
+      "effects_before_retry": 0,
+      "receipt_before_retry": "pending",
+      "degraded_before_retry": [
+        "locate",
+        "pick",
+        "place",
+        "verify"
+      ],
+      "retry_exit": 0,
+      "retry_stderr": "",
+      "result": {
+        "success": false,
+        "task_result": null,
+        "checkpoint": {
+          "phase": "operation_lookup",
+          "execution_started": false,
+          "checkpoint_state": "not_confirmed"
+        },
+        "error": {
+          "code": "operation_in_doubt",
+          "cause_type": "ValueError",
+          "action_outcome_unknown": true
+        },
+        "operation": {
+          "id": "op-1",
+          "replayed": false
+        }
+      },
+      "effects_after_retry": 0,
+      "receipt_after_retry": "pending"
+    },
+    {
+      "phase": "after_action",
+      "crash_exit": 23,
+      "crash_stderr": "",
+      "effects_before_retry": 1,
+      "receipt_before_retry": "pending",
+      "degraded_before_retry": [
+        "locate",
+        "pick",
+        "place",
+        "verify"
+      ],
+      "retry_exit": 0,
+      "retry_stderr": "",
+      "result": {
+        "success": false,
+        "task_result": null,
+        "checkpoint": {
+          "phase": "operation_lookup",
+          "execution_started": false,
+          "checkpoint_state": "not_confirmed"
+        },
+        "error": {
+          "code": "operation_in_doubt",
+          "cause_type": "ValueError",
+          "action_outcome_unknown": true
+        },
+        "operation": {
+          "id": "op-1",
+          "replayed": false
+        }
+      },
+      "effects_after_retry": 1,
+      "receipt_after_retry": "pending"
+    },
+    {
+      "phase": "after_budget_commit",
+      "crash_exit": 23,
+      "crash_stderr": "",
+      "effects_before_retry": 1,
+      "receipt_before_retry": "pending",
+      "degraded_before_retry": [],
+      "retry_exit": 0,
+      "retry_stderr": "",
+      "result": {
+        "success": false,
+        "task_result": null,
+        "checkpoint": {
+          "phase": "operation_lookup",
+          "execution_started": false,
+          "checkpoint_state": "not_confirmed"
+        },
+        "error": {
+          "code": "operation_in_doubt",
+          "cause_type": "ValueError",
+          "action_outcome_unknown": true
+        },
+        "operation": {
+          "id": "op-1",
+          "replayed": false
+        }
+      },
+      "effects_after_retry": 1,
+      "receipt_after_retry": "pending"
+    },
+    {
+      "phase": "before_receipt_commit",
+      "crash_exit": 23,
+      "crash_stderr": "",
+      "effects_before_retry": 1,
+      "receipt_before_retry": "pending",
+      "degraded_before_retry": [],
+      "retry_exit": 0,
+      "retry_stderr": "",
+      "result": {
+        "success": false,
+        "task_result": null,
+        "checkpoint": {
+          "phase": "operation_lookup",
+          "execution_started": false,
+          "checkpoint_state": "not_confirmed"
+        },
+        "error": {
+          "code": "operation_in_doubt",
+          "cause_type": "ValueError",
+          "action_outcome_unknown": true
+        },
+        "operation": {
+          "id": "op-1",
+          "replayed": false
+        }
+      },
+      "effects_after_retry": 1,
+      "receipt_after_retry": "pending"
+    },
+    {
+      "phase": "after_receipt_commit",
+      "crash_exit": 23,
+      "crash_stderr": "",
+      "effects_before_retry": 1,
+      "receipt_before_retry": "complete",
+      "degraded_before_retry": [],
+      "retry_exit": 0,
+      "retry_stderr": "",
+      "result": {
+        "success": true,
+        "task_result": {
+          "completed_steps": 1,
+          "confirmation_reports": [
+            {
+              "action": "verify",
+              "action_elapsed_s": 0.00010949996067211032,
+              "budget_degraded": false,
+              "budget_revision": 0,
+              "duplicate_reads": 0,
+              "elapsed_s": 3.1249946914613247e-06,
+              "final_streak": 1,
+              "gap_resets": 0,
+              "negative_reads": 0,
+              "reads": 1,
+              "required_samples": 1,
+              "required_span_s": 0,
+              "required_step_budget_s": 0.05,
+              "stale_reads": 0,
+              "status": "confirmed",
+              "step": 1,
+              "streak_resets": 0,
+              "task_remaining_s": 4.9998648329637945,
+              "witness_disagreements": 0,
+              "witness_reads": 0,
+              "witness_unaligned": 0
+            }
+          ],
+          "message": "task completed",
+          "success": true
+        },
+        "checkpoint": {
+          "phase": "historical",
+          "execution_started": false,
+          "checkpoint_state": "historical_committed"
+        },
+        "error": null,
+        "operation": {
+          "id": "op-1",
+          "replayed": true
+        }
+      },
+      "effects_after_retry": 1,
+      "receipt_after_retry": "complete"
+    }
+  ],
+  "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+  "source_sha256": {
+    "scripts/validate_crash_boundaries.py": "1328d1495c72f1baca7380a028b57b57dd5b94835f9b4c0d3d4eda3558001833",
+    "src/embodied_agent/operation_receipt.py": "e774c3c9f00da415ba33140b0d6f4d7075b90b753d34bfda1c93261922bf2f50",
+    "src/embodied_agent/checkpointed_runtime.py": "e045f28a3195911d04641a6c3355a5657428c83070e15ea3b1011c9c6dd12366",
+    "src/embodied_agent/budget_checkpoint.py": "0c46e52a299c300762f9f14a1ad789cf740d77e2f95807f2b6c1a1c1caa3e853",
+    "src/embodied_agent/runtime.py": "d78d61713e15ed43be7ca59ad7cf06f752730123f72c950d15208bae39e01335"
+  },
+  "artifact_sha256": {
+    "after_budget_commit/effects.jsonl": "535dacae93cf7095cd7a0497d4d32f2943a8695db73e70ba8fba4cc698cdbecc",
+    "after_budget_commit/budget.json": "8127b386185430c37ccc78a0497ce3990bfc2054306596f233246beeccd99d21",
+    "after_action/effects.jsonl": "535dacae93cf7095cd7a0497d4d32f2943a8695db73e70ba8fba4cc698cdbecc",
+    "after_action/budget.json": "53dec95cdf0c0fadb84c3b966f55b2122c8b0d6b2e63aed1a1b38e8b90667aba",
+    "after_prepare/budget.json": "53dec95cdf0c0fadb84c3b966f55b2122c8b0d6b2e63aed1a1b38e8b90667aba",
+    "after_receipt_commit/effects.jsonl": "535dacae93cf7095cd7a0497d4d32f2943a8695db73e70ba8fba4cc698cdbecc",
+    "after_receipt_commit/budget.json": "8127b386185430c37ccc78a0497ce3990bfc2054306596f233246beeccd99d21",
+    "after_registration/budget.json": "8127b386185430c37ccc78a0497ce3990bfc2054306596f233246beeccd99d21",
+    "before_registration/effects.jsonl": "535dacae93cf7095cd7a0497d4d32f2943a8695db73e70ba8fba4cc698cdbecc",
+    "before_registration/budget.json": "8127b386185430c37ccc78a0497ce3990bfc2054306596f233246beeccd99d21",
+    "before_receipt_commit/effects.jsonl": "535dacae93cf7095cd7a0497d4d32f2943a8695db73e70ba8fba4cc698cdbecc",
+    "before_receipt_commit/budget.json": "8127b386185430c37ccc78a0497ce3990bfc2054306596f233246beeccd99d21",
+    "after_budget_commit/budget.json.operations/71a0ef7195df486543f63f0cb1dff83ee245c10fb566219b128a7fa99a8bbbac.json": "bde90f8ab551eed7a5abb59ae0cd24c7b7196688c8216244c62e034f86f393dc",
+    "after_action/budget.json.operations/71a0ef7195df486543f63f0cb1dff83ee245c10fb566219b128a7fa99a8bbbac.json": "bde90f8ab551eed7a5abb59ae0cd24c7b7196688c8216244c62e034f86f393dc",
+    "after_prepare/budget.json.operations/71a0ef7195df486543f63f0cb1dff83ee245c10fb566219b128a7fa99a8bbbac.json": "bde90f8ab551eed7a5abb59ae0cd24c7b7196688c8216244c62e034f86f393dc",
+    "after_receipt_commit/budget.json.operations/71a0ef7195df486543f63f0cb1dff83ee245c10fb566219b128a7fa99a8bbbac.json": "c7114d4fc9f5a7fe88fd16713c6c4ccaa18b0d2be0c38052f0a9c585e08feda9",
+    "after_registration/budget.json.operations/71a0ef7195df486543f63f0cb1dff83ee245c10fb566219b128a7fa99a8bbbac.json": "bde90f8ab551eed7a5abb59ae0cd24c7b7196688c8216244c62e034f86f393dc",
+    "before_registration/budget.json.operations/71a0ef7195df486543f63f0cb1dff83ee245c10fb566219b128a7fa99a8bbbac.json": "e850823f34a145d9e549d241648c9c40febcc5fb4751f7c07867958d5ab96f8d",
+    "before_receipt_commit/budget.json.operations/71a0ef7195df486543f63f0cb1dff83ee245c10fb566219b128a7fa99a8bbbac.json": "bde90f8ab551eed7a5abb59ae0cd24c7b7196688c8216244c62e034f86f393dc"
+  },
+  "raw_report": "outputs/evaluations/crash-boundaries-v1/report.json"
+}

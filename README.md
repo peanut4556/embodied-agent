@@ -552,6 +552,8 @@ embodied-agent/
 
 最新整链验收：[15 步 CLI 运行生命周期](docs/operational-lifecycle.md)，串通任务、重复请求、进程中断、显式终止和快照审计，保存输出与源码/产物摘要；199 项相关测试通过。
 
+最新故障覆盖：[七个提交边界退出矩阵](docs/crash-boundaries.md)，14 个真实子进程验证登记到回执提交各边界，同 ID 重试未产生第二次 mock 动作；202 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

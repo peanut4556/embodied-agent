@@ -1518,3 +1518,7 @@ snapshot-source-test:
 .PHONY: operational-lifecycle-test
 operational-lifecycle-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operational_lifecycle -v
+
+.PHONY: crash-boundaries-test
+crash-boundaries-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_crash_boundaries -v
