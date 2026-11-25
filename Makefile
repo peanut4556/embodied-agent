@@ -1514,3 +1514,7 @@ snapshot-diff-test:
 .PHONY: snapshot-source-test
 snapshot-source-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_snapshot_source test_snapshot_diff -v
+
+.PHONY: operational-lifecycle-test
+operational-lifecycle-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_operational_lifecycle -v

@@ -550,6 +550,8 @@ embodied-agent/
 
 最新可比性检查：[快照来源与序号](docs/snapshot-source.md)，schema 2 保存显式来源声明，来源缺失/不同或序号异常时默认暂停差异判断，旧文件保留；196 项相关测试通过。
 
+最新整链验收：[15 步 CLI 运行生命周期](docs/operational-lifecycle.md)，串通任务、重复请求、进程中断、显式终止和快照审计，保存输出与源码/产物摘要；199 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
