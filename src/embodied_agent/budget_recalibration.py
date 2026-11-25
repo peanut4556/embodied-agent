@@ -6,6 +6,7 @@ import json
 import sys
 from pathlib import Path
 
+from .action_budget import seconds
 from .budget_checkpoint import LIMIT, digest, fields, label, load_budget, restore, save_budget
 from .checkpointed_runtime import checkpoint_lock
 from .recovery_json import parse_recovery_json
@@ -23,11 +24,7 @@ def _read(path):
     return raw
 
 
-def _candidate(checkpoint, request_path):
-    original = _read(checkpoint)
-    budget = load_budget(checkpoint)
-    if budget.drift_policy != "quarantine":
-        raise ValueError("maintenance requires quarantine policy")
+def _request(request_path):
     raw = _read(request_path)
     request = parse_recovery_json(raw.decode("utf-8"))
     fields(request, "schema action calibration validation")
@@ -40,6 +37,80 @@ def _candidate(checkpoint, request_path):
         values = request[key]["durations_s"]
         if not isinstance(values, list) or len(values) > 4096:
             raise ValueError("sample list required, maximum 4096 per batch")
+    for key in ("calibration", "validation"):
+        values = request[key]["durations_s"]
+        if len(values) < 2:
+            raise ValueError("at least two samples required")
+        for value in values:
+            seconds(value)
+    if request["calibration"]["batch_id"] == request["validation"]["batch_id"]:
+        raise ValueError("distinct batches required")
+    return raw, request
+
+
+def inspect_recalibration(checkpoint, request_path):
+    """Reconcile request content with current history, without retrying a write."""
+    with checkpoint_lock(checkpoint) as resolved:
+        budget = load_budget(resolved)
+        raw, request = _request(request_path)
+        calibration, validation = request["calibration"], request["validation"]
+        expected = {
+            "action": request["action"],
+            "batch_id": calibration["batch_id"],
+            "validation_batch_id": validation["batch_id"],
+            "sample_count": len(calibration["durations_s"]),
+            "validation_sample_count": len(validation["durations_s"]),
+        }
+        for key, batch in (("samples_sha256", calibration), ("validation_sha256", validation)):
+            expected[key] = hashlib.sha256(
+                json.dumps(batch["durations_s"], separators=(",", ":")).encode()
+            ).hexdigest()
+        history = budget.recalibration_history()
+        matching = [row for row in history if all(row.get(k) == v for k, v in expected.items())]
+        ids = {calibration["batch_id"], validation["batch_id"]}
+        collisions = [
+            row["revision"]
+            for row in history
+            if ids.intersection((row["batch_id"], row.get("validation_batch_id")))
+        ]
+        action = request["action"]
+        matched = matching[0] if matching else None
+        later = [
+            row["revision"]
+            for row in history
+            if row["action"] == action and matched and row["revision"] > matched["revision"]
+        ]
+        if matched:
+            status = (
+                "superseded"
+                if later
+                else ("applied_then_degraded" if action in budget.degraded else "applied_current")
+            )
+        else:
+            status = "batch_conflict" if collisions else "not_found"
+        return {
+            "status": status,
+            "evidence_scope": "current_checkpoint_history",
+            "request_sha256": hashlib.sha256(raw).hexdigest(),
+            "action": action,
+            "current_revision": budget.revision,
+            "matched_revision": matched["revision"] if matched else None,
+            "matched_record": matched,
+            "later_action_revisions": later,
+            "conflicting_revisions": collisions if not matched else [],
+            "currently_degraded": action in budget.degraded,
+            "currently_blocked": budget.blocked(action),
+            "current_required_s": budget.required(action),
+            "drift_policy": budget.drift_policy,
+        }
+
+
+def _candidate(checkpoint, request_path):
+    original = _read(checkpoint)
+    budget = load_budget(checkpoint)
+    if budget.drift_policy != "quarantine":
+        raise ValueError("maintenance requires quarantine policy")
+    raw, request = _request(request_path)
     candidate = budget.validated_recalibrated(
         request["action"],
         request["calibration"]["durations_s"],
@@ -106,7 +177,7 @@ def apply_recalibration(
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("preview", "apply"):
+    for name in ("preview", "apply", "status"):
         command = sub.add_parser(name)
         command.add_argument("--checkpoint", required=True)
         command.add_argument("--request", required=True)
@@ -115,7 +186,9 @@ def main():
             command.add_argument("--expected-request-sha256", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "preview":
+        if args.command == "status":
+            result = inspect_recalibration(args.checkpoint, args.request)
+        elif args.command == "preview":
             result = preview_recalibration(args.checkpoint, args.request)
         else:
             result = apply_recalibration(

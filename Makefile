@@ -1525,4 +1525,4 @@ crash-boundaries-test:
 
 .PHONY: budget-recalibration-cli-test
 budget-recalibration-cli-test:
-	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_budget_recalibration_cli test_validated_recalibration test_budget_checkpoint -v
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_status test_budget_recalibration_cli test_validated_recalibration test_budget_checkpoint -v

@@ -76,3 +76,33 @@ make budget-recalibration-cli-test
 新增 10 项测试：只读预览和单动作恢复、检查点变化、请求变化、验证失败、严格 JSON、样本限制、保存前失败、重复应用与批次复用，以及真实 CLI 的成功/过期退出和锁冲突/缺参数。连同预算、执行恢复、回执、审计、进程退出矩阵等相关回归共 **212 项通过**。该数字是所选相关测试集合，不是全仓库测试总数。
 
 保存失败测试在保存调用处注入异常，验证候选没有提前发布；不将其解释为覆盖所有文件系统故障时机。模拟耗时验证软件流程，不构成真实设备成功率或预算覆盖率结论。
+
+## 响应丢失后的只读结果核对
+
+如果 apply 已保存但终端断开，使用新命令核对当前检查点历史，无需再次应用：
+
+```sh
+PYTHONPATH=src .venv/bin/python -m embodied_agent.budget_recalibration status \
+  --checkpoint /path/to/budget.json \
+  --request /path/to/recalibration.json
+```
+
+命令持同一把协作锁，严格读取检查点和请求，比较动作、两批标识、样本数量及两批样本摘要。它不会构建新预算、增加 revision、解除隔离或重放操作。
+
+| status | 证据与处置含义 |
+| --- | --- |
+| `applied_current` | 当前历史中找到完整匹配，且该动作无后续校准、当前未隔离 |
+| `applied_then_degraded` | 找到完整匹配，但动作当前再次隔离；历史应用成功不代表目前可执行 |
+| `superseded` | 找到完整匹配，但该动作已有后续校准；查看 `later_action_revisions` 与当前隔离状态 |
+| `batch_conflict` | 至少一个批次 ID 已使用，但动作、批次角色或样本内容不完整匹配；查看 `conflicting_revisions`，不要把它当成本请求已应用 |
+| `not_found` | 当前检查点历史中未找到匹配或批次冲突；不能推出该请求从未在其他检查点、被回退前的状态或其他部署应用 |
+
+输出包含 `matched_revision`、完整匹配记录 `matched_record`、`current_revision`、`currently_degraded`、`currently_blocked`、当前预算及漂移策略。后续其他动作的校准不会把本动作误判为 superseded。已被替代且再次隔离时，status 为 superseded，当前隔离字段仍为 true。
+
+这里的匹配是样本内容和历史字段匹配，不是原请求文件字节匹配：JSON 缩进、字段顺序变化不影响核对；样本顺序和数字表示变化可能改变已保存的样本摘要。与 apply 的双原始字节摘要检查用途不同。status 不证明当时使用了哪份预览，也不认证部署来源。输出明确标记 `evidence_scope: current_checkpoint_history`。
+
+成功读取和判定均退出 0，包含 conflict/not_found；调用方必须检查 `result.status`，不能把 `ok: true` 当作已应用。文件损坏、非法样本或锁冲突仍退出 3，绝不降级成 not_found。输入须有两批不同 ID，每批至少两个有限正数；实际应用时仍须满足检查点的 minimum_samples。只读核对不重新用当前配置检验旧批次的候选预算。
+
+新增 10 项核对测试，包括一个真实子进程完成保存后直接退出 23、不输出响应，再由新 CLI 进程识别已应用且保持文件不变。该实验覆盖保存后响应丢失，不模拟断电或证明磁盘耐久性。
+
+本轮连同原有校准、执行恢复、回执、快照与进程退出矩阵，**222 项相关测试通过**；新增测试同时检查查询前后预算与请求字节保持不变。
