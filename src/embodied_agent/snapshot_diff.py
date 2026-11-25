@@ -3,9 +3,58 @@
 from .operation_snapshot import read_snapshot
 
 
-def compare_snapshots(before, after):
+def compare_snapshots(before, after, *, allow_source_override=False):
+    if type(allow_source_override) is not bool:
+        raise TypeError("allow_source_override must be boolean")
     first, second = read_snapshot(before), read_snapshot(after)
     a, b = first["snapshot"], second["snapshot"]
+    source_flags = []
+    left_id, right_id = a.get("source_id"), b.get("source_id")
+    if left_id is None or right_id is None:
+        relation = "unavailable"
+        source_flags.append("source_identity_unavailable")
+    elif left_id != right_id:
+        relation = "mismatched_declared"
+        source_flags.append("source_identity_mismatch")
+    else:
+        relation = "matched_declared"
+    left_sequence, right_sequence = a.get("capture_sequence"), b.get("capture_sequence")
+    order_relation = "unavailable"
+    if relation == "matched_declared" and left_sequence is not None and right_sequence is not None:
+        if right_sequence < left_sequence:
+            order_relation = "reversed_declared"
+            source_flags.append("capture_order_reversed")
+        elif right_sequence == left_sequence and first["sha256"] != second["sha256"]:
+            order_relation = "reused_declared"
+            source_flags.append("capture_sequence_reused")
+        elif right_sequence == left_sequence:
+            order_relation = "same_capture"
+        else:
+            order_relation = "increasing_declared"
+    source = {
+        "before_id": left_id,
+        "after_id": right_id,
+        "relation": relation,
+        "order_relation": order_relation,
+        "before_sequence": left_sequence,
+        "after_sequence": right_sequence,
+        "flags": source_flags,
+        "override": allow_source_override,
+    }
+    if source_flags and not allow_source_override:
+        return {
+            "before_sha256": first["sha256"],
+            "after_sha256": second["sha256"],
+            "same_source_verified": False,
+            "physical_outcome_verified": False,
+            "source": source,
+            "comparison_performed": False,
+            "needs_review": True,
+            "counts": None,
+            "changes": [],
+            "budget_changes": {},
+            "budget_flags": [],
+        }
     old = {row["receipt_key"]: row for row in a["items"]}
     new = {row["receipt_key"]: row for row in b["items"]}
     changes, unchanged = [], 0
@@ -90,12 +139,14 @@ def compare_snapshots(before, after):
         kind: sum(row["kind"] == kind for row in changes)
         for kind in ("added", "removed", "changed", "encoding_changed", "uncertain")
     }
-    needs_review = bool(budget_flags or any(row["flags"] for row in changes))
+    needs_review = bool(source_flags or budget_flags or any(row["flags"] for row in changes))
     return {
         "before_sha256": first["sha256"],
         "after_sha256": second["sha256"],
         "same_source_verified": False,
         "physical_outcome_verified": False,
+        "source": source,
+        "comparison_performed": True,
         "counts": {**counts, "unchanged": unchanged},
         "changes": changes,
         "budget_changes": budget_changes,

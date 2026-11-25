@@ -548,6 +548,8 @@ embodied-agent/
 
 最新审计扩展：[离线快照差异与回退线索](docs/snapshot-diff.md)，区分正常状态推进、格式变化、请求换绑、终态变化及预算历史倒退；184 项相关测试通过。
 
+最新可比性检查：[快照来源与序号](docs/snapshot-source.md)，schema 2 保存显式来源声明，来源缺失/不同或序号异常时默认暂停差异判断，旧文件保留；196 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

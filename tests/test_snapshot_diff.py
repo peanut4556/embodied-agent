@@ -28,7 +28,7 @@ class SnapshotDiffTests(unittest.TestCase):
 
     def snap(self, name):
         path = self.root / (name + ".json")
-        export_snapshot(self.path, path)
+        export_snapshot(self.path, path, source_id="test-deployment")
         return path
 
     def complete(self):

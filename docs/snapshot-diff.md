@@ -47,7 +47,7 @@ report = compare_snapshots("audit-before.json", "audit-after.json")
 
 ## 来源与时间边界
 
-当前快照 schema 没有不可伪造的检查点身份或可信时间戳，比较函数也无法知道用户是否选了同一部署的正确先后顺序，所以始终输出 same_source_verified=false。必须由操作者核对部署、文件来源和 before/after 顺序。把两个不同项目的快照比较，可能产生大量没有意义的“回退”线索。
+schema 1 没有来源字段；新增 schema 2 的来源声明与序号见 [来源检查](snapshot-source.md)，默认先检查可比性。两种格式都没有不可伪造的检查点身份或可信时间戳，比较函数也无法知道用户是否选了同一部署的正确先后顺序，所以始终输出 same_source_verified=false。必须由操作者核对部署、文件来源和 before/after 顺序。把两个不同项目的快照比较，可能产生大量没有意义的“回退”线索。
 
 两份快照之间发生又恢复的变化不可见；忽略目录项只比较数量，不检查其中内容。哈希可被有写权限者重算，不是签名。physical_outcome_verified=false，历史成功和正常状态变化都不证明设备现在的物理状态。needs_review=false 仅表示在已校验且纳入范围的数据中没有触发本工具规则。
 
@@ -60,3 +60,5 @@ report = compare_snapshots("audit-before.json", "audit-after.json")
 ```sh
 make snapshot-diff-test
 ```
+
+接口兼容提示：来源信息不足或冲突时，现在默认返回 comparison_performed=false、counts=null；明确核对后可用 --allow-source-override 继续，但警告保留。

@@ -5,7 +5,7 @@ import os
 import tempfile
 from pathlib import Path
 
-from .budget_checkpoint import LIMIT, canonical, digest, fields, restore
+from .budget_checkpoint import LIMIT, canonical, digest, fields, label, restore
 from .checkpointed_runtime import checkpoint_lock
 from .operation_inventory import MAX_ENTRIES, scan_receipt_keys
 from .operation_receipt import validate_receipt
@@ -56,7 +56,13 @@ def _counts(items):
     return counts
 
 
-def export_snapshot(checkpoint, output):
+def export_snapshot(checkpoint, output, *, source_id=None, capture_sequence=None):
+    if source_id is not None:
+        label(source_id)
+    if capture_sequence is not None and (
+        source_id is None or type(capture_sequence) is not int or capture_sequence < 1
+    ):
+        raise ValueError("capture sequence requires source ID and a positive integer")
     output = Path(output).absolute()
     with checkpoint_lock(checkpoint) as resolved:
         directory = resolved.with_name(resolved.name + ".operations")
@@ -83,6 +89,8 @@ def export_snapshot(checkpoint, output):
             "ignored_entries": ignored,
             "source_bytes_read": used[0],
         }
+        if source_id is not None:
+            body.update(schema=2, source_id=source_id, capture_sequence=capture_sequence)
         envelope = {
             "snapshot": body,
             "sha256": hashlib.sha256(canonical(body).encode()).hexdigest(),
@@ -107,6 +115,8 @@ def export_snapshot(checkpoint, output):
                 temporary.unlink(missing_ok=True)
     return {
         "sha256": envelope["sha256"],
+        "source_id": body.get("source_id"),
+        "capture_sequence": body.get("capture_sequence"),
         "counts": body["counts"],
         "has_errors": budget["error"] is not None or body["counts"]["invalid"] > 0,
         "ignored_entries": ignored,
@@ -129,9 +139,22 @@ def _verify_envelope(envelope):
     body = envelope["snapshot"]
     if hashlib.sha256(canonical(body).encode()).hexdigest() != envelope["sha256"]:
         raise ValueError("snapshot checksum mismatch")
-    fields(body, "schema budget items counts scanned_entries ignored_entries source_bytes_read")
-    if type(body["schema"]) is not int or body["schema"] != 1:
+    if (
+        not isinstance(body, dict)
+        or type(body.get("schema")) is not int
+        or body["schema"] not in (1, 2)
+    ):
         raise ValueError("unsupported snapshot schema")
+    fields(
+        body,
+        "schema budget items counts scanned_entries ignored_entries source_bytes_read"
+        + (" source_id capture_sequence" if body["schema"] == 2 else ""),
+    )
+    if body["schema"] == 2:
+        label(body["source_id"])
+        sequence = body["capture_sequence"]
+        if sequence is not None and (type(sequence) is not int or sequence < 1):
+            raise ValueError("invalid snapshot sequence")
     if not isinstance(body["items"], list) or len(body["items"]) > MAX_RECEIPTS:
         raise ValueError("invalid snapshot items")
     for name in ("scanned_entries", "ignored_entries", "source_bytes_read"):
@@ -165,6 +188,8 @@ def _verify_envelope(envelope):
         raise ValueError("snapshot keys or counts disagree")
     return {
         "sha256": envelope["sha256"],
+        "source_id": body.get("source_id"),
+        "capture_sequence": body.get("capture_sequence"),
         "counts": body["counts"],
         "has_errors": body["budget"]["error"] is not None or body["counts"]["invalid"] > 0,
         "ignored_entries": body["ignored_entries"],

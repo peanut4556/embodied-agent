@@ -1510,3 +1510,7 @@ operation-snapshot-test:
 .PHONY: snapshot-diff-test
 snapshot-diff-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_snapshot_diff test_operation_snapshot -v
+
+.PHONY: snapshot-source-test
+snapshot-source-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_snapshot_source test_snapshot_diff -v

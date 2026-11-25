@@ -87,17 +87,27 @@ def main():
     export = sub.add_parser("snapshot")
     export.add_argument("--checkpoint", required=True)
     export.add_argument("--output", required=True)
+    export.add_argument("--source-id")
+    export.add_argument("--capture-sequence", type=int)
     verify = sub.add_parser("verify-snapshot")
     verify.add_argument("--snapshot", required=True)
     compare = sub.add_parser("compare-snapshots")
     compare.add_argument("--before", required=True)
     compare.add_argument("--after", required=True)
+    compare.add_argument("--allow-source-override", action="store_true")
     args = parser.parse_args()
     try:
         if args.command == "compare-snapshots":
-            result = compare_snapshots(args.before, args.after)
+            result = compare_snapshots(
+                args.before, args.after, allow_source_override=args.allow_source_override
+            )
         elif args.command == "snapshot":
-            result = export_snapshot(args.checkpoint, args.output)
+            result = export_snapshot(
+                args.checkpoint,
+                args.output,
+                source_id=args.source_id,
+                capture_sequence=args.capture_sequence,
+            )
         elif args.command == "verify-snapshot":
             result = verify_snapshot(args.snapshot)
         elif args.command == "list":
