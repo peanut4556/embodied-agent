@@ -26,6 +26,10 @@ def _read(path):
 
 def _request(request_path):
     raw = _read(request_path)
+    return raw, _parse_request(raw)
+
+
+def _parse_request(raw):
     request = parse_recovery_json(raw.decode("utf-8"))
     fields(request, "schema action calibration validation")
     if type(request["schema"]) is not int or request["schema"] != 1:
@@ -45,7 +49,7 @@ def _request(request_path):
             seconds(value)
     if request["calibration"]["batch_id"] == request["validation"]["batch_id"]:
         raise ValueError("distinct batches required")
-    return raw, request
+    return request
 
 
 def inspect_recalibration(checkpoint, request_path):
@@ -105,12 +109,7 @@ def inspect_recalibration(checkpoint, request_path):
         }
 
 
-def _candidate(checkpoint, request_path):
-    original = _read(checkpoint)
-    budget = load_budget(checkpoint)
-    if budget.drift_policy != "quarantine":
-        raise ValueError("maintenance requires quarantine policy")
-    raw, request = _request(request_path)
+def _validated_candidate(budget, request):
     candidate = budget.validated_recalibrated(
         request["action"],
         request["calibration"]["durations_s"],
@@ -132,6 +131,16 @@ def _candidate(checkpoint, request_path):
             "history": candidate.recalibration_history(),
         }
     )
+    return candidate
+
+
+def _candidate(checkpoint, request_path):
+    original = _read(checkpoint)
+    budget = load_budget(checkpoint)
+    if budget.drift_policy != "quarantine":
+        raise ValueError("maintenance requires quarantine policy")
+    raw, request = _request(request_path)
+    candidate = _validated_candidate(budget, request)
     summary = {
         "checkpoint_sha256": hashlib.sha256(original).hexdigest(),
         "request_sha256": hashlib.sha256(raw).hexdigest(),

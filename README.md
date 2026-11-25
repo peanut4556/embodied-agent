@@ -558,6 +558,8 @@ embodied-agent/
 
 最新恢复核对：[校准结果只读查询](docs/budget-recalibration-cli.md#响应丢失后的只读结果核对)，在保存后响应丢失时核对批次历史，区分再次隔离、后续替代及批次冲突；222 项相关测试通过。
 
+最新批量维护：[多动作校准计划](docs/budget-recalibration-plan.md)，全部独立验证后一次发布预算，任一项失败不留下部分恢复；233 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
