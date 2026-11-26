@@ -78,7 +78,13 @@ def main():
             for case, ref in zip(config["validation_cases"], refs, strict=True):
                 for mode in MODES:
                     session = InterventionSession(policy, ref["x"], mode)
-                    rows = run(policy, case, ref, "limited", session_factory=lambda _, current=session: current)
+                    rows = run(
+                        policy,
+                        case,
+                        ref,
+                        "limited",
+                        session_factory=lambda _, current=session: current,
+                    )
                     for row, inputs in zip(rows, session.inputs, strict=True):
                         row["inputs"] = inputs
                     # Summarize numeric action-chain fields before adding input metadata.

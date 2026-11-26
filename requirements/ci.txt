@@ -1,0 +1,2 @@
+# Keep cloud and local lint behavior aligned.
+ruff==0.16.6

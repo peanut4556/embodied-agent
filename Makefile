@@ -1538,3 +1538,12 @@ recalibration-lifecycle-test:
 .PHONY: recalibration-evidence-test
 recalibration-evidence-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_stage_results test_recalibration_evidence test_recalibration_lifecycle -v
+
+CI_PYTHON ?= .venv/bin/python
+.PHONY: ci-test ci-lint
+ci-test:
+	PYTHONPATH=src:.:tests:tests/physics $(CI_PYTHON) -m unittest $(shell cat config/ci-core-tests.txt)
+
+ci-lint:
+	$(CI_PYTHON) -m ruff check src/embodied_agent scripts tests
+	$(CI_PYTHON) -m ruff format --check src/embodied_agent scripts tests

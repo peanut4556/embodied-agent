@@ -570,6 +570,8 @@ embodied-agent/
 
 最新结果复核：[验收阶段断言](docs/recalibration-lifecycle.md#可选的阶段结果复核)，可选检查诊断、预览与应用衔接和漂移隔离，发现退出码正确但业务记录矛盾；266 项相关测试通过。
 
+最新持续集成：[核心 GitHub Actions CI](docs/core-ci.md)，接入 push/PR 检查、266 项核心回归、维护验收与证据上传；本地干净 Python 环境验证通过，云端首次运行待 push 后确认。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

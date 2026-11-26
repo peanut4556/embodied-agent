@@ -1,0 +1,57 @@
+name: Core CI
+
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: core-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core:
+    name: Core checks (Python 3.12)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONUNBUFFERED: '1'
+      PYTHONPATH: src:.
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements/ci.txt
+      - name: Prepare artifact directory
+        run: mkdir -p outputs/ci
+      - name: Install CI tooling
+        run: python -m pip install -r requirements/ci.txt
+      - name: Lint and format
+        run: |
+          python -m ruff check src/embodied_agent scripts tests 2>&1 | tee outputs/ci/lint.log
+          python -m ruff format --check src/embodied_agent scripts tests 2>&1 | tee outputs/ci/format.log
+      - name: Core regression suite
+        run: make ci-test CI_PYTHON=python 2>&1 | tee outputs/ci/tests.log
+      - name: Recalibration lifecycle acceptance
+        run: python scripts/validate_recalibration_lifecycle.py --output outputs/ci/lifecycle 2>&1 | tee outputs/ci/lifecycle.log
+      - name: Verify recorded evidence and assertions
+        run: python -m embodied_agent.recalibration_evidence --directory outputs/ci/lifecycle --source-root . --check-stage-results > outputs/ci/verification.json
+      - name: Upload diagnostics and evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: core-ci-${{ github.run_id }}-${{ github.run_attempt }}
+          path: outputs/ci/
+          retention-days: 14
+          if-no-files-found: warn
