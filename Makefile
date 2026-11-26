@@ -1530,3 +1530,7 @@ budget-recalibration-cli-test:
 .PHONY: budget-recalibration-plan-test
 budget-recalibration-plan-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_diagnosis test_recalibration_plan_status test_recalibration_plan test_recalibration_status test_budget_recalibration_cli -v
+
+.PHONY: recalibration-lifecycle-test
+recalibration-lifecycle-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_lifecycle -v

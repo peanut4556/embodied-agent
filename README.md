@@ -564,6 +564,8 @@ embodied-agent/
 
 最新维护诊断：[整份计划诊断](docs/budget-recalibration-plan.md#一次诊断全部动作)，一次汇总多动作问题，并检查单项合格但组合容量超限的情况；249 项相关测试通过。
 
+最新维护验收：[11 步校准维护整链](docs/recalibration-lifecycle.md)，真实 CLI 验证多项诊断、过期拒绝、批量恢复及再次漂移，保留输出和摘要；252 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
