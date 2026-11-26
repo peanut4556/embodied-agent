@@ -1537,4 +1537,4 @@ recalibration-lifecycle-test:
 
 .PHONY: recalibration-evidence-test
 recalibration-evidence-test:
-	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_evidence test_recalibration_lifecycle -v
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_stage_results test_recalibration_evidence test_recalibration_lifecycle -v

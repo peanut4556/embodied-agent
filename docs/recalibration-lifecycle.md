@@ -74,3 +74,30 @@ PYTHONPATH=src .venv/bin/python -m embodied_agent.recalibration_evidence \
 - 只读复核不修改原始报告或产物；仓库中的单份报告副本缺少配套原始文件，不能独立通过完整产物核对。
 
 本轮新增七项测试覆盖正常与源码核对、缺失/变化、阶段与清单不完整、路径跳转/符号链接、超大文件/重复 JSON、缺失源码及 CLI 退出码。相关回归共 **259 项通过**，并对本地上一轮原始验收目录完成了产物与声明源码复核。
+
+## 可选的阶段结果复核
+
+仅摘要与退出码一致，不能排除报告中的业务结果自相矛盾。现在可显式开启固定场景的记录断言检查：
+
+```sh
+PYTHONPATH=src .venv/bin/python -m embodied_agent.recalibration_evidence \
+  --directory outputs/evaluations/recalibration-lifecycle-v1 \
+  --check-stage-results
+```
+
+可以同时传入 --source-root，但源码变化时会独立导致整体复核失败。默认行为保持原有文件与退出码复核；输出新增 stage_results_checked 和 stage_result_issues。开启后 scope 为 recorded_integrity_exit_codes_and_scenario_assertions。
+
+新增检查包括：
+
+- 严格解析每步 stdout/stderr 的 JSON，拒绝重复字段、缺失结果及错误输出通道。
+- 非法预览必须记录 ValueError；过期预览和重复应用必须记录 StaleRecalibration，不能仅有退出 3。
+- 两项错误诊断分别报告样本不足与验证超预算，修复后的诊断可进入预览，复用批次的诊断再次拒绝。
+- 两份预览均从 revision 0 到 2，动作顺序为 pick、verify；中间检查点摘要必须变化，计划摘要保持一致。
+- 应用结果除 applied 标记外必须与当前预览全部字段一致，防止返回不同预算或历史记录。
+- 应用后与漂移后均须匹配历史 revision 1、2；漂移后 pick 必须报告 applied_then_degraded 和当前阻止状态，计数与逐项状态一致。
+
+结果记录有问题时整体 verified 为 false、退出 1，stage_result_issues 指明阶段和 invalid_stage_payload、scenario_assertion_mismatch 或 preview_transition_mismatch。格式合法但业务矛盾属于复核失败，不当作工具崩溃。外层报告或路径非法仍退出 3。
+
+此模式只检查该 11 步合成场景选定的记录断言，不是任意任务报告的通用验证器，也没有重新执行运行时、重新验证全部数值或将各字段逐一绑定到原始检查点内容。攻击者若同时改写报告和文件，仍可能制造内部一致的假证据；authenticated 始终为 false。与原始验收运行中的实际状态检查互补，不能替代重新验收和可信来源机制。
+
+新增七项测试，包含保持原退出码但修改漂移状态、应用与预览矛盾、错误拒绝原因/输出通道、损坏 JSON、错误诊断及 CLI 退出码。共 **266 项相关测试通过**；上一轮原始验收报告也通过了开启阶段结果复核后的检查。

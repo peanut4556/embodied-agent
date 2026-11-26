@@ -7,6 +7,7 @@ import sys
 from pathlib import Path, PurePosixPath
 
 from .budget_checkpoint import digest, fields
+from .recalibration_stage_results import check_stage_results
 from .recovery_json import parse_recovery_json
 
 LIMIT = 1_048_576
@@ -69,7 +70,9 @@ def _hash_files(root, manifest):
     return rows
 
 
-def verify_evidence(directory, *, source_root=None):
+def verify_evidence(directory, *, source_root=None, check_results=False):
+    if type(check_results) is not bool:
+        raise TypeError("check_results must be boolean")
     root = Path(directory).resolve()
     report_path = root / "report.json"
     if report_path.is_symlink():
@@ -126,9 +129,16 @@ def verify_evidence(directory, *, source_root=None):
         else []
     )
     intact = all(r["status"] == "matched" for r in artifacts + sources)
+    result_issues = check_stage_results(stages) if check_results else []
     return {
-        "verified": report["passed"] and not stage_issues and intact,
-        "scope": "recorded_file_integrity_and_stage_exit_codes",
+        "verified": report["passed"] and not stage_issues and intact and not result_issues,
+        "stage_results_checked": check_results,
+        "stage_result_issues": result_issues,
+        "scope": (
+            "recorded_integrity_exit_codes_and_scenario_assertions"
+            if check_results
+            else "recorded_file_integrity_and_stage_exit_codes"
+        ),
         "authenticated": False,
         "source_checked": source_root is not None,
         "report_sha256": hashlib.sha256(raw).hexdigest(),
@@ -142,9 +152,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", required=True)
     parser.add_argument("--source-root")
+    parser.add_argument("--check-stage-results", action="store_true")
     args = parser.parse_args()
     try:
-        result = verify_evidence(args.directory, source_root=args.source_root)
+        result = verify_evidence(
+            args.directory, source_root=args.source_root, check_results=args.check_stage_results
+        )
     except (OSError, ValueError, TypeError) as exc:
         print(json.dumps({"ok": False, "cause_type": type(exc).__name__}), file=sys.stderr)
         return 3

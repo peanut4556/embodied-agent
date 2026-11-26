@@ -568,6 +568,8 @@ embodied-agent/
 
 最新证据复核：[维护验收离线复核](docs/recalibration-lifecycle.md#离线证据复核)，检查阶段退出码、必需产物和可选源码摘要，拒绝越界路径与不完整清单；259 项相关测试通过。
 
+最新结果复核：[验收阶段断言](docs/recalibration-lifecycle.md#可选的阶段结果复核)，可选检查诊断、预览与应用衔接和漂移隔离，发现退出码正确但业务记录矛盾；266 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
