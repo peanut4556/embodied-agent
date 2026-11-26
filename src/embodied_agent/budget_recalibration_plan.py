@@ -118,6 +118,75 @@ def inspect_plan(checkpoint, plan_path):
         }
 
 
+def diagnose_plan(checkpoint, plan_path):
+    """Collect independent action failures, then validate the combined candidate."""
+    with checkpoint_lock(checkpoint) as resolved:
+        budget = load_budget(resolved)
+        raw, requests = _plan(plan_path)
+        used = {
+            batch
+            for row in budget.recalibration_history()
+            for batch in (row["batch_id"], row.get("validation_batch_id"))
+            if batch
+        }
+        rows = []
+        for request in requests:
+            action = request["action"]
+            calibration, validation = request["calibration"], request["validation"]
+            reasons = []
+            if budget.drift_policy != "quarantine":
+                reasons.append("quarantine_policy_required")
+            if action not in budget.degraded:
+                reasons.append("action_not_degraded")
+            if len(calibration["durations_s"]) < budget.minimum_samples:
+                reasons.append("insufficient_calibration_samples")
+            if len(validation["durations_s"]) < budget.minimum_samples:
+                reasons.append("insufficient_validation_samples")
+            if used.intersection((calibration["batch_id"], validation["batch_id"])):
+                reasons.append("historical_batch_conflict")
+            # Assess held-out data even if another eligibility check failed.
+            required = max(calibration["durations_s"]) + budget.margin_s
+            if max(validation["durations_s"]) > required:
+                reasons.append("validation_exceeds_candidate")
+            candidate_record = None
+            if not reasons:
+                try:
+                    candidate = _validated_candidate(budget, request)
+                    candidate_record = candidate.recalibration_history()[-1]
+                except (ValueError, TypeError, OverflowError):
+                    reasons.append("candidate_not_persistable")
+            rows.append(
+                {
+                    "action": action,
+                    "eligible": not reasons,
+                    "reasons": reasons,
+                    "calibration_sample_count": len(calibration["durations_s"]),
+                    "validation_sample_count": len(validation["durations_s"]),
+                    "candidate_record": candidate_record,
+                }
+            )
+        combined_error = None
+        if all(row["eligible"] for row in rows):
+            candidate = budget
+            try:
+                for request in requests:
+                    candidate = _validated_candidate(candidate, request)
+            except (ValueError, TypeError, OverflowError):
+                combined_error = "combined_candidate_not_persistable"
+        ready = all(row["eligible"] for row in rows) and combined_error is None
+        return {
+            "ready_for_preview": ready,
+            "applied": False,
+            "plan_sha256": hashlib.sha256(raw).hexdigest(),
+            "current_revision": budget.revision,
+            "minimum_samples": budget.minimum_samples,
+            "eligible_count": sum(row["eligible"] for row in rows),
+            "request_count": len(rows),
+            "combined_error": combined_error,
+            "results": rows,
+        }
+
+
 def preview_plan(checkpoint, plan_path):
     with checkpoint_lock(checkpoint) as resolved:
         _, result = _candidate(resolved, plan_path)
@@ -144,7 +213,7 @@ def apply_plan(checkpoint, plan_path, *, expected_checkpoint_sha256, expected_pl
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("preview", "apply", "status"):
+    for name in ("preview", "apply", "status", "diagnose"):
         command = sub.add_parser(name)
         command.add_argument("--checkpoint", required=True)
         command.add_argument("--plan", required=True)
@@ -153,7 +222,9 @@ def main():
             command.add_argument("--expected-plan-sha256", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "status":
+        if args.command == "diagnose":
+            result = diagnose_plan(args.checkpoint, args.plan)
+        elif args.command == "status":
             result = inspect_plan(args.checkpoint, args.plan)
         elif args.command == "preview":
             result = preview_plan(args.checkpoint, args.plan)
@@ -168,7 +239,7 @@ def main():
         print(json.dumps({"ok": False, "cause_type": type(exc).__name__}), file=sys.stderr)
         return 3
     print(json.dumps({"ok": True, "result": result}))
-    return 0
+    return 1 if args.command == "diagnose" and not result["ready_for_preview"] else 0
 
 
 if __name__ == "__main__":

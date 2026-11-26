@@ -113,3 +113,42 @@ results 使用已有单动作核对规则，区分 applied_current、applied_the
 查询成功退出 0，包括 conflict 和 not_found；自动化必须检查 result.status 和各动作当前状态，不能仅凭 ok:true 决定重跑或恢复。非法计划、损坏检查点、锁冲突退出 3，不伪装成历史未找到。查询沿用计划数量、文件大小和批次唯一性限制。
 
 本轮新增 8 项测试：全部/未找到、部分匹配、冲突优先、再次隔离与后续替代、顺序/格式变化、CLI 与锁冲突、损坏输入，以及真实子进程批量保存后退出 23，再由新 CLI 核对全部匹配且不改写文件。相关回归合计 **241 项通过**。该进程退出实验不代表断电耐久性验证。
+
+## 一次诊断全部动作
+
+```sh
+PYTHONPATH=src .venv/bin/python -m embodied_agent.budget_recalibration_plan diagnose \
+  --checkpoint /path/to/budget.json \
+  --plan /path/to/recalibration-plan.json
+```
+
+preview 和 apply 仍在遇到失败时拒绝整份计划。diagnose 则用于准备阶段：在同一锁内读取预算，逐动作收集可判断的问题，让操作者一次看到多个待修项。推荐流程为 diagnose → 修复输入或重新采集 → preview → 审核整体变化 → apply → 必要时 status 核对。
+
+返回 `ready_for_preview`、`eligible_count`、`request_count`、`minimum_samples`、`current_revision`、`plan_sha256`、`combined_error` 和按输入顺序排列的 results。每项包含 action、eligible、reasons、两批样本数量及 candidate_record。`applied` 始终为 false。
+
+| reasons 中的稳定代码 | 含义 |
+| --- | --- |
+| quarantine_policy_required | 当前检查点不是 quarantine 策略 |
+| action_not_degraded | 目标动作当前未隔离，不满足重新校准前提 |
+| insufficient_calibration_samples | 校准批次数量不足 |
+| insufficient_validation_samples | 独立验证批次数量不足 |
+| historical_batch_conflict | 校准或验证批次 ID 已在历史中使用 |
+| validation_exceeds_candidate | 验证样本超过校准最大值加 margin 的候选预算 |
+| candidate_not_persistable | 前置条件通过，但单动作候选未通过持久化约束，例如容量超限 |
+
+同一项可以同时报告多个原因。例如校准和验证批次都只有两个样本、且验证耗时超预算，会同时显示三项问题。候选构建与持久化检查仅在该动作前置检查通过后执行，因此 reasons 是本次能判定的问题集合，不承诺穷尽所有隐藏问题。
+
+所有动作分别合格后，诊断会按计划顺序构建完整候选，再次检查组合约束。若各动作单独可加入预算，但一起加入后超过 128 个估计项，则 eligible_count 可能等于 request_count，ready_for_preview 仍为 false，combined_error 为 `combined_candidate_not_persistable`。不能仅用 eligible_count 决定是否继续。
+
+candidate_record 仅是从同一原始预算独立构建的单动作候选记录。多个候选可能显示相同 revision，它们不是已保存记录，也不是完整计划的最终历史序号；以随后 preview 的 changes 为整体预览依据。诊断不返回可用于 apply 的检查点摘要，不能替代预览。诊断成功后，状态仍可能变化；apply 继续重新验证并检查双摘要。
+
+### 错误分层
+
+- 退出 0：诊断完成且 ready_for_preview 为 true，不代表已应用或设备就绪。
+- 退出 1：诊断完成，但存在动作或组合问题。stdout 为 `ok: true` 的结构化结果，stderr 为空。
+- 退出 3：无法可靠诊断，例如计划结构非法、重复动作/批次、非法数值、损坏检查点或锁冲突；stderr 为 `ok: false` 与 cause_type，stdout 为空。
+- 退出 2：命令参数不完整等 argparse 错误。
+
+格式非法不会被拆成猜测性的逐项结论，仍沿用严格 JSON、总文件大小、动作数量、批次数量与数值限制。diagnose 不改写预算或计划、不解除隔离、不自动扩大预算，也不绕过独立批次要求；可能创建锁侧文件。它没有设备健康检查或真实数据代表性判断。
+
+新增 8 项测试覆盖只读合格诊断、多动作多原因汇总、策略不符、历史批次冲突、单动作容量失败、真实组合容量失败、CLI 的 0/1 退出码及格式/锁错误。连同维护、恢复、审计与运行时相关回归共 **249 项通过**。测试使用临时模拟状态，未操作真实部署预算。

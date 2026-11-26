@@ -562,6 +562,8 @@ embodied-agent/
 
 最新批量核对：[整份计划只读状态](docs/budget-recalibration-plan.md#整份计划的只读核对)，同一锁内读取一次预算，汇总历史匹配、批次冲突与当前隔离，覆盖批量保存后响应丢失；241 项相关测试通过。
 
+最新维护诊断：[整份计划诊断](docs/budget-recalibration-plan.md#一次诊断全部动作)，一次汇总多动作问题，并检查单项合格但组合容量超限的情况；249 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
