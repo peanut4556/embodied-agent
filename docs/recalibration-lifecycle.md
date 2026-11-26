@@ -44,3 +44,33 @@ make recalibration-lifecycle-test
 ```
 
 这是一份可复现的软件维护验收，不证明批次真实独立、预算具有统计覆盖保证，也不证明设备物理状态。all_matched 仍只是当前历史内容匹配；不能据此认定设备当前可执行或证明这些记录由同一计划提交。实际维护步骤参见[批量校准计划](budget-recalibration-plan.md)。
+
+## 离线证据复核
+
+现在可对原始输出目录独立复核，无需重新执行校准：
+
+```sh
+PYTHONPATH=src .venv/bin/python -m embodied_agent.recalibration_evidence \
+  --directory outputs/evaluations/recalibration-lifecycle-v1
+
+# 可选：同时比较报告记录的源码与当前工作树
+PYTHONPATH=src .venv/bin/python -m embodied_agent.recalibration_evidence \
+  --directory outputs/evaluations/recalibration-lifecycle-v1 \
+  --source-root .
+```
+
+工具严格解析 report.json，检查完整的 11 阶段顺序、预期和实际退出码，并检查七个必需产物的 SHA-256。产物缺失返回 missing，内容变化返回 changed，不把缺失视为成功。未提供 source-root 时 source_checked 为 false；提供后逐项核对报告中声明的源码。当前源码有变化只表示与该次验收不同，不等于当时验收无效。
+
+输出 scope 固定为 recorded_file_integrity_and_stage_exit_codes，authenticated 为 false。退出 0 表示该范围内复核通过；退出 1 表示存在缺失、变化、阶段退出码不符或报告 passed 为 false；退出 3 表示报告/路径非法或 I/O 错误，stderr 为结构化错误。缺少参数退出 2。
+
+复核不会重新解释 stdout 中每个业务断言，不会重跑任务，也不认证报告生成者。修改报告并重算摘要可以伪造一致性；没有独立签名或可信外部基准。源码核对仅覆盖报告声明的允许路径，不证明依赖环境完整。失败或中断报告不符合完整成功报告结构时会拒绝，不作为完成验收证据。
+
+### 读取边界
+
+- 报告和每个被检查文件最多 1 MiB；源码清单最多 256 项，产物清单必须恰好为七个已定义文件，最大内容读取量为 264 MiB（含报告）。
+- 路径必须为相对 POSIX 路径，拒绝绝对路径、父目录跳转、空段和反斜杠。
+- 源码只允许验收脚本及 src/embodied_agent 下顶层 Python 文件；拒绝路径中的符号链接、非普通文件以及作为符号链接的报告。
+- 显式指定的根目录解析后作为信任边界。复核不持运行锁，应对停止写入的归档执行；不提供恶意并发改写下的文件系统安全保证，也不会扫描额外未列入清单的文件。
+- 只读复核不修改原始报告或产物；仓库中的单份报告副本缺少配套原始文件，不能独立通过完整产物核对。
+
+本轮新增七项测试覆盖正常与源码核对、缺失/变化、阶段与清单不完整、路径跳转/符号链接、超大文件/重复 JSON、缺失源码及 CLI 退出码。相关回归共 **259 项通过**，并对本地上一轮原始验收目录完成了产物与声明源码复核。

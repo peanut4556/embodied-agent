@@ -566,6 +566,8 @@ embodied-agent/
 
 最新维护验收：[11 步校准维护整链](docs/recalibration-lifecycle.md)，真实 CLI 验证多项诊断、过期拒绝、批量恢复及再次漂移，保留输出和摘要；252 项相关测试通过。
 
+最新证据复核：[维护验收离线复核](docs/recalibration-lifecycle.md#离线证据复核)，检查阶段退出码、必需产物和可选源码摘要，拒绝越界路径与不完整清单；259 项相关测试通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

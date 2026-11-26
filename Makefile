@@ -1534,3 +1534,7 @@ budget-recalibration-plan-test:
 .PHONY: recalibration-lifecycle-test
 recalibration-lifecycle-test:
 	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_lifecycle -v
+
+.PHONY: recalibration-evidence-test
+recalibration-evidence-test:
+	PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_recalibration_evidence test_recalibration_lifecycle -v
