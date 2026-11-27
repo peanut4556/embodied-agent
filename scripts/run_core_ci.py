@@ -4,30 +4,43 @@ import argparse
 import json
 import re
 import time
+import traceback
 import unittest
 from pathlib import Path
 
 
 def load_suite(manifest):
-    names = Path(manifest).read_text().split()
+    with Path(manifest).open() as stream:
+        raw = stream.read(65537)
+    if len(raw) > 65536:
+        raise ValueError("manifest exceeds 64 KiB character limit")
+    names = raw.split()
     if (
         not names
+        or len(names) > 256
         or len(names) != len(set(names))
         or any(re.fullmatch(r"test_[a-z0-9_]+", name) is None for name in names)
     ):
         raise ValueError("manifest requires unique test module names")
     loader = unittest.TestLoader()
-    suite = loader.loadTestsFromNames(names)
-    if loader.errors:
-        raise ValueError("test manifest contains modules that could not be loaded")
-    if suite.countTestCases() == 0:
-        raise ValueError("empty test suite")
+    suite = unittest.TestSuite()
+    for name in names:
+        module_suite = loader.loadTestsFromName(name)
+        if loader.errors:
+            raise ValueError(f"module could not be loaded: {name}\n" + "\n".join(loader.errors))
+        if module_suite.countTestCases() == 0:
+            raise ValueError(f"module contains no test cases: {name}")
+        suite.addTests(module_suite)
     return suite
 
 
 def run_suite(suite, output):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
+    return _run_suite(suite, output)
+
+
+def _run_suite(suite, output):
     started = time.monotonic()
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     report = {
@@ -61,13 +74,39 @@ def run_suite(suite, output):
     return report
 
 
+def run_manifest(manifest, output):
+    """Reserve a fresh directory before loading tests; never overwrite old evidence."""
+    output = Path(output)
+    output.mkdir(parents=True, exist_ok=False)
+    phase = "load"
+    try:
+        suite = load_suite(manifest)
+        phase = "execute_or_report"
+        return 0 if _run_suite(suite, output)["successful"] else 1
+    except Exception as exc:  # noqa: BLE001 - runner boundary records all ordinary failures
+        # Ordinary unittest failures already appear in tests.json. This records
+        # runner-level exceptions; forced exits and KeyboardInterrupt propagate.
+        report = {
+            "schema": 1,
+            "successful": False,
+            "phase": phase,
+            "cause_type": type(exc).__name__,
+            "traceback": traceback.format_exc(),
+        }
+        (output / "runner-error.json").write_text(json.dumps(report, indent=2) + "\n")
+        (output / "summary.md").write_text(
+            "## Core regression results\n\nResult: RUNNER ERROR\n\n"
+            "The suite did not complete normally. See runner-error.json and the job log.\n"
+        )
+        return 3
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", default="config/ci-core-tests.txt")
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
-    suite = load_suite(args.manifest)
-    return 0 if run_suite(suite, args.output)["successful"] else 1
+    return run_manifest(args.manifest, args.output)
 
 
 if __name__ == "__main__":
