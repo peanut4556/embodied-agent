@@ -1547,3 +1547,8 @@ ci-test:
 ci-lint:
 	$(CI_PYTHON) -m ruff check src/embodied_agent scripts tests
 	$(CI_PYTHON) -m ruff format --check src/embodied_agent scripts tests
+
+CI_REPORT_DIR ?= outputs/ci/test-results
+.PHONY: ci-report
+ci-report:
+	PYTHONPATH=src:.:tests:tests/physics $(CI_PYTHON) scripts/run_core_ci.py --output $(CI_REPORT_DIR)

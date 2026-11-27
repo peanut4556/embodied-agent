@@ -572,6 +572,8 @@ embodied-agent/
 
 最新持续集成：[核心 GitHub Actions CI](docs/core-ci.md)，接入 push/PR 检查、266 项核心回归、维护验收与证据上传；本地干净 Python 环境验证通过，云端首次运行待 push 后确认。
 
+最新 CI 可观测性：[结构化测试报告](docs/core-ci.md#结构化测试报告)，输出用例失败堆栈、分类计数和页面摘要，拒绝无效测试清单；269 项核心测试本地通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。
