@@ -65,3 +65,20 @@ ci-report 现在先独占创建新输出目录，再加载清单。清单缺失�
 报告生成或执行中的普通异常标为 execute_or_report；已有 tests.json 不一定代表整个运行成功，应优先检查 runner-error.json 与进程退出码。磁盘不可写时故障报告本身也可能无法保存；强制退出、KeyboardInterrupt 和超时不承诺有报告。堆栈可能含本地路径与异常文本，产物沿用仓库访问权限。
 
 新增五项测试验证清单缺失、单模块无用例、运行器异常及不覆盖、真实 CLI 导入失败和大小限制。当前 274 项核心测试通过，云端验证仍待 push。
+
+## Wheel 构建与隔离安装
+
+CI 在源码验收后增加 wheel 构建及安装验证。构建使用固定 setuptools 81.0.0 和 wheel 0.46.3，禁用构建隔离与依赖解析；构建产物进入 outputs/ci/wheels。该策略显式使用 CI 已安装的构建工具，不验证从 sdist 构建或完整依赖锁定。
+
+验证脚本 scripts/verify_wheel.py 接受一个可信本地 wheel 和不存在的输出目录。它创建全新临时虚拟环境，清除 PYTHONPATH/PYTHONHOME，禁用用户包目录，从仓库外的工作目录运行。安装使用 --no-index --no-deps，不下载机器人/模型依赖。检查导入位置确实处于该虚拟环境、tabletop.xml 包资源存在、三个 console entry point 的 --help 可用，以及默认 mock 任务完成四步。
+
+```sh
+.venv/bin/python -m pip wheel --no-deps --no-build-isolation --wheel-dir outputs/local-wheels .
+.venv/bin/python scripts/verify_wheel.py \
+  --wheel outputs/local-wheels/embodied_agent-0.1.0-py3-none-any.whl \
+  --output outputs/local-wheel-check
+```
+
+wheel-verification.json 保存 wheel 摘要、阶段退出码和输出，失败也尽可能留下报告；临时虚拟环境退出后清理。已有结果目录拒绝覆盖，子命令设 120 秒超时。失败会阻止 CI 成功，wheel、构建日志和验证报告沿用已有产物上传步骤。此脚本会执行安装包代码，仅用于本仓库构建的可信包，不是恶意包沙箱。
+
+这仍是 CI 构建验证，不发布到 PyPI、不部署设备。XML 资源检查不等于 MuJoCo 实际运行，mock 成功不代表实机成功。新增三项测试覆盖缺失 wheel、拒绝覆盖和失败报告；277 项核心测试本地通过。云端构建与上传需 push 后确认。

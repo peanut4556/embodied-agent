@@ -576,6 +576,8 @@ embodied-agent/
 
 最新 CI 故障诊断：[运行器错误报告](docs/core-ci.md#初始化与运行器故障报告)，初始化失败保存模块与堆栈，逐模块拒绝无用例清单；274 项核心测试本地通过。
 
+最新安装验证：[Wheel 构建与隔离安装](docs/core-ci.md#wheel-构建与隔离安装)，检查包资源、三个命令行入口和安装后的四步 mock 任务；277 项核心测试本地通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

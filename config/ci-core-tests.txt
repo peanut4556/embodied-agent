@@ -39,3 +39,5 @@ test_confirmation_stress
 test_witness_stress
 test_recovery_json
 test_core_ci_runner
+
+test_wheel_verification

@@ -47,6 +47,13 @@ jobs:
         run: python scripts/validate_recalibration_lifecycle.py --output outputs/ci/lifecycle 2>&1 | tee outputs/ci/lifecycle.log
       - name: Verify recorded evidence and assertions
         run: python -m embodied_agent.recalibration_evidence --directory outputs/ci/lifecycle --source-root . --check-stage-results > outputs/ci/verification.json
+      - name: Build wheel
+        run: python -m pip wheel --no-deps --no-build-isolation --wheel-dir outputs/ci/wheels . 2>&1 | tee outputs/ci/build.log
+      - name: Smoke-test installed wheel
+        run: |
+          wheels=(outputs/ci/wheels/*.whl)
+          test "${#wheels[@]}" -eq 1
+          python scripts/verify_wheel.py --wheel "${wheels[0]}" --output outputs/ci/wheel-check 2>&1 | tee outputs/ci/wheel-check.log
       - name: Publish test summary
         if: always()
         run: |
