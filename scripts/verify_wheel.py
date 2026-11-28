@@ -68,6 +68,91 @@ save_budget(ActionBudget({}, drift_policy='quarantine'), sys.argv[1])
         raise AssertionError("replay, rejection or inspection changed persisted JSON")
 
 
+def verify_installed_recovery(run, python, cwd, state_dir):
+    state = state_dir / "budget.json"
+    receipts = {str(p): p.read_bytes() for p in state_dir.glob("*.operations/*.json")}
+    if not receipts:
+        raise AssertionError("managed execution receipt missing")
+    run(
+        "inject-budget-drift",
+        [
+            python,
+            "-I",
+            "-c",
+            """import sys
+from embodied_agent.budget_checkpoint import load_budget, save_budget
+budget = load_budget(sys.argv[1])
+budget.record('pick', 0.2, confirmed=True)
+budget.record('verify', 0.2, confirmed=True)
+save_budget(budget, sys.argv[1])
+""",
+            state,
+        ],
+        cwd,
+    )
+    plan = state_dir / "recovery-plan.json"
+    requests = [
+        {
+            "schema": 1,
+            "action": action,
+            "calibration": {"batch_id": action + "-cal", "durations_s": [0.03] * 20},
+            "validation": {"batch_id": action + "-val", "durations_s": [0.032] * 20},
+        }
+        for action in ("pick", "verify")
+    ]
+    plan.write_text(json.dumps({"schema": 1, "requests": requests}))
+    base = [python, "-I", "-m", "embodied_agent.budget_recalibration_plan"]
+
+    def command(name, operation, extra=(), expected=0):
+        raw = run(
+            name,
+            [*base, operation, "--checkpoint", state, "--plan", plan, *extra],
+            cwd,
+            expected=expected,
+        )
+        return json.loads(raw)
+
+    before = state.read_bytes()
+    diagnosis = command("installed-diagnosis", "diagnose")["result"]
+    if diagnosis.get("ready_for_preview") is not True:
+        raise AssertionError("installed recovery not eligible")
+    preview = command("installed-preview", "preview")["result"]
+    if (
+        preview.get("before_degraded") != ["pick", "verify"]
+        or preview.get("after_degraded") != []
+        or state.read_bytes() != before
+    ):
+        raise AssertionError("installed preview changed state or missed isolation")
+    args = [
+        "--expected-checkpoint-sha256",
+        preview["checkpoint_sha256"],
+        "--expected-plan-sha256",
+        preview["plan_sha256"],
+    ]
+    applied = command("installed-recovery", "apply", args)["result"]
+    if applied.get("applied") is not True or applied.get("after_revision") != 2:
+        raise AssertionError("installed recovery did not commit both actions")
+    saved = state.read_bytes()
+    status = command("installed-recovery-status", "status")["result"]
+    if (
+        status.get("status") != "all_matched"
+        or status.get("currently_blocked_actions") != []
+        or status.get("counts", {}).get("applied_current") != 2
+    ):
+        raise AssertionError("installed recovered state not recognized")
+    # Error JSON is on stderr; run captures it in the report, not its return value.
+    run(
+        "installed-reject-repeat-recovery",
+        [*base, "apply", "--checkpoint", state, "--plan", plan, *args],
+        cwd,
+        expected=3,
+    )
+    if saved != state.read_bytes() or receipts != {
+        str(p): p.read_bytes() for p in state_dir.glob("*.operations/*.json")
+    }:
+        raise AssertionError("recovery modified receipts or repeated apply changed budget")
+
+
 def verify(wheel, output):
     wheel = Path(wheel).resolve()
     if not wheel.is_file() or wheel.suffix != ".whl":
@@ -144,6 +229,7 @@ print('Installed package and tabletop asset verified')
             if result.get("success") is not True or result.get("completed_steps") != 4:
                 raise AssertionError("installed mock task did not complete four steps")
             verify_managed_task(run, python, root, output / "managed-state")
+            verify_installed_recovery(run, python, root, output / "managed-state")
             report["passed"] = True
     except Exception as exc:
         report["failure"] = {"type": type(exc).__name__, "message": str(exc)}

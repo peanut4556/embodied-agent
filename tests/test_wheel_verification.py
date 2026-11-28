@@ -85,3 +85,58 @@ class WheelVerificationTests(unittest.TestCase):
                 state = root / "state"
                 with self.assertRaises(AssertionError):
                     verify_managed_task(self.managed_fixture(state, fault), "python", root, state)
+
+    def recovery_fixture(self, state, fault=None):
+        def run(name, args, cwd, expected=0):
+            result = {}
+            if name == "installed-diagnosis":
+                result = {"ready_for_preview": fault != "eligibility"}
+            elif name == "installed-preview":
+                result = {
+                    "before_degraded": ["pick", "verify"],
+                    "after_degraded": [],
+                    "checkpoint_sha256": "0" * 64,
+                    "plan_sha256": "1" * 64,
+                }
+                if fault == "preview-write":
+                    (state / "budget.json").write_text("changed")
+            elif name == "installed-recovery":
+                result = {"applied": True, "after_revision": 2}
+                if fault == "receipt-write":
+                    (state / "budget.json.operations/receipt.json").write_text("changed")
+            elif name == "installed-recovery-status":
+                result = {
+                    "status": "all_matched",
+                    "currently_blocked_actions": [],
+                    "counts": {"applied_current": 2},
+                }
+            elif name == "installed-reject-repeat-recovery":
+                self.assertEqual(expected, 3)
+            return json.dumps({"result": result})
+
+        return run
+
+    def test_recovery_contract_and_receipt_preservation(self):
+        from scripts.verify_wheel import verify_installed_recovery
+
+        for fault in (None, "eligibility", "preview-write", "receipt-write"):
+            with tempfile.TemporaryDirectory() as directory:
+                state = Path(directory)
+                (state / "budget.json").write_text("{}")
+                (state / "budget.json.operations").mkdir()
+                (state / "budget.json.operations/receipt.json").write_text("{}")
+                if fault:
+                    with self.assertRaises(AssertionError):
+                        verify_installed_recovery(
+                            self.recovery_fixture(state, fault), "python", state, state
+                        )
+                else:
+                    verify_installed_recovery(self.recovery_fixture(state), "python", state, state)
+
+    def test_recovery_requires_prior_execution_receipt(self):
+        from scripts.verify_wheel import verify_installed_recovery
+
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            with self.assertRaisesRegex(AssertionError, "receipt missing"):
+                verify_installed_recovery(self.recovery_fixture(state), "python", state, state)
