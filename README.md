@@ -578,6 +578,8 @@ embodied-agent/
 
 最新安装验证：[Wheel 构建与隔离安装](docs/core-ci.md#wheel-构建与隔离安装)，检查包资源、三个命令行入口和安装后的四步 mock 任务；277 项核心测试本地通过。
 
+最新安装链路验收：[持久化执行与重复请求](docs/core-ci.md#安装后的持久化执行验收)，隔离安装后验证预算执行、历史重放、冲突拒绝及 JSON 不变性；279 项核心测试本地通过。
+
 ## License
 
 Apache License 2.0。参见 [LICENSE](LICENSE)。

@@ -42,3 +42,46 @@ class WheelVerificationTests(unittest.TestCase):
             self.assertFalse(report["passed"])
             self.assertEqual(report["steps"][0]["name"], "install")
             self.assertEqual(report["steps"][0]["stderr"], "invalid wheel")
+
+    def managed_fixture(self, state, fault=None):
+        def run(name, args, cwd, expected=0):
+            if name == "create-budget":
+                (state / "budget.json").write_text("{}")
+                return ""
+            if name == "checkpointed-task":
+                return json.dumps(
+                    {"success": True, "completed_steps": 4, "operation": {"replayed": False}}
+                )
+            if name == "duplicate-task":
+                if fault == "write":
+                    (state / "budget.json").write_text('{"changed":true}')
+                return json.dumps({"success": True, "operation": {"replayed": fault != "replay"}})
+            if name == "conflicting-task":
+                self.assertEqual(expected, 3)
+                return json.dumps(
+                    {"error": {"code": "wrong" if fault == "conflict" else "operation_conflict"}}
+                )
+            if name == "inspect-budget":
+                return json.dumps({"valid": True, "degraded": []})
+            self.fail(name)
+
+        return run
+
+    def test_managed_contract_and_preserved_state(self):
+        from scripts.verify_wheel import verify_managed_task
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state = root / "state"
+            verify_managed_task(self.managed_fixture(state), "python", root, state)
+            self.assertEqual((state / "budget.json").read_text(), "{}")
+
+    def test_managed_regressions_rejected(self):
+        from scripts.verify_wheel import verify_managed_task
+
+        for fault in ("write", "replay", "conflict"):
+            with tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                state = root / "state"
+                with self.assertRaises(AssertionError):
+                    verify_managed_task(self.managed_fixture(state, fault), "python", root, state)

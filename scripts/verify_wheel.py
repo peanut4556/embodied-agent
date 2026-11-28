@@ -10,6 +10,64 @@ import venv
 from pathlib import Path
 
 
+def verify_managed_task(run, python, cwd, state_dir):
+    state_dir.mkdir()
+    state = state_dir / "budget.json"
+    run(
+        "create-budget",
+        [
+            python,
+            "-I",
+            "-c",
+            """import sys
+from embodied_agent.action_budget import ActionBudget
+from embodied_agent.budget_checkpoint import save_budget
+save_budget(ActionBudget({}, drift_policy='quarantine'), sys.argv[1])
+""",
+            state,
+        ],
+        cwd,
+    )
+    args = [
+        python,
+        "-I",
+        "-m",
+        "embodied_agent",
+        "red block box",
+        "--json",
+        "--budget-checkpoint",
+        state,
+        "--task-timeout",
+        "5",
+        "--operation-id",
+        "installed-task-1",
+    ]
+    first = json.loads(run("checkpointed-task", args, cwd))
+    if (
+        first.get("success") is not True
+        or first.get("completed_steps") != 4
+        or first.get("operation", {}).get("replayed") is not False
+    ):
+        raise AssertionError("installed managed task did not execute normally")
+    before = {str(p.relative_to(state_dir)): p.read_bytes() for p in state_dir.rglob("*.json")}
+    second = json.loads(run("duplicate-task", args, cwd))
+    if second.get("success") is not True or second.get("operation", {}).get("replayed") is not True:
+        raise AssertionError("installed duplicate did not replay historical result")
+    changed = list(args)
+    changed[4] = "different instruction"
+    conflict = json.loads(run("conflicting-task", changed, cwd, expected=3))
+    if conflict.get("error", {}).get("code") != "operation_conflict":
+        raise AssertionError("installed conflicting request not rejected")
+    inspected = json.loads(
+        run("inspect-budget", [python, "-I", "-m", "embodied_agent.budget_checkpoint", state], cwd)
+    )
+    if inspected.get("valid") is not True or inspected.get("degraded") != []:
+        raise AssertionError("installed persisted budget invalid")
+    after = {str(p.relative_to(state_dir)): p.read_bytes() for p in state_dir.rglob("*.json")}
+    if before != after:
+        raise AssertionError("replay, rejection or inspection changed persisted JSON")
+
+
 def verify(wheel, output):
     wheel = Path(wheel).resolve()
     if not wheel.is_file() or wheel.suffix != ".whl":
@@ -27,7 +85,7 @@ def verify(wheel, output):
     env.pop("PYTHONHOME", None)
     env["PYTHONNOUSERSITE"] = "1"
 
-    def run(name, args, cwd):
+    def run(name, args, cwd, expected=0):
         child = subprocess.run(
             [str(a) for a in args],
             cwd=cwd,
@@ -41,11 +99,12 @@ def verify(wheel, output):
             {
                 "name": name,
                 "exit_code": child.returncode,
+                "expected_exit_code": expected,
                 "stdout": child.stdout,
                 "stderr": child.stderr,
             }
         )
-        if child.returncode:
+        if child.returncode != expected:
             raise RuntimeError(f"{name} failed")
         return child.stdout
 
@@ -84,11 +143,16 @@ print('Installed package and tabletop asset verified')
             )
             if result.get("success") is not True or result.get("completed_steps") != 4:
                 raise AssertionError("installed mock task did not complete four steps")
+            verify_managed_task(run, python, root, output / "managed-state")
             report["passed"] = True
     except Exception as exc:
         report["failure"] = {"type": type(exc).__name__, "message": str(exc)}
         raise
     finally:
+        report["managed_artifact_sha256"] = {
+            str(p.relative_to(output)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted((output / "managed-state").rglob("*.json"))
+        }
         (output / "wheel-verification.json").write_text(json.dumps(report, indent=2) + "\n")
     return report
 
